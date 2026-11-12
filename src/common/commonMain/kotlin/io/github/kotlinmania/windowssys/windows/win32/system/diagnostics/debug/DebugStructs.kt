@@ -1599,7 +1599,7 @@ public data class MinidumpCallbackInput0(
     public var module: MinidumpModuleCallback = MinidumpModuleCallback(),
     public var includeThread: MinidumpIncludeThreadCallback = MinidumpIncludeThreadCallback(),
     public var includeModule: MinidumpIncludeModuleCallback = MinidumpIncludeModuleCallback(),
-    public var io: MinidumpIoCallback = MinidumpIoCallback(),
+    public var ioVal: MinidumpIoCallback = MinidumpIoCallback(),
     public var readMemoryFailure: MinidumpReadMemoryFailureCallback = MinidumpReadMemoryFailureCallback(),
     public var secondaryFlags: UInt = 0u,
     public var vmQuery: MinidumpVmQueryCallback = MinidumpVmQueryCallback(),
