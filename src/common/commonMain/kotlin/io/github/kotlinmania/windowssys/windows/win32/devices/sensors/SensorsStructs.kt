@@ -45,8 +45,8 @@ public data class Matrix3x300(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Matrix3x300> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Matrix3x300> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): Matrix3x300 =
                     Matrix3x300(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -82,8 +82,8 @@ public data class Matrix3x301(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Matrix3x301> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Matrix3x301> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): Matrix3x301 =
                     Matrix3x301(
                         (Vec3d.typeLayout()).readNative(addr),
@@ -108,8 +108,8 @@ public data class Quaternion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Quaternion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Quaternion> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Quaternion =
                     Quaternion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -152,8 +152,8 @@ public data class Vec3d(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Vec3d> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Vec3d> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Vec3d =
                     Vec3d(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),

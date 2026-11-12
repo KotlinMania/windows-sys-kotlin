@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
@@ -72,4 +74,23 @@ public data class Userobjectflags(
     public var fInherit: Bool = 0,
     public var fReserved: Bool = 0,
     public var dwFlags: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Userobjectflags> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Userobjectflags> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): Userobjectflags =
+                    Userobjectflags(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: Userobjectflags) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fInherit)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fReserved)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwFlags)
+                }
+            }
+    }
+}

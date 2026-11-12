@@ -18,8 +18,8 @@ public data class InputInjectionValue(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InputInjectionValue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InputInjectionValue> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): InputInjectionValue =
                     InputInjectionValue(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -81,8 +81,8 @@ public data class InputTransform00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InputTransform00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InputTransform00> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): InputTransform00 =
                     InputTransform00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),

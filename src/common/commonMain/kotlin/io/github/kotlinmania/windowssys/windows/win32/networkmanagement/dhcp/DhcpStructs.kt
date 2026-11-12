@@ -17,8 +17,8 @@ public data class DateTime(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DateTime> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DateTime> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DateTime =
                     DateTime(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -83,6 +83,33 @@ public class DhcpapiParams internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpapiParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpapiParams> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): DhcpapiParams =
+                    DhcpapiParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: DhcpapiParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.optionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.isVendor)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 16L, value.data)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.nBytesData)
+                }
+            }
+
         public operator fun invoke(
             flags: UInt = 0u,
             optionId: UInt = 0u,
@@ -141,8 +168,8 @@ public class DhcpcapiClassid internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpcapiClassid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpcapiClassid> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DhcpcapiClassid =
                     DhcpcapiClassid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -210,8 +237,8 @@ public class DhcpcapiParamsArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpcapiParamsArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpcapiParamsArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpcapiParamsArray =
                     DhcpcapiParamsArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -368,8 +395,8 @@ public class DhcpdsServers internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpdsServers> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpdsServers> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpdsServers =
                     DhcpdsServers(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -543,8 +570,8 @@ public class Dhcpv4FailoverClientInfoArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv4FailoverClientInfoArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv4FailoverClientInfoArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Dhcpv4FailoverClientInfoArray =
                     Dhcpv4FailoverClientInfoArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -724,8 +751,8 @@ public class Dhcpv6capiClassid internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6capiClassid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6capiClassid> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Dhcpv6capiClassid =
                     Dhcpv6capiClassid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -809,6 +836,33 @@ public class Dhcpv6capiParams internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6capiParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6capiParams> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): Dhcpv6capiParams =
+                    Dhcpv6capiParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: Dhcpv6capiParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.optionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.isVendor)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 16L, value.data)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.nBytesData)
+                }
+            }
+
         public operator fun invoke(
             flags: UInt = 0u,
             optionId: UInt = 0u,
@@ -861,8 +915,8 @@ public class Dhcpv6capiParamsArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6capiParamsArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6capiParamsArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Dhcpv6capiParamsArray =
                     Dhcpv6capiParamsArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -921,14 +975,14 @@ public data class DHCPV6Prefix(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DHCPV6Prefix> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DHCPV6Prefix> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DHCPV6Prefix =
                     DHCPV6Prefix(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
@@ -938,7 +992,7 @@ public data class DHCPV6Prefix(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr, value.prefix)
+                    ).writeNative(addr, value.prefix.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.prefixLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.preferredLifeTime)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.validLifeTime)
@@ -1034,8 +1088,8 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DHCPV6PrefixLeaseInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DHCPV6PrefixLeaseInformation> {
-                override val sizeBytes: Long = 80L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 80L
                 override fun readNative(addr: Long): DHCPV6PrefixLeaseInformation =
                     DHCPV6PrefixLeaseInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1232,8 +1286,8 @@ public class Dhcpv6BindElementArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6BindElementArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6BindElementArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Dhcpv6BindElementArray =
                     Dhcpv6BindElementArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1297,8 +1351,8 @@ public class Dhcpv6IpArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6IpArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6IpArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Dhcpv6IpArray =
                     Dhcpv6IpArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1330,7 +1384,24 @@ public class Dhcpv6IpArray internal constructor(
 public data class Dhcpv6StatelessParams(
     public var status: Bool = 0,
     public var purgeInterval: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6StatelessParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6StatelessParams> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): Dhcpv6StatelessParams =
+                    Dhcpv6StatelessParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: Dhcpv6StatelessParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.status)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.purgeInterval)
+                }
+            }
+    }
+}
 
 public data class Dhcpv6StatelessScopeStats(
     public var subnetAddress: DhcpIpv6Address = DhcpIpv6Address(),
@@ -1340,8 +1411,8 @@ public data class Dhcpv6StatelessScopeStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6StatelessScopeStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6StatelessScopeStats> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Dhcpv6StatelessScopeStats =
                     Dhcpv6StatelessScopeStats(
                         (DhcpIpv6Address.typeLayout()).readNative(addr),
@@ -1392,8 +1463,8 @@ public class Dhcpv6StatelessStats internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6StatelessStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dhcpv6StatelessStats> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Dhcpv6StatelessStats =
                     Dhcpv6StatelessStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1448,6 +1519,35 @@ public data class DhcpAddrPattern(
         result = 31 * result + this.pattern.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAddrPattern> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAddrPattern> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 268L
+                override fun readNative(addr: Long): DhcpAddrPattern =
+                    DhcpAddrPattern(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (255).toInt())
+                        ).readNative(addr + 13L).toUByteArray(),
+                    )
+                override fun writeNative(addr: Long, value: DhcpAddrPattern) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.matchHWType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 4L, value.hWType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.isWildcard)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 12L, value.length)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (255).toInt())
+                    ).writeNative(addr + 13L, value.pattern.toList())
+                }
+            }
+    }
 }
 
 public class DhcpAllOptions internal constructor(
@@ -1500,8 +1600,8 @@ public class DhcpAllOptions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAllOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAllOptions> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DhcpAllOptions =
                     DhcpAllOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1640,8 +1740,8 @@ public class DhcpAllOptionValues internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAllOptionValues> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAllOptionValues> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpAllOptionValues =
                     DhcpAllOptionValues(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1781,8 +1881,8 @@ public class DhcpAllOptionValuesPb internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAllOptionValuesPb> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAllOptionValuesPb> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpAllOptionValuesPb =
                     DhcpAllOptionValuesPb(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1927,8 +2027,8 @@ public class DhcpAttribArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAttribArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpAttribArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpAttribArray =
                     DhcpAttribArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1992,8 +2092,8 @@ public class DhcpBinaryData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpBinaryData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpBinaryData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpBinaryData =
                     DhcpBinaryData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2144,8 +2244,8 @@ public class DhcpBindElementArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpBindElementArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpBindElementArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpBindElementArray =
                     DhcpBindElementArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2183,8 +2283,8 @@ public data class DhcpBootpIpRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpBootpIpRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpBootpIpRange> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpBootpIpRange =
                     DhcpBootpIpRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2430,8 +2530,8 @@ public class DhcpClassInfoArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClassInfoArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClassInfoArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClassInfoArray =
                     DhcpClassInfoArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2495,8 +2595,8 @@ public class DhcpClassInfoArrayV6 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClassInfoArrayV6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClassInfoArrayV6> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClassInfoArrayV6 =
                     DhcpClassInfoArrayV6(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2785,8 +2885,8 @@ public class DhcpClientFilterStatusInfoArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientFilterStatusInfoArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientFilterStatusInfoArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientFilterStatusInfoArray =
                     DhcpClientFilterStatusInfoArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2937,8 +3037,8 @@ public class DhcpClientInfoArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientInfoArray =
                     DhcpClientInfoArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3002,8 +3102,8 @@ public class DhcpClientInfoArrayV4 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayV4> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayV4> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientInfoArrayV4 =
                     DhcpClientInfoArrayV4(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3067,8 +3167,8 @@ public class DhcpClientInfoArrayV5 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayV5> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayV5> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientInfoArrayV5 =
                     DhcpClientInfoArrayV5(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3132,8 +3232,8 @@ public class DhcpClientInfoArrayV6 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayV6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayV6> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientInfoArrayV6 =
                     DhcpClientInfoArrayV6(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3197,8 +3297,8 @@ public class DhcpClientInfoArrayVq internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayVq> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoArrayVq> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientInfoArrayVq =
                     DhcpClientInfoArrayVq(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3419,8 +3519,8 @@ public class DhcpClientInfoExArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoExArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoExArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientInfoExArray =
                     DhcpClientInfoExArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3630,8 +3730,8 @@ public class DhcpClientInfoPbArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoPbArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpClientInfoPbArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpClientInfoPbArray =
                     DhcpClientInfoPbArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4275,8 +4375,8 @@ public class DhcpFailoverRelationshipArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFailoverRelationshipArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFailoverRelationshipArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpFailoverRelationshipArray =
                     DhcpFailoverRelationshipArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4317,8 +4417,8 @@ public data class DhcpFailoverStatistics(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFailoverStatistics> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFailoverStatistics> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): DhcpFailoverStatistics =
                     DhcpFailoverStatistics(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4429,8 +4529,8 @@ public class DhcpFilterEnumInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFilterEnumInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFilterEnumInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpFilterEnumInfo =
                     DhcpFilterEnumInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4462,7 +4562,24 @@ public class DhcpFilterEnumInfo internal constructor(
 public data class DhcpFilterGlobalInfo(
     public var enforceAllowList: Bool = 0,
     public var enforceDenyList: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFilterGlobalInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpFilterGlobalInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): DhcpFilterGlobalInfo =
+                    DhcpFilterGlobalInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: DhcpFilterGlobalInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.enforceAllowList)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.enforceDenyList)
+                }
+            }
+    }
+}
 
 public class DhcpFilterRecord internal constructor(
     public var addrPatt: DhcpAddrPattern,
@@ -4625,8 +4742,8 @@ public data class DhcpIpv6Address(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpv6Address> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpv6Address> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpIpv6Address =
                     DhcpIpv6Address(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -4675,8 +4792,8 @@ public class DhcpIpArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpIpArray =
                     DhcpIpArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4712,8 +4829,8 @@ public data class DhcpIpCluster(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpCluster> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpCluster> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DhcpIpCluster =
                     DhcpIpCluster(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4734,8 +4851,8 @@ public data class DhcpIpRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpRange> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DhcpIpRange =
                     DhcpIpRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4784,8 +4901,8 @@ public class DhcpIpRangeArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpRangeArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpRangeArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpIpRangeArray =
                     DhcpIpRangeArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4821,8 +4938,8 @@ public data class DhcpIpRangeV6(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpRangeV6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpRangeV6> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DhcpIpRangeV6 =
                     DhcpIpRangeV6(
                         (DhcpIpv6Address.typeLayout()).readNative(addr),
@@ -4871,8 +4988,8 @@ public class DhcpIpReservation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpReservation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpReservation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpIpReservation =
                     DhcpIpReservation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5021,8 +5138,8 @@ public class DhcpIpReservationV4 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpReservationV4> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpReservationV4> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DhcpIpReservationV4 =
                     DhcpIpReservationV4(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5096,8 +5213,8 @@ public class DhcpIpReservationV6 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpReservationV6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpIpReservationV6> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DhcpIpReservationV6 =
                     DhcpIpReservationV6(
                         (DhcpIpv6Address.typeLayout()).readNative(addr),
@@ -5213,8 +5330,8 @@ public class DhcpMibInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfo> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): DhcpMibInfo =
                     DhcpMibInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5324,8 +5441,8 @@ public class DhcpMibInfoV5 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfoV5> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfoV5> {
-                override val sizeBytes: Long = 88L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 88L
                 override fun readNative(addr: Long): DhcpMibInfoV5 =
                     DhcpMibInfoV5(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5523,8 +5640,8 @@ public class DhcpMibInfoV6 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfoV6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfoV6> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): DhcpMibInfoV6 =
                     DhcpMibInfoV6(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5642,8 +5759,8 @@ public class DhcpMibInfoVq internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfoVq> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpMibInfoVq> {
-                override val sizeBytes: Long = 80L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 80L
                 override fun readNative(addr: Long): DhcpMibInfoVq =
                     DhcpMibInfoVq(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5838,8 +5955,8 @@ public class DhcpOptionArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpOptionArray =
                     DhcpOptionArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5903,8 +6020,8 @@ public class DhcpOptionData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpOptionData =
                     DhcpOptionData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6076,8 +6193,8 @@ public class DhcpOptionList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpOptionList =
                     DhcpOptionList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6249,8 +6366,8 @@ public data class DhcpOptionValue(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionValue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionValue> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DhcpOptionValue =
                     DhcpOptionValue(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6299,8 +6416,8 @@ public class DhcpOptionValueArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionValueArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpOptionValueArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpOptionValueArray =
                     DhcpOptionValueArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6353,8 +6470,8 @@ public class DhcpPerfStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPerfStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPerfStats> {
-                override val sizeBytes: Long = 76L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 76L
                 override fun readNative(addr: Long): DhcpPerfStats =
                     DhcpPerfStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6549,8 +6666,8 @@ public class DhcpPolicyArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolicyArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolicyArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpPolicyArray =
                     DhcpPolicyArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6737,8 +6854,8 @@ public class DhcpPolicyExArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolicyExArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolicyExArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpPolicyExArray =
                     DhcpPolicyExArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6897,8 +7014,8 @@ public class DhcpPolCondArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolCondArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolCondArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpPolCondArray =
                     DhcpPolCondArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6934,8 +7051,8 @@ public data class DhcpPolExpr(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolExpr> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolExpr> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DhcpPolExpr =
                     DhcpPolExpr(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6984,8 +7101,8 @@ public class DhcpPolExprArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolExprArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPolExprArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpPolExprArray =
                     DhcpPolExprArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7123,8 +7240,8 @@ public class DhcpPropertyArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPropertyArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpPropertyArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpPropertyArray =
                     DhcpPropertyArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7188,8 +7305,8 @@ public class DhcpReservationInfoArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpReservationInfoArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpReservationInfoArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpReservationInfoArray =
                     DhcpReservationInfoArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7225,8 +7342,8 @@ public data class DhcpReservedScope(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpReservedScope> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpReservedScope> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DhcpReservedScope =
                     DhcpReservedScope(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7247,8 +7364,8 @@ public data class DhcpReservedScope6(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpReservedScope6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpReservedScope6> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DhcpReservedScope6 =
                     DhcpReservedScope6(
                         (DhcpIpv6Address.typeLayout()).readNative(addr),
@@ -7269,8 +7386,8 @@ public data class DhcpScanItem(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpScanItem> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpScanItem> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DhcpScanItem =
                     DhcpScanItem(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7319,8 +7436,8 @@ public class DhcpScanList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpScanList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpScanList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpScanList =
                     DhcpScanList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7720,7 +7837,38 @@ public data class DhcpServerConfigInfoV6(
     public var preferredLifetimeIATA: UInt = 0u,
     public var validLifetimeIATA: UInt = 0u,
     public var fAuditLog: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpServerConfigInfoV6> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpServerConfigInfoV6> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
+                override fun readNative(addr: Long): DhcpServerConfigInfoV6 =
+                    DhcpServerConfigInfoV6(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
+                    )
+                override fun writeNative(addr: Long, value: DhcpServerConfigInfoV6) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.unicastFlag)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.rapidCommitFlag)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.preferredLifetime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.validLifetime)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.t1)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.t2)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.preferredLifetimeIATA)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.validLifetimeIATA)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.fAuditLog)
+                }
+            }
+    }
+}
 
 public class DhcpServerConfigInfoVq internal constructor(
     public var aPIProtocolSupport: UInt,
@@ -8445,8 +8593,8 @@ public class DhcpSubnetElementInfoArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpSubnetElementInfoArray =
                     DhcpSubnetElementInfoArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8510,8 +8658,8 @@ public class DhcpSubnetElementInfoArrayV4 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArrayV4> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArrayV4> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpSubnetElementInfoArrayV4 =
                     DhcpSubnetElementInfoArrayV4(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8575,8 +8723,8 @@ public class DhcpSubnetElementInfoArrayV5 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArrayV5> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArrayV5> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpSubnetElementInfoArrayV5 =
                     DhcpSubnetElementInfoArrayV5(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8640,8 +8788,8 @@ public class DhcpSubnetElementInfoArrayV6 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArrayV6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSubnetElementInfoArrayV6> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpSubnetElementInfoArrayV6 =
                     DhcpSubnetElementInfoArrayV6(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8990,8 +9138,8 @@ public class DhcpSuperScopeTable internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSuperScopeTable> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DhcpSuperScopeTable> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DhcpSuperScopeTable =
                     DhcpSuperScopeTable(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9087,8 +9235,8 @@ public data class DwordDword(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DwordDword> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DwordDword> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DwordDword =
                     DwordDword(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9111,8 +9259,8 @@ public data class ScopeMibInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ScopeMibInfo =
                     ScopeMibInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9139,8 +9287,8 @@ public data class ScopeMibInfoV5(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfoV5> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfoV5> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ScopeMibInfoV5 =
                     ScopeMibInfoV5(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9167,8 +9315,8 @@ public data class ScopeMibInfoV6(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfoV6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfoV6> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): ScopeMibInfoV6 =
                     ScopeMibInfoV6(
                         (DhcpIpv6Address.typeLayout()).readNative(addr),
@@ -9201,8 +9349,8 @@ public data class ScopeMibInfoVq(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfoVq> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScopeMibInfoVq> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): ScopeMibInfoVq =
                     ScopeMibInfoVq(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

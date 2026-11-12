@@ -34,8 +34,8 @@ public data class Restorepointinfoa(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfoa> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfoa> {
-                override val sizeBytes: Long = 80L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 80L
                 override fun readNative(addr: Long): Restorepointinfoa =
                     Restorepointinfoa(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -44,7 +44,7 @@ public data class Restorepointinfoa(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (64).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Restorepointinfoa) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwEventType)
@@ -53,7 +53,7 @@ public data class Restorepointinfoa(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (64).toInt())
-                    ).writeNative(addr + 16L, value.szDescription)
+                    ).writeNative(addr + 16L, value.szDescription.toList())
                 }
             }
     }
@@ -114,8 +114,8 @@ public data class Restorepointinfow(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfow> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Restorepointinfow> {
-                override val sizeBytes: Long = 528L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 528L
                 override fun readNative(addr: Long): Restorepointinfow =
                     Restorepointinfow(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -124,7 +124,7 @@ public data class Restorepointinfow(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: Restorepointinfow) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwEventType)
@@ -133,7 +133,7 @@ public data class Restorepointinfow(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 16L, value.szDescription)
+                    ).writeNative(addr + 16L, value.szDescription.toList())
                 }
             }
     }
@@ -142,4 +142,21 @@ public data class Restorepointinfow(
 public data class Statemgrstatus(
     public var nStatus: Win32Error = 0u,
     public var llSequenceNumber: Long = 0L,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Statemgrstatus> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Statemgrstatus> {
+                override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): Statemgrstatus =
+                    Statemgrstatus(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: Statemgrstatus) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 4L, value.llSequenceNumber)
+                }
+            }
+    }
+}

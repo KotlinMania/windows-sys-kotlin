@@ -101,8 +101,8 @@ public class DrtBootstrapProvider internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtBootstrapProvider> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtBootstrapProvider> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): DrtBootstrapProvider =
                     DrtBootstrapProvider(
                         (
@@ -190,8 +190,8 @@ public class DrtData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DrtData =
                     DrtData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -294,8 +294,8 @@ public data class DrtEventData00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData00> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): DrtEventData00 =
                     DrtEventData00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -318,8 +318,8 @@ public data class DrtEventData01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData01> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DrtEventData01 =
                     DrtEventData01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -340,8 +340,8 @@ public data class DrtEventData02(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData02> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData02> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DrtEventData02 =
                     DrtEventData02(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -390,8 +390,8 @@ public class DrtEventData020 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData020> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtEventData020> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DrtEventData020 =
                     DrtEventData020(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -427,8 +427,8 @@ public data class DrtRegistration(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtRegistration> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtRegistration> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DrtRegistration =
                     DrtRegistration(
                         (DrtData.typeLayout()).readNative(addr),
@@ -508,6 +508,43 @@ public class DrtSearchInfo internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtSearchInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtSearchInfo> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
+                override fun readNative(addr: Long): DrtSearchInfo =
+                    DrtSearchInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<DrtData>(64)
+                        ).readNative(addr + 24L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<DrtData>(64)
+                        ).readNative(addr + 32L),
+                    )
+                override fun writeNative(addr: Long, value: DrtSearchInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fIterative)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.fAllowCurrentInstanceMatch)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.fAnyMatchInRange)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cMaxEndpoints)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<DrtData>(64)
+                    ).writeNative(addr + 24L, value.pMaximumKey)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<DrtData>(64)
+                    ).writeNative(addr + 32L, value.pMinimumKey)
+                }
+            }
+
         public operator fun invoke(
             dwSize: UInt = 0u,
             fIterative: Bool = 0,
@@ -576,8 +613,8 @@ public class DrtSearchResult internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtSearchResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtSearchResult> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): DrtSearchResult =
                     DrtSearchResult(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -721,8 +758,8 @@ public class DrtSecurityProvider internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtSecurityProvider> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrtSecurityProvider> {
-                override val sizeBytes: Long = 112L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 112L
                 override fun readNative(addr: Long): DrtSecurityProvider =
                     DrtSecurityProvider(
                         (
@@ -918,7 +955,22 @@ public class DrtSettings internal constructor(
 
 public data class PeerdistClientBasicInfo(
     public var fFlashCrowd: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistClientBasicInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistClientBasicInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): PeerdistClientBasicInfo =
+                    PeerdistClientBasicInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: PeerdistClientBasicInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fFlashCrowd)
+                }
+            }
+    }
+}
 
 public data class PeerdistContentTag(
     public var data: UByteArray = UByteArray(16),
@@ -935,20 +987,20 @@ public data class PeerdistContentTag(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistContentTag> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistContentTag> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerdistContentTag =
                     PeerdistContentTag(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: PeerdistContentTag) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr, value.data)
+                    ).writeNative(addr, value.data.toList())
                 }
             }
     }
@@ -961,8 +1013,8 @@ public data class PeerdistPublicationOptions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistPublicationOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistPublicationOptions> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PeerdistPublicationOptions =
                     PeerdistPublicationOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -985,8 +1037,8 @@ public data class PeerdistRetrievalOptions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistRetrievalOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistRetrievalOptions> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerdistRetrievalOptions =
                     PeerdistRetrievalOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1013,8 +1065,8 @@ public data class PeerdistStatusInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistStatusInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerdistStatusInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerdistStatusInfo =
                     PeerdistStatusInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1199,8 +1251,8 @@ public class PeerAppLaunchInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerAppLaunchInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerAppLaunchInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): PeerAppLaunchInfo =
                     PeerAppLaunchInfo(
                         (
@@ -1295,8 +1347,8 @@ public class PeerCollabEventRegistration internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerCollabEventRegistration> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerCollabEventRegistration> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerCollabEventRegistration =
                     PeerCollabEventRegistration(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1649,8 +1701,8 @@ public class PeerData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerData =
                     PeerData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1776,8 +1828,8 @@ public class PeerEventApplicationChangedData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventApplicationChangedData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventApplicationChangedData> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PeerEventApplicationChangedData =
                     PeerEventApplicationChangedData(
                         (
@@ -1833,7 +1885,32 @@ public data class PeerEventConnectionChangeData(
     public var ullNodeId: ULong = 0uL,
     public var ullNextConnectionId: ULong = 0uL,
     public var hrConnectionFailedReason: Hresult = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventConnectionChangeData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventConnectionChangeData> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
+                override fun readNative(addr: Long): PeerEventConnectionChangeData =
+                    PeerEventConnectionChangeData(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
+                    )
+                override fun writeNative(addr: Long, value: PeerEventConnectionChangeData) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.status)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.ullConnectionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.ullNodeId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.ullNextConnectionId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.hrConnectionFailedReason)
+                }
+            }
+    }
+}
 
 public class PeerEventEndpointChangedData internal constructor(
     pContactCtorArg: MutPtr<PeerContact>,
@@ -1873,8 +1950,8 @@ public class PeerEventEndpointChangedData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventEndpointChangedData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventEndpointChangedData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerEventEndpointChangedData =
                     PeerEventEndpointChangedData(
                         (
@@ -2081,8 +2158,8 @@ public class PeerEventObjectChangedData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventObjectChangedData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventObjectChangedData> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PeerEventObjectChangedData =
                     PeerEventObjectChangedData(
                         (
@@ -2166,8 +2243,8 @@ public class PeerEventPeopleNearMeChangedData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventPeopleNearMeChangedData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventPeopleNearMeChangedData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerEventPeopleNearMeChangedData =
                     PeerEventPeopleNearMeChangedData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -2249,8 +2326,8 @@ public class PeerEventPresenceChangedData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventPresenceChangedData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventPresenceChangedData> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PeerEventPresenceChangedData =
                     PeerEventPresenceChangedData(
                         (
@@ -2339,6 +2416,27 @@ public class PeerEventRequestStatusChangedData internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventRequestStatusChangedData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventRequestStatusChangedData> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): PeerEventRequestStatusChangedData =
+                    PeerEventRequestStatusChangedData(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<PeerEndpoint>(64)
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: PeerEventRequestStatusChangedData) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<PeerEndpoint>(64)
+                    ).writeNative(addr, value.pEndpoint)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.hrChange)
+                }
+            }
+
         public operator fun invoke(
             pEndpoint: MutPtr<PeerEndpoint> = MutPtr(0L),
             hrChange: Hresult = 0,
@@ -2390,8 +2488,8 @@ public class PeerEventWatchlistChangedData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventWatchlistChangedData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerEventWatchlistChangedData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerEventWatchlistChangedData =
                     PeerEventWatchlistChangedData(
                         (
@@ -2469,8 +2567,8 @@ public class PeerGraphEventRegistration internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerGraphEventRegistration> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerGraphEventRegistration> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerGraphEventRegistration =
                     PeerGraphEventRegistration(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -2665,8 +2763,8 @@ public class PeerGroupEventRegistration internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerGroupEventRegistration> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerGroupEventRegistration> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PeerGroupEventRegistration =
                     PeerGroupEventRegistration(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3889,8 +3987,8 @@ public data class PeerVersionData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerVersionData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PeerVersionData> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PeerVersionData =
                     PeerVersionData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -3913,8 +4011,8 @@ public data class Pnrpcloudinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pnrpcloudinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pnrpcloudinfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Pnrpcloudinfo =
                     Pnrpcloudinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4200,8 +4298,8 @@ public data class PnrpCloudId(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PnrpCloudId> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PnrpCloudId> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): PnrpCloudId =
                     PnrpCloudId(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

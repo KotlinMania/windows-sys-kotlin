@@ -23,20 +23,20 @@ public data class AppLocalDeviceId(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppLocalDeviceId> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppLocalDeviceId> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): AppLocalDeviceId =
                     AppLocalDeviceId(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: AppLocalDeviceId) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr, value.value)
+                    ).writeNative(addr, value.value.toList())
                 }
             }
     }
@@ -61,8 +61,8 @@ public data class Decimal00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Decimal00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Decimal00> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): Decimal00 =
                     Decimal00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -88,8 +88,8 @@ public data class Decimal10(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Decimal10> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Decimal10> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Decimal10 =
                     Decimal10(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -115,8 +115,8 @@ public data class Filetime(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Filetime> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Filetime> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Filetime =
                     Filetime(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -137,8 +137,8 @@ public data class Float128(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Float128> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Float128> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Float128 =
                     Float128(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -159,8 +159,8 @@ public data class Luid(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Luid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Luid> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Luid =
                     Luid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -181,8 +181,8 @@ public data class Point(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Point> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Point> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Point =
                     Point(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -203,8 +203,8 @@ public data class Pointl(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pointl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pointl> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Pointl =
                     Pointl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -225,8 +225,8 @@ public data class Points(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Points> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Points> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Points =
                     Points(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr),
@@ -254,8 +254,8 @@ public data class Rect(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rect> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rect> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Rect =
                     Rect(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -282,8 +282,8 @@ public data class Rectl(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rectl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rectl> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Rectl =
                     Rectl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -308,8 +308,8 @@ public data class Size(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Size> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Size> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Size =
                     Size(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -336,8 +336,8 @@ public data class Systemtime(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Systemtime> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Systemtime> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Systemtime =
                     Systemtime(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),

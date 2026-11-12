@@ -94,8 +94,8 @@ public class WnvNotificationParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvNotificationParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvNotificationParam> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WnvNotificationParam =
                     WnvNotificationParam(
                         (WnvObjectHeader.typeLayout()).readNative(addr),
@@ -150,8 +150,8 @@ public data class WnvObjectHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvObjectHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnvObjectHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WnvObjectHeader =
                     WnvObjectHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),

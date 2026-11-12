@@ -151,8 +151,8 @@ public class CryptAttributes internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptAttributes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptAttributes> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptAttributes =
                     CryptAttributes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -266,8 +266,8 @@ public class CryptBitBlob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptBitBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptBitBlob> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptBitBlob =
                     CryptBitBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -335,8 +335,8 @@ public class CryptBlobArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptBlobArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptBlobArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptBlobArray =
                     CryptBlobArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -499,8 +499,8 @@ public class CryptContexts internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContexts> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContexts> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptContexts =
                     CryptContexts(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -536,8 +536,8 @@ public data class CryptContextConfig(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextConfig> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextConfig> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CryptContextConfig =
                     CryptContextConfig(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -586,8 +586,8 @@ public class CryptContextFunctions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextFunctions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextFunctions> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptContextFunctions =
                     CryptContextFunctions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -623,8 +623,8 @@ public data class CryptContextFunctionConfig(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextFunctionConfig> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextFunctionConfig> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CryptContextFunctionConfig =
                     CryptContextFunctionConfig(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -673,8 +673,8 @@ public class CryptContextFunctionProviders internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextFunctionProviders> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptContextFunctionProviders> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptContextFunctionProviders =
                     CryptContextFunctionProviders(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -863,8 +863,8 @@ public class CryptDecryptMessagePara internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptDecryptMessagePara> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptDecryptMessagePara> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptDecryptMessagePara =
                     CryptDecryptMessagePara(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -936,8 +936,8 @@ public class CryptDefaultContextMultiOidPara internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptDefaultContextMultiOidPara> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptDefaultContextMultiOidPara> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptDefaultContextMultiOidPara =
                     CryptDefaultContextMultiOidPara(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -990,36 +990,36 @@ public data class CryptDesKeyState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptDesKeyState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptDesKeyState> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptDesKeyState =
                     CryptDesKeyState(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CryptDesKeyState) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                    ).writeNative(addr, value.key)
+                    ).writeNative(addr, value.key.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                    ).writeNative(addr + 8L, value.iv)
+                    ).writeNative(addr + 8L, value.iv.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                    ).writeNative(addr + 16L, value.feedback)
+                    ).writeNative(addr + 16L, value.feedback.toList())
                 }
             }
     }
@@ -1326,8 +1326,8 @@ public class CryptGetTimeValidObjectExtraInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptGetTimeValidObjectExtraInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptGetTimeValidObjectExtraInfo> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): CryptGetTimeValidObjectExtraInfo =
                     CryptGetTimeValidObjectExtraInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1607,8 +1607,8 @@ public class CryptIntegerBlob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptIntegerBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptIntegerBlob> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptIntegerBlob =
                     CryptIntegerBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1684,8 +1684,8 @@ public class CryptInterfaceReg internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptInterfaceReg> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptInterfaceReg> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptInterfaceReg =
                     CryptInterfaceReg(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1859,8 +1859,8 @@ public class CryptKeyProvParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptKeyProvParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptKeyProvParam> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptKeyProvParam =
                     CryptKeyProvParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1994,18 +1994,18 @@ public data class CryptKeyVerifyMessagePara(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptKeyVerifyMessagePara> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptKeyVerifyMessagePara> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptKeyVerifyMessagePara =
                     CryptKeyVerifyMessagePara(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: CryptKeyVerifyMessagePara) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwMsgEncodingType)
-                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.hCryptProv)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.hCryptProv)
                 }
             }
     }
@@ -2357,8 +2357,8 @@ public data class CryptPkcs12PbeParams(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptPkcs12PbeParams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptPkcs12PbeParams> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CryptPkcs12PbeParams =
                     CryptPkcs12PbeParams(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -2664,8 +2664,8 @@ public class CryptProviders internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviders> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviders> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptProviders =
                     CryptProviders(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2825,8 +2825,8 @@ public class CryptProviderRefs internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderRefs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderRefs> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptProviderRefs =
                     CryptProviderRefs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2908,8 +2908,8 @@ public class CryptProviderReg internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderReg> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderReg> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): CryptProviderReg =
                     CryptProviderReg(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3022,6 +3022,31 @@ public data class CryptRc2CbcParameters(
         result = 31 * result + this.rgbIV.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptRc2CbcParameters> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptRc2CbcParameters> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): CryptRc2CbcParameters =
+                    CryptRc2CbcParameters(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
+                        ).readNative(addr + 8L).toUByteArray(),
+                    )
+                override fun writeNative(addr: Long, value: CryptRc2CbcParameters) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fIV)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
+                    ).writeNative(addr + 8L, value.rgbIV.toList())
+                }
+            }
+    }
 }
 
 public data class CryptRc4KeyState(
@@ -3051,18 +3076,18 @@ public data class CryptRc4KeyState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptRc4KeyState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptRc4KeyState> {
-                override val sizeBytes: Long = 274L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 274L
                 override fun readNative(addr: Long): CryptRc4KeyState =
                     CryptRc4KeyState(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 272L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 273L),
                     )
@@ -3070,11 +3095,11 @@ public data class CryptRc4KeyState(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr, value.key)
+                    ).writeNative(addr, value.key.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
-                    ).writeNative(addr + 16L, value.sBox)
+                    ).writeNative(addr + 16L, value.sBox.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 272L, value.i)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 273L, value.j)
                 }
@@ -3275,8 +3300,8 @@ public class CryptSequenceOfAny internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptSequenceOfAny> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptSequenceOfAny> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptSequenceOfAny =
                     CryptSequenceOfAny(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3489,21 +3514,21 @@ public data class CryptSmartCardRootInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptSmartCardRootInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptSmartCardRootInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptSmartCardRootInfo =
                     CryptSmartCardRootInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (RootInfoLuid.typeLayout()).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: CryptSmartCardRootInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr, value.rgbCardID)
+                    ).writeNative(addr, value.rgbCardID.toList())
                     (RootInfoLuid.typeLayout()).writeNative(addr + 16L, value.luid)
                 }
             }
@@ -3545,8 +3570,8 @@ public class CryptSmimeCapabilities internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptSmimeCapabilities> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptSmimeCapabilities> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptSmimeCapabilities =
                     CryptSmimeCapabilities(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3627,8 +3652,8 @@ public data class CryptTimestampAccuracy(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptTimestampAccuracy> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptTimestampAccuracy> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): CryptTimestampAccuracy =
                     CryptTimestampAccuracy(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3688,8 +3713,8 @@ public class CryptTimestampContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptTimestampContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptTimestampContext> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptTimestampContext =
                     CryptTimestampContext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4077,8 +4102,8 @@ public class CryptTimestampResponse internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptTimestampResponse> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptTimestampResponse> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): CryptTimestampResponse =
                     CryptTimestampResponse(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4228,8 +4253,8 @@ public class CryptUrlArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptUrlArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptUrlArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptUrlArray =
                     CryptUrlArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4305,8 +4330,8 @@ public class CryptUrlInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptUrlInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptUrlInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptUrlInfo =
                     CryptUrlInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4350,8 +4375,8 @@ public data class CryptVerifyCertSignStrongPropertiesInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptVerifyCertSignStrongPropertiesInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptVerifyCertSignStrongPropertiesInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): CryptVerifyCertSignStrongPropertiesInfo =
                     CryptVerifyCertSignStrongPropertiesInfo(
                         (CryptIntegerBlob.typeLayout()).readNative(addr),
@@ -4406,8 +4431,8 @@ public class CryptVerifyCertSignWeakHashInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptVerifyCertSignWeakHashInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptVerifyCertSignWeakHashInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptVerifyCertSignWeakHashInfo =
                     CryptVerifyCertSignWeakHashInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4784,8 +4809,8 @@ public class CryptXmlBlob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlBlob> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptXmlBlob =
                     CryptXmlBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -4865,8 +4890,8 @@ public class CryptXmlDataBlob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlDataBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlDataBlob> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptXmlDataBlob =
                     CryptXmlDataBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5014,8 +5039,8 @@ public class CryptXmlDocCtxt internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlDocCtxt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlDocCtxt> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): CryptXmlDocCtxt =
                     CryptXmlDocCtxt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5231,8 +5256,8 @@ public data class CryptXmlKeyDsaKeyValue(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlKeyDsaKeyValue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlKeyDsaKeyValue> {
-                override val sizeBytes: Long = 112L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 112L
                 override fun readNative(addr: Long): CryptXmlKeyDsaKeyValue =
                     CryptXmlKeyDsaKeyValue(
                         (CryptXmlDataBlob.typeLayout()).readNative(addr),
@@ -5470,8 +5495,8 @@ public data class CryptXmlKeyRsaKeyValue(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlKeyRsaKeyValue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlKeyRsaKeyValue> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): CryptXmlKeyRsaKeyValue =
                     CryptXmlKeyRsaKeyValue(
                         (CryptXmlDataBlob.typeLayout()).readNative(addr),
@@ -5631,8 +5656,8 @@ public class CryptXmlProperty internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlProperty> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlProperty> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CryptXmlProperty =
                     CryptXmlProperty(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -5812,8 +5837,8 @@ public class CryptXmlReferences internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlReferences> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlReferences> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptXmlReferences =
                     CryptXmlReferences(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6038,8 +6063,8 @@ public data class CryptXmlStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlStatus> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): CryptXmlStatus =
                     CryptXmlStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6096,8 +6121,8 @@ public class CryptXmlTransformChainConfig internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlTransformChainConfig> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlTransformChainConfig> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptXmlTransformChainConfig =
                     CryptXmlTransformChainConfig(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6233,8 +6258,8 @@ public class CryptXmlX509data internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlX509data> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptXmlX509data> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptXmlX509data =
                     CryptXmlX509data(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6432,8 +6457,8 @@ public class CtlContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlContext> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): CtlContext =
                     CtlContext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6551,8 +6576,8 @@ public class CtlEntry internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlEntry> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlEntry> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): CtlEntry =
                     CtlEntry(
                         (CryptIntegerBlob.typeLayout()).readNative(addr),
@@ -6635,8 +6660,8 @@ public class CtlFindSubjectPara internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlFindSubjectPara> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlFindSubjectPara> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): CtlFindSubjectPara =
                     CtlFindSubjectPara(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6726,8 +6751,8 @@ public class CtlFindUsagePara internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlFindUsagePara> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlFindUsagePara> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): CtlFindUsagePara =
                     CtlFindUsagePara(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6918,8 +6943,8 @@ public class CtlUsage internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlUsage> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlUsage> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CtlUsage =
                     CtlUsage(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6955,8 +6980,8 @@ public data class CtlUsageMatch(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlUsageMatch> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlUsageMatch> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CtlUsageMatch =
                     CtlUsageMatch(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7032,8 +7057,8 @@ public class CtlVerifyUsagePara internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlVerifyUsagePara> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlVerifyUsagePara> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): CtlVerifyUsagePara =
                     CtlVerifyUsagePara(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7152,8 +7177,8 @@ public class CtlVerifyUsageStatus internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlVerifyUsageStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlVerifyUsageStatus> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): CtlVerifyUsageStatus =
                     CtlVerifyUsageStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7229,22 +7254,22 @@ public data class Dssseed(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dssseed> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dssseed> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Dssseed =
                     Dssseed(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Dssseed) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.counter)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                    ).writeNative(addr + 4L, value.seed)
+                    ).writeNative(addr + 4L, value.seed.toList())
                 }
             }
     }
@@ -7378,8 +7403,8 @@ public data class EvExtraCertChainPolicyPara(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EvExtraCertChainPolicyPara> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EvExtraCertChainPolicyPara> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EvExtraCertChainPolicyPara =
                     EvExtraCertChainPolicyPara(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7401,8 +7426,8 @@ public data class EvExtraCertChainPolicyStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EvExtraCertChainPolicyStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EvExtraCertChainPolicyStatus> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): EvExtraCertChainPolicyStatus =
                     EvExtraCertChainPolicyStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7548,8 +7573,8 @@ public class HmacInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HmacInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HmacInfo> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): HmacInfo =
                     HmacInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7673,8 +7698,8 @@ public data class HandleType(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HandleType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HandleType> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HandleType =
                     HandleType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -7790,8 +7815,8 @@ public class InformationcardCryptoHandle internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardCryptoHandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardCryptoHandle> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): InformationcardCryptoHandle =
                     InformationcardCryptoHandle(
                         (HandleType.typeLayout()).readNative(addr),
@@ -7827,7 +7852,24 @@ public class InformationcardCryptoHandle internal constructor(
 public data class InformationcardHashCryptoParameters(
     public var hashSize: Int = 0,
     public var transform: InformationcardTransformCryptoParameters = InformationcardTransformCryptoParameters(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardHashCryptoParameters> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardHashCryptoParameters> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
+                override fun readNative(addr: Long): InformationcardHashCryptoParameters =
+                    InformationcardHashCryptoParameters(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (InformationcardTransformCryptoParameters.typeLayout()).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: InformationcardHashCryptoParameters) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.hashSize)
+                    (InformationcardTransformCryptoParameters.typeLayout()).writeNative(addr + 4L, value.transform)
+                }
+            }
+    }
+}
 
 public data class InformationcardSymmetricCryptoParameters(
     public var keySize: Int = 0,
@@ -7837,8 +7879,8 @@ public data class InformationcardSymmetricCryptoParameters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardSymmetricCryptoParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardSymmetricCryptoParameters> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): InformationcardSymmetricCryptoParameters =
                     InformationcardSymmetricCryptoParameters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -7859,7 +7901,28 @@ public data class InformationcardTransformCryptoParameters(
     public var outputBlockSize: Int = 0,
     public var canTransformMultipleBlocks: Bool = 0,
     public var canReuseTransform: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardTransformCryptoParameters> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InformationcardTransformCryptoParameters> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): InformationcardTransformCryptoParameters =
+                    InformationcardTransformCryptoParameters(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: InformationcardTransformCryptoParameters) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.inputBlockSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.outputBlockSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.canTransformMultipleBlocks)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.canReuseTransform)
+                }
+            }
+    }
+}
 
 public data class InFileSignatureResource(
     public var dwVersion: UInt = 0u,
@@ -7885,8 +7948,8 @@ public data class InFileSignatureResource(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InFileSignatureResource> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InFileSignatureResource> {
-                override val sizeBytes: Long = 96L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 96L
                 override fun readNative(addr: Long): InFileSignatureResource =
                     InFileSignatureResource(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7894,7 +7957,7 @@ public data class InFileSignatureResource(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (88).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: InFileSignatureResource) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwVersion)
@@ -7902,7 +7965,7 @@ public data class InFileSignatureResource(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (88).toInt())
-                    ).writeNative(addr + 8L, value.rgbSignature)
+                    ).writeNative(addr + 8L, value.rgbSignature.toList())
                 }
             }
     }
@@ -7982,8 +8045,8 @@ public class NcryptCipherPaddingInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptCipherPaddingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptCipherPaddingInfo> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): NcryptCipherPaddingInfo =
                     NcryptCipherPaddingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8040,8 +8103,8 @@ public data class NcryptExportedIsolatedKeyEnvelope(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptExportedIsolatedKeyEnvelope> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptExportedIsolatedKeyEnvelope> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): NcryptExportedIsolatedKeyEnvelope =
                     NcryptExportedIsolatedKeyEnvelope(
                         (NcryptExportedIsolatedKeyHeader.typeLayout()).readNative(addr),
@@ -8066,8 +8129,8 @@ public data class NcryptExportedIsolatedKeyHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptExportedIsolatedKeyHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptExportedIsolatedKeyHeader> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): NcryptExportedIsolatedKeyHeader =
                     NcryptExportedIsolatedKeyHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8101,8 +8164,8 @@ public data class NcryptIsolatedKeyAttestedAttributes(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptIsolatedKeyAttestedAttributes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptIsolatedKeyAttestedAttributes> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): NcryptIsolatedKeyAttestedAttributes =
                     NcryptIsolatedKeyAttestedAttributes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8127,8 +8190,8 @@ public data class NcryptKeyAccessPolicyBlob(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptKeyAccessPolicyBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptKeyAccessPolicyBlob> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): NcryptKeyAccessPolicyBlob =
                     NcryptKeyAccessPolicyBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8202,8 +8265,8 @@ public class NcryptKeyAttestPaddingInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptKeyAttestPaddingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptKeyAttestPaddingInfo> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): NcryptKeyAttestPaddingInfo =
                     NcryptKeyAttestPaddingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8259,8 +8322,8 @@ public data class NcryptKeyBlobHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptKeyBlobHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptKeyBlobHeader> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): NcryptKeyBlobHeader =
                     NcryptKeyBlobHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8341,8 +8404,8 @@ public data class NcryptPcpHmacAuthSignatureInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpHmacAuthSignatureInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpHmacAuthSignatureInfo> {
-                override val sizeBytes: Long = 104L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 104L
                 override fun readNative(addr: Long): NcryptPcpHmacAuthSignatureInfo =
                     NcryptPcpHmacAuthSignatureInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8350,15 +8413,15 @@ public data class NcryptPcpHmacAuthSignatureInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 40L),
+                        ).readNative(addr + 40L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 72L),
+                        ).readNative(addr + 72L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: NcryptPcpHmacAuthSignatureInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwVersion)
@@ -8366,15 +8429,15 @@ public data class NcryptPcpHmacAuthSignatureInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 8L, value.pabNonce)
+                    ).writeNative(addr + 8L, value.pabNonce.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 40L, value.pabPolicyRef)
+                    ).writeNative(addr + 40L, value.pabPolicyRef.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 72L, value.pabHMAC)
+                    ).writeNative(addr + 72L, value.pabHMAC.toList())
                 }
             }
     }
@@ -8387,8 +8450,8 @@ public data class NcryptPcpRawPolicydigestInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpRawPolicydigestInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpRawPolicydigestInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): NcryptPcpRawPolicydigestInfo =
                     NcryptPcpRawPolicydigestInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8411,8 +8474,8 @@ public data class NcryptPcpTpmFwVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpTpmFwVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpTpmFwVersionInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): NcryptPcpTpmFwVersionInfo =
                     NcryptPcpTpmFwVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -8441,8 +8504,8 @@ public data class NcryptPcpTpmWebAuthnAttestationStatement(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpTpmWebAuthnAttestationStatement> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPcpTpmWebAuthnAttestationStatement> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): NcryptPcpTpmWebAuthnAttestationStatement =
                     NcryptPcpTpmWebAuthnAttestationStatement(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8471,8 +8534,8 @@ public data class NcryptPlatformAttestPaddingInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPlatformAttestPaddingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptPlatformAttestPaddingInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): NcryptPlatformAttestPaddingInfo =
                     NcryptPlatformAttestPaddingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8584,8 +8647,8 @@ public data class NcryptSslCipherLengths(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslCipherLengths> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslCipherLengths> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): NcryptSslCipherLengths =
                     NcryptSslCipherLengths(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8662,8 +8725,8 @@ public data class NcryptSslCipherSuite(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslCipherSuite> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslCipherSuite> {
-                override val sizeBytes: Long = 676L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 676L
                 override fun readNative(addr: Long): NcryptSslCipherSuite =
                     NcryptSslCipherSuite(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8672,28 +8735,28 @@ public data class NcryptSslCipherSuite(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 140L),
+                        ).readNative(addr + 140L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 268L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 272L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 276L),
+                        ).readNative(addr + 276L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 404L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 408L),
+                        ).readNative(addr + 408L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 536L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 540L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 544L),
+                        ).readNative(addr + 544L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 672L),
                     )
                 override fun writeNative(addr: Long, value: NcryptSslCipherSuite) {
@@ -8703,28 +8766,28 @@ public data class NcryptSslCipherSuite(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 12L, value.szCipherSuite)
+                    ).writeNative(addr + 12L, value.szCipherSuite.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 140L, value.szCipher)
+                    ).writeNative(addr + 140L, value.szCipher.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 268L, value.dwCipherLen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 272L, value.dwCipherBlockLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 276L, value.szHash)
+                    ).writeNative(addr + 276L, value.szHash.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 404L, value.dwHashLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 408L, value.szExchange)
+                    ).writeNative(addr + 408L, value.szExchange.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 536L, value.dwMinExchangeLen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 540L, value.dwMaxExchangeLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 544L, value.szCertificate)
+                    ).writeNative(addr + 544L, value.szCertificate.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 672L, value.dwKeyType)
                 }
             }
@@ -8794,8 +8857,8 @@ public data class NcryptSslCipherSuiteEx(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslCipherSuiteEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslCipherSuiteEx> {
-                override val sizeBytes: Long = 808L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 808L
                 override fun readNative(addr: Long): NcryptSslCipherSuiteEx =
                     NcryptSslCipherSuiteEx(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8805,33 +8868,33 @@ public data class NcryptSslCipherSuiteEx(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 144L),
+                        ).readNative(addr + 144L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 272L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 276L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 280L),
+                        ).readNative(addr + 280L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 408L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 412L),
+                        ).readNative(addr + 412L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 540L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 544L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 548L),
+                        ).readNative(addr + 548L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 676L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 680L),
+                        ).readNative(addr + 680L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: NcryptSslCipherSuiteEx) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwVersion)
@@ -8841,33 +8904,33 @@ public data class NcryptSslCipherSuiteEx(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 16L, value.szCipherSuite)
+                    ).writeNative(addr + 16L, value.szCipherSuite.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 144L, value.szCipher)
+                    ).writeNative(addr + 144L, value.szCipher.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 272L, value.dwCipherLen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 276L, value.dwCipherBlockLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 280L, value.szHash)
+                    ).writeNative(addr + 280L, value.szHash.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 408L, value.dwHashLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 412L, value.szExchange)
+                    ).writeNative(addr + 412L, value.szExchange.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 540L, value.dwMinExchangeLen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 544L, value.dwMaxExchangeLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 548L, value.szCertificate)
+                    ).writeNative(addr + 548L, value.szCertificate.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 676L, value.dwKeyType)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 680L, value.szCipherMode)
+                    ).writeNative(addr + 680L, value.szCipherMode.toList())
                 }
             }
     }
@@ -8903,18 +8966,18 @@ public data class NcryptSslEccCurve(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslEccCurve> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSslEccCurve> {
-                override val sizeBytes: Long = 780L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 780L
                 override fun readNative(addr: Long): NcryptSslEccCurve =
                     NcryptSslEccCurve(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (255).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (255).toInt())
-                        ).readNative(addr + 510L),
+                        ).readNative(addr + 510L).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 768L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 772L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 776L),
@@ -8923,11 +8986,11 @@ public data class NcryptSslEccCurve(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (255).toInt())
-                    ).writeNative(addr, value.szCurveName)
+                    ).writeNative(addr, value.szCurveName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (255).toInt())
-                    ).writeNative(addr + 510L, value.szOID)
+                    ).writeNative(addr + 510L, value.szOID.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 768L, value.dwPublicKeyLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 772L, value.dwCurveType)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 776L, value.dwFlags)
@@ -8990,8 +9053,8 @@ public data class NcryptSupportedLengths(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSupportedLengths> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptSupportedLengths> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): NcryptSupportedLengths =
                     NcryptSupportedLengths(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9019,8 +9082,8 @@ public data class NcryptTpmLoadableKeyBlobHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptTpmLoadableKeyBlobHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptTpmLoadableKeyBlobHeader> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): NcryptTpmLoadableKeyBlobHeader =
                     NcryptTpmLoadableKeyBlobHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9051,8 +9114,8 @@ public data class NcryptTpmPlatformAttestationStatement(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptTpmPlatformAttestationStatement> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptTpmPlatformAttestationStatement> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): NcryptTpmPlatformAttestationStatement =
                     NcryptTpmPlatformAttestationStatement(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9158,8 +9221,8 @@ public data class NcryptUiPolicyBlob(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptUiPolicyBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptUiPolicyBlob> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): NcryptUiPolicyBlob =
                     NcryptUiPolicyBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9190,8 +9253,8 @@ public data class NcryptVsmKeyAttestationClaimRestrictions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptVsmKeyAttestationClaimRestrictions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptVsmKeyAttestationClaimRestrictions> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): NcryptVsmKeyAttestationClaimRestrictions =
                     NcryptVsmKeyAttestationClaimRestrictions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9223,8 +9286,8 @@ public data class NcryptVsmKeyAttestationStatement(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptVsmKeyAttestationStatement> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NcryptVsmKeyAttestationStatement> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): NcryptVsmKeyAttestationStatement =
                     NcryptVsmKeyAttestationStatement(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9765,8 +9828,8 @@ public class OcspRequestInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OcspRequestInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OcspRequestInfo> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): OcspRequestInfo =
                     OcspRequestInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9970,8 +10033,8 @@ public class OcspSignedRequestInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OcspSignedRequestInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OcspSignedRequestInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): OcspSignedRequestInfo =
                     OcspSignedRequestInfo(
                         (CryptIntegerBlob.typeLayout()).readNative(addr),
@@ -10056,8 +10119,8 @@ public class OffloadPrivateKey internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OffloadPrivateKey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OffloadPrivateKey> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): OffloadPrivateKey =
                     OffloadPrivateKey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10112,8 +10175,8 @@ public data class PinCachePolicy(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PinCachePolicy> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PinCachePolicy> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): PinCachePolicy =
                     PinCachePolicy(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10141,8 +10204,8 @@ public data class PinInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PinInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PinInfo> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): PinInfo =
                     PinInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10317,8 +10380,8 @@ public data class Privkeyver3(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Privkeyver3> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Privkeyver3> {
-                override val sizeBytes: Long = 44L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 44L
                 override fun readNative(addr: Long): Privkeyver3 =
                     Privkeyver3(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10367,8 +10430,8 @@ public data class ProvEnumalgs(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProvEnumalgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProvEnumalgs> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): ProvEnumalgs =
                     ProvEnumalgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10377,7 +10440,7 @@ public data class ProvEnumalgs(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (20).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: ProvEnumalgs) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.aiAlgid)
@@ -10386,7 +10449,7 @@ public data class ProvEnumalgs(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (20).toInt())
-                    ).writeNative(addr + 12L, value.szName)
+                    ).writeNative(addr + 12L, value.szName.toList())
                 }
             }
     }
@@ -10434,8 +10497,8 @@ public data class ProvEnumalgsEx(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProvEnumalgsEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProvEnumalgsEx> {
-                override val sizeBytes: Long = 88L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 88L
                 override fun readNative(addr: Long): ProvEnumalgsEx =
                     ProvEnumalgsEx(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10447,12 +10510,12 @@ public data class ProvEnumalgsEx(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (20).toInt())
-                        ).readNative(addr + 24L),
+                        ).readNative(addr + 24L).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (40).toInt())
-                        ).readNative(addr + 48L),
+                        ).readNative(addr + 48L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: ProvEnumalgsEx) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.aiAlgid)
@@ -10464,12 +10527,12 @@ public data class ProvEnumalgsEx(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (20).toInt())
-                    ).writeNative(addr + 24L, value.szName)
+                    ).writeNative(addr + 24L, value.szName.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.dwLongNameLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (40).toInt())
-                    ).writeNative(addr + 48L, value.szLongName)
+                    ).writeNative(addr + 48L, value.szLongName.toList())
                 }
             }
     }
@@ -10482,8 +10545,8 @@ public data class Pubkey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pubkey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pubkey> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Pubkey =
                     Pubkey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10507,8 +10570,8 @@ public data class Pubkeyver3(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pubkeyver3> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pubkeyver3> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): Pubkeyver3 =
                     Pubkeyver3(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10537,8 +10600,8 @@ public data class Publickeystruc(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Publickeystruc> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Publickeystruc> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Publickeystruc =
                     Publickeystruc(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -10568,8 +10631,8 @@ public data class PaddingMode(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PaddingMode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PaddingMode> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PaddingMode =
                     PaddingMode(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -10772,8 +10835,8 @@ public data class RootInfoLuid(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RootInfoLuid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RootInfoLuid> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): RootInfoLuid =
                     RootInfoLuid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10795,8 +10858,8 @@ public data class Rsapubkey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rsapubkey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rsapubkey> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Rsapubkey =
                     Rsapubkey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10822,8 +10885,8 @@ public data class SchannelAlg(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SchannelAlg> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SchannelAlg> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): SchannelAlg =
                     SchannelAlg(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -11156,8 +11219,8 @@ public class SignerCertStoreInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SignerCertStoreInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SignerCertStoreInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SignerCertStoreInfo =
                     SignerCertStoreInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -11241,8 +11304,8 @@ public class SignerContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SignerContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SignerContext> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SignerContext =
                     SignerContext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -11945,8 +12008,8 @@ public data class SslEcckeyBlob(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SslEcckeyBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SslEcckeyBlob> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SslEcckeyBlob =
                     SslEcckeyBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -11990,8 +12053,8 @@ public data class SslF12ExtraCertChainPolicyStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SslF12ExtraCertChainPolicyStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SslF12ExtraCertChainPolicyStatus> {
-                override val sizeBytes: Long = 528L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 528L
                 override fun readNative(addr: Long): SslF12ExtraCertChainPolicyStatus =
                     SslF12ExtraCertChainPolicyStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -12001,7 +12064,7 @@ public data class SslF12ExtraCertChainPolicyStatus(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: SslF12ExtraCertChainPolicyStatus) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
@@ -12011,7 +12074,7 @@ public data class SslF12ExtraCertChainPolicyStatus(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 16L, value.wszErrorText)
+                    ).writeNative(addr + 16L, value.wszErrorText.toList())
                 }
             }
     }
@@ -12156,8 +12219,8 @@ public data class SslKeyPinExtraCertChainPolicyStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SslKeyPinExtraCertChainPolicyStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SslKeyPinExtraCertChainPolicyStatus> {
-                override val sizeBytes: Long = 1032L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1032L
                 override fun readNative(addr: Long): SslKeyPinExtraCertChainPolicyStatus =
                     SslKeyPinExtraCertChainPolicyStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -12165,7 +12228,7 @@ public data class SslKeyPinExtraCertChainPolicyStatus(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (512).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: SslKeyPinExtraCertChainPolicyStatus) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
@@ -12173,7 +12236,7 @@ public data class SslKeyPinExtraCertChainPolicyStatus(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (512).toInt())
-                    ).writeNative(addr + 8L, value.wszErrorText)
+                    ).writeNative(addr + 8L, value.wszErrorText.toList())
                 }
             }
     }

@@ -185,8 +185,8 @@ public class PrjCompleteCommandExtendedParameters01 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjCompleteCommandExtendedParameters01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjCompleteCommandExtendedParameters01> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PrjCompleteCommandExtendedParameters01 =
                     PrjCompleteCommandExtendedParameters01(
                         (
@@ -217,8 +217,8 @@ public data class PrjCompleteCommandExtendedParameters00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjCompleteCommandExtendedParameters00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjCompleteCommandExtendedParameters00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PrjCompleteCommandExtendedParameters00 =
                     PrjCompleteCommandExtendedParameters00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -285,8 +285,8 @@ public data class PrjFileBasicInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjFileBasicInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjFileBasicInfo> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): PrjFileBasicInfo =
                     PrjFileBasicInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -366,8 +366,8 @@ public data class PrjNotificationParameters2(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjNotificationParameters2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjNotificationParameters2> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): PrjNotificationParameters2 =
                     PrjNotificationParameters2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -385,8 +385,8 @@ public data class PrjNotificationParameters1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjNotificationParameters1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjNotificationParameters1> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PrjNotificationParameters1 =
                     PrjNotificationParameters1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -404,8 +404,8 @@ public data class PrjNotificationParameters0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjNotificationParameters0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjNotificationParameters0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PrjNotificationParameters0 =
                     PrjNotificationParameters0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -450,8 +450,8 @@ public data class PrjPlaceholderInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo> {
-                override val sizeBytes: Long = 344L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 344L
                 override fun readNative(addr: Long): PrjPlaceholderInfo =
                     PrjPlaceholderInfo(
                         (PrjFileBasicInfo.typeLayout()).readNative(addr),
@@ -462,7 +462,7 @@ public data class PrjPlaceholderInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 336L),
+                        ).readNative(addr + 336L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: PrjPlaceholderInfo) {
                     (PrjFileBasicInfo.typeLayout()).writeNative(addr, value.fileBasicInfo)
@@ -473,7 +473,7 @@ public data class PrjPlaceholderInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 336L, value.variableData)
+                    ).writeNative(addr + 336L, value.variableData.toList())
                 }
             }
     }
@@ -486,8 +486,8 @@ public data class PrjPlaceholderInfo0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PrjPlaceholderInfo0 =
                     PrjPlaceholderInfo0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -508,8 +508,8 @@ public data class PrjPlaceholderInfo1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo1> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PrjPlaceholderInfo1 =
                     PrjPlaceholderInfo1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -530,8 +530,8 @@ public data class PrjPlaceholderInfo2(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderInfo2> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PrjPlaceholderInfo2 =
                     PrjPlaceholderInfo2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -566,28 +566,28 @@ public data class PrjPlaceholderVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjPlaceholderVersionInfo> {
-                override val sizeBytes: Long = 256L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 256L
                 override fun readNative(addr: Long): PrjPlaceholderVersionInfo =
                     PrjPlaceholderVersionInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                        ).readNative(addr + 128L),
+                        ).readNative(addr + 128L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: PrjPlaceholderVersionInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                    ).writeNative(addr, value.providerID)
+                    ).writeNative(addr, value.providerID.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                    ).writeNative(addr + 128L, value.contentID)
+                    ).writeNative(addr + 128L, value.contentID.toList())
                 }
             }
     }
@@ -646,8 +646,8 @@ public class PrjStartvirtualizingOptions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjStartvirtualizingOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PrjStartvirtualizingOptions> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PrjStartvirtualizingOptions =
                     PrjStartvirtualizingOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

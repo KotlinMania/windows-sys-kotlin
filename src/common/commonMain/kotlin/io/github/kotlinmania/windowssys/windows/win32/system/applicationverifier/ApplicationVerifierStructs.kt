@@ -30,8 +30,8 @@ public data class AvrfBacktraceInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AvrfBacktraceInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AvrfBacktraceInformation> {
-                override val sizeBytes: Long = 264L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 264L
                 override fun readNative(addr: Long): AvrfBacktraceInformation =
                     AvrfBacktraceInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -39,7 +39,7 @@ public data class AvrfBacktraceInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (32).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: AvrfBacktraceInformation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.depth)
@@ -47,7 +47,7 @@ public data class AvrfBacktraceInformation(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (32).toInt())
-                    ).writeNative(addr + 8L, value.returnAddresses)
+                    ).writeNative(addr + 8L, value.returnAddresses.toList())
                 }
             }
     }
@@ -64,8 +64,8 @@ public data class AvrfHandleOperation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AvrfHandleOperation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AvrfHandleOperation> {
-                override val sizeBytes: Long = 288L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 288L
                 override fun readNative(addr: Long): AvrfHandleOperation =
                     AvrfHandleOperation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -164,8 +164,8 @@ public class AvrfHeapAllocation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AvrfHeapAllocation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AvrfHeapAllocation> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): AvrfHeapAllocation =
                     AvrfHeapAllocation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),

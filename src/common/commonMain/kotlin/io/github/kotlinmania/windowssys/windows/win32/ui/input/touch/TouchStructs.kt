@@ -15,8 +15,8 @@ public data class Gestureconfig(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Gestureconfig> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Gestureconfig> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Gestureconfig =
                     Gestureconfig(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

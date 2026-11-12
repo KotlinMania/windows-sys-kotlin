@@ -14,8 +14,8 @@ public data class Ielaunchurlinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ielaunchurlinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ielaunchurlinfo> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Ielaunchurlinfo =
                     Ielaunchurlinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -41,8 +41,8 @@ public data class Navigatedata(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Navigatedata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Navigatedata> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): Navigatedata =
                     Navigatedata(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

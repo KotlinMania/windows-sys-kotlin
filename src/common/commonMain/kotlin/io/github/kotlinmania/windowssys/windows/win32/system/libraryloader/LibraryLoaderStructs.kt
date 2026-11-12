@@ -48,8 +48,8 @@ public class Enumuilang internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Enumuilang> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Enumuilang> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Enumuilang =
                     Enumuilang(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -123,8 +123,8 @@ public class RedirectionDescriptor internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RedirectionDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RedirectionDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): RedirectionDescriptor =
                     RedirectionDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

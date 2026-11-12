@@ -9,8 +9,8 @@ public data class PwmControllerGetActualPeriodOutput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerGetActualPeriodOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerGetActualPeriodOutput> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PwmControllerGetActualPeriodOutput =
                     PwmControllerGetActualPeriodOutput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -31,8 +31,8 @@ public data class PwmControllerInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PwmControllerInfo =
                     PwmControllerInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -56,8 +56,8 @@ public data class PwmControllerSetDesiredPeriodInput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerSetDesiredPeriodInput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerSetDesiredPeriodInput> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PwmControllerSetDesiredPeriodInput =
                     PwmControllerSetDesiredPeriodInput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -75,8 +75,8 @@ public data class PwmControllerSetDesiredPeriodOutput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerSetDesiredPeriodOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmControllerSetDesiredPeriodOutput> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PwmControllerSetDesiredPeriodOutput =
                     PwmControllerSetDesiredPeriodOutput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -94,8 +94,8 @@ public data class PwmPinGetActiveDutyCyclePercentageOutput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinGetActiveDutyCyclePercentageOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinGetActiveDutyCyclePercentageOutput> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PwmPinGetActiveDutyCyclePercentageOutput =
                     PwmPinGetActiveDutyCyclePercentageOutput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -113,8 +113,8 @@ public data class PwmPinGetPolarityOutput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinGetPolarityOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinGetPolarityOutput> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PwmPinGetPolarityOutput =
                     PwmPinGetPolarityOutput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -132,8 +132,8 @@ public data class PwmPinIsStartedOutput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinIsStartedOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinIsStartedOutput> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): PwmPinIsStartedOutput =
                     PwmPinIsStartedOutput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -151,8 +151,8 @@ public data class PwmPinSetActiveDutyCyclePercentageInput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinSetActiveDutyCyclePercentageInput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinSetActiveDutyCyclePercentageInput> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PwmPinSetActiveDutyCyclePercentageInput =
                     PwmPinSetActiveDutyCyclePercentageInput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -170,8 +170,8 @@ public data class PwmPinSetPolarityInput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinSetPolarityInput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PwmPinSetPolarityInput> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PwmPinSetPolarityInput =
                     PwmPinSetPolarityInput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

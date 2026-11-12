@@ -895,36 +895,36 @@ public data class WlxTerminalServicesData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlxTerminalServicesData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlxTerminalServicesData> {
-                override val sizeBytes: Long = 1036L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 1036L
                 override fun readNative(addr: Long): WlxTerminalServicesData =
                     WlxTerminalServicesData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
-                        ).readNative(addr + 514L),
+                        ).readNative(addr + 514L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
-                        ).readNative(addr + 1028L),
+                        ).readNative(addr + 1028L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: WlxTerminalServicesData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
-                    ).writeNative(addr, value.profilePath)
+                    ).writeNative(addr, value.profilePath.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (257).toInt())
-                    ).writeNative(addr + 514L, value.homeDir)
+                    ).writeNative(addr + 514L, value.homeDir.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
-                    ).writeNative(addr + 1028L, value.homeDirDrive)
+                    ).writeNative(addr + 1028L, value.homeDirDrive.toList())
                 }
             }
     }

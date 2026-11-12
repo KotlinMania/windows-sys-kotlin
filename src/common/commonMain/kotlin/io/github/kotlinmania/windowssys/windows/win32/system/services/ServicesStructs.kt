@@ -566,8 +566,8 @@ public data class ScAction(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScAction> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScAction> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ScAction =
                     ScAction(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -715,22 +715,22 @@ public data class ServiceCustomSystemStateChangeDataItem00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceCustomSystemStateChangeDataItem00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceCustomSystemStateChangeDataItem00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ServiceCustomSystemStateChangeDataItem00 =
                     ServiceCustomSystemStateChangeDataItem00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: ServiceCustomSystemStateChangeDataItem00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dataOffset)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.data)
+                    ).writeNative(addr + 4L, value.data.toList())
                 }
             }
     }
@@ -738,7 +738,22 @@ public data class ServiceCustomSystemStateChangeDataItem00(
 
 public data class ServiceDelayedAutoStartInfo(
     public var fDelayedAutostart: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceDelayedAutoStartInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceDelayedAutoStartInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): ServiceDelayedAutoStartInfo =
+                    ServiceDelayedAutoStartInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: ServiceDelayedAutoStartInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fDelayedAutostart)
+                }
+            }
+    }
+}
 
 public class ServiceDescriptiona internal constructor(
     lpDescriptionCtorArg: Pstr,
@@ -956,7 +971,22 @@ public class ServiceFailureActionsw internal constructor(
 
 public data class ServiceFailureActionsFlag(
     public var fFailureActionsOnNonCrashFailures: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceFailureActionsFlag> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceFailureActionsFlag> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): ServiceFailureActionsFlag =
+                    ServiceFailureActionsFlag(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: ServiceFailureActionsFlag) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fFailureActionsOnNonCrashFailures)
+                }
+            }
+    }
+}
 
 public data class ServiceLaunchProtectedInfo(
     public var dwLaunchProtected: UInt = 0u,
@@ -964,8 +994,8 @@ public data class ServiceLaunchProtectedInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceLaunchProtectedInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceLaunchProtectedInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): ServiceLaunchProtectedInfo =
                     ServiceLaunchProtectedInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1226,8 +1256,8 @@ public data class ServicePreferredNodeInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServicePreferredNodeInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServicePreferredNodeInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): ServicePreferredNodeInfo =
                     ServicePreferredNodeInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1247,8 +1277,8 @@ public data class ServicePreshutdownInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServicePreshutdownInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServicePreshutdownInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): ServicePreshutdownInfo =
                     ServicePreshutdownInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1332,8 +1362,8 @@ public data class ServiceSidInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceSidInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceSidInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): ServiceSidInfo =
                     ServiceSidInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1351,8 +1381,8 @@ public data class ServiceStartReason(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceStartReason> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceStartReason> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): ServiceStartReason =
                     ServiceStartReason(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1376,8 +1406,8 @@ public data class ServiceStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceStatus> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): ServiceStatus =
                     ServiceStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1415,8 +1445,8 @@ public data class ServiceStatusProcess(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceStatusProcess> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceStatusProcess> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): ServiceStatusProcess =
                     ServiceStatusProcess(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1539,8 +1569,8 @@ public data class ServiceTimechangeInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTimechangeInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTimechangeInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ServiceTimechangeInfo =
                     ServiceTimechangeInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1610,8 +1640,8 @@ public class ServiceTrigger internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTrigger> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTrigger> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): ServiceTrigger =
                     ServiceTrigger(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1673,20 +1703,20 @@ public data class ServiceTriggerCustomStateId(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTriggerCustomStateId> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTriggerCustomStateId> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ServiceTriggerCustomStateId =
                     ServiceTriggerCustomStateId(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (2).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: ServiceTriggerCustomStateId) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (2).toInt())
-                    ).writeNative(addr, value.data)
+                    ).writeNative(addr, value.data.toList())
                 }
             }
     }
@@ -1736,8 +1766,8 @@ public class ServiceTriggerInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTriggerInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTriggerInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): ServiceTriggerInfo =
                     ServiceTriggerInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1817,8 +1847,8 @@ public class ServiceTriggerSpecificDataItem internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTriggerSpecificDataItem> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ServiceTriggerSpecificDataItem> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ServiceTriggerSpecificDataItem =
                     ServiceTriggerSpecificDataItem(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

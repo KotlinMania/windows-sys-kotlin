@@ -24,8 +24,8 @@ public data class FilterAggregateBasicInformation01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateBasicInformation01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateBasicInformation01> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): FilterAggregateBasicInformation01 =
                     FilterAggregateBasicInformation01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -50,8 +50,8 @@ public data class FilterAggregateBasicInformation00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateBasicInformation00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateBasicInformation00> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FilterAggregateBasicInformation00 =
                     FilterAggregateBasicInformation00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -94,8 +94,8 @@ public data class FilterAggregateStandardInformation01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateStandardInformation01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateStandardInformation01> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): FilterAggregateStandardInformation01 =
                     FilterAggregateStandardInformation01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -127,8 +127,8 @@ public data class FilterAggregateStandardInformation00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateStandardInformation00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterAggregateStandardInformation00> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): FilterAggregateStandardInformation00 =
                     FilterAggregateStandardInformation00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -182,8 +182,8 @@ public data class FilterFullInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterFullInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterFullInformation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FilterFullInformation =
                     FilterFullInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -193,7 +193,7 @@ public data class FilterFullInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 14L),
+                        ).readNative(addr + 14L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: FilterFullInformation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nextEntryOffset)
@@ -203,7 +203,7 @@ public data class FilterFullInformation(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 14L, value.filterNameBuffer)
+                    ).writeNative(addr + 14L, value.filterNameBuffer.toList())
                 }
             }
     }
@@ -216,8 +216,8 @@ public data class FilterMessageHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterMessageHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterMessageHeader> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FilterMessageHeader =
                     FilterMessageHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -234,7 +234,24 @@ public data class FilterMessageHeader(
 public data class FilterReplyHeader(
     public var status: Ntstatus = 0,
     public var messageId: ULong = 0uL,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterReplyHeader> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterReplyHeader> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): FilterReplyHeader =
+                    FilterReplyHeader(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: FilterReplyHeader) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.status)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.messageId)
+                }
+            }
+    }
+}
 
 public data class FilterVolumeBasicInformation(
     public var filterVolumeNameLength: UShort = 0u,
@@ -257,22 +274,22 @@ public data class FilterVolumeBasicInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterVolumeBasicInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterVolumeBasicInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): FilterVolumeBasicInformation =
                     FilterVolumeBasicInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: FilterVolumeBasicInformation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.filterVolumeNameLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 2L, value.filterVolumeName)
+                    ).writeNative(addr + 2L, value.filterVolumeName.toList())
                 }
             }
     }
@@ -311,8 +328,8 @@ public data class FilterVolumeStandardInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterVolumeStandardInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FilterVolumeStandardInformation> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): FilterVolumeStandardInformation =
                     FilterVolumeStandardInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -323,7 +340,7 @@ public data class FilterVolumeStandardInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 18L),
+                        ).readNative(addr + 18L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: FilterVolumeStandardInformation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nextEntryOffset)
@@ -334,7 +351,7 @@ public data class FilterVolumeStandardInformation(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 18L, value.filterVolumeName)
+                    ).writeNative(addr + 18L, value.filterVolumeName.toList())
                 }
             }
     }
@@ -364,8 +381,8 @@ public data class InstanceAggregateStandardInformation01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceAggregateStandardInformation01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceAggregateStandardInformation01> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): InstanceAggregateStandardInformation01 =
                     InstanceAggregateStandardInformation01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -408,8 +425,8 @@ public data class InstanceAggregateStandardInformation00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceAggregateStandardInformation00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceAggregateStandardInformation00> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): InstanceAggregateStandardInformation00 =
                     InstanceAggregateStandardInformation00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -451,8 +468,8 @@ public data class InstanceBasicInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceBasicInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceBasicInformation> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): InstanceBasicInformation =
                     InstanceBasicInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -482,8 +499,8 @@ public data class InstanceFullInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceFullInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstanceFullInformation> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): InstanceFullInformation =
                     InstanceFullInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -521,8 +538,8 @@ public data class InstancePartialInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstancePartialInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InstancePartialInformation> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): InstancePartialInformation =
                     InstancePartialInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

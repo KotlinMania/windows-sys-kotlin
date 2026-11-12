@@ -10,8 +10,8 @@ public data class BeepSetParameters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<BeepSetParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<BeepSetParameters> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): BeepSetParameters =
                     BeepSetParameters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

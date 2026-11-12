@@ -157,8 +157,8 @@ public class DmoOutputDataBuffer internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DmoOutputDataBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DmoOutputDataBuffer> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DmoOutputDataBuffer =
                     DmoOutputDataBuffer(
                         (

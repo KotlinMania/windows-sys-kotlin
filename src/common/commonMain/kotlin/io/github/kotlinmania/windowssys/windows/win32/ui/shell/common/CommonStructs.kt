@@ -62,8 +62,8 @@ public data class Itemidlist(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Itemidlist> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Itemidlist> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): Itemidlist =
                     Itemidlist(
                         (Shitemid.typeLayout()).readNative(addr),
@@ -102,22 +102,22 @@ public data class Shitemid(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Shitemid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Shitemid> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): Shitemid =
                     Shitemid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Shitemid) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cb)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 2L, value.abID)
+                    ).writeNative(addr + 2L, value.abID.toList())
                 }
             }
     }

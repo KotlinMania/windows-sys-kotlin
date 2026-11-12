@@ -11,8 +11,8 @@ public data class CdromDiskData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromDiskData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromDiskData> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): CdromDiskData =
                     CdromDiskData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -45,28 +45,28 @@ public data class CdromExceptionPerformanceDescriptor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExceptionPerformanceDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExceptionPerformanceDescriptor> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): CdromExceptionPerformanceDescriptor =
                     CdromExceptionPerformanceDescriptor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CdromExceptionPerformanceDescriptor) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr, value.lba)
+                    ).writeNative(addr, value.lba.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr + 4L, value.time)
+                    ).writeNative(addr + 4L, value.time.toList())
                 }
             }
     }
@@ -79,8 +79,8 @@ public data class CdromExclusiveAccess(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExclusiveAccess> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExclusiveAccess> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CdromExclusiveAccess =
                     CdromExclusiveAccess(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -115,22 +115,22 @@ public data class CdromExclusiveLock(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExclusiveLock> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExclusiveLock> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): CdromExclusiveLock =
                     CdromExclusiveLock(
                         (CdromExclusiveAccess.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CdromExclusiveLock) {
                     (CdromExclusiveAccess.typeLayout()).writeNative(addr, value.access)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                    ).writeNative(addr + 8L, value.callerName)
+                    ).writeNative(addr + 8L, value.callerName.toList())
                 }
             }
     }
@@ -157,22 +157,22 @@ public data class CdromExclusiveLockState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExclusiveLockState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromExclusiveLockState> {
-                override val sizeBytes: Long = 65L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 65L
                 override fun readNative(addr: Long): CdromExclusiveLockState =
                     CdromExclusiveLockState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CdromExclusiveLockState) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.lockState)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                    ).writeNative(addr + 1L, value.callerName)
+                    ).writeNative(addr + 1L, value.callerName.toList())
                 }
             }
     }
@@ -205,44 +205,44 @@ public data class CdromNominalPerformanceDescriptor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromNominalPerformanceDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromNominalPerformanceDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CdromNominalPerformanceDescriptor =
                     CdromNominalPerformanceDescriptor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CdromNominalPerformanceDescriptor) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr, value.startLba)
+                    ).writeNative(addr, value.startLba.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 4L, value.startPerformance)
+                    ).writeNative(addr + 4L, value.startPerformance.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 8L, value.endLba)
+                    ).writeNative(addr + 8L, value.endLba.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 12L, value.endPerformance)
+                    ).writeNative(addr + 12L, value.endPerformance.toList())
                 }
             }
     }
@@ -275,38 +275,38 @@ public data class CdromPerformanceHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromPerformanceHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromPerformanceHeader> {
-                override val sizeBytes: Long = 9L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 9L
                 override fun readNative(addr: Long): CdromPerformanceHeader =
                     CdromPerformanceHeader(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 5L),
+                        ).readNative(addr + 5L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CdromPerformanceHeader) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr, value.dataLength)
+                    ).writeNative(addr, value.dataLength.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 4L, value.bitfield)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 5L, value.reserved2)
+                    ).writeNative(addr + 5L, value.reserved2.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 8L, value.data)
+                    ).writeNative(addr + 8L, value.data.toList())
                 }
             }
     }
@@ -322,8 +322,8 @@ public data class CdromPerformanceRequest(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromPerformanceRequest> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromPerformanceRequest> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): CdromPerformanceRequest =
                     CdromPerformanceRequest(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -354,8 +354,8 @@ public data class CdromPlayAudioMsf(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromPlayAudioMsf> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromPlayAudioMsf> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): CdromPlayAudioMsf =
                     CdromPlayAudioMsf(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -386,8 +386,8 @@ public data class CdromReadTocEx(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromReadTocEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromReadTocEx> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): CdromReadTocEx =
                     CdromReadTocEx(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -413,8 +413,8 @@ public data class CdromSeekAudioMsf(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSeekAudioMsf> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSeekAudioMsf> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): CdromSeekAudioMsf =
                     CdromSeekAudioMsf(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -439,8 +439,8 @@ public data class CdromSetSpeed(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSetSpeed> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSetSpeed> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): CdromSetSpeed =
                     CdromSetSpeed(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -475,8 +475,8 @@ public data class CdromSetStreaming(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSetStreaming> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSetStreaming> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): CdromSetStreaming =
                     CdromSetStreaming(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -518,8 +518,8 @@ public data class CdromSimpleOpcInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSimpleOpcInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSimpleOpcInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CdromSimpleOpcInfo =
                     CdromSimpleOpcInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -541,8 +541,8 @@ public data class CdromStreamingControl(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromStreamingControl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromStreamingControl> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): CdromStreamingControl =
                     CdromStreamingControl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -561,8 +561,8 @@ public data class CdromSubQDataFormat(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSubQDataFormat> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromSubQDataFormat> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): CdromSubQDataFormat =
                     CdromSubQDataFormat(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -603,14 +603,14 @@ public data class CdromToc(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromToc> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromToc> {
-                override val sizeBytes: Long = 804L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 804L
                 override fun readNative(addr: Long): CdromToc =
                     CdromToc(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
@@ -622,7 +622,7 @@ public data class CdromToc(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr, value.length)
+                    ).writeNative(addr, value.length.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.firstTrack)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.lastTrack)
                     (
@@ -661,14 +661,14 @@ public data class CdromTocAtipData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocAtipData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocAtipData> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): CdromTocAtipData =
                     CdromTocAtipData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
@@ -680,7 +680,7 @@ public data class CdromTocAtipData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr, value.length)
+                    ).writeNative(addr, value.length.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.reserved1)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.reserved2)
                     (
@@ -749,8 +749,8 @@ public data class CdromTocAtipDataBlock(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocAtipDataBlock> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocAtipDataBlock> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CdromTocAtipDataBlock =
                     CdromTocAtipDataBlock(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -760,27 +760,27 @@ public data class CdromTocAtipDataBlock(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 7L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 11L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 15L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 19L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 23L),
                     )
                 override fun writeNative(addr: Long, value: CdromTocAtipDataBlock) {
@@ -791,27 +791,27 @@ public data class CdromTocAtipDataBlock(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 4L, value.leadInMsf)
+                    ).writeNative(addr + 4L, value.leadInMsf.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 7L, value.reserved8)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 8L, value.leadOutMsf)
+                    ).writeNative(addr + 8L, value.leadOutMsf.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 11L, value.reserved9)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 12L, value.a1Values)
+                    ).writeNative(addr + 12L, value.a1Values.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 15L, value.reserved10)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 16L, value.a2Values)
+                    ).writeNative(addr + 16L, value.a2Values.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 19L, value.reserved11)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 20L, value.a3Values)
+                    ).writeNative(addr + 20L, value.a3Values.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 23L, value.reserved12)
                 }
             }
@@ -920,14 +920,14 @@ public data class CdromTocFullTocData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocFullTocData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocFullTocData> {
-                override val sizeBytes: Long = 15L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 15L
                 override fun readNative(addr: Long): CdromTocFullTocData =
                     CdromTocFullTocData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
@@ -939,7 +939,7 @@ public data class CdromTocFullTocData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr, value.length)
+                    ).writeNative(addr, value.length.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.firstCompleteSession)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.lastCompleteSession)
                     (
@@ -987,8 +987,8 @@ public data class CdromTocFullTocDataBlock(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocFullTocDataBlock> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocFullTocDataBlock> {
-                override val sizeBytes: Long = 11L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 11L
                 override fun readNative(addr: Long): CdromTocFullTocDataBlock =
                     CdromTocFullTocDataBlock(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -998,12 +998,12 @@ public data class CdromTocFullTocDataBlock(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 7L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CdromTocFullTocDataBlock) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.sessionNumber)
@@ -1013,12 +1013,12 @@ public data class CdromTocFullTocDataBlock(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 4L, value.msfExtra)
+                    ).writeNative(addr + 4L, value.msfExtra.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 7L, value.zero)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 8L, value.msf)
+                    ).writeNative(addr + 8L, value.msf.toList())
                 }
             }
     }
@@ -1051,14 +1051,14 @@ public data class CdromTocPmaData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocPmaData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocPmaData> {
-                override val sizeBytes: Long = 15L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 15L
                 override fun readNative(addr: Long): CdromTocPmaData =
                     CdromTocPmaData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
@@ -1070,7 +1070,7 @@ public data class CdromTocPmaData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr, value.length)
+                    ).writeNative(addr, value.length.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.reserved1)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.reserved2)
                     (
@@ -1109,14 +1109,14 @@ public data class CdromTocSessionData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocSessionData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromTocSessionData> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): CdromTocSessionData =
                     CdromTocSessionData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 2L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
@@ -1128,7 +1128,7 @@ public data class CdromTocSessionData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr, value.length)
+                    ).writeNative(addr, value.length.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 2L, value.firstCompleteSession)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.lastCompleteSession)
                     (
@@ -1170,46 +1170,46 @@ public data class CdromWriteSpeedDescriptor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromWriteSpeedDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromWriteSpeedDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CdromWriteSpeedDescriptor =
                     CdromWriteSpeedDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CdromWriteSpeedDescriptor) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.bitfield)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 1L, value.reserved3)
+                    ).writeNative(addr + 1L, value.reserved3.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 4L, value.endLba)
+                    ).writeNative(addr + 4L, value.endLba.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 8L, value.readSpeed)
+                    ).writeNative(addr + 8L, value.readSpeed.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 12L, value.writeSpeed)
+                    ).writeNative(addr + 12L, value.writeSpeed.toList())
                 }
             }
     }
@@ -1221,8 +1221,8 @@ public data class CdromWriteSpeedRequest(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromWriteSpeedRequest> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CdromWriteSpeedRequest> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): CdromWriteSpeedRequest =
                     CdromWriteSpeedRequest(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1242,8 +1242,8 @@ public data class RawReadInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RawReadInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RawReadInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): RawReadInfo =
                     RawReadInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1301,8 +1301,8 @@ public data class SubQCurrentPosition(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQCurrentPosition> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQCurrentPosition> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SubQCurrentPosition =
                     SubQCurrentPosition(
                         (SubQHeader.typeLayout()).readNative(addr),
@@ -1313,11 +1313,11 @@ public data class SubQCurrentPosition(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SubQCurrentPosition) {
                     (SubQHeader.typeLayout()).writeNative(addr, value.header)
@@ -1328,11 +1328,11 @@ public data class SubQCurrentPosition(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 8L, value.absoluteAddress)
+                    ).writeNative(addr + 8L, value.absoluteAddress.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 12L, value.trackRelativeAddress)
+                    ).writeNative(addr + 12L, value.trackRelativeAddress.toList())
                 }
             }
     }
@@ -1362,8 +1362,8 @@ public data class SubQHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQHeader> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SubQHeader =
                     SubQHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1371,7 +1371,7 @@ public data class SubQHeader(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SubQHeader) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.reserved)
@@ -1379,7 +1379,7 @@ public data class SubQHeader(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr + 2L, value.dataLength)
+                    ).writeNative(addr + 2L, value.dataLength.toList())
                 }
             }
     }
@@ -1415,8 +1415,8 @@ public data class SubQMediaCatalogNumber(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQMediaCatalogNumber> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQMediaCatalogNumber> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): SubQMediaCatalogNumber =
                     SubQMediaCatalogNumber(
                         (SubQHeader.typeLayout()).readNative(addr),
@@ -1424,12 +1424,12 @@ public data class SubQMediaCatalogNumber(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 5L),
+                        ).readNative(addr + 5L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (15).toInt())
-                        ).readNative(addr + 9L),
+                        ).readNative(addr + 9L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SubQMediaCatalogNumber) {
                     (SubQHeader.typeLayout()).writeNative(addr, value.header)
@@ -1437,12 +1437,12 @@ public data class SubQMediaCatalogNumber(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 5L, value.reserved)
+                    ).writeNative(addr + 5L, value.reserved.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.bitfield)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (15).toInt())
-                    ).writeNative(addr + 9L, value.mediaCatalog)
+                    ).writeNative(addr + 9L, value.mediaCatalog.toList())
                 }
             }
     }
@@ -1484,8 +1484,8 @@ public data class SubQTrackIsrc(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQTrackIsrc> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubQTrackIsrc> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): SubQTrackIsrc =
                     SubQTrackIsrc(
                         (SubQHeader.typeLayout()).readNative(addr),
@@ -1497,7 +1497,7 @@ public data class SubQTrackIsrc(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (15).toInt())
-                        ).readNative(addr + 9L),
+                        ).readNative(addr + 9L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SubQTrackIsrc) {
                     (SubQHeader.typeLayout()).writeNative(addr, value.header)
@@ -1509,7 +1509,7 @@ public data class SubQTrackIsrc(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (15).toInt())
-                    ).writeNative(addr + 9L, value.trackIsrc)
+                    ).writeNative(addr + 9L, value.trackIsrc.toList())
                 }
             }
     }
@@ -1545,8 +1545,8 @@ public data class TrackData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrackData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrackData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TrackData =
                     TrackData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1556,7 +1556,7 @@ public data class TrackData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: TrackData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.reserved)
@@ -1566,7 +1566,7 @@ public data class TrackData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr + 4L, value.address)
+                    ).writeNative(addr + 4L, value.address.toList())
                 }
             }
     }
@@ -1587,20 +1587,20 @@ public data class VolumeControl(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VolumeControl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VolumeControl> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): VolumeControl =
                     VolumeControl(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: VolumeControl) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (4).toInt())
-                    ).writeNative(addr, value.portVolume)
+                    ).writeNative(addr, value.portVolume.toList())
                 }
             }
     }

@@ -71,8 +71,8 @@ public class MsAddinfoBlob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MsAddinfoBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MsAddinfoBlob> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MsAddinfoBlob =
                     MsAddinfoBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -154,8 +154,8 @@ public class MsAddinfoFlat internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MsAddinfoFlat> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MsAddinfoFlat> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MsAddinfoFlat =
                     MsAddinfoFlat(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -343,7 +343,28 @@ public data class SipCapSetV2(
     public var dwVersion: UInt = 0u,
     public var isMultiSign: Bool = 0,
     public var dwReserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SipCapSetV2> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SipCapSetV2> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): SipCapSetV2 =
+                    SipCapSetV2(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: SipCapSetV2) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.isMultiSign)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwReserved)
+                }
+            }
+    }
+}
 
 public data class SipCapSetV3(
     public var cbSize: UInt = 0u,

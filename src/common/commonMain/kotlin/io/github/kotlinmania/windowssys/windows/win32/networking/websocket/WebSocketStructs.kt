@@ -52,8 +52,8 @@ public class WebSocketBuffer1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WebSocketBuffer1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WebSocketBuffer1> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WebSocketBuffer1 =
                     WebSocketBuffer1(
                         (
@@ -121,8 +121,8 @@ public class WebSocketBuffer0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WebSocketBuffer0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WebSocketBuffer0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WebSocketBuffer0 =
                     WebSocketBuffer0(
                         (
@@ -255,8 +255,8 @@ public class WebSocketProperty internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WebSocketProperty> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WebSocketProperty> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WebSocketProperty =
                     WebSocketProperty(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

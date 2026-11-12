@@ -54,8 +54,8 @@ public class ActrlAccessa internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessa> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessa> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ActrlAccessa =
                     ActrlAccessa(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -119,8 +119,8 @@ public class ActrlAccessw internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessw> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessw> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ActrlAccessw =
                     ActrlAccessw(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -336,8 +336,8 @@ public class ActrlAccessEntryLista internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessEntryLista> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessEntryLista> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ActrlAccessEntryLista =
                     ActrlAccessEntryLista(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -401,8 +401,8 @@ public class ActrlAccessEntryListw internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessEntryListw> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActrlAccessEntryListw> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ActrlAccessEntryListw =
                     ActrlAccessEntryListw(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -834,20 +834,20 @@ public data class AuditIpAddress(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuditIpAddress> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuditIpAddress> {
-                override val sizeBytes: Long = 128L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 128L
                 override fun readNative(addr: Long): AuditIpAddress =
                     AuditIpAddress(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: AuditIpAddress) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                    ).writeNative(addr, value.pIpAddress)
+                    ).writeNative(addr, value.pIpAddress.toList())
                 }
             }
     }
@@ -901,8 +901,8 @@ public class AuditObjectTypes internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuditObjectTypes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuditObjectTypes> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AuditObjectTypes =
                     AuditObjectTypes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1099,8 +1099,8 @@ public class AuditParams internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuditParams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuditParams> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): AuditParams =
                     AuditParams(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1190,8 +1190,8 @@ public class AuthzAccessReply internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuthzAccessReply> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuthzAccessReply> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): AuthzAccessReply =
                     AuthzAccessReply(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1322,8 +1322,8 @@ public data class AuthzAuditEventTypeLegacy(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuthzAuditEventTypeLegacy> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuthzAuditEventTypeLegacy> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): AuthzAuditEventTypeLegacy =
                     AuthzAuditEventTypeLegacy(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1698,8 +1698,8 @@ public class AuthzSecurityAttributeOctetStringValue internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuthzSecurityAttributeOctetStringValue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AuthzSecurityAttributeOctetStringValue> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AuthzSecurityAttributeOctetStringValue =
                     AuthzSecurityAttributeOctetStringValue(
                         (
@@ -2063,8 +2063,8 @@ public data class FnObjectMgrFuncts(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FnObjectMgrFuncts> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FnObjectMgrFuncts> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): FnObjectMgrFuncts =
                     FnObjectMgrFuncts(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

@@ -227,8 +227,8 @@ public class MapiFileTagExt internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MapiFileTagExt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MapiFileTagExt> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MapiFileTagExt =
                     MapiFileTagExt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

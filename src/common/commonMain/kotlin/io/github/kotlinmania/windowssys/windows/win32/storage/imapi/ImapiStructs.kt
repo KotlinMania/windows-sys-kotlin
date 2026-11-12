@@ -32,22 +32,22 @@ public data class SPropAttrArray(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SPropAttrArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SPropAttrArray> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SPropAttrArray =
                     SPropAttrArray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: SPropAttrArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cValues)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                    ).writeNative(addr + 4L, value.aPropAttr)
+                    ).writeNative(addr + 4L, value.aPropAttr.toList())
                 }
             }
     }
@@ -94,8 +94,8 @@ public class TagImmpidGuidlistItem internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TagImmpidGuidlistItem> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TagImmpidGuidlistItem> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TagImmpidGuidlistItem =
                     TagImmpidGuidlistItem(
                         (

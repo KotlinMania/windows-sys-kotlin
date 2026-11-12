@@ -23,8 +23,8 @@ public data class Ieee1394VdevPnpRequest(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ieee1394VdevPnpRequest> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ieee1394VdevPnpRequest> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Ieee1394VdevPnpRequest =
                     Ieee1394VdevPnpRequest(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

@@ -117,8 +117,8 @@ public data class Heaplist32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Heaplist32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Heaplist32> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Heaplist32 =
                     Heaplist32(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -403,8 +403,8 @@ public data class Processentry32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Processentry32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Processentry32> {
-                override val sizeBytes: Long = 304L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 304L
                 override fun readNative(addr: Long): Processentry32 =
                     Processentry32(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -419,7 +419,7 @@ public data class Processentry32(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                        ).readNative(addr + 44L),
+                        ).readNative(addr + 44L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Processentry32) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
@@ -434,7 +434,7 @@ public data class Processentry32(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                    ).writeNative(addr + 44L, value.szExeFile)
+                    ).writeNative(addr + 44L, value.szExeFile.toList())
                 }
             }
     }
@@ -485,8 +485,8 @@ public data class Processentry32w(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Processentry32w> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Processentry32w> {
-                override val sizeBytes: Long = 568L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 568L
                 override fun readNative(addr: Long): Processentry32w =
                     Processentry32w(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -501,7 +501,7 @@ public data class Processentry32w(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr + 44L),
+                        ).readNative(addr + 44L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: Processentry32w) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
@@ -516,7 +516,7 @@ public data class Processentry32w(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr + 44L, value.szExeFile)
+                    ).writeNative(addr + 44L, value.szExeFile.toList())
                 }
             }
     }
@@ -534,8 +534,8 @@ public data class Threadentry32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Threadentry32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Threadentry32> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): Threadentry32 =
                     Threadentry32(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

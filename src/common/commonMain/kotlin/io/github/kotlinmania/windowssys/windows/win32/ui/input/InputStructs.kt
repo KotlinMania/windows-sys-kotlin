@@ -17,8 +17,8 @@ public data class InputMessageSource(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InputMessageSource> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InputMessageSource> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): InputMessageSource =
                     InputMessageSource(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -56,8 +56,8 @@ public data class Rawhid(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rawhid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rawhid> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Rawhid =
                     Rawhid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -65,7 +65,7 @@ public data class Rawhid(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Rawhid) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSizeHid)
@@ -73,7 +73,7 @@ public data class Rawhid(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 8L, value.bRawData)
+                    ).writeNative(addr + 8L, value.bRawData.toList())
                 }
             }
     }
@@ -265,8 +265,8 @@ public data class Rawkeyboard(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rawkeyboard> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rawkeyboard> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Rawkeyboard =
                     Rawkeyboard(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -309,8 +309,8 @@ public data class Rawmouse00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rawmouse00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Rawmouse00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Rawmouse00 =
                     Rawmouse00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -346,8 +346,8 @@ public data class RidDeviceInfoHid(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RidDeviceInfoHid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RidDeviceInfoHid> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): RidDeviceInfoHid =
                     RidDeviceInfoHid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -378,8 +378,8 @@ public data class RidDeviceInfoKeyboard(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RidDeviceInfoKeyboard> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RidDeviceInfoKeyboard> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): RidDeviceInfoKeyboard =
                     RidDeviceInfoKeyboard(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -406,4 +406,25 @@ public data class RidDeviceInfoMouse(
     public var dwNumberOfButtons: UInt = 0u,
     public var dwSampleRate: UInt = 0u,
     public var fHasHorizontalWheel: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RidDeviceInfoMouse> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RidDeviceInfoMouse> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): RidDeviceInfoMouse =
+                    RidDeviceInfoMouse(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: RidDeviceInfoMouse) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwNumberOfButtons)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwSampleRate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.fHasHorizontalWheel)
+                }
+            }
+    }
+}

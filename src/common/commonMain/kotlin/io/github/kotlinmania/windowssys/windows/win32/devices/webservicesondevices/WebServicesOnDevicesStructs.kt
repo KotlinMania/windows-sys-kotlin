@@ -39,8 +39,8 @@ public class RequestbodyGetStatus internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodyGetStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodyGetStatus> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): RequestbodyGetStatus =
                     RequestbodyGetStatus(
                         (
@@ -103,8 +103,8 @@ public class RequestbodyRenew internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodyRenew> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodyRenew> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): RequestbodyRenew =
                     RequestbodyRenew(
                         (
@@ -204,8 +204,8 @@ public class RequestbodySubscribe internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodySubscribe> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodySubscribe> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): RequestbodySubscribe =
                     RequestbodySubscribe(
                         (
@@ -296,8 +296,8 @@ public class RequestbodyUnsubscribe internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodyUnsubscribe> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RequestbodyUnsubscribe> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): RequestbodyUnsubscribe =
                     RequestbodyUnsubscribe(
                         (
@@ -348,8 +348,8 @@ public class ResponsebodyGetMetadata internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodyGetMetadata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodyGetMetadata> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ResponsebodyGetMetadata =
                     ResponsebodyGetMetadata(
                         (
@@ -412,8 +412,8 @@ public class ResponsebodyGetStatus internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodyGetStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodyGetStatus> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ResponsebodyGetStatus =
                     ResponsebodyGetStatus(
                         (
@@ -486,8 +486,8 @@ public class ResponsebodyRenew internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodyRenew> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodyRenew> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ResponsebodyRenew =
                     ResponsebodyRenew(
                         (
@@ -569,8 +569,8 @@ public class ResponsebodySubscribe internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodySubscribe> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResponsebodySubscribe> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): ResponsebodySubscribe =
                     ResponsebodySubscribe(
                         (
@@ -694,8 +694,8 @@ public data class WSDUdpRetransmitParams(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WSDUdpRetransmitParams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WSDUdpRetransmitParams> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): WSDUdpRetransmitParams =
                     WSDUdpRetransmitParams(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -846,8 +846,8 @@ public class WsdxmlElement internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdxmlElement> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdxmlElement> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): WsdxmlElement =
                     WsdxmlElement(
                         (WsdxmlNode.typeLayout()).readNative(addr),
@@ -944,8 +944,8 @@ public class WsdxmlElementList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdxmlElementList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdxmlElementList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdxmlElementList =
                     WsdxmlElementList(
                         (
@@ -1145,8 +1145,8 @@ public class WsdxmlNode internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdxmlNode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdxmlNode> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsdxmlNode =
                     WsdxmlNode(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1436,8 +1436,8 @@ public class WsdBye internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdBye> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdBye> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdBye =
                     WsdBye(
                         (
@@ -1507,8 +1507,8 @@ public class WsdConfigAddresses internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdConfigAddresses> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdConfigAddresses> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdConfigAddresses =
                     WsdConfigAddresses(
                         (
@@ -1578,8 +1578,8 @@ public class WsdConfigParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdConfigParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdConfigParam> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsdConfigParam =
                     WsdConfigParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1625,7 +1625,44 @@ public data class WsdDatetime(
     public var tZIsPositive: Bool = 0,
     public var tZHour: UByte = 0u,
     public var tZMinute: UByte = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdDatetime> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdDatetime> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): WsdDatetime =
+                    WsdDatetime(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 10L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 11L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 29L),
+                    )
+                override fun writeNative(addr: Long, value: WsdDatetime) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.isPositive)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.year)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.month)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.day)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 10L, value.hour)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 11L, value.minute)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 12L, value.second)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.millisecond)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.tZIsLocal)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.tZIsPositive)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 28L, value.tZHour)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 29L, value.tZMinute)
+                }
+            }
+    }
+}
 
 public data class WsdDuration(
     public var isPositive: Bool = 0,
@@ -1636,7 +1673,36 @@ public data class WsdDuration(
     public var minute: UInt = 0u,
     public var second: UInt = 0u,
     public var millisecond: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdDuration> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdDuration> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): WsdDuration =
+                    WsdDuration(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                    )
+                override fun writeNative(addr: Long, value: WsdDuration) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.isPositive)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.year)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.month)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.day)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.hour)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.minute)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.second)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.millisecond)
+                }
+            }
+    }
+}
 
 public class WsdEndpointReference internal constructor(
     addressCtorArg: Pcwstr,
@@ -1761,8 +1827,8 @@ public class WsdEndpointReferenceList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEndpointReferenceList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEndpointReferenceList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdEndpointReferenceList =
                     WsdEndpointReferenceList(
                         (
@@ -1974,8 +2040,8 @@ public class WsdEventingDeliveryModePush internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEventingDeliveryModePush> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEventingDeliveryModePush> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsdEventingDeliveryModePush =
                     WsdEventingDeliveryModePush(
                         (
@@ -2038,8 +2104,8 @@ public class WsdEventingExpires internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEventingExpires> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEventingExpires> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdEventingExpires =
                     WsdEventingExpires(
                         (
@@ -2158,8 +2224,8 @@ public class WsdEventingFilterAction internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEventingFilterAction> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdEventingFilterAction> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsdEventingFilterAction =
                     WsdEventingFilterAction(
                         (
@@ -2357,8 +2423,8 @@ public class WsdHello internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdHello> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdHello> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): WsdHello =
                     WsdHello(
                         (
@@ -2465,8 +2531,8 @@ public class WsdHostMetadata internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdHostMetadata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdHostMetadata> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdHostMetadata =
                     WsdHostMetadata(
                         (
@@ -2586,8 +2652,8 @@ public class WsdLocalizedStringList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdLocalizedStringList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdLocalizedStringList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdLocalizedStringList =
                     WsdLocalizedStringList(
                         (
@@ -2751,8 +2817,8 @@ public class WsdMetadataSectionList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdMetadataSectionList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdMetadataSectionList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdMetadataSectionList =
                     WsdMetadataSectionList(
                         (
@@ -2825,8 +2891,8 @@ public class WsdNameList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdNameList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdNameList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdNameList =
                     WsdNameList(
                         (
@@ -2963,8 +3029,8 @@ public class WsdPortType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdPortType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdPortType> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsdPortType =
                     WsdPortType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3048,8 +3114,8 @@ public class WsdProbe internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbe> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbe> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsdProbe =
                     WsdProbe(
                         (
@@ -3165,8 +3231,8 @@ public class WsdProbeMatch internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbeMatch> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbeMatch> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): WsdProbeMatch =
                     WsdProbeMatch(
                         (
@@ -3273,8 +3339,8 @@ public class WsdProbeMatches internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbeMatches> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbeMatches> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdProbeMatches =
                     WsdProbeMatches(
                         (
@@ -3347,8 +3413,8 @@ public class WsdProbeMatchList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbeMatchList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdProbeMatchList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdProbeMatchList =
                     WsdProbeMatchList(
                         (
@@ -3409,8 +3475,8 @@ public class WsdReferenceParameters internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdReferenceParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdReferenceParameters> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsdReferenceParameters =
                     WsdReferenceParameters(
                         (
@@ -3461,8 +3527,8 @@ public class WsdReferenceProperties internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdReferenceProperties> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdReferenceProperties> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsdReferenceProperties =
                     WsdReferenceProperties(
                         (
@@ -3583,8 +3649,8 @@ public class WsdResolve internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdResolve> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdResolve> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdResolve =
                     WsdResolve(
                         (
@@ -3690,8 +3756,8 @@ public class WsdResolveMatch internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdResolveMatch> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdResolveMatch> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): WsdResolveMatch =
                     WsdResolveMatch(
                         (
@@ -3798,8 +3864,8 @@ public class WsdResolveMatches internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdResolveMatches> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdResolveMatches> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdResolveMatches =
                     WsdResolveMatches(
                         (
@@ -4229,8 +4295,8 @@ public class WsdServiceMetadataList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdServiceMetadataList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdServiceMetadataList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdServiceMetadataList =
                     WsdServiceMetadataList(
                         (
@@ -4383,8 +4449,8 @@ public class WsdSoapFaultCode internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdSoapFaultCode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdSoapFaultCode> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdSoapFaultCode =
                     WsdSoapFaultCode(
                         (
@@ -4445,8 +4511,8 @@ public class WsdSoapFaultReason internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdSoapFaultReason> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdSoapFaultReason> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsdSoapFaultReason =
                     WsdSoapFaultReason(
                         (
@@ -4509,8 +4575,8 @@ public class WsdSoapFaultSubcode internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdSoapFaultSubcode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdSoapFaultSubcode> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsdSoapFaultSubcode =
                     WsdSoapFaultSubcode(
                         (
@@ -4984,8 +5050,8 @@ public class WsdUnknownLookup internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdUnknownLookup> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsdUnknownLookup> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsdUnknownLookup =
                     WsdUnknownLookup(
                         (

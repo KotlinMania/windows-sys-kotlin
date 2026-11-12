@@ -20,8 +20,8 @@ public data class Cainfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Cainfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Cainfo> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): Cainfo =
                     Cainfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -86,8 +86,8 @@ public class Certtransblob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Certtransblob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Certtransblob> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Certtransblob =
                     Certtransblob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -169,8 +169,8 @@ public class Certviewrestriction internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Certviewrestriction> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Certviewrestriction> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Certviewrestriction =
                     Certviewrestriction(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

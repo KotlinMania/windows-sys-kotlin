@@ -231,32 +231,32 @@ public data class Ldap0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ldap0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ldap0> {
-                override val sizeBytes: Long = 88L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 88L
                 override fun readNative(addr: Long): Ldap0 =
                     Ldap0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (41).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (24).toInt())
-                        ).readNative(addr + 64L),
+                        ).readNative(addr + 64L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Ldap0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.sbSd)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (41).toInt())
-                    ).writeNative(addr + 8L, value.reserved1)
+                    ).writeNative(addr + 8L, value.reserved1.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 56L, value.sbNaddr)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (24).toInt())
-                    ).writeNative(addr + 64L, value.reserved2)
+                    ).writeNative(addr + 64L, value.reserved2.toList())
                 }
             }
     }
@@ -741,8 +741,8 @@ public class LDAPMessage internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<LDAPMessage> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<LDAPMessage> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): LDAPMessage =
                     LDAPMessage(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1224,8 +1224,8 @@ public class LDAPVLVInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<LDAPVLVInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<LDAPVLVInfo> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): LDAPVLVInfo =
                     LDAPVLVInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1348,8 +1348,8 @@ public data class LdapTimeval(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<LdapTimeval> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<LdapTimeval> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): LdapTimeval =
                     LdapTimeval(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1371,8 +1371,8 @@ public data class LdapVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<LdapVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<LdapVersionInfo> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): LdapVersionInfo =
                     LdapVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

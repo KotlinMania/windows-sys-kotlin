@@ -49,8 +49,8 @@ public data class PxeDhcpv6Message(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6Message> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6Message> {
-                override val sizeBytes: Long = 9L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 9L
                 override fun readNative(addr: Long): PxeDhcpv6Message =
                     PxeDhcpv6Message(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -97,22 +97,22 @@ public data class PxeDhcpv6MessageHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6MessageHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6MessageHeader> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): PxeDhcpv6MessageHeader =
                     PxeDhcpv6MessageHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: PxeDhcpv6MessageHeader) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.messageType)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 1L, value.message)
+                    ).writeNative(addr + 1L, value.message.toList())
                 }
             }
     }
@@ -168,8 +168,8 @@ public class PxeDhcpv6NestedRelayMessage internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6NestedRelayMessage> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6NestedRelayMessage> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PxeDhcpv6NestedRelayMessage =
                     PxeDhcpv6NestedRelayMessage(
                         (
@@ -236,8 +236,8 @@ public data class PxeDhcpv6Option(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6Option> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6Option> {
-                override val sizeBytes: Long = 5L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 5L
                 override fun readNative(addr: Long): PxeDhcpv6Option =
                     PxeDhcpv6Option(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -245,7 +245,7 @@ public data class PxeDhcpv6Option(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: PxeDhcpv6Option) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.optionCode)
@@ -253,7 +253,7 @@ public data class PxeDhcpv6Option(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.data)
+                    ).writeNative(addr + 4L, value.data.toList())
                 }
             }
     }
@@ -289,8 +289,8 @@ public data class PxeDhcpv6RelayMessage(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6RelayMessage> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpv6RelayMessage> {
-                override val sizeBytes: Long = 39L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 39L
                 override fun readNative(addr: Long): PxeDhcpv6RelayMessage =
                     PxeDhcpv6RelayMessage(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -298,11 +298,11 @@ public data class PxeDhcpv6RelayMessage(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 18L),
+                        ).readNative(addr + 18L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(PxeDhcpv6Option.typeLayout(), (1).toInt())
@@ -314,11 +314,11 @@ public data class PxeDhcpv6RelayMessage(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 2L, value.linkAddress)
+                    ).writeNative(addr + 2L, value.linkAddress.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 18L, value.peerAddress)
+                    ).writeNative(addr + 18L, value.peerAddress.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(PxeDhcpv6Option.typeLayout(), (1).toInt())
@@ -432,8 +432,8 @@ public data class PxeDhcpOption(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpOption> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PxeDhcpOption> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): PxeDhcpOption =
                     PxeDhcpOption(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -441,7 +441,7 @@ public data class PxeDhcpOption(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: PxeDhcpOption) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.optionType)
@@ -449,7 +449,7 @@ public data class PxeDhcpOption(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 2L, value.optionValue)
+                    ).writeNative(addr + 2L, value.optionValue.toList())
                 }
             }
     }
@@ -534,8 +534,8 @@ public data class TransportclientSessionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TransportclientSessionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TransportclientSessionInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): TransportclientSessionInfo =
                     TransportclientSessionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -805,8 +805,8 @@ public data class WdsTransportproviderSettings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WdsTransportproviderSettings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WdsTransportproviderSettings> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WdsTransportproviderSettings =
                     WdsTransportproviderSettings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

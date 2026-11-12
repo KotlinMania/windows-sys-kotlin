@@ -37,8 +37,8 @@ public data class Eventlogrecord(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Eventlogrecord> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Eventlogrecord> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): Eventlogrecord =
                     Eventlogrecord(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -86,8 +86,8 @@ public data class EventlogFullInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventlogFullInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventlogFullInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventlogFullInformation =
                     EventlogFullInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -126,15 +126,15 @@ public data class Eventsforlogfile(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Eventsforlogfile> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Eventsforlogfile> {
-                override val sizeBytes: Long = 576L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 576L
                 override fun readNative(addr: Long): Eventsforlogfile =
                     Eventsforlogfile(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 516L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -146,7 +146,7 @@ public data class Eventsforlogfile(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 4L, value.szLogicalLogFile)
+                    ).writeNative(addr + 4L, value.szLogicalLogFile.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 516L, value.ulNumRecords)
                     (
                         io.github.kotlinmania.rustlang.core.mem

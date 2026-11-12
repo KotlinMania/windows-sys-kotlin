@@ -73,8 +73,8 @@ public class TfHaltcond internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfHaltcond> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfHaltcond> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TfHaltcond =
                     TfHaltcond(
                         (
@@ -378,8 +378,8 @@ public data class TfPreservedkey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfPreservedkey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfPreservedkey> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TfPreservedkey =
                     TfPreservedkey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -431,6 +431,27 @@ public class TfSelection internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfSelection> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfSelection> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): TfSelection =
+                    TfSelection(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr),
+                        (TfSelectionstyle.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: TfSelection) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr, value.range)
+                    (TfSelectionstyle.typeLayout()).writeNative(addr + 8L, value.style)
+                }
+            }
+
         public operator fun invoke(
             range: MutPtr<CVoid> = MutPtr(0L),
             style: TfSelectionstyle = TfSelectionstyle(),
@@ -445,7 +466,24 @@ public class TfSelection internal constructor(
 public data class TfSelectionstyle(
     public var ase: TfActiveSelEnd = 0,
     public var fInterimChar: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfSelectionstyle> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TfSelectionstyle> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): TfSelectionstyle =
+                    TfSelectionstyle(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: TfSelectionstyle) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.ase)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fInterimChar)
+                }
+            }
+    }
+}
 
 public data class TsAttrval(
     public var idAttr: Guid = Guid(),
@@ -460,8 +498,8 @@ public data class TsRuninfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsRuninfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsRuninfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TsRuninfo =
                     TsRuninfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -478,13 +516,49 @@ public data class TsRuninfo(
 public data class TsSelectionstyle(
     public var ase: TsActiveSelEnd = 0,
     public var fInterimChar: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsSelectionstyle> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsSelectionstyle> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): TsSelectionstyle =
+                    TsSelectionstyle(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: TsSelectionstyle) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.ase)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fInterimChar)
+                }
+            }
+    }
+}
 
 public data class TsSelectionAcp(
     public var acpStart: Int = 0,
     public var acpEnd: Int = 0,
     public var style: TsSelectionstyle = TsSelectionstyle(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsSelectionAcp> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsSelectionAcp> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): TsSelectionAcp =
+                    TsSelectionAcp(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (TsSelectionstyle.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: TsSelectionAcp) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.acpStart)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.acpEnd)
+                    (TsSelectionstyle.typeLayout()).writeNative(addr + 8L, value.style)
+                }
+            }
+    }
+}
 
 public class TsSelectionAnchor internal constructor(
     paStartCtorArg: MutPtr<CVoid>,
@@ -528,6 +602,35 @@ public class TsSelectionAnchor internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsSelectionAnchor> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsSelectionAnchor> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): TsSelectionAnchor =
+                    TsSelectionAnchor(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                        (TsSelectionstyle.typeLayout()).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: TsSelectionAnchor) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr, value.paStart)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.paEnd)
+                    (TsSelectionstyle.typeLayout()).writeNative(addr + 16L, value.style)
+                }
+            }
+
         public operator fun invoke(
             paStart: MutPtr<CVoid> = MutPtr(0L),
             paEnd: MutPtr<CVoid> = MutPtr(0L),
@@ -548,8 +651,8 @@ public data class TsStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsStatus> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TsStatus =
                     TsStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -571,8 +674,8 @@ public data class TsTextchange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsTextchange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TsTextchange> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): TsTextchange =
                     TsTextchange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

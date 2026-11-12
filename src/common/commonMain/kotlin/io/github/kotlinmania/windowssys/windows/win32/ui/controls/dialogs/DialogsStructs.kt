@@ -591,8 +591,8 @@ public data class Devnames(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Devnames> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Devnames> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Devnames =
                     Devnames(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -2427,8 +2427,8 @@ public data class Printpagerange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Printpagerange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Printpagerange> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Printpagerange =
                     Printpagerange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

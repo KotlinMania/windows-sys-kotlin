@@ -249,8 +249,8 @@ public class FwpmClassifyOptions0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmClassifyOptions0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmClassifyOptions0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmClassifyOptions0 =
                     FwpmClassifyOptions0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -464,8 +464,8 @@ public data class FwpmConnectionEnumTemplate0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmConnectionEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmConnectionEnumTemplate0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmConnectionEnumTemplate0 =
                     FwpmConnectionEnumTemplate0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -619,8 +619,8 @@ public class FwpmField0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmField0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmField0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmField0 =
                     FwpmField0(
                         (
@@ -1075,8 +1075,8 @@ public data class FwpmLayerEnumTemplate0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmLayerEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmLayerEnumTemplate0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FwpmLayerEnumTemplate0 =
                     FwpmLayerEnumTemplate0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1136,8 +1136,8 @@ public class FwpmNetworkConnectionPolicySettings0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetworkConnectionPolicySettings0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetworkConnectionPolicySettings0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmNetworkConnectionPolicySettings0 =
                     FwpmNetworkConnectionPolicySettings0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1939,13 +1939,51 @@ public data class FwpmNetEventCapabilityAllow0(
     public var networkCapabilityId: FwpmAppcNetworkCapabilityType = 0,
     public var filterId: ULong = 0uL,
     public var isLoopback: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventCapabilityAllow0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventCapabilityAllow0> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): FwpmNetEventCapabilityAllow0 =
+                    FwpmNetEventCapabilityAllow0(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: FwpmNetEventCapabilityAllow0) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.networkCapabilityId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.filterId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.isLoopback)
+                }
+            }
+    }
+}
 
 public data class FwpmNetEventCapabilityDrop0(
     public var networkCapabilityId: FwpmAppcNetworkCapabilityType = 0,
     public var filterId: ULong = 0uL,
     public var isLoopback: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventCapabilityDrop0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventCapabilityDrop0> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): FwpmNetEventCapabilityDrop0 =
+                    FwpmNetEventCapabilityDrop0(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: FwpmNetEventCapabilityDrop0) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.networkCapabilityId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.filterId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.isLoopback)
+                }
+            }
+    }
+}
 
 public data class FwpmNetEventClassifyAllow0(
     public var filterId: ULong = 0uL,
@@ -1955,7 +1993,34 @@ public data class FwpmNetEventClassifyAllow0(
     public var currentProfile: UInt = 0u,
     public var msFwpDirection: UInt = 0u,
     public var isLoopback: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyAllow0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyAllow0> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): FwpmNetEventClassifyAllow0 =
+                    FwpmNetEventClassifyAllow0(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                    )
+                override fun writeNative(addr: Long, value: FwpmNetEventClassifyAllow0) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.filterId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.layerId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reauthReason)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.originalProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.currentProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.msFwpDirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.isLoopback)
+                }
+            }
+    }
+}
 
 public data class FwpmNetEventClassifyDrop0(
     public var filterId: ULong = 0uL,
@@ -1964,8 +2029,8 @@ public data class FwpmNetEventClassifyDrop0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDrop0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDrop0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmNetEventClassifyDrop0 =
                     FwpmNetEventClassifyDrop0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1987,7 +2052,34 @@ public data class FwpmNetEventClassifyDrop1(
     public var currentProfile: UInt = 0u,
     public var msFwpDirection: UInt = 0u,
     public var isLoopback: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDrop1> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDrop1> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): FwpmNetEventClassifyDrop1 =
+                    FwpmNetEventClassifyDrop1(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                    )
+                override fun writeNative(addr: Long, value: FwpmNetEventClassifyDrop1) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.filterId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.layerId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reauthReason)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.originalProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.currentProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.msFwpDirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.isLoopback)
+                }
+            }
+    }
+}
 
 public data class FwpmNetEventClassifyDrop2(
     public var filterId: ULong = 0uL,
@@ -2000,7 +2092,40 @@ public data class FwpmNetEventClassifyDrop2(
     public var vSwitchId: FwpByteBlob = FwpByteBlob(),
     public var vSwitchSourcePort: UInt = 0u,
     public var vSwitchDestinationPort: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDrop2> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDrop2> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
+                override fun readNative(addr: Long): FwpmNetEventClassifyDrop2 =
+                    FwpmNetEventClassifyDrop2(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                        (FwpByteBlob.typeLayout()).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                    )
+                override fun writeNative(addr: Long, value: FwpmNetEventClassifyDrop2) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.filterId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.layerId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reauthReason)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.originalProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.currentProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.msFwpDirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.isLoopback)
+                    (FwpByteBlob.typeLayout()).writeNative(addr + 32L, value.vSwitchId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.vSwitchSourcePort)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.vSwitchDestinationPort)
+                }
+            }
+    }
+}
 
 public class FwpmNetEventClassifyDropMac0(
     public var localMacAddr: FwpByteArray6 = FwpByteArray6(),
@@ -2022,7 +2147,58 @@ public class FwpmNetEventClassifyDropMac0(
     public var vSwitchId: FwpByteBlob = FwpByteBlob(),
     public var vSwitchSourcePort: UInt = 0u,
     public var vSwitchDestinationPort: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDropMac0> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventClassifyDropMac0> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 104L
+                override fun readNative(addr: Long): FwpmNetEventClassifyDropMac0 =
+                    FwpmNetEventClassifyDropMac0(
+                        (FwpByteArray6.typeLayout()).readNative(addr),
+                        (FwpByteArray6.typeLayout()).readNative(addr + 6L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 76L),
+                        (FwpByteBlob.typeLayout()).readNative(addr + 80L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 96L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 100L),
+                    )
+                override fun writeNative(addr: Long, value: FwpmNetEventClassifyDropMac0) {
+                    (FwpByteArray6.typeLayout()).writeNative(addr, value.localMacAddr)
+                    (FwpByteArray6.typeLayout()).writeNative(addr + 6L, value.remoteMacAddr)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.mediaType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ifType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 20L, value.etherType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.ndisPortNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.reserved)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 32L, value.vlanTag)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 40L, value.ifLuid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 48L, value.filterId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 56L, value.layerId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.reauthReason)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.originalProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 68L, value.currentProfile)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.msFwpDirection)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 76L, value.isLoopback)
+                    (FwpByteBlob.typeLayout()).writeNative(addr + 80L, value.vSwitchId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 96L, value.vSwitchSourcePort)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 100L, value.vSwitchDestinationPort)
+                }
+            }
+    }
+}
 
 public class FwpmNetEventEnumTemplate0 internal constructor(
     public var startTime: Filetime,
@@ -2371,8 +2547,8 @@ public data class FwpmNetEventHeader12000(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventHeader12000> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventHeader12000> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): FwpmNetEventHeader12000 =
                     FwpmNetEventHeader12000(
                         (FwpByteArray6.typeLayout()).readNative(addr),
@@ -2759,8 +2935,8 @@ public data class FwpmNetEventIkeextEmFailure0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventIkeextEmFailure0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventIkeextEmFailure0> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): FwpmNetEventIkeextEmFailure0 =
                     FwpmNetEventIkeextEmFailure0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2772,7 +2948,7 @@ public data class FwpmNetEventIkeextEmFailure0(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                        ).readNative(addr + 24L),
+                        ).readNative(addr + 24L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 56L),
                     )
@@ -2786,7 +2962,7 @@ public data class FwpmNetEventIkeextEmFailure0(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                    ).writeNative(addr + 24L, value.endCertHash)
+                    ).writeNative(addr + 24L, value.endCertHash.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 48L, value.mmId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 56L, value.qmFilterId)
                 }
@@ -3004,8 +3180,8 @@ public data class FwpmNetEventIkeextMmFailure0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventIkeextMmFailure0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventIkeextMmFailure0> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): FwpmNetEventIkeextMmFailure0 =
                     FwpmNetEventIkeextMmFailure0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3018,7 +3194,7 @@ public data class FwpmNetEventIkeextMmFailure0(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                        ).readNative(addr + 28L),
+                        ).readNative(addr + 28L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 56L),
                     )
@@ -3033,7 +3209,7 @@ public data class FwpmNetEventIkeextMmFailure0(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                    ).writeNative(addr + 28L, value.endCertHash)
+                    ).writeNative(addr + 28L, value.endCertHash.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 48L, value.mmId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 56L, value.mmFilterId)
                 }
@@ -3400,8 +3576,8 @@ public data class FwpmNetEventIpsecKernelDrop0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventIpsecKernelDrop0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventIpsecKernelDrop0> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FwpmNetEventIpsecKernelDrop0 =
                     FwpmNetEventIpsecKernelDrop0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3427,8 +3603,8 @@ public data class FwpmNetEventLpmPacketArrival0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventLpmPacketArrival0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmNetEventLpmPacketArrival0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): FwpmNetEventLpmPacketArrival0 =
                     FwpmNetEventLpmPacketArrival0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4602,8 +4778,8 @@ public class FwpmProviderContextEnumTemplate0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmProviderContextEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmProviderContextEnumTemplate0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmProviderContextEnumTemplate0 =
                     FwpmProviderContextEnumTemplate0(
                         (
@@ -4690,8 +4866,8 @@ public data class FwpmProviderEnumTemplate0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmProviderEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmProviderEnumTemplate0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FwpmProviderEnumTemplate0 =
                     FwpmProviderEnumTemplate0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -4856,8 +5032,8 @@ public data class FwpmSessionEnumTemplate0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSessionEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSessionEnumTemplate0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FwpmSessionEnumTemplate0 =
                     FwpmSessionEnumTemplate0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -4952,8 +5128,8 @@ public class FwpmStatistics0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmStatistics0> {
-                override val sizeBytes: Long = 240L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 240L
                 override fun readNative(addr: Long): FwpmStatistics0 =
                     FwpmStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5225,8 +5401,8 @@ public class FwpmSublayerEnumTemplate0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSublayerEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSublayerEnumTemplate0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FwpmSublayerEnumTemplate0 =
                     FwpmSublayerEnumTemplate0(
                         (
@@ -5338,8 +5514,8 @@ public class FwpmSystemPorts0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSystemPorts0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSystemPorts0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmSystemPorts0 =
                     FwpmSystemPorts0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5409,8 +5585,8 @@ public class FwpmSystemPortsByType0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSystemPortsByType0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmSystemPortsByType0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmSystemPortsByType0 =
                     FwpmSystemPortsByType0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -5535,8 +5711,8 @@ public class FwpmVswitchEvent000 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmVswitchEvent000> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmVswitchEvent000> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpmVswitchEvent000 =
                     FwpmVswitchEvent000(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5604,6 +5780,29 @@ public class FwpmVswitchEvent001 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmVswitchEvent001> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpmVswitchEvent001> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): FwpmVswitchEvent001 =
+                    FwpmVswitchEvent001(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Pwstr>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: FwpmVswitchEvent001) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.inRequiredPosition)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numvSwitchFilterExtensions)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Pwstr>(64)
+                    ).writeNative(addr + 8L, value.vSwitchFilterExtensions)
+                }
+            }
+
         public operator fun invoke(
             inRequiredPosition: Bool = 0,
             numvSwitchFilterExtensions: UInt = 0u,
@@ -5637,20 +5836,20 @@ public data class FwpByteArray16(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpByteArray16> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpByteArray16> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpByteArray16 =
                     FwpByteArray16(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: FwpByteArray16) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr, value.byteArray16)
+                    ).writeNative(addr, value.byteArray16.toList())
                 }
             }
     }
@@ -5671,20 +5870,20 @@ public data class FwpByteArray6(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpByteArray6> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpByteArray6> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): FwpByteArray6 =
                     FwpByteArray6(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: FwpByteArray6) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
-                    ).writeNative(addr, value.byteArray6)
+                    ).writeNative(addr, value.byteArray6.toList())
                 }
             }
     }
@@ -5725,8 +5924,8 @@ public class FwpByteBlob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpByteBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpByteBlob> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FwpByteBlob =
                     FwpByteBlob(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5954,8 +6153,8 @@ public class FwpTokenInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpTokenInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpTokenInformation> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FwpTokenInformation =
                     FwpTokenInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6005,8 +6204,8 @@ public data class FwpV4AddrAndMask(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpV4AddrAndMask> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpV4AddrAndMask> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FwpV4AddrAndMask =
                     FwpV4AddrAndMask(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6041,21 +6240,21 @@ public data class FwpV6AddrAndMask(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpV6AddrAndMask> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FwpV6AddrAndMask> {
-                override val sizeBytes: Long = 17L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 17L
                 override fun readNative(addr: Long): FwpV6AddrAndMask =
                     FwpV6AddrAndMask(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: FwpV6AddrAndMask) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr, value.addr)
+                    ).writeNative(addr, value.addr.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 16L, value.prefixLength)
                 }
             }
@@ -6328,8 +6527,8 @@ public class IkeextCertificateAuthentication000 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication000> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication000> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication000 =
                     IkeextCertificateAuthentication000(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6448,8 +6647,8 @@ public class IkeextCertificateAuthentication010 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication010> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication010> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication010 =
                     IkeextCertificateAuthentication010(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6577,8 +6776,8 @@ public class IkeextCertificateAuthentication100 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication100> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication100> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication100 =
                     IkeextCertificateAuthentication100(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6697,8 +6896,8 @@ public class IkeextCertificateAuthentication110 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication110> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication110> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication110 =
                     IkeextCertificateAuthentication110(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6777,8 +6976,8 @@ public class IkeextCertificateAuthentication200 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication200> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication200> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication200 =
                     IkeextCertificateAuthentication200(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6842,8 +7041,8 @@ public class IkeextCertificateAuthentication201 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication201> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication201> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication201 =
                     IkeextCertificateAuthentication201(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6907,8 +7106,8 @@ public class IkeextCertificateAuthentication202 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication202> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication202> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication202 =
                     IkeextCertificateAuthentication202(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6978,8 +7177,8 @@ public class IkeextCertificateAuthentication210 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication210> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication210> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication210 =
                     IkeextCertificateAuthentication210(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7043,8 +7242,8 @@ public class IkeextCertificateAuthentication211 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication211> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication211> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication211 =
                     IkeextCertificateAuthentication211(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7108,8 +7307,8 @@ public class IkeextCertificateAuthentication212 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication212> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateAuthentication212> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertificateAuthentication212 =
                     IkeextCertificateAuthentication212(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7146,8 +7345,8 @@ public data class IkeextCertificateCredential0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateCredential0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateCredential0> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): IkeextCertificateCredential0 =
                     IkeextCertificateCredential0(
                         (FwpByteBlob.typeLayout()).readNative(addr),
@@ -7172,8 +7371,8 @@ public data class IkeextCertificateCredential1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateCredential1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateCredential1> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): IkeextCertificateCredential1 =
                     IkeextCertificateCredential1(
                         (FwpByteBlob.typeLayout()).readNative(addr),
@@ -7247,8 +7446,8 @@ public class IkeextCertificateCriteria0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateCriteria0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertificateCriteria0> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): IkeextCertificateCriteria0 =
                     IkeextCertificateCriteria0(
                         (FwpByteBlob.typeLayout()).readNative(addr),
@@ -7330,8 +7529,8 @@ public class IkeextCertEkus0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertEkus0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertEkus0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCertEkus0 =
                     IkeextCertEkus0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7411,8 +7610,8 @@ public data class IkeextCertRootConfig0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertRootConfig0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCertRootConfig0> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IkeextCertRootConfig0 =
                     IkeextCertRootConfig0(
                         (FwpByteBlob.typeLayout()).readNative(addr),
@@ -7434,8 +7633,8 @@ public data class IkeextCipherAlgorithm0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCipherAlgorithm0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCipherAlgorithm0> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): IkeextCipherAlgorithm0 =
                     IkeextCipherAlgorithm0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -7461,8 +7660,8 @@ public data class IkeextCommonStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCommonStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCommonStatistics0> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): IkeextCommonStatistics0 =
                     IkeextCommonStatistics0(
                         (IkeextIpVersionSpecificCommonStatistics0.typeLayout()).readNative(addr),
@@ -7492,8 +7691,8 @@ public data class IkeextCommonStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCommonStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCommonStatistics1> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): IkeextCommonStatistics1 =
                     IkeextCommonStatistics1(
                         (IkeextIpVersionSpecificCommonStatistics1.typeLayout()).readNative(addr),
@@ -7520,8 +7719,8 @@ public data class IkeextCookiePair0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCookiePair0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCookiePair0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCookiePair0 =
                     IkeextCookiePair0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -7762,8 +7961,8 @@ public class IkeextCredentials0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCredentials0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCredentials0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCredentials0 =
                     IkeextCredentials0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7827,8 +8026,8 @@ public class IkeextCredentials1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCredentials1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCredentials1> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCredentials1 =
                     IkeextCredentials1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7892,8 +8091,8 @@ public class IkeextCredentials2 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCredentials2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextCredentials2> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextCredentials2 =
                     IkeextCredentials2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7943,8 +8142,8 @@ public data class IkeextEapAuthentication0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEapAuthentication0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEapAuthentication0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): IkeextEapAuthentication0 =
                     IkeextEapAuthentication0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7997,8 +8196,8 @@ public class IkeextEmPolicy0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEmPolicy0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEmPolicy0> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IkeextEmPolicy0 =
                     IkeextEmPolicy0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8072,8 +8271,8 @@ public class IkeextEmPolicy1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEmPolicy1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEmPolicy1> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IkeextEmPolicy1 =
                     IkeextEmPolicy1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8147,8 +8346,8 @@ public class IkeextEmPolicy2 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEmPolicy2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextEmPolicy2> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IkeextEmPolicy2 =
                     IkeextEmPolicy2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8187,8 +8386,8 @@ public data class IkeextIntegrityAlgorithm0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIntegrityAlgorithm0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIntegrityAlgorithm0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): IkeextIntegrityAlgorithm0 =
                     IkeextIntegrityAlgorithm0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -8278,8 +8477,8 @@ public data class IkeextIpVersionSpecificCommonStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificCommonStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificCommonStatistics0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): IkeextIpVersionSpecificCommonStatistics0 =
                     IkeextIpVersionSpecificCommonStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8300,8 +8499,8 @@ public data class IkeextIpVersionSpecificCommonStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificCommonStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificCommonStatistics1> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): IkeextIpVersionSpecificCommonStatistics1 =
                     IkeextIpVersionSpecificCommonStatistics1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8338,8 +8537,8 @@ public class IkeextIpVersionSpecificKeymoduleStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificKeymoduleStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificKeymoduleStatistics0> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): IkeextIpVersionSpecificKeymoduleStatistics0 =
                     IkeextIpVersionSpecificKeymoduleStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8408,8 +8607,8 @@ public class IkeextIpVersionSpecificKeymoduleStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificKeymoduleStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextIpVersionSpecificKeymoduleStatistics1> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): IkeextIpVersionSpecificKeymoduleStatistics1 =
                     IkeextIpVersionSpecificKeymoduleStatistics1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8461,8 +8660,8 @@ public data class IkeextKerberosAuthentication0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextKerberosAuthentication0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextKerberosAuthentication0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): IkeextKerberosAuthentication0 =
                     IkeextKerberosAuthentication0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8551,8 +8750,8 @@ public data class IkeextKeymoduleStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextKeymoduleStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextKeymoduleStatistics0> {
-                override val sizeBytes: Long = 544L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 544L
                 override fun readNative(addr: Long): IkeextKeymoduleStatistics0 =
                     IkeextKeymoduleStatistics0(
                         (IkeextIpVersionSpecificKeymoduleStatistics0.typeLayout()).readNative(addr),
@@ -8560,7 +8759,7 @@ public data class IkeextKeymoduleStatistics0(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (97).toInt())
-                        ).readNative(addr + 144L),
+                        ).readNative(addr + 144L).toUIntArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 532L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 536L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 540L),
@@ -8571,7 +8770,7 @@ public data class IkeextKeymoduleStatistics0(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (97).toInt())
-                    ).writeNative(addr + 144L, value.errorFrequencyTable)
+                    ).writeNative(addr + 144L, value.errorFrequencyTable.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 532L, value.mainModeNegotiationTime)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 536L, value.quickModeNegotiationTime)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 540L, value.extendedModeNegotiationTime)
@@ -8613,8 +8812,8 @@ public data class IkeextKeymoduleStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextKeymoduleStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextKeymoduleStatistics1> {
-                override val sizeBytes: Long = 544L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 544L
                 override fun readNative(addr: Long): IkeextKeymoduleStatistics1 =
                     IkeextKeymoduleStatistics1(
                         (IkeextIpVersionSpecificKeymoduleStatistics1.typeLayout()).readNative(addr),
@@ -8622,7 +8821,7 @@ public data class IkeextKeymoduleStatistics1(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (97).toInt())
-                        ).readNative(addr + 144L),
+                        ).readNative(addr + 144L).toUIntArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 532L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 536L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 540L),
@@ -8633,7 +8832,7 @@ public data class IkeextKeymoduleStatistics1(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (97).toInt())
-                    ).writeNative(addr + 144L, value.errorFrequencyTable)
+                    ).writeNative(addr + 144L, value.errorFrequencyTable.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 532L, value.mainModeNegotiationTime)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 536L, value.quickModeNegotiationTime)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 540L, value.extendedModeNegotiationTime)
@@ -8681,8 +8880,8 @@ public data class IkeextNtlmV2Authentication0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextNtlmV2Authentication0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextNtlmV2Authentication0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): IkeextNtlmV2Authentication0 =
                     IkeextNtlmV2Authentication0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8768,8 +8967,8 @@ public class IkeextPolicy0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPolicy0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPolicy0> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): IkeextPolicy0 =
                     IkeextPolicy0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8908,8 +9107,8 @@ public class IkeextPolicy1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPolicy1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPolicy1> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): IkeextPolicy1 =
                     IkeextPolicy1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9052,8 +9251,8 @@ public class IkeextPolicy2 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPolicy2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPolicy2> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): IkeextPolicy2 =
                     IkeextPolicy2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9122,8 +9321,8 @@ public data class IkeextPresharedKeyAuthentication0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPresharedKeyAuthentication0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPresharedKeyAuthentication0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IkeextPresharedKeyAuthentication0 =
                     IkeextPresharedKeyAuthentication0(
                         (FwpByteBlob.typeLayout()).readNative(addr),
@@ -9142,8 +9341,8 @@ public data class IkeextPresharedKeyAuthentication1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPresharedKeyAuthentication1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextPresharedKeyAuthentication1> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IkeextPresharedKeyAuthentication1 =
                     IkeextPresharedKeyAuthentication1(
                         (FwpByteBlob.typeLayout()).readNative(addr),
@@ -9167,8 +9366,8 @@ public data class IkeextProposal0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextProposal0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextProposal0> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): IkeextProposal0 =
                     IkeextProposal0(
                         (IkeextCipherAlgorithm0.typeLayout()).readNative(addr),
@@ -9194,8 +9393,8 @@ public data class IkeextReservedAuthentication0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextReservedAuthentication0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextReservedAuthentication0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): IkeextReservedAuthentication0 =
                     IkeextReservedAuthentication0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9361,8 +9560,8 @@ public data class IkeextStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextStatistics0> {
-                override val sizeBytes: Long = 1116L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1116L
                 override fun readNative(addr: Long): IkeextStatistics0 =
                     IkeextStatistics0(
                         (IkeextKeymoduleStatistics0.typeLayout()).readNative(addr),
@@ -9387,8 +9586,8 @@ public data class IkeextStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IkeextStatistics1> {
-                override val sizeBytes: Long = 1660L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1660L
                 override fun readNative(addr: Long): IkeextStatistics1 =
                     IkeextStatistics1(
                         (IkeextKeymoduleStatistics1.typeLayout()).readNative(addr),
@@ -9501,8 +9700,8 @@ public class IpsecAddressInfo0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAddressInfo0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAddressInfo0> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): IpsecAddressInfo0 =
                     IpsecAddressInfo0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9559,8 +9758,8 @@ public data class IpsecAggregateDropPacketStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAggregateDropPacketStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAggregateDropPacketStatistics0> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): IpsecAggregateDropPacketStatistics0 =
                     IpsecAggregateDropPacketStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9603,8 +9802,8 @@ public data class IpsecAggregateDropPacketStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAggregateDropPacketStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAggregateDropPacketStatistics1> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): IpsecAggregateDropPacketStatistics1 =
                     IpsecAggregateDropPacketStatistics1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9646,8 +9845,8 @@ public data class IpsecAggregateSaStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAggregateSaStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAggregateSaStatistics0> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): IpsecAggregateSaStatistics0 =
                     IpsecAggregateSaStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9680,8 +9879,8 @@ public data class IpsecAhDropPacketStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAhDropPacketStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAhDropPacketStatistics0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IpsecAhDropPacketStatistics0 =
                     IpsecAhDropPacketStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9706,8 +9905,8 @@ public data class IpsecAuthAndCipherTransform0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAuthAndCipherTransform0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAuthAndCipherTransform0> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): IpsecAuthAndCipherTransform0 =
                     IpsecAuthAndCipherTransform0(
                         (IpsecAuthTransform0.typeLayout()).readNative(addr),
@@ -9756,8 +9955,8 @@ public class IpsecAuthTransform0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAuthTransform0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAuthTransform0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IpsecAuthTransform0 =
                     IpsecAuthTransform0(
                         (IpsecAuthTransformId0.typeLayout()).readNative(addr),
@@ -9793,8 +9992,8 @@ public data class IpsecAuthTransformId0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAuthTransformId0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecAuthTransformId0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): IpsecAuthTransformId0 =
                     IpsecAuthTransformId0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -9843,8 +10042,8 @@ public class IpsecCipherTransform0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecCipherTransform0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecCipherTransform0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IpsecCipherTransform0 =
                     IpsecCipherTransform0(
                         (IpsecCipherTransformId0.typeLayout()).readNative(addr),
@@ -9880,8 +10079,8 @@ public data class IpsecCipherTransformId0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecCipherTransformId0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecCipherTransformId0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): IpsecCipherTransformId0 =
                     IpsecCipherTransformId0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -9953,8 +10152,8 @@ public class IpsecDospOptions0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospOptions0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospOptions0> {
-                override val sizeBytes: Long = 136L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 136L
                 override fun readNative(addr: Long): IpsecDospOptions0 =
                     IpsecDospOptions0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10099,18 +10298,18 @@ public data class IpsecDospState0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospState0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospState0> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): IpsecDospState0 =
                     IpsecDospState0(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
@@ -10119,11 +10318,11 @@ public data class IpsecDospState0(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr, value.publicHostV6Addr)
+                    ).writeNative(addr, value.publicHostV6Addr.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 16L, value.internalHostV6Addr)
+                    ).writeNative(addr + 16L, value.internalHostV6Addr.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 32L, value.totalInboundIPv6IPsecAuthPackets)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 40L, value.totalOutboundIPv6IPsecAuthPackets)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.durationSecs)
@@ -10139,8 +10338,8 @@ public data class IpsecDospStateEnumTemplate0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospStateEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospStateEnumTemplate0> {
-                override val sizeBytes: Long = 34L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 34L
                 override fun readNative(addr: Long): IpsecDospStateEnumTemplate0 =
                     IpsecDospStateEnumTemplate0(
                         (FwpV6AddrAndMask.typeLayout()).readNative(addr),
@@ -10177,8 +10376,8 @@ public class IpsecDospStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecDospStatistics0> {
-                override val sizeBytes: Long = 144L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 144L
                 override fun readNative(addr: Long): IpsecDospStatistics0 =
                     IpsecDospStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -10234,8 +10433,8 @@ public data class IpsecEspDropPacketStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecEspDropPacketStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecEspDropPacketStatistics0> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): IpsecEspDropPacketStatistics0 =
                     IpsecEspDropPacketStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10558,8 +10757,8 @@ public class IpsecKeyingPolicy0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecKeyingPolicy0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecKeyingPolicy0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IpsecKeyingPolicy0 =
                     IpsecKeyingPolicy0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10629,8 +10828,8 @@ public class IpsecKeyingPolicy1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecKeyingPolicy1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecKeyingPolicy1> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IpsecKeyingPolicy1 =
                     IpsecKeyingPolicy1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -10730,8 +10929,8 @@ public class IpsecProposal0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecProposal0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecProposal0> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): IpsecProposal0 =
                     IpsecProposal0(
                         (IpsecSaLifetime0.typeLayout()).readNative(addr),
@@ -10861,8 +11060,8 @@ public data class IpsecSaAuthAndCipherInformation0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaAuthAndCipherInformation0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaAuthAndCipherInformation0> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): IpsecSaAuthAndCipherInformation0 =
                     IpsecSaAuthAndCipherInformation0(
                         (IpsecSaCipherInformation0.typeLayout()).readNative(addr),
@@ -10883,8 +11082,8 @@ public data class IpsecSaAuthInformation0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaAuthInformation0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaAuthInformation0> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): IpsecSaAuthInformation0 =
                     IpsecSaAuthInformation0(
                         (IpsecAuthTransform0.typeLayout()).readNative(addr),
@@ -11221,8 +11420,8 @@ public data class IpsecSaCipherInformation0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaCipherInformation0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaCipherInformation0> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): IpsecSaCipherInformation0 =
                     IpsecSaCipherInformation0(
                         (IpsecCipherTransform0.typeLayout()).readNative(addr),
@@ -11280,8 +11479,8 @@ public class IpsecSaContext0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaContext0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaContext0> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IpsecSaContext0 =
                     IpsecSaContext0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -11364,8 +11563,8 @@ public class IpsecSaContext1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaContext1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaContext1> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IpsecSaContext1 =
                     IpsecSaContext1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -11411,8 +11610,8 @@ public data class IpsecSaContextChange0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaContextChange0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaContextChange0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IpsecSaContextChange0 =
                     IpsecSaContextChange0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -11715,8 +11914,8 @@ public data class IpsecSaEnumTemplate0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaEnumTemplate0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaEnumTemplate0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): IpsecSaEnumTemplate0 =
                     IpsecSaEnumTemplate0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -11735,8 +11934,8 @@ public data class IpsecSaIdleTimeout0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaIdleTimeout0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaIdleTimeout0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): IpsecSaIdleTimeout0 =
                     IpsecSaIdleTimeout0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -11758,8 +11957,8 @@ public data class IpsecSaLifetime0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaLifetime0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecSaLifetime0> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): IpsecSaLifetime0 =
                     IpsecSaLifetime0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

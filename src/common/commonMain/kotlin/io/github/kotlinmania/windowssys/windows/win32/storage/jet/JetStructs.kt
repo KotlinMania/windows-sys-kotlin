@@ -48,8 +48,8 @@ public data class JetBklogtime00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetBklogtime00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetBklogtime00> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): JetBklogtime00 =
                     JetBklogtime00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -72,8 +72,8 @@ public data class JetBklogtime10(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetBklogtime10> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetBklogtime10> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): JetBklogtime10 =
                     JetBklogtime10(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -133,8 +133,8 @@ public data class JetColumnbaseA(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumnbaseA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumnbaseA> {
-                override val sizeBytes: Long = 540L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 540L
                 override fun readNative(addr: Long): JetColumnbaseA =
                     JetColumnbaseA(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -149,11 +149,11 @@ public data class JetColumnbaseA(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 28L),
+                        ).readNative(addr + 28L).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 284L),
+                        ).readNative(addr + 284L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: JetColumnbaseA) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
@@ -168,11 +168,11 @@ public data class JetColumnbaseA(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 28L, value.szBaseTableName)
+                    ).writeNative(addr + 28L, value.szBaseTableName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 284L, value.szBaseColumnName)
+                    ).writeNative(addr + 284L, value.szBaseColumnName.toList())
                 }
             }
     }
@@ -226,8 +226,8 @@ public data class JetColumnbaseW(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumnbaseW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumnbaseW> {
-                override val sizeBytes: Long = 1052L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1052L
                 override fun readNative(addr: Long): JetColumnbaseW =
                     JetColumnbaseW(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -242,11 +242,11 @@ public data class JetColumnbaseW(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 28L),
+                        ).readNative(addr + 28L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 540L),
+                        ).readNative(addr + 540L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: JetColumnbaseW) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
@@ -261,11 +261,11 @@ public data class JetColumnbaseW(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 28L, value.szBaseTableName)
+                    ).writeNative(addr + 28L, value.szBaseTableName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 540L, value.szBaseColumnName)
+                    ).writeNative(addr + 540L, value.szBaseColumnName.toList())
                 }
             }
     }
@@ -507,8 +507,8 @@ public data class JetColumndef(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumndef> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumndef> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): JetColumndef =
                     JetColumndef(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -554,7 +554,54 @@ public class JetColumnlist(
     public var columnidBaseTableName: UInt = 0u,
     public var columnidBaseColumnName: UInt = 0u,
     public var columnidDefinitionName: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumnlist> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetColumnlist> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 80L
+                override fun readNative(addr: Long): JetColumnlist =
+                    JetColumnlist(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
+                    )
+                override fun writeNative(addr: Long, value: JetColumnlist) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.tableid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cRecord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.columnidPresentationOrder)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.columnidcolumnname)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.columnidcolumnid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.columnidcoltyp)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.columnidCountry)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.columnidLangid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.columnidCp)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.columnidCollate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.columnidcbMax)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.columnidgrbit)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.columnidDefault)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.columnidBaseTableName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 68L, value.columnidBaseColumnName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.columnidDefinitionName)
+                }
+            }
+    }
+}
 
 public data class JetCommitId(
     public var signLog: JetSignature = JetSignature(),
@@ -721,8 +768,8 @@ public data class JetConvertA00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetConvertA00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetConvertA00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): JetConvertA00 =
                     JetConvertA00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -789,8 +836,8 @@ public data class JetConvertW00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetConvertW00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetConvertW00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): JetConvertW00 =
                     JetConvertW00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -968,8 +1015,8 @@ public data class JetDbinfoupgrade00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetDbinfoupgrade00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetDbinfoupgrade00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): JetDbinfoupgrade00 =
                     JetDbinfoupgrade00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1027,8 +1074,8 @@ public class JetEnumcolumn00 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumn00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumn00> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JetEnumcolumn00 =
                     JetEnumcolumn00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1092,8 +1139,8 @@ public class JetEnumcolumn01 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumn01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumn01> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JetEnumcolumn01 =
                     JetEnumcolumn01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1163,8 +1210,8 @@ public class JetEnumcolumnid internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumnid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumnid> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JetEnumcolumnid =
                     JetEnumcolumnid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1244,8 +1291,8 @@ public class JetEnumcolumnvalue internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumnvalue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetEnumcolumnvalue> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): JetEnumcolumnvalue =
                     JetEnumcolumnvalue(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1315,8 +1362,8 @@ public data class JetErrinfobasicW(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetErrinfobasicW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetErrinfobasicW> {
-                override val sizeBytes: Long = 152L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 152L
                 override fun readNative(addr: Long): JetErrinfobasicW =
                     JetErrinfobasicW(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1325,12 +1372,12 @@ public data class JetErrinfobasicW(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 24L),
+                        ).readNative(addr + 24L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: JetErrinfobasicW) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
@@ -1339,12 +1386,12 @@ public data class JetErrinfobasicW(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                    ).writeNative(addr + 12L, value.rgCategoricalHierarchy)
+                    ).writeNative(addr + 12L, value.rgCategoricalHierarchy.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.lSourceLine)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 24L, value.rgszSourceFile)
+                    ).writeNative(addr + 24L, value.rgszSourceFile.toList())
                 }
             }
     }
@@ -2641,22 +2688,22 @@ public data class JetIndexid(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexid> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): JetIndexid =
                     JetIndexid(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: JetIndexid) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 4L, value.rgbIndexId)
+                    ).writeNative(addr + 4L, value.rgbIndexId.toList())
                 }
             }
     }
@@ -2682,13 +2729,83 @@ public class JetIndexlist(
     public var columnidgrbitColumn: UInt = 0u,
     public var columnidcolumnname: UInt = 0u,
     public var columnidLCMapFlags: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexlist> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexlist> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 88L
+                override fun readNative(addr: Long): JetIndexlist =
+                    JetIndexlist(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 68L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 76L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 80L),
+                    )
+                override fun writeNative(addr: Long, value: JetIndexlist) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.tableid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cRecord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.columnidindexname)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.columnidgrbitIndex)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.columnidcKey)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.columnidcEntry)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.columnidcPage)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.columnidcColumn)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.columnidiColumn)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.columnidcolumnid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.columnidcoltyp)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.columnidCountry)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.columnidLangid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.columnidCp)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 68L, value.columnidCollate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.columnidgrbitColumn)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 76L, value.columnidcolumnname)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 80L, value.columnidLCMapFlags)
+                }
+            }
+    }
+}
 
 public data class JetIndexrange(
     public var cbStruct: UInt = 0u,
     public var tableid: JetTableid = 0uL,
     public var grbit: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexrange> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexrange> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): JetIndexrange =
+                    JetIndexrange(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: JetIndexrange) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.tableid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.grbit)
+                }
+            }
+    }
+}
 
 public class JetIndexColumn internal constructor(
     public var columnid: UInt,
@@ -2743,8 +2860,8 @@ public class JetIndexColumn internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexColumn> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexColumn> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): JetIndexColumn =
                     JetIndexColumn(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2835,8 +2952,8 @@ public class JetIndexRange internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetIndexRange> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): JetIndexRange =
                     JetIndexRange(
                         (
@@ -3057,8 +3174,8 @@ public data class JetLgpos(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLgpos> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLgpos> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): JetLgpos =
                     JetLgpos(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -3101,8 +3218,8 @@ public data class JetLoginfoA(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLoginfoA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLoginfoA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JetLoginfoA =
                     JetLoginfoA(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3111,7 +3228,7 @@ public data class JetLoginfoA(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (4).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: JetLoginfoA) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
@@ -3120,7 +3237,7 @@ public data class JetLoginfoA(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (4).toInt())
-                    ).writeNative(addr + 12L, value.szBaseName)
+                    ).writeNative(addr + 12L, value.szBaseName.toList())
                 }
             }
     }
@@ -3153,8 +3270,8 @@ public data class JetLoginfoW(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLoginfoW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLoginfoW> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): JetLoginfoW =
                     JetLoginfoW(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3163,7 +3280,7 @@ public data class JetLoginfoW(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: JetLoginfoW) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
@@ -3172,7 +3289,7 @@ public data class JetLoginfoW(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4).toInt())
-                    ).writeNative(addr + 12L, value.szBaseName)
+                    ).writeNative(addr + 12L, value.szBaseName.toList())
                 }
             }
     }
@@ -3200,8 +3317,8 @@ public data class JetLogtime00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLogtime00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLogtime00> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): JetLogtime00 =
                     JetLogtime00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -3224,8 +3341,8 @@ public data class JetLogtime10(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLogtime10> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetLogtime10> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): JetLogtime10 =
                     JetLogtime10(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -3250,8 +3367,8 @@ public data class JetObjectinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetObjectinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetObjectinfo> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): JetObjectinfo =
                     JetObjectinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3290,7 +3407,44 @@ public data class JetObjectlist(
     public var columnidflags: UInt = 0u,
     public var columnidcRecord: UInt = 0u,
     public var columnidcPage: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetObjectlist> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetObjectlist> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
+                override fun readNative(addr: Long): JetObjectlist =
+                    JetObjectlist(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                    )
+                override fun writeNative(addr: Long, value: JetObjectlist) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.tableid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cRecord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.columnidcontainername)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.columnidobjectname)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.columnidobjtyp)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.columniddtCreate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.columniddtUpdate)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.columnidgrbit)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.columnidflags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.columnidcRecord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.columnidcPage)
+                }
+            }
+    }
+}
 
 public class JetOpentemporarytable internal constructor(
     public var cbStruct: UInt,
@@ -3373,6 +3527,53 @@ public class JetOpentemporarytable internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetOpentemporarytable> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetOpentemporarytable> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
+                override fun readNative(addr: Long): JetOpentemporarytable =
+                    JetOpentemporarytable(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<JetColumndef>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<JetUnicodeindex>(64)
+                        ).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UInt>(64)
+                        ).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 56L),
+                    )
+                override fun writeNative(addr: Long, value: JetOpentemporarytable) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<JetColumndef>(64)
+                    ).writeNative(addr + 8L, value.prgcolumndef)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ccolumn)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<JetUnicodeindex>(64)
+                    ).writeNative(addr + 24L, value.pidxunicode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.grbit)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UInt>(64)
+                    ).writeNative(addr + 40L, value.prgcolumnid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.cbKeyMost)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.cbVarSegMac)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 56L, value.tableid)
+                }
+            }
+
         public operator fun invoke(
             cbStruct: UInt = 0u,
             prgcolumndef: ConstPtr<JetColumndef> = ConstPtr(0L),
@@ -3479,6 +3680,53 @@ public class JetOpentemporarytable2 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetOpentemporarytable2> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetOpentemporarytable2> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
+                override fun readNative(addr: Long): JetOpentemporarytable2 =
+                    JetOpentemporarytable2(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<JetColumndef>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<JetUnicodeindex2>(64)
+                        ).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UInt>(64)
+                        ).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 56L),
+                    )
+                override fun writeNative(addr: Long, value: JetOpentemporarytable2) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<JetColumndef>(64)
+                    ).writeNative(addr + 8L, value.prgcolumndef)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ccolumn)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<JetUnicodeindex2>(64)
+                    ).writeNative(addr + 24L, value.pidxunicode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.grbit)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UInt>(64)
+                    ).writeNative(addr + 40L, value.prgcolumnid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.cbKeyMost)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.cbVarSegMac)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 56L, value.tableid)
+                }
+            }
+
         public operator fun invoke(
             cbStruct: UInt = 0u,
             prgcolumndef: ConstPtr<JetColumndef> = ConstPtr(0L),
@@ -3514,8 +3762,8 @@ public data class JetOperationcontext(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetOperationcontext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetOperationcontext> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): JetOperationcontext =
                     JetOperationcontext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3540,7 +3788,28 @@ public data class JetRecordlist(
     public var tableid: JetTableid = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidBookmark: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecordlist> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecordlist> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): JetRecordlist =
+                    JetRecordlist(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: JetRecordlist) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.tableid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cRecord)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.columnidBookmark)
+                }
+            }
+    }
+}
 
 public data class JetRecpos(
     public var cbStruct: UInt = 0u,
@@ -3551,8 +3820,8 @@ public data class JetRecpos(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecpos> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecpos> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JetRecpos =
                     JetRecpos(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3581,8 +3850,8 @@ public data class JetRecpos2(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecpos2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecpos2> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): JetRecpos2 =
                     JetRecpos2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3617,8 +3886,8 @@ public data class JetRecsize(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecsize> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecsize> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): JetRecsize =
                     JetRecsize(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3660,8 +3929,8 @@ public data class JetRecsize2(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecsize2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRecsize2> {
-                override val sizeBytes: Long = 88L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 88L
                 override fun readNative(addr: Long): JetRecsize2 =
                     JetRecsize2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3702,8 +3971,8 @@ public data class JetRetinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRetinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRetinfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JetRetinfo =
                     JetRetinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3798,8 +4067,8 @@ public class JetRetrievecolumn internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRetrievecolumn> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetRetrievecolumn> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): JetRetrievecolumn =
                     JetRetrievecolumn(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4167,8 +4436,8 @@ public class JetSetcolumn internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSetcolumn> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSetcolumn> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): JetSetcolumn =
                     JetSetcolumn(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4225,8 +4494,8 @@ public data class JetSetinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSetinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSetinfo> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): JetSetinfo =
                     JetSetinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4392,8 +4661,8 @@ public data class JetSnprog(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSnprog> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSnprog> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): JetSnprog =
                     JetSnprog(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4422,8 +4691,8 @@ public data class JetSpacehints(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSpacehints> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetSpacehints> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): JetSpacehints =
                     JetSpacehints(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5440,8 +5709,8 @@ public data class JetThreadstats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetThreadstats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetThreadstats> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): JetThreadstats =
                     JetThreadstats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5482,8 +5751,8 @@ public data class JetThreadstats2(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetThreadstats2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetThreadstats2> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): JetThreadstats2 =
                     JetThreadstats2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5523,8 +5792,8 @@ public data class JetTuplelimits(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetTuplelimits> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetTuplelimits> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): JetTuplelimits =
                     JetTuplelimits(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5551,8 +5820,8 @@ public data class JetUnicodeindex(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetUnicodeindex> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JetUnicodeindex> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): JetUnicodeindex =
                     JetUnicodeindex(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

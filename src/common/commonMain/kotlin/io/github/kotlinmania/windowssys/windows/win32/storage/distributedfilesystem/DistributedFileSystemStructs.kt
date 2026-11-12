@@ -39,8 +39,8 @@ public data class DfsGetPktEntryStateArg(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsGetPktEntryStateArg> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsGetPktEntryStateArg> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DfsGetPktEntryStateArg =
                     DfsGetPktEntryStateArg(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -50,7 +50,7 @@ public data class DfsGetPktEntryStateArg(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: DfsGetPktEntryStateArg) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.dfsEntryPathLen)
@@ -60,7 +60,7 @@ public data class DfsGetPktEntryStateArg(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 12L, value.buffer)
+                    ).writeNative(addr + 12L, value.buffer.toList())
                 }
             }
     }
@@ -138,8 +138,8 @@ public data class DfsInfo101(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo101> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo101> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DfsInfo101 =
                     DfsInfo101(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -157,8 +157,8 @@ public data class DfsInfo102(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo102> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo102> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DfsInfo102 =
                     DfsInfo102(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -177,8 +177,8 @@ public data class DfsInfo103(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo103> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo103> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DfsInfo103 =
                     DfsInfo103(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -198,8 +198,8 @@ public data class DfsInfo104(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo104> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo104> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DfsInfo104 =
                     DfsInfo104(
                         (DfsTargetPriority.typeLayout()).readNative(addr),
@@ -286,8 +286,8 @@ public data class DfsInfo106(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo106> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo106> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): DfsInfo106 =
                     DfsInfo106(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -438,8 +438,8 @@ public data class DfsInfo132(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo132> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo132> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DfsInfo132 =
                     DfsInfo132(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -556,8 +556,8 @@ public data class DfsInfo232(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo232> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo232> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DfsInfo232 =
                     DfsInfo232(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -703,8 +703,8 @@ public data class DfsInfo332(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo332> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo332> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): DfsInfo332 =
                     DfsInfo332(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -927,8 +927,8 @@ public data class DfsInfo50(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo50> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsInfo50> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DfsInfo50 =
                     DfsInfo50(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1405,8 +1405,8 @@ public data class DfsStorageInfo032(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsStorageInfo032> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsStorageInfo032> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): DfsStorageInfo032 =
                     DfsStorageInfo032(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1496,8 +1496,8 @@ public data class DfsSupportedNamespaceVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsSupportedNamespaceVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsSupportedNamespaceVersionInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DfsSupportedNamespaceVersionInfo =
                     DfsSupportedNamespaceVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1527,8 +1527,8 @@ public data class DfsTargetPriority(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsTargetPriority> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DfsTargetPriority> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DfsTargetPriority =
                     DfsTargetPriority(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

@@ -58,8 +58,8 @@ public data class Ccab(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ccab> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ccab> {
-                override val sizeBytes: Long = 804L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 804L
                 override fun readNative(addr: Long): Ccab =
                     Ccab(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -74,15 +74,15 @@ public data class Ccab(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 34L),
+                        ).readNative(addr + 34L).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 290L),
+                        ).readNative(addr + 290L).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 546L),
+                        ).readNative(addr + 546L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Ccab) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cb)
@@ -97,15 +97,15 @@ public data class Ccab(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 34L, value.szDisk)
+                    ).writeNative(addr + 34L, value.szDisk.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 290L, value.szCab)
+                    ).writeNative(addr + 290L, value.szCab.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 546L, value.szCabPath)
+                    ).writeNative(addr + 546L, value.szCabPath.toList())
                 }
             }
     }
@@ -115,7 +115,26 @@ public data class Erf(
     public var erfOper: Int = 0,
     public var erfType: Int = 0,
     public var fError: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Erf> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Erf> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): Erf =
+                    Erf(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: Erf) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.erfOper)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.erfType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.fError)
+                }
+            }
+    }
+}
 
 public data class Fdicabinetinfo(
     public var cbCabinet: Int = 0,
@@ -126,7 +145,36 @@ public data class Fdicabinetinfo(
     public var fReserve: Bool = 0,
     public var hasprev: Bool = 0,
     public var hasnext: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdicabinetinfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdicabinetinfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): Fdicabinetinfo =
+                    Fdicabinetinfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 6L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 10L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: Fdicabinetinfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.cbCabinet)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 4L, value.cFolders)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 6L, value.cFiles)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.setID)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 10L, value.iCabinet)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.fReserve)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.hasprev)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.hasnext)
+                }
+            }
+    }
+}
 
 public class Fdidecrypt internal constructor(
     public var fdidt: Fdidecrypttype,
@@ -233,8 +281,8 @@ public class Fdidecrypt00 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdidecrypt00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdidecrypt00> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Fdidecrypt00 =
                     Fdidecrypt00(
                         (
@@ -331,6 +379,41 @@ public class Fdidecrypt02 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdidecrypt02> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdidecrypt02> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
+                override fun readNative(addr: Long): Fdidecrypt02 =
+                    Fdidecrypt02(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 32L),
+                    )
+                override fun writeNative(addr: Long, value: Fdidecrypt02) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr, value.pDataReserve)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.cbDataReserve)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 16L, value.pbData)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 24L, value.cbData)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.fSplit)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 32L, value.cbPartial)
+                }
+            }
+
         public operator fun invoke(
             pDataReserve: MutPtr<CVoid> = MutPtr(0L),
             cbDataReserve: UShort = 0u,
@@ -391,8 +474,8 @@ public class Fdidecrypt01 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdidecrypt01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdidecrypt01> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Fdidecrypt01 =
                     Fdidecrypt01(
                         (
@@ -587,21 +670,21 @@ public data class Fdispillfile(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdispillfile> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Fdispillfile> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Fdispillfile =
                     Fdispillfile(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (2).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                     )
                 override fun writeNative(addr: Long, value: Fdispillfile) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (2).toInt())
-                    ).writeNative(addr, value.ach)
+                    ).writeNative(addr, value.ach.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.cbFile)
                 }
             }

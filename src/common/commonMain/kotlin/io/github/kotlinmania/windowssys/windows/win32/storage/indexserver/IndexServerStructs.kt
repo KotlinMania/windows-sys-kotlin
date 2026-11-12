@@ -27,8 +27,8 @@ public data class CiState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CiState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CiState> {
-                override val sizeBytes: Long = 60L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 60L
                 override fun readNative(addr: Long): CiState =
                     CiState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -170,8 +170,8 @@ public data class Filterregion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Filterregion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Filterregion> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Filterregion =
                     Filterregion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

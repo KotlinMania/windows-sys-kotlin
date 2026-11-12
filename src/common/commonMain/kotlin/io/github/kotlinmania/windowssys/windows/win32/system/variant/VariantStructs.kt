@@ -348,8 +348,8 @@ public class Variant0000 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Variant0000> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Variant0000> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Variant0000 =
                     Variant0000(
                         (

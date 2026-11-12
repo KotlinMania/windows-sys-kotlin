@@ -19,20 +19,20 @@ public data class Magcoloreffect(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Magcoloreffect> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Magcoloreffect> {
-                override val sizeBytes: Long = 100L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 100L
                 override fun readNative(addr: Long): Magcoloreffect =
                     Magcoloreffect(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (25).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toFloatArray(),
                     )
                 override fun writeNative(addr: Long, value: Magcoloreffect) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (25).toInt())
-                    ).writeNative(addr, value.transform)
+                    ).writeNative(addr, value.transform.toList())
                 }
             }
     }
@@ -62,20 +62,20 @@ public data class Magtransform(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Magtransform> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Magtransform> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): Magtransform =
                     Magtransform(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (9).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toFloatArray(),
                     )
                 override fun writeNative(addr: Long, value: Magtransform) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (9).toInt())
-                    ).writeNative(addr, value.v)
+                    ).writeNative(addr, value.v.toList())
                 }
             }
     }

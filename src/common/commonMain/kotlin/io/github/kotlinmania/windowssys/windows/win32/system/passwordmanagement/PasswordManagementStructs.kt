@@ -20,20 +20,20 @@ public data class CypherBlock(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CypherBlock> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CypherBlock> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CypherBlock =
                     CypherBlock(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (8).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CypherBlock) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (8).toInt())
-                    ).writeNative(addr, value.data)
+                    ).writeNative(addr, value.data.toList())
                 }
             }
     }
@@ -45,8 +45,8 @@ public data class EncryptedLmOwfPassword(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EncryptedLmOwfPassword> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EncryptedLmOwfPassword> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EncryptedLmOwfPassword =
                     EncryptedLmOwfPassword(
                         (
@@ -70,8 +70,8 @@ public data class LmOwfPassword(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<LmOwfPassword> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<LmOwfPassword> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): LmOwfPassword =
                     LmOwfPassword(
                         (
@@ -104,20 +104,20 @@ public data class SamprEncryptedUserPassword(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SamprEncryptedUserPassword> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SamprEncryptedUserPassword> {
-                override val sizeBytes: Long = 516L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 516L
                 override fun readNative(addr: Long): SamprEncryptedUserPassword =
                     SamprEncryptedUserPassword(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (516).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SamprEncryptedUserPassword) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (516).toInt())
-                    ).writeNative(addr, value.buffer)
+                    ).writeNative(addr, value.buffer.toList())
                 }
             }
     }

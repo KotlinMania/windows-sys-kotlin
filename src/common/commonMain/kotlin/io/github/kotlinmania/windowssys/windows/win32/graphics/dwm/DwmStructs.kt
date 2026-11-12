@@ -76,7 +76,36 @@ public data class DwmPresentParameters(
     public var rateSource: UnsignedRatio = UnsignedRatio(),
     public var cRefreshesPerFrame: UInt = 0u,
     public var eSampling: DwmSourceFrameSampling = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DwmPresentParameters> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DwmPresentParameters> {
+                override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 40L
+                override fun readNative(addr: Long): DwmPresentParameters =
+                    DwmPresentParameters(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                        (UnsignedRatio.typeLayout()).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 36L),
+                    )
+                override fun writeNative(addr: Long, value: DwmPresentParameters) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fQueue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.cRefreshStart)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cBuffer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.fUseSourceRate)
+                    (UnsignedRatio.typeLayout()).writeNative(addr + 24L, value.rateSource)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.cRefreshesPerFrame)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 36L, value.eSampling)
+                }
+            }
+    }
+}
 
 public data class DwmThumbnailProperties(
     public var dwFlags: UInt = 0u,
@@ -132,8 +161,8 @@ public class DwmTimingInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DwmTimingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DwmTimingInfo> {
-                override val sizeBytes: Long = 292L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 292L
                 override fun readNative(addr: Long): DwmTimingInfo =
                     DwmTimingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -234,8 +263,8 @@ public data class MilMatrix3x2D(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MilMatrix3x2D> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MilMatrix3x2D> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): MilMatrix3x2D =
                     MilMatrix3x2D(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F64).readNative(addr),
@@ -264,8 +293,8 @@ public data class UnsignedRatio(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UnsignedRatio> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UnsignedRatio> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): UnsignedRatio =
                     UnsignedRatio(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

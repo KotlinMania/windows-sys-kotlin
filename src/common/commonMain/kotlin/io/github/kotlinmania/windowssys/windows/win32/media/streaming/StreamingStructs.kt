@@ -11,8 +11,8 @@ public data class CapturedMetadataExposureCompensation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CapturedMetadataExposureCompensation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CapturedMetadataExposureCompensation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CapturedMetadataExposureCompensation =
                     CapturedMetadataExposureCompensation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -33,8 +33,8 @@ public data class CapturedMetadataISOGains(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CapturedMetadataISOGains> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CapturedMetadataISOGains> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CapturedMetadataISOGains =
                     CapturedMetadataISOGains(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -56,8 +56,8 @@ public data class CapturedMetadataWhiteBalanceGains(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CapturedMetadataWhiteBalanceGains> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CapturedMetadataWhiteBalanceGains> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): CapturedMetadataWhiteBalanceGains =
                     CapturedMetadataWhiteBalanceGains(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -82,8 +82,8 @@ public data class FaceCharacterization(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaceCharacterization> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaceCharacterization> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FaceCharacterization =
                     FaceCharacterization(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -108,8 +108,8 @@ public data class FaceCharacterizationBlobHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaceCharacterizationBlobHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaceCharacterizationBlobHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FaceCharacterizationBlobHeader =
                     FaceCharacterizationBlobHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -135,8 +135,8 @@ public data class FaceRectInfoBlobHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaceRectInfoBlobHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaceRectInfoBlobHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FaceRectInfoBlobHeader =
                     FaceRectInfoBlobHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -157,8 +157,8 @@ public data class HistogramBlobHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HistogramBlobHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HistogramBlobHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HistogramBlobHeader =
                     HistogramBlobHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -180,8 +180,8 @@ public data class HistogramDataHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HistogramDataHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HistogramDataHeader> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): HistogramDataHeader =
                     HistogramDataHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -219,8 +219,8 @@ public data class MetadataTimeStamps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataTimeStamps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataTimeStamps> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MetadataTimeStamps =
                     MetadataTimeStamps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

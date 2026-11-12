@@ -40,8 +40,8 @@ public class NvMemoryRange internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NvMemoryRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NvMemoryRange> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): NvMemoryRange =
                     NvMemoryRange(
                         (

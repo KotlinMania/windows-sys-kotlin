@@ -11,8 +11,8 @@ public data class OperationEndParameters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OperationEndParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OperationEndParameters> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): OperationEndParameters =
                     OperationEndParameters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -36,8 +36,8 @@ public data class OperationStartParameters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OperationStartParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OperationStartParameters> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): OperationStartParameters =
                     OperationStartParameters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

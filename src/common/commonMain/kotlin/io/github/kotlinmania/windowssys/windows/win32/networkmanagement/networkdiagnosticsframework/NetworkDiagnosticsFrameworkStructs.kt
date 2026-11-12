@@ -29,22 +29,22 @@ public data class DiagSockaddr(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagSockaddr> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagSockaddr> {
-                override val sizeBytes: Long = 128L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 128L
                 override fun readNative(addr: Long): DiagSockaddr =
                     DiagSockaddr(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (126).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DiagSockaddr) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.family)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (126).toInt())
-                    ).writeNative(addr + 2L, value.data)
+                    ).writeNative(addr + 2L, value.data.toList())
                 }
             }
     }
@@ -57,8 +57,8 @@ public data class DiagnosticsInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticsInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticsInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DiagnosticsInfo =
                     DiagnosticsInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -419,8 +419,8 @@ public class OctetString internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OctetString> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OctetString> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): OctetString =
                     OctetString(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

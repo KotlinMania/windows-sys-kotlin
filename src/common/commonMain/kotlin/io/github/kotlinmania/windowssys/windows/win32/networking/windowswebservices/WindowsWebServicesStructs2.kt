@@ -14,8 +14,8 @@ public data class WsXmlInt64Text(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlInt64Text> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlInt64Text> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlInt64Text =
                     WsXmlInt64Text(
                         (WsXmlText.typeLayout()).readNative(addr),
@@ -70,8 +70,8 @@ public class WsXmlListText internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlListText> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlListText> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlListText =
                     WsXmlListText(
                         (WsXmlText.typeLayout()).readNative(addr),
@@ -110,8 +110,8 @@ public data class WsXmlNode(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlNode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlNode> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlNode =
                     WsXmlNode(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -161,8 +161,8 @@ public class WsXmlNodePosition internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlNodePosition> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlNodePosition> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlNodePosition =
                     WsXmlNodePosition(
                         (
@@ -204,8 +204,8 @@ public data class WsXmlQname(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlQname> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlQname> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): WsXmlQname =
                     WsXmlQname(
                         (WsXmlString.typeLayout()).readNative(addr),
@@ -228,8 +228,8 @@ public data class WsXmlQnameDescription(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlQnameDescription> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlQnameDescription> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlQnameDescription =
                     WsXmlQnameDescription(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -300,8 +300,8 @@ public class WsXmlQnameText internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlQnameText> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlQnameText> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): WsXmlQnameText =
                     WsXmlQnameText(
                         (WsXmlText.typeLayout()).readNative(addr),
@@ -394,8 +394,8 @@ public class WsXmlReaderBinaryEncoding internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderBinaryEncoding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderBinaryEncoding> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsXmlReaderBinaryEncoding =
                     WsXmlReaderBinaryEncoding(
                         (WsXmlReaderEncoding.typeLayout()).readNative(addr),
@@ -475,8 +475,8 @@ public class WsXmlReaderBufferInput internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderBufferInput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderBufferInput> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsXmlReaderBufferInput =
                     WsXmlReaderBufferInput(
                         (WsXmlReaderInput.typeLayout()).readNative(addr),
@@ -515,8 +515,8 @@ public data class WsXmlReaderEncoding(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderEncoding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderEncoding> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlReaderEncoding =
                     WsXmlReaderEncoding(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -534,8 +534,8 @@ public data class WsXmlReaderInput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderInput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderInput> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlReaderInput =
                     WsXmlReaderInput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -658,8 +658,8 @@ public class WsXmlReaderProperties internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderProperties> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderProperties> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlReaderProperties =
                     WsXmlReaderProperties(
                         (
@@ -729,8 +729,8 @@ public class WsXmlReaderProperty internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderProperty> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderProperty> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsXmlReaderProperty =
                     WsXmlReaderProperty(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -769,8 +769,8 @@ public data class WsXmlReaderRawEncoding(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderRawEncoding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderRawEncoding> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlReaderRawEncoding =
                     WsXmlReaderRawEncoding(
                         (WsXmlReaderEncoding.typeLayout()).readNative(addr),
@@ -841,8 +841,8 @@ public data class WsXmlReaderTextEncoding(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderTextEncoding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlReaderTextEncoding> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsXmlReaderTextEncoding =
                     WsXmlReaderTextEncoding(
                         (WsXmlReaderEncoding.typeLayout()).readNative(addr),
@@ -897,8 +897,8 @@ public class WsXmlSecurityTokenProperty internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlSecurityTokenProperty> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlSecurityTokenProperty> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsXmlSecurityTokenProperty =
                     WsXmlSecurityTokenProperty(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -981,8 +981,8 @@ public class WsXmlString internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlString> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlString> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): WsXmlString =
                     WsXmlString(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1032,8 +1032,8 @@ public data class WsXmlStringDescription(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlStringDescription> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlStringDescription> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsXmlStringDescription =
                     WsXmlStringDescription(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1053,8 +1053,8 @@ public data class WsXmlText(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlText> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlText> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlText =
                     WsXmlText(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1101,8 +1101,8 @@ public class WsXmlTextNode internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlTextNode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlTextNode> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlTextNode =
                     WsXmlTextNode(
                         (WsXmlNode.typeLayout()).readNative(addr),
@@ -1138,8 +1138,8 @@ public data class WsXmlTimespanText(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlTimespanText> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlTimespanText> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlTimespanText =
                     WsXmlTimespanText(
                         (WsXmlText.typeLayout()).readNative(addr),
@@ -1194,8 +1194,8 @@ public class WsXmlTokenMessageSecurityBinding internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlTokenMessageSecurityBinding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlTokenMessageSecurityBinding> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): WsXmlTokenMessageSecurityBinding =
                     WsXmlTokenMessageSecurityBinding(
                         (WsSecurityBinding.typeLayout()).readNative(addr),
@@ -1235,8 +1235,8 @@ public data class WsXmlUint64Text(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlUint64Text> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlUint64Text> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlUint64Text =
                     WsXmlUint64Text(
                         (WsXmlText.typeLayout()).readNative(addr),
@@ -1296,8 +1296,8 @@ public class WsXmlUtf16Text internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlUtf16Text> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlUtf16Text> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsXmlUtf16Text =
                     WsXmlUtf16Text(
                         (WsXmlText.typeLayout()).readNative(addr),
@@ -1337,8 +1337,8 @@ public data class WsXmlUtf8Text(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlUtf8Text> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlUtf8Text> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): WsXmlUtf8Text =
                     WsXmlUtf8Text(
                         (WsXmlText.typeLayout()).readNative(addr),
@@ -1421,8 +1421,8 @@ public data class WsXmlWriterBufferOutput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterBufferOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterBufferOutput> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlWriterBufferOutput =
                     WsXmlWriterBufferOutput(
                         (WsXmlWriterOutput.typeLayout()).readNative(addr),
@@ -1440,8 +1440,8 @@ public data class WsXmlWriterEncoding(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterEncoding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterEncoding> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlWriterEncoding =
                     WsXmlWriterEncoding(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1543,8 +1543,8 @@ public data class WsXmlWriterOutput(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterOutput> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlWriterOutput =
                     WsXmlWriterOutput(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1591,8 +1591,8 @@ public class WsXmlWriterProperties internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterProperties> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterProperties> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsXmlWriterProperties =
                     WsXmlWriterProperties(
                         (
@@ -1662,8 +1662,8 @@ public class WsXmlWriterProperty internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterProperty> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterProperty> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WsXmlWriterProperty =
                     WsXmlWriterProperty(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1702,8 +1702,8 @@ public data class WsXmlWriterRawEncoding(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterRawEncoding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterRawEncoding> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsXmlWriterRawEncoding =
                     WsXmlWriterRawEncoding(
                         (WsXmlWriterEncoding.typeLayout()).readNative(addr),
@@ -1774,8 +1774,8 @@ public data class WsXmlWriterTextEncoding(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterTextEncoding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsXmlWriterTextEncoding> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WsXmlWriterTextEncoding =
                     WsXmlWriterTextEncoding(
                         (WsXmlWriterEncoding.typeLayout()).readNative(addr),

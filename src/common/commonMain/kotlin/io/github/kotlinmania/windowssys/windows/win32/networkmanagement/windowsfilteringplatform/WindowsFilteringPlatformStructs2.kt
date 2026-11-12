@@ -18,8 +18,8 @@ public data class IpsecStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecStatistics0> {
-                override val sizeBytes: Long = 200L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 200L
                 override fun readNative(addr: Long): IpsecStatistics0 =
                     IpsecStatistics0(
                         (IpsecAggregateSaStatistics0.typeLayout()).readNative(addr),
@@ -52,8 +52,8 @@ public data class IpsecStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecStatistics1> {
-                override val sizeBytes: Long = 216L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 216L
                 override fun readNative(addr: Long): IpsecStatistics1 =
                     IpsecStatistics1(
                         (IpsecAggregateSaStatistics0.typeLayout()).readNative(addr),
@@ -84,8 +84,8 @@ public data class IpsecToken0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecToken0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecToken0> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): IpsecToken0 =
                     IpsecToken0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -314,8 +314,8 @@ public class IpsecTrafficSelectorPolicy0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTrafficSelectorPolicy0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTrafficSelectorPolicy0> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): IpsecTrafficSelectorPolicy0 =
                     IpsecTrafficSelectorPolicy0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -373,8 +373,8 @@ public data class IpsecTrafficStatistics0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTrafficStatistics0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTrafficStatistics0> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): IpsecTrafficStatistics0 =
                     IpsecTrafficStatistics0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -408,8 +408,8 @@ public data class IpsecTrafficStatistics1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTrafficStatistics1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTrafficStatistics1> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): IpsecTrafficStatistics1 =
                     IpsecTrafficStatistics1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -495,8 +495,8 @@ public class IpsecTransportPolicy0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTransportPolicy0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTransportPolicy0> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): IpsecTransportPolicy0 =
                     IpsecTransportPolicy0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -609,8 +609,8 @@ public class IpsecTransportPolicy1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTransportPolicy1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTransportPolicy1> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): IpsecTransportPolicy1 =
                     IpsecTransportPolicy1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -723,8 +723,8 @@ public class IpsecTransportPolicy2 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTransportPolicy2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecTransportPolicy2> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): IpsecTransportPolicy2 =
                     IpsecTransportPolicy2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1379,8 +1379,8 @@ public data class IpsecV4UdpEncapsulation0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecV4UdpEncapsulation0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecV4UdpEncapsulation0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): IpsecV4UdpEncapsulation0 =
                     IpsecV4UdpEncapsulation0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1401,8 +1401,8 @@ public data class IpsecVirtualIfTunnelInfo0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecVirtualIfTunnelInfo0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IpsecVirtualIfTunnelInfo0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): IpsecVirtualIfTunnelInfo0 =
                     IpsecVirtualIfTunnelInfo0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),

@@ -1006,8 +1006,8 @@ public class AdsNetaddress internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsNetaddress> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsNetaddress> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AdsNetaddress =
                     AdsNetaddress(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1075,8 +1075,8 @@ public class AdsNtSecurityDescriptor internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsNtSecurityDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsNtSecurityDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AdsNtSecurityDescriptor =
                     AdsNtSecurityDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1229,8 +1229,8 @@ public class AdsOctetList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsOctetList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsOctetList> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): AdsOctetList =
                     AdsOctetList(
                         (
@@ -1304,8 +1304,8 @@ public class AdsOctetString internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsOctetString> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsOctetString> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AdsOctetString =
                     AdsOctetString(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1457,8 +1457,8 @@ public class AdsProvSpecific internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsProvSpecific> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsProvSpecific> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AdsProvSpecific =
                     AdsProvSpecific(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1700,8 +1700,8 @@ public data class AdsTimestamp(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsTimestamp> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AdsTimestamp> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): AdsTimestamp =
                     AdsTimestamp(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3000,8 +3000,8 @@ public data class Dscolumn(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dscolumn> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dscolumn> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Dscolumn =
                     Dscolumn(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3035,8 +3035,8 @@ public data class Dsdisplayspecoptions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsdisplayspecoptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsdisplayspecoptions> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): Dsdisplayspecoptions =
                     Dsdisplayspecoptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3069,8 +3069,8 @@ public data class Dsobject(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsobject> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsobject> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Dsobject =
                     Dsobject(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3101,8 +3101,8 @@ public data class DsopFilterFlags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsopFilterFlags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsopFilterFlags> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DsopFilterFlags =
                     DsopFilterFlags(
                         (DsopUplevelFilterFlags.typeLayout()).readNative(addr),
@@ -3301,8 +3301,8 @@ public data class DsopUplevelFilterFlags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsopUplevelFilterFlags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsopUplevelFilterFlags> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): DsopUplevelFilterFlags =
                     DsopUplevelFilterFlags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3324,8 +3324,8 @@ public data class Dspropertypageinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dspropertypageinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dspropertypageinfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Dspropertypageinfo =
                     Dspropertypageinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3361,8 +3361,8 @@ public data class Dsqueryclasslist(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsqueryclasslist> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsqueryclasslist> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Dsqueryclasslist =
                     Dsqueryclasslist(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3370,7 +3370,7 @@ public data class Dsqueryclasslist(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: Dsqueryclasslist) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
@@ -3378,7 +3378,7 @@ public data class Dsqueryclasslist(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                    ).writeNative(addr + 8L, value.offsetClass)
+                    ).writeNative(addr + 8L, value.offsetClass.toList())
                 }
             }
     }
@@ -3570,8 +3570,8 @@ public data class DsroleOperationStateInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsroleOperationStateInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsroleOperationStateInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DsroleOperationStateInfo =
                     DsroleOperationStateInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3672,8 +3672,8 @@ public data class DsroleUpgradeStatusInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsroleUpgradeStatusInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsroleUpgradeStatusInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DsroleUpgradeStatusInfo =
                     DsroleUpgradeStatusInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4758,8 +4758,8 @@ public class DsNameResulta internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsNameResulta> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsNameResulta> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DsNameResulta =
                     DsNameResulta(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4823,8 +4823,8 @@ public class DsNameResultw internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsNameResultw> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsNameResultw> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DsNameResultw =
                     DsNameResultw(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6452,8 +6452,8 @@ public class DsRepsyncallUpdatea internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsRepsyncallUpdatea> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsRepsyncallUpdatea> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DsRepsyncallUpdatea =
                     DsRepsyncallUpdatea(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -6536,8 +6536,8 @@ public class DsRepsyncallUpdatew internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsRepsyncallUpdatew> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsRepsyncallUpdatew> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DsRepsyncallUpdatew =
                     DsRepsyncallUpdatew(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -6781,8 +6781,8 @@ public data class DsSiteCostInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsSiteCostInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DsSiteCostInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DsSiteCostInfo =
                     DsSiteCostInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6939,8 +6939,8 @@ public data class Schedule(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Schedule> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Schedule> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): Schedule =
                     Schedule(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6971,8 +6971,8 @@ public data class ScheduleHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScheduleHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ScheduleHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ScheduleHeader =
                     ScheduleHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

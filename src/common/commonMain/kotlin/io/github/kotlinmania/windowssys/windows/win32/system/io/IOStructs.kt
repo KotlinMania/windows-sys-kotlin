@@ -167,8 +167,8 @@ public data class Overlapped00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Overlapped00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Overlapped00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Overlapped00 =
                     Overlapped00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -229,8 +229,8 @@ public class OverlappedEntry internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OverlappedEntry> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OverlappedEntry> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): OverlappedEntry =
                     OverlappedEntry(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),

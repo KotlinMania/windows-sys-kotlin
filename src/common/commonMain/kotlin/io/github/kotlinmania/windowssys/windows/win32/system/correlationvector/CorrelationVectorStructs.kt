@@ -24,22 +24,22 @@ public data class CorrelationVector(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CorrelationVector> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CorrelationVector> {
-                override val sizeBytes: Long = 130L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 130L
                 override fun readNative(addr: Long): CorrelationVector =
                     CorrelationVector(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (129).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: CorrelationVector) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8).writeNative(addr, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (129).toInt())
-                    ).writeNative(addr + 1L, value.vector)
+                    ).writeNative(addr + 1L, value.vector.toList())
                 }
             }
     }

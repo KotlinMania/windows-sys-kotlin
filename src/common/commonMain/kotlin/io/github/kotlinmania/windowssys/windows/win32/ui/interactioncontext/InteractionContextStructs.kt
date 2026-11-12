@@ -11,8 +11,8 @@ public data class CrossSlideParameter(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CrossSlideParameter> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CrossSlideParameter> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): CrossSlideParameter =
                     CrossSlideParameter(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -32,8 +32,8 @@ public data class InteractionArgumentsCrossSlide(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionArgumentsCrossSlide> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionArgumentsCrossSlide> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): InteractionArgumentsCrossSlide =
                     InteractionArgumentsCrossSlide(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -54,8 +54,8 @@ public data class InteractionArgumentsManipulation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionArgumentsManipulation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionArgumentsManipulation> {
-                override val sizeBytes: Long = 60L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 60L
                 override fun readNative(addr: Long): InteractionArgumentsManipulation =
                     InteractionArgumentsManipulation(
                         (ManipulationTransform.typeLayout()).readNative(addr),
@@ -79,8 +79,8 @@ public data class InteractionArgumentsTap(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionArgumentsTap> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionArgumentsTap> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): InteractionArgumentsTap =
                     InteractionArgumentsTap(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -99,8 +99,8 @@ public data class InteractionContextConfiguration(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionContextConfiguration> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InteractionContextConfiguration> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): InteractionContextConfiguration =
                     InteractionContextConfiguration(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -156,8 +156,8 @@ public data class ManipulationTransform(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ManipulationTransform> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ManipulationTransform> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): ManipulationTransform =
                     ManipulationTransform(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -186,8 +186,8 @@ public data class ManipulationVelocity(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ManipulationVelocity> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ManipulationVelocity> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ManipulationVelocity =
                     ManipulationVelocity(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),

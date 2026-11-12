@@ -15,8 +15,8 @@ public data class CfgCallTargetInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CfgCallTargetInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CfgCallTargetInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CfgCallTargetInfo =
                     CfgCallTargetInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -40,8 +40,8 @@ public data class HeapSummary(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HeapSummary> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HeapSummary> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): HeapSummary =
                     HeapSummary(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -135,8 +135,8 @@ public class MemoryBasicInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryBasicInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryBasicInformation> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): MemoryBasicInformation =
                     MemoryBasicInformation(
                         (
@@ -207,8 +207,8 @@ public data class MemoryBasicInformation32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryBasicInformation32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryBasicInformation32> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): MemoryBasicInformation32 =
                     MemoryBasicInformation32(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -246,8 +246,8 @@ public data class MemoryBasicInformation64(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryBasicInformation64> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryBasicInformation64> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): MemoryBasicInformation64 =
                     MemoryBasicInformation64(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -301,8 +301,8 @@ public class MemoryMappedViewAddress internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryMappedViewAddress> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryMappedViewAddress> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MemoryMappedViewAddress =
                     MemoryMappedViewAddress(
                         (
@@ -335,8 +335,8 @@ public data class MemoryPartitionDedicatedMemoryAttribute(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryPartitionDedicatedMemoryAttribute> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryPartitionDedicatedMemoryAttribute> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MemoryPartitionDedicatedMemoryAttribute =
                     MemoryPartitionDedicatedMemoryAttribute(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -364,8 +364,8 @@ public data class MemoryPartitionDedicatedMemoryInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryPartitionDedicatedMemoryInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryPartitionDedicatedMemoryInformation> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MemoryPartitionDedicatedMemoryInformation =
                     MemoryPartitionDedicatedMemoryInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -433,8 +433,8 @@ public class MemAddressRequirements internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemAddressRequirements> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemAddressRequirements> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MemAddressRequirements =
                     MemAddressRequirements(
                         (
@@ -484,8 +484,8 @@ public data class MemExtendedParameter0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemExtendedParameter0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemExtendedParameter0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MemExtendedParameter0 =
                     MemExtendedParameter0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -743,8 +743,8 @@ public class ProcessHeapEntry01 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessHeapEntry01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessHeapEntry01> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): ProcessHeapEntry01 =
                     ProcessHeapEntry01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -809,8 +809,8 @@ public class Win32MemoryPartitionInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Win32MemoryPartitionInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Win32MemoryPartitionInformation> {
-                override val sizeBytes: Long = 240L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 240L
                 override fun readNative(addr: Long): Win32MemoryPartitionInformation =
                     Win32MemoryPartitionInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -829,7 +829,7 @@ public class Win32MemoryPartitionInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (16).toInt())
-                        ).readNative(addr + 88L),
+                        ).readNative(addr + 88L).toULongArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 216L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 224L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 232L),
@@ -851,7 +851,7 @@ public class Win32MemoryPartitionInformation(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (16).toInt())
-                    ).writeNative(addr + 88L, value.reserved)
+                    ).writeNative(addr + 88L, value.reserved.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 216L, value.maximumCommitLimit)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 224L, value.reserved2)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 232L, value.partitionId)
@@ -895,8 +895,8 @@ public class Win32MemoryRangeEntry internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Win32MemoryRangeEntry> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Win32MemoryRangeEntry> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Win32MemoryRangeEntry =
                     Win32MemoryRangeEntry(
                         (
@@ -1004,8 +1004,8 @@ public data class Win32MemoryRegionInformation00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Win32MemoryRegionInformation00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Win32MemoryRegionInformation00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Win32MemoryRegionInformation00 =
                     Win32MemoryRegionInformation00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

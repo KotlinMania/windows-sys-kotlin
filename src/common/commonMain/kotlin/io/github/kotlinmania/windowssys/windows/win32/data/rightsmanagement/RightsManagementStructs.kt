@@ -264,46 +264,46 @@ public data class DrmClientVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrmClientVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DrmClientVersionInfo> {
-                override val sizeBytes: Long = 1556L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1556L
                 override fun readNative(addr: Long): DrmClientVersionInfo =
                     DrmClientVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUIntArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 532L),
+                        ).readNative(addr + 532L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 1044L),
+                        ).readNative(addr + 1044L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: DrmClientVersionInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.uStructVersion)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                    ).writeNative(addr + 4L, value.dwVersion)
+                    ).writeNative(addr + 4L, value.dwVersion.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 20L, value.wszHierarchy)
+                    ).writeNative(addr + 20L, value.wszHierarchy.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 532L, value.wszProductId)
+                    ).writeNative(addr + 532L, value.wszProductId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 1044L, value.wszProductDescription)
+                    ).writeNative(addr + 1044L, value.wszProductDescription.toList())
                 }
             }
     }

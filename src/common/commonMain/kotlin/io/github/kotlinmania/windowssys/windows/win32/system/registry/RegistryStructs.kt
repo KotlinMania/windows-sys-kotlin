@@ -21,8 +21,8 @@ public data class Dsktlsystemtime(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsktlsystemtime> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Dsktlsystemtime> {
-                override val sizeBytes: Long = 18L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 18L
                 override fun readNative(addr: Long): Dsktlsystemtime =
                     Dsktlsystemtime(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -416,8 +416,8 @@ public class ValContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ValContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ValContext> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): ValContext =
                     ValContext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

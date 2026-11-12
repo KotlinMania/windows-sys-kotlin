@@ -15,8 +15,8 @@ public data class EnumPageFileInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnumPageFileInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnumPageFileInformation> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): EnumPageFileInformation =
                     EnumPageFileInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -80,8 +80,8 @@ public class Moduleinfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Moduleinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Moduleinfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Moduleinfo =
                     Moduleinfo(
                         (
@@ -139,8 +139,8 @@ public data class PerformanceInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerformanceInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerformanceInformation> {
-                override val sizeBytes: Long = 104L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 104L
                 override fun readNative(addr: Long): PerformanceInformation =
                     PerformanceInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -193,8 +193,8 @@ public data class ProcessMemoryCounters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryCounters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryCounters> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): ProcessMemoryCounters =
                     ProcessMemoryCounters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -240,8 +240,8 @@ public data class ProcessMemoryCountersEx(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryCountersEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryCountersEx> {
-                override val sizeBytes: Long = 80L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 80L
                 override fun readNative(addr: Long): ProcessMemoryCountersEx =
                     ProcessMemoryCountersEx(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -291,8 +291,8 @@ public data class ProcessMemoryCountersEx2(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryCountersEx2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryCountersEx2> {
-                override val sizeBytes: Long = 96L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 96L
                 override fun readNative(addr: Long): ProcessMemoryCountersEx2 =
                     ProcessMemoryCountersEx2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -339,8 +339,8 @@ public data class PsapiWorkingSetBlock0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWorkingSetBlock0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWorkingSetBlock0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PsapiWorkingSetBlock0 =
                     PsapiWorkingSetBlock0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -368,8 +368,8 @@ public data class PsapiWorkingSetExBlock00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWorkingSetExBlock00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWorkingSetExBlock00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PsapiWorkingSetExBlock00 =
                     PsapiWorkingSetExBlock00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -387,8 +387,8 @@ public data class PsapiWorkingSetExBlock01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWorkingSetExBlock01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWorkingSetExBlock01> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PsapiWorkingSetExBlock01 =
                     PsapiWorkingSetExBlock01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -487,8 +487,8 @@ public class PsapiWsWatchInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWsWatchInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWsWatchInformation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PsapiWsWatchInformation =
                     PsapiWsWatchInformation(
                         (
@@ -531,8 +531,8 @@ public data class PsapiWsWatchInformationEx(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWsWatchInformationEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsapiWsWatchInformationEx> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PsapiWsWatchInformationEx =
                     PsapiWsWatchInformationEx(
                         (PsapiWsWatchInformation.typeLayout()).readNative(addr),

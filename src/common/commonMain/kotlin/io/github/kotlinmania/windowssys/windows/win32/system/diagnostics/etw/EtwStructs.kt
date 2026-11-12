@@ -41,8 +41,8 @@ public data class ControltraceHandle(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ControltraceHandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ControltraceHandle> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ControltraceHandle =
                     ControltraceHandle(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -239,8 +239,8 @@ public class EtwBufferCallbackInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwBufferCallbackInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwBufferCallbackInformation> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): EtwBufferCallbackInformation =
                     EtwBufferCallbackInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -290,8 +290,8 @@ public data class EtwBufferContext00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwBufferContext00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwBufferContext00> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): EtwBufferContext00 =
                     EtwBufferContext00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -418,8 +418,8 @@ public data class EtwPmcCounterOwner(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwPmcCounterOwner> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwPmcCounterOwner> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): EtwPmcCounterOwner =
                     EtwPmcCounterOwner(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -443,8 +443,8 @@ public data class EtwPmcCounterOwnershipStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwPmcCounterOwnershipStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwPmcCounterOwnershipStatus> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): EtwPmcCounterOwnershipStatus =
                     EtwPmcCounterOwnershipStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -476,8 +476,8 @@ public data class EtwPmcSessionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwPmcSessionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EtwPmcSessionInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EtwPmcSessionInfo =
                     EtwPmcSessionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -586,8 +586,8 @@ public data class EventDataDescriptor00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventDataDescriptor00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventDataDescriptor00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventDataDescriptor00 =
                     EventDataDescriptor00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -615,8 +615,8 @@ public data class EventDescriptor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EventDescriptor =
                     EventDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -646,8 +646,8 @@ public data class EventExtendedItemEventKey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemEventKey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemEventKey> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventExtendedItemEventKey =
                     EventExtendedItemEventKey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -671,8 +671,8 @@ public data class EventExtendedItemPebsIndex(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemPebsIndex> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemPebsIndex> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventExtendedItemPebsIndex =
                     EventExtendedItemPebsIndex(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -699,20 +699,20 @@ public data class EventExtendedItemPmcCounters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemPmcCounters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemPmcCounters> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventExtendedItemPmcCounters =
                     EventExtendedItemPmcCounters(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (1).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: EventExtendedItemPmcCounters) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (1).toInt())
-                    ).writeNative(addr, value.counter)
+                    ).writeNative(addr, value.counter.toList())
                 }
             }
     }
@@ -724,8 +724,8 @@ public data class EventExtendedItemProcessStartKey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemProcessStartKey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemProcessStartKey> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventExtendedItemProcessStartKey =
                     EventExtendedItemProcessStartKey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -749,8 +749,8 @@ public data class EventExtendedItemStackKey32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackKey32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackKey32> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EventExtendedItemStackKey32 =
                     EventExtendedItemStackKey32(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -773,8 +773,8 @@ public data class EventExtendedItemStackKey64(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackKey64> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackKey64> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EventExtendedItemStackKey64 =
                     EventExtendedItemStackKey64(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -809,22 +809,22 @@ public data class EventExtendedItemStackTrace32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackTrace32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackTrace32> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EventExtendedItemStackTrace32 =
                     EventExtendedItemStackTrace32(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: EventExtendedItemStackTrace32) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.matchId)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                    ).writeNative(addr + 8L, value.address)
+                    ).writeNative(addr + 8L, value.address.toList())
                 }
             }
     }
@@ -851,22 +851,22 @@ public data class EventExtendedItemStackTrace64(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackTrace64> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemStackTrace64> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EventExtendedItemStackTrace64 =
                     EventExtendedItemStackTrace64(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: EventExtendedItemStackTrace64) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.matchId)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (1).toInt())
-                    ).writeNative(addr + 8L, value.address)
+                    ).writeNative(addr + 8L, value.address.toList())
                 }
             }
     }
@@ -878,8 +878,8 @@ public data class EventExtendedItemTsId(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemTsId> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventExtendedItemTsId> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventExtendedItemTsId =
                     EventExtendedItemTsId(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -899,8 +899,8 @@ public data class EventFilterDescriptor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EventFilterDescriptor =
                     EventFilterDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -943,8 +943,8 @@ public data class EventFilterEventId(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterEventId> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterEventId> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): EventFilterEventId =
                     EventFilterEventId(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -953,7 +953,7 @@ public data class EventFilterEventId(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: EventFilterEventId) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.filterIn)
@@ -962,7 +962,7 @@ public data class EventFilterEventId(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 4L, value.events)
+                    ).writeNative(addr + 4L, value.events.toList())
                 }
             }
     }
@@ -1001,8 +1001,8 @@ public data class EventFilterEventName(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterEventName> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterEventName> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): EventFilterEventName =
                     EventFilterEventName(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1013,7 +1013,7 @@ public data class EventFilterEventName(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: EventFilterEventName) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.matchAnyKeyword)
@@ -1024,7 +1024,7 @@ public data class EventFilterEventName(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 20L, value.names)
+                    ).writeNative(addr + 20L, value.names.toList())
                 }
             }
     }
@@ -1063,8 +1063,8 @@ public data class EventFilterHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterHeader> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): EventFilterHeader =
                     EventFilterHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1072,7 +1072,7 @@ public data class EventFilterHeader(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (5).toInt())
-                        ).readNative(addr + 3L),
+                        ).readNative(addr + 3L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -1083,7 +1083,7 @@ public data class EventFilterHeader(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (5).toInt())
-                    ).writeNative(addr + 3L, value.reserved)
+                    ).writeNative(addr + 3L, value.reserved.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.instanceId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.size)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.nextOffset)
@@ -1101,8 +1101,8 @@ public data class EventFilterLevelKw(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterLevelKw> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventFilterLevelKw> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): EventFilterLevelKw =
                     EventFilterLevelKw(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1146,8 +1146,8 @@ public data class EventHeader00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventHeader00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventHeader00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventHeader00 =
                     EventHeader00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1171,8 +1171,8 @@ public data class EventHeaderExtendedDataItem(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventHeaderExtendedDataItem> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventHeaderExtendedDataItem> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): EventHeaderExtendedDataItem =
                     EventHeaderExtendedDataItem(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1198,8 +1198,8 @@ public data class EventHeaderExtendedDataItem0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventHeaderExtendedDataItem0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventHeaderExtendedDataItem0> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): EventHeaderExtendedDataItem0 =
                     EventHeaderExtendedDataItem0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1237,8 +1237,8 @@ public data class EventInstanceHeader00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader00> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): EventInstanceHeader00 =
                     EventInstanceHeader00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1265,8 +1265,8 @@ public data class EventInstanceHeader10(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader10> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader10> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventInstanceHeader10 =
                     EventInstanceHeader10(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1295,8 +1295,8 @@ public data class EventInstanceHeader20(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader20> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader20> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventInstanceHeader20 =
                     EventInstanceHeader20(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1317,8 +1317,8 @@ public data class EventInstanceHeader21(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader21> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventInstanceHeader21> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventInstanceHeader21 =
                     EventInstanceHeader21(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1422,8 +1422,8 @@ public data class EventPropertyInfo02(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo02> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo02> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventPropertyInfo02 =
                     EventPropertyInfo02(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1447,8 +1447,8 @@ public data class EventPropertyInfo00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventPropertyInfo00 =
                     EventPropertyInfo00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1472,8 +1472,8 @@ public data class EventPropertyInfo01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo01> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventPropertyInfo01 =
                     EventPropertyInfo01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1510,8 +1510,8 @@ public data class EventPropertyInfo30(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo30> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventPropertyInfo30> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventPropertyInfo30 =
                     EventPropertyInfo30(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1725,8 +1725,8 @@ public data class EventTraceHeader00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader00> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): EventTraceHeader00 =
                     EventTraceHeader00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1753,8 +1753,8 @@ public data class EventTraceHeader10(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader10> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader10> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventTraceHeader10 =
                     EventTraceHeader10(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1788,8 +1788,8 @@ public data class EventTraceHeader30(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader30> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader30> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventTraceHeader30 =
                     EventTraceHeader30(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1810,8 +1810,8 @@ public data class EventTraceHeader31(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader31> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTraceHeader31> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): EventTraceHeader31 =
                     EventTraceHeader31(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2353,8 +2353,8 @@ public data class EventTracePropertiesV210(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTracePropertiesV210> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTracePropertiesV210> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventTracePropertiesV210 =
                     EventTracePropertiesV210(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2377,8 +2377,8 @@ public data class EventTracePropertiesV220(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTracePropertiesV220> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EventTracePropertiesV220> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): EventTracePropertiesV220 =
                     EventTracePropertiesV220(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2398,8 +2398,8 @@ public data class MofField(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MofField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MofField> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MofField =
                     MofField(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2422,8 +2422,8 @@ public data class Offsetinstancedataandlength(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Offsetinstancedataandlength> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Offsetinstancedataandlength> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Offsetinstancedataandlength =
                     Offsetinstancedataandlength(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2498,8 +2498,8 @@ public data class ProcesstraceHandle(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcesstraceHandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcesstraceHandle> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ProcesstraceHandle =
                     ProcesstraceHandle(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2544,8 +2544,8 @@ public data class ProfileSourceInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProfileSourceInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProfileSourceInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): ProfileSourceInfo =
                     ProfileSourceInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2556,7 +2556,7 @@ public data class ProfileSourceInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 24L),
+                        ).readNative(addr + 24L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: ProfileSourceInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nextEntryOffset)
@@ -2567,7 +2567,7 @@ public data class ProfileSourceInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 24L, value.description)
+                    ).writeNative(addr + 24L, value.description.toList())
                 }
             }
     }
@@ -2581,8 +2581,8 @@ public data class PropertyDataDescriptor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PropertyDataDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PropertyDataDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PropertyDataDescriptor =
                     PropertyDataDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2612,8 +2612,8 @@ public data class ProviderEventInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProviderEventInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProviderEventInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): ProviderEventInfo =
                     ProviderEventInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2643,8 +2643,8 @@ public data class ProviderFieldInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProviderFieldInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProviderFieldInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ProviderFieldInfo =
                     ProviderFieldInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2668,8 +2668,8 @@ public data class ProviderFieldInfoarray(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProviderFieldInfoarray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProviderFieldInfoarray> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): ProviderFieldInfoarray =
                     ProviderFieldInfoarray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2706,8 +2706,8 @@ public data class RelogstreamHandle(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RelogstreamHandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RelogstreamHandle> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): RelogstreamHandle =
                     RelogstreamHandle(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2727,8 +2727,8 @@ public data class TdhContext(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TdhContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TdhContext> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TdhContext =
                     TdhContext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2757,8 +2757,8 @@ public data class TraceEnableInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceEnableInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceEnableInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): TraceEnableInfo =
                     TraceEnableInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2828,8 +2828,8 @@ public data class TraceEventInfo20(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceEventInfo20> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceEventInfo20> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TraceEventInfo20 =
                     TraceEventInfo20(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2848,8 +2848,8 @@ public data class TraceGuidInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceGuidInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceGuidInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TraceGuidInfo =
                     TraceGuidInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3024,8 +3024,8 @@ public data class TraceLogfileHeader00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TraceLogfileHeader00 =
                     TraceLogfileHeader00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -3057,8 +3057,8 @@ public data class TraceLogfileHeader10(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader10> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader10> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TraceLogfileHeader10 =
                     TraceLogfileHeader10(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3111,8 +3111,8 @@ public data class TraceLogfileHeader3200(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader3200> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader3200> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TraceLogfileHeader3200 =
                     TraceLogfileHeader3200(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -3144,8 +3144,8 @@ public data class TraceLogfileHeader3210(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader3210> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader3210> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TraceLogfileHeader3210 =
                     TraceLogfileHeader3210(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3198,8 +3198,8 @@ public data class TraceLogfileHeader6400(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader6400> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader6400> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TraceLogfileHeader6400 =
                     TraceLogfileHeader6400(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -3231,8 +3231,8 @@ public data class TraceLogfileHeader6410(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader6410> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceLogfileHeader6410> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TraceLogfileHeader6410 =
                     TraceLogfileHeader6410(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3258,8 +3258,8 @@ public data class TracePeriodicCaptureStateInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TracePeriodicCaptureStateInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TracePeriodicCaptureStateInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TracePeriodicCaptureStateInfo =
                     TracePeriodicCaptureStateInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3282,8 +3282,8 @@ public data class TraceProfileInterval(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceProfileInterval> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceProfileInterval> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TraceProfileInterval =
                     TraceProfileInterval(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3312,8 +3312,8 @@ public data class TraceProviderInstanceInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceProviderInstanceInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceProviderInstanceInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TraceProviderInstanceInfo =
                     TraceProviderInstanceInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3339,8 +3339,8 @@ public data class TraceStackCachingInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceStackCachingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceStackCachingInfo> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): TraceStackCachingInfo =
                     TraceStackCachingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -3363,8 +3363,8 @@ public data class TraceVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TraceVersionInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TraceVersionInfo =
                     TraceVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3466,8 +3466,8 @@ public data class WnodeHeader00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnodeHeader00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnodeHeader00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WnodeHeader00 =
                     WnodeHeader00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

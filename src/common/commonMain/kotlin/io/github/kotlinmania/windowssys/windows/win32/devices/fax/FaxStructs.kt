@@ -3158,8 +3158,8 @@ public data class FaxTime(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaxTime> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FaxTime> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): FaxTime =
                     FaxTime(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -3405,8 +3405,8 @@ public data class StiDeviceStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiDeviceStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiDeviceStatus> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): StiDeviceStatus =
                     StiDeviceStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3434,8 +3434,8 @@ public data class StiDevCaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiDevCaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiDevCaps> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): StiDevCaps =
                     StiDevCaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3457,8 +3457,8 @@ public data class StiDiag(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiDiag> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiDiag> {
-                override val sizeBytes: Long = 540L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 540L
                 override fun readNative(addr: Long): StiDiag =
                     StiDiag(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3485,8 +3485,8 @@ public data class StiUsdCaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiUsdCaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<StiUsdCaps> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): StiUsdCaps =
                     StiUsdCaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3669,8 +3669,8 @@ public data class ErrorInfow(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ErrorInfow> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ErrorInfow> {
-                override val sizeBytes: Long = 524L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 524L
                 override fun readNative(addr: Long): ErrorInfow =
                     ErrorInfow(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3679,7 +3679,7 @@ public data class ErrorInfow(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (255).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: ErrorInfow) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
@@ -3688,7 +3688,7 @@ public data class ErrorInfow(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (255).toInt())
-                    ).writeNative(addr + 12L, value.szExtendedErrorText)
+                    ).writeNative(addr + 12L, value.szExtendedErrorText.toList())
                 }
             }
     }

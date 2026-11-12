@@ -23,8 +23,8 @@ public data class HcnPortRangeReservation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HcnPortRangeReservation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HcnPortRangeReservation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HcnPortRangeReservation =
                     HcnPortRangeReservation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),

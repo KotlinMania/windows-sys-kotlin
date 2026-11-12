@@ -11,8 +11,8 @@ public data class TbsContextParams(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TbsContextParams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TbsContextParams> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TbsContextParams =
                     TbsContextParams(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -40,8 +40,8 @@ public data class TbsContextParams200(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TbsContextParams200> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TbsContextParams200> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TbsContextParams200 =
                     TbsContextParams200(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -62,8 +62,8 @@ public data class TpmDeviceInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpmDeviceInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpmDeviceInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TpmDeviceInfo =
                     TpmDeviceInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -102,22 +102,22 @@ public data class TpmWnfProvisioning(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpmWnfProvisioning> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpmWnfProvisioning> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): TpmWnfProvisioning =
                     TpmWnfProvisioning(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (28).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: TpmWnfProvisioning) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.status)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (28).toInt())
-                    ).writeNative(addr + 4L, value.message)
+                    ).writeNative(addr + 4L, value.message.toList())
                 }
             }
     }

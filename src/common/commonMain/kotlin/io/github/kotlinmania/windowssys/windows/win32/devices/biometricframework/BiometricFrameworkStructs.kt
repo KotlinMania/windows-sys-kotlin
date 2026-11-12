@@ -25,8 +25,8 @@ public data class WinbioAdapterInterfaceVersion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAdapterInterfaceVersion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAdapterInterfaceVersion> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioAdapterInterfaceVersion =
                     WinbioAdapterInterfaceVersion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -47,8 +47,8 @@ public data class WinbioAntiSpoofPolicy(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAntiSpoofPolicy> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAntiSpoofPolicy> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioAntiSpoofPolicy =
                     WinbioAntiSpoofPolicy(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -219,8 +219,8 @@ public class WinbioAsyncResult06 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult06> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult06> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinbioAsyncResult06 =
                     WinbioAsyncResult06(
                         (
@@ -327,8 +327,8 @@ public class WinbioAsyncResult011 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult011> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult011> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): WinbioAsyncResult011 =
                     WinbioAsyncResult011(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -398,8 +398,8 @@ public data class WinbioAsyncResult02(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult02> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult02> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): WinbioAsyncResult02 =
                     WinbioAsyncResult02(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -417,8 +417,8 @@ public data class WinbioAsyncResult03(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult03> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult03> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioAsyncResult03 =
                     WinbioAsyncResult03(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -441,8 +441,8 @@ public data class WinbioAsyncResult017(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult017> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult017> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioAsyncResult017 =
                     WinbioAsyncResult017(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -489,8 +489,8 @@ public class WinbioAsyncResult013 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult013> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult013> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinbioAsyncResult013 =
                     WinbioAsyncResult013(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -554,8 +554,8 @@ public class WinbioAsyncResult014 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult014> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult014> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinbioAsyncResult014 =
                     WinbioAsyncResult014(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -671,8 +671,8 @@ public class WinbioAsyncResult012 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult012> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult012> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinbioAsyncResult012 =
                     WinbioAsyncResult012(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -840,8 +840,8 @@ public class WinbioAsyncResult018 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult018> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult018> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinbioAsyncResult018 =
                     WinbioAsyncResult018(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -880,8 +880,8 @@ public data class WinbioAsyncResult020(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult020> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult020> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioAsyncResult020 =
                     WinbioAsyncResult020(
                         (WinbioExtendedUnitStatus.typeLayout()).readNative(addr),
@@ -977,8 +977,8 @@ public data class WinbioAsyncResult015(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult015> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult015> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinbioAsyncResult015 =
                     WinbioAsyncResult015(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -1001,8 +1001,8 @@ public data class WinbioAsyncResult00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioAsyncResult00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioAsyncResult00 =
                     WinbioAsyncResult00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -1036,8 +1036,8 @@ public data class WinbioBdbAnsi381Header(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBdbAnsi381Header> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBdbAnsi381Header> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): WinbioBdbAnsi381Header =
                     WinbioBdbAnsi381Header(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1091,8 +1091,8 @@ public data class WinbioBdbAnsi381Record(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBdbAnsi381Record> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBdbAnsi381Record> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinbioBdbAnsi381Record =
                     WinbioBdbAnsi381Record(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1129,8 +1129,8 @@ public data class WinbioBir(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBir> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBir> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): WinbioBir =
                     WinbioBir(
                         (WinbioBirData.typeLayout()).readNative(addr),
@@ -1155,8 +1155,8 @@ public data class WinbioBirData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBirData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBirData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioBirData =
                     WinbioBirData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1187,8 +1187,8 @@ public data class WinbioBirHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBirHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBirHeader> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): WinbioBirHeader =
                     WinbioBirHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1229,8 +1229,8 @@ public data class WinbioBirHeader0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBirHeader0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBirHeader0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinbioBirHeader0 =
                     WinbioBirHeader0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1247,7 +1247,24 @@ public data class WinbioBirHeader0(
 public data class WinbioBlankPayload(
     public var payloadSize: UInt = 0u,
     public var winBioHresult: Hresult = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBlankPayload> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioBlankPayload> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): WinbioBlankPayload =
+                    WinbioBlankPayload(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioBlankPayload) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                }
+            }
+    }
+}
 
 public data class WinbioBspSchema(
     public var biometricFactor: UInt = 0u,
@@ -1281,7 +1298,26 @@ public data class WinbioCalibrationInfo(
     public var payloadSize: UInt = 0u,
     public var winBioHresult: Hresult = 0,
     public var calibrationData: WinbioData = WinbioData(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioCalibrationInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioCalibrationInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): WinbioCalibrationInfo =
+                    WinbioCalibrationInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (WinbioData.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioCalibrationInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (WinbioData.typeLayout()).writeNative(addr + 8L, value.calibrationData)
+                }
+            }
+    }
+}
 
 public data class WinbioCaptureData(
     public var payloadSize: UInt = 0u,
@@ -1289,7 +1325,30 @@ public data class WinbioCaptureData(
     public var sensorStatus: UInt = 0u,
     public var rejectDetail: UInt = 0u,
     public var captureData: WinbioData = WinbioData(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioCaptureData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioCaptureData> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): WinbioCaptureData =
+                    WinbioCaptureData(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (WinbioData.typeLayout()).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioCaptureData) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.sensorStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.rejectDetail)
+                    (WinbioData.typeLayout()).writeNative(addr + 16L, value.captureData)
+                }
+            }
+    }
+}
 
 public data class WinbioCaptureParameters(
     public var payloadSize: UInt = 0u,
@@ -1320,22 +1379,22 @@ public data class WinbioData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioData =
                     WinbioData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WinbioData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.data)
+                    ).writeNative(addr + 4L, value.data.toList())
                 }
             }
     }
@@ -1346,7 +1405,28 @@ public data class WinbioDiagnostics(
     public var winBioHresult: Hresult = 0,
     public var sensorStatus: UInt = 0u,
     public var vendorDiagnostics: WinbioData = WinbioData(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioDiagnostics> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioDiagnostics> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
+                override fun readNative(addr: Long): WinbioDiagnostics =
+                    WinbioDiagnostics(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (WinbioData.typeLayout()).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioDiagnostics) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.sensorStatus)
+                    (WinbioData.typeLayout()).writeNative(addr + 12L, value.vendorDiagnostics)
+                }
+            }
+    }
+}
 
 public data class WinbioEncryptedCaptureParams(
     public var payloadSize: UInt = 0u,
@@ -1418,7 +1498,22 @@ public data class WinbioEvent0(
 
 public data class WinbioEvent02(
     public var errorCode: Hresult = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioEvent02> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioEvent02> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): WinbioEvent02 =
+                    WinbioEvent02(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: WinbioEvent02) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.errorCode)
+                }
+            }
+    }
+}
 
 public data class WinbioEvent01(
     public var unitId: UInt = 0u,
@@ -1434,8 +1529,8 @@ public data class WinbioEvent00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioEvent00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioEvent00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioEvent00 =
                     WinbioEvent00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1470,8 +1565,8 @@ public data class WinbioExtendedEngineInfo00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo00 =
                     WinbioExtendedEngineInfo00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1491,8 +1586,8 @@ public data class WinbioExtendedEngineInfo000(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo000> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo000> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo000 =
                     WinbioExtendedEngineInfo000(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1511,8 +1606,8 @@ public data class WinbioExtendedEngineInfo01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo01> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo01 =
                     WinbioExtendedEngineInfo01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1537,8 +1632,8 @@ public data class WinbioExtendedEngineInfo010(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo010> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo010> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo010 =
                     WinbioExtendedEngineInfo010(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1567,8 +1662,8 @@ public data class WinbioExtendedEngineInfo02(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo02> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo02> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo02 =
                     WinbioExtendedEngineInfo02(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1588,8 +1683,8 @@ public data class WinbioExtendedEngineInfo020(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo020> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo020> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo020 =
                     WinbioExtendedEngineInfo020(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1608,8 +1703,8 @@ public data class WinbioExtendedEngineInfo03(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo03> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo03> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo03 =
                     WinbioExtendedEngineInfo03(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1629,8 +1724,8 @@ public data class WinbioExtendedEngineInfo030(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo030> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEngineInfo030> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedEngineInfo030 =
                     WinbioExtendedEngineInfo030(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1649,8 +1744,8 @@ public data class WinbioExtendedEnrollmentParameters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentParameters> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinbioExtendedEnrollmentParameters =
                     WinbioExtendedEnrollmentParameters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -1717,8 +1812,8 @@ public data class WinbioExtendedEnrollmentStatus01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentStatus01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentStatus01> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinbioExtendedEnrollmentStatus01 =
                     WinbioExtendedEnrollmentStatus01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1760,8 +1855,8 @@ public data class WinbioExtendedEnrollmentStatus020(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentStatus020> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentStatus020> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinbioExtendedEnrollmentStatus020 =
                     WinbioExtendedEnrollmentStatus020(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F64).readNative(addr),
@@ -1783,8 +1878,8 @@ public data class WinbioExtendedEnrollmentStatus03(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentStatus03> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedEnrollmentStatus03> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedEnrollmentStatus03 =
                     WinbioExtendedEnrollmentStatus03(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1841,29 +1936,29 @@ public data class WinbioExtendedSensorInfo000(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedSensorInfo000> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedSensorInfo000> {
-                override val sizeBytes: Long = 1044L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1044L
                 override fun readNative(addr: Long): WinbioExtendedSensorInfo000 =
                     WinbioExtendedSensorInfo000(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr + 520L),
+                        ).readNative(addr + 520L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1040L),
                     )
                 override fun writeNative(addr: Long, value: WinbioExtendedSensorInfo000) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.colorSensorId)
+                    ).writeNative(addr, value.colorSensorId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr + 520L, value.infraredSensorId)
+                    ).writeNative(addr + 520L, value.infraredSensorId.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1040L, value.infraredSensorRotationAngle)
                 }
             }
@@ -1876,8 +1971,8 @@ public data class WinbioExtendedSensorInfo01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedSensorInfo01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedSensorInfo01> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedSensorInfo01 =
                     WinbioExtendedSensorInfo01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1901,8 +1996,8 @@ public data class WinbioExtendedSensorInfo03(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedSensorInfo03> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedSensorInfo03> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedSensorInfo03 =
                     WinbioExtendedSensorInfo03(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1934,8 +2029,8 @@ public data class WinbioExtendedStorageInfo00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedStorageInfo00 =
                     WinbioExtendedStorageInfo00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1953,8 +2048,8 @@ public data class WinbioExtendedStorageInfo01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo01> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedStorageInfo01 =
                     WinbioExtendedStorageInfo01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1972,8 +2067,8 @@ public data class WinbioExtendedStorageInfo02(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo02> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo02> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedStorageInfo02 =
                     WinbioExtendedStorageInfo02(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1991,8 +2086,8 @@ public data class WinbioExtendedStorageInfo03(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo03> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedStorageInfo03> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioExtendedStorageInfo03 =
                     WinbioExtendedStorageInfo03(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2011,8 +2106,8 @@ public data class WinbioExtendedUnitStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedUnitStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioExtendedUnitStatus> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioExtendedUnitStatus =
                     WinbioExtendedUnitStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2029,7 +2124,24 @@ public data class WinbioExtendedUnitStatus(
 public data class WinbioFpBuState(
     public var sensorAttached: Bool = 0,
     public var creationResult: Hresult = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioFpBuState> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioFpBuState> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): WinbioFpBuState =
+                    WinbioFpBuState(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioFpBuState) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.sensorAttached)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.creationResult)
+                }
+            }
+    }
+}
 
 public class WinbioFrameworkInterface(
     public var version: WinbioAdapterInterfaceVersion = WinbioAdapterInterfaceVersion(),
@@ -2091,8 +2203,8 @@ public data class WinbioGestureMetadata(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioGestureMetadata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioGestureMetadata> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinbioGestureMetadata =
                     WinbioGestureMetadata(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -2114,7 +2226,26 @@ public data class WinbioGetIndicator(
     public var payloadSize: UInt = 0u,
     public var winBioHresult: Hresult = 0,
     public var indicatorStatus: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioGetIndicator> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioGetIndicator> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): WinbioGetIndicator =
+                    WinbioGetIndicator(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioGetIndicator) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.indicatorStatus)
+                }
+            }
+    }
+}
 
 public data class WinbioIdentity(
     public var type: UInt = 0u,
@@ -2170,22 +2301,22 @@ public data class WinbioIdentity00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioIdentity00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioIdentity00> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): WinbioIdentity00 =
                     WinbioIdentity00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (68).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WinbioIdentity00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (68).toInt())
-                    ).writeNative(addr + 4L, value.data)
+                    ).writeNative(addr + 4L, value.data.toList())
                 }
             }
     }
@@ -2195,7 +2326,26 @@ public data class WinbioNotifyWake(
     public var payloadSize: UInt = 0u,
     public var winBioHresult: Hresult = 0,
     public var reason: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioNotifyWake> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioNotifyWake> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): WinbioNotifyWake =
+                    WinbioNotifyWake(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioNotifyWake) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.reason)
+                }
+            }
+    }
+}
 
 public class WinbioPipeline internal constructor(
     sensorHandleCtorArg: Handle,
@@ -2365,22 +2515,22 @@ public data class WinbioPresence0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioPresence0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioPresence0> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): WinbioPresence0 =
                     WinbioPresence0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WinbioPresence0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 4L, value.data)
+                    ).writeNative(addr + 4L, value.data.toList())
                 }
             }
     }
@@ -2428,7 +2578,26 @@ public data class WinbioPrivateSensorTypeInfo(
     public var payloadSize: UInt = 0u,
     public var winBioHresult: Hresult = 0,
     public var privateSensorTypeInfo: WinbioData = WinbioData(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioPrivateSensorTypeInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioPrivateSensorTypeInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): WinbioPrivateSensorTypeInfo =
+                    WinbioPrivateSensorTypeInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (WinbioData.typeLayout()).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioPrivateSensorTypeInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (WinbioData.typeLayout()).writeNative(addr + 8L, value.privateSensorTypeInfo)
+                }
+            }
+    }
+}
 
 public data class WinbioProtectionPolicy(
     public var version: UInt = 0u,
@@ -2468,8 +2637,8 @@ public data class WinbioRegisteredFormat(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioRegisteredFormat> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioRegisteredFormat> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WinbioRegisteredFormat =
                     WinbioRegisteredFormat(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -2492,8 +2661,8 @@ public data class WinbioSecureBufferHeaderV1(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSecureBufferHeaderV1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSecureBufferHeaderV1> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinbioSecureBufferHeaderV1 =
                     WinbioSecureBufferHeaderV1(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2522,8 +2691,8 @@ public data class WinbioSecureConnectionData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSecureConnectionData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSecureConnectionData> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): WinbioSecureConnectionData =
                     WinbioSecureConnectionData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2553,8 +2722,8 @@ public data class WinbioSecureConnectionParams(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSecureConnectionParams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSecureConnectionParams> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioSecureConnectionParams =
                     WinbioSecureConnectionParams(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2617,6 +2786,67 @@ public data class WinbioSensorAttributes(
         result = 31 * result + this.supportedFormat.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSensorAttributes> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSensorAttributes> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1580L
+                override fun readNative(addr: Long): WinbioSensorAttributes =
+                    WinbioSensorAttributes(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (WinbioVersion.typeLayout()).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 28L).toUShortArray(),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 540L).toUShortArray(),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 1052L).toUShortArray(),
+                        (WinbioVersion.typeLayout()).readNative(addr + 1564L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1572L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(WinbioRegisteredFormat.typeLayout(), (1).toInt())
+                        ).readNative(addr + 1576L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioSensorAttributes) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (WinbioVersion.typeLayout()).writeNative(addr + 8L, value.winBioVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.sensorType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.sensorSubType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.capabilities)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 28L, value.manufacturerName.toList())
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 540L, value.modelName.toList())
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 1052L, value.serialNumber.toList())
+                    (WinbioVersion.typeLayout()).writeNative(addr + 1564L, value.firmwareVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1572L, value.supportedFormatEntries)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(WinbioRegisteredFormat.typeLayout(), (1).toInt())
+                    ).writeNative(addr + 1576L, value.supportedFormat)
+                }
+            }
+    }
 }
 
 public class WinbioSensorInterface(
@@ -2664,8 +2894,8 @@ public data class WinbioSetIndicator(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSetIndicator> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSetIndicator> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioSetIndicator =
                     WinbioSetIndicator(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2796,8 +3026,8 @@ public class WinbioStorageRecord internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioStorageRecord> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioStorageRecord> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): WinbioStorageRecord =
                     WinbioStorageRecord(
                         (
@@ -2904,7 +3134,28 @@ public data class WinbioSupportedAlgorithms(
     public var winBioHresult: Hresult = 0,
     public var numberOfAlgorithms: UInt = 0u,
     public var algorithmData: WinbioData = WinbioData(),
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSupportedAlgorithms> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioSupportedAlgorithms> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
+                override fun readNative(addr: Long): WinbioSupportedAlgorithms =
+                    WinbioSupportedAlgorithms(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (WinbioData.typeLayout()).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: WinbioSupportedAlgorithms) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.payloadSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.winBioHresult)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.numberOfAlgorithms)
+                    (WinbioData.typeLayout()).writeNative(addr + 12L, value.algorithmData)
+                }
+            }
+    }
+}
 
 public data class WinbioUnitSchema(
     public var unitId: UInt = 0u,
@@ -2954,8 +3205,8 @@ public data class WinbioUnitSchema(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioUnitSchema> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioUnitSchema> {
-                override val sizeBytes: Long = 2588L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 2588L
                 override fun readNative(addr: Long): WinbioUnitSchema =
                     WinbioUnitSchema(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2966,23 +3217,23 @@ public data class WinbioUnitSchema(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 532L),
+                        ).readNative(addr + 532L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 1044L),
+                        ).readNative(addr + 1044L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 1556L),
+                        ).readNative(addr + 1556L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr + 2068L),
+                        ).readNative(addr + 2068L).toUShortArray(),
                         (WinbioVersion.typeLayout()).readNative(addr + 2580L),
                     )
                 override fun writeNative(addr: Long, value: WinbioUnitSchema) {
@@ -2994,23 +3245,23 @@ public data class WinbioUnitSchema(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 20L, value.deviceInstanceId)
+                    ).writeNative(addr + 20L, value.deviceInstanceId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 532L, value.description)
+                    ).writeNative(addr + 532L, value.description.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 1044L, value.manufacturer)
+                    ).writeNative(addr + 1044L, value.manufacturer.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 1556L, value.model)
+                    ).writeNative(addr + 1556L, value.model.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr + 2068L, value.serialNumber)
+                    ).writeNative(addr + 2068L, value.serialNumber.toList())
                     (WinbioVersion.typeLayout()).writeNative(addr + 2580L, value.firmwareVersion)
                 }
             }
@@ -3024,8 +3275,8 @@ public data class WinbioUpdateFirmware(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioUpdateFirmware> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioUpdateFirmware> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): WinbioUpdateFirmware =
                     WinbioUpdateFirmware(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3046,8 +3297,8 @@ public data class WinbioVersion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioVersion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinbioVersion> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinbioVersion =
                     WinbioVersion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

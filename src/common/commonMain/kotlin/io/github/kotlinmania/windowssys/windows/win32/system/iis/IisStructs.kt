@@ -407,8 +407,8 @@ public class HseExecUrlEntityInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseExecUrlEntityInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseExecUrlEntityInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HseExecUrlEntityInfo =
                     HseExecUrlEntityInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -533,8 +533,8 @@ public data class HseExecUrlStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseExecUrlStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseExecUrlStatus> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HseExecUrlStatus =
                     HseExecUrlStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -904,6 +904,33 @@ public data class HseTraceInfo(
         result = 31 * result + this.dwReserved2.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseTraceInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseTraceInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
+                override fun readNative(addr: Long): HseTraceInfo =
+                    HseTraceInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                        ).readNative(addr + 4L).toUByteArray(),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: HseTraceInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fTraceRequest)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
+                    ).writeNative(addr + 4L, value.traceContextId.toList())
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.dwReserved1)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.dwReserved2)
+                }
+            }
+    }
 }
 
 public data class HseUnicodeUrlMapexInfo(
@@ -933,14 +960,14 @@ public data class HseUnicodeUrlMapexInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseUnicodeUrlMapexInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseUnicodeUrlMapexInfo> {
-                override val sizeBytes: Long = 532L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 532L
                 override fun readNative(addr: Long): HseUnicodeUrlMapexInfo =
                     HseUnicodeUrlMapexInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 520L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 524L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 528L),
@@ -949,7 +976,7 @@ public data class HseUnicodeUrlMapexInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.lpszPath)
+                    ).writeNative(addr, value.lpszPath.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 520L, value.dwFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 524L, value.cchMatchingPath)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 528L, value.cchMatchingURL)
@@ -991,14 +1018,14 @@ public data class HseUrlMapexInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseUrlMapexInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseUrlMapexInfo> {
-                override val sizeBytes: Long = 280L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 280L
                 override fun readNative(addr: Long): HseUrlMapexInfo =
                     HseUrlMapexInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 260L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 264L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 268L),
@@ -1009,7 +1036,7 @@ public data class HseUrlMapexInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                    ).writeNative(addr, value.lpszPath)
+                    ).writeNative(addr, value.lpszPath.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 260L, value.dwFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 264L, value.cchMatchingPath)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 268L, value.cchMatchingURL)
@@ -1067,8 +1094,8 @@ public class HseVectorElement internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseVectorElement> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseVectorElement> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): HseVectorElement =
                     HseVectorElement(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1126,22 +1153,22 @@ public data class HseVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HseVersionInfo> {
-                override val sizeBytes: Long = 260L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 260L
                 override fun readNative(addr: Long): HseVersionInfo =
                     HseVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: HseVersionInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwExtensionVersion)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 4L, value.lpszExtensionDesc)
+                    ).writeNative(addr + 4L, value.lpszExtensionDesc.toList())
                 }
             }
     }
@@ -1273,7 +1300,34 @@ public data class HttpFilterAuthCompleteInfo(
     public var httpStatus: UInt = 0u,
     public var fResetAuth: Bool = 0,
     public var dwReserved: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterAuthCompleteInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterAuthCompleteInfo> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
+                override fun readNative(addr: Long): HttpFilterAuthCompleteInfo =
+                    HttpFilterAuthCompleteInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                    )
+                override fun writeNative(addr: Long, value: HttpFilterAuthCompleteInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.getHeader)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.setHeader)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 16L, value.addHeader)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 24L, value.getUserToken)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.httpStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 36L, value.fResetAuth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.dwReserved)
+                }
+            }
+    }
+}
 
 public class HttpFilterContext internal constructor(
     public var cbSize: UInt,
@@ -1365,6 +1419,51 @@ public class HttpFilterContext internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterContext> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterContext> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
+                override fun readNative(addr: Long): HttpFilterContext =
+                    HttpFilterContext(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 56L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 64L),
+                    )
+                override fun writeNative(addr: Long, value: HttpFilterContext) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.revision)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.serverContext)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ulReserved)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.fIsSecurePort)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 24L, value.pFilterContext)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 32L, value.getServerVariable)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 40L, value.addResponseHeaders)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 48L, value.writeClient)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 56L, value.allocMem)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 64L, value.serverSupportFunction)
+                }
+            }
+
         public operator fun invoke(
             cbSize: UInt = 0u,
             revision: UInt = 0u,
@@ -1535,8 +1634,8 @@ public data class HttpFilterPreprocHeaders(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterPreprocHeaders> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterPreprocHeaders> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): HttpFilterPreprocHeaders =
                     HttpFilterPreprocHeaders(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -1603,8 +1702,8 @@ public class HttpFilterRawData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterRawData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterRawData> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): HttpFilterRawData =
                     HttpFilterRawData(
                         (
@@ -1813,8 +1912,8 @@ public data class HttpFilterVersion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterVersion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFilterVersion> {
-                override val sizeBytes: Long = 272L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 272L
                 override fun readNative(addr: Long): HttpFilterVersion =
                     HttpFilterVersion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1822,7 +1921,7 @@ public data class HttpFilterVersion(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (257).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 268L),
                     )
                 override fun writeNative(addr: Long, value: HttpFilterVersion) {
@@ -1831,7 +1930,7 @@ public data class HttpFilterVersion(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (257).toInt())
-                    ).writeNative(addr + 8L, value.lpszFilterDesc)
+                    ).writeNative(addr + 8L, value.lpszFilterDesc.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 268L, value.dwFlags)
                 }
             }
@@ -1883,6 +1982,31 @@ public class HttpTraceConfiguration internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTraceConfiguration> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTraceConfiguration> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): HttpTraceConfiguration =
+                    HttpTraceConfiguration(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<Guid>(64)
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: HttpTraceConfiguration) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<Guid>(64)
+                    ).writeNative(addr, value.pProviderGuid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwAreas)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwVerbosity)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.fProviderEnabled)
+                }
+            }
+
         public operator fun invoke(
             pProviderGuid: ConstPtr<Guid> = ConstPtr(0L),
             dwAreas: UInt = 0u,
@@ -2363,8 +2487,8 @@ public data class MetadataGetallRecord(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataGetallRecord> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataGetallRecord> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): MetadataGetallRecord =
                     MetadataGetallRecord(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2395,8 +2519,8 @@ public data class MetadataHandleInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataHandleInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataHandleInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MetadataHandleInfo =
                     MetadataHandleInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2475,8 +2599,8 @@ public class MetadataRecord internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataRecord> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MetadataRecord> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): MetadataRecord =
                     MetadataRecord(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

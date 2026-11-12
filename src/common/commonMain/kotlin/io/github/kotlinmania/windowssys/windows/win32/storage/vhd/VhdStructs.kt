@@ -42,8 +42,8 @@ public data class AttachVirtualDiskParameters00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AttachVirtualDiskParameters00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AttachVirtualDiskParameters00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): AttachVirtualDiskParameters00 =
                     AttachVirtualDiskParameters00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -62,8 +62,8 @@ public data class AttachVirtualDiskParameters01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AttachVirtualDiskParameters01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AttachVirtualDiskParameters01> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AttachVirtualDiskParameters01 =
                     AttachVirtualDiskParameters01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -92,8 +92,8 @@ public data class CompactVirtualDiskParameters00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CompactVirtualDiskParameters00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CompactVirtualDiskParameters00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): CompactVirtualDiskParameters00 =
                     CompactVirtualDiskParameters00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -635,8 +635,8 @@ public data class ExpandVirtualDiskParameters00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ExpandVirtualDiskParameters00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ExpandVirtualDiskParameters00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ExpandVirtualDiskParameters00 =
                     ExpandVirtualDiskParameters00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -733,6 +733,31 @@ public data class GetVirtualDiskInfo03(
         result = 31 * result + this.mostRecentId.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo03> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo03> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): GetVirtualDiskInfo03 =
+                    GetVirtualDiskInfo03(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                        ).readNative(addr + 8L).toUShortArray(),
+                    )
+                override fun writeNative(addr: Long, value: GetVirtualDiskInfo03) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.enabled)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.newerChanges)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                    ).writeNative(addr + 8L, value.mostRecentId.toList())
+                }
+            }
+    }
 }
 
 public data class GetVirtualDiskInfo01(
@@ -752,13 +777,55 @@ public data class GetVirtualDiskInfo01(
         result = 31 * result + this.parentLocationBuffer.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo01> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo01> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): GetVirtualDiskInfo01 =
+                    GetVirtualDiskInfo01(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                        ).readNative(addr + 4L).toUShortArray(),
+                    )
+                override fun writeNative(addr: Long, value: GetVirtualDiskInfo01) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.parentResolved)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                    ).writeNative(addr + 4L, value.parentLocationBuffer.toList())
+                }
+            }
+    }
 }
 
 public data class GetVirtualDiskInfo02(
     public var logicalSectorSize: UInt = 0u,
     public var physicalSectorSize: UInt = 0u,
     public var isRemote: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo02> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo02> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): GetVirtualDiskInfo02 =
+                    GetVirtualDiskInfo02(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: GetVirtualDiskInfo02) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.logicalSectorSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.physicalSectorSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.isRemote)
+                }
+            }
+    }
+}
 
 public data class GetVirtualDiskInfo00(
     public var virtualSize: ULong = 0uL,
@@ -769,8 +836,8 @@ public data class GetVirtualDiskInfo00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GetVirtualDiskInfo00> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): GetVirtualDiskInfo00 =
                     GetVirtualDiskInfo00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -804,8 +871,8 @@ public data class MergeVirtualDiskParameters00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MergeVirtualDiskParameters00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MergeVirtualDiskParameters00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MergeVirtualDiskParameters00 =
                     MergeVirtualDiskParameters00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -824,8 +891,8 @@ public data class MergeVirtualDiskParameters01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MergeVirtualDiskParameters01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MergeVirtualDiskParameters01> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MergeVirtualDiskParameters01 =
                     MergeVirtualDiskParameters01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -999,8 +1066,8 @@ public data class OpenVirtualDiskParameters00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OpenVirtualDiskParameters00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OpenVirtualDiskParameters00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): OpenVirtualDiskParameters00 =
                     OpenVirtualDiskParameters00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1033,8 +1100,8 @@ public data class QueryChangesVirtualDiskRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<QueryChangesVirtualDiskRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<QueryChangesVirtualDiskRange> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): QueryChangesVirtualDiskRange =
                     QueryChangesVirtualDiskRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1140,6 +1207,53 @@ public class RawScsiVirtualDiskParameters00 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RawScsiVirtualDiskParameters00> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RawScsiVirtualDiskParameters00> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
+                override fun readNative(addr: Long): RawScsiVirtualDiskParameters00 =
+                    RawScsiVirtualDiskParameters00(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 5L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 6L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 24L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 32L),
+                    )
+                override fun writeNative(addr: Long, value: RawScsiVirtualDiskParameters00) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.rSVDHandle)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 4L, value.dataIn)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 5L, value.cdbLength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 6L, value.senseInfoLength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.srbFlags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dataTransferLength)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 16L, value.dataBuffer)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 24L, value.senseInfo)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 32L, value.cdb)
+                }
+            }
+
         public operator fun invoke(
             rSVDHandle: Bool = 0,
             dataIn: UByte = 0u,
@@ -1182,8 +1296,8 @@ public data class RawScsiVirtualDiskResponse00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RawScsiVirtualDiskResponse00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RawScsiVirtualDiskResponse00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): RawScsiVirtualDiskResponse00 =
                     RawScsiVirtualDiskResponse00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1214,8 +1328,8 @@ public data class ResizeVirtualDiskParameters00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResizeVirtualDiskParameters00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ResizeVirtualDiskParameters00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ResizeVirtualDiskParameters00 =
                     ResizeVirtualDiskParameters00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1543,8 +1657,8 @@ public data class VirtualDiskProgress(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VirtualDiskProgress> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VirtualDiskProgress> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): VirtualDiskProgress =
                     VirtualDiskProgress(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

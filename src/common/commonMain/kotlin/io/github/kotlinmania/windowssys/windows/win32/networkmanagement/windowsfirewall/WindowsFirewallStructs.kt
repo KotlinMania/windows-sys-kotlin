@@ -168,8 +168,8 @@ public class InetFirewallAcBinaries internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InetFirewallAcBinaries> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InetFirewallAcBinaries> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): InetFirewallAcBinaries =
                     InetFirewallAcBinaries(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -233,8 +233,8 @@ public class InetFirewallAcCapabilities internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InetFirewallAcCapabilities> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InetFirewallAcCapabilities> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): InetFirewallAcCapabilities =
                     InetFirewallAcCapabilities(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

@@ -36,6 +36,35 @@ public data class WlanConnectionAttributes(
         result = 31 * result + this.wlanSecurityAttributes.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanConnectionAttributes> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanConnectionAttributes> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 604L
+                override fun readNative(addr: Long): WlanConnectionAttributes =
+                    WlanConnectionAttributes(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 8L).toUShortArray(),
+                        (WlanAssociationAttributes.typeLayout()).readNative(addr + 520L),
+                        (WlanSecurityAttributes.typeLayout()).readNative(addr + 588L),
+                    )
+                override fun writeNative(addr: Long, value: WlanConnectionAttributes) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.isState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.wlanConnectionMode)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 8L, value.strProfileName.toList())
+                    (WlanAssociationAttributes.typeLayout()).writeNative(addr + 520L, value.wlanAssociationAttributes)
+                    (WlanSecurityAttributes.typeLayout()).writeNative(addr + 588L, value.wlanSecurityAttributes)
+                }
+            }
+    }
 }
 
 public data class WlanConnectionNotificationData(
@@ -72,6 +101,47 @@ public data class WlanConnectionNotificationData(
         result = 31 * result + this.dwFlags.hashCode()
         result = 31 * result + this.strProfileXml.contentHashCode()
         return result
+    }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanConnectionNotificationData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanConnectionNotificationData> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 572L
+                override fun readNative(addr: Long): WlanConnectionNotificationData =
+                    WlanConnectionNotificationData(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 4L).toUShortArray(),
+                        (Dot11Ssid.typeLayout()).readNative(addr + 516L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 552L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 556L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 560L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 564L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                        ).readNative(addr + 568L).toUShortArray(),
+                    )
+                override fun writeNative(addr: Long, value: WlanConnectionNotificationData) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.wlanConnectionMode)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 4L, value.strProfileName.toList())
+                    (Dot11Ssid.typeLayout()).writeNative(addr + 516L, value.dot11Ssid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 552L, value.dot11BssType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 556L, value.bSecurityEnabled)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 560L, value.wlanReasonCode)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 564L, value.dwFlags)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
+                    ).writeNative(addr + 568L, value.strProfileXml.toList())
+                }
+            }
     }
 }
 
@@ -282,22 +352,22 @@ public data class WlanCountryOrRegionStringList(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanCountryOrRegionStringList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanCountryOrRegionStringList> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WlanCountryOrRegionStringList =
                     WlanCountryOrRegionStringList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WlanCountryOrRegionStringList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwNumberOfItems)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 4L, value.pCountryOrRegionStringList)
+                    ).writeNative(addr + 4L, value.pCountryOrRegionStringList.toList())
                 }
             }
     }
@@ -341,8 +411,8 @@ public data class WlanHostedNetworkConnectionSettings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkConnectionSettings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkConnectionSettings> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): WlanHostedNetworkConnectionSettings =
                     WlanHostedNetworkConnectionSettings(
                         (Dot11Ssid.typeLayout()).readNative(addr),
@@ -364,8 +434,8 @@ public data class WlanHostedNetworkDataPeerStateChange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkDataPeerStateChange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkDataPeerStateChange> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): WlanHostedNetworkDataPeerStateChange =
                     WlanHostedNetworkDataPeerStateChange(
                         (WlanHostedNetworkPeerState.typeLayout()).readNative(addr),
@@ -402,21 +472,21 @@ public data class WlanHostedNetworkPeerState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkPeerState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkPeerState> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): WlanHostedNetworkPeerState =
                     WlanHostedNetworkPeerState(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WlanHostedNetworkPeerState) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
-                    ).writeNative(addr, value.peerMacAddress)
+                    ).writeNative(addr, value.peerMacAddress.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.peerAuthState)
                 }
             }
@@ -430,8 +500,8 @@ public data class WlanHostedNetworkRadioState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkRadioState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkRadioState> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WlanHostedNetworkRadioState =
                     WlanHostedNetworkRadioState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -452,8 +522,8 @@ public data class WlanHostedNetworkSecuritySettings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkSecuritySettings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkSecuritySettings> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WlanHostedNetworkSecuritySettings =
                     WlanHostedNetworkSecuritySettings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -475,8 +545,8 @@ public data class WlanHostedNetworkStateChange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkStateChange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanHostedNetworkStateChange> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): WlanHostedNetworkStateChange =
                     WlanHostedNetworkStateChange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -555,6 +625,37 @@ public data class WlanInterfaceCapability(
         result = 31 * result + this.dot11PhyTypes.contentHashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanInterfaceCapability> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanInterfaceCapability> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 276L
+                override fun readNative(addr: Long): WlanInterfaceCapability =
+                    WlanInterfaceCapability(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32, (64).toInt())
+                        ).readNative(addr + 20L).toIntArray(),
+                    )
+                override fun writeNative(addr: Long, value: WlanInterfaceCapability) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.interfaceType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.bDot11DSupported)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwMaxDesiredSsidListSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwMaxDesiredBssidListSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwNumberOfSupportedPhys)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32, (64).toInt())
+                    ).writeNative(addr + 20L, value.dot11PhyTypes.toList())
+                }
+            }
+    }
 }
 
 public data class WlanInterfaceInfo(
@@ -602,8 +703,8 @@ public data class WlanMacFrameStatistics(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanMacFrameStatistics> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanMacFrameStatistics> {
-                override val sizeBytes: Long = 96L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 96L
                 override fun readNative(addr: Long): WlanMacFrameStatistics =
                     WlanMacFrameStatistics(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -675,6 +776,49 @@ public data class WlanMsmNotificationData(
         result = 31 * result + this.wlanReasonCode.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanMsmNotificationData> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanMsmNotificationData> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 580L
+                override fun readNative(addr: Long): WlanMsmNotificationData =
+                    WlanMsmNotificationData(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                        ).readNative(addr + 4L).toUShortArray(),
+                        (Dot11Ssid.typeLayout()).readNative(addr + 516L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 552L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
+                        ).readNative(addr + 556L).toUByteArray(),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 564L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 568L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 572L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 576L),
+                    )
+                override fun writeNative(addr: Long, value: WlanMsmNotificationData) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.wlanConnectionMode)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
+                    ).writeNative(addr + 4L, value.strProfileName.toList())
+                    (Dot11Ssid.typeLayout()).writeNative(addr + 516L, value.dot11Ssid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 552L, value.dot11BssType)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
+                    ).writeNative(addr + 556L, value.dot11MacAddr.toList())
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 564L, value.bSecurityEnabled)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 568L, value.bFirstPeer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 572L, value.bLastPeer)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 576L, value.wlanReasonCode)
+                }
+            }
+    }
 }
 
 public class WlanPhyFrameStatistics(
@@ -700,8 +844,8 @@ public class WlanPhyFrameStatistics(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanPhyFrameStatistics> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanPhyFrameStatistics> {
-                override val sizeBytes: Long = 144L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 144L
                 override fun readNative(addr: Long): WlanPhyFrameStatistics =
                     WlanPhyFrameStatistics(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -755,8 +899,8 @@ public data class WlanPhyRadioState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanPhyRadioState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanPhyRadioState> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): WlanPhyRadioState =
                     WlanPhyRadioState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -793,21 +937,21 @@ public data class WlanProfileInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanProfileInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanProfileInfo> {
-                override val sizeBytes: Long = 516L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 516L
                 override fun readNative(addr: Long): WlanProfileInfo =
                     WlanProfileInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 512L),
                     )
                 override fun writeNative(addr: Long, value: WlanProfileInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr, value.strProfileName)
+                    ).writeNative(addr, value.strProfileName.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 512L, value.dwFlags)
                 }
             }
@@ -822,8 +966,8 @@ public data class WlanProfileInfoList(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanProfileInfoList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanProfileInfoList> {
-                override val sizeBytes: Long = 524L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 524L
                 override fun readNative(addr: Long): WlanProfileInfoList =
                     WlanProfileInfoList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -852,8 +996,8 @@ public data class WlanRadioState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRadioState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRadioState> {
-                override val sizeBytes: Long = 772L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 772L
                 override fun readNative(addr: Long): WlanRadioState =
                     WlanRadioState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -894,22 +1038,22 @@ public data class WlanRateSet(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRateSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRateSet> {
-                override val sizeBytes: Long = 256L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 256L
                 override fun readNative(addr: Long): WlanRateSet =
                     WlanRateSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (126).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: WlanRateSet) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.uRateSetLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (126).toInt())
-                    ).writeNative(addr + 4L, value.usRateSet)
+                    ).writeNative(addr + 4L, value.usRateSet.toList())
                 }
             }
     }
@@ -936,22 +1080,22 @@ public data class WlanRawData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRawData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRawData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WlanRawData =
                     WlanRawData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WlanRawData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwDataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.dataBlob)
+                    ).writeNative(addr + 4L, value.dataBlob.toList())
                 }
             }
     }
@@ -965,8 +1109,8 @@ public data class WlanRawDataList(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRawDataList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRawDataList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WlanRawDataList =
                     WlanRawDataList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -995,8 +1139,8 @@ public data class WlanRawDataList0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRawDataList0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanRawDataList0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WlanRawDataList0 =
                     WlanRawDataList0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1015,7 +1159,28 @@ public data class WlanSecurityAttributes(
     public var bOneXEnabled: Bool = 0,
     public var dot11AuthAlgorithm: Dot11AuthAlgorithm = 0,
     public var dot11CipherAlgorithm: Dot11CipherAlgorithm = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanSecurityAttributes> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanSecurityAttributes> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): WlanSecurityAttributes =
+                    WlanSecurityAttributes(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: WlanSecurityAttributes) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bSecurityEnabled)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.bOneXEnabled)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.dot11AuthAlgorithm)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.dot11CipherAlgorithm)
+                }
+            }
+    }
+}
 
 public data class WlanStatistics(
     public var ullFourWayHandshakeFailures: ULong = 0uL,
@@ -1029,8 +1194,8 @@ public data class WlanStatistics(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanStatistics> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WlanStatistics> {
-                override val sizeBytes: Long = 368L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 368L
                 override fun readNative(addr: Long): WlanStatistics =
                     WlanStatistics(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),

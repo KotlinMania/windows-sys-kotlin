@@ -48,8 +48,8 @@ public class DavCallbackAuthBlob internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DavCallbackAuthBlob> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DavCallbackAuthBlob> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DavCallbackAuthBlob =
                     DavCallbackAuthBlob(
                         (

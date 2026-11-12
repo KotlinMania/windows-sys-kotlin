@@ -619,8 +619,8 @@ public data class ActivationContextQueryIndex(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActivationContextQueryIndex> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActivationContextQueryIndex> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ActivationContextQueryIndex =
                     ActivationContextQueryIndex(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -642,8 +642,8 @@ public data class ActivationContextRunLevelInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActivationContextRunLevelInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ActivationContextRunLevelInformation> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): ActivationContextRunLevelInformation =
                     ActivationContextRunLevelInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -825,22 +825,22 @@ public data class DeltaHash(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DeltaHash> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DeltaHash> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): DeltaHash =
                     DeltaHash(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DeltaHash) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.hashSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 4L, value.hashValue)
+                    ).writeNative(addr + 4L, value.hashValue.toList())
                 }
             }
     }
@@ -944,8 +944,8 @@ public class DeltaOutput internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DeltaOutput> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DeltaOutput> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DeltaOutput =
                     DeltaOutput(
                         (
@@ -1066,22 +1066,22 @@ public data class Msifilehashinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Msifilehashinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Msifilehashinfo> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): Msifilehashinfo =
                     Msifilehashinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: Msifilehashinfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFileHashInfoSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                    ).writeNative(addr + 4L, value.dwData)
+                    ).writeNative(addr + 4L, value.dwData.toList())
                 }
             }
     }
@@ -1214,8 +1214,8 @@ public data class PatchIgnoreRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchIgnoreRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchIgnoreRange> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PatchIgnoreRange =
                     PatchIgnoreRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1236,8 +1236,8 @@ public data class PatchInterleaveMap(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchInterleaveMap> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchInterleaveMap> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PatchInterleaveMap =
                     PatchInterleaveMap(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1265,8 +1265,8 @@ public data class PatchInterleaveMap0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchInterleaveMap0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchInterleaveMap0> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): PatchInterleaveMap0 =
                     PatchInterleaveMap0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1782,8 +1782,8 @@ public data class PatchRetainRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchRetainRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PatchRetainRange> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): PatchRetainRange =
                     PatchRetainRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1805,8 +1805,8 @@ public data class Pmsihandle(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pmsihandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Pmsihandle> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Pmsihandle =
                     Pmsihandle(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2653,21 +2653,21 @@ public data class ProtectedFileData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProtectedFileData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProtectedFileData> {
-                override val sizeBytes: Long = 524L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 524L
                 override fun readNative(addr: Long): ProtectedFileData =
                     ProtectedFileData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 520L),
                     )
                 override fun writeNative(addr: Long, value: ProtectedFileData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.fileName)
+                    ).writeNative(addr, value.fileName.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 520L, value.fileNumber)
                 }
             }

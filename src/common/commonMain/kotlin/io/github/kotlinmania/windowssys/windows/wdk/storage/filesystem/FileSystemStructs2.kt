@@ -22,8 +22,8 @@ public data class SecFlags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecFlags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecFlags> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecFlags =
                     SecFlags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -85,8 +85,8 @@ public class SecNegotiationInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecNegotiationInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecNegotiationInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): SecNegotiationInfo =
                     SecNegotiationInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -150,22 +150,22 @@ public data class SecPresharedkey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPresharedkey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPresharedkey> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPresharedkey =
                     SecPresharedkey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SecPresharedkey) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.keySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 2L, value.key)
+                    ).writeNative(addr + 2L, value.key.toList())
                 }
             }
     }
@@ -192,22 +192,22 @@ public data class SecSrtpMasterKeyIdentifier(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecSrtpMasterKeyIdentifier> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecSrtpMasterKeyIdentifier> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): SecSrtpMasterKeyIdentifier =
                     SecSrtpMasterKeyIdentifier(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SecSrtpMasterKeyIdentifier) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.masterKeyIdentifierSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 1L, value.masterKeyIdentifier)
+                    ).writeNative(addr + 1L, value.masterKeyIdentifier.toList())
                 }
             }
     }
@@ -219,8 +219,8 @@ public data class SetCachedRunsStateInputBuffer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SetCachedRunsStateInputBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SetCachedRunsStateInputBuffer> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): SetCachedRunsStateInputBuffer =
                     SetCachedRunsStateInputBuffer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -616,8 +616,8 @@ public class SrvOpenEcpContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SrvOpenEcpContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SrvOpenEcpContext> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SrvOpenEcpContext =
                     SrvOpenEcpContext(
                         (
@@ -680,8 +680,8 @@ public data class SystemProcessTrustLabelAce(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SystemProcessTrustLabelAce> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SystemProcessTrustLabelAce> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): SystemProcessTrustLabelAce =
                     SystemProcessTrustLabelAce(
                         (AceHeader.typeLayout()).readNative(addr),
@@ -738,8 +738,8 @@ public class SecBuffer internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBuffer> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecBuffer =
                     SecBuffer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -813,8 +813,8 @@ public class SecBufferDesc internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBufferDesc> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBufferDesc> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecBufferDesc =
                     SecBufferDesc(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -854,8 +854,8 @@ public data class SecHandle(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecHandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecHandle> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecHandle =
                     SecHandle(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -979,8 +979,8 @@ public class UnicodePrefixTable internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UnicodePrefixTable> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UnicodePrefixTable> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): UnicodePrefixTable =
                     UnicodePrefixTable(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr),
@@ -1119,8 +1119,8 @@ public data class UsnJournalData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UsnJournalData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UsnJournalData> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): UsnJournalData =
                     UsnJournalData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1205,8 +1205,8 @@ public data class UsnRecord(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UsnRecord> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UsnRecord> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): UsnRecord =
                     UsnRecord(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1225,7 +1225,7 @@ public data class UsnRecord(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 60L),
+                        ).readNative(addr + 60L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: UsnRecord) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.recordLength)
@@ -1244,7 +1244,7 @@ public data class UsnRecord(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 60L, value.fileName)
+                    ).writeNative(addr + 60L, value.fileName.toList())
                 }
             }
     }
@@ -1257,8 +1257,8 @@ public data class VcnRangeInputBuffer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VcnRangeInputBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VcnRangeInputBuffer> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): VcnRangeInputBuffer =
                     VcnRangeInputBuffer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1434,90 +1434,90 @@ public class VolumeRefsInfoBuffer {
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VolumeRefsInfoBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VolumeRefsInfoBuffer> {
-                override val sizeBytes: Long = 376L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 376L
                 override fun readNative(addr: Long): VolumeRefsInfoBuffer =
-                    VolumeRefsInfoBuffer(
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 32L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 44L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 48L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 52L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 56L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 64L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 72L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 80L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 88L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 96L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 104L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 112L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 116L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 120L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 124L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 128L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 132L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 136L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 140L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 144L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 148L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 152L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 156L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 160L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 164L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 168L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 172L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 176L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 180L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 184L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 188L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 192L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 196L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 200L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 204L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 208L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 212L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 216L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 220L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 224L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 228L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 232L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 236L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 240L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 244L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 248L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 252L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 256L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 260L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 264L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 268L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 272L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 276L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 280L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 284L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 288L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 292L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 296L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 300L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 304L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 308L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 312L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 320L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 328L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 332L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 336L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 340L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 344L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 348L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 352L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 356L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 360L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 368L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 372L),
-                    )
+                    VolumeRefsInfoBuffer().apply {
+                        this.cacheSizeInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr)
+                        this.allocatedCacheInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L)
+                        this.populatedCacheInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L)
+                        this.inErrorCacheInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L)
+                        this.memoryUsedForCacheMetadata = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 32L)
+                        this.cacheLineSize = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L)
+                        this.cacheTransactionsOutstanding = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 44L)
+                        this.cacheLinesFree = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 48L)
+                        this.cacheLinesInError = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 52L)
+                        this.cacheHitsInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 56L)
+                        this.cacheMissesInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 64L)
+                        this.cachePopulationUpdatesInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 72L)
+                        this.cacheWriteThroughUpdatesInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 80L)
+                        this.cacheInvalidationsInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 88L)
+                        this.cacheOverReadsInBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 96L)
+                        this.metadataWrittenBytes = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 104L)
+                        this.cacheHitCounter = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 112L)
+                        this.cacheMissCounter = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 116L)
+                        this.cacheLineAllocationCounter = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 120L)
+                        this.cacheInvalidationsCounter = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 124L)
+                        this.cachePopulationUpdatesCounter = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 128L)
+                        this.cacheWriteThroughUpdatesCounter = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 132L)
+                        this.maxCacheTransactionsOutstanding = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 136L)
+                        this.dataWritesReallocationCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 140L)
+                        this.dataInPlaceWriteCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 144L)
+                        this.metadataAllocationsFastTierCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 148L)
+                        this.metadataAllocationsSlowTierCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 152L)
+                        this.dataAllocationsFastTierCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 156L)
+                        this.dataAllocationsSlowTierCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 160L)
+                        this.destagesSlowTierToFastTier = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 164L)
+                        this.destagesFastTierToSlowTier = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 168L)
+                        this.slowTierDataFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 172L)
+                        this.fastTierDataFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 176L)
+                        this.slowTierMetadataFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 180L)
+                        this.fastTierMetadataFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 184L)
+                        this.slowToFastDestageReadLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 188L)
+                        this.slowToFastDestageReadLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 192L)
+                        this.slowToFastDestageWriteLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 196L)
+                        this.slowToFastDestageWriteLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 200L)
+                        this.fastToSlowDestageReadLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 204L)
+                        this.fastToSlowDestageReadLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 208L)
+                        this.fastToSlowDestageWriteLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 212L)
+                        this.fastToSlowDestageWriteLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 216L)
+                        this.slowTierContainerFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 220L)
+                        this.slowTierContainerFillRatioBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 224L)
+                        this.fastTierContainerFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 228L)
+                        this.fastTierContainerFillRatioBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 232L)
+                        this.treeUpdateLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 236L)
+                        this.treeUpdateLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 240L)
+                        this.checkpointLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 244L)
+                        this.checkpointLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 248L)
+                        this.treeUpdateCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 252L)
+                        this.checkpointCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 256L)
+                        this.logWriteCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 260L)
+                        this.logFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 264L)
+                        this.readCacheInvalidationsForOverwrite = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 268L)
+                        this.readCacheInvalidationsForReuse = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 272L)
+                        this.readCacheInvalidationsGeneral = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 276L)
+                        this.readCacheChecksOnMount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 280L)
+                        this.readCacheIssuesOnMount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 284L)
+                        this.trimLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 288L)
+                        this.trimLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 292L)
+                        this.dataCompactionCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 296L)
+                        this.compactionReadLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 300L)
+                        this.compactionReadLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 304L)
+                        this.compactionWriteLatency = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 308L)
+                        this.compactionWriteLatencyBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 312L)
+                        this.dataInPlaceWriteClusterCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 320L)
+                        this.compactionFailedDueToIneligibleContainer = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 328L)
+                        this.compactionFailedDueToMaxFragmentation = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 332L)
+                        this.compactedContainerFillRatio = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 336L)
+                        this.compactedContainerFillRatioBase = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 340L)
+                        this.containerMoveRetryCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 344L)
+                        this.containerMoveFailedDueToIneligibleContainer = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 348L)
+                        this.compactionFailureCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 352L)
+                        this.containerMoveFailureCount = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 356L)
+                        this.numberOfDirtyMetadataPages = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 360L)
+                        this.numberOfDirtyTableListEntries = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 368L)
+                        this.numberOfDeleteQueueEntries = (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 372L)
+                    }
                 override fun writeNative(addr: Long, value: VolumeRefsInfoBuffer) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.cacheSizeInBytes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.allocatedCacheInBytes)

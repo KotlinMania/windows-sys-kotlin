@@ -38,15 +38,15 @@ public data class Appdata(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Appdata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Appdata> {
-                override val sizeBytes: Long = 104L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 104L
                 override fun readNative(addr: Long): Appdata =
                     Appdata(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (40).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 84L),
                         (Appstatistics.typeLayout()).readNative(addr + 88L),
                     )
@@ -55,7 +55,7 @@ public data class Appdata(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (40).toInt())
-                    ).writeNative(addr + 4L, value.mSzAppGuid)
+                    ).writeNative(addr + 4L, value.mSzAppGuid.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 84L, value.mDwAppProcessId)
                     (Appstatistics.typeLayout()).writeNative(addr + 88L, value.mAppStatistics)
                 }
@@ -72,8 +72,8 @@ public data class Appstatistics(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Appstatistics> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Appstatistics> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Appstatistics =
                     Appstatistics(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -121,8 +121,8 @@ public data class ApplicationProcessStatistics(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ApplicationProcessStatistics> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ApplicationProcessStatistics> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): ApplicationProcessStatistics =
                     ApplicationProcessStatistics(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -566,7 +566,26 @@ public data class ComponentHangMonitorInfo(
     public var isMonitored: Bool = 0,
     public var terminateOnHang: Bool = 0,
     public var avgCallThresholdInMs: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ComponentHangMonitorInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ComponentHangMonitorInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): ComponentHangMonitorInfo =
+                    ComponentHangMonitorInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: ComponentHangMonitorInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.isMonitored)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.terminateOnHang)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.avgCallThresholdInMs)
+                }
+            }
+    }
+}
 
 public data class ComponentStatistics(
     public var numInstances: UInt = 0u,
@@ -586,8 +605,8 @@ public data class ComponentStatistics(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ComponentStatistics> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ComponentStatistics> {
-                override val sizeBytes: Long = 52L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 52L
                 override fun readNative(addr: Long): ComponentStatistics =
                     ComponentStatistics(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -715,7 +734,32 @@ public data class HangInfo(
     public var dwHangTimeout: UInt = 0u,
     public var dwDumpCount: UInt = 0u,
     public var dwInfoMsgCount: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HangInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HangInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): HangInfo =
+                    HangInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: HangInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fAppHangMonitorEnabled)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fTerminateOnHang)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.dumpType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwHangTimeout)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwDumpCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.dwInfoMsgCount)
+                }
+            }
+    }
+}
 
 public data class RecycleInfo(
     public var guidCombaseProcessIdentifier: Guid = Guid(),

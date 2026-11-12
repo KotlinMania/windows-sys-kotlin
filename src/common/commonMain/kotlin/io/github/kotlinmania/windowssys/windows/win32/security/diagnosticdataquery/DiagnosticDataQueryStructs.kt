@@ -214,8 +214,8 @@ public data class DiagnosticDataEventTagStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticDataEventTagStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticDataEventTagStats> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DiagnosticDataEventTagStats =
                     DiagnosticDataEventTagStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -237,8 +237,8 @@ public data class DiagnosticDataEventTranscriptConfiguration(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticDataEventTranscriptConfiguration> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticDataEventTranscriptConfiguration> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): DiagnosticDataEventTranscriptConfiguration =
                     DiagnosticDataEventTranscriptConfiguration(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -264,8 +264,8 @@ public data class DiagnosticDataGeneralStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticDataGeneralStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticDataGeneralStats> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DiagnosticDataGeneralStats =
                     DiagnosticDataGeneralStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -673,28 +673,28 @@ public data class DiagnosticReportParameter(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticReportParameter> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticReportParameter> {
-                override val sizeBytes: Long = 778L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 778L
                 override fun readNative(addr: Long): DiagnosticReportParameter =
                     DiagnosticReportParameter(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (129).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr + 258L),
+                        ).readNative(addr + 258L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: DiagnosticReportParameter) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (129).toInt())
-                    ).writeNative(addr, value.name)
+                    ).writeNative(addr, value.name.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr + 258L, value.value)
+                    ).writeNative(addr + 258L, value.value.toList())
                 }
             }
     }
@@ -721,14 +721,14 @@ public data class DiagnosticReportSignature(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticReportSignature> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DiagnosticReportSignature> {
-                override val sizeBytes: Long = 7910L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 7910L
                 override fun readNative(addr: Long): DiagnosticReportSignature =
                     DiagnosticReportSignature(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (65).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(DiagnosticReportParameter.typeLayout(), (10).toInt())
@@ -738,7 +738,7 @@ public data class DiagnosticReportSignature(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (65).toInt())
-                    ).writeNative(addr, value.eventName)
+                    ).writeNative(addr, value.eventName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(DiagnosticReportParameter.typeLayout(), (10).toInt())

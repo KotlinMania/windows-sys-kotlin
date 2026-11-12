@@ -72,8 +72,8 @@ public data class JobobjectBasicAccountingInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicAccountingInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicAccountingInformation> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): JobobjectBasicAccountingInformation =
                     JobobjectBasicAccountingInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -118,8 +118,8 @@ public data class JobobjectBasicLimitInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicLimitInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicLimitInformation> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): JobobjectBasicLimitInformation =
                     JobobjectBasicLimitInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -171,8 +171,8 @@ public data class JobobjectBasicProcessIdList(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicProcessIdList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicProcessIdList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JobobjectBasicProcessIdList =
                     JobobjectBasicProcessIdList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -180,7 +180,7 @@ public data class JobobjectBasicProcessIdList(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toIntArray(),
                     )
                 override fun writeNative(addr: Long, value: JobobjectBasicProcessIdList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberOfAssignedProcesses)
@@ -188,7 +188,7 @@ public data class JobobjectBasicProcessIdList(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64, (1).toInt())
-                    ).writeNative(addr + 8L, value.processIdList)
+                    ).writeNative(addr + 8L, value.processIdList.toList())
                 }
             }
     }
@@ -200,8 +200,8 @@ public data class JobobjectBasicUiRestrictions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicUiRestrictions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectBasicUiRestrictions> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): JobobjectBasicUiRestrictions =
                     JobobjectBasicUiRestrictions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -231,8 +231,8 @@ public data class JobobjectCpuRateControlInformation00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectCpuRateControlInformation00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectCpuRateControlInformation00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): JobobjectCpuRateControlInformation00 =
                     JobobjectCpuRateControlInformation00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -252,8 +252,8 @@ public data class JobobjectEndOfJobTimeInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectEndOfJobTimeInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectEndOfJobTimeInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): JobobjectEndOfJobTimeInformation =
                     JobobjectEndOfJobTimeInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -282,8 +282,8 @@ public data class JobobjectIoAttributionInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectIoAttributionInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectIoAttributionInformation> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): JobobjectIoAttributionInformation =
                     JobobjectIoAttributionInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -308,8 +308,8 @@ public data class JobobjectIoAttributionStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectIoAttributionStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectIoAttributionStats> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): JobobjectIoAttributionStats =
                     JobobjectIoAttributionStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -717,8 +717,8 @@ public data class JobobjectJobsetInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectJobsetInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectJobsetInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): JobobjectJobsetInformation =
                     JobobjectJobsetInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -747,8 +747,8 @@ public data class JobobjectLimitViolationInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectLimitViolationInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectLimitViolationInformation> {
-                override val sizeBytes: Long = 80L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 80L
                 override fun readNative(addr: Long): JobobjectLimitViolationInformation =
                     JobobjectLimitViolationInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -825,8 +825,8 @@ public data class JobobjectNetRateControlInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectNetRateControlInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectNetRateControlInformation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): JobobjectNetRateControlInformation =
                     JobobjectNetRateControlInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -854,8 +854,8 @@ public data class JobobjectNotificationLimitInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectNotificationLimitInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<JobobjectNotificationLimitInformation> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): JobobjectNotificationLimitInformation =
                     JobobjectNotificationLimitInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),

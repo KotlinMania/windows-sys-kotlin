@@ -242,8 +242,8 @@ public class Copydatastruct internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Copydatastruct> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Copydatastruct> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Copydatastruct =
                     Copydatastruct(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -282,8 +282,8 @@ public data class Ddeack(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeack> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeack> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): Ddeack =
                     Ddeack(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -302,8 +302,8 @@ public data class Ddeadvise(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeadvise> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeadvise> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Ddeadvise =
                     Ddeadvise(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -341,8 +341,8 @@ public data class Ddedata(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddedata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddedata> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): Ddedata =
                     Ddedata(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -350,7 +350,7 @@ public data class Ddedata(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Ddedata) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.bitfield)
@@ -358,7 +358,7 @@ public data class Ddedata(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.value)
+                    ).writeNative(addr + 4L, value.value.toList())
                 }
             }
     }
@@ -371,8 +371,8 @@ public data class Ddeln(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeln> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeln> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Ddeln =
                     Ddeln(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -413,8 +413,8 @@ public data class DdemlMsgHookData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DdemlMsgHookData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DdemlMsgHookData> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): DdemlMsgHookData =
                     DdemlMsgHookData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -423,7 +423,7 @@ public data class DdemlMsgHookData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (8).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: DdemlMsgHookData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.uiLo)
@@ -432,7 +432,7 @@ public data class DdemlMsgHookData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (8).toInt())
-                    ).writeNative(addr + 20L, value.data)
+                    ).writeNative(addr + 20L, value.data.toList())
                 }
             }
     }
@@ -462,8 +462,8 @@ public data class Ddepoke(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddepoke> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddepoke> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): Ddepoke =
                     Ddepoke(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -471,7 +471,7 @@ public data class Ddepoke(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Ddepoke) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.bitfield)
@@ -479,7 +479,7 @@ public data class Ddepoke(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.value)
+                    ).writeNative(addr + 4L, value.value.toList())
                 }
             }
     }
@@ -509,8 +509,8 @@ public data class Ddeup(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeup> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ddeup> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): Ddeup =
                     Ddeup(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -518,7 +518,7 @@ public data class Ddeup(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Ddeup) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.bitfield)
@@ -526,7 +526,7 @@ public data class Ddeup(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.rgb)
+                    ).writeNative(addr + 4L, value.rgb.toList())
                 }
             }
     }
@@ -570,8 +570,8 @@ public class Hszpair internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Hszpair> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Hszpair> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Hszpair =
                     Hszpair(
                         (

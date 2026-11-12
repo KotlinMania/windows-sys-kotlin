@@ -67,8 +67,8 @@ public data class WsmanAuthzQuota(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanAuthzQuota> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanAuthzQuota> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsmanAuthzQuota =
                     WsmanAuthzQuota(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -190,8 +190,8 @@ public class WsmanCommandArgSet internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanCommandArgSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanCommandArgSet> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsmanCommandArgSet =
                     WsmanCommandArgSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -274,8 +274,8 @@ public class WsmanDataBinary internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanDataBinary> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanDataBinary> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsmanDataBinary =
                     WsmanDataBinary(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -430,8 +430,8 @@ public class WsmanEnvironmentVariableSet internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanEnvironmentVariableSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanEnvironmentVariableSet> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsmanEnvironmentVariableSet =
                     WsmanEnvironmentVariableSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -935,6 +935,29 @@ public class WsmanOptionSet internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanOptionSet> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanOptionSet> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): WsmanOptionSet =
+                    WsmanOptionSet(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<WsmanOption>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: WsmanOptionSet) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.optionsCount)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<WsmanOption>(64)
+                    ).writeNative(addr + 8L, value.options)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.optionsMustUnderstand)
+                }
+            }
+
         public operator fun invoke(
             optionsCount: UInt = 0u,
             options: MutPtr<WsmanOption> = MutPtr(0L),
@@ -996,6 +1019,37 @@ public class WsmanOptionSetex internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanOptionSetex> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanOptionSetex> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): WsmanOptionSetex =
+                    WsmanOptionSetex(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<WsmanOption>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<Pcwstr>(64)
+                        ).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: WsmanOptionSetex) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.optionsCount)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<WsmanOption>(64)
+                    ).writeNative(addr + 8L, value.options)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.optionsMustUnderstand)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<Pcwstr>(64)
+                    ).writeNative(addr + 24L, value.optionTypes)
+                }
+            }
+
         public operator fun invoke(
             optionsCount: UInt = 0u,
             options: MutPtr<WsmanOption> = MutPtr(0L),
@@ -1219,8 +1273,8 @@ public class WsmanSelectorSet internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanSelectorSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanSelectorSet> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsmanSelectorSet =
                     WsmanSelectorSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1379,8 +1433,8 @@ public data class WsmanShellDisconnectInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanShellDisconnectInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanShellDisconnectInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): WsmanShellDisconnectInfo =
                     WsmanShellDisconnectInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1548,8 +1602,8 @@ public class WsmanStreamIdSet internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanStreamIdSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WsmanStreamIdSet> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WsmanStreamIdSet =
                     WsmanStreamIdSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

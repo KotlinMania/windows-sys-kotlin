@@ -18,8 +18,8 @@ public data class UsageProperties(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UsageProperties> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UsageProperties> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): UsageProperties =
                     UsageProperties(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -56,8 +56,8 @@ public data class WtaOptions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtaOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WtaOptions> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WtaOptions =
                     WtaOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

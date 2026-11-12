@@ -173,8 +173,8 @@ public data class PsfeatureCustpaper(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsfeatureCustpaper> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsfeatureCustpaper> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): PsfeatureCustpaper =
                     PsfeatureCustpaper(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -197,7 +197,24 @@ public data class PsfeatureCustpaper(
 public data class PsfeatureOutput(
     public var bPageIndependent: Bool = 0,
     public var bSetPageDevice: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsfeatureOutput> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PsfeatureOutput> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): PsfeatureOutput =
+                    PsfeatureOutput(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: PsfeatureOutput) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bPageIndependent)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.bSetPageDevice)
+                }
+            }
+    }
+}
 
 public data class Psinjectdata(
     public var dataBytes: UInt = 0u,
@@ -207,8 +224,8 @@ public data class Psinjectdata(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Psinjectdata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Psinjectdata> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Psinjectdata =
                     Psinjectdata(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -256,22 +273,22 @@ public data class XpsColor02(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsColor02> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsColor02> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): XpsColor02 =
                     XpsColor02(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (9).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toFloatArray(),
                     )
                 override fun writeNative(addr: Long, value: XpsColor02) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.channelCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32, (9).toInt())
-                    ).writeNative(addr + 4L, value.channels)
+                    ).writeNative(addr + 4L, value.channels.toList())
                 }
             }
     }
@@ -286,8 +303,8 @@ public data class XpsColor00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsColor00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsColor00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): XpsColor00 =
                     XpsColor00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -314,8 +331,8 @@ public data class XpsColor01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsColor01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsColor01> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): XpsColor01 =
                     XpsColor01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -340,8 +357,8 @@ public data class XpsDash(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsDash> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsDash> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): XpsDash =
                     XpsDash(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -364,8 +381,8 @@ public data class XpsGlyphIndex(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsGlyphIndex> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsGlyphIndex> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): XpsGlyphIndex =
                     XpsGlyphIndex(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -392,8 +409,8 @@ public data class XpsGlyphMapping(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsGlyphMapping> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsGlyphMapping> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): XpsGlyphMapping =
                     XpsGlyphMapping(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -422,8 +439,8 @@ public data class XpsMatrix(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsMatrix> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsMatrix> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): XpsMatrix =
                     XpsMatrix(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -452,8 +469,8 @@ public data class XpsPoint(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsPoint> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsPoint> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): XpsPoint =
                     XpsPoint(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -476,8 +493,8 @@ public data class XpsRect(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsRect> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsRect> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): XpsRect =
                     XpsRect(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -502,8 +519,8 @@ public data class XpsSize(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsSize> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpsSize> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): XpsSize =
                     XpsSize(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),

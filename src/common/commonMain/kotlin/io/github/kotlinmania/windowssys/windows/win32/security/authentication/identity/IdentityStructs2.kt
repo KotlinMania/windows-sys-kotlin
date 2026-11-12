@@ -58,6 +58,29 @@ public class SlNongenuineUiOptions internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SlNongenuineUiOptions> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SlNongenuineUiOptions> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): SlNongenuineUiOptions =
+                    SlNongenuineUiOptions(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<Guid>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: SlNongenuineUiOptions) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<Guid>(64)
+                    ).writeNative(addr + 8L, value.pComponentId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.hResultUI)
+                }
+            }
+
         public operator fun invoke(
             cbSize: UInt = 0u,
             pComponentId: ConstPtr<Guid> = ConstPtr(0L),
@@ -106,8 +129,8 @@ public class SlSystemPolicyInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SlSystemPolicyInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SlSystemPolicyInformation> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SlSystemPolicyInformation =
                     SlSystemPolicyInformation(
                         (
@@ -121,7 +144,7 @@ public class SlSystemPolicyInformation internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (3).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: SlSystemPolicyInformation) {
                     (
@@ -135,7 +158,7 @@ public class SlSystemPolicyInformation internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (3).toInt())
-                    ).writeNative(addr + 16L, value.reserved2)
+                    ).writeNative(addr + 16L, value.reserved2.toList())
                 }
             }
 
@@ -185,8 +208,8 @@ public class SrSecurityDescriptor internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SrSecurityDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SrSecurityDescriptor> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SrSecurityDescriptor =
                     SrSecurityDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -297,8 +320,8 @@ public data class SubscribeGenericTlsExtension(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubscribeGenericTlsExtension> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SubscribeGenericTlsExtension> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): SubscribeGenericTlsExtension =
                     SubscribeGenericTlsExtension(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -361,8 +384,8 @@ public class SecBuffer internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBuffer> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecBuffer =
                     SecBuffer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -436,8 +459,8 @@ public class SecBufferDesc internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBufferDesc> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecBufferDesc> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecBufferDesc =
                     SecBufferDesc(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -496,8 +519,8 @@ public class SecPkgContextAccessToken internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextAccessToken> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextAccessToken> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextAccessToken =
                     SecPkgContextAccessToken(
                         (
@@ -549,8 +572,8 @@ public data class SecPkgContextApplicationProtocol(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextApplicationProtocol> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextApplicationProtocol> {
-                override val sizeBytes: Long = 264L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 264L
                 override fun readNative(addr: Long): SecPkgContextApplicationProtocol =
                     SecPkgContextApplicationProtocol(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -559,7 +582,7 @@ public data class SecPkgContextApplicationProtocol(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (255).toInt())
-                        ).readNative(addr + 9L),
+                        ).readNative(addr + 9L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SecPkgContextApplicationProtocol) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.protoNegoStatus)
@@ -568,7 +591,7 @@ public data class SecPkgContextApplicationProtocol(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (255).toInt())
-                    ).writeNative(addr + 9L, value.protocolId)
+                    ).writeNative(addr + 9L, value.protocolId.toList())
                 }
             }
     }
@@ -600,8 +623,8 @@ public class SecPkgContextAuthorityA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextAuthorityA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextAuthorityA> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextAuthorityA =
                     SecPkgContextAuthorityA(
                         (
@@ -652,8 +675,8 @@ public class SecPkgContextAuthorityW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextAuthorityW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextAuthorityW> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextAuthorityW =
                     SecPkgContextAuthorityW(
                         (
@@ -757,8 +780,8 @@ public class SecPkgContextBindings internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextBindings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextBindings> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextBindings =
                     SecPkgContextBindings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -869,7 +892,24 @@ public class SecPkgContextCertInfo internal constructor(
 public data class SecPkgContextCertificateValidationResult(
     public var dwChainErrorStatus: UInt = 0u,
     public var hrVerifyChainStatus: Hresult = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCertificateValidationResult> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCertificateValidationResult> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): SecPkgContextCertificateValidationResult =
+                    SecPkgContextCertificateValidationResult(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: SecPkgContextCertificateValidationResult) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwChainErrorStatus)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.hrVerifyChainStatus)
+                }
+            }
+    }
+}
 
 public class SecPkgContextCertificates internal constructor(
     public var cCertificates: UInt,
@@ -912,8 +952,8 @@ public class SecPkgContextCertificates internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCertificates> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCertificates> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextCertificates =
                     SecPkgContextCertificates(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1006,8 +1046,8 @@ public data class SecPkgContextCipherInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCipherInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCipherInfo> {
-                override val sizeBytes: Long = 680L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 680L
                 override fun readNative(addr: Long): SecPkgContextCipherInfo =
                     SecPkgContextCipherInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1017,28 +1057,28 @@ public data class SecPkgContextCipherInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 144L),
+                        ).readNative(addr + 144L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 272L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 276L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 280L),
+                        ).readNative(addr + 280L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 408L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 412L),
+                        ).readNative(addr + 412L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 540L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 544L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 548L),
+                        ).readNative(addr + 548L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 676L),
                     )
                 override fun writeNative(addr: Long, value: SecPkgContextCipherInfo) {
@@ -1049,28 +1089,28 @@ public data class SecPkgContextCipherInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 16L, value.szCipherSuite)
+                    ).writeNative(addr + 16L, value.szCipherSuite.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 144L, value.szCipher)
+                    ).writeNative(addr + 144L, value.szCipher.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 272L, value.dwCipherLen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 276L, value.dwCipherBlockLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 280L, value.szHash)
+                    ).writeNative(addr + 280L, value.szHash.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 408L, value.dwHashLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 412L, value.szExchange)
+                    ).writeNative(addr + 412L, value.szExchange.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 540L, value.dwMinExchangeLen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 544L, value.dwMaxExchangeLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 548L, value.szCertificate)
+                    ).writeNative(addr + 548L, value.szCertificate.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 676L, value.dwKeyType)
                 }
             }
@@ -1108,8 +1148,8 @@ public class SecPkgContextClientSpecifiedTarget internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextClientSpecifiedTarget> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextClientSpecifiedTarget> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextClientSpecifiedTarget =
                     SecPkgContextClientSpecifiedTarget(
                         (
@@ -1142,7 +1182,34 @@ public data class SecPkgContextConnectionInfo(
     public var dwHashStrength: UInt = 0u,
     public var aiExch: AlgId = 0u,
     public var dwExchStrength: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextConnectionInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextConnectionInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
+                override fun readNative(addr: Long): SecPkgContextConnectionInfo =
+                    SecPkgContextConnectionInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: SecPkgContextConnectionInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwProtocol)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.aiCipher)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwCipherStrength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.aiHash)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwHashStrength)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.aiExch)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.dwExchStrength)
+                }
+            }
+    }
+}
 
 public data class SecPkgContextConnectionInfoEx(
     public var dwVersion: UInt = 0u,
@@ -1183,8 +1250,8 @@ public data class SecPkgContextConnectionInfoEx(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextConnectionInfoEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextConnectionInfoEx> {
-                override val sizeBytes: Long = 404L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 404L
                 override fun readNative(addr: Long): SecPkgContextConnectionInfoEx =
                     SecPkgContextConnectionInfoEx(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1192,17 +1259,17 @@ public data class SecPkgContextConnectionInfoEx(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 136L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 140L),
+                        ).readNative(addr + 140L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 268L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                        ).readNative(addr + 272L),
+                        ).readNative(addr + 272L).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 400L),
                     )
                 override fun writeNative(addr: Long, value: SecPkgContextConnectionInfoEx) {
@@ -1211,17 +1278,17 @@ public data class SecPkgContextConnectionInfoEx(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 8L, value.szCipher)
+                    ).writeNative(addr + 8L, value.szCipher.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 136L, value.dwCipherStrength)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 140L, value.szHash)
+                    ).writeNative(addr + 140L, value.szHash.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 268L, value.dwHashStrength)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (64).toInt())
-                    ).writeNative(addr + 272L, value.szExchange)
+                    ).writeNative(addr + 272L, value.szExchange.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 400L, value.dwExchStrength)
                 }
             }
@@ -1235,8 +1302,8 @@ public data class SecPkgContextCredInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCredInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCredInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextCredInfo =
                     SecPkgContextCredInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1285,8 +1352,8 @@ public class SecPkgContextCredentialNameA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCredentialNameA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCredentialNameA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextCredentialNameA =
                     SecPkgContextCredentialNameA(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1350,8 +1417,8 @@ public class SecPkgContextCredentialNameW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCredentialNameW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextCredentialNameW> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextCredentialNameW =
                     SecPkgContextCredentialNameW(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1415,8 +1482,8 @@ public class SecPkgContextDceInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextDceInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextDceInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextDceInfo =
                     SecPkgContextDceInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1466,28 +1533,28 @@ public data class SecPkgContextEapKeyBlock(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextEapKeyBlock> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextEapKeyBlock> {
-                override val sizeBytes: Long = 192L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 192L
                 override fun readNative(addr: Long): SecPkgContextEapKeyBlock =
                     SecPkgContextEapKeyBlock(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                        ).readNative(addr + 128L),
+                        ).readNative(addr + 128L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SecPkgContextEapKeyBlock) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                    ).writeNative(addr, value.rgbKeys)
+                    ).writeNative(addr, value.rgbKeys.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                    ).writeNative(addr + 128L, value.rgbIVs)
+                    ).writeNative(addr + 128L, value.rgbIVs.toList())
                 }
             }
     }
@@ -1534,8 +1601,8 @@ public class SecPkgContextEapPrfInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextEapPrfInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextEapPrfInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextEapPrfInfo =
                     SecPkgContextEapPrfInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1574,8 +1641,8 @@ public data class SecPkgContextEarlyStart(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextEarlyStart> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextEarlyStart> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPkgContextEarlyStart =
                     SecPkgContextEarlyStart(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1593,8 +1660,8 @@ public data class SecPkgContextFlags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextFlags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextFlags> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPkgContextFlags =
                     SecPkgContextFlags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1641,8 +1708,8 @@ public class SecPkgContextIssuerListInfoEx internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextIssuerListInfoEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextIssuerListInfoEx> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextIssuerListInfoEx =
                     SecPkgContextIssuerListInfoEx(
                         (
@@ -1727,8 +1794,8 @@ public class SecPkgContextKeyInfoA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextKeyInfoA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextKeyInfoA> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SecPkgContextKeyInfoA =
                     SecPkgContextKeyInfoA(
                         (
@@ -1831,8 +1898,8 @@ public class SecPkgContextKeyInfoW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextKeyInfoW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextKeyInfoW> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SecPkgContextKeyInfoW =
                     SecPkgContextKeyInfoW(
                         (
@@ -1914,8 +1981,8 @@ public class SecPkgContextKeyingMaterial internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextKeyingMaterial> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextKeyingMaterial> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextKeyingMaterial =
                     SecPkgContextKeyingMaterial(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2103,8 +2170,8 @@ public data class SecPkgContextLastClientTokenStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLastClientTokenStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLastClientTokenStatus> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPkgContextLastClientTokenStatus =
                     SecPkgContextLastClientTokenStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -2123,8 +2190,8 @@ public data class SecPkgContextLifespan(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLifespan> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLifespan> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextLifespan =
                     SecPkgContextLifespan(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -2191,8 +2258,8 @@ public class SecPkgContextLocalCredentialInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLocalCredentialInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLocalCredentialInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SecPkgContextLocalCredentialInfo =
                     SecPkgContextLocalCredentialInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2239,8 +2306,8 @@ public data class SecPkgContextLogoffTime(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLogoffTime> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextLogoffTime> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextLogoffTime =
                     SecPkgContextLogoffTime(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -2287,8 +2354,8 @@ public class SecPkgContextMappedCredAttr internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextMappedCredAttr> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextMappedCredAttr> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextMappedCredAttr =
                     SecPkgContextMappedCredAttr(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2343,8 +2410,8 @@ public class SecPkgContextNamesA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNamesA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNamesA> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextNamesA =
                     SecPkgContextNamesA(
                         (
@@ -2395,8 +2462,8 @@ public class SecPkgContextNamesW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNamesW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNamesW> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextNamesW =
                     SecPkgContextNamesW(
                         (
@@ -2459,8 +2526,8 @@ public class SecPkgContextNativeNamesA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNativeNamesA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNativeNamesA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextNativeNamesA =
                     SecPkgContextNativeNamesA(
                         (
@@ -2533,8 +2600,8 @@ public class SecPkgContextNativeNamesW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNativeNamesW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNativeNamesW> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextNativeNamesW =
                     SecPkgContextNativeNamesW(
                         (
@@ -2631,8 +2698,8 @@ public class SecPkgContextNegoKeys internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegoKeys> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegoKeys> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SecPkgContextNegoKeys =
                     SecPkgContextNegoKeys(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2689,8 +2756,8 @@ public data class SecPkgContextNegoPackageInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegoPackageInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegoPackageInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPkgContextNegoPackageInfo =
                     SecPkgContextNegoPackageInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2708,8 +2775,8 @@ public data class SecPkgContextNegoStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegoStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegoStatus> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPkgContextNegoStatus =
                     SecPkgContextNegoStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2756,8 +2823,8 @@ public class SecPkgContextNegotiatedTlsExtensions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegotiatedTlsExtensions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegotiatedTlsExtensions> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextNegotiatedTlsExtensions =
                     SecPkgContextNegotiatedTlsExtensions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2821,8 +2888,8 @@ public class SecPkgContextNegotiationInfoA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegotiationInfoA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegotiationInfoA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextNegotiationInfoA =
                     SecPkgContextNegotiationInfoA(
                         (
@@ -2886,8 +2953,8 @@ public class SecPkgContextNegotiationInfoW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegotiationInfoW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextNegotiationInfoW> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextNegotiationInfoW =
                     SecPkgContextNegotiationInfoW(
                         (
@@ -2942,8 +3009,8 @@ public class SecPkgContextPackageInfoA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextPackageInfoA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextPackageInfoA> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextPackageInfoA =
                     SecPkgContextPackageInfoA(
                         (
@@ -2994,8 +3061,8 @@ public class SecPkgContextPackageInfoW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextPackageInfoW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextPackageInfoW> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextPackageInfoW =
                     SecPkgContextPackageInfoW(
                         (
@@ -3026,8 +3093,8 @@ public data class SecPkgContextPasswordExpiry(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextPasswordExpiry> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextPasswordExpiry> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextPasswordExpiry =
                     SecPkgContextPasswordExpiry(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -3080,8 +3147,8 @@ public class SecPkgContextProtoInfoA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextProtoInfoA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextProtoInfoA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextProtoInfoA =
                     SecPkgContextProtoInfoA(
                         (
@@ -3155,8 +3222,8 @@ public class SecPkgContextProtoInfoW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextProtoInfoW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextProtoInfoW> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextProtoInfoW =
                     SecPkgContextProtoInfoW(
                         (
@@ -3242,8 +3309,8 @@ public class SecPkgContextRemoteCredentialInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextRemoteCredentialInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextRemoteCredentialInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SecPkgContextRemoteCredentialInfo =
                     SecPkgContextRemoteCredentialInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3310,8 +3377,8 @@ public class SecPkgContextSaslContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSaslContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSaslContext> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextSaslContext =
                     SecPkgContextSaslContext(
                         (
@@ -3377,8 +3444,8 @@ public class SecPkgContextSessionAppData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSessionAppData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSessionAppData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextSessionAppData =
                     SecPkgContextSessionAppData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3435,8 +3502,8 @@ public data class SecPkgContextSessionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSessionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSessionInfo> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): SecPkgContextSessionInfo =
                     SecPkgContextSessionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3444,7 +3511,7 @@ public data class SecPkgContextSessionInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: SecPkgContextSessionInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFlags)
@@ -3452,7 +3519,7 @@ public data class SecPkgContextSessionInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 8L, value.rgbSessionId)
+                    ).writeNative(addr + 8L, value.rgbSessionId.toList())
                 }
             }
     }
@@ -3493,8 +3560,8 @@ public class SecPkgContextSessionKey internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSessionKey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSessionKey> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextSessionKey =
                     SecPkgContextSessionKey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3532,8 +3599,8 @@ public data class SecPkgContextSizes(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSizes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSizes> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextSizes =
                     SecPkgContextSizes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3592,8 +3659,8 @@ public class SecPkgContextSrtpParameters internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSrtpParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSrtpParameters> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextSrtpParameters =
                     SecPkgContextSrtpParameters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -3636,8 +3703,8 @@ public data class SecPkgContextStreamSizes(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextStreamSizes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextStreamSizes> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): SecPkgContextStreamSizes =
                     SecPkgContextStreamSizes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3683,8 +3750,8 @@ public class SecPkgContextSubjectAttributes internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSubjectAttributes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSubjectAttributes> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgContextSubjectAttributes =
                     SecPkgContextSubjectAttributes(
                         (
@@ -3744,8 +3811,8 @@ public class SecPkgContextSupportedSignatures internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSupportedSignatures> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextSupportedSignatures> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextSupportedSignatures =
                     SecPkgContextSupportedSignatures(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -3853,8 +3920,8 @@ public class SecPkgContextTargetInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextTargetInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextTargetInformation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextTargetInformation =
                     SecPkgContextTargetInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3930,8 +3997,8 @@ public class SecPkgContextTokenBinding internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextTokenBinding> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextTokenBinding> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgContextTokenBinding =
                     SecPkgContextTokenBinding(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -4007,8 +4074,8 @@ public data class SecPkgContextUserFlags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextUserFlags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgContextUserFlags> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPkgContextUserFlags =
                     SecPkgContextUserFlags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4027,8 +4094,8 @@ public data class SecPkgCredCipherStrengths(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredCipherStrengths> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredCipherStrengths> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgCredCipherStrengths =
                     SecPkgCredCipherStrengths(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4172,19 +4239,19 @@ public data class SecPkgCredSessionTicketKey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSessionTicketKey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSessionTicketKey> {
-                override val sizeBytes: Long = 88L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 88L
                 override fun readNative(addr: Long): SecPkgCredSessionTicketKey =
                     SecPkgCredSessionTicketKey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 84L),
                     )
                 override fun writeNative(addr: Long, value: SecPkgCredSessionTicketKey) {
@@ -4192,11 +4259,11 @@ public data class SecPkgCredSessionTicketKey(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 4L, value.keyId)
+                    ).writeNative(addr + 4L, value.keyId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                    ).writeNative(addr + 20L, value.keyingMaterial)
+                    ).writeNative(addr + 20L, value.keyingMaterial.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 84L, value.keyingMaterialSize)
                 }
             }
@@ -4238,8 +4305,8 @@ public class SecPkgCredSessionTicketKeys internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSessionTicketKeys> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSessionTicketKeys> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgCredSessionTicketKeys =
                     SecPkgCredSessionTicketKeys(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4303,8 +4370,8 @@ public class SecPkgCredSupportedAlgs internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSupportedAlgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSupportedAlgs> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgCredSupportedAlgs =
                     SecPkgCredSupportedAlgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4339,8 +4406,8 @@ public data class SecPkgCredSupportedProtocols(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSupportedProtocols> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredSupportedProtocols> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SecPkgCredSupportedProtocols =
                     SecPkgCredSupportedProtocols(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4387,8 +4454,8 @@ public class SecPkgCredentialsCert internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsCert> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsCert> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgCredentialsCert =
                     SecPkgCredentialsCert(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4428,8 +4495,8 @@ public data class SecPkgCredentialsKdcProxySettingsW(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsKdcProxySettingsW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsKdcProxySettingsW> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SecPkgCredentialsKdcProxySettingsW =
                     SecPkgCredentialsKdcProxySettingsW(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4477,8 +4544,8 @@ public class SecPkgCredentialsNamesA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsNamesA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsNamesA> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgCredentialsNamesA =
                     SecPkgCredentialsNamesA(
                         (
@@ -4529,8 +4596,8 @@ public class SecPkgCredentialsNamesW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsNamesW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgCredentialsNamesW> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SecPkgCredentialsNamesW =
                     SecPkgCredentialsNamesW(
                         (
@@ -4727,8 +4794,8 @@ public class SecPkgInfoA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgInfoA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgInfoA> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SecPkgInfoA =
                     SecPkgInfoA(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4841,8 +4908,8 @@ public class SecPkgInfoW internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgInfoW> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SecPkgInfoW> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SecPkgInfoW =
                     SecPkgInfoW(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5206,8 +5273,8 @@ public data class TlsExtensionSubscription(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TlsExtensionSubscription> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TlsExtensionSubscription> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TlsExtensionSubscription =
                     TlsExtensionSubscription(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -5283,8 +5350,8 @@ public class TlsParameters internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TlsParameters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TlsParameters> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): TlsParameters =
                     TlsParameters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5341,8 +5408,8 @@ public data class TokenbindingIdentifier(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingIdentifier> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingIdentifier> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): TokenbindingIdentifier =
                     TokenbindingIdentifier(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -5389,8 +5456,8 @@ public class TokenbindingKeyTypes internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingKeyTypes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingKeyTypes> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TokenbindingKeyTypes =
                     TokenbindingKeyTypes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5481,8 +5548,8 @@ public class TokenbindingResultData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingResultData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingResultData> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): TokenbindingResultData =
                     TokenbindingResultData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -5568,8 +5635,8 @@ public class TokenbindingResultList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingResultList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TokenbindingResultList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TokenbindingResultList =
                     TokenbindingResultList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5633,8 +5700,8 @@ public class TrustedControllersInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedControllersInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedControllersInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TrustedControllersInfo =
                     TrustedControllersInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5731,8 +5798,8 @@ public class TrustedDomainAuthInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedDomainAuthInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedDomainAuthInformation> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): TrustedDomainAuthInformation =
                     TrustedDomainAuthInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5988,8 +6055,8 @@ public data class TrustedDomainSupportedEncryptionTypes(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedDomainSupportedEncryptionTypes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedDomainSupportedEncryptionTypes> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TrustedDomainSupportedEncryptionTypes =
                     TrustedDomainSupportedEncryptionTypes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6012,8 +6079,8 @@ public data class TrustedPosixOffsetInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedPosixOffsetInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TrustedPosixOffsetInfo> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TrustedPosixOffsetInfo =
                     TrustedPosixOffsetInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

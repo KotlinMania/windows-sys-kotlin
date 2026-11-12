@@ -54,8 +54,8 @@ public class SerenumPortDesc internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerenumPortDesc> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerenumPortDesc> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SerenumPortDesc =
                     SerenumPortDesc(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -67,7 +67,7 @@ public class SerenumPortDesc internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 24L),
+                        ).readNative(addr + 24L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: SerenumPortDesc) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
@@ -79,7 +79,7 @@ public class SerenumPortDesc internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 24L, value.reserved)
+                    ).writeNative(addr + 24L, value.reserved.toList())
                 }
             }
 
@@ -226,8 +226,8 @@ public data class Serialconfig(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Serialconfig> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Serialconfig> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Serialconfig =
                     Serialconfig(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -238,7 +238,7 @@ public data class Serialconfig(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: Serialconfig) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
@@ -249,7 +249,7 @@ public data class Serialconfig(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 20L, value.providerData)
+                    ).writeNative(addr + 20L, value.providerData.toList())
                 }
             }
     }
@@ -266,8 +266,8 @@ public data class SerialperfStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialperfStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialperfStats> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): SerialperfStats =
                     SerialperfStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -298,8 +298,8 @@ public data class SerialBasicSettings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialBasicSettings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialBasicSettings> {
-                override val sizeBytes: Long = 44L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 44L
                 override fun readNative(addr: Long): SerialBasicSettings =
                     SerialBasicSettings(
                         (SerialTimeouts.typeLayout()).readNative(addr),
@@ -323,8 +323,8 @@ public data class SerialBaudRate(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialBaudRate> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialBaudRate> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): SerialBaudRate =
                     SerialBaudRate(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -347,8 +347,8 @@ public data class SerialChars(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialChars> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialChars> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): SerialChars =
                     SerialChars(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -393,8 +393,8 @@ public class SerialCommprop(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialCommprop> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialCommprop> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): SerialCommprop =
                     SerialCommprop(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -417,7 +417,7 @@ public class SerialCommprop(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 60L),
+                        ).readNative(addr + 60L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: SerialCommprop) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.packetLength)
@@ -440,7 +440,7 @@ public class SerialCommprop(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 60L, value.provChar)
+                    ).writeNative(addr + 60L, value.provChar.toList())
                 }
             }
     }
@@ -455,8 +455,8 @@ public data class SerialHandflow(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialHandflow> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialHandflow> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SerialHandflow =
                     SerialHandflow(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -482,8 +482,8 @@ public data class SerialLineControl(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialLineControl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialLineControl> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): SerialLineControl =
                     SerialLineControl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -506,8 +506,8 @@ public data class SerialQueueSize(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialQueueSize> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialQueueSize> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): SerialQueueSize =
                     SerialQueueSize(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -532,8 +532,8 @@ public data class SerialStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialStatus> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): SerialStatus =
                     SerialStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -565,8 +565,8 @@ public data class SerialTimeouts(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialTimeouts> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialTimeouts> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): SerialTimeouts =
                     SerialTimeouts(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -594,8 +594,8 @@ public data class SerialXoffCounter(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialXoffCounter> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SerialXoffCounter> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): SerialXoffCounter =
                     SerialXoffCounter(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

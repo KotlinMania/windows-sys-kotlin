@@ -171,18 +171,18 @@ public data class ImageNote(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ImageNote> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ImageNote> {
-                override val sizeBytes: Long = 270L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 270L
                 override fun readNative(addr: Long): ImageNote =
                     ImageNote(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (10).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 10L),
+                        ).readNative(addr + 10L).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 266L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 268L),
                     )
@@ -190,11 +190,11 @@ public data class ImageNote(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (10).toInt())
-                    ).writeNative(addr, value.module)
+                    ).writeNative(addr, value.module.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 10L, value.fileName)
+                    ).writeNative(addr + 10L, value.fileName.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 266L, value.hModule)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 268L, value.hTask)
                 }
@@ -314,8 +314,8 @@ public data class SegmentNote(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SegmentNote> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SegmentNote> {
-                override val sizeBytes: Long = 280L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 280L
                 override fun readNative(addr: Long): SegmentNote =
                     SegmentNote(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -324,11 +324,11 @@ public data class SegmentNote(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (10).toInt())
-                        ).readNative(addr + 6L),
+                        ).readNative(addr + 6L).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 272L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 276L),
                     )
@@ -339,11 +339,11 @@ public data class SegmentNote(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (10).toInt())
-                    ).writeNative(addr + 6L, value.module)
+                    ).writeNative(addr + 6L, value.module.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (256).toInt())
-                    ).writeNative(addr + 16L, value.fileName)
+                    ).writeNative(addr + 16L, value.fileName.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 272L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 276L, value.length)
                 }
@@ -355,7 +355,26 @@ public data class TempBpNote(
     public var seg: UShort = 0u,
     public var offset: UInt = 0u,
     public var bPM: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TempBpNote> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TempBpNote> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): TempBpNote =
+                    TempBpNote(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: TempBpNote) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.seg)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.offset)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.bPM)
+                }
+            }
+    }
+}
 
 public class Vdmcontext(
     public var contextFlags: UInt = 0u,
@@ -429,8 +448,8 @@ public data class VdmldtEntry01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VdmldtEntry01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VdmldtEntry01> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): VdmldtEntry01 =
                     VdmldtEntry01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -451,8 +470,8 @@ public data class VdmldtEntry00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VdmldtEntry00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VdmldtEntry00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): VdmldtEntry00 =
                     VdmldtEntry00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -503,8 +522,8 @@ public data class VdmSeginfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VdmSeginfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VdmSeginfo> {
-                override val sizeBytes: Long = 276L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 276L
                 override fun readNative(addr: Long): VdmSeginfo =
                     VdmSeginfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -514,11 +533,11 @@ public data class VdmSeginfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (9).toInt())
-                        ).readNative(addr + 10L),
+                        ).readNative(addr + 10L).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (255).toInt())
-                        ).readNative(addr + 19L),
+                        ).readNative(addr + 19L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: VdmSeginfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.selector)
@@ -528,11 +547,11 @@ public data class VdmSeginfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (9).toInt())
-                    ).writeNative(addr + 10L, value.moduleName)
+                    ).writeNative(addr + 10L, value.moduleName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (255).toInt())
-                    ).writeNative(addr + 19L, value.fileName)
+                    ).writeNative(addr + 19L, value.fileName.toList())
                 }
             }
     }

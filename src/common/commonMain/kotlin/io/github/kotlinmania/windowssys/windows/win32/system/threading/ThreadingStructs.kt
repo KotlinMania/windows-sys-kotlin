@@ -24,8 +24,8 @@ public data class AppMemoryInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppMemoryInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppMemoryInformation> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): AppMemoryInformation =
                     AppMemoryInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -69,8 +69,8 @@ public class ConditionVariable internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConditionVariable> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConditionVariable> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ConditionVariable =
                     ConditionVariable(
                         (
@@ -321,8 +321,8 @@ public data class IoCounters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IoCounters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IoCounters> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): IoCounters =
                     IoCounters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -350,8 +350,8 @@ public data class MemoryPriorityInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryPriorityInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MemoryPriorityInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MemoryPriorityInformation =
                     MemoryPriorityInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -369,8 +369,8 @@ public data class OverridePrefetchParameter(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OverridePrefetchParameter> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OverridePrefetchParameter> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): OverridePrefetchParameter =
                     OverridePrefetchParameter(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -607,6 +607,35 @@ public class ProcessBasicInformation internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessBasicInformation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessBasicInformation> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
+                override fun readNative(addr: Long): ProcessBasicInformation =
+                    ProcessBasicInformation(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Peb>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 40L),
+                    )
+                override fun writeNative(addr: Long, value: ProcessBasicInformation) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.exitStatus)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Peb>(64)
+                    ).writeNative(addr + 8L, value.pebBaseAddress)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.affinityMask)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.basePriority)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 32L, value.uniqueProcessId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 40L, value.inheritedFromUniqueProcessId)
+                }
+            }
+
         public operator fun invoke(
             exitStatus: Ntstatus = 0,
             pebBaseAddress: MutPtr<Peb> = MutPtr(0L),
@@ -633,8 +662,8 @@ public data class ProcessDynamicEhContinuationTarget(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEhContinuationTarget> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEhContinuationTarget> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ProcessDynamicEhContinuationTarget =
                     ProcessDynamicEhContinuationTarget(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -695,8 +724,8 @@ public class ProcessDynamicEhContinuationTargetsInformation internal constructor
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEhContinuationTargetsInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEhContinuationTargetsInformation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ProcessDynamicEhContinuationTargetsInformation =
                     ProcessDynamicEhContinuationTargetsInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -741,8 +770,8 @@ public data class ProcessDynamicEnforcedAddressRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEnforcedAddressRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEnforcedAddressRange> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): ProcessDynamicEnforcedAddressRange =
                     ProcessDynamicEnforcedAddressRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -805,8 +834,8 @@ public class ProcessDynamicEnforcedAddressRangesInformation internal constructor
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEnforcedAddressRangesInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessDynamicEnforcedAddressRangesInformation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ProcessDynamicEnforcedAddressRangesInformation =
                     ProcessDynamicEnforcedAddressRangesInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -913,8 +942,8 @@ public data class ProcessLeapSecondInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessLeapSecondInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessLeapSecondInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): ProcessLeapSecondInfo =
                     ProcessLeapSecondInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -932,7 +961,26 @@ public data class ProcessMachineInformation(
     public var processMachine: ImageFileMachine = 0u,
     public var res0: UShort = 0u,
     public var machineAttributes: MachineAttributes = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMachineInformation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMachineInformation> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): ProcessMachineInformation =
+                    ProcessMachineInformation(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: ProcessMachineInformation) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.processMachine)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.res0)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.machineAttributes)
+                }
+            }
+    }
+}
 
 public data class ProcessMemoryExhaustionInfo(
     public var version: UShort = 0u,
@@ -943,8 +991,8 @@ public data class ProcessMemoryExhaustionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryExhaustionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessMemoryExhaustionInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): ProcessMemoryExhaustionInfo =
                     ProcessMemoryExhaustionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -970,8 +1018,8 @@ public data class ProcessPowerThrottlingState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessPowerThrottlingState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessPowerThrottlingState> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): ProcessPowerThrottlingState =
                     ProcessPowerThrottlingState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -993,8 +1041,8 @@ public data class ProcessProtectionLevelInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessProtectionLevelInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ProcessProtectionLevelInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): ProcessProtectionLevelInformation =
                     ProcessProtectionLevelInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1205,8 +1253,8 @@ public class Srwlock internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Srwlock> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Srwlock> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Srwlock =
                     Srwlock(
                         (
@@ -1561,8 +1609,8 @@ public data class SynchronizationBarrier(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SynchronizationBarrier> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SynchronizationBarrier> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): SynchronizationBarrier =
                     SynchronizationBarrier(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1570,7 +1618,7 @@ public data class SynchronizationBarrier(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64, (2).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toIntArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                     )
@@ -1580,7 +1628,7 @@ public data class SynchronizationBarrier(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64, (2).toInt())
-                    ).writeNative(addr + 8L, value.reserved3)
+                    ).writeNative(addr + 8L, value.reserved3.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.reserved4)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.reserved5)
                 }
@@ -1692,8 +1740,8 @@ public class Teb internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Teb> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Teb> {
-                override val sizeBytes: Long = 6024L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 6024L
                 override fun readNative(addr: Long): Teb =
                     Teb(
                         (
@@ -1719,7 +1767,7 @@ public class Teb internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1952).toInt())
-                        ).readNative(addr + 3296L),
+                        ).readNative(addr + 3296L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
@@ -1731,7 +1779,7 @@ public class Teb internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                        ).readNative(addr + 5760L),
+                        ).readNative(addr + 5760L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
@@ -1781,7 +1829,7 @@ public class Teb internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1952).toInt())
-                    ).writeNative(addr + 3296L, value.reserved3)
+                    ).writeNative(addr + 3296L, value.reserved3.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
@@ -1793,7 +1841,7 @@ public class Teb internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
-                    ).writeNative(addr + 5760L, value.reserved4)
+                    ).writeNative(addr + 5760L, value.reserved4.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
@@ -1856,8 +1904,8 @@ public data class ThreadPowerThrottlingState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ThreadPowerThrottlingState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ThreadPowerThrottlingState> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): ThreadPowerThrottlingState =
                     ThreadPowerThrottlingState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1992,8 +2040,8 @@ public data class TpCallbackEnvironV300(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpCallbackEnvironV300> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpCallbackEnvironV300> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): TpCallbackEnvironV300 =
                     TpCallbackEnvironV300(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2012,8 +2060,8 @@ public data class TpPoolStackInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpPoolStackInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TpPoolStackInformation> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): TpPoolStackInformation =
                     TpPoolStackInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -2106,8 +2154,8 @@ public data class UmsSystemThreadInformation00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UmsSystemThreadInformation00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UmsSystemThreadInformation00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): UmsSystemThreadInformation00 =
                     UmsSystemThreadInformation00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

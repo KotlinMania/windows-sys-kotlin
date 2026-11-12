@@ -75,8 +75,8 @@ public class CertFilterData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CertFilterData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CertFilterData> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): CertFilterData =
                     CertFilterData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -929,6 +929,27 @@ public class CryptuiInitdialogStruct internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptuiInitdialogStruct> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptuiInitdialogStruct> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): CryptuiInitdialogStruct =
+                    CryptuiInitdialogStruct(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<CertContext>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: CryptuiInitdialogStruct) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.lParam)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<CertContext>(64)
+                    ).writeNative(addr + 8L, value.pCertContext)
+                }
+            }
+
         public operator fun invoke(
             lParam: Lparam = 0L,
             pCertContext: ConstPtr<CertContext> = ConstPtr(0L),
@@ -1462,8 +1483,8 @@ public class CryptuiWizDigitalSignContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptuiWizDigitalSignContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptuiWizDigitalSignContext> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CryptuiWizDigitalSignContext =
                     CryptuiWizDigitalSignContext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2361,8 +2382,8 @@ public class CtlModifyRequest internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlModifyRequest> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CtlModifyRequest> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): CtlModifyRequest =
                     CtlModifyRequest(
                         (

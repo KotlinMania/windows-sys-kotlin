@@ -22,8 +22,8 @@ public data class Accesstimeout(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Accesstimeout> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Accesstimeout> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Accesstimeout =
                     Accesstimeout(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -97,8 +97,8 @@ public data class Filterkeys(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Filterkeys> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Filterkeys> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): Filterkeys =
                     Filterkeys(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -236,8 +236,8 @@ public data class Mousekeys(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mousekeys> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mousekeys> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): Mousekeys =
                     Mousekeys(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -742,8 +742,8 @@ public data class Stickykeys(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Stickykeys> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Stickykeys> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Stickykeys =
                     Stickykeys(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -764,8 +764,8 @@ public data class Togglekeys(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Togglekeys> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Togglekeys> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Togglekeys =
                     Togglekeys(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -940,8 +940,8 @@ public class UIAutomationParameter internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UIAutomationParameter> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UIAutomationParameter> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): UIAutomationParameter =
                     UIAutomationParameter(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1191,8 +1191,8 @@ public class UiaAndOrCondition internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaAndOrCondition> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaAndOrCondition> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): UiaAndOrCondition =
                     UiaAndOrCondition(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1234,8 +1234,8 @@ public data class UiaAsyncContentLoadedEventArgs(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaAsyncContentLoadedEventArgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaAsyncContentLoadedEventArgs> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): UiaAsyncContentLoadedEventArgs =
                     UiaAsyncContentLoadedEventArgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1324,8 +1324,8 @@ public class UiaCacheRequest internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaCacheRequest> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaCacheRequest> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): UiaCacheRequest =
                     UiaCacheRequest(
                         (
@@ -1439,8 +1439,8 @@ public class UiaChangesEventArgs internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaChangesEventArgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaChangesEventArgs> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): UiaChangesEventArgs =
                     UiaChangesEventArgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1483,8 +1483,8 @@ public data class UiaCondition(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaCondition> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaCondition> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): UiaCondition =
                     UiaCondition(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1503,8 +1503,8 @@ public data class UiaEventArgs(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaEventArgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaEventArgs> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): UiaEventArgs =
                     UiaEventArgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1563,6 +1563,31 @@ public class UiaFindParams internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaFindParams> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaFindParams> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): UiaFindParams =
+                    UiaFindParams(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UiaCondition>(64)
+                        ).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: UiaFindParams) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.maxDepth)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.findFirst)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.excludeRoot)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UiaCondition>(64)
+                    ).writeNative(addr + 16L, value.pFindCondition)
+                }
+            }
+
         public operator fun invoke(
             maxDepth: Int = 0,
             findFirst: Bool = 0,
@@ -1613,8 +1638,8 @@ public class UiaNotCondition internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaNotCondition> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaNotCondition> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): UiaNotCondition =
                     UiaNotCondition(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1650,8 +1675,8 @@ public data class UiaPoint(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaPoint> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaPoint> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): UiaPoint =
                     UiaPoint(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F64).readNative(addr),
@@ -1689,8 +1714,8 @@ public data class UiaRect(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaRect> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaRect> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): UiaRect =
                     UiaRect(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F64).readNative(addr),
@@ -1761,8 +1786,8 @@ public class UiaStructureChangedEventArgs internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaStructureChangedEventArgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaStructureChangedEventArgs> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): UiaStructureChangedEventArgs =
                     UiaStructureChangedEventArgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1850,8 +1875,8 @@ public class UiaTextEditTextChangedEventArgs internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaTextEditTextChangedEventArgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaTextEditTextChangedEventArgs> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): UiaTextEditTextChangedEventArgs =
                     UiaTextEditTextChangedEventArgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1935,8 +1960,8 @@ public class UiaWindowClosedEventArgs internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaWindowClosedEventArgs> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<UiaWindowClosedEventArgs> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): UiaWindowClosedEventArgs =
                     UiaWindowClosedEventArgs(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

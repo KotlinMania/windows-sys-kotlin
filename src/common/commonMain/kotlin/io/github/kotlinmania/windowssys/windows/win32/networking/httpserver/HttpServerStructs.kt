@@ -25,8 +25,8 @@ public data class Http2SettingsLimitsParam(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Http2SettingsLimitsParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Http2SettingsLimitsParam> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Http2SettingsLimitsParam =
                     Http2SettingsLimitsParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -46,8 +46,8 @@ public data class Http2WindowSizeParam(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Http2WindowSizeParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Http2WindowSizeParam> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Http2WindowSizeParam =
                     Http2WindowSizeParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -66,8 +66,8 @@ public data class HttpapiVersion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpapiVersion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpapiVersion> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HttpapiVersion =
                     HttpapiVersion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -88,8 +88,8 @@ public data class HttpBandwidthLimitInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpBandwidthLimitInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpBandwidthLimitInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpBandwidthLimitInfo =
                     HttpBandwidthLimitInfo(
                         (HttpPropertyFlags.typeLayout()).readNative(addr),
@@ -154,8 +154,8 @@ public data class HttpByteRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpByteRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpByteRange> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpByteRange =
                     HttpByteRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -176,8 +176,8 @@ public data class HttpCachePolicy(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpCachePolicy> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpCachePolicy> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpCachePolicy =
                     HttpCachePolicy(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -238,8 +238,8 @@ public class HttpChannelBindInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpChannelBindInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpChannelBindInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): HttpChannelBindInfo =
                     HttpChannelBindInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -283,8 +283,8 @@ public data class HttpConnectionLimitInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpConnectionLimitInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpConnectionLimitInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpConnectionLimitInfo =
                     HttpConnectionLimitInfo(
                         (HttpPropertyFlags.typeLayout()).readNative(addr),
@@ -440,8 +440,8 @@ public class HttpCreateRequestQueuePropertyInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpCreateRequestQueuePropertyInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpCreateRequestQueuePropertyInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpCreateRequestQueuePropertyInfo =
                     HttpCreateRequestQueuePropertyInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -654,8 +654,8 @@ public class HttpDataChunk00 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpDataChunk00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpDataChunk00> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpDataChunk00 =
                     HttpDataChunk00(
                         (
@@ -719,8 +719,8 @@ public class HttpDataChunk04 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpDataChunk04> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpDataChunk04> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpDataChunk04 =
                     HttpDataChunk04(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -790,8 +790,8 @@ public class HttpDelegateRequestPropertyInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpDelegateRequestPropertyInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpDelegateRequestPropertyInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpDelegateRequestPropertyInfo =
                     HttpDelegateRequestPropertyInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -865,8 +865,8 @@ public class HttpErrorHeadersParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpErrorHeadersParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpErrorHeadersParam> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpErrorHeadersParam =
                     HttpErrorHeadersParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -908,8 +908,8 @@ public data class HttpFlowrateInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFlowrateInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpFlowrateInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpFlowrateInfo =
                     HttpFlowrateInfo(
                         (HttpPropertyFlags.typeLayout()).readNative(addr),
@@ -978,8 +978,8 @@ public data class HttpListenEndpointInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpListenEndpointInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpListenEndpointInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpListenEndpointInfo =
                     HttpListenEndpointInfo(
                         (HttpPropertyFlags.typeLayout()).readNative(addr),
@@ -1148,8 +1148,8 @@ public data class HttpLogData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpLogData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpLogData> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HttpLogData =
                     HttpLogData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1377,8 +1377,8 @@ public class HttpMultipleKnownHeaders internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpMultipleKnownHeaders> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpMultipleKnownHeaders> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): HttpMultipleKnownHeaders =
                     HttpMultipleKnownHeaders(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1456,8 +1456,8 @@ public class HttpPerformanceParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpPerformanceParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpPerformanceParam> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpPerformanceParam =
                     HttpPerformanceParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1496,8 +1496,8 @@ public data class HttpPropertyFlags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpPropertyFlags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpPropertyFlags> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HttpPropertyFlags =
                     HttpPropertyFlags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1516,8 +1516,8 @@ public data class HttpProtectionLevelInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpProtectionLevelInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpProtectionLevelInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpProtectionLevelInfo =
                     HttpProtectionLevelInfo(
                         (HttpPropertyFlags.typeLayout()).readNative(addr),
@@ -1566,8 +1566,8 @@ public class HttpQosSettingInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQosSettingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQosSettingInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpQosSettingInfo =
                     HttpQosSettingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1602,8 +1602,8 @@ public data class HttpQueryRequestQualifierQuic(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQueryRequestQualifierQuic> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQueryRequestQualifierQuic> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpQueryRequestQualifierQuic =
                     HttpQueryRequestQualifierQuic(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1621,8 +1621,8 @@ public data class HttpQueryRequestQualifierTcp(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQueryRequestQualifierTcp> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQueryRequestQualifierTcp> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpQueryRequestQualifierTcp =
                     HttpQueryRequestQualifierTcp(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1641,8 +1641,8 @@ public data class HttpQuicApiTimings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicApiTimings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicApiTimings> {
-                override val sizeBytes: Long = 384L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 384L
                 override fun readNative(addr: Long): HttpQuicApiTimings =
                     HttpQuicApiTimings(
                         (HttpQuicConnectionApiTimings.typeLayout()).readNative(addr),
@@ -1674,8 +1674,8 @@ public data class HttpQuicConnectionApiTimings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicConnectionApiTimings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicConnectionApiTimings> {
-                override val sizeBytes: Long = 240L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 240L
                 override fun readNative(addr: Long): HttpQuicConnectionApiTimings =
                     HttpQuicConnectionApiTimings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1734,8 +1734,8 @@ public class HttpQuicStreamApiTimings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicStreamApiTimings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicStreamApiTimings> {
-                override val sizeBytes: Long = 144L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 144L
                 override fun readNative(addr: Long): HttpQuicStreamApiTimings =
                     HttpQuicStreamApiTimings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1794,8 +1794,8 @@ public data class HttpQuicStreamRequestStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicStreamRequestStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpQuicStreamRequestStats> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): HttpQuicStreamRequestStats =
                     HttpQuicStreamRequestStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2012,8 +2012,8 @@ public class HttpRequestChannelBindStatus internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestChannelBindStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestChannelBindStatus> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): HttpRequestChannelBindStatus =
                     HttpRequestChannelBindStatus(
                         (
@@ -2168,8 +2168,8 @@ public class HttpRequestInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpRequestInfo =
                     HttpRequestInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -2223,21 +2223,21 @@ public data class HttpRequestPropertySni(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestPropertySni> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestPropertySni> {
-                override val sizeBytes: Long = 516L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 516L
                 override fun readNative(addr: Long): HttpRequestPropertySni =
                     HttpRequestPropertySni(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 512L),
                     )
                 override fun writeNative(addr: Long, value: HttpRequestPropertySni) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr, value.hostname)
+                    ).writeNative(addr, value.hostname.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 512L, value.flags)
                 }
             }
@@ -2250,8 +2250,8 @@ public data class HttpRequestPropertyStreamError(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestPropertyStreamError> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestPropertyStreamError> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HttpRequestPropertyStreamError =
                     HttpRequestPropertyStreamError(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2290,8 +2290,8 @@ public data class HttpRequestSizingInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestSizingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestSizingInfo> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): HttpRequestSizingInfo =
                     HttpRequestSizingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2300,7 +2300,7 @@ public data class HttpRequestSizingInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (5).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: HttpRequestSizingInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.flags)
@@ -2309,7 +2309,7 @@ public data class HttpRequestSizingInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (5).toInt())
-                    ).writeNative(addr + 16L, value.requestSizing)
+                    ).writeNative(addr + 16L, value.requestSizing.toList())
                 }
             }
     }
@@ -2336,22 +2336,22 @@ public data class HttpRequestTimingInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestTimingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestTimingInfo> {
-                override val sizeBytes: Long = 248L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 248L
                 override fun readNative(addr: Long): HttpRequestTimingInfo =
                     HttpRequestTimingInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (30).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: HttpRequestTimingInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.requestTimingCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (30).toInt())
-                    ).writeNative(addr + 8L, value.requestTiming)
+                    ).writeNative(addr + 8L, value.requestTiming.toList())
                 }
             }
     }
@@ -2413,8 +2413,8 @@ public class HttpRequestTokenBindingInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestTokenBindingInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestTokenBindingInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): HttpRequestTokenBindingInfo =
                     HttpRequestTokenBindingInfo(
                         (
@@ -2722,8 +2722,8 @@ public class HttpResponseInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpResponseInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpResponseInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpResponseInfo =
                     HttpResponseInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3079,8 +3079,8 @@ public data class HttpServiceBindingBase(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceBindingBase> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceBindingBase> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HttpServiceBindingBase =
                     HttpServiceBindingBase(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3151,8 +3151,8 @@ public data class HttpServiceConfigCacheSet(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigCacheSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigCacheSet> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpServiceConfigCacheSet =
                     HttpServiceConfigCacheSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3201,8 +3201,8 @@ public class HttpServiceConfigIpListenParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigIpListenParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigIpListenParam> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpServiceConfigIpListenParam =
                     HttpServiceConfigIpListenParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -3243,8 +3243,8 @@ public data class HttpServiceConfigSettingSet(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigSettingSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigSettingSet> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpServiceConfigSettingSet =
                     HttpServiceConfigSettingSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3311,8 +3311,8 @@ public class HttpServiceConfigSslKey internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigSslKey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigSslKey> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpServiceConfigSslKey =
                     HttpServiceConfigSslKey(
                         (
@@ -3481,8 +3481,8 @@ public data class HttpServiceConfigSslQuery(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigSslQuery> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigSslQuery> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): HttpServiceConfigSslQuery =
                     HttpServiceConfigSslQuery(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3589,8 +3589,8 @@ public data class HttpServiceConfigTimeoutSet(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigTimeoutSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpServiceConfigTimeoutSet> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpServiceConfigTimeoutSet =
                     HttpServiceConfigTimeoutSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3862,8 +3862,8 @@ public data class HttpSslProtocolInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpSslProtocolInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpSslProtocolInfo> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): HttpSslProtocolInfo =
                     HttpSslProtocolInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3894,8 +3894,8 @@ public data class HttpStateInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpStateInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpStateInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpStateInfo =
                     HttpStateInfo(
                         (HttpPropertyFlags.typeLayout()).readNative(addr),
@@ -3921,8 +3921,8 @@ public data class HttpTimeoutLimitInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTimeoutLimitInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTimeoutLimitInfo> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): HttpTimeoutLimitInfo =
                     HttpTimeoutLimitInfo(
                         (HttpPropertyFlags.typeLayout()).readNative(addr),
@@ -3981,8 +3981,8 @@ public class HttpTlsRestrictionsParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTlsRestrictionsParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTlsRestrictionsParam> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpTlsRestrictionsParam =
                     HttpTlsRestrictionsParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4046,8 +4046,8 @@ public class HttpTlsSessionTicketKeysParam internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTlsSessionTicketKeysParam> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTlsSessionTicketKeysParam> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpTlsSessionTicketKeysParam =
                     HttpTlsSessionTicketKeysParam(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4114,8 +4114,8 @@ public class HttpTransportAddress internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTransportAddress> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpTransportAddress> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HttpTransportAddress =
                     HttpTransportAddress(
                         (
@@ -4220,8 +4220,8 @@ public data class HttpVersion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpVersion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpVersion> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): HttpVersion =
                     HttpVersion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -4252,8 +4252,8 @@ public data class HttpWskApiTimings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpWskApiTimings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpWskApiTimings> {
-                override val sizeBytes: Long = 96L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 96L
                 override fun readNative(addr: Long): HttpWskApiTimings =
                     HttpWskApiTimings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),

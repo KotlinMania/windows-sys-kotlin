@@ -51,8 +51,8 @@ public class MiApplication internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiApplication> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiApplication> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiApplication =
                     MiApplication(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -101,8 +101,8 @@ public data class MiApplicationFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiApplicationFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiApplicationFt> {
-                override val sizeBytes: Long = 88L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 88L
                 override fun readNative(addr: Long): MiApplicationFt =
                     MiApplicationFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -169,8 +169,8 @@ public class MiArray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiArray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiArray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiArray =
                     MiArray(
                         (
@@ -207,8 +207,8 @@ public data class MiArrayField(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiArrayField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiArrayField> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiArrayField =
                     MiArrayField(
                         (MiArray.typeLayout()).readNative(addr),
@@ -259,8 +259,8 @@ public class MiBooleanA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiBooleanA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiBooleanA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiBooleanA =
                     MiBooleanA(
                         (
@@ -297,8 +297,8 @@ public data class MiBooleanAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiBooleanAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiBooleanAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiBooleanAfield =
                     MiBooleanAfield(
                         (MiBooleanA.typeLayout()).readNative(addr),
@@ -322,8 +322,8 @@ public data class MiBooleanField(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiBooleanField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiBooleanField> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): MiBooleanField =
                     MiBooleanField(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -374,8 +374,8 @@ public class MiChar16A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiChar16A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiChar16A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiChar16A =
                     MiChar16A(
                         (
@@ -412,8 +412,8 @@ public data class MiChar16Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiChar16Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiChar16Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiChar16Afield =
                     MiChar16Afield(
                         (MiChar16A.typeLayout()).readNative(addr),
@@ -437,8 +437,8 @@ public data class MiChar16Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiChar16Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiChar16Field> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MiChar16Field =
                     MiChar16Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -516,8 +516,8 @@ public class MiClass internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClass> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClass> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): MiClass =
                     MiClass(
                         (
@@ -539,7 +539,7 @@ public class MiClass internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (4).toInt())
-                        ).readNative(addr + 32L),
+                        ).readNative(addr + 32L).toIntArray(),
                     )
                 override fun writeNative(addr: Long, value: MiClass) {
                     (
@@ -561,7 +561,7 @@ public class MiClass internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (4).toInt())
-                    ).writeNative(addr + 32L, value.reserved)
+                    ).writeNative(addr + 32L, value.reserved.toList())
                 }
             }
 
@@ -719,8 +719,8 @@ public class MiClassDecl internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClassDecl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClassDecl> {
-                override val sizeBytes: Long = 104L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 104L
                 override fun readNative(addr: Long): MiClassDecl =
                     MiClassDecl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -868,8 +868,8 @@ public data class MiClassFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClassFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClassFt> {
-                override val sizeBytes: Long = 112L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 112L
                 override fun readNative(addr: Long): MiClassFt =
                     MiClassFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -1017,8 +1017,8 @@ public class MiClientFtV1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClientFtV1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiClientFtV1> {
-                override val sizeBytes: Long = 80L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 80L
                 override fun readNative(addr: Long): MiClientFtV1 =
                     MiClientFtV1(
                         (
@@ -1168,8 +1168,8 @@ public class MiConstBooleanA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstBooleanA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstBooleanA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstBooleanA =
                     MiConstBooleanA(
                         (
@@ -1206,8 +1206,8 @@ public data class MiConstBooleanAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstBooleanAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstBooleanAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstBooleanAfield =
                     MiConstBooleanAfield(
                         (MiConstBooleanA.typeLayout()).readNative(addr),
@@ -1231,8 +1231,8 @@ public data class MiConstBooleanField(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstBooleanField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstBooleanField> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): MiConstBooleanField =
                     MiConstBooleanField(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1283,8 +1283,8 @@ public class MiConstChar16A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstChar16A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstChar16A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstChar16A =
                     MiConstChar16A(
                         (
@@ -1321,8 +1321,8 @@ public data class MiConstChar16Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstChar16Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstChar16Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstChar16Afield =
                     MiConstChar16Afield(
                         (MiConstChar16A.typeLayout()).readNative(addr),
@@ -1346,8 +1346,8 @@ public data class MiConstChar16Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstChar16Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstChar16Field> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MiConstChar16Field =
                     MiConstChar16Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1398,8 +1398,8 @@ public class MiConstDatetimeA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstDatetimeA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstDatetimeA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstDatetimeA =
                     MiConstDatetimeA(
                         (
@@ -1436,8 +1436,8 @@ public data class MiConstDatetimeAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstDatetimeAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstDatetimeAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstDatetimeAfield =
                     MiConstDatetimeAfield(
                         (MiConstDatetimeA.typeLayout()).readNative(addr),
@@ -1494,8 +1494,8 @@ public class MiConstInstanceA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstInstanceA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstInstanceA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstInstanceA =
                     MiConstInstanceA(
                         (
@@ -1532,8 +1532,8 @@ public data class MiConstInstanceAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstInstanceAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstInstanceAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstInstanceAfield =
                     MiConstInstanceAfield(
                         (MiConstInstanceA.typeLayout()).readNative(addr),
@@ -1590,8 +1590,8 @@ public class MiConstInstanceField internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstInstanceField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstInstanceField> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstInstanceField =
                     MiConstInstanceField(
                         (
@@ -1659,8 +1659,8 @@ public class MiConstReal32A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal32A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal32A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstReal32A =
                     MiConstReal32A(
                         (
@@ -1697,8 +1697,8 @@ public data class MiConstReal32Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal32Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal32Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstReal32Afield =
                     MiConstReal32Afield(
                         (MiConstReal32A.typeLayout()).readNative(addr),
@@ -1722,8 +1722,8 @@ public data class MiConstReal32Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal32Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal32Field> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MiConstReal32Field =
                     MiConstReal32Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -1774,8 +1774,8 @@ public class MiConstReal64A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal64A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal64A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstReal64A =
                     MiConstReal64A(
                         (
@@ -1812,8 +1812,8 @@ public data class MiConstReal64Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal64Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal64Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstReal64Afield =
                     MiConstReal64Afield(
                         (MiConstReal64A.typeLayout()).readNative(addr),
@@ -1837,8 +1837,8 @@ public data class MiConstReal64Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal64Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReal64Field> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstReal64Field =
                     MiConstReal64Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F64).readNative(addr),
@@ -1889,8 +1889,8 @@ public class MiConstReferenceA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReferenceA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReferenceA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstReferenceA =
                     MiConstReferenceA(
                         (
@@ -1927,8 +1927,8 @@ public data class MiConstReferenceAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReferenceAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReferenceAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstReferenceAfield =
                     MiConstReferenceAfield(
                         (MiConstReferenceA.typeLayout()).readNative(addr),
@@ -1985,8 +1985,8 @@ public class MiConstReferenceField internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReferenceField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstReferenceField> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstReferenceField =
                     MiConstReferenceField(
                         (
@@ -2054,8 +2054,8 @@ public class MiConstSint16A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint16A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint16A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstSint16A =
                     MiConstSint16A(
                         (
@@ -2092,8 +2092,8 @@ public data class MiConstSint16Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint16Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint16Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstSint16Afield =
                     MiConstSint16Afield(
                         (MiConstSint16A.typeLayout()).readNative(addr),
@@ -2117,8 +2117,8 @@ public data class MiConstSint16Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint16Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint16Field> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MiConstSint16Field =
                     MiConstSint16Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr),
@@ -2169,8 +2169,8 @@ public class MiConstSint32A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint32A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint32A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstSint32A =
                     MiConstSint32A(
                         (
@@ -2207,8 +2207,8 @@ public data class MiConstSint32Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint32Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint32Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstSint32Afield =
                     MiConstSint32Afield(
                         (MiConstSint32A.typeLayout()).readNative(addr),
@@ -2232,8 +2232,8 @@ public data class MiConstSint32Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint32Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint32Field> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MiConstSint32Field =
                     MiConstSint32Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -2284,8 +2284,8 @@ public class MiConstSint64A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint64A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint64A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstSint64A =
                     MiConstSint64A(
                         (
@@ -2322,8 +2322,8 @@ public data class MiConstSint64Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint64Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint64Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstSint64Afield =
                     MiConstSint64Afield(
                         (MiConstSint64A.typeLayout()).readNative(addr),
@@ -2347,8 +2347,8 @@ public data class MiConstSint64Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint64Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint64Field> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstSint64Field =
                     MiConstSint64Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -2399,8 +2399,8 @@ public class MiConstSint8A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint8A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint8A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstSint8A =
                     MiConstSint8A(
                         (
@@ -2437,8 +2437,8 @@ public data class MiConstSint8Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint8Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint8Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstSint8Afield =
                     MiConstSint8Afield(
                         (MiConstSint8A.typeLayout()).readNative(addr),
@@ -2462,8 +2462,8 @@ public data class MiConstSint8Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint8Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstSint8Field> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): MiConstSint8Field =
                     MiConstSint8Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8).readNative(addr),
@@ -2514,8 +2514,8 @@ public class MiConstStringA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstStringA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstStringA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstStringA =
                     MiConstStringA(
                         (
@@ -2552,8 +2552,8 @@ public data class MiConstStringAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstStringAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstStringAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstStringAfield =
                     MiConstStringAfield(
                         (MiConstStringA.typeLayout()).readNative(addr),
@@ -2610,8 +2610,8 @@ public class MiConstStringField internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstStringField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstStringField> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstStringField =
                     MiConstStringField(
                         (
@@ -2679,8 +2679,8 @@ public class MiConstUint16A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint16A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint16A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstUint16A =
                     MiConstUint16A(
                         (
@@ -2717,8 +2717,8 @@ public data class MiConstUint16Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint16Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint16Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstUint16Afield =
                     MiConstUint16Afield(
                         (MiConstUint16A.typeLayout()).readNative(addr),
@@ -2742,8 +2742,8 @@ public data class MiConstUint16Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint16Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint16Field> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MiConstUint16Field =
                     MiConstUint16Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -2794,8 +2794,8 @@ public class MiConstUint32A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint32A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint32A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstUint32A =
                     MiConstUint32A(
                         (
@@ -2832,8 +2832,8 @@ public data class MiConstUint32Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint32Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint32Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstUint32Afield =
                     MiConstUint32Afield(
                         (MiConstUint32A.typeLayout()).readNative(addr),
@@ -2857,8 +2857,8 @@ public data class MiConstUint32Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint32Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint32Field> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MiConstUint32Field =
                     MiConstUint32Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2909,8 +2909,8 @@ public class MiConstUint64A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint64A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint64A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstUint64A =
                     MiConstUint64A(
                         (
@@ -2947,8 +2947,8 @@ public data class MiConstUint64Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint64Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint64Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstUint64Afield =
                     MiConstUint64Afield(
                         (MiConstUint64A.typeLayout()).readNative(addr),
@@ -2972,8 +2972,8 @@ public data class MiConstUint64Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint64Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint64Field> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstUint64Field =
                     MiConstUint64Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3024,8 +3024,8 @@ public class MiConstUint8A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint8A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint8A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiConstUint8A =
                     MiConstUint8A(
                         (
@@ -3062,8 +3062,8 @@ public data class MiConstUint8Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint8Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint8Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiConstUint8Afield =
                     MiConstUint8Afield(
                         (MiConstUint8A.typeLayout()).readNative(addr),
@@ -3087,8 +3087,8 @@ public data class MiConstUint8Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint8Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiConstUint8Field> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): MiConstUint8Field =
                     MiConstUint8Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -3139,8 +3139,8 @@ public class MiContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiContext> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiContext =
                     MiContext(
                         (
@@ -3150,7 +3150,7 @@ public class MiContext internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (3).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toIntArray(),
                     )
                 override fun writeNative(addr: Long, value: MiContext) {
                     (
@@ -3160,7 +3160,7 @@ public class MiContext internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (3).toInt())
-                    ).writeNative(addr + 8L, value.reserved)
+                    ).writeNative(addr + 8L, value.reserved.toList())
                 }
             }
 
@@ -3210,8 +3210,8 @@ public class MiContextFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiContextFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiContextFt> {
-                override val sizeBytes: Long = 240L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 240L
                 override fun readNative(addr: Long): MiContextFt =
                     MiContextFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -3326,8 +3326,8 @@ public class MiDatetimeA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDatetimeA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDatetimeA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiDatetimeA =
                     MiDatetimeA(
                         (
@@ -3364,8 +3364,8 @@ public data class MiDatetimeAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDatetimeAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDatetimeAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiDatetimeAfield =
                     MiDatetimeAfield(
                         (MiDatetimeA.typeLayout()).readNative(addr),
@@ -3394,8 +3394,8 @@ public data class MiDeserializer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDeserializer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDeserializer> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiDeserializer =
                     MiDeserializer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3420,8 +3420,8 @@ public data class MiDeserializerFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDeserializerFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDeserializerFt> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): MiDeserializerFt =
                     MiDeserializerFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -3484,8 +3484,8 @@ public class MiDestinationOptions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDestinationOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDestinationOptions> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiDestinationOptions =
                     MiDestinationOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3538,8 +3538,8 @@ public data class MiDestinationOptionsFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDestinationOptionsFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiDestinationOptionsFt> {
-                override val sizeBytes: Long = 120L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 120L
                 override fun readNative(addr: Long): MiDestinationOptionsFt =
                     MiDestinationOptionsFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -3635,8 +3635,8 @@ public class MiFeatureDecl internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiFeatureDecl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiFeatureDecl> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiFeatureDecl =
                     MiFeatureDecl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3718,8 +3718,8 @@ public class MiFilter internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiFilter> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiFilter> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiFilter =
                     MiFilter(
                         (
@@ -3729,7 +3729,7 @@ public class MiFilter internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (3).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toIntArray(),
                     )
                 override fun writeNative(addr: Long, value: MiFilter) {
                     (
@@ -3739,7 +3739,7 @@ public class MiFilter internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (3).toInt())
-                    ).writeNative(addr + 8L, value.reserved)
+                    ).writeNative(addr + 8L, value.reserved.toList())
                 }
             }
 
@@ -3761,8 +3761,8 @@ public data class MiFilterFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiFilterFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiFilterFt> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiFilterFt =
                     MiFilterFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -3817,8 +3817,8 @@ public class MiHostedProvider internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiHostedProvider> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiHostedProvider> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiHostedProvider =
                     MiHostedProvider(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3858,8 +3858,8 @@ public data class MiHostedProviderFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiHostedProviderFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiHostedProviderFt> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiHostedProviderFt =
                     MiHostedProviderFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -3935,8 +3935,8 @@ public class MiInstance internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstance> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstance> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): MiInstance =
                     MiInstance(
                         (
@@ -3958,7 +3958,7 @@ public class MiInstance internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (4).toInt())
-                        ).readNative(addr + 32L),
+                        ).readNative(addr + 32L).toIntArray(),
                     )
                 override fun writeNative(addr: Long, value: MiInstance) {
                     (
@@ -3980,7 +3980,7 @@ public class MiInstance internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (4).toInt())
-                    ).writeNative(addr + 32L, value.reserved)
+                    ).writeNative(addr + 32L, value.reserved.toList())
                 }
             }
 
@@ -4036,8 +4036,8 @@ public class MiInstanceA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiInstanceA =
                     MiInstanceA(
                         (
@@ -4074,8 +4074,8 @@ public data class MiInstanceAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiInstanceAfield =
                     MiInstanceAfield(
                         (MiInstanceA.typeLayout()).readNative(addr),
@@ -4098,8 +4098,8 @@ public data class MiInstanceExFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceExFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceExFt> {
-                override val sizeBytes: Long = 152L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 152L
                 override fun readNative(addr: Long): MiInstanceExFt =
                     MiInstanceExFt(
                         (MiInstanceFt.typeLayout()).readNative(addr),
@@ -4136,8 +4136,8 @@ public class MiInstanceFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceFt> {
-                override val sizeBytes: Long = 144L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 144L
                 override fun readNative(addr: Long): MiInstanceFt =
                     MiInstanceFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -4224,8 +4224,8 @@ public class MiInstanceField internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInstanceField> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiInstanceField =
                     MiInstanceField(
                         (
@@ -4271,8 +4271,8 @@ public data class MiInterval(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInterval> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiInterval> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiInterval =
                     MiInterval(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4617,8 +4617,8 @@ public class MiObjectDecl internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiObjectDecl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiObjectDecl> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): MiObjectDecl =
                     MiObjectDecl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4724,8 +4724,8 @@ public class MiOperation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperation> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiOperation =
                     MiOperation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -4869,8 +4869,8 @@ public data class MiOperationFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperationFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperationFt> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): MiOperationFt =
                     MiOperationFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -4933,8 +4933,8 @@ public class MiOperationOptions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperationOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperationOptions> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiOperationOptions =
                     MiOperationOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -4985,8 +4985,8 @@ public data class MiOperationOptionsFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperationOptionsFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiOperationOptionsFt> {
-                override val sizeBytes: Long = 104L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 104L
                 override fun readNative(addr: Long): MiOperationOptionsFt =
                     MiOperationOptionsFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -5105,8 +5105,8 @@ public class MiParameterDecl internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiParameterDecl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiParameterDecl> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): MiParameterDecl =
                     MiParameterDecl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5216,8 +5216,8 @@ public class MiParameterSet internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiParameterSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiParameterSet> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiParameterSet =
                     MiParameterSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -5259,8 +5259,8 @@ public data class MiParameterSetFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiParameterSetFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiParameterSetFt> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiParameterSetFt =
                     MiParameterSetFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -5388,8 +5388,8 @@ public class MiPropertyDecl internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiPropertyDecl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiPropertyDecl> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): MiPropertyDecl =
                     MiPropertyDecl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5523,8 +5523,8 @@ public class MiPropertySet internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiPropertySet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiPropertySet> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiPropertySet =
                     MiPropertySet(
                         (
@@ -5534,7 +5534,7 @@ public class MiPropertySet internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (3).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toIntArray(),
                     )
                 override fun writeNative(addr: Long, value: MiPropertySet) {
                     (
@@ -5544,7 +5544,7 @@ public class MiPropertySet internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64, (3).toInt())
-                    ).writeNative(addr + 8L, value.reserved)
+                    ).writeNative(addr + 8L, value.reserved.toList())
                 }
             }
 
@@ -5572,8 +5572,8 @@ public data class MiPropertySetFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiPropertySetFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiPropertySetFt> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): MiPropertySetFt =
                     MiPropertySetFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -5666,8 +5666,8 @@ public class MiQualifier internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifier> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifier> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiQualifier =
                     MiQualifier(
                         (
@@ -5772,8 +5772,8 @@ public class MiQualifierDecl internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifierDecl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifierDecl> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiQualifierDecl =
                     MiQualifierDecl(
                         (
@@ -5865,8 +5865,8 @@ public class MiQualifierSet internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifierSet> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifierSet> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiQualifierSet =
                     MiQualifierSet(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -5907,8 +5907,8 @@ public data class MiQualifierSetFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifierSetFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiQualifierSetFt> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiQualifierSetFt =
                     MiQualifierSetFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -5959,8 +5959,8 @@ public class MiReal32A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal32A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal32A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiReal32A =
                     MiReal32A(
                         (
@@ -5997,8 +5997,8 @@ public data class MiReal32Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal32Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal32Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiReal32Afield =
                     MiReal32Afield(
                         (MiReal32A.typeLayout()).readNative(addr),
@@ -6022,8 +6022,8 @@ public data class MiReal32Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal32Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal32Field> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MiReal32Field =
                     MiReal32Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F32).readNative(addr),
@@ -6074,8 +6074,8 @@ public class MiReal64A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal64A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal64A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiReal64A =
                     MiReal64A(
                         (
@@ -6112,8 +6112,8 @@ public data class MiReal64Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal64Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal64Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiReal64Afield =
                     MiReal64Afield(
                         (MiReal64A.typeLayout()).readNative(addr),
@@ -6137,8 +6137,8 @@ public data class MiReal64Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal64Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReal64Field> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiReal64Field =
                     MiReal64Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.F64).readNative(addr),
@@ -6189,8 +6189,8 @@ public class MiReferenceA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReferenceA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReferenceA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiReferenceA =
                     MiReferenceA(
                         (
@@ -6227,8 +6227,8 @@ public data class MiReferenceAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReferenceAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReferenceAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiReferenceAfield =
                     MiReferenceAfield(
                         (MiReferenceA.typeLayout()).readNative(addr),
@@ -6285,8 +6285,8 @@ public class MiReferenceField internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReferenceField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiReferenceField> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiReferenceField =
                     MiReferenceField(
                         (
@@ -6369,8 +6369,8 @@ public class MiSchemaDecl internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSchemaDecl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSchemaDecl> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiSchemaDecl =
                     MiSchemaDecl(
                         (
@@ -6420,8 +6420,8 @@ public data class MiSerializer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSerializer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSerializer> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiSerializer =
                     MiSerializer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -6443,8 +6443,8 @@ public data class MiSerializerFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSerializerFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSerializerFt> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSerializerFt =
                     MiSerializerFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -6525,8 +6525,8 @@ public class MiServer internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiServer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiServer> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): MiServer =
                     MiServer(
                         (
@@ -6598,8 +6598,8 @@ public data class MiServerFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiServerFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiServerFt> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiServerFt =
                     MiServerFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -6654,8 +6654,8 @@ public class MiSession internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSession> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSession> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSession =
                     MiSession(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -6729,8 +6729,8 @@ public class MiSessionCallbacks internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSessionCallbacks> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSessionCallbacks> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSessionCallbacks =
                     MiSessionCallbacks(
                         (
@@ -6783,8 +6783,8 @@ public data class MiSessionFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSessionFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSessionFt> {
-                override val sizeBytes: Long = 120L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 120L
                 override fun readNative(addr: Long): MiSessionFt =
                     MiSessionFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -6859,8 +6859,8 @@ public class MiSint16A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint16A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint16A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiSint16A =
                     MiSint16A(
                         (
@@ -6897,8 +6897,8 @@ public data class MiSint16Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint16Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint16Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSint16Afield =
                     MiSint16Afield(
                         (MiSint16A.typeLayout()).readNative(addr),
@@ -6922,8 +6922,8 @@ public data class MiSint16Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint16Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint16Field> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MiSint16Field =
                     MiSint16Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr),
@@ -6974,8 +6974,8 @@ public class MiSint32A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint32A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint32A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiSint32A =
                     MiSint32A(
                         (
@@ -7012,8 +7012,8 @@ public data class MiSint32Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint32Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint32Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSint32Afield =
                     MiSint32Afield(
                         (MiSint32A.typeLayout()).readNative(addr),
@@ -7037,8 +7037,8 @@ public data class MiSint32Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint32Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint32Field> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MiSint32Field =
                     MiSint32Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -7089,8 +7089,8 @@ public class MiSint64A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint64A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint64A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiSint64A =
                     MiSint64A(
                         (
@@ -7127,8 +7127,8 @@ public data class MiSint64Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint64Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint64Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSint64Afield =
                     MiSint64Afield(
                         (MiSint64A.typeLayout()).readNative(addr),
@@ -7152,8 +7152,8 @@ public data class MiSint64Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint64Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint64Field> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiSint64Field =
                     MiSint64Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -7204,8 +7204,8 @@ public class MiSint8A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint8A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint8A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiSint8A =
                     MiSint8A(
                         (
@@ -7242,8 +7242,8 @@ public data class MiSint8Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint8Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint8Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSint8Afield =
                     MiSint8Afield(
                         (MiSint8A.typeLayout()).readNative(addr),
@@ -7267,8 +7267,8 @@ public data class MiSint8Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint8Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSint8Field> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): MiSint8Field =
                     MiSint8Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8).readNative(addr),
@@ -7319,8 +7319,8 @@ public class MiStringA internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiStringA> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiStringA> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiStringA =
                     MiStringA(
                         (
@@ -7357,8 +7357,8 @@ public data class MiStringAfield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiStringAfield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiStringAfield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiStringAfield =
                     MiStringAfield(
                         (MiStringA.typeLayout()).readNative(addr),
@@ -7415,8 +7415,8 @@ public class MiStringField internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiStringField> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiStringField> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiStringField =
                     MiStringField(
                         (
@@ -7490,8 +7490,8 @@ public class MiSubscriptionDeliveryOptions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSubscriptionDeliveryOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSubscriptionDeliveryOptions> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiSubscriptionDeliveryOptions =
                     MiSubscriptionDeliveryOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -7546,8 +7546,8 @@ public class MiSubscriptionDeliveryOptionsFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSubscriptionDeliveryOptionsFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiSubscriptionDeliveryOptionsFt> {
-                override val sizeBytes: Long = 136L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 136L
                 override fun readNative(addr: Long): MiSubscriptionDeliveryOptionsFt =
                     MiSubscriptionDeliveryOptionsFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -7604,8 +7604,8 @@ public data class MiTimestamp(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiTimestamp> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiTimestamp> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): MiTimestamp =
                     MiTimestamp(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7666,8 +7666,8 @@ public class MiUint16A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint16A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint16A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiUint16A =
                     MiUint16A(
                         (
@@ -7704,8 +7704,8 @@ public data class MiUint16Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint16Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint16Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiUint16Afield =
                     MiUint16Afield(
                         (MiUint16A.typeLayout()).readNative(addr),
@@ -7729,8 +7729,8 @@ public data class MiUint16Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint16Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint16Field> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): MiUint16Field =
                     MiUint16Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -7781,8 +7781,8 @@ public class MiUint32A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint32A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint32A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiUint32A =
                     MiUint32A(
                         (
@@ -7819,8 +7819,8 @@ public data class MiUint32Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint32Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint32Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiUint32Afield =
                     MiUint32Afield(
                         (MiUint32A.typeLayout()).readNative(addr),
@@ -7844,8 +7844,8 @@ public data class MiUint32Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint32Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint32Field> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): MiUint32Field =
                     MiUint32Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7896,8 +7896,8 @@ public class MiUint64A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint64A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint64A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiUint64A =
                     MiUint64A(
                         (
@@ -7934,8 +7934,8 @@ public data class MiUint64Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint64Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint64Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiUint64Afield =
                     MiUint64Afield(
                         (MiUint64A.typeLayout()).readNative(addr),
@@ -7959,8 +7959,8 @@ public data class MiUint64Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint64Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint64Field> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiUint64Field =
                     MiUint64Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -8011,8 +8011,8 @@ public class MiUint8A internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint8A> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint8A> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiUint8A =
                     MiUint8A(
                         (
@@ -8049,8 +8049,8 @@ public data class MiUint8Afield(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint8Afield> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint8Afield> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiUint8Afield =
                     MiUint8Afield(
                         (MiUint8A.typeLayout()).readNative(addr),
@@ -8074,8 +8074,8 @@ public data class MiUint8Field(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint8Field> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUint8Field> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): MiUint8Field =
                     MiUint8Field(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -8226,8 +8226,8 @@ public class MiUsernamePasswordCreds internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUsernamePasswordCreds> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUsernamePasswordCreds> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): MiUsernamePasswordCreds =
                     MiUsernamePasswordCreds(
                         (
@@ -8279,8 +8279,8 @@ public data class MiUtilitiesFt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUtilitiesFt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MiUtilitiesFt> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MiUtilitiesFt =
                     MiUtilitiesFt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -8585,8 +8585,8 @@ public class SWbemAnalysisMatrixList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SWbemAnalysisMatrixList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SWbemAnalysisMatrixList> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): SWbemAnalysisMatrixList =
                     SWbemAnalysisMatrixList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8840,6 +8840,49 @@ public class SWbemQueryQualifiedName internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SWbemQueryQualifiedName> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SWbemQueryQualifiedName> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
+                override fun readNative(addr: Long): SWbemQueryQualifiedName =
+                    SWbemQueryQualifiedName(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<Pcwstr>(64)
+                        ).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Bool>(64)
+                        ).readNative(addr + 32L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UInt>(64)
+                        ).readNative(addr + 40L),
+                    )
+                override fun writeNative(addr: Long, value: SWbemQueryQualifiedName) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.mUVersion)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.mUTokenType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.mUNameListSize)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<Pcwstr>(64)
+                    ).writeNative(addr + 16L, value.mPpszNameList)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.mBArraysUsed)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Bool>(64)
+                    ).writeNative(addr + 32L, value.mPbArrayElUsed)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UInt>(64)
+                    ).writeNative(addr + 40L, value.mPuArrayIndex)
+                }
+            }
+
         public operator fun invoke(
             mUVersion: UInt = 0u,
             mUTokenType: UInt = 0u,
@@ -9192,8 +9235,8 @@ public data class SWbemRpnTokenList(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SWbemRpnTokenList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SWbemRpnTokenList> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): SWbemRpnTokenList =
                     SWbemRpnTokenList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -9216,4 +9259,29 @@ public data class WbemCompileStatusInfo(
     public var firstLine: Int = 0,
     public var lastLine: Int = 0,
     public var dwOutFlags: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WbemCompileStatusInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WbemCompileStatusInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): WbemCompileStatusInfo =
+                    WbemCompileStatusInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: WbemCompileStatusInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.lPhaseError)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.hRes)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.objectNum)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.firstLine)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.lastLine)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.dwOutFlags)
+                }
+            }
+    }
+}

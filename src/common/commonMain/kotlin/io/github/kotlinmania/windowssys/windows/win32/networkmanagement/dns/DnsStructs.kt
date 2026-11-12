@@ -69,8 +69,8 @@ public data class DnsApplicationSettings(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsApplicationSettings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsApplicationSettings> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DnsApplicationSettings =
                     DnsApplicationSettings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -105,22 +105,22 @@ public data class DnsAtmaData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsAtmaData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsAtmaData> {
-                override val sizeBytes: Long = 21L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 21L
                 override fun readNative(addr: Long): DnsAtmaData =
                     DnsAtmaData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsAtmaData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.addressType)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (20).toInt())
-                    ).writeNative(addr + 1L, value.address)
+                    ).writeNative(addr + 1L, value.address.toList())
                 }
             }
     }
@@ -132,8 +132,8 @@ public data class DnsAData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsAData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsAData> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DnsAData =
                     DnsAData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -224,8 +224,8 @@ public class DnsConnectionIfindexList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionIfindexList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionIfindexList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DnsConnectionIfindexList =
                     DnsConnectionIfindexList(
                         (
@@ -269,20 +269,20 @@ public data class DnsConnectionName(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionName> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionName> {
-                override val sizeBytes: Long = 130L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 130L
                 override fun readNative(addr: Long): DnsConnectionName =
                     DnsConnectionName(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (65).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsConnectionName) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (65).toInt())
-                    ).writeNative(addr, value.wszName)
+                    ).writeNative(addr, value.wszName.toList())
                 }
             }
     }
@@ -323,8 +323,8 @@ public class DnsConnectionNameList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionNameList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionNameList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DnsConnectionNameList =
                     DnsConnectionNameList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -481,8 +481,8 @@ public class DnsConnectionPolicyEntryList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionPolicyEntryList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionPolicyEntryList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DnsConnectionPolicyEntryList =
                     DnsConnectionPolicyEntryList(
                         (
@@ -841,8 +841,8 @@ public class DnsConnectionProxyList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionProxyList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsConnectionProxyList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DnsConnectionProxyList =
                     DnsConnectionProxyList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -945,22 +945,22 @@ public data class DnsDhcidData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsDhcidData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsDhcidData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DnsDhcidData =
                     DnsDhcidData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsDhcidData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwByteCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.dhcid)
+                    ).writeNative(addr + 4L, value.dhcid.toList())
                 }
             }
     }
@@ -999,8 +999,8 @@ public data class DnsDsData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsDsData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsDsData> {
-                override val sizeBytes: Long = 10L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 10L
                 override fun readNative(addr: Long): DnsDsData =
                     DnsDsData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1011,7 +1011,7 @@ public data class DnsDsData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsDsData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.wKeyTag)
@@ -1022,7 +1022,7 @@ public data class DnsDsData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 8L, value.digest)
+                    ).writeNative(addr + 8L, value.digest.toList())
                 }
             }
     }
@@ -1040,8 +1040,8 @@ public data class DnsHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsHeader> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): DnsHeader =
                     DnsHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1073,8 +1073,8 @@ public data class DnsHeaderExt(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsHeaderExt> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsHeaderExt> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DnsHeaderExt =
                     DnsHeaderExt(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1123,8 +1123,8 @@ public data class DnsKeyData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsKeyData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsKeyData> {
-                override val sizeBytes: Long = 10L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 10L
                 override fun readNative(addr: Long): DnsKeyData =
                     DnsKeyData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1135,7 +1135,7 @@ public data class DnsKeyData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsKeyData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.wFlags)
@@ -1146,7 +1146,7 @@ public data class DnsKeyData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 8L, value.key)
+                    ).writeNative(addr + 8L, value.key.toList())
                 }
             }
     }
@@ -1164,8 +1164,8 @@ public data class DnsLocData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsLocData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsLocData> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): DnsLocData =
                     DnsLocData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1210,22 +1210,22 @@ public data class DnsMessageBuffer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsMessageBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsMessageBuffer> {
-                override val sizeBytes: Long = 13L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 13L
                 override fun readNative(addr: Long): DnsMessageBuffer =
                     DnsMessageBuffer(
                         (DnsHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (1).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsMessageBuffer) {
                     (DnsHeader.typeLayout()).writeNative(addr, value.messageHead)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (1).toInt())
-                    ).writeNative(addr + 12L, value.messageBody)
+                    ).writeNative(addr + 12L, value.messageBody.toList())
                 }
             }
     }
@@ -1632,8 +1632,8 @@ public data class DnsNsec3paramData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsNsec3paramData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsNsec3paramData> {
-                override val sizeBytes: Long = 10L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 10L
                 override fun readNative(addr: Long): DnsNsec3paramData =
                     DnsNsec3paramData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1643,11 +1643,11 @@ public data class DnsNsec3paramData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 5L),
+                        ).readNative(addr + 5L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsNsec3paramData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.chAlgorithm)
@@ -1657,11 +1657,11 @@ public data class DnsNsec3paramData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 5L, value.bPad)
+                    ).writeNative(addr + 5L, value.bPad.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 8L, value.pbSalt)
+                    ).writeNative(addr + 8L, value.pbSalt.toList())
                 }
             }
     }
@@ -1703,8 +1703,8 @@ public data class DnsNsec3Data(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsNsec3Data> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsNsec3Data> {
-                override val sizeBytes: Long = 10L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 10L
                 override fun readNative(addr: Long): DnsNsec3Data =
                     DnsNsec3Data(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1716,7 +1716,7 @@ public data class DnsNsec3Data(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsNsec3Data) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.chAlgorithm)
@@ -1728,7 +1728,7 @@ public data class DnsNsec3Data(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 8L, value.chData)
+                    ).writeNative(addr + 8L, value.chData.toList())
                 }
             }
     }
@@ -1875,22 +1875,22 @@ public data class DnsNullData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsNullData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsNullData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DnsNullData =
                     DnsNullData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsNullData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwByteCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.data)
+                    ).writeNative(addr + 4L, value.data.toList())
                 }
             }
     }
@@ -2024,8 +2024,8 @@ public data class DnsOptData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsOptData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsOptData> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): DnsOptData =
                     DnsOptData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -2033,7 +2033,7 @@ public data class DnsOptData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsOptData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.wDataLength)
@@ -2041,7 +2041,7 @@ public data class DnsOptData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.data)
+                    ).writeNative(addr + 4L, value.data.toList())
                 }
             }
     }
@@ -2180,20 +2180,20 @@ public data class DnsQueryCancel(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsQueryCancel> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsQueryCancel> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DnsQueryCancel =
                     DnsQueryCancel(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (32).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsQueryCancel) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (32).toInt())
-                    ).writeNative(addr, value.reserved)
+                    ).writeNative(addr, value.reserved.toList())
                 }
             }
     }
@@ -2214,20 +2214,20 @@ public data class DnsQueryRawCancel(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsQueryRawCancel> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsQueryRawCancel> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DnsQueryRawCancel =
                     DnsQueryRawCancel(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (32).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsQueryRawCancel) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (32).toInt())
-                    ).writeNative(addr, value.reserved)
+                    ).writeNative(addr, value.reserved.toList())
                 }
             }
     }
@@ -2814,8 +2814,8 @@ public class DnsQueryResult internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsQueryResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsQueryResult> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): DnsQueryResult =
                     DnsQueryResult(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3484,8 +3484,8 @@ public data class DnsRecordFlags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsRecordFlags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsRecordFlags> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DnsRecordFlags =
                     DnsRecordFlags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3647,8 +3647,8 @@ public class DnsRrset internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsRrset> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsRrset> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DnsRrset =
                     DnsRrset(
                         (
@@ -3785,8 +3785,8 @@ public class DnsServiceCancel internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsServiceCancel> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsServiceCancel> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DnsServiceCancel =
                     DnsServiceCancel(
                         (
@@ -4814,8 +4814,8 @@ public data class DnsSvcbParamAlpn(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamAlpn> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamAlpn> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): DnsSvcbParamAlpn =
                     DnsSvcbParamAlpn(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -4870,8 +4870,8 @@ public class DnsSvcbParamAlpnId internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamAlpnId> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamAlpnId> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): DnsSvcbParamAlpnId =
                     DnsSvcbParamAlpnId(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -4921,22 +4921,22 @@ public data class DnsSvcbParamIpv4(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamIpv4> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamIpv4> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DnsSvcbParamIpv4 =
                     DnsSvcbParamIpv4(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsSvcbParamIpv4) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cIps)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                    ).writeNative(addr + 4L, value.rgIps)
+                    ).writeNative(addr + 4L, value.rgIps.toList())
                 }
             }
     }
@@ -4968,22 +4968,22 @@ public data class DnsSvcbParamMandatory(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamMandatory> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamMandatory> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DnsSvcbParamMandatory =
                     DnsSvcbParamMandatory(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsSvcbParamMandatory) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cMandatoryKeys)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 2L, value.rgwMandatoryKeys)
+                    ).writeNative(addr + 2L, value.rgwMandatoryKeys.toList())
                 }
             }
     }
@@ -5010,22 +5010,22 @@ public data class DnsSvcbParamUnknown(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamUnknown> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsSvcbParamUnknown> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DnsSvcbParamUnknown =
                     DnsSvcbParamUnknown(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsSvcbParamUnknown) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cBytes)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 2L, value.pbSvcParamValue)
+                    ).writeNative(addr + 2L, value.pbSvcParamValue.toList())
                 }
             }
     }
@@ -5330,8 +5330,8 @@ public data class DnsTlsaData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsTlsaData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsTlsaData> {
-                override val sizeBytes: Long = 10L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 10L
                 override fun readNative(addr: Long): DnsTlsaData =
                     DnsTlsaData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -5341,11 +5341,11 @@ public data class DnsTlsaData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                        ).readNative(addr + 6L),
+                        ).readNative(addr + 6L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 9L),
+                        ).readNative(addr + 9L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsTlsaData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.bCertUsage)
@@ -5355,11 +5355,11 @@ public data class DnsTlsaData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (3).toInt())
-                    ).writeNative(addr + 6L, value.bPad)
+                    ).writeNative(addr + 6L, value.bPad.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 9L, value.bCertificateAssociationData)
+                    ).writeNative(addr + 9L, value.bCertificateAssociationData.toList())
                 }
             }
     }
@@ -5740,22 +5740,22 @@ public data class DnsUnknownData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsUnknownData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsUnknownData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DnsUnknownData =
                     DnsUnknownData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsUnknownData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwByteCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.bData)
+                    ).writeNative(addr + 4L, value.bData.toList())
                 }
             }
     }
@@ -5911,8 +5911,8 @@ public data class DnsWinsData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWinsData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWinsData> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): DnsWinsData =
                     DnsWinsData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5922,7 +5922,7 @@ public data class DnsWinsData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsWinsData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwMappingFlag)
@@ -5932,7 +5932,7 @@ public data class DnsWinsData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                    ).writeNative(addr + 16L, value.winsServers)
+                    ).writeNative(addr + 16L, value.winsServers.toList())
                 }
             }
     }
@@ -5945,8 +5945,8 @@ public data class DnsWireQuestion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWireQuestion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWireQuestion> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): DnsWireQuestion =
                     DnsWireQuestion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -5969,8 +5969,8 @@ public data class DnsWireRecord(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWireRecord> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWireRecord> {
-                override val sizeBytes: Long = 10L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 10L
                 override fun readNative(addr: Long): DnsWireRecord =
                     DnsWireRecord(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -6012,8 +6012,8 @@ public data class DnsWksData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWksData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DnsWksData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DnsWksData =
                     DnsWksData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6021,7 +6021,7 @@ public data class DnsWksData(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 5L),
+                        ).readNative(addr + 5L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: DnsWksData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.ipAddress)
@@ -6029,7 +6029,7 @@ public data class DnsWksData(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 5L, value.bitMask)
+                    ).writeNative(addr + 5L, value.bitMask.toList())
                 }
             }
     }
@@ -6056,22 +6056,22 @@ public data class Ip4Array(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ip4Array> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ip4Array> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Ip4Array =
                     Ip4Array(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: Ip4Array) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.addrCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (1).toInt())
-                    ).writeNative(addr + 4L, value.addrArray)
+                    ).writeNative(addr + 4L, value.addrArray.toList())
                 }
             }
     }
@@ -6158,14 +6158,14 @@ public class MdnsQueryHandle internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MdnsQueryHandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MdnsQueryHandle> {
-                override val sizeBytes: Long = 544L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 544L
                 override fun readNative(addr: Long): MdnsQueryHandle =
                     MdnsQueryHandle(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 512L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
@@ -6178,13 +6178,13 @@ public class MdnsQueryHandle internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (2).toInt())
-                        ).readNative(addr + 536L),
+                        ).readNative(addr + 536L).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: MdnsQueryHandle) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (256).toInt())
-                    ).writeNative(addr, value.nameBuf)
+                    ).writeNative(addr, value.nameBuf.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 512L, value.wType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
@@ -6197,7 +6197,7 @@ public class MdnsQueryHandle internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (2).toInt())
-                    ).writeNative(addr + 536L, value.stateNameData)
+                    ).writeNative(addr + 536L, value.stateNameData.toList())
                 }
             }
 

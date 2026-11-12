@@ -334,8 +334,8 @@ public data class NsContextAttributes00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NsContextAttributes00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NsContextAttributes00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): NsContextAttributes00 =
                     NsContextAttributes00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -368,8 +368,8 @@ public data class NsHelperAttributes00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NsHelperAttributes00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NsHelperAttributes00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): NsHelperAttributes00 =
                     NsHelperAttributes00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

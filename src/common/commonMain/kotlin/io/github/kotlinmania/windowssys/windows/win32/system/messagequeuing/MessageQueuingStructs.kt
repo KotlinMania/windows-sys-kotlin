@@ -41,8 +41,8 @@ public class Mqcolumnset internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqcolumnset> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqcolumnset> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Mqcolumnset =
                     Mqcolumnset(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -124,8 +124,8 @@ public class Mqmgmtprops internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqmgmtprops> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqmgmtprops> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Mqmgmtprops =
                     Mqmgmtprops(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -227,8 +227,8 @@ public class Mqmsgprops internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqmsgprops> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqmsgprops> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Mqmsgprops =
                     Mqmsgprops(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -330,8 +330,8 @@ public class Mqprivateprops internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqprivateprops> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqprivateprops> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Mqprivateprops =
                     Mqprivateprops(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -439,8 +439,8 @@ public class Mqqmprops internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqqmprops> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqqmprops> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Mqqmprops =
                     Mqqmprops(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -542,8 +542,8 @@ public class Mqqueueprops internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqqueueprops> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqqueueprops> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): Mqqueueprops =
                     Mqqueueprops(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -627,8 +627,8 @@ public class Mqrestriction internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqrestriction> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqrestriction> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Mqrestriction =
                     Mqrestriction(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -664,8 +664,8 @@ public data class Mqsortkey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqsortkey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqsortkey> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Mqsortkey =
                     Mqsortkey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -714,8 +714,8 @@ public class Mqsortset internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqsortset> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mqsortset> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Mqsortset =
                     Mqsortset(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -752,8 +752,8 @@ public data class SequenceInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SequenceInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SequenceInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SequenceInfo =
                     SequenceInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),

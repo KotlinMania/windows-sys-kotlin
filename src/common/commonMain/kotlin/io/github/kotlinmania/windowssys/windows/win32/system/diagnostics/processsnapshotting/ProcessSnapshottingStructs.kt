@@ -55,8 +55,8 @@ public class PssAllocator internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssAllocator> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssAllocator> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): PssAllocator =
                     PssAllocator(
                         (
@@ -95,8 +95,8 @@ public data class PssAuxiliaryPagesInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssAuxiliaryPagesInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssAuxiliaryPagesInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PssAuxiliaryPagesInformation =
                     PssAuxiliaryPagesInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -353,14 +353,52 @@ public data class PssHandleEntry0(
 public data class PssHandleEntry03(
     public var manualReset: Bool = 0,
     public var signaled: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry03> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry03> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): PssHandleEntry03 =
+                    PssHandleEntry03(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: PssHandleEntry03) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.manualReset)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.signaled)
+                }
+            }
+    }
+}
 
 public data class PssHandleEntry02(
     public var currentCount: Int = 0,
     public var abandoned: Bool = 0,
     public var ownerProcessId: UInt = 0u,
     public var ownerThreadId: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry02> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry02> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): PssHandleEntry02 =
+                    PssHandleEntry02(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: PssHandleEntry02) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.currentCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.abandoned)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.ownerProcessId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.ownerThreadId)
+                }
+            }
+    }
+}
 
 public class PssHandleEntry00 internal constructor(
     public var exitStatus: UInt,
@@ -427,8 +465,8 @@ public class PssHandleEntry00 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry00> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): PssHandleEntry00 =
                     PssHandleEntry00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -518,8 +556,8 @@ public class PssHandleEntry04 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry04> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry04> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): PssHandleEntry04 =
                     PssHandleEntry04(
                         (
@@ -559,8 +597,8 @@ public data class PssHandleEntry05(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry05> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry05> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PssHandleEntry05 =
                     PssHandleEntry05(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -648,8 +686,8 @@ public class PssHandleEntry01 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleEntry01> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): PssHandleEntry01 =
                     PssHandleEntry01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -714,8 +752,8 @@ public data class PssHandleInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssHandleInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PssHandleInformation =
                     PssHandleInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -788,8 +826,8 @@ public data class PssPerformanceCounters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssPerformanceCounters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssPerformanceCounters> {
-                override val sizeBytes: Long = 96L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 96L
                 override fun readNative(addr: Long): PssPerformanceCounters =
                     PssPerformanceCounters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1051,8 +1089,8 @@ public data class PssThreadInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssThreadInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssThreadInformation> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PssThreadInformation =
                     PssThreadInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1246,8 +1284,8 @@ public data class PssVaSpaceInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssVaSpaceInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PssVaSpaceInformation> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PssVaSpaceInformation =
                     PssVaSpaceInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

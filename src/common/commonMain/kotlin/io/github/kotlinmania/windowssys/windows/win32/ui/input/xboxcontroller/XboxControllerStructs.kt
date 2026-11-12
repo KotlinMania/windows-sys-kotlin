@@ -10,8 +10,8 @@ public data class XinputBatteryInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputBatteryInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputBatteryInformation> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): XinputBatteryInformation =
                     XinputBatteryInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -35,8 +35,8 @@ public data class XinputCapabilities(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputCapabilities> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputCapabilities> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): XinputCapabilities =
                     XinputCapabilities(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -68,8 +68,8 @@ public data class XinputGamepad(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputGamepad> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputGamepad> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): XinputGamepad =
                     XinputGamepad(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -103,8 +103,8 @@ public data class XinputKeystroke(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputKeystroke> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputKeystroke> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): XinputKeystroke =
                     XinputKeystroke(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -131,8 +131,8 @@ public data class XinputState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputState> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): XinputState =
                     XinputState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -153,8 +153,8 @@ public data class XinputVibration(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputVibration> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XinputVibration> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): XinputVibration =
                     XinputVibration(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),

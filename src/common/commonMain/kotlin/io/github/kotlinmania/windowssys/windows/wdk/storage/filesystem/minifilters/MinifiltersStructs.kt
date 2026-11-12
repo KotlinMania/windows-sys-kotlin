@@ -367,12 +367,12 @@ public class FltCreatefileTargetEcpContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltCreatefileTargetEcpContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltCreatefileTargetEcpContext> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FltCreatefileTargetEcpContext =
                     FltCreatefileTargetEcpContext(
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
                                 .mutPtrLayout<FltFileNameInformation>(64)
@@ -380,8 +380,8 @@ public class FltCreatefileTargetEcpContext internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: FltCreatefileTargetEcpContext) {
-                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr, value.instance)
-                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.volume)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.instance)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.volume)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
                             .mutPtrLayout<FltFileNameInformation>(64)
@@ -656,8 +656,8 @@ public class FltParameters22 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters22> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters22> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FltParameters22 =
                     FltParameters22(
                         (
@@ -743,6 +743,33 @@ public class FltParameters21 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters21> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters21> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): FltParameters21 =
+                    FltParameters21(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<FsFilterSectionSyncOutput>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters21) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.syncType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.pageProtection)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<FsFilterSectionSyncOutput>(64)
+                    ).writeNative(addr + 8L, value.outputInformation)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.allocationAttributes)
+                }
+            }
+
         public operator fun invoke(
             syncType: FsFilterSectionSyncType = 0,
             pageProtection: UInt = 0u,
@@ -816,8 +843,8 @@ public class FltParameters2 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters2> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters2 =
                     FltParameters2(
                         (
@@ -920,8 +947,8 @@ public class FltParameters1 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters1> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters1> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters1 =
                     FltParameters1(
                         (
@@ -1036,8 +1063,8 @@ public class FltParameters0 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters0> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): FltParameters0 =
                     FltParameters0(
                         (
@@ -1147,8 +1174,8 @@ public class FltParameters132 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters132> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters132> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters132 =
                     FltParameters132(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1193,8 +1220,8 @@ public data class FltParameters130(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters130> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters130> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): FltParameters130 =
                     FltParameters130(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1275,8 +1302,8 @@ public class FltParameters133 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters133> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters133> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): FltParameters133 =
                     FltParameters133(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1389,8 +1416,8 @@ public class FltParameters134 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters134> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters134> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FltParameters134 =
                     FltParameters134(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1502,8 +1529,8 @@ public class FltParameters131 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters131> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters131> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): FltParameters131 =
                     FltParameters131(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1626,6 +1653,41 @@ public class FltParameters112 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters112> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters112> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): FltParameters112 =
+                    FltParameters112(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 16L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Mdl>(64)
+                        ).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters112) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.completionFilter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.directoryNotifyInformationClass)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.spare2)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 16L, value.directoryBuffer)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Mdl>(64)
+                    ).writeNative(addr + 24L, value.mdlAddress)
+                }
+            }
+
         public operator fun invoke(
             length: UInt = 0u,
             completionFilter: UInt = 0u,
@@ -1707,8 +1769,8 @@ public class FltParameters111 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters111> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters111> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FltParameters111 =
                     FltParameters111(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1822,6 +1884,47 @@ public class FltParameters110 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters110> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters110> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
+                override fun readNative(addr: Long): FltParameters110 =
+                    FltParameters110(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UnicodeString>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 24L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Mdl>(64)
+                        ).readNative(addr + 32L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters110) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UnicodeString>(64)
+                    ).writeNative(addr + 8L, value.fileName)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.fileInformationClass)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.fileIndex)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 24L, value.directoryBuffer)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Mdl>(64)
+                    ).writeNative(addr + 32L, value.mdlAddress)
+                }
+            }
+
         public operator fun invoke(
             length: UInt = 0u,
             fileName: MutPtr<UnicodeString> = MutPtr(0L),
@@ -1850,8 +1953,8 @@ public data class FltParameters25(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters25> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters25> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): FltParameters25 =
                     FltParameters25(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1924,8 +2027,8 @@ public class FltParameters123 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters123> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters123> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters123 =
                     FltParameters123(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1970,8 +2073,8 @@ public data class FltParameters121(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters121> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters121> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): FltParameters121 =
                     FltParameters121(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2052,8 +2155,8 @@ public class FltParameters124 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters124> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters124> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): FltParameters124 =
                     FltParameters124(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2175,8 +2278,8 @@ public class FltParameters122 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters122> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters122> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): FltParameters122 =
                     FltParameters122(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2271,8 +2374,8 @@ public class FltParameters120 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters120> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters120> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FltParameters120 =
                     FltParameters120(
                         (
@@ -2364,6 +2467,35 @@ public class FltParameters14 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters14> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters14> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): FltParameters14 =
+                    FltParameters14(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Long>(64)
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 29L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters14) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Long>(64)
+                    ).writeNative(addr, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.key)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 12L, value.byteOffset)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 20L, value.processId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 28L, value.failImmediately)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 29L, value.exclusiveLock)
+                }
+            }
+
         public operator fun invoke(
             length: MutPtr<Long> = MutPtr(0L),
             key: UInt = 0u,
@@ -2409,8 +2541,8 @@ public class FltParameters28 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters28> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters28> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FltParameters28 =
                     FltParameters28(
                         (
@@ -2482,8 +2614,8 @@ public class FltParameters27 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters27> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters27> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters27 =
                     FltParameters27(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -2555,8 +2687,8 @@ public class FltParameters30 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters30> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters30> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FltParameters30 =
                     FltParameters30(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -2591,8 +2723,8 @@ public data class FltParameters31(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters31> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters31> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): FltParameters31 =
                     FltParameters31(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2642,8 +2774,8 @@ public class FltParameters26 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters26> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters26> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FltParameters26 =
                     FltParameters26(
                         (
@@ -2749,8 +2881,8 @@ public class FltParameters32 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters32> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): FltParameters32 =
                     FltParameters32(
                         (
@@ -2858,8 +2990,8 @@ public class FltParameters203 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters203> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters203> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FltParameters203 =
                     FltParameters203(
                         (
@@ -2910,8 +3042,8 @@ public class FltParameters204 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters204> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters204> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FltParameters204 =
                     FltParameters204(
                         (
@@ -2938,16 +3070,63 @@ public class FltParameters204 internal constructor(
 
 public data class FltParameters201(
     public var type: DeviceRelationType = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters201> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters201> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): FltParameters201 =
+                    FltParameters201(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters201) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
+                }
+            }
+    }
+}
 
 public data class FltParameters208(
     public var deviceTextType: DeviceTextType = 0,
     public var localeId: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters208> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters208> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): FltParameters208 =
+                    FltParameters208(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters208) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.deviceTextType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.localeId)
+                }
+            }
+    }
+}
 
 public data class FltParameters207(
     public var idType: BusQueryIdType = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters207> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters207> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): FltParameters207 =
+                    FltParameters207(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters207) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.idType)
+                }
+            }
+    }
+}
 
 public class FltParameters202 internal constructor(
     interfaceTypeCtorArg: ConstPtr<Guid>,
@@ -3008,8 +3187,8 @@ public class FltParameters202 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters202> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters202> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FltParameters202 =
                     FltParameters202(
                         (
@@ -3109,8 +3288,8 @@ public class FltParameters205 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters205> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters205> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters205 =
                     FltParameters205(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3153,8 +3332,8 @@ public data class FltParameters206(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters206> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters206> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): FltParameters206 =
                     FltParameters206(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -3204,8 +3383,8 @@ public class FltParameters200 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters200> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters200> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FltParameters200 =
                     FltParameters200(
                         (
@@ -3260,6 +3439,31 @@ public data class FltParameters209(
         result = 31 * result + this.type.hashCode()
         return result
     }
+
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters209> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters209> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): FltParameters209 =
+                    FltParameters209(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL, (3).toInt())
+                        ).readNative(addr + 1L).toBooleanArray(),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters209) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.inPath)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL, (3).toInt())
+                    ).writeNative(addr + 1L, value.reserved.toList())
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.type)
+                }
+            }
+    }
 }
 
 public class FltParameters29 internal constructor(
@@ -3309,8 +3513,8 @@ public class FltParameters29 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters29> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters29> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters29 =
                     FltParameters29(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -3412,8 +3616,8 @@ public class FltParameters7 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters7> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters7> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): FltParameters7 =
                     FltParameters7(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3509,6 +3713,29 @@ public class FltParameters5 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters5> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters5> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): FltParameters5 =
+                    FltParameters5(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters5) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fileInformationClass)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.infoBuffer)
+                }
+            }
+
         public operator fun invoke(
             length: UInt = 0u,
             fileInformationClass: FileInformationClass = 0,
@@ -3573,6 +3800,43 @@ public class FltParameters24 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters24> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters24> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): FltParameters24 =
+                    FltParameters24(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<Irp>(64)
+                        ).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UInt>(64)
+                        ).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters24) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<Irp>(64)
+                    ).writeNative(addr, value.irp)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.fileInformation)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UInt>(64)
+                    ).writeNative(addr + 16L, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.fileInformationClass)
+                }
+            }
+
         public operator fun invoke(
             irp: MutPtr<Irp> = MutPtr(0L),
             fileInformation: MutPtr<CVoid> = MutPtr(0L),
@@ -3723,8 +3987,8 @@ public class FltParameters15 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters15> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters15> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters15 =
                     FltParameters15(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3806,6 +4070,29 @@ public class FltParameters9 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters9> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters9> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): FltParameters9 =
+                    FltParameters9(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters9) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fsInformationClass)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.volumeBuffer)
+                }
+            }
+
         public operator fun invoke(
             length: UInt = 0u,
             fsInformationClass: FsInformationClass = 0,
@@ -3875,8 +4162,8 @@ public class FltParameters3 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters3> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters3> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FltParameters3 =
                     FltParameters3(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3949,8 +4236,8 @@ public class FltParameters23 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters23> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters23> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): FltParameters23 =
                     FltParameters23(
                         (
@@ -4019,8 +4306,8 @@ public class FltParameters8 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters8> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters8> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters8 =
                     FltParameters8(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4189,8 +4476,8 @@ public data class FltParameters600(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters600> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters600> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): FltParameters600 =
                     FltParameters600(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -4248,8 +4535,8 @@ public class FltParameters19 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters19> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters19> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): FltParameters19 =
                     FltParameters19(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4371,6 +4658,29 @@ public class FltParameters10 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters10> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters10> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): FltParameters10 =
+                    FltParameters10(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: FltParameters10) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fsInformationClass)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.volumeBuffer)
+                }
+            }
+
         public operator fun invoke(
             length: UInt = 0u,
             fsInformationClass: FsInformationClass = 0,
@@ -4434,8 +4744,8 @@ public class FltParameters17 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters17> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters17> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FltParameters17 =
                     FltParameters17(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -4534,8 +4844,8 @@ public class FltParameters4 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters4> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltParameters4> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): FltParameters4 =
                     FltParameters4(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4815,8 +5125,8 @@ public class FltRelatedContexts internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltRelatedContexts> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltRelatedContexts> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): FltRelatedContexts =
                     FltRelatedContexts(
                         (
@@ -4974,8 +5284,8 @@ public class FltRelatedContextsEx internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltRelatedContextsEx> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltRelatedContextsEx> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): FltRelatedContextsEx =
                     FltRelatedContextsEx(
                         (
@@ -5128,15 +5438,15 @@ public class FltRelatedObjects internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltRelatedObjects> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltRelatedObjects> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): FltRelatedObjects =
                     FltRelatedObjects(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 16L),
-                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
                                 .constPtrLayout<FileObject>(64)
@@ -5149,9 +5459,9 @@ public class FltRelatedObjects internal constructor(
                 override fun writeNative(addr: Long, value: FltRelatedObjects) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.size)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.transactionContext)
-                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.filter)
-                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 16L, value.volume)
-                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 24L, value.instance)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.filter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.volume)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 24L, value.instance)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
                             .constPtrLayout<FileObject>(64)
@@ -5232,20 +5542,20 @@ public data class FltTagDataBuffer02(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltTagDataBuffer02> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltTagDataBuffer02> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): FltTagDataBuffer02 =
                     FltTagDataBuffer02(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: FltTagDataBuffer02) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr, value.dataBuffer)
+                    ).writeNative(addr, value.dataBuffer.toList())
                 }
             }
     }
@@ -5281,8 +5591,8 @@ public data class FltTagDataBuffer01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltTagDataBuffer01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltTagDataBuffer01> {
-                override val sizeBytes: Long = 10L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 10L
                 override fun readNative(addr: Long): FltTagDataBuffer01 =
                     FltTagDataBuffer01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -5292,7 +5602,7 @@ public data class FltTagDataBuffer01(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: FltTagDataBuffer01) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.substituteNameOffset)
@@ -5302,7 +5612,7 @@ public data class FltTagDataBuffer01(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 8L, value.pathBuffer)
+                    ).writeNative(addr + 8L, value.pathBuffer.toList())
                 }
             }
     }
@@ -5341,8 +5651,8 @@ public data class FltTagDataBuffer00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltTagDataBuffer00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FltTagDataBuffer00> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): FltTagDataBuffer00 =
                     FltTagDataBuffer00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -5353,7 +5663,7 @@ public data class FltTagDataBuffer00(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: FltTagDataBuffer00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.substituteNameOffset)
@@ -5364,7 +5674,7 @@ public data class FltTagDataBuffer00(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 12L, value.pathBuffer)
+                    ).writeNative(addr + 12L, value.pathBuffer.toList())
                 }
             }
     }

@@ -67,8 +67,8 @@ public data class Ksresolution(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksresolution> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksresolution> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Ksresolution =
                     Ksresolution(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -121,6 +121,29 @@ public class KsrtaudioBuffer internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioBuffer> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioBuffer> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): KsrtaudioBuffer =
+                    KsrtaudioBuffer(
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: KsrtaudioBuffer) {
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr, value.bufferAddress)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.actualBufferSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.callMemoryBarrier)
+                }
+            }
+
         public operator fun invoke(
             bufferAddress: MutPtr<CVoid> = MutPtr(0L),
             actualBufferSize: UInt = 0u,
@@ -138,7 +161,26 @@ public data class KsrtaudioBuffer32(
     public var bufferAddress: UInt = 0u,
     public var actualBufferSize: UInt = 0u,
     public var callMemoryBarrier: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioBuffer32> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioBuffer32> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): KsrtaudioBuffer32 =
+                    KsrtaudioBuffer32(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: KsrtaudioBuffer32) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.bufferAddress)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.actualBufferSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.callMemoryBarrier)
+                }
+            }
+    }
+}
 
 public class KsrtaudioBufferProperty internal constructor(
     public var property: Ksidentifier,
@@ -270,7 +312,28 @@ public data class KsrtaudioGetreadpacketInfo(
     public var flags: UInt = 0u,
     public var performanceCounterValue: ULong = 0uL,
     public var moreData: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioGetreadpacketInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioGetreadpacketInfo> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
+                override fun readNative(addr: Long): KsrtaudioGetreadpacketInfo =
+                    KsrtaudioGetreadpacketInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                    )
+                override fun writeNative(addr: Long, value: KsrtaudioGetreadpacketInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.packetNumber)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.flags)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.performanceCounterValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.moreData)
+                }
+            }
+    }
+}
 
 public data class KsrtaudioHwlatency(
     public var fifoSize: UInt = 0u,
@@ -280,8 +343,8 @@ public data class KsrtaudioHwlatency(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioHwlatency> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioHwlatency> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): KsrtaudioHwlatency =
                     KsrtaudioHwlatency(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -350,8 +413,8 @@ public class KsrtaudioHwregister internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioHwregister> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioHwregister> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): KsrtaudioHwregister =
                     KsrtaudioHwregister(
                         (
@@ -402,8 +465,8 @@ public data class KsrtaudioHwregister32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioHwregister32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioHwregister32> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): KsrtaudioHwregister32 =
                     KsrtaudioHwregister32(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -568,8 +631,8 @@ public class KsrtaudioPacketvregister internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioPacketvregister> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioPacketvregister> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): KsrtaudioPacketvregister =
                     KsrtaudioPacketvregister(
                         (
@@ -666,8 +729,8 @@ public data class KsrtaudioSetwritepacketInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioSetwritepacketInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsrtaudioSetwritepacketInfo> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): KsrtaudioSetwritepacketInfo =
                     KsrtaudioSetwritepacketInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -777,8 +840,8 @@ public class KsstreamHeader internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsstreamHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsstreamHeader> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): KsstreamHeader =
                     KsstreamHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -897,8 +960,8 @@ public class KsstreamMetadataInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsstreamMetadataInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsstreamMetadataInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): KsstreamMetadataInfo =
                     KsstreamMetadataInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1039,8 +1102,8 @@ public data class KsstreamUvcMetadatatypeTimestamp00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsstreamUvcMetadatatypeTimestamp00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsstreamUvcMetadatatypeTimestamp00> {
-                override val sizeBytes: Long = 2L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 2L
                 override fun readNative(addr: Long): KsstreamUvcMetadatatypeTimestamp00 =
                     KsstreamUvcMetadatatypeTimestamp00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -1059,8 +1122,8 @@ public data class KstelephonyCallcontrol(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstelephonyCallcontrol> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstelephonyCallcontrol> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): KstelephonyCallcontrol =
                     KstelephonyCallcontrol(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1081,8 +1144,8 @@ public data class KstelephonyCallinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstelephonyCallinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstelephonyCallinfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): KstelephonyCallinfo =
                     KstelephonyCallinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1103,8 +1166,8 @@ public data class KstelephonyProviderchange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstelephonyProviderchange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstelephonyProviderchange> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): KstelephonyProviderchange =
                     KstelephonyProviderchange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1126,8 +1189,8 @@ public data class Kstime(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kstime> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kstime> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Kstime =
                     Kstime(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1223,8 +1286,8 @@ public class Kstopology internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kstopology> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Kstopology> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): Kstopology =
                     Kstopology(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1304,8 +1367,8 @@ public data class KstopologyConnection(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstopologyConnection> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstopologyConnection> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): KstopologyConnection =
                     KstopologyConnection(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1344,21 +1407,21 @@ public data class KstopologyEndpointid(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstopologyEndpointid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstopologyEndpointid> {
-                override val sizeBytes: Long = 524L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 524L
                 override fun readNative(addr: Long): KstopologyEndpointid =
                     KstopologyEndpointid(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 520L),
                     )
                 override fun writeNative(addr: Long, value: KstopologyEndpointid) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.topologyName)
+                    ).writeNative(addr, value.topologyName.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 520L, value.pinId)
                 }
             }
@@ -1372,8 +1435,8 @@ public data class KstopologyEndpointidpair(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstopologyEndpointidpair> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KstopologyEndpointidpair> {
-                override val sizeBytes: Long = 1048L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1048L
                 override fun readNative(addr: Long): KstopologyEndpointidpair =
                     KstopologyEndpointidpair(
                         (KstopologyEndpointid.typeLayout()).readNative(addr),
@@ -1395,8 +1458,8 @@ public data class Ksvpmaxpixelrate(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksvpmaxpixelrate> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksvpmaxpixelrate> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): Ksvpmaxpixelrate =
                     Ksvpmaxpixelrate(
                         (KsAmvpsize.typeLayout()).readNative(addr),
@@ -1425,8 +1488,8 @@ public data class Ksvpsurfaceparams(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksvpsurfaceparams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Ksvpsurfaceparams> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): Ksvpsurfaceparams =
                     Ksvpsurfaceparams(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1492,8 +1555,8 @@ public class KswaveBuffer internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveBuffer> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): KswaveBuffer =
                     KswaveBuffer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1532,8 +1595,8 @@ public data class KswaveCompatcaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveCompatcaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveCompatcaps> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KswaveCompatcaps =
                     KswaveCompatcaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1557,8 +1620,8 @@ public data class KswaveInputCapabilities(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveInputCapabilities> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveInputCapabilities> {
-                override val sizeBytes: Long = 28L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 28L
                 override fun readNative(addr: Long): KswaveInputCapabilities =
                     KswaveInputCapabilities(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1607,8 +1670,8 @@ public class KswaveOutputCapabilities(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveOutputCapabilities> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveOutputCapabilities> {
-                override val sizeBytes: Long = 80L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 80L
                 override fun readNative(addr: Long): KswaveOutputCapabilities =
                     KswaveOutputCapabilities(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1665,8 +1728,8 @@ public data class KswaveVolume(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveVolume> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KswaveVolume> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): KswaveVolume =
                     KswaveVolume(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1711,8 +1774,8 @@ public data class KsAmvpsize(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsAmvpsize> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsAmvpsize> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): KsAmvpsize =
                     KsAmvpsize(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1733,8 +1796,8 @@ public data class KsAmExactRateChange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsAmExactRateChange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsAmExactRateChange> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): KsAmExactRateChange =
                     KsAmExactRateChange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1755,8 +1818,8 @@ public data class KsAmSimpleRateChange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsAmSimpleRateChange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsAmSimpleRateChange> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): KsAmSimpleRateChange =
                     KsAmSimpleRateChange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -1794,8 +1857,8 @@ public data class KsBitmapinfoheader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsBitmapinfoheader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsBitmapinfoheader> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): KsBitmapinfoheader =
                     KsBitmapinfoheader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1836,8 +1899,8 @@ public data class KsColcon(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsColcon> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsColcon> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KsColcon =
                     KsColcon(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -1863,8 +1926,8 @@ public data class KsCompression(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsCompression> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsCompression> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): KsCompression =
                     KsCompression(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1886,8 +1949,8 @@ public data class KsCopyMacrovision(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsCopyMacrovision> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsCopyMacrovision> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KsCopyMacrovision =
                     KsCopyMacrovision(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2036,28 +2099,28 @@ public data class KsDvdcopyBuskey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyBuskey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyBuskey> {
-                override val sizeBytes: Long = 6L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 6L
                 override fun readNative(addr: Long): KsDvdcopyBuskey =
                     KsDvdcopyBuskey(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (5).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 5L),
+                        ).readNative(addr + 5L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: KsDvdcopyBuskey) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (5).toInt())
-                    ).writeNative(addr, value.busKey)
+                    ).writeNative(addr, value.busKey.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 5L, value.reserved)
+                    ).writeNative(addr + 5L, value.reserved.toList())
                 }
             }
     }
@@ -2084,28 +2147,28 @@ public data class KsDvdcopyChlgkey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyChlgkey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyChlgkey> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): KsDvdcopyChlgkey =
                     KsDvdcopyChlgkey(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (10).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr + 10L),
+                        ).readNative(addr + 10L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: KsDvdcopyChlgkey) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (10).toInt())
-                    ).writeNative(addr, value.chlgKey)
+                    ).writeNative(addr, value.chlgKey.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr + 10L, value.reserved)
+                    ).writeNative(addr + 10L, value.reserved.toList())
                 }
             }
     }
@@ -2126,20 +2189,20 @@ public data class KsDvdcopyDisckey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyDisckey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyDisckey> {
-                override val sizeBytes: Long = 2048L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 2048L
                 override fun readNative(addr: Long): KsDvdcopyDisckey =
                     KsDvdcopyDisckey(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2048).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: KsDvdcopyDisckey) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2048).toInt())
-                    ).writeNative(addr, value.discKey)
+                    ).writeNative(addr, value.discKey.toList())
                 }
             }
     }
@@ -2169,8 +2232,8 @@ public data class KsDvdcopyRegion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyRegion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyRegion> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KsDvdcopyRegion =
                     KsDvdcopyRegion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -2178,7 +2241,7 @@ public data class KsDvdcopyRegion(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr + 2L),
+                        ).readNative(addr + 2L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: KsDvdcopyRegion) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.reserved)
@@ -2186,7 +2249,7 @@ public data class KsDvdcopyRegion(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr + 2L, value.reserved2)
+                    ).writeNative(addr + 2L, value.reserved2.toList())
                 }
             }
     }
@@ -2198,8 +2261,8 @@ public data class KsDvdcopySetCopyState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopySetCopyState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopySetCopyState> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KsDvdcopySetCopyState =
                     KsDvdcopySetCopyState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2238,38 +2301,38 @@ public data class KsDvdcopyTitlekey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyTitlekey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdcopyTitlekey> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): KsDvdcopyTitlekey =
                     KsDvdcopyTitlekey(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (2).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUIntArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr + 18L),
+                        ).readNative(addr + 18L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: KsDvdcopyTitlekey) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.keyFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (2).toInt())
-                    ).writeNative(addr + 4L, value.reservedNT)
+                    ).writeNative(addr + 4L, value.reservedNT.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (6).toInt())
-                    ).writeNative(addr + 12L, value.titleKey)
+                    ).writeNative(addr + 12L, value.titleKey.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr + 18L, value.reserved)
+                    ).writeNative(addr + 18L, value.reserved.toList())
                 }
             }
     }
@@ -2284,8 +2347,8 @@ public data class KsDvdYcrCb(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdYcrCb> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdYcrCb> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KsDvdYcrCb =
                     KsDvdYcrCb(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -2312,8 +2375,8 @@ public data class KsDvdYuv(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdYuv> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsDvdYuv> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KsDvdYuv =
                     KsDvdYuv(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -2459,8 +2522,8 @@ public data class KsFrameInfo10(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsFrameInfo10> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsFrameInfo10> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): KsFrameInfo10 =
                     KsFrameInfo10(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2500,8 +2563,8 @@ public data class KsFramingRange(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsFramingRange> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsFramingRange> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): KsFramingRange =
                     KsFramingRange(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2525,8 +2588,8 @@ public data class KsFramingRangeWeighted(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsFramingRangeWeighted> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsFramingRangeWeighted> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): KsFramingRangeWeighted =
                     KsFramingRangeWeighted(
                         (KsFramingRange.typeLayout()).readNative(addr),
@@ -2585,8 +2648,8 @@ public class KsH264videoinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsH264videoinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsH264videoinfo> {
-                override val sizeBytes: Long = 84L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 84L
                 override fun readNative(addr: Long): KsH264videoinfo =
                     KsH264videoinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -2706,8 +2769,8 @@ public data class KsMpegaudioinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsMpegaudioinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsMpegaudioinfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): KsMpegaudioinfo =
                     KsMpegaudioinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2768,8 +2831,8 @@ public data class KsRgbquad(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsRgbquad> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsRgbquad> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): KsRgbquad =
                     KsRgbquad(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -2808,14 +2871,14 @@ public data class KsTruecolorinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsTruecolorinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsTruecolorinfo> {
-                override val sizeBytes: Long = 1036L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 1036L
                 override fun readNative(addr: Long): KsTruecolorinfo =
                     KsTruecolorinfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (3).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUIntArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(KsRgbquad.typeLayout(), (256).toInt())
@@ -2825,7 +2888,7 @@ public data class KsTruecolorinfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (3).toInt())
-                    ).writeNative(addr, value.dwBitMasks)
+                    ).writeNative(addr, value.dwBitMasks.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(KsRgbquad.typeLayout(), (256).toInt())
@@ -2844,8 +2907,8 @@ public data class KsTvtunerChangeInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsTvtunerChangeInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsTvtunerChangeInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): KsTvtunerChangeInfo =
                     KsTvtunerChangeInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2879,8 +2942,8 @@ public data class KsVbiinfoheader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsVbiinfoheader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsVbiinfoheader> {
-                override val sizeBytes: Long = 44L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 44L
                 override fun readNative(addr: Long): KsVbiinfoheader =
                     KsVbiinfoheader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2924,8 +2987,8 @@ public data class KsVbiFrameInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsVbiFrameInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KsVbiFrameInfo> {
-                override val sizeBytes: Long = 88L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 88L
                 override fun readNative(addr: Long): KsVbiFrameInfo =
                     KsVbiFrameInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3043,7 +3106,26 @@ public data class MediumInfo(
     public var mediaPresent: Bool = 0,
     public var mediaType: UInt = 0u,
     public var recordInhibit: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MediumInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MediumInfo> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): MediumInfo =
+                    MediumInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: MediumInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.mediaPresent)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.mediaType)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.recordInhibit)
+                }
+            }
+    }
+}
 
 public data class MfMdlSharedPayloadKey(
     public var combined: MfMdlSharedPayloadKey0 = MfMdlSharedPayloadKey0(),
@@ -3058,8 +3140,8 @@ public data class MfMdlSharedPayloadKey0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<MfMdlSharedPayloadKey0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<MfMdlSharedPayloadKey0> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): MfMdlSharedPayloadKey0 =
                     MfMdlSharedPayloadKey0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3102,8 +3184,8 @@ public data class NabtsfecBuffer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NabtsfecBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NabtsfecBuffer> {
-                override val sizeBytes: Long = 456L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 456L
                 override fun readNative(addr: Long): NabtsfecBuffer =
                     NabtsfecBuffer(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3112,7 +3194,7 @@ public data class NabtsfecBuffer(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (448).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: NabtsfecBuffer) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dataSize)
@@ -3121,7 +3203,7 @@ public data class NabtsfecBuffer(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (448).toInt())
-                    ).writeNative(addr + 8L, value.data)
+                    ).writeNative(addr + 8L, value.data.toList())
                 }
             }
     }
@@ -3135,8 +3217,8 @@ public data class NabtsBuffer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NabtsBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NabtsBuffer> {
-                override val sizeBytes: Long = 543L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 543L
                 override fun readNative(addr: Long): NabtsBuffer =
                     NabtsBuffer(
                         (VbicodecfilteringScanlines.typeLayout()).readNative(addr),
@@ -3179,22 +3261,22 @@ public data class NabtsBufferLine(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<NabtsBufferLine> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<NabtsBufferLine> {
-                override val sizeBytes: Long = 37L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 37L
                 override fun readNative(addr: Long): NabtsBufferLine =
                     NabtsBufferLine(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (36).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: NabtsBufferLine) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.confidence)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (36).toInt())
-                    ).writeNative(addr + 1L, value.bytes)
+                    ).writeNative(addr + 1L, value.bytes.toList())
                 }
             }
     }
@@ -3208,8 +3290,8 @@ public data class OptimalWeightTotals(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<OptimalWeightTotals> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<OptimalWeightTotals> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): OptimalWeightTotals =
                     OptimalWeightTotals(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -3233,8 +3315,8 @@ public data class PipeDimensions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PipeDimensions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PipeDimensions> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): PipeDimensions =
                     PipeDimensions(
                         (KsCompression.typeLayout()).readNative(addr),
@@ -3261,8 +3343,8 @@ public data class PipeTermination(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PipeTermination> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PipeTermination> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): PipeTermination =
                     PipeTermination(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3324,8 +3406,8 @@ public data class Transportaudioparms(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportaudioparms> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportaudioparms> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): Transportaudioparms =
                     Transportaudioparms(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3380,8 +3462,8 @@ public class Transportbasicparms(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportbasicparms> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportbasicparms> {
-                override val sizeBytes: Long = 232L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 232L
                 override fun readNative(addr: Long): Transportbasicparms =
                     Transportbasicparms(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3406,11 +3488,11 @@ public class Transportbasicparms(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (40).toInt())
-                        ).readNative(addr + 76L),
+                        ).readNative(addr + 76L).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32, (20).toInt())
-                        ).readNative(addr + 116L),
+                        ).readNative(addr + 116L).toIntArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 196L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 200L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 204L),
@@ -3444,11 +3526,11 @@ public class Transportbasicparms(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (40).toInt())
-                    ).writeNative(addr + 76L, value.volumeName)
+                    ).writeNative(addr + 76L, value.volumeName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32, (20).toInt())
-                    ).writeNative(addr + 116L, value.ballistic)
+                    ).writeNative(addr + 116L, value.ballistic.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 196L, value.speed)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 200L, value.counterFormat)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 204L, value.tunerChannel)
@@ -3481,8 +3563,8 @@ public data class Transportstatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportstatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportstatus> {
-                override val sizeBytes: Long = 52L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 52L
                 override fun readNative(addr: Long): Transportstatus =
                     Transportstatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3525,8 +3607,8 @@ public data class Transportvideoparms(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportvideoparms> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Transportvideoparms> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Transportvideoparms =
                     Transportvideoparms(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3547,8 +3629,8 @@ public data class TransportState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TransportState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TransportState> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): TransportState =
                     TransportState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3575,8 +3657,8 @@ public data class TunerAnalogCapsS(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<TunerAnalogCapsS> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<TunerAnalogCapsS> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): TunerAnalogCapsS =
                     TunerAnalogCapsS(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3614,8 +3696,8 @@ public data class VbicodecfilteringCcSubstreams(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringCcSubstreams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringCcSubstreams> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): VbicodecfilteringCcSubstreams =
                     VbicodecfilteringCcSubstreams(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3642,20 +3724,20 @@ public data class VbicodecfilteringNabtsSubstreams(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringNabtsSubstreams> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringNabtsSubstreams> {
-                override val sizeBytes: Long = 512L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 512L
                 override fun readNative(addr: Long): VbicodecfilteringNabtsSubstreams =
                     VbicodecfilteringNabtsSubstreams(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (128).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: VbicodecfilteringNabtsSubstreams) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (128).toInt())
-                    ).writeNative(addr, value.substreamMask)
+                    ).writeNative(addr, value.substreamMask.toList())
                 }
             }
     }
@@ -3676,20 +3758,20 @@ public data class VbicodecfilteringScanlines(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringScanlines> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringScanlines> {
-                override val sizeBytes: Long = 128L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 128L
                 override fun readNative(addr: Long): VbicodecfilteringScanlines =
                     VbicodecfilteringScanlines(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (32).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUIntArray(),
                     )
                 override fun writeNative(addr: Long, value: VbicodecfilteringScanlines) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (32).toInt())
-                    ).writeNative(addr, value.dwordBitArray)
+                    ).writeNative(addr, value.dwordBitArray.toList())
                 }
             }
     }
@@ -3701,8 +3783,8 @@ public data class VbicodecfilteringStatisticsCc(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCc> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCc> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsCc =
                     VbicodecfilteringStatisticsCc(
                         (VbicodecfilteringStatisticsCommon.typeLayout()).readNative(addr),
@@ -3720,8 +3802,8 @@ public data class VbicodecfilteringStatisticsCcPin(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCcPin> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCcPin> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsCcPin =
                     VbicodecfilteringStatisticsCcPin(
                         (VbicodecfilteringStatisticsCommonPin.typeLayout()).readNative(addr),
@@ -3752,8 +3834,8 @@ public data class VbicodecfilteringStatisticsCommon(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCommon> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCommon> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsCommon =
                     VbicodecfilteringStatisticsCommon(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3804,8 +3886,8 @@ public data class VbicodecfilteringStatisticsCommonPin(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCommonPin> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsCommonPin> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsCommonPin =
                     VbicodecfilteringStatisticsCommonPin(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3844,8 +3926,8 @@ public data class VbicodecfilteringStatisticsNabts(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsNabts> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsNabts> {
-                override val sizeBytes: Long = 84L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 84L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsNabts =
                     VbicodecfilteringStatisticsNabts(
                         (VbicodecfilteringStatisticsCommon.typeLayout()).readNative(addr),
@@ -3877,8 +3959,8 @@ public data class VbicodecfilteringStatisticsNabtsPin(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsNabtsPin> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsNabtsPin> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsNabtsPin =
                     VbicodecfilteringStatisticsNabtsPin(
                         (VbicodecfilteringStatisticsCommonPin.typeLayout()).readNative(addr),
@@ -3896,8 +3978,8 @@ public data class VbicodecfilteringStatisticsTeletext(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsTeletext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsTeletext> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsTeletext =
                     VbicodecfilteringStatisticsTeletext(
                         (VbicodecfilteringStatisticsCommon.typeLayout()).readNative(addr),
@@ -3915,8 +3997,8 @@ public data class VbicodecfilteringStatisticsTeletextPin(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsTeletextPin> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbicodecfilteringStatisticsTeletextPin> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): VbicodecfilteringStatisticsTeletextPin =
                     VbicodecfilteringStatisticsTeletextPin(
                         (VbicodecfilteringStatisticsCommonPin.typeLayout()).readNative(addr),
@@ -3967,8 +4049,8 @@ public data class VramSurfaceInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VramSurfaceInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VramSurfaceInfo> {
-                override val sizeBytes: Long = 168L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 168L
                 override fun readNative(addr: Long): VramSurfaceInfo =
                     VramSurfaceInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -3981,7 +4063,7 @@ public data class VramSurfaceInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (16).toInt())
-                        ).readNative(addr + 40L),
+                        ).readNative(addr + 40L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: VramSurfaceInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.hSurface)
@@ -3994,7 +4076,7 @@ public data class VramSurfaceInfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (16).toInt())
-                    ).writeNative(addr + 40L, value.ullReserved)
+                    ).writeNative(addr + 40L, value.ullReserved.toList())
                 }
             }
     }
@@ -4053,8 +4135,8 @@ public data class WnfKscameraStreamstateInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnfKscameraStreamstateInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WnfKscameraStreamstateInfo> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WnfKscameraStreamstateInfo =
                     WnfKscameraStreamstateInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4079,8 +4161,8 @@ public data class WstBuffer(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WstBuffer> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WstBuffer> {
-                override val sizeBytes: Long = 860L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 860L
                 override fun readNative(addr: Long): WstBuffer =
                     WstBuffer(
                         (VbicodecfilteringScanlines.typeLayout()).readNative(addr),
@@ -4121,22 +4203,22 @@ public data class WstBufferLine(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WstBufferLine> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WstBufferLine> {
-                override val sizeBytes: Long = 43L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 43L
                 override fun readNative(addr: Long): WstBufferLine =
                     WstBufferLine(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (42).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WstBufferLine) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.confidence)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (42).toInt())
-                    ).writeNative(addr + 1L, value.bytes)
+                    ).writeNative(addr + 1L, value.bytes.toList())
                 }
             }
     }

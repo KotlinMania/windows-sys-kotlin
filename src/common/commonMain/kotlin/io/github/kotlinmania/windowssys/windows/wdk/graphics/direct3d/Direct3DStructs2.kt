@@ -40,8 +40,8 @@ public data class D3dkmtAdapterVerifierVidmmFlags0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAdapterVerifierVidmmFlags0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAdapterVerifierVidmmFlags0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtAdapterVerifierVidmmFlags0 =
                     D3dkmtAdapterVerifierVidmmFlags0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -61,8 +61,8 @@ public data class D3dkmtAdapterVerifierVidmmTrimInterval(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAdapterVerifierVidmmTrimInterval> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAdapterVerifierVidmmTrimInterval> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtAdapterVerifierVidmmTrimInterval =
                     D3dkmtAdapterVerifierVidmmTrimInterval(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -87,8 +87,8 @@ public data class D3dkmtAdjustfullscreengamma(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAdjustfullscreengamma> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAdjustfullscreengamma> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): D3dkmtAdjustfullscreengamma =
                     D3dkmtAdjustfullscreengamma(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -113,8 +113,8 @@ public data class D3dkmtAuxiliarypresentinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAuxiliarypresentinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtAuxiliarypresentinfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtAuxiliarypresentinfo =
                     D3dkmtAuxiliarypresentinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -134,8 +134,8 @@ public data class D3dkmtBddfallbackCtl(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBddfallbackCtl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBddfallbackCtl> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): D3dkmtBddfallbackCtl =
                     D3dkmtBddfallbackCtl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -168,22 +168,22 @@ public data class D3dkmtBlocklistInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBlocklistInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBlocklistInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtBlocklistInfo =
                     D3dkmtBlocklistInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtBlocklistInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 4L, value.blockList)
+                    ).writeNative(addr + 4L, value.blockList.toList())
                 }
             }
     }
@@ -236,22 +236,22 @@ public data class D3dkmtBrightnessPossibleLevels(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBrightnessPossibleLevels> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBrightnessPossibleLevels> {
-                override val sizeBytes: Long = 257L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 257L
                 override fun readNative(addr: Long): D3dkmtBrightnessPossibleLevels =
                     D3dkmtBrightnessPossibleLevels(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
-                        ).readNative(addr + 1L),
+                        ).readNative(addr + 1L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtBrightnessPossibleLevels) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.levelCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (256).toInt())
-                    ).writeNative(addr + 1L, value.brightnessLevels)
+                    ).writeNative(addr + 1L, value.brightnessLevels.toList())
                 }
             }
     }
@@ -292,8 +292,8 @@ public class D3dkmtBudgetchangenotification internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBudgetchangenotification> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtBudgetchangenotification> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): D3dkmtBudgetchangenotification =
                     D3dkmtBudgetchangenotification(
                         (
@@ -347,8 +347,8 @@ public data class D3dkmtCancelPresentsFlags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCancelPresentsFlags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCancelPresentsFlags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCancelPresentsFlags00 =
                     D3dkmtCancelPresentsFlags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -517,8 +517,8 @@ public data class D3dkmtCheckmonitorpowerstate(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCheckmonitorpowerstate> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCheckmonitorpowerstate> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtCheckmonitorpowerstate =
                     D3dkmtCheckmonitorpowerstate(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -811,8 +811,8 @@ public data class D3dkmtChecksharedresourceaccess(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtChecksharedresourceaccess> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtChecksharedresourceaccess> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtChecksharedresourceaccess =
                     D3dkmtChecksharedresourceaccess(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -833,8 +833,8 @@ public data class D3dkmtCheckvidpnexclusiveownership(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCheckvidpnexclusiveownership> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCheckvidpnexclusiveownership> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtCheckvidpnexclusiveownership =
                     D3dkmtCheckvidpnexclusiveownership(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -946,8 +946,8 @@ public data class D3dkmtCheckMultiplaneOverlaySupportReturnInfo00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCheckMultiplaneOverlaySupportReturnInfo00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCheckMultiplaneOverlaySupportReturnInfo00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCheckMultiplaneOverlaySupportReturnInfo00 =
                     D3dkmtCheckMultiplaneOverlaySupportReturnInfo00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -965,8 +965,8 @@ public data class D3dkmtCloseadapter(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCloseadapter> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCloseadapter> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCloseadapter =
                     D3dkmtCloseadapter(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -984,8 +984,8 @@ public data class D3dkmtCompositionPresenthistorytoken(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCompositionPresenthistorytoken> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCompositionPresenthistorytoken> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtCompositionPresenthistorytoken =
                     D3dkmtCompositionPresenthistorytoken(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1085,8 +1085,8 @@ public data class D3dkmtConnectDoorbellFlags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtConnectDoorbellFlags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtConnectDoorbellFlags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtConnectDoorbellFlags00 =
                     D3dkmtConnectDoorbellFlags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1113,20 +1113,20 @@ public data class D3dkmtCpdrivername(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCpdrivername> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCpdrivername> {
-                override val sizeBytes: Long = 520L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 520L
                 override fun readNative(addr: Long): D3dkmtCpdrivername =
                     D3dkmtCpdrivername(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtCpdrivername) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.contentProtectionFileName)
+                    ).writeNative(addr, value.contentProtectionFileName.toList())
                 }
             }
     }
@@ -1351,8 +1351,8 @@ public data class D3dkmtCreateallocationflags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateallocationflags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateallocationflags> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCreateallocationflags =
                     D3dkmtCreateallocationflags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1881,8 +1881,8 @@ public data class D3dkmtCreatedeviceflags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatedeviceflags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatedeviceflags> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCreatedeviceflags =
                     D3dkmtCreatedeviceflags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2081,8 +2081,8 @@ public data class D3dkmtCreatekeyedmutex(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatekeyedmutex> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatekeyedmutex> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): D3dkmtCreatekeyedmutex =
                     D3dkmtCreatekeyedmutex(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -2189,8 +2189,8 @@ public data class D3dkmtCreatekeyedmutex2Flags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatekeyedmutex2Flags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatekeyedmutex2Flags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCreatekeyedmutex2Flags00 =
                     D3dkmtCreatekeyedmutex2Flags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2216,8 +2216,8 @@ public data class D3dkmtCreateoverlay(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateoverlay> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateoverlay> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): D3dkmtCreateoverlay =
                     D3dkmtCreateoverlay(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2294,8 +2294,8 @@ public class D3dkmtCreatepagingqueue internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatepagingqueue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatepagingqueue> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): D3dkmtCreatepagingqueue =
                     D3dkmtCreatepagingqueue(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2408,8 +2408,8 @@ public class D3dkmtCreateprotectedsession internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateprotectedsession> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateprotectedsession> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): D3dkmtCreateprotectedsession =
                     D3dkmtCreateprotectedsession(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2489,8 +2489,8 @@ public data class D3dkmtCreatestandardallocationflags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatestandardallocationflags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatestandardallocationflags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCreatestandardallocationflags00 =
                     D3dkmtCreatestandardallocationflags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2511,8 +2511,8 @@ public data class D3dkmtCreatesyncfile(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatesyncfile> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreatesyncfile> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtCreatesyncfile =
                     D3dkmtCreatesyncfile(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2666,8 +2666,8 @@ public data class D3dkmtCreateDoorbellFlags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateDoorbellFlags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCreateDoorbellFlags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCreateDoorbellFlags00 =
                     D3dkmtCreateDoorbellFlags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2694,8 +2694,8 @@ public data class D3dkmtCrossadapterresourceSupport(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCrossadapterresourceSupport> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCrossadapterresourceSupport> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtCrossadapterresourceSupport =
                     D3dkmtCrossadapterresourceSupport(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -2714,8 +2714,8 @@ public data class D3dkmtCurrentdisplaymode(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCurrentdisplaymode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtCurrentdisplaymode> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): D3dkmtCurrentdisplaymode =
                     D3dkmtCurrentdisplaymode(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2750,22 +2750,22 @@ public data class D3dkmtDebugSnapshotEscape(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDebugSnapshotEscape> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDebugSnapshotEscape> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtDebugSnapshotEscape =
                     D3dkmtDebugSnapshotEscape(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtDebugSnapshotEscape) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 4L, value.buffer)
+                    ).writeNative(addr + 4L, value.buffer.toList())
                 }
             }
     }
@@ -2818,8 +2818,8 @@ public class D3dkmtDestroyallocation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyallocation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyallocation> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtDestroyallocation =
                     D3dkmtDestroyallocation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2930,8 +2930,8 @@ public data class D3dkmtDestroycontext(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroycontext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroycontext> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroycontext =
                     D3dkmtDestroycontext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2996,8 +2996,8 @@ public data class D3dkmtDestroydevice(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroydevice> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroydevice> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroydevice =
                     D3dkmtDestroydevice(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3015,8 +3015,8 @@ public data class D3dkmtDestroyhwcontext(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyhwcontext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyhwcontext> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroyhwcontext =
                     D3dkmtDestroyhwcontext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3034,8 +3034,8 @@ public data class D3dkmtDestroyhwqueue(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyhwqueue> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyhwqueue> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroyhwqueue =
                     D3dkmtDestroyhwqueue(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3053,8 +3053,8 @@ public data class D3dkmtDestroykeyedmutex(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroykeyedmutex> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroykeyedmutex> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroykeyedmutex =
                     D3dkmtDestroykeyedmutex(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3073,8 +3073,8 @@ public data class D3dkmtDestroyoverlay(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyoverlay> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyoverlay> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtDestroyoverlay =
                     D3dkmtDestroyoverlay(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3094,8 +3094,8 @@ public data class D3dkmtDestroyprotectedsession(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyprotectedsession> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyprotectedsession> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroyprotectedsession =
                     D3dkmtDestroyprotectedsession(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3113,8 +3113,8 @@ public data class D3dkmtDestroysynchronizationobject(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroysynchronizationobject> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroysynchronizationobject> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroysynchronizationobject =
                     D3dkmtDestroysynchronizationobject(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3132,8 +3132,8 @@ public data class D3dkmtDestroyDoorbell(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyDoorbell> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyDoorbell> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDestroyDoorbell =
                     D3dkmtDestroyDoorbell(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3149,7 +3149,26 @@ public data class D3dkmtDestroyOutputdupl(
     public var hAdapter: UInt = 0u,
     public var vidPnSourceId: UInt = 0u,
     public var bDestroyAllContexts: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyOutputdupl> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDestroyOutputdupl> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): D3dkmtDestroyOutputdupl =
+                    D3dkmtDestroyOutputdupl(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtDestroyOutputdupl) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.hAdapter)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.vidPnSourceId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.bDestroyAllContexts)
+                }
+            }
+    }
+}
 
 public data class D3dkmtDevicepagefaultState(
     public var faultedPrimitiveAPISequenceNumber: ULong = 0uL,
@@ -3167,8 +3186,8 @@ public data class D3dkmtDevicepresentQueueState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDevicepresentQueueState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDevicepresentQueueState> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtDevicepresentQueueState =
                     D3dkmtDevicepresentQueueState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3189,8 +3208,8 @@ public data class D3dkmtDevicepresentState(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDevicepresentState> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDevicepresentState> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): D3dkmtDevicepresentState =
                     D3dkmtDevicepresentState(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3211,8 +3230,8 @@ public data class D3dkmtDevicepresentStateDwm(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDevicepresentStateDwm> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDevicepresentStateDwm> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): D3dkmtDevicepresentStateDwm =
                     D3dkmtDevicepresentStateDwm(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3241,8 +3260,8 @@ public data class D3dkmtDeviceresetState00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDeviceresetState00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDeviceresetState00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDeviceresetState00 =
                     D3dkmtDeviceresetState00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3270,8 +3289,8 @@ public data class D3dkmtDeviceEscape00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDeviceEscape00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDeviceEscape00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtDeviceEscape00 =
                     D3dkmtDeviceEscape00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3296,8 +3315,8 @@ public data class D3dkmtDeviceIds(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDeviceIds> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDeviceIds> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtDeviceIds =
                     D3dkmtDeviceIds(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3321,7 +3340,22 @@ public data class D3dkmtDeviceIds(
 
 public data class D3dkmtDirectflipSupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDirectflipSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDirectflipSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtDirectflipSupport =
+                    D3dkmtDirectflipSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtDirectflipSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtDirtyregions(
     public var numRects: UInt = 0u,
@@ -3342,8 +3376,8 @@ public data class D3dkmtDisplaymode(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplaymode> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplaymode> {
-                override val sizeBytes: Long = 44L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 44L
                 override fun readNative(addr: Long): D3dkmtDisplaymode =
                     D3dkmtDisplaymode(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3379,8 +3413,8 @@ public data class D3dkmtDisplaymodelist(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplaymodelist> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplaymodelist> {
-                override val sizeBytes: Long = 52L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 52L
                 override fun readNative(addr: Long): D3dkmtDisplaymodelist =
                     D3dkmtDisplaymodelist(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3417,8 +3451,8 @@ public data class D3dkmtDisplayCaps00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplayCaps00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplayCaps00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtDisplayCaps00 =
                     D3dkmtDisplayCaps00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3451,22 +3485,22 @@ public data class D3dkmtDisplayUmdFilenameinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplayUmdFilenameinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDisplayUmdFilenameinfo> {
-                override val sizeBytes: Long = 524L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 524L
                 override fun readNative(addr: Long): D3dkmtDisplayUmdFilenameinfo =
                     D3dkmtDisplayUmdFilenameinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtDisplayUmdFilenameinfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr + 4L, value.umdFileName)
+                    ).writeNative(addr + 4L, value.umdFileName.toList())
                 }
             }
     }
@@ -3487,20 +3521,20 @@ public data class D3dkmtDlistDriverName(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDlistDriverName> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDlistDriverName> {
-                override val sizeBytes: Long = 520L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 520L
                 override fun readNative(addr: Long): D3dkmtDlistDriverName =
                     D3dkmtDlistDriverName(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtDlistDriverName) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.dListFileName)
+                    ).writeNative(addr, value.dListFileName.toList())
                 }
             }
     }
@@ -3533,8 +3567,8 @@ public data class D3dkmtDmmEscape(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDmmEscape> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDmmEscape> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): D3dkmtDmmEscape =
                     D3dkmtDmmEscape(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3543,7 +3577,7 @@ public data class D3dkmtDmmEscape(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 24L),
+                        ).readNative(addr + 24L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtDmmEscape) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
@@ -3552,7 +3586,7 @@ public data class D3dkmtDmmEscape(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 24L, value.data)
+                    ).writeNative(addr + 24L, value.data.toList())
                 }
             }
     }
@@ -3560,7 +3594,22 @@ public data class D3dkmtDmmEscape(
 
 public data class D3dkmtDodSetDirtyrectMode(
     public var bForceFullScreenDirty: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDodSetDirtyrectMode> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDodSetDirtyrectMode> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtDodSetDirtyrectMode =
+                    D3dkmtDodSetDirtyrectMode(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtDodSetDirtyrectMode) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bForceFullScreenDirty)
+                }
+            }
+    }
+}
 
 public data class D3dkmtDrivercapsExt(
     public var anonymous: D3dkmtDrivercapsExt0 = D3dkmtDrivercapsExt0(),
@@ -3577,8 +3626,8 @@ public data class D3dkmtDrivercapsExt00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDrivercapsExt00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDrivercapsExt00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtDrivercapsExt00 =
                     D3dkmtDrivercapsExt00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3605,20 +3654,20 @@ public data class D3dkmtDriverDescription(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDriverDescription> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtDriverDescription> {
-                override val sizeBytes: Long = 8192L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 8192L
                 override fun readNative(addr: Long): D3dkmtDriverDescription =
                     D3dkmtDriverDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4096).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtDriverDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (4096).toInt())
-                    ).writeNative(addr, value.driverDescription)
+                    ).writeNative(addr, value.driverDescription.toList())
                 }
             }
     }
@@ -3664,8 +3713,8 @@ public class D3dkmtEnumadapters2 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEnumadapters2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEnumadapters2> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): D3dkmtEnumadapters2 =
                     D3dkmtEnumadapters2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3757,8 +3806,8 @@ public data class D3dkmtEnumadaptersFilter0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEnumadaptersFilter0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEnumadaptersFilter0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtEnumadaptersFilter0 =
                     D3dkmtEnumadaptersFilter0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -3887,8 +3936,8 @@ public data class D3dkmtEscapeVirtualRefreshRate(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEscapeVirtualRefreshRate> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEscapeVirtualRefreshRate> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): D3dkmtEscapeVirtualRefreshRate =
                     D3dkmtEscapeVirtualRefreshRate(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -3899,7 +3948,7 @@ public data class D3dkmtEscapeVirtualRefreshRate(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtEscapeVirtualRefreshRate) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
@@ -3910,7 +3959,7 @@ public data class D3dkmtEscapeVirtualRefreshRate(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 20L, value.reserved)
+                    ).writeNative(addr + 20L, value.reserved.toList())
                 }
             }
     }
@@ -4005,8 +4054,8 @@ public data class D3dkmtEvictionCriteria000(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEvictionCriteria000> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtEvictionCriteria000> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtEvictionCriteria000 =
                     D3dkmtEvictionCriteria000(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4024,8 +4073,8 @@ public data class D3dkmtFencePresenthistorytoken(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFencePresenthistorytoken> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFencePresenthistorytoken> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtFencePresenthistorytoken =
                     D3dkmtFencePresenthistorytoken(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -4043,8 +4092,8 @@ public data class D3dkmtFlipinfoflags(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipinfoflags> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipinfoflags> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtFlipinfoflags =
                     D3dkmtFlipinfoflags(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4086,8 +4135,8 @@ public data class D3dkmtFlipmanagerPresenthistorytoken00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipmanagerPresenthistorytoken00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipmanagerPresenthistorytoken00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtFlipmanagerPresenthistorytoken00 =
                     D3dkmtFlipmanagerPresenthistorytoken00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4209,8 +4258,8 @@ public data class D3dkmtFlipmodelPresenthistorytokenflags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipmodelPresenthistorytokenflags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipmodelPresenthistorytokenflags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtFlipmodelPresenthistorytokenflags00 =
                     D3dkmtFlipmodelPresenthistorytokenflags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4275,8 +4324,8 @@ public class D3dkmtFlipoverlay internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipoverlay> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipoverlay> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): D3dkmtFlipoverlay =
                     D3dkmtFlipoverlay(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4325,8 +4374,8 @@ public data class D3dkmtFlipqueueinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipqueueinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlipqueueinfo> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): D3dkmtFlipqueueinfo =
                     D3dkmtFlipqueueinfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4348,8 +4397,8 @@ public data class D3dkmtFlushheaptransitions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlushheaptransitions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFlushheaptransitions> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtFlushheaptransitions =
                     D3dkmtFlushheaptransitions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4369,8 +4418,8 @@ public data class D3dkmtFreegpuvirtualaddress(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFreegpuvirtualaddress> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtFreegpuvirtualaddress> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtFreegpuvirtualaddress =
                     D3dkmtFreegpuvirtualaddress(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4402,8 +4451,8 @@ public data class D3dkmtGdimodelSysmemPresenthistorytoken(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGdimodelSysmemPresenthistorytoken> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGdimodelSysmemPresenthistorytoken> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtGdimodelSysmemPresenthistorytoken =
                     D3dkmtGdimodelSysmemPresenthistorytoken(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -4475,8 +4524,8 @@ public class D3dkmtGetallocationpriority internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetallocationpriority> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetallocationpriority> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): D3dkmtGetallocationpriority =
                     D3dkmtGetallocationpriority(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4530,8 +4579,8 @@ public data class D3dkmtGetcontextinprocessschedulingpriority(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetcontextinprocessschedulingpriority> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetcontextinprocessschedulingpriority> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtGetcontextinprocessschedulingpriority =
                     D3dkmtGetcontextinprocessschedulingpriority(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4552,8 +4601,8 @@ public data class D3dkmtGetcontextschedulingpriority(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetcontextschedulingpriority> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetcontextschedulingpriority> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtGetcontextschedulingpriority =
                     D3dkmtGetcontextschedulingpriority(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4629,8 +4678,8 @@ public class D3dkmtGetdisplaymodelist internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetdisplaymodelist> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetdisplaymodelist> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtGetdisplaymodelist =
                     D3dkmtGetdisplaymodelist(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4732,8 +4781,8 @@ public class D3dkmtGetmultisamplemethodlist internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetmultisamplemethodlist> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetmultisamplemethodlist> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): D3dkmtGetmultisamplemethodlist =
                     D3dkmtGetmultisamplemethodlist(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4790,8 +4839,8 @@ public data class D3dkmtGetoverlaystate(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetoverlaystate> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetoverlaystate> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): D3dkmtGetoverlaystate =
                     D3dkmtGetoverlaystate(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -4860,8 +4909,8 @@ public class D3dkmtGetpresenthistory internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetpresenthistory> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetpresenthistory> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): D3dkmtGetpresenthistory =
                     D3dkmtGetpresenthistory(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5001,8 +5050,8 @@ public class D3dkmtGetruntimedata internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetruntimedata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetruntimedata> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtGetruntimedata =
                     D3dkmtGetruntimedata(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5048,8 +5097,8 @@ public data class D3dkmtGetscanline(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetscanline> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetscanline> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): D3dkmtGetscanline =
                     D3dkmtGetscanline(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5075,8 +5124,8 @@ public data class D3dkmtGetsharedprimaryhandle(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetsharedprimaryhandle> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetsharedprimaryhandle> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): D3dkmtGetsharedprimaryhandle =
                     D3dkmtGetsharedprimaryhandle(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5191,8 +5240,8 @@ public class D3dkmtGetverticalblankevent internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetverticalblankevent> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetverticalblankevent> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtGetverticalblankevent =
                     D3dkmtGetverticalblankevent(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5236,8 +5285,8 @@ public data class D3dkmtGetDeviceVidpnOwnershipInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetDeviceVidpnOwnershipInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetDeviceVidpnOwnershipInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtGetDeviceVidpnOwnershipInfo =
                     D3dkmtGetDeviceVidpnOwnershipInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5258,8 +5307,8 @@ public data class D3dkmtGetGpummuCaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetGpummuCaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetGpummuCaps> {
-                override val sizeBytes: Long = 264L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 264L
                 override fun readNative(addr: Long): D3dkmtGetGpummuCaps =
                     D3dkmtGetGpummuCaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5293,8 +5342,8 @@ public data class D3dkmtGetPostCompositionCaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetPostCompositionCaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetPostCompositionCaps> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): D3dkmtGetPostCompositionCaps =
                     D3dkmtGetPostCompositionCaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5354,8 +5403,8 @@ public data class D3dkmtGetSegmentCaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetSegmentCaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGetSegmentCaps> {
-                override val sizeBytes: Long = 776L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 776L
                 override fun readNative(addr: Long): D3dkmtGetSegmentCaps =
                     D3dkmtGetSegmentCaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5393,8 +5442,8 @@ public data class D3dkmtGpummuCaps00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGpummuCaps00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGpummuCaps00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtGpummuCaps00 =
                     D3dkmtGpummuCaps00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5430,30 +5479,30 @@ public data class D3dkmtGpuversion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGpuversion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtGpuversion> {
-                override val sizeBytes: Long = 132L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 132L
                 override fun readNative(addr: Long): D3dkmtGpuversion =
                     D3dkmtGpuversion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
-                        ).readNative(addr + 4L),
+                        ).readNative(addr + 4L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
-                        ).readNative(addr + 68L),
+                        ).readNative(addr + 68L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtGpuversion) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.physicalAdapterIndex)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
-                    ).writeNative(addr + 4L, value.biosVersion)
+                    ).writeNative(addr + 4L, value.biosVersion.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (32).toInt())
-                    ).writeNative(addr + 68L, value.gpuArchitecture)
+                    ).writeNative(addr + 68L, value.gpuArchitecture.toList())
                 }
             }
     }
@@ -5466,8 +5515,8 @@ public data class D3dkmtHistoryBufferStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtHistoryBufferStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtHistoryBufferStatus> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtHistoryBufferStatus =
                     D3dkmtHistoryBufferStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -5487,8 +5536,8 @@ public data class D3dkmtHwdrmSupport(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtHwdrmSupport> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtHwdrmSupport> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): D3dkmtHwdrmSupport =
                     D3dkmtHwdrmSupport(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -5502,7 +5551,22 @@ public data class D3dkmtHwdrmSupport(
 
 public data class D3dkmtHybridDlistDllSupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtHybridDlistDllSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtHybridDlistDllSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtHybridDlistDllSupport =
+                    D3dkmtHybridDlistDllSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtHybridDlistDllSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtHybridList(
     public var state: D3dkmtGpuPreferenceQueryState = 0,
@@ -5513,11 +5577,41 @@ public data class D3dkmtHybridList(
 
 public data class D3dkmtIndependentflipSecondarySupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtIndependentflipSecondarySupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtIndependentflipSecondarySupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtIndependentflipSecondarySupport =
+                    D3dkmtIndependentflipSecondarySupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtIndependentflipSecondarySupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtIndependentflipSupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtIndependentflipSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtIndependentflipSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtIndependentflipSupport =
+                    D3dkmtIndependentflipSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtIndependentflipSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public class D3dkmtInvalidateactivevidpn internal constructor(
     public var hAdapter: UInt,
@@ -5560,8 +5654,8 @@ public class D3dkmtInvalidateactivevidpn internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtInvalidateactivevidpn> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtInvalidateactivevidpn> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtInvalidateactivevidpn =
                     D3dkmtInvalidateactivevidpn(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5603,8 +5697,8 @@ public data class D3dkmtInvalidatecache(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtInvalidatecache> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtInvalidatecache> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtInvalidatecache =
                     D3dkmtInvalidatecache(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5624,7 +5718,22 @@ public data class D3dkmtInvalidatecache(
 
 public data class D3dkmtIsbaddriverforhwprotectiondisabled(
     public var disabled: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtIsbaddriverforhwprotectiondisabled> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtIsbaddriverforhwprotectiondisabled> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtIsbaddriverforhwprotectiondisabled =
+                    D3dkmtIsbaddriverforhwprotectiondisabled(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtIsbaddriverforhwprotectiondisabled) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.disabled)
+                }
+            }
+    }
+}
 
 public data class D3dkmtKmdDriverVersion(
     public var driverVersion: Long = 0L,
@@ -5632,8 +5741,8 @@ public data class D3dkmtKmdDriverVersion(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtKmdDriverVersion> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtKmdDriverVersion> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtKmdDriverVersion =
                     D3dkmtKmdDriverVersion(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -5807,8 +5916,8 @@ public data class D3dkmtMarkdeviceaserror(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMarkdeviceaserror> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMarkdeviceaserror> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtMarkdeviceaserror =
                     D3dkmtMarkdeviceaserror(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -5837,20 +5946,20 @@ public data class D3dkmtMiracastcompaniondrivername(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMiracastcompaniondrivername> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMiracastcompaniondrivername> {
-                override val sizeBytes: Long = 520L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 520L
                 override fun readNative(addr: Long): D3dkmtMiracastcompaniondrivername =
                     D3dkmtMiracastcompaniondrivername(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtMiracastcompaniondrivername) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.miracastCompanionDriverName)
+                    ).writeNative(addr, value.miracastCompanionDriverName.toList())
                 }
             }
     }
@@ -5886,8 +5995,8 @@ public data class D3dkmtMiracastDisplayDeviceCaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMiracastDisplayDeviceCaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMiracastDisplayDeviceCaps> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): D3dkmtMiracastDisplayDeviceCaps =
                     D3dkmtMiracastDisplayDeviceCaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
@@ -5909,8 +6018,8 @@ public data class D3dkmtMiracastDisplayDeviceStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMiracastDisplayDeviceStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMiracastDisplayDeviceStatus> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtMiracastDisplayDeviceStatus =
                     D3dkmtMiracastDisplayDeviceStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -5935,36 +6044,151 @@ public data class D3dkmtMoveRect(
 
 public data class D3dkmtMpo3ddiSupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMpo3ddiSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMpo3ddiSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtMpo3ddiSupport =
+                    D3dkmtMpo3ddiSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtMpo3ddiSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtMpokernelcapsSupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMpokernelcapsSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMpokernelcapsSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtMpokernelcapsSupport =
+                    D3dkmtMpokernelcapsSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtMpokernelcapsSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtMultiplaneoverlayDecodeSupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlayDecodeSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlayDecodeSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtMultiplaneoverlayDecodeSupport =
+                    D3dkmtMultiplaneoverlayDecodeSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtMultiplaneoverlayDecodeSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtMultiplaneoverlayHudSupport(
     public var vidPnSourceId: UInt = 0u,
     public var update: Bool = 0,
     public var kernelSupported: Bool = 0,
     public var hudSupported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlayHudSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlayHudSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): D3dkmtMultiplaneoverlayHudSupport =
+                    D3dkmtMultiplaneoverlayHudSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtMultiplaneoverlayHudSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.vidPnSourceId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.update)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.kernelSupported)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.hudSupported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtMultiplaneoverlaySecondarySupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlaySecondarySupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlaySecondarySupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtMultiplaneoverlaySecondarySupport =
+                    D3dkmtMultiplaneoverlaySecondarySupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtMultiplaneoverlaySecondarySupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtMultiplaneoverlayStretchSupport(
     public var vidPnSourceId: UInt = 0u,
     public var update: Bool = 0,
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlayStretchSupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlayStretchSupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
+                override fun readNative(addr: Long): D3dkmtMultiplaneoverlayStretchSupport =
+                    D3dkmtMultiplaneoverlayStretchSupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtMultiplaneoverlayStretchSupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.vidPnSourceId)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.update)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtMultiplaneoverlaySupport(
     public var supported: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlaySupport> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneoverlaySupport> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): D3dkmtMultiplaneoverlaySupport =
+                    D3dkmtMultiplaneoverlaySupport(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: D3dkmtMultiplaneoverlaySupport) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.supported)
+                }
+            }
+    }
+}
 
 public data class D3dkmtMultiplaneOverlay(
     public var layerIndex: UInt = 0u,
@@ -6553,8 +6777,8 @@ public data class D3dkmtMultiplaneOverlayCaps00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneOverlayCaps00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneOverlayCaps00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtMultiplaneOverlayCaps00 =
                     D3dkmtMultiplaneOverlayCaps00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6588,8 +6812,8 @@ public data class D3dkmtMultiplaneOverlayPostCompositionFlags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneOverlayPostCompositionFlags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultiplaneOverlayPostCompositionFlags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtMultiplaneOverlayPostCompositionFlags00 =
                     D3dkmtMultiplaneOverlayPostCompositionFlags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6614,8 +6838,8 @@ public data class D3dkmtMultisamplemethod(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultisamplemethod> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtMultisamplemethod> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): D3dkmtMultisamplemethod =
                     D3dkmtMultisamplemethod(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6650,8 +6874,8 @@ public data class D3dkmtNodePerfdata(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtNodePerfdata> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtNodePerfdata> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): D3dkmtNodePerfdata =
                     D3dkmtNodePerfdata(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6699,8 +6923,8 @@ public data class D3dkmtNotifyWorkSubmissionFlags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtNotifyWorkSubmissionFlags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtNotifyWorkSubmissionFlags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtNotifyWorkSubmissionFlags00 =
                     D3dkmtNotifyWorkSubmissionFlags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6806,8 +7030,8 @@ public data class D3dkmtOfferFlags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOfferFlags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOfferFlags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtOfferFlags00 =
                     D3dkmtOfferFlags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -6985,14 +7209,14 @@ public data class D3dkmtOpenglinfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpenglinfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpenglinfo> {
-                override val sizeBytes: Long = 528L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 528L
                 override fun readNative(addr: Long): D3dkmtOpenglinfo =
                     D3dkmtOpenglinfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 520L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 524L),
                     )
@@ -7000,7 +7224,7 @@ public data class D3dkmtOpenglinfo(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.umdOpenGlIcdFileName)
+                    ).writeNative(addr, value.umdOpenGlIcdFileName.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 520L, value.version)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 524L, value.flags)
                 }
@@ -7015,8 +7239,8 @@ public data class D3dkmtOpenkeyedmutex(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpenkeyedmutex> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpenkeyedmutex> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtOpenkeyedmutex =
                     D3dkmtOpenkeyedmutex(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7077,8 +7301,8 @@ public class D3dkmtOpenkeyedmutex2 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpenkeyedmutex2> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpenkeyedmutex2> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtOpenkeyedmutex2 =
                     D3dkmtOpenkeyedmutex2(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7709,8 +7933,8 @@ public data class D3dkmtOpensynchronizationobject(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpensynchronizationobject> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpensynchronizationobject> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): D3dkmtOpensynchronizationobject =
                     D3dkmtOpensynchronizationobject(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -7718,7 +7942,7 @@ public data class D3dkmtOpensynchronizationobject(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (8).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtOpensynchronizationobject) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.hSharedHandle)
@@ -7726,7 +7950,7 @@ public data class D3dkmtOpensynchronizationobject(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (8).toInt())
-                    ).writeNative(addr + 8L, value.reserved)
+                    ).writeNative(addr + 8L, value.reserved.toList())
                 }
             }
     }
@@ -7904,8 +8128,8 @@ public class D3dkmtOpensyncobjectfromnthandle200 internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpensyncobjectfromnthandle200> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOpensyncobjectfromnthandle200> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): D3dkmtOpensyncobjectfromnthandle200 =
                     D3dkmtOpensyncobjectfromnthandle200(
                         (
@@ -8008,8 +8232,8 @@ public data class D3dkmtOutputduplcontextscount(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOutputduplcontextscount> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOutputduplcontextscount> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): D3dkmtOutputduplcontextscount =
                     D3dkmtOutputduplcontextscount(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -8038,8 +8262,8 @@ public data class D3dkmtOutputduplcreationflags00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOutputduplcreationflags00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<D3dkmtOutputduplcreationflags00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): D3dkmtOutputduplcreationflags00 =
                     D3dkmtOutputduplcreationflags00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

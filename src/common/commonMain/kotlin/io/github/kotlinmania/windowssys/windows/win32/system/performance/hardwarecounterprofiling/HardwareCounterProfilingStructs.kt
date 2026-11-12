@@ -11,8 +11,8 @@ public data class HardwareCounterData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HardwareCounterData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HardwareCounterData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): HardwareCounterData =
                     HardwareCounterData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -42,8 +42,8 @@ public data class PerformanceData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerformanceData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerformanceData> {
-                override val sizeBytes: Long = 288L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 288L
                 override fun readNative(addr: Long): PerformanceData =
                     PerformanceData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),

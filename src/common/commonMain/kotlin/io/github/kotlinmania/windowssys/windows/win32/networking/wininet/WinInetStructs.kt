@@ -100,8 +100,8 @@ public class AppCacheDownloadList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppCacheDownloadList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppCacheDownloadList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AppCacheDownloadList =
                     AppCacheDownloadList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -217,8 +217,8 @@ public class AppCacheGroupList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppCacheGroupList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppCacheGroupList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AppCacheGroupList =
                     AppCacheGroupList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -325,8 +325,8 @@ public class AutoProxyHelperFunctions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AutoProxyHelperFunctions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AutoProxyHelperFunctions> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): AutoProxyHelperFunctions =
                     AutoProxyHelperFunctions(
                         (
@@ -365,8 +365,8 @@ public data class AutoProxyHelperVtbl(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AutoProxyHelperVtbl> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AutoProxyHelperVtbl> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): AutoProxyHelperVtbl =
                     AutoProxyHelperVtbl(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr),
@@ -487,7 +487,24 @@ public class CookieDlgInfo internal constructor(
 public data class CookieDecision(
     public var dwCookieState: UInt = 0u,
     public var fAllowSession: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CookieDecision> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CookieDecision> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): CookieDecision =
+                    CookieDecision(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: CookieDecision) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwCookieState)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fAllowSession)
+                }
+            }
+    }
+}
 
 public class GopherAbstractAttributeType internal constructor(
     shortAbstractCtorArg: MutPtr<Byte>,
@@ -527,8 +544,8 @@ public class GopherAbstractAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherAbstractAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherAbstractAttributeType> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): GopherAbstractAttributeType =
                     GopherAbstractAttributeType(
                         (
@@ -601,8 +618,8 @@ public class GopherAdminAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherAdminAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherAdminAttributeType> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): GopherAdminAttributeType =
                     GopherAdminAttributeType(
                         (
@@ -675,8 +692,8 @@ public class GopherAskAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherAskAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherAskAttributeType> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): GopherAskAttributeType =
                     GopherAskAttributeType(
                         (
@@ -810,8 +827,8 @@ public data class GopherGeographicalLocationAttributeType(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherGeographicalLocationAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherGeographicalLocationAttributeType> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): GopherGeographicalLocationAttributeType =
                     GopherGeographicalLocationAttributeType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -859,8 +876,8 @@ public class GopherLocationAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherLocationAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherLocationAttributeType> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GopherLocationAttributeType =
                     GopherLocationAttributeType(
                         (
@@ -915,8 +932,8 @@ public class GopherOrganizationAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherOrganizationAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherOrganizationAttributeType> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GopherOrganizationAttributeType =
                     GopherOrganizationAttributeType(
                         (
@@ -967,8 +984,8 @@ public class GopherProviderAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherProviderAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherProviderAttributeType> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GopherProviderAttributeType =
                     GopherProviderAttributeType(
                         (
@@ -999,8 +1016,8 @@ public data class GopherScoreAttributeType(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherScoreAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherScoreAttributeType> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): GopherScoreAttributeType =
                     GopherScoreAttributeType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1019,8 +1036,8 @@ public data class GopherScoreRangeAttributeType(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherScoreRangeAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherScoreRangeAttributeType> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GopherScoreRangeAttributeType =
                     GopherScoreRangeAttributeType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1060,8 +1077,8 @@ public class GopherSiteAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherSiteAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherSiteAttributeType> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GopherSiteAttributeType =
                     GopherSiteAttributeType(
                         (
@@ -1092,8 +1109,8 @@ public data class GopherTimezoneAttributeType(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherTimezoneAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherTimezoneAttributeType> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): GopherTimezoneAttributeType =
                     GopherTimezoneAttributeType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
@@ -1111,8 +1128,8 @@ public data class GopherTtlAttributeType(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherTtlAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherTtlAttributeType> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): GopherTtlAttributeType =
                     GopherTtlAttributeType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1150,8 +1167,8 @@ public class GopherUnknownAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherUnknownAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherUnknownAttributeType> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GopherUnknownAttributeType =
                     GopherUnknownAttributeType(
                         (
@@ -1178,7 +1195,22 @@ public class GopherUnknownAttributeType internal constructor(
 
 public data class GopherVeronicaAttributeType(
     public var treeWalk: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherVeronicaAttributeType> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherVeronicaAttributeType> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
+                override fun readNative(addr: Long): GopherVeronicaAttributeType =
+                    GopherVeronicaAttributeType(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                    )
+                override fun writeNative(addr: Long, value: GopherVeronicaAttributeType) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.treeWalk)
+                }
+            }
+    }
+}
 
 public class GopherVersionAttributeType internal constructor(
     versionCtorArg: MutPtr<Byte>,
@@ -1206,8 +1238,8 @@ public class GopherVersionAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherVersionAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherVersionAttributeType> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GopherVersionAttributeType =
                     GopherVersionAttributeType(
                         (
@@ -1276,8 +1308,8 @@ public class GopherViewAttributeType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherViewAttributeType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GopherViewAttributeType> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): GopherViewAttributeType =
                     GopherViewAttributeType(
                         (
@@ -1319,7 +1351,24 @@ public class GopherViewAttributeType internal constructor(
 public data class HttpPushNotificationStatus(
     public var channelStatusValid: Bool = 0,
     public var channelStatus: UInt = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpPushNotificationStatus> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpPushNotificationStatus> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): HttpPushNotificationStatus =
+                    HttpPushNotificationStatus(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: HttpPushNotificationStatus) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.channelStatusValid)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.channelStatus)
+                }
+            }
+    }
+}
 
 public data class HttpPushTransportSetting(
     public var transportSettingId: Guid = Guid(),
@@ -1347,22 +1396,22 @@ public data class HttpRequestTimes(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestTimes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpRequestTimes> {
-                override val sizeBytes: Long = 264L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 264L
                 override fun readNative(addr: Long): HttpRequestTimes =
                     HttpRequestTimes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (32).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: HttpRequestTimes) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cTimes)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (32).toInt())
-                    ).writeNative(addr + 8L, value.rgTimes)
+                    ).writeNative(addr + 8L, value.rgTimes.toList())
                 }
             }
     }
@@ -1377,8 +1426,8 @@ public data class HttpWebSocketAsyncResult(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpWebSocketAsyncResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpWebSocketAsyncResult> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): HttpWebSocketAsyncResult =
                     HttpWebSocketAsyncResult(
                         (InternetAsyncResult.typeLayout()).readNative(addr),
@@ -1403,8 +1452,8 @@ public data class InternetAsyncResult(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetAsyncResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetAsyncResult> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): InternetAsyncResult =
                     InternetAsyncResult(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -1692,21 +1741,21 @@ public data class InternetCacheConfigInfoa00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigInfoa00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigInfoa00> {
-                override val sizeBytes: Long = 264L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 264L
                 override fun readNative(addr: Long): InternetCacheConfigInfoa00 =
                     InternetCacheConfigInfoa00(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 260L),
                     )
                 override fun writeNative(addr: Long, value: InternetCacheConfigInfoa00) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                    ).writeNative(addr, value.cachePath)
+                    ).writeNative(addr, value.cachePath.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 260L, value.dwCacheSize)
                 }
             }
@@ -1752,21 +1801,21 @@ public data class InternetCacheConfigInfow00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigInfow00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigInfow00> {
-                override val sizeBytes: Long = 524L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 524L
                 override fun readNative(addr: Long): InternetCacheConfigInfow00 =
                     InternetCacheConfigInfow00(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 520L),
                     )
                 override fun writeNative(addr: Long, value: InternetCacheConfigInfow00) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.cachePath)
+                    ).writeNative(addr, value.cachePath.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 520L, value.dwCacheSize)
                 }
             }
@@ -1794,21 +1843,21 @@ public data class InternetCacheConfigPathEntrya(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigPathEntrya> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigPathEntrya> {
-                override val sizeBytes: Long = 264L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 264L
                 override fun readNative(addr: Long): InternetCacheConfigPathEntrya =
                     InternetCacheConfigPathEntrya(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 260L),
                     )
                 override fun writeNative(addr: Long, value: InternetCacheConfigPathEntrya) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (260).toInt())
-                    ).writeNative(addr, value.cachePath)
+                    ).writeNative(addr, value.cachePath.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 260L, value.dwCacheSize)
                 }
             }
@@ -1836,21 +1885,21 @@ public data class InternetCacheConfigPathEntryw(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigPathEntryw> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheConfigPathEntryw> {
-                override val sizeBytes: Long = 524L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 524L
                 override fun readNative(addr: Long): InternetCacheConfigPathEntryw =
                     InternetCacheConfigPathEntryw(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUShortArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 520L),
                     )
                 override fun writeNative(addr: Long, value: InternetCacheConfigPathEntryw) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr, value.cachePath)
+                    ).writeNative(addr, value.cachePath.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 520L, value.dwCacheSize)
                 }
             }
@@ -2387,8 +2436,8 @@ public data class InternetCacheGroupInfoa(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheGroupInfoa> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheGroupInfoa> {
-                override val sizeBytes: Long = 156L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 156L
                 override fun readNative(addr: Long): InternetCacheGroupInfoa =
                     InternetCacheGroupInfoa(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2399,11 +2448,11 @@ public data class InternetCacheGroupInfoa(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUIntArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (120).toInt())
-                        ).readNative(addr + 36L),
+                        ).readNative(addr + 36L).toByteArray(),
                     )
                 override fun writeNative(addr: Long, value: InternetCacheGroupInfoa) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwGroupSize)
@@ -2414,11 +2463,11 @@ public data class InternetCacheGroupInfoa(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                    ).writeNative(addr + 20L, value.dwOwnerStorage)
+                    ).writeNative(addr + 20L, value.dwOwnerStorage.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8, (120).toInt())
-                    ).writeNative(addr + 36L, value.szGroupName)
+                    ).writeNative(addr + 36L, value.szGroupName.toList())
                 }
             }
     }
@@ -2460,8 +2509,8 @@ public data class InternetCacheGroupInfow(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheGroupInfow> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCacheGroupInfow> {
-                override val sizeBytes: Long = 276L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 276L
                 override fun readNative(addr: Long): InternetCacheGroupInfow =
                     InternetCacheGroupInfow(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2472,11 +2521,11 @@ public data class InternetCacheGroupInfow(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                        ).readNative(addr + 20L),
+                        ).readNative(addr + 20L).toUIntArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (120).toInt())
-                        ).readNative(addr + 36L),
+                        ).readNative(addr + 36L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: InternetCacheGroupInfow) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwGroupSize)
@@ -2487,11 +2536,11 @@ public data class InternetCacheGroupInfow(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                    ).writeNative(addr + 20L, value.dwOwnerStorage)
+                    ).writeNative(addr + 20L, value.dwOwnerStorage.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (120).toInt())
-                    ).writeNative(addr + 36L, value.szGroupName)
+                    ).writeNative(addr + 36L, value.szGroupName.toList())
                 }
             }
     }
@@ -2698,8 +2747,8 @@ public data class InternetConnectedInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetConnectedInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetConnectedInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): InternetConnectedInfo =
                     InternetConnectedInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3114,8 +3163,8 @@ public data class InternetDiagnosticSocketInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetDiagnosticSocketInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetDiagnosticSocketInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): InternetDiagnosticSocketInfo =
                     InternetDiagnosticSocketInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -3215,8 +3264,8 @@ public class InternetEndBrowserSessionData internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetEndBrowserSessionData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetEndBrowserSessionData> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): InternetEndBrowserSessionData =
                     InternetEndBrowserSessionData(
                         (
@@ -3508,8 +3557,8 @@ public data class InternetPrefetchStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetPrefetchStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetPrefetchStatus> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): InternetPrefetchStatus =
                     InternetPrefetchStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3567,8 +3616,8 @@ public class InternetProxyInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetProxyInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetProxyInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): InternetProxyInfo =
                     InternetProxyInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3803,8 +3852,8 @@ public data class InternetVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetVersionInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): InternetVersionInfo =
                     InternetVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3907,7 +3956,28 @@ public data class InternetCookieHistory(
     public var fLeashed: Bool = 0,
     public var fDowngraded: Bool = 0,
     public var fRejected: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCookieHistory> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<InternetCookieHistory> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): InternetCookieHistory =
+                    InternetCookieHistory(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: InternetCookieHistory) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fAccepted)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fLeashed)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.fDowngraded)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.fRejected)
+                }
+            }
+    }
+}
 
 public class OutgoingCookieState internal constructor(
     public var cSent: Int,
@@ -4613,8 +4683,8 @@ public class WininetProxyInfoList internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WininetProxyInfoList> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WininetProxyInfoList> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WininetProxyInfoList =
                     WininetProxyInfoList(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

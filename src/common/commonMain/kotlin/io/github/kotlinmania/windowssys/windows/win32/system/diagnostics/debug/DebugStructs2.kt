@@ -26,8 +26,8 @@ public data class WheaXpfNmiDescriptor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WheaXpfNmiDescriptor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WheaXpfNmiDescriptor> {
-                override val sizeBytes: Long = 3L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 3L
                 override fun readNative(addr: Long): WheaXpfNmiDescriptor =
                     WheaXpfNmiDescriptor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -71,8 +71,8 @@ public class Wow64Context(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64Context> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64Context> {
-                override val sizeBytes: Long = 716L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 716L
                 override fun readNative(addr: Long): Wow64Context =
                     Wow64Context(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -102,7 +102,7 @@ public class Wow64Context(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (512).toInt())
-                        ).readNative(addr + 204L),
+                        ).readNative(addr + 204L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Wow64Context) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.contextFlags)
@@ -132,7 +132,7 @@ public class Wow64Context(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (512).toInt())
-                    ).writeNative(addr + 204L, value.extendedRegisters)
+                    ).writeNative(addr + 204L, value.extendedRegisters.toList())
                 }
             }
     }
@@ -185,8 +185,8 @@ public data class Wow64FloatingSaveArea(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64FloatingSaveArea> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64FloatingSaveArea> {
-                override val sizeBytes: Long = 112L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 112L
                 override fun readNative(addr: Long): Wow64FloatingSaveArea =
                     Wow64FloatingSaveArea(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -199,7 +199,7 @@ public data class Wow64FloatingSaveArea(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (80).toInt())
-                        ).readNative(addr + 28L),
+                        ).readNative(addr + 28L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 108L),
                     )
                 override fun writeNative(addr: Long, value: Wow64FloatingSaveArea) {
@@ -213,7 +213,7 @@ public data class Wow64FloatingSaveArea(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (80).toInt())
-                    ).writeNative(addr + 28L, value.registerArea)
+                    ).writeNative(addr + 28L, value.registerArea.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 108L, value.cr0NpxState)
                 }
             }
@@ -237,8 +237,8 @@ public data class Wow64LdtEntry01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64LdtEntry01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64LdtEntry01> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Wow64LdtEntry01 =
                     Wow64LdtEntry01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -259,8 +259,8 @@ public data class Wow64LdtEntry00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64LdtEntry00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Wow64LdtEntry00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Wow64LdtEntry00 =
                     Wow64LdtEntry00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -289,8 +289,8 @@ public data class XpfMceFlags0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpfMceFlags0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpfMceFlags0> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): XpfMceFlags0 =
                     XpfMceFlags0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -313,8 +313,8 @@ public data class XpfMcBankFlags0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpfMcBankFlags0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XpfMcBankFlags0> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): XpfMcBankFlags0 =
                     XpfMcBankFlags0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -333,8 +333,8 @@ public data class XsaveArea(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XsaveArea> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XsaveArea> {
-                override val sizeBytes: Long = 576L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 576L
                 override fun readNative(addr: Long): XsaveArea =
                     XsaveArea(
                         (XsaveFormat.typeLayout()).readNative(addr),
@@ -372,8 +372,8 @@ public data class XsaveAreaHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XsaveAreaHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XsaveAreaHeader> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): XsaveAreaHeader =
                     XsaveAreaHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -381,7 +381,7 @@ public data class XsaveAreaHeader(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (6).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: XsaveAreaHeader) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.mask)
@@ -389,7 +389,7 @@ public data class XsaveAreaHeader(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (6).toInt())
-                    ).writeNative(addr + 16L, value.reserved2)
+                    ).writeNative(addr + 16L, value.reserved2.toList())
                 }
             }
     }
@@ -458,8 +458,8 @@ public data class XsaveFormat(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XsaveFormat> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XsaveFormat> {
-                override val sizeBytes: Long = 512L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 512L
                 override fun readNative(addr: Long): XsaveFormat =
                     XsaveFormat(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -486,7 +486,7 @@ public data class XsaveFormat(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (96).toInt())
-                        ).readNative(addr + 416L),
+                        ).readNative(addr + 416L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: XsaveFormat) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.controlWord)
@@ -513,7 +513,7 @@ public data class XsaveFormat(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (96).toInt())
-                    ).writeNative(addr + 416L, value.reserved4)
+                    ).writeNative(addr + 416L, value.reserved4.toList())
                 }
             }
     }
@@ -582,8 +582,8 @@ public data class XstateConfiguration00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateConfiguration00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateConfiguration00> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): XstateConfiguration00 =
                     XstateConfiguration00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -604,8 +604,8 @@ public data class XstateConfigFeatureMscInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateConfigFeatureMscInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateConfigFeatureMscInfo> {
-                override val sizeBytes: Long = 528L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 528L
                 override fun readNative(addr: Long): XstateConfigFeatureMscInfo =
                     XstateConfigFeatureMscInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -685,8 +685,8 @@ public class XstateContext internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateContext> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateContext> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): XstateContext =
                     XstateContext(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -740,8 +740,8 @@ public data class XstateFeature(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateFeature> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<XstateFeature> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): XstateFeature =
                     XstateFeature(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

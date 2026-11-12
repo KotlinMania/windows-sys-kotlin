@@ -53,8 +53,8 @@ public class KeyValueEntry internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<KeyValueEntry> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<KeyValueEntry> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): KeyValueEntry =
                     KeyValueEntry(
                         (
@@ -183,8 +183,8 @@ public class RegEnumerateKeyInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegEnumerateKeyInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegEnumerateKeyInformation> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): RegEnumerateKeyInformation =
                     RegEnumerateKeyInformation(
                         (
@@ -363,8 +363,8 @@ public class RegEnumerateValueKeyInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegEnumerateValueKeyInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegEnumerateValueKeyInformation> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): RegEnumerateValueKeyInformation =
                     RegEnumerateValueKeyInformation(
                         (
@@ -537,8 +537,8 @@ public class RegQueryKeyInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegQueryKeyInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegQueryKeyInformation> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): RegQueryKeyInformation =
                     RegQueryKeyInformation(
                         (
@@ -719,8 +719,8 @@ public class RegQueryMultipleValueKeyInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegQueryMultipleValueKeyInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegQueryMultipleValueKeyInformation> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): RegQueryMultipleValueKeyInformation =
                     RegQueryMultipleValueKeyInformation(
                         (
@@ -914,8 +914,8 @@ public class RegQueryValueKeyInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegQueryValueKeyInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegQueryValueKeyInformation> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): RegQueryValueKeyInformation =
                     RegQueryValueKeyInformation(
                         (
@@ -1085,8 +1085,8 @@ public class RegSetInformationKeyInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegSetInformationKeyInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<RegSetInformationKeyInformation> {
-                override val sizeBytes: Long = 56L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 56L
                 override fun readNative(addr: Long): RegSetInformationKeyInformation =
                     RegSetInformationKeyInformation(
                         (

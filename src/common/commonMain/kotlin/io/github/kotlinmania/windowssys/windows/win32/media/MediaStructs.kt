@@ -25,8 +25,8 @@ public data class Mmtime01(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mmtime01> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mmtime01> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): Mmtime01 =
                     Mmtime01(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -74,8 +74,8 @@ public data class Mmtime00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mmtime00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Mmtime00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Mmtime00 =
                     Mmtime00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
@@ -87,7 +87,7 @@ public data class Mmtime00(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                        ).readNative(addr + 6L),
+                        ).readNative(addr + 6L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: Mmtime00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.hour)
@@ -99,7 +99,7 @@ public data class Mmtime00(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (2).toInt())
-                    ).writeNative(addr + 6L, value.pad)
+                    ).writeNative(addr + 6L, value.pad.toList())
                 }
             }
     }
@@ -112,8 +112,8 @@ public data class Timecaps(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Timecaps> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Timecaps> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Timecaps =
                     Timecaps(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -140,8 +140,8 @@ public data class Timecode0(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Timecode0> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Timecode0> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): Timecode0 =
                     Timecode0(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),

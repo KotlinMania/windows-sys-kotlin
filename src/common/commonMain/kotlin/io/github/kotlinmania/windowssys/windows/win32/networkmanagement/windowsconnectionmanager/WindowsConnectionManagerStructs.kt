@@ -123,8 +123,8 @@ public data class WcmConnectionCostData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WcmConnectionCostData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WcmConnectionCostData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WcmConnectionCostData =
                     WcmConnectionCostData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -151,7 +151,24 @@ public data class WcmDataplanStatus(
 public data class WcmPolicyValue(
     public var fValue: Bool = 0,
     public var fIsGroupPolicy: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WcmPolicyValue> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WcmPolicyValue> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): WcmPolicyValue =
+                    WcmPolicyValue(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: WcmPolicyValue) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fValue)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fIsGroupPolicy)
+                }
+            }
+    }
+}
 
 public data class WcmProfileInfo(
     public var strProfileName: UShortArray = UShortArray(256),
@@ -192,8 +209,8 @@ public data class WcmTimeInterval(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WcmTimeInterval> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WcmTimeInterval> {
-                override val sizeBytes: Long = 14L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 14L
                 override fun readNative(addr: Long): WcmTimeInterval =
                     WcmTimeInterval(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),

@@ -44,8 +44,8 @@ public class AppxEncryptedExemptions internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppxEncryptedExemptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppxEncryptedExemptions> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AppxEncryptedExemptions =
                     AppxEncryptedExemptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -250,8 +250,8 @@ public class AppxKeyInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppxKeyInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppxKeyInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): AppxKeyInfo =
                     AppxKeyInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -327,6 +327,27 @@ public class AppxPackageSettings internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppxPackageSettings> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AppxPackageSettings> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): AppxPackageSettings =
+                    AppxPackageSettings(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: AppxPackageSettings) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.forceZip32)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 8L, value.hashMethod)
+                }
+            }
+
         public operator fun invoke(
             forceZip32: Bool = 0,
             hashMethod: MutPtr<CVoid> = MutPtr(0L),
@@ -597,8 +618,8 @@ public data class PackageVersion00(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PackageVersion00> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PackageVersion00> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 2L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PackageVersion00 =
                     PackageVersion00(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
@@ -642,8 +663,8 @@ public class PackageInfoReference internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PackageInfoReference> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PackageInfoReference> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PackageInfoReference =
                     PackageInfoReference(
                         (

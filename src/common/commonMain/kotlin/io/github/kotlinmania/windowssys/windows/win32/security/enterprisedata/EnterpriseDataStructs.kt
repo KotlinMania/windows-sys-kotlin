@@ -11,8 +11,8 @@ public data class FileUnprotectOptions(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<FileUnprotectOptions> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<FileUnprotectOptions> {
-                override val sizeBytes: Long = 1L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 1L
                 override fun readNative(addr: Long): FileUnprotectOptions =
                     FileUnprotectOptions(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),

@@ -195,6 +195,41 @@ public class ConfigCiProvInfo internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConfigCiProvInfo> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConfigCiProvInfo> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
+                override fun readNative(addr: Long): ConfigCiProvInfo =
+                    ConfigCiProvInfo(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CryptIntegerBlob>(64)
+                        ).readNative(addr + 8L),
+                        (ConfigCiProvInfoResult.typeLayout()).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<ConfigCiProvInfoResult2>(64)
+                        ).readNative(addr + 40L),
+                    )
+                override fun writeNative(addr: Long, value: ConfigCiProvInfo) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwPolicies)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CryptIntegerBlob>(64)
+                    ).writeNative(addr + 8L, value.pPolicies)
+                    (ConfigCiProvInfoResult.typeLayout()).writeNative(addr + 16L, value.result)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dwScenario)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<ConfigCiProvInfoResult2>(64)
+                    ).writeNative(addr + 40L, value.result2)
+                }
+            }
+
         public operator fun invoke(
             cbSize: UInt = 0u,
             dwPolicies: UInt = 0u,
@@ -219,7 +254,28 @@ public data class ConfigCiProvInfoResult(
     public var dwResult: UInt = 0u,
     public var dwPolicyIndex: UInt = 0u,
     public var fIsExplicitDeny: Boolean = false,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConfigCiProvInfoResult> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConfigCiProvInfoResult> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
+                override fun readNative(addr: Long): ConfigCiProvInfoResult =
+                    ConfigCiProvInfoResult(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 12L),
+                    )
+                override fun writeNative(addr: Long, value: ConfigCiProvInfoResult) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.hr)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwResult)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwPolicyIndex)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 12L, value.fIsExplicitDeny)
+                }
+            }
+    }
+}
 
 public class ConfigCiProvInfoResult2 internal constructor(
     public var cbSize: UInt,
@@ -284,6 +340,37 @@ public class ConfigCiProvInfoResult2 internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConfigCiProvInfoResult2> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<ConfigCiProvInfoResult2> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
+                override fun readNative(addr: Long): ConfigCiProvInfoResult2 =
+                    ConfigCiProvInfoResult2(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<UByte>(64)
+                        ).readNative(addr + 24L),
+                    )
+                override fun writeNative(addr: Long, value: ConfigCiProvInfoResult2) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.hr)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwResult)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwPolicyIndex)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 16L, value.fIsExplicitDeny)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.cbCalculatedFileHash)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<UByte>(64)
+                    ).writeNative(addr + 24L, value.pbCalculatedFileHash)
+                }
+            }
+
         public operator fun invoke(
             cbSize: UInt = 0u,
             hr: Hresult = 0,
@@ -425,6 +512,71 @@ public class CryptProviderCert internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderCert> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderCert> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 88L
+                override fun readNative(addr: Long): CryptProviderCert =
+                    CryptProviderCert(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .constPtrLayout<CertContext>(64)
+                        ).readNative(addr + 8L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CtlContext>(64)
+                        ).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 56L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CtlContext>(64)
+                        ).readNative(addr + 64L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 76L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CertChainElement>(64)
+                        ).readNative(addr + 80L),
+                    )
+                override fun writeNative(addr: Long, value: CryptProviderCert) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .constPtrLayout<CertContext>(64)
+                    ).writeNative(addr + 8L, value.pCert)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.fCommercial)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.fTrustedRoot)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.fSelfSigned)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.fTestCert)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dwRevokedReason)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.dwConfidence)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.dwError)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CtlContext>(64)
+                    ).writeNative(addr + 48L, value.pTrustListContext)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 56L, value.fTrustListSignerCert)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CtlContext>(64)
+                    ).writeNative(addr + 64L, value.pCtlContext)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.dwCtlError)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 76L, value.fIsCyclic)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CertChainElement>(64)
+                    ).writeNative(addr + 80L, value.pChainElement)
+                }
+            }
+
         public operator fun invoke(
             cbStruct: UInt = 0u,
             pCert: ConstPtr<CertContext> = ConstPtr(0L),
@@ -1254,6 +1406,59 @@ public class CryptProviderSigstate internal constructor(
     }
 
     public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderSigstate> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<CryptProviderSigstate> {
+                override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
+                override fun readNative(addr: Long): CryptProviderSigstate =
+                    CryptProviderSigstate(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                        ).readNative(addr + 8L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<CVoid>(64)
+                        ).readNative(addr + 16L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 40L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 52L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                                .mutPtrLayout<SealingSignatureAttribute>(64)
+                        ).readNative(addr + 56L),
+                    )
+                override fun writeNative(addr: Long, value: CryptProviderSigstate) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                    ).writeNative(addr + 8L, value.rhSecondarySigs)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<CVoid>(64)
+                    ).writeNative(addr + 16L, value.hPrimarySig)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.fFirstAttemptMade)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.fNoMoreSigs)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.cSecondarySigs)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.dwCurrentIndex)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 40L, value.fSupportMultiSig)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.dwCryptoPolicySupport)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.iAttemptCount)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 52L, value.fCheckedSealing)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+                            .mutPtrLayout<SealingSignatureAttribute>(64)
+                    ).writeNative(addr + 56L, value.pSealingSignature)
+                }
+            }
+
         public operator fun invoke(
             cbStruct: UInt = 0u,
             rhSecondarySigs: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
@@ -1641,8 +1846,8 @@ public class DriverVerInfo internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DriverVerInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DriverVerInfo> {
-                override val sizeBytes: Long = 1104L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 1104L
                 override fun readNative(addr: Long): DriverVerInfo =
                     DriverVerInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1653,11 +1858,11 @@ public class DriverVerInfo internal constructor(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr + 32L),
+                        ).readNative(addr + 32L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                        ).readNative(addr + 552L),
+                        ).readNative(addr + 552L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
                                 .constPtrLayout<CertContext>(64)
@@ -1676,11 +1881,11 @@ public class DriverVerInfo internal constructor(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr + 32L, value.wszVersion)
+                    ).writeNative(addr + 32L, value.wszVersion.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (260).toInt())
-                    ).writeNative(addr + 552L, value.wszSignedBy)
+                    ).writeNative(addr + 552L, value.wszSignedBy.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
                             .constPtrLayout<CertContext>(64)
@@ -1730,8 +1935,8 @@ public data class DriverVerMajorminor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<DriverVerMajorminor> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<DriverVerMajorminor> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): DriverVerMajorminor =
                     DriverVerMajorminor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1752,8 +1957,8 @@ public data class IntentToSealAttribute(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<IntentToSealAttribute> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<IntentToSealAttribute> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): IntentToSealAttribute =
                     IntentToSealAttribute(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1879,7 +2084,24 @@ public data class SealingTimestampAttribute(
 public data class SpcFinancialCriteria(
     public var fFinancialInfoAvailable: Bool = 0,
     public var fMeetsCriteria: Bool = 0,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SpcFinancialCriteria> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SpcFinancialCriteria> {
+                override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
+                override fun readNative(addr: Long): SpcFinancialCriteria =
+                    SpcFinancialCriteria(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
+                    )
+                override fun writeNative(addr: Long, value: SpcFinancialCriteria) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.fFinancialInfoAvailable)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fMeetsCriteria)
+                }
+            }
+    }
+}
 
 public class SpcImage internal constructor(
     pImageLinkCtorArg: MutPtr<SpcLink>,
@@ -2250,8 +2472,8 @@ public class SpcStatementType internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<SpcStatementType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<SpcStatementType> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): SpcStatementType =
                     SpcStatementType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3009,8 +3231,8 @@ public class WintrustSignatureSettings internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WintrustSignatureSettings> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WintrustSignatureSettings> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): WintrustSignatureSettings =
                     WintrustSignatureSettings(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3082,8 +3304,8 @@ public data class WinCertificate(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinCertificate> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinCertificate> {
-                override val sizeBytes: Long = 12L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 12L
                 override fun readNative(addr: Long): WinCertificate =
                     WinCertificate(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -3092,7 +3314,7 @@ public data class WinCertificate(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WinCertificate) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwLength)
@@ -3101,7 +3323,7 @@ public data class WinCertificate(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 8L, value.bCertificate)
+                    ).writeNative(addr + 8L, value.bCertificate.toList())
                 }
             }
     }
@@ -3250,8 +3472,8 @@ public class WinTrustActdataSubjectOnly internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinTrustActdataSubjectOnly> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinTrustActdataSubjectOnly> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinTrustActdataSubjectOnly =
                     WinTrustActdataSubjectOnly(
                         (

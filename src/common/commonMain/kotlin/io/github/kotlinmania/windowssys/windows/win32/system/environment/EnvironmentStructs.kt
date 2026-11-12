@@ -55,30 +55,30 @@ public data class EnclaveIdentity(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnclaveIdentity> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnclaveIdentity> {
-                override val sizeBytes: Long = 152L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 152L
                 override fun readNative(addr: Long): EnclaveIdentity =
                     EnclaveIdentity(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 32L),
+                        ).readNative(addr + 32L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 64L),
+                        ).readNative(addr + 64L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 96L),
+                        ).readNative(addr + 96L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 112L),
+                        ).readNative(addr + 112L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 128L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 132L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 136L),
@@ -90,23 +90,23 @@ public data class EnclaveIdentity(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr, value.ownerId)
+                    ).writeNative(addr, value.ownerId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 32L, value.uniqueId)
+                    ).writeNative(addr + 32L, value.uniqueId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 64L, value.authorId)
+                    ).writeNative(addr + 64L, value.authorId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 96L, value.familyId)
+                    ).writeNative(addr + 96L, value.familyId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 112L, value.imageId)
+                    ).writeNative(addr + 112L, value.imageId.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 128L, value.enclaveSvn)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 132L, value.secureKernelSvn)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 136L, value.platformSvn)
@@ -171,8 +171,8 @@ public class EnclaveInformation internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnclaveInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnclaveInformation> {
-                override val sizeBytes: Long = 176L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 176L
                 override fun readNative(addr: Long): EnclaveInformation =
                     EnclaveInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -223,8 +223,8 @@ public data class EnclaveVbsBasicKeyRequest(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnclaveVbsBasicKeyRequest> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<EnclaveVbsBasicKeyRequest> {
-                override val sizeBytes: Long = 20L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 20L
                 override fun readNative(addr: Long): EnclaveVbsBasicKeyRequest =
                     EnclaveVbsBasicKeyRequest(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -283,8 +283,8 @@ public data class VbsBasicEnclaveExceptionAmd64(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsBasicEnclaveExceptionAmd64> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsBasicEnclaveExceptionAmd64> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): VbsBasicEnclaveExceptionAmd64 =
                     VbsBasicEnclaveExceptionAmd64(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -292,7 +292,7 @@ public data class VbsBasicEnclaveExceptionAmd64(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64, (3).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toIntArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 48L),
@@ -305,7 +305,7 @@ public data class VbsBasicEnclaveExceptionAmd64(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64, (3).toInt())
-                    ).writeNative(addr + 8L, value.exceptionInformation)
+                    ).writeNative(addr + 8L, value.exceptionInformation.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 32L, value.exceptionRAX)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 40L, value.exceptionRCX)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 48L, value.exceptionRIP)
@@ -365,14 +365,14 @@ public data class VbsBasicEnclaveThreadDescriptor32(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsBasicEnclaveThreadDescriptor32> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsBasicEnclaveThreadDescriptor32> {
-                override val sizeBytes: Long = 36L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 36L
                 override fun readNative(addr: Long): VbsBasicEnclaveThreadDescriptor32 =
                     VbsBasicEnclaveThreadDescriptor32(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUIntArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
@@ -383,7 +383,7 @@ public data class VbsBasicEnclaveThreadDescriptor32(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32, (4).toInt())
-                    ).writeNative(addr, value.threadContext)
+                    ).writeNative(addr, value.threadContext.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.entryPoint)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.stackPointer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.exceptionEntryPoint)
@@ -427,14 +427,14 @@ public data class VbsBasicEnclaveThreadDescriptor64(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsBasicEnclaveThreadDescriptor64> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsBasicEnclaveThreadDescriptor64> {
-                override val sizeBytes: Long = 72L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 72L
                 override fun readNative(addr: Long): VbsBasicEnclaveThreadDescriptor64 =
                     VbsBasicEnclaveThreadDescriptor64(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (4).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toULongArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 48L),
@@ -445,7 +445,7 @@ public data class VbsBasicEnclaveThreadDescriptor64(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (4).toInt())
-                    ).writeNative(addr, value.threadContext)
+                    ).writeNative(addr, value.threadContext.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 32L, value.entryPoint)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 40L, value.stackPointer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 48L, value.exceptionEntryPoint)
@@ -483,8 +483,8 @@ public data class VbsEnclaveReport(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReport> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReport> {
-                override val sizeBytes: Long = 224L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 224L
                 override fun readNative(addr: Long): VbsEnclaveReport =
                     VbsEnclaveReport(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -492,7 +492,7 @@ public data class VbsEnclaveReport(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (EnclaveIdentity.typeLayout()).readNative(addr + 72L),
                     )
                 override fun writeNative(addr: Long, value: VbsEnclaveReport) {
@@ -501,7 +501,7 @@ public data class VbsEnclaveReport(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (64).toInt())
-                    ).writeNative(addr + 8L, value.enclaveData)
+                    ).writeNative(addr + 8L, value.enclaveData.toList())
                     (EnclaveIdentity.typeLayout()).writeNative(addr + 72L, value.enclaveIdentity)
                 }
             }
@@ -544,56 +544,56 @@ public data class VbsEnclaveReportModule(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReportModule> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReportModule> {
-                override val sizeBytes: Long = 110L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 110L
                 override fun readNative(addr: Long): VbsEnclaveReportModule =
                     VbsEnclaveReportModule(
                         (VbsEnclaveReportVardataHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                        ).readNative(addr + 40L),
+                        ).readNative(addr + 40L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 72L),
+                        ).readNative(addr + 72L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                        ).readNative(addr + 88L),
+                        ).readNative(addr + 88L).toUByteArray(),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 104L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                        ).readNative(addr + 108L),
+                        ).readNative(addr + 108L).toUShortArray(),
                     )
                 override fun writeNative(addr: Long, value: VbsEnclaveReportModule) {
                     (VbsEnclaveReportVardataHeader.typeLayout()).writeNative(addr, value.header)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 8L, value.uniqueId)
+                    ).writeNative(addr + 8L, value.uniqueId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (32).toInt())
-                    ).writeNative(addr + 40L, value.authorId)
+                    ).writeNative(addr + 40L, value.authorId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 72L, value.familyId)
+                    ).writeNative(addr + 72L, value.familyId.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (16).toInt())
-                    ).writeNative(addr + 88L, value.imageId)
+                    ).writeNative(addr + 88L, value.imageId.toList())
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 104L, value.svn)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16, (1).toInt())
-                    ).writeNative(addr + 108L, value.moduleName)
+                    ).writeNative(addr + 108L, value.moduleName.toList())
                 }
             }
     }
@@ -610,8 +610,8 @@ public data class VbsEnclaveReportPkgHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReportPkgHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReportPkgHeader> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): VbsEnclaveReportPkgHeader =
                     VbsEnclaveReportPkgHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -640,8 +640,8 @@ public data class VbsEnclaveReportVardataHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReportVardataHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<VbsEnclaveReportVardataHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): VbsEnclaveReportVardataHeader =
                     VbsEnclaveReportVardataHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

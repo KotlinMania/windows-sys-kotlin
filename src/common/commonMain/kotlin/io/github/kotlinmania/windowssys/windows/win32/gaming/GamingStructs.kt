@@ -10,8 +10,8 @@ public data class GamingDeviceModelInformation(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<GamingDeviceModelInformation> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<GamingDeviceModelInformation> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): GamingDeviceModelInformation =
                     GamingDeviceModelInformation(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),

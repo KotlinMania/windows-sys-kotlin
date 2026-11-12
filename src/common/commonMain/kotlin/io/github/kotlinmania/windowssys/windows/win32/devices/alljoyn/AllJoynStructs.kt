@@ -155,8 +155,8 @@ public class AlljoynCertificateid internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AlljoynCertificateid> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AlljoynCertificateid> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): AlljoynCertificateid =
                     AlljoynCertificateid(
                         (
@@ -244,8 +244,8 @@ public class AlljoynCertificateidarray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AlljoynCertificateidarray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AlljoynCertificateidarray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AlljoynCertificateidarray =
                     AlljoynCertificateidarray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -483,8 +483,8 @@ public class AlljoynManifestarray internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<AlljoynManifestarray> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<AlljoynManifestarray> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): AlljoynManifestarray =
                     AlljoynManifestarray(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),

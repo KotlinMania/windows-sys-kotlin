@@ -24,8 +24,8 @@ public data class HttpVersionInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpVersionInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HttpVersionInfo> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): HttpVersionInfo =
                     HttpVersionInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -209,8 +209,8 @@ public data class WinhttpAsyncResult(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpAsyncResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpAsyncResult> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinhttpAsyncResult =
                     WinhttpAsyncResult(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
@@ -771,8 +771,8 @@ public data class WinhttpFailedConnectionRetries(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpFailedConnectionRetries> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpFailedConnectionRetries> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinhttpFailedConnectionRetries =
                     WinhttpFailedConnectionRetries(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -895,8 +895,8 @@ public data class WinhttpHttp2ReceiveWindow(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpHttp2ReceiveWindow> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpHttp2ReceiveWindow> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinhttpHttp2ReceiveWindow =
                     WinhttpHttp2ReceiveWindow(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -985,20 +985,20 @@ public data class WinhttpProxyNetworkingKey(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpProxyNetworkingKey> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpProxyNetworkingKey> {
-                override val sizeBytes: Long = 128L
                 override val alignBytes: Long = 1L
+                override val sizeBytes: Long = 128L
                 override fun readNative(addr: Long): WinhttpProxyNetworkingKey =
                     WinhttpProxyNetworkingKey(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                        ).readNative(addr),
+                        ).readNative(addr).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: WinhttpProxyNetworkingKey) {
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (128).toInt())
-                    ).writeNative(addr, value.pbBuffer)
+                    ).writeNative(addr, value.pbBuffer.toList())
                 }
             }
     }
@@ -1039,8 +1039,8 @@ public class WinhttpProxyResult internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpProxyResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpProxyResult> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinhttpProxyResult =
                     WinhttpProxyResult(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1579,8 +1579,8 @@ public class WinhttpQueryConnectionGroupResult internal constructor(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpQueryConnectionGroupResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpQueryConnectionGroupResult> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): WinhttpQueryConnectionGroupResult =
                     WinhttpQueryConnectionGroupResult(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1636,8 +1636,8 @@ public data class WinhttpRequestStats(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpRequestStats> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpRequestStats> {
-                override val sizeBytes: Long = 272L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 272L
                 override fun readNative(addr: Long): WinhttpRequestStats =
                     WinhttpRequestStats(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
@@ -1646,7 +1646,7 @@ public data class WinhttpRequestStats(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (32).toInt())
-                        ).readNative(addr + 16L),
+                        ).readNative(addr + 16L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: WinhttpRequestStats) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.ullFlags)
@@ -1655,7 +1655,7 @@ public data class WinhttpRequestStats(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (32).toInt())
-                    ).writeNative(addr + 16L, value.rgullStats)
+                    ).writeNative(addr + 16L, value.rgullStats.toList())
                 }
             }
     }
@@ -1682,22 +1682,22 @@ public data class WinhttpRequestTimes(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpRequestTimes> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpRequestTimes> {
-                override val sizeBytes: Long = 520L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 520L
                 override fun readNative(addr: Long): WinhttpRequestTimes =
                     WinhttpRequestTimes(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (64).toInt())
-                        ).readNative(addr + 8L),
+                        ).readNative(addr + 8L).toULongArray(),
                     )
                 override fun writeNative(addr: Long, value: WinhttpRequestTimes) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cTimes)
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64, (64).toInt())
-                    ).writeNative(addr + 8L, value.rgullTimes)
+                    ).writeNative(addr + 8L, value.rgullTimes.toList())
                 }
             }
     }
@@ -1714,8 +1714,8 @@ public data class WinhttpResolverCacheConfig(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpResolverCacheConfig> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpResolverCacheConfig> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): WinhttpResolverCacheConfig =
                     WinhttpResolverCacheConfig(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -1744,8 +1744,8 @@ public data class WinhttpWebSocketAsyncResult(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpWebSocketAsyncResult> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpWebSocketAsyncResult> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): WinhttpWebSocketAsyncResult =
                     WinhttpWebSocketAsyncResult(
                         (WinhttpAsyncResult.typeLayout()).readNative(addr),
@@ -1766,8 +1766,8 @@ public data class WinhttpWebSocketStatus(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpWebSocketStatus> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<WinhttpWebSocketStatus> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): WinhttpWebSocketStatus =
                     WinhttpWebSocketStatus(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),

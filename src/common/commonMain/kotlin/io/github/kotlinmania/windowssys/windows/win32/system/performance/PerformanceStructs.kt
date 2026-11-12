@@ -2143,8 +2143,8 @@ public data class PdhRawLogRecord(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PdhRawLogRecord> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PdhRawLogRecord> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PdhRawLogRecord =
                     PdhRawLogRecord(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2153,7 +2153,7 @@ public data class PdhRawLogRecord(
                         (
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                        ).readNative(addr + 12L),
+                        ).readNative(addr + 12L).toUByteArray(),
                     )
                 override fun writeNative(addr: Long, value: PdhRawLogRecord) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwStructureSize)
@@ -2162,7 +2162,7 @@ public data class PdhRawLogRecord(
                     (
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (1).toInt())
-                    ).writeNative(addr + 12L, value.rawBytes)
+                    ).writeNative(addr + 12L, value.rawBytes.toList())
                 }
             }
     }
@@ -2184,8 +2184,8 @@ public data class PdhTimeInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PdhTimeInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PdhTimeInfo> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): PdhTimeInfo =
                     PdhTimeInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
@@ -2230,8 +2230,8 @@ public data class PerfCounterBlock(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterBlock> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterBlock> {
-                override val sizeBytes: Long = 4L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 4L
                 override fun readNative(addr: Long): PerfCounterBlock =
                     PerfCounterBlock(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2250,8 +2250,8 @@ public data class PerfCounterData(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterData> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterData> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PerfCounterData =
                     PerfCounterData(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2280,8 +2280,8 @@ public data class PerfCounterDefinition(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterDefinition> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterDefinition> {
-                override val sizeBytes: Long = 40L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 40L
                 override fun readNative(addr: Long): PerfCounterDefinition =
                     PerfCounterDefinition(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2320,8 +2320,8 @@ public data class PerfCounterHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterHeader> {
-                override val sizeBytes: Long = 16L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 16L
                 override fun readNative(addr: Long): PerfCounterHeader =
                     PerfCounterHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2371,8 +2371,8 @@ public data class PerfCounterInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterInfo> {
-                override val sizeBytes: Long = 32L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 32L
                 override fun readNative(addr: Long): PerfCounterInfo =
                     PerfCounterInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2412,8 +2412,8 @@ public data class PerfCounterRegInfo(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterRegInfo> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfCounterRegInfo> {
-                override val sizeBytes: Long = 48L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 48L
                 override fun readNative(addr: Long): PerfCounterRegInfo =
                     PerfCounterRegInfo(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2520,8 +2520,8 @@ public data class PerfInstanceDefinition(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfInstanceDefinition> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfInstanceDefinition> {
-                override val sizeBytes: Long = 24L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 24L
                 override fun readNative(addr: Long): PerfInstanceDefinition =
                     PerfInstanceDefinition(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2550,8 +2550,8 @@ public data class PerfInstanceHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfInstanceHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfInstanceHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PerfInstanceHeader =
                     PerfInstanceHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2572,8 +2572,8 @@ public data class PerfMultiCounters(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfMultiCounters> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfMultiCounters> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PerfMultiCounters =
                     PerfMultiCounters(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2594,8 +2594,8 @@ public data class PerfMultiInstances(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfMultiInstances> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfMultiInstances> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PerfMultiInstances =
                     PerfMultiInstances(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2628,8 +2628,8 @@ public data class PerfObjectType(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfObjectType> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfObjectType> {
-                override val sizeBytes: Long = 64L
                 override val alignBytes: Long = 8L
+                override val sizeBytes: Long = 64L
                 override fun readNative(addr: Long): PerfObjectType =
                     PerfObjectType(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2750,8 +2750,8 @@ public data class PerfStringBufferHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfStringBufferHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfStringBufferHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PerfStringBufferHeader =
                     PerfStringBufferHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
@@ -2772,8 +2772,8 @@ public data class PerfStringCounterHeader(
     public companion object {
         public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfStringCounterHeader> =
             object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<PerfStringCounterHeader> {
-                override val sizeBytes: Long = 8L
                 override val alignBytes: Long = 4L
+                override val sizeBytes: Long = 8L
                 override fun readNative(addr: Long): PerfStringCounterHeader =
                     PerfStringCounterHeader(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
