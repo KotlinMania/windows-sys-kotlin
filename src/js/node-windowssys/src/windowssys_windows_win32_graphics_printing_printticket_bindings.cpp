@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTCloseProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeToPrintTicket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertDevModeToPrintTicket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbdevmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTicketToDevMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertPrintTicketToDevMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprintticket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -146,7 +146,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTConv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprintticket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprintticket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -208,7 +208,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceResources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceResources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszlocalename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidatePrintTicket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTMergeAndValidatePrintTicket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbaseticket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -276,7 +276,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTMerg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -305,7 +305,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProviderEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmaxversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -338,7 +338,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVersionSupport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTQuerySchemaVersionSupport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprintername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmaxversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTQuer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTReleaseMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GraphicsPrintingPrintticketPTReleaseMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -391,17 +391,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTRele
 }
 
 static void register_windows_win32_graphics_printing_printticket_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeToPrintTicket", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeToPrintTicket_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTicketToDevMode", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTicketToDevMode_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabilities", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabilities_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceCapabilities", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceCapabilities_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceResources", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceResources_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidatePrintTicket", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidatePrintTicket_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVersionSupport", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVersionSupport_napi));
-    exports.Set("windowssys_windows_win32_graphics_printing_printticket_pTReleaseMemory", Napi::Function::New(env, windowssys_windows_win32_graphics_printing_printticket_pTReleaseMemory_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTCloseProvider", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTCloseProvider_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertDevModeToPrintTicket", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertDevModeToPrintTicket_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertPrintTicketToDevMode", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertPrintTicketToDevMode_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintCapabilities", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintCapabilities_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceCapabilities", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceCapabilities_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceResources", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceResources_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTMergeAndValidatePrintTicket", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTMergeAndValidatePrintTicket_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProvider", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProvider_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProviderEx", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProviderEx_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTQuerySchemaVersionSupport", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTQuerySchemaVersionSupport_napi));
+    exports.Set("windowssysWindowsWin32GraphicsPrintingPrintticketPTReleaseMemory", Napi::Function::New(env, windowssysWindowsWin32GraphicsPrintingPrintticketPTReleaseMemory_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_graphics_printing_printticket_napi, nullptr };

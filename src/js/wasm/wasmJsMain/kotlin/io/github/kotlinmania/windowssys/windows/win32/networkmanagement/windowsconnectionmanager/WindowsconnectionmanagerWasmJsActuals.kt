@@ -2,83 +2,86 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32NetworkmanagementWindowsconnectionmanagerNapiAddon(): Boolean
+private external fun initWindowsWin32NetworkmanagementWindowsconnectionmanagerNapiAddon(): Boolean
 
-private val _windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable: Boolean = _initWindowsWin32NetworkmanagementWindowsconnectionmanagerNapiAddon()
+private val windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable: Boolean = initWindowsWin32NetworkmanagementWindowsconnectionmanagerNapiAddon()
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable(p0: String)
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification(p0: String, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification(p0: String, p1: String, p2: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification(p0: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory(p0)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory(p0: String)
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory(p0)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory(p0: String)
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList(p0, p1)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList(p0: String, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList(p0: String, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String): Int
 
-public actual fun freeInterfaceContextTable(interfacecontexttable: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable((interfacecontexttable?.value ?: 0L).toString())
+public actual fun freeInterfaceContextTable(interfacecontexttable: ConstPtr<NetInterfaceContextTable>) {
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable(interfacecontexttable.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: COpaquePointer?, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: COpaquePointer?): Hresult =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName((hostname?.value ?: 0L).toString(), (proxyname?.value ?: 0L).toString(), flags.toInt(), (connectionprofilefilterrawdata?.value ?: 0L).toString(), connectionprofilefilterrawdatasize.toInt(), (interfacecontexttable?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: ConstPtr<UByte>, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: MutPtr<MutPtr<NetInterfaceContextTable>>): Hresult =
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName(hostname.rawAddress.toString(), proxyname.rawAddress.toString(), flags.toInt(), connectionprofilefilterrawdata.rawAddress.toString(), connectionprofilefilterrawdatasize.toInt(), interfacecontexttable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: COpaquePointer?): Hresult =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint((destinationhostname?.value ?: 0L).toString(), (interfaceindex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: MutPtr<UInt>): Hresult =
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint(destinationhostname.rawAddress.toString(), interfaceindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: COpaquePointer?, registrationhandle: COpaquePointer?): Hresult =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification(0L.toString(), (callbackcontext?.value ?: 0L).toString(), (registrationhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: ConstPtr<CVoid>, registrationhandle: MutPtr<Handle>): Hresult =
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification(0L.toString(), callbackcontext.rawAddress.toString(), registrationhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun onDemandUnRegisterNotification(registrationhandle: Handle): Hresult =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification((registrationhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification(registrationhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmFreeMemory(pmemory: COpaquePointer?) {
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) {
-        _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory((pmemory?.value ?: 0L).toString())
+public actual fun wcmFreeMemory(pmemory: MutPtr<CVoid>) {
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) {
+        wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory(pmemory.rawAddress.toString())
     } else {
         throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun wcmGetProfileList(preserved: COpaquePointer?, ppprofilelist: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList((preserved?.value ?: 0L).toString(), (ppprofilelist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wcmGetProfileList(preserved: ConstPtr<CVoid>, ppprofilelist: MutPtr<MutPtr<WcmProfileInfoList>>): UInt =
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList(preserved.rawAddress.toString(), ppprofilelist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmQueryProperty(pinterface: COpaquePointer?, strprofilename: Pcwstr, property: WcmProperty, preserved: COpaquePointer?, pdwdatasize: COpaquePointer?, ppdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty((pinterface?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), property, (preserved?.value ?: 0L).toString(), (pdwdatasize?.value ?: 0L).toString(), (ppdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wcmQueryProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<UByte>>): UInt =
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty(pinterface.rawAddress.toString(), strprofilename.rawAddress.toString(), property, preserved.rawAddress.toString(), pdwdatasize.rawAddress.toString(), ppdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmSetProfileList(pprofilelist: COpaquePointer?, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList((pprofilelist?.value ?: 0L).toString(), dwposition.toInt(), fignoreunknownprofiles, (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wcmSetProfileList(pprofilelist: ConstPtr<WcmProfileInfoList>, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: ConstPtr<CVoid>): UInt =
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList(pprofilelist.rawAddress.toString(), dwposition.toInt(), fignoreunknownprofiles, preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmSetProperty(pinterface: COpaquePointer?, strprofilename: Pcwstr, property: WcmProperty, preserved: COpaquePointer?, dwdatasize: UInt, pbdata: COpaquePointer?): UInt =
-    if (_windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) _wasm_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty((pinterface?.value ?: 0L).toString(), (strprofilename?.value ?: 0L).toString(), property, (preserved?.value ?: 0L).toString(), dwdatasize.toInt(), (pbdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun wcmSetProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, dwdatasize: UInt, pbdata: ConstPtr<UByte>): UInt =
+    if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(pinterface.rawAddress.toString(), strprofilename.rawAddress.toString(), property, preserved.rawAddress.toString(), dwdatasize.toInt(), pbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

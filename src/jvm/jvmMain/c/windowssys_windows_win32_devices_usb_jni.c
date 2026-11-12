@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbAbortPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbAbortPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbFlushPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbFlushPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbFree(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbFree(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetAdjustedFrameNumber(JNIEnv* km_env, jclass km_clazz, jlong currentframenumber, jlong timestamp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetAdjustedFrameNumber(JNIEnv* km_env, jclass km_clazz, jlong currentframenumber, jlong timestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -122,7 +122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetAssociatedInterface(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte associatedinterfaceindex, jlong associatedinterfacehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetAssociatedInterface(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte associatedinterfaceindex, jlong associatedinterfacehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetCurrentAlternateSetting(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong settingnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetCurrentAlternateSetting(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong settingnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -175,7 +175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetCurrentFrameNumber(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong currentframenumber, jlong timestamp) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetCurrentFrameNumber(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong currentframenumber, jlong timestamp) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -202,7 +202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetCurrentFrameNumberAndQpc(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong frameqpcinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetCurrentFrameNumberAndQpc(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong frameqpcinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -228,7 +228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetDescriptor(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte descriptortype, jbyte arg_2_index, jshort languageid, jlong buffer, jint bufferlength, jlong lengthtransferred) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetDescriptor(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte descriptortype, jbyte arg2Index, jshort languageid, jlong buffer, jint bufferlength, jlong lengthtransferred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -240,7 +240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     }
     int32_t km_res;
     if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)descriptortype, (uint8_t)arg_2_index, (uint16_t)languageid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred);
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)descriptortype, (uint8_t)arg2Index, (uint16_t)languageid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -248,7 +248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #else
     (void)interfacehandle;
     (void)descriptortype;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)languageid;
     (void)buffer;
     (void)bufferlength;
@@ -259,7 +259,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -287,7 +287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetPipePolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jint policytype, jlong valuelength, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetPipePolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jint policytype, jlong valuelength, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -316,7 +316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbGetPowerPolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jint policytype, jlong valuelength, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbGetPowerPolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jint policytype, jlong valuelength, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -344,7 +344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbInitialize(JNIEnv* km_env, jclass km_clazz, jlong devicehandle, jlong interfacehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbInitialize(JNIEnv* km_env, jclass km_clazz, jlong devicehandle, jlong interfacehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -370,7 +370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbParseConfigurationDescriptor(JNIEnv* km_env, jclass km_clazz, jlong configurationdescriptor, jlong startposition, jint interfacenumber, jint alternatesetting, jint interfaceclass, jint interfacesubclass, jint interfaceprotocol) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbParseConfigurationDescriptor(JNIEnv* km_env, jclass km_clazz, jlong configurationdescriptor, jlong startposition, jint interfacenumber, jint alternatesetting, jint interfaceclass, jint interfacesubclass, jint interfaceprotocol) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -401,7 +401,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbParseDescriptors(JNIEnv* km_env, jclass km_clazz, jlong descriptorbuffer, jint totallength, jlong startposition, jint descriptortype) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbParseDescriptors(JNIEnv* km_env, jclass km_clazz, jlong descriptorbuffer, jint totallength, jlong startposition, jint descriptortype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -429,7 +429,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbQueryDeviceInformation(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jint informationtype, jlong bufferlength, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbQueryDeviceInformation(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jint informationtype, jlong bufferlength, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -457,7 +457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbQueryInterfaceSettings(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte alternateinterfacenumber, jlong usbaltinterfacedescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbQueryInterfaceSettings(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte alternateinterfacenumber, jlong usbaltinterfacedescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -484,7 +484,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbQueryPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte alternateinterfacenumber, jbyte pipeindex, jlong pipeinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbQueryPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte alternateinterfacenumber, jbyte pipeindex, jlong pipeinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -512,7 +512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbQueryPipeEx(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte alternatesettingnumber, jbyte pipeindex, jlong pipeinformationex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbQueryPipeEx(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte alternatesettingnumber, jbyte pipeindex, jlong pipeinformationex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -540,7 +540,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbReadIsochPipe(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jlong framenumber, jint numberofpackets, jlong isopacketdescriptors, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbReadIsochPipe(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jlong framenumber, jint numberofpackets, jlong isopacketdescriptors, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -571,7 +571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbReadIsochPipeAsap(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jint continuestream, jint numberofpackets, jlong isopacketdescriptors, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbReadIsochPipeAsap(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jint continuestream, jint numberofpackets, jlong isopacketdescriptors, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -602,7 +602,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbReadPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jlong buffer, jint bufferlength, jlong lengthtransferred, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbReadPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jlong buffer, jint bufferlength, jlong lengthtransferred, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -632,7 +632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbRegisterIsochBuffer(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jlong buffer, jint bufferlength, jlong isochbufferhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbRegisterIsochBuffer(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jlong buffer, jint bufferlength, jlong isochbufferhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -661,7 +661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbResetPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbResetPipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -687,7 +687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbSetCurrentAlternateSetting(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte settingnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbSetCurrentAlternateSetting(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte settingnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -713,7 +713,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbSetPipePolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jint policytype, jint valuelength, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbSetPipePolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jint policytype, jint valuelength, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -742,7 +742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbSetPowerPolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jint policytype, jint valuelength, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbSetPowerPolicy(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jint policytype, jint valuelength, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -770,7 +770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbStartTrackingForTimeSync(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong starttrackinginfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbStartTrackingForTimeSync(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong starttrackinginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -796,7 +796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbStopTrackingForTimeSync(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong stoptrackinginfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbStopTrackingForTimeSync(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jlong stoptrackinginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -822,7 +822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbUnregisterIsochBuffer(JNIEnv* km_env, jclass km_clazz, jlong isochbufferhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbUnregisterIsochBuffer(JNIEnv* km_env, jclass km_clazz, jlong isochbufferhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -847,7 +847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbWriteIsochPipe(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jlong framenumber, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbWriteIsochPipe(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jlong framenumber, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -876,7 +876,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbWriteIsochPipeAsap(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jint continuestream, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbWriteIsochPipeAsap(JNIEnv* km_env, jclass km_clazz, jlong bufferhandle, jint offset, jint length, jint continuestream, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -905,7 +905,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssys_1windows_1win32_1devices_1usb_1winUsbWritePipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jlong buffer, jint bufferlength, jlong lengthtransferred, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_usb_WindowsWin32DevicesUsbJniBridge_windowssysWindowsWin32DevicesUsbWinUsbWritePipe(JNIEnv* km_env, jclass km_clazz, jlong interfacehandle, jbyte pipeid, jlong buffer, jint bufferlength, jlong lengthtransferred, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

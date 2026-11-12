@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchCloseGestureInfoHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgestureinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_closeGestureInfoHandl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_closeTouchInputHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchCloseTouchInputHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htouchinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_closeTouchInputHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_getGestureConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchGetGestureConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_getGestureConfig_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_getGestureExtraArgs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchGetGestureExtraArgs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgestureinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbextraargs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_getGestureExtraArgs_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_getGestureInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchGetGestureInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgestureinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgestureinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_getGestureInfo_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_getTouchInputInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchGetTouchInputInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htouchinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cinputs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_getTouchInputInfo_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_isTouchWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchIsTouchWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -250,7 +250,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_isTouchWindow_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_registerTouchWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchRegisterTouchWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -277,7 +277,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_registerTouchWindow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_setGestureConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchSetGestureConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -310,7 +310,7 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_setGestureConfig_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_touch_unregisterTouchWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiInputTouchUnregisterTouchWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -336,16 +336,16 @@ static Napi::Value windowssys_windows_win32_ui_input_touch_unregisterTouchWindow
 }
 
 static void register_windows_win32_ui_input_touch_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_closeGestureInfoHandle_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_closeTouchInputHandle", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_closeTouchInputHandle_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_getGestureConfig", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_getGestureConfig_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_getGestureExtraArgs", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_getGestureExtraArgs_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_getGestureInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_getGestureInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_getTouchInputInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_getTouchInputInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_isTouchWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_isTouchWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_registerTouchWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_registerTouchWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_setGestureConfig", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_setGestureConfig_napi));
-    exports.Set("windowssys_windows_win32_ui_input_touch_unregisterTouchWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_touch_unregisterTouchWindow_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchCloseGestureInfoHandle", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchCloseGestureInfoHandle_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchCloseTouchInputHandle", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchCloseTouchInputHandle_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchGetGestureConfig", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchGetGestureConfig_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchGetGestureExtraArgs", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchGetGestureExtraArgs_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchGetGestureInfo", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchGetGestureInfo_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchGetTouchInputInfo", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchGetTouchInputInfo_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchIsTouchWindow", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchIsTouchWindow_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchRegisterTouchWindow", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchRegisterTouchWindow_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchSetGestureConfig", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchSetGestureConfig_napi));
+    exports.Set("windowssysWindowsWin32UiInputTouchUnregisterTouchWindow", Napi::Function::New(env, windowssysWindowsWin32UiInputTouchUnregisterTouchWindow_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_input_touch_napi, nullptr };

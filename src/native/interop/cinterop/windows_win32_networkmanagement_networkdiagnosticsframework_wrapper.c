@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCancelIncident(void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCancelIncident(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCloseIncident(void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCloseIncident(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateConnectivityIncident(void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateConnectivityIncident(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateDNSIncident(void* hostname, uint16_t querytype, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateDNSIncident(void* hostname, uint16_t querytype, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateGroupingIncident(void* cloudname, void* groupname, void* identity, void* invitation, void* addresses, void* appid, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateGroupingIncident(void* cloudname, void* groupname, void* identity, void* invitation, void* addresses, void* appid, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateIncident(void* helperclassname, uint32_t celt, void* attributes, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateIncident(void* helperclassname, uint32_t celt, void* attributes, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -158,7 +158,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreatePnrpIncident(void* cloudname, void* peername, int32_t diagnosepublish, void* appid, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreatePnrpIncident(void* cloudname, void* peername, int32_t diagnosepublish, void* appid, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -184,7 +184,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateSharingIncident(void* uncpath, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateSharingIncident(void* uncpath, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncident(void* url, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWebIncident(void* url, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -230,7 +230,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWebIncidentEx(void* url, int32_t usewinhttp, void* modulename, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWebIncidentEx(void* url, int32_t usewinhttp, void* modulename, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -255,7 +255,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfCreateWinSockIncident(uint64_t sock, void* host, uint16_t port, void* appid, void* userid, void* handle) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWinSockIncident(uint64_t sock, void* host, uint16_t port, void* appid, void* userid, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint16_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -282,7 +282,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfDiagnoseIncident(void* handle, void* rootcausecount, void* rootcauses, uint32_t dwwait, uint32_t dwflags) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfDiagnoseIncident(void* handle, void* rootcausecount, void* rootcauses, uint32_t dwwait, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -308,7 +308,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfExecuteDiagnosis(void* handle, void* hwnd) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfExecuteDiagnosis(void* handle, void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -331,7 +331,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfGetTraceFile(void* handle, void* tracefilelocation) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfGetTraceFile(void* handle, void* tracefilelocation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -354,7 +354,7 @@ int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_n
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_networkdiagnosticsframework_ndfRepairIncident(void* handle, void* repairex, uint32_t dwwait) {
+int32_t windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfRepairIncident(void* handle, void* repairex, uint32_t dwwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

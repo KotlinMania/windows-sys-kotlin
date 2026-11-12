@@ -9,36 +9,36 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam);
-int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo);
-int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo);
-int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam);
-int32_t windowssys_windows_win32_system_stationsanddesktops_closeDesktop(void* hdesktop);
-int32_t windowssys_windows_win32_system_stationsanddesktops_closeWindowStation(void* hwinsta);
-void* windowssys_windows_win32_system_stationsanddesktops_createDesktopA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
-void* windowssys_windows_win32_system_stationsanddesktops_createDesktopExA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid);
-void* windowssys_windows_win32_system_stationsanddesktops_createDesktopExW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid);
-void* windowssys_windows_win32_system_stationsanddesktops_createDesktopW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
-void* windowssys_windows_win32_system_stationsanddesktops_createWindowStationA(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
-void* windowssys_windows_win32_system_stationsanddesktops_createWindowStationW(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
-int32_t windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA(void* hwinsta, void* lpenumfunc, int64_t lparam);
-int32_t windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW(void* hwinsta, void* lpenumfunc, int64_t lparam);
-int32_t windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA(void* lpenumfunc, int64_t lparam);
-int32_t windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW(void* lpenumfunc, int64_t lparam);
-void* windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation(void);
-void* windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop(uint32_t dwthreadid);
-int32_t windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded);
-int32_t windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded);
-void* windowssys_windows_win32_system_stationsanddesktops_openDesktopA(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess);
-void* windowssys_windows_win32_system_stationsanddesktops_openDesktopW(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess);
-void* windowssys_windows_win32_system_stationsanddesktops_openInputDesktop(uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess);
-void* windowssys_windows_win32_system_stationsanddesktops_openWindowStationA(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess);
-void* windowssys_windows_win32_system_stationsanddesktops_openWindowStationW(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess);
-int32_t windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation(void* hwinsta);
-int32_t windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop(void* hdesktop);
-int32_t windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength);
-int32_t windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength);
-int32_t windowssys_windows_win32_system_stationsanddesktops_switchDesktop(void* hdesktop);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsCloseDesktop(void* hdesktop);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation(void* hwinsta);
+void* windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
+void* windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid);
+void* windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid);
+void* windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
+void* windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
+void* windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsA(void* hwinsta, void* lpenumfunc, int64_t lparam);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsEnumDesktopsW(void* hwinsta, void* lpenumfunc, int64_t lparam);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsA(void* lpenumfunc, int64_t lparam);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsEnumWindowStationsW(void* lpenumfunc, int64_t lparam);
+void* windowssysWindowsWin32SystemStationsanddesktopsGetProcessWindowStation(void);
+void* windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop(uint32_t dwthreadid);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded);
+void* windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopA(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess);
+void* windowssysWindowsWin32SystemStationsanddesktopsOpenDesktopW(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess);
+void* windowssysWindowsWin32SystemStationsanddesktopsOpenInputDesktop(uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess);
+void* windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationA(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess);
+void* windowssysWindowsWin32SystemStationsanddesktopsOpenWindowStationW(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsSetProcessWindowStation(void* hwinsta);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop(void* hdesktop);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength);
+int32_t windowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop(void* hdesktop);
 
 #ifdef __cplusplus
 }

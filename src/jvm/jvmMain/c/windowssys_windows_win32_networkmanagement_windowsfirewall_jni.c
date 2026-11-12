@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1ncFreeNetconProperties(JNIEnv* km_env, jclass km_clazz, jlong pprops) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNcFreeNetconProperties(JNIEnv* km_env, jclass km_clazz, jlong pprops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1ncIsValidConnectionName(JNIEnv* km_env, jclass km_clazz, jlong pszwname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNcIsValidConnectionName(JNIEnv* km_env, jclass km_clazz, jlong pszwname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -65,7 +65,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationDiagnoseConnectFailureAndGetInfo(JNIEnv* km_env, jclass km_clazz, jlong wszservername, jlong netisoerror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationDiagnoseConnectFailureAndGetInfo(JNIEnv* km_env, jclass km_clazz, jlong wszservername, jlong netisoerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -91,7 +91,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationEnumAppContainers(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pdwnumpublicappcs, jlong pppublicappcs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationEnumAppContainers(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pdwnumpublicappcs, jlong pppublicappcs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -118,7 +118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationEnumerateAppContainerRules(JNIEnv* km_env, jclass km_clazz, jlong newenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationEnumerateAppContainerRules(JNIEnv* km_env, jclass km_clazz, jlong newenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationFreeAppContainers(JNIEnv* km_env, jclass km_clazz, jlong ppublicappcs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationFreeAppContainers(JNIEnv* km_env, jclass km_clazz, jlong ppublicappcs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -168,7 +168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationGetAppContainerConfig(JNIEnv* km_env, jclass km_clazz, jlong pdwnumpublicappcs, jlong appcontainersids) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetAppContainerConfig(JNIEnv* km_env, jclass km_clazz, jlong pdwnumpublicappcs, jlong appcontainersids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -194,7 +194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationGetEnterpriseIdAsync(JNIEnv* km_env, jclass km_clazz, jlong wszservername, jint dwflags, jlong context, jlong callback, jlong hoperation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetEnterpriseIdAsync(JNIEnv* km_env, jclass km_clazz, jlong wszservername, jint dwflags, jlong context, jlong callback, jlong hoperation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationGetEnterpriseIdClose(JNIEnv* km_env, jclass km_clazz, jlong hoperation, jint bwaitforoperation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetEnterpriseIdClose(JNIEnv* km_env, jclass km_clazz, jlong hoperation, jint bwaitforoperation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -249,7 +249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationRegisterForAppContainerChanges(JNIEnv* km_env, jclass km_clazz, jint flags, jlong callback, jlong context, jlong registrationobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationRegisterForAppContainerChanges(JNIEnv* km_env, jclass km_clazz, jint flags, jlong callback, jlong context, jlong registrationobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -277,7 +277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationSetAppContainerConfig(JNIEnv* km_env, jclass km_clazz, jint dwnumpublicappcs, jlong appcontainersids) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationSetAppContainerConfig(JNIEnv* km_env, jclass km_clazz, jint dwnumpublicappcs, jlong appcontainersids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -303,7 +303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationSetupAppContainerBinaries(JNIEnv* km_env, jclass km_clazz, jlong applicationcontainersid, jlong packagefullname, jlong packagefolder, jlong displayname, jint bbinariesfullycomputed, jlong binaries, jint binariescount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationSetupAppContainerBinaries(JNIEnv* km_env, jclass km_clazz, jlong applicationcontainersid, jlong packagefullname, jlong packagefolder, jlong displayname, jint bbinariesfullycomputed, jlong binaries, jint binariescount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -334,7 +334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsfirewall_1networkIsolationUnregisterForAppContainerChanges(JNIEnv* km_env, jclass km_clazz, jlong registrationobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsfirewall_WindowsWin32NetworkmanagementWindowsfirewallJniBridge_windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationUnregisterForAppContainerChanges(JNIEnv* km_env, jclass km_clazz, jlong registrationobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

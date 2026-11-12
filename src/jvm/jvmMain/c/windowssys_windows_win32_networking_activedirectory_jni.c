@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsBuildEnumerator(JNIEnv* km_env, jclass km_clazz, jlong padscontainer, jlong ppenumvariant) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsBuildEnumerator(JNIEnv* km_env, jclass km_clazz, jlong padscontainer, jlong ppenumvariant) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsBuildVarArrayInt(JNIEnv* km_env, jclass km_clazz, jlong lpdwobjecttypes, jint dwobjecttypes, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsBuildVarArrayInt(JNIEnv* km_env, jclass km_clazz, jlong lpdwobjecttypes, jint dwobjecttypes, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsBuildVarArrayStr(JNIEnv* km_env, jclass km_clazz, jlong lpppathnames, jint dwpathnames, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsBuildVarArrayStr(JNIEnv* km_env, jclass km_clazz, jlong lpppathnames, jint dwpathnames, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsDecodeBinaryData(JNIEnv* km_env, jclass km_clazz, jlong szsrcdata, jlong ppbdestdata, jlong pdwdestlen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsDecodeBinaryData(JNIEnv* km_env, jclass km_clazz, jlong szsrcdata, jlong ppbdestdata, jlong pdwdestlen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsEncodeBinaryData(JNIEnv* km_env, jclass km_clazz, jlong pbsrcdata, jint dwsrclen, jlong ppszdestdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsEncodeBinaryData(JNIEnv* km_env, jclass km_clazz, jlong pbsrcdata, jint dwsrclen, jlong ppszdestdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -153,7 +153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsEnumerateNext(JNIEnv* km_env, jclass km_clazz, jlong penumvariant, jint celements, jlong pvar, jlong pcelementsfetched) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsEnumerateNext(JNIEnv* km_env, jclass km_clazz, jlong penumvariant, jint celements, jlong pvar, jlong pcelementsfetched) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -181,7 +181,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsFreeEnumerator(JNIEnv* km_env, jclass km_clazz, jlong penumvariant) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsFreeEnumerator(JNIEnv* km_env, jclass km_clazz, jlong penumvariant) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -206,7 +206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsGetLastError(JNIEnv* km_env, jclass km_clazz, jlong lperror, jlong lperrorbuf, jint dwerrorbuflen, jlong lpnamebuf, jint dwnamebuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsGetLastError(JNIEnv* km_env, jclass km_clazz, jlong lperror, jlong lperrorbuf, jint dwerrorbuflen, jlong lpnamebuf, jint dwnamebuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsGetObject(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jlong riid, jlong ppobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsGetObject(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jlong riid, jlong ppobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -262,7 +262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsOpenObject(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jlong lpszusername, jlong lpszpassword, jint dwreserved, jlong riid, jlong ppobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsOpenObject(JNIEnv* km_env, jclass km_clazz, jlong lpszpathname, jlong lpszusername, jlong lpszpassword, jint dwreserved, jlong riid, jlong ppobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -292,7 +292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsPropCheckIfWritable(JNIEnv* km_env, jclass km_clazz, jlong pwzattr, jlong pwritableattrs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsPropCheckIfWritable(JNIEnv* km_env, jclass km_clazz, jlong pwzattr, jlong pwritableattrs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -318,7 +318,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsPropCreateNotifyObj(JNIEnv* km_env, jclass km_clazz, jlong pappthddataobj, jlong pwzadsobjname, jlong phnotifyobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsPropCreateNotifyObj(JNIEnv* km_env, jclass km_clazz, jlong pappthddataobj, jlong pwzadsobjname, jlong phnotifyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -345,7 +345,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsPropGetInitInfo(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong pinitparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsPropGetInitInfo(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong pinitparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -371,7 +371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsPropSendErrorMessage(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong perror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsPropSendErrorMessage(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong perror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -397,7 +397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsPropSetHwnd(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong hpage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsPropSetHwnd(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong hpage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -423,7 +423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsPropSetHwndWithTitle(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong hpage, jlong ptztitle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsPropSetHwndWithTitle(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong hpage, jlong ptztitle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -450,7 +450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsPropShowErrorDialog(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong hpage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsPropShowErrorDialog(JNIEnv* km_env, jclass km_clazz, jlong hnotifyobj, jlong hpage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -476,7 +476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1aDsSetLastError(JNIEnv* km_env, jclass km_clazz, jint dwerr, jlong pszerror, jlong pszprovider) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryADsSetLastError(JNIEnv* km_env, jclass km_clazz, jint dwerr, jlong pszerror, jlong pszprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -499,7 +499,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1adsFreeAdsValues(JNIEnv* km_env, jclass km_clazz, jlong padsvalues, jint dwnumvalues) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryAdsFreeAdsValues(JNIEnv* km_env, jclass km_clazz, jlong padsvalues, jint dwnumvalues) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -521,7 +521,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1adsTypeToPropVariant(JNIEnv* km_env, jclass km_clazz, jlong padsvalues, jint dwnumvalues, jlong pvariant) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryAdsTypeToPropVariant(JNIEnv* km_env, jclass km_clazz, jlong padsvalues, jint dwnumvalues, jlong pvariant) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -548,7 +548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1allocADsMem(JNIEnv* km_env, jclass km_clazz, jint cb) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryAllocADsMem(JNIEnv* km_env, jclass km_clazz, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -573,7 +573,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1allocADsStr(JNIEnv* km_env, jclass km_clazz, jlong pstr) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryAllocADsStr(JNIEnv* km_env, jclass km_clazz, jlong pstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -598,7 +598,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1binarySDToSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong psecuritydescriptor, jlong pvarsec, jlong pszservername, jlong username, jlong password, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryBinarySDToSecurityDescriptor(JNIEnv* km_env, jclass km_clazz, jlong psecuritydescriptor, jlong pvarsec, jlong pszservername, jlong username, jlong password, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -628,7 +628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsAddSidHistoryA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcdomain, jlong srcprincipal, jlong srcdomaincontroller, jlong srcdomaincreds, jlong dstdomain, jlong dstprincipal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsAddSidHistoryA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcdomain, jlong srcprincipal, jlong srcdomaincontroller, jlong srcdomaincreds, jlong dstdomain, jlong dstprincipal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -660,7 +660,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsAddSidHistoryW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcdomain, jlong srcprincipal, jlong srcdomaincontroller, jlong srcdomaincreds, jlong dstdomain, jlong dstprincipal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsAddSidHistoryW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcdomain, jlong srcprincipal, jlong srcdomaincontroller, jlong srcdomaincreds, jlong dstdomain, jlong dstprincipal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -692,7 +692,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsAddressToSiteNamesA(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesA(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -720,7 +720,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsAddressToSiteNamesExA(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames, jlong subnetnames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesExA(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames, jlong subnetnames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -749,7 +749,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsAddressToSiteNamesExW(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames, jlong subnetnames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesExW(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames, jlong subnetnames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -778,7 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsAddressToSiteNamesW(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesW(JNIEnv* km_env, jclass km_clazz, jlong computername, jint entrycount, jlong socketaddresses, jlong sitenames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -806,7 +806,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -833,7 +833,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindByInstanceA(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong annotation, jlong instanceguid, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindByInstanceA(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong annotation, jlong instanceguid, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -865,7 +865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindByInstanceW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong annotation, jlong instanceguid, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindByInstanceW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong annotation, jlong instanceguid, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -897,7 +897,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindToISTGA(JNIEnv* km_env, jclass km_clazz, jlong sitename, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindToISTGA(JNIEnv* km_env, jclass km_clazz, jlong sitename, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -923,7 +923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindToISTGW(JNIEnv* km_env, jclass km_clazz, jlong sitename, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindToISTGW(JNIEnv* km_env, jclass km_clazz, jlong sitename, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -949,7 +949,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -976,7 +976,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindWithCredA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindWithCredA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1004,7 +1004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindWithCredW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindWithCredW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1032,7 +1032,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindWithSpnA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1061,7 +1061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindWithSpnExA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnExA(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1091,7 +1091,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindWithSpnExW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnExW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jint bindflags, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1121,7 +1121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindWithSpnW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnW(JNIEnv* km_env, jclass km_clazz, jlong domaincontrollername, jlong dnsdomainname, jlong authidentity, jlong serviceprincipalname, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1150,7 +1150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBindingSetTimeout(JNIEnv* km_env, jclass km_clazz, jlong hds, jint ctimeoutsecs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBindingSetTimeout(JNIEnv* km_env, jclass km_clazz, jlong hds, jint ctimeoutsecs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1176,7 +1176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBrowseForContainerA(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBrowseForContainerA(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1201,7 +1201,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsBrowseForContainerW(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsBrowseForContainerW(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1226,7 +1226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsClientMakeSpnForTargetServerA(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong pcspnlength, jlong pszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsClientMakeSpnForTargetServerA(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong pcspnlength, jlong pszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1254,7 +1254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsClientMakeSpnForTargetServerW(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong pcspnlength, jlong pszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsClientMakeSpnForTargetServerW(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong pcspnlength, jlong pszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1282,7 +1282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackNamesA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jint formatoffered, jint formatdesired, jint cnames, jlong rpnames, jlong ppresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackNamesA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jint formatoffered, jint formatdesired, jint cnames, jlong rpnames, jlong ppresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1313,7 +1313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackNamesW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jint formatoffered, jint formatdesired, jint cnames, jlong rpnames, jlong ppresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackNamesW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jint formatoffered, jint formatdesired, jint cnames, jlong rpnames, jlong ppresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1344,7 +1344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackSpn2A(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn2A(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1377,7 +1377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackSpn2W(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn2W(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1410,7 +1410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackSpn3W(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pchostname, jlong hostname, jlong pcinstancename, jlong instancename, jlong pportnumber, jlong pcdomainname, jlong domainname, jlong pcrealmname, jlong realmname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn3W(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pchostname, jlong hostname, jlong pcinstancename, jlong instancename, jlong pportnumber, jlong pcdomainname, jlong domainname, jlong pcrealmname, jlong realmname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1445,7 +1445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackSpn4W(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pchostname, jlong hostname, jlong pcinstancename, jlong instancename, jlong pcportname, jlong portname, jlong pcdomainname, jlong domainname, jlong pcrealmname, jlong realmname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn4W(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jint cspn, jlong pchostname, jlong hostname, jlong pcinstancename, jlong instancename, jlong pcportname, jlong portname, jlong pcdomainname, jlong domainname, jlong pcrealmname, jlong realmname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1481,7 +1481,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackSpnA(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpnA(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1513,7 +1513,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackSpnW(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpnW(JNIEnv* km_env, jclass km_clazz, jlong pszspn, jlong pcserviceclass, jlong serviceclass, jlong pcservicename, jlong servicename, jlong pcinstancename, jlong instancename, jlong pinstanceport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1545,7 +1545,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackUnquotedMangledRdnA(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint cchrdn, jlong pguid, jlong pedsmanglefor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackUnquotedMangledRdnA(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint cchrdn, jlong pguid, jlong pedsmanglefor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1573,7 +1573,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsCrackUnquotedMangledRdnW(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint cchrdn, jlong pguid, jlong pedsmanglefor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsCrackUnquotedMangledRdnW(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint cchrdn, jlong pguid, jlong pedsmanglefor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1601,7 +1601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsDeregisterDnsHostRecordsA(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dnsdomainname, jlong domainguid, jlong dsaguid, jlong dnshostname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsDeregisterDnsHostRecordsA(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dnsdomainname, jlong domainguid, jlong dsaguid, jlong dnshostname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1630,7 +1630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsDeregisterDnsHostRecordsW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dnsdomainname, jlong domainguid, jlong dsaguid, jlong dnshostname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsDeregisterDnsHostRecordsW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong dnsdomainname, jlong domainguid, jlong dsaguid, jlong dnshostname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1659,7 +1659,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsEnumerateDomainTrustsA(JNIEnv* km_env, jclass km_clazz, jlong servername, jint flags, jlong domains, jlong domaincount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsEnumerateDomainTrustsA(JNIEnv* km_env, jclass km_clazz, jlong servername, jint flags, jlong domains, jlong domaincount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1687,7 +1687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsEnumerateDomainTrustsW(JNIEnv* km_env, jclass km_clazz, jlong servername, jint flags, jlong domains, jlong domaincount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsEnumerateDomainTrustsW(JNIEnv* km_env, jclass km_clazz, jlong servername, jint flags, jlong domains, jlong domaincount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1715,7 +1715,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeDomainControllerInfoA(JNIEnv* km_env, jclass km_clazz, jint infolevel, jint cinfo, jlong pinfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeDomainControllerInfoA(JNIEnv* km_env, jclass km_clazz, jint infolevel, jint cinfo, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1738,7 +1738,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeDomainControllerInfoW(JNIEnv* km_env, jclass km_clazz, jint infolevel, jint cinfo, jlong pinfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeDomainControllerInfoW(JNIEnv* km_env, jclass km_clazz, jint infolevel, jint cinfo, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1761,7 +1761,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeNameResultA(JNIEnv* km_env, jclass km_clazz, jlong presult) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeNameResultA(JNIEnv* km_env, jclass km_clazz, jlong presult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1782,7 +1782,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeNameResultW(JNIEnv* km_env, jclass km_clazz, jlong presult) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeNameResultW(JNIEnv* km_env, jclass km_clazz, jlong presult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1803,7 +1803,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreePasswordCredentials(JNIEnv* km_env, jclass km_clazz, jlong authidentity) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreePasswordCredentials(JNIEnv* km_env, jclass km_clazz, jlong authidentity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1824,7 +1824,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeSchemaGuidMapA(JNIEnv* km_env, jclass km_clazz, jlong pguidmap) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeSchemaGuidMapA(JNIEnv* km_env, jclass km_clazz, jlong pguidmap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1845,7 +1845,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeSchemaGuidMapW(JNIEnv* km_env, jclass km_clazz, jlong pguidmap) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeSchemaGuidMapW(JNIEnv* km_env, jclass km_clazz, jlong pguidmap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1866,7 +1866,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeSpnArrayA(JNIEnv* km_env, jclass km_clazz, jint cspn, jlong rpszspn) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeSpnArrayA(JNIEnv* km_env, jclass km_clazz, jint cspn, jlong rpszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1888,7 +1888,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsFreeSpnArrayW(JNIEnv* km_env, jclass km_clazz, jint cspn, jlong rpszspn) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsFreeSpnArrayW(JNIEnv* km_env, jclass km_clazz, jint cspn, jlong rpszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1910,7 +1910,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcCloseW(JNIEnv* km_env, jclass km_clazz, jlong getdccontexthandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcCloseW(JNIEnv* km_env, jclass km_clazz, jlong getdccontexthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1931,7 +1931,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcNameA(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong domainname, jlong domainguid, jlong sitename, jint flags, jlong domaincontrollerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNameA(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong domainname, jlong domainguid, jlong sitename, jint flags, jlong domaincontrollerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1961,7 +1961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcNameW(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong domainname, jlong domainguid, jlong sitename, jint flags, jlong domaincontrollerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNameW(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong domainname, jlong domainguid, jlong sitename, jint flags, jlong domaincontrollerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1991,7 +1991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcNextA(JNIEnv* km_env, jclass km_clazz, jlong getdccontexthandle, jlong sockaddresscount, jlong sockaddresses, jlong dnshostname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNextA(JNIEnv* km_env, jclass km_clazz, jlong getdccontexthandle, jlong sockaddresscount, jlong sockaddresses, jlong dnshostname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2019,7 +2019,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcNextW(JNIEnv* km_env, jclass km_clazz, jlong getdccontexthandle, jlong sockaddresscount, jlong sockaddresses, jlong dnshostname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNextW(JNIEnv* km_env, jclass km_clazz, jlong getdccontexthandle, jlong sockaddresscount, jlong sockaddresses, jlong dnshostname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2047,7 +2047,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcOpenA(JNIEnv* km_env, jclass km_clazz, jlong dnsname, jint optionflags, jlong sitename, jlong domainguid, jlong dnsforestname, jint dcflags, jlong retgetdccontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcOpenA(JNIEnv* km_env, jclass km_clazz, jlong dnsname, jint optionflags, jlong sitename, jlong domainguid, jlong dnsforestname, jint dcflags, jlong retgetdccontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2078,7 +2078,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcOpenW(JNIEnv* km_env, jclass km_clazz, jlong dnsname, jint optionflags, jlong sitename, jlong domainguid, jlong dnsforestname, jint dcflags, jlong retgetdccontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcOpenW(JNIEnv* km_env, jclass km_clazz, jlong dnsname, jint optionflags, jlong sitename, jlong domainguid, jlong dnsforestname, jint dcflags, jlong retgetdccontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2109,7 +2109,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcSiteCoverageA(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong entrycount, jlong sitenames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcSiteCoverageA(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong entrycount, jlong sitenames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2136,7 +2136,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDcSiteCoverageW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong entrycount, jlong sitenames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDcSiteCoverageW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong entrycount, jlong sitenames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2163,7 +2163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDomainControllerInfoA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domainname, jint infolevel, jlong pcout, jlong ppinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDomainControllerInfoA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domainname, jint infolevel, jlong pcout, jlong ppinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2192,7 +2192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetDomainControllerInfoW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domainname, jint infolevel, jlong pcout, jlong ppinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetDomainControllerInfoW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domainname, jint infolevel, jlong pcout, jlong ppinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2221,7 +2221,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetForestTrustInformationW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong trusteddomainname, jint flags, jlong foresttrustinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetForestTrustInformationW(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong trusteddomainname, jint flags, jlong foresttrustinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2249,7 +2249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetFriendlyClassName(JNIEnv* km_env, jclass km_clazz, jlong pszobjectclass, jlong pszbuffer, jint cchbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetFriendlyClassName(JNIEnv* km_env, jclass km_clazz, jlong pszobjectclass, jlong pszbuffer, jint cchbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2276,7 +2276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetIcon(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pszobjectclass, jint cximage, jint cyimage) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetIcon(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pszobjectclass, jint cximage, jint cyimage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2304,7 +2304,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetRdnW(JNIEnv* km_env, jclass km_clazz, jlong ppdn, jlong pcdn, jlong ppkey, jlong pckey, jlong ppval, jlong pcval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetRdnW(JNIEnv* km_env, jclass km_clazz, jlong ppdn, jlong pcdn, jlong ppkey, jlong pckey, jlong ppval, jlong pcval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2334,7 +2334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetSiteNameA(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong sitename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetSiteNameA(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong sitename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2360,7 +2360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetSiteNameW(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong sitename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetSiteNameW(JNIEnv* km_env, jclass km_clazz, jlong computername, jlong sitename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2386,7 +2386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetSpnA(JNIEnv* km_env, jclass km_clazz, jint servicetype, jlong serviceclass, jlong servicename, jshort instanceport, jshort cinstancenames, jlong pinstancenames, jlong pinstanceports, jlong pcspn, jlong prpszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetSpnA(JNIEnv* km_env, jclass km_clazz, jint servicetype, jlong serviceclass, jlong servicename, jshort instanceport, jshort cinstancenames, jlong pinstancenames, jlong pinstanceports, jlong pcspn, jlong prpszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2419,7 +2419,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsGetSpnW(JNIEnv* km_env, jclass km_clazz, jint servicetype, jlong serviceclass, jlong servicename, jshort instanceport, jshort cinstancenames, jlong pinstancenames, jlong pinstanceports, jlong pcspn, jlong prpszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsGetSpnW(JNIEnv* km_env, jclass km_clazz, jint servicetype, jlong serviceclass, jlong servicename, jshort instanceport, jshort cinstancenames, jlong pinstancenames, jlong pinstanceports, jlong pcspn, jlong prpszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2452,7 +2452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsInheritSecurityIdentityA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcprincipal, jlong dstprincipal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsInheritSecurityIdentityA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcprincipal, jlong dstprincipal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2480,7 +2480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsInheritSecurityIdentityW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcprincipal, jlong dstprincipal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsInheritSecurityIdentityW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint flags, jlong srcprincipal, jlong dstprincipal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2508,7 +2508,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsIsMangledDnA(JNIEnv* km_env, jclass km_clazz, jlong pszdn, jint edsmanglefor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledDnA(JNIEnv* km_env, jclass km_clazz, jlong pszdn, jint edsmanglefor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2534,7 +2534,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsIsMangledDnW(JNIEnv* km_env, jclass km_clazz, jlong pszdn, jint edsmanglefor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledDnW(JNIEnv* km_env, jclass km_clazz, jlong pszdn, jint edsmanglefor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2560,7 +2560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsIsMangledRdnValueA(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint crdn, jint edsmanglefordesired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledRdnValueA(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint crdn, jint edsmanglefordesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2587,7 +2587,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsIsMangledRdnValueW(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint crdn, jint edsmanglefordesired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledRdnValueW(JNIEnv* km_env, jclass km_clazz, jlong pszrdn, jint crdn, jint edsmanglefordesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2614,7 +2614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListDomainsInSiteA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppdomains) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListDomainsInSiteA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppdomains) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2641,7 +2641,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListDomainsInSiteW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppdomains) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListDomainsInSiteW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppdomains) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2668,7 +2668,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListInfoForServerA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong server, jlong ppinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListInfoForServerA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong server, jlong ppinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2695,7 +2695,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListInfoForServerW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong server, jlong ppinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListInfoForServerW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong server, jlong ppinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2722,7 +2722,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListRolesA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pproles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListRolesA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pproles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2748,7 +2748,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListRolesW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pproles) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListRolesW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pproles) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2774,7 +2774,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListServersForDomainInSiteA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domain, jlong site, jlong ppservers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListServersForDomainInSiteA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domain, jlong site, jlong ppservers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2802,7 +2802,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListServersForDomainInSiteW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domain, jlong site, jlong ppservers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListServersForDomainInSiteW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domain, jlong site, jlong ppservers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2830,7 +2830,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListServersInSiteA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppservers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListServersInSiteA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppservers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2857,7 +2857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListServersInSiteW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppservers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListServersInSiteW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong site, jlong ppservers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2884,7 +2884,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListSitesA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong ppsites) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListSitesA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong ppsites) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2910,7 +2910,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsListSitesW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong ppsites) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsListSitesW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong ppsites) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2936,7 +2936,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsMakePasswordCredentialsA(JNIEnv* km_env, jclass km_clazz, jlong user, jlong domain, jlong password, jlong pauthidentity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsMakePasswordCredentialsA(JNIEnv* km_env, jclass km_clazz, jlong user, jlong domain, jlong password, jlong pauthidentity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2964,7 +2964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsMakePasswordCredentialsW(JNIEnv* km_env, jclass km_clazz, jlong user, jlong domain, jlong password, jlong pauthidentity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsMakePasswordCredentialsW(JNIEnv* km_env, jclass km_clazz, jlong user, jlong domain, jlong password, jlong pauthidentity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2992,7 +2992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsMakeSpnA(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong instancename, jshort instanceport, jlong referrer, jlong pcspnlength, jlong pszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsMakeSpnA(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong instancename, jshort instanceport, jlong referrer, jlong pcspnlength, jlong pszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3023,7 +3023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsMakeSpnW(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong instancename, jshort instanceport, jlong referrer, jlong pcspnlength, jlong pszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsMakeSpnW(JNIEnv* km_env, jclass km_clazz, jlong serviceclass, jlong servicename, jlong instancename, jshort instanceport, jlong referrer, jlong pcspnlength, jlong pszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3054,7 +3054,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsMapSchemaGuidsA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint cguids, jlong rguids, jlong ppguidmap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsMapSchemaGuidsA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint cguids, jlong rguids, jlong ppguidmap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3082,7 +3082,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsMapSchemaGuidsW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint cguids, jlong rguids, jlong ppguidmap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsMapSchemaGuidsW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint cguids, jlong rguids, jlong ppguidmap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3110,7 +3110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsMergeForestTrustInformationW(JNIEnv* km_env, jclass km_clazz, jlong domainname, jlong newforesttrustinfo, jlong oldforesttrustinfo, jlong mergedforesttrustinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsMergeForestTrustInformationW(JNIEnv* km_env, jclass km_clazz, jlong domainname, jlong newforesttrustinfo, jlong oldforesttrustinfo, jlong mergedforesttrustinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3138,7 +3138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsQuerySitesByCostA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pszfromsite, jlong rgsztosites, jint ctosites, jint dwflags, jlong prgsiteinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesByCostA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pszfromsite, jlong rgsztosites, jint ctosites, jint dwflags, jlong prgsiteinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3168,7 +3168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsQuerySitesByCostW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pwszfromsite, jlong rgwsztosites, jint ctosites, jint dwflags, jlong prgsiteinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesByCostW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong pwszfromsite, jlong rgwsztosites, jint ctosites, jint dwflags, jlong prgsiteinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3198,7 +3198,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsQuerySitesFree(JNIEnv* km_env, jclass km_clazz, jlong rgsiteinfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesFree(JNIEnv* km_env, jclass km_clazz, jlong rgsiteinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3219,7 +3219,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsQuoteRdnValueA(JNIEnv* km_env, jclass km_clazz, jint cunquotedrdnvaluelength, jlong psunquotedrdnvalue, jlong pcquotedrdnvaluelength, jlong psquotedrdnvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsQuoteRdnValueA(JNIEnv* km_env, jclass km_clazz, jint cunquotedrdnvaluelength, jlong psunquotedrdnvalue, jlong pcquotedrdnvaluelength, jlong psquotedrdnvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3247,7 +3247,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsQuoteRdnValueW(JNIEnv* km_env, jclass km_clazz, jint cunquotedrdnvaluelength, jlong psunquotedrdnvalue, jlong pcquotedrdnvaluelength, jlong psquotedrdnvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsQuoteRdnValueW(JNIEnv* km_env, jclass km_clazz, jint cunquotedrdnvaluelength, jlong psunquotedrdnvalue, jlong pcquotedrdnvaluelength, jlong psquotedrdnvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3275,7 +3275,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsRemoveDsDomainA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domaindn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsDomainA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domaindn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3301,7 +3301,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsRemoveDsDomainW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domaindn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsDomainW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong domaindn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3327,7 +3327,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsRemoveDsServerA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong serverdn, jlong domaindn, jlong flastdcindomain, jint fcommit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsServerA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong serverdn, jlong domaindn, jlong flastdcindomain, jint fcommit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3356,7 +3356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsRemoveDsServerW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong serverdn, jlong domaindn, jlong flastdcindomain, jint fcommit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsServerW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong serverdn, jlong domaindn, jlong flastdcindomain, jint fcommit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3385,7 +3385,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaAddA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong sourcedsadn, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaAddA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong sourcedsadn, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3416,7 +3416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaAddW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong sourcedsadn, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaAddW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong sourcedsadn, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3447,7 +3447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaConsistencyCheck(JNIEnv* km_env, jclass km_clazz, jlong hds, jint taskid, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaConsistencyCheck(JNIEnv* km_env, jclass km_clazz, jlong hds, jint taskid, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3474,7 +3474,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaDelA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsasrc, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaDelA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsasrc, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3502,7 +3502,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaDelW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsasrc, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaDelW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsasrc, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3530,7 +3530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaFreeInfo(JNIEnv* km_env, jclass km_clazz, jint infotype, jlong pinfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaFreeInfo(JNIEnv* km_env, jclass km_clazz, jint infotype, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3552,7 +3552,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaGetInfo2W(JNIEnv* km_env, jclass km_clazz, jlong hds, jint infotype, jlong pszobject, jlong puuidforsourcedsaobjguid, jlong pszattributename, jlong pszvalue, jint dwflags, jint dwenumerationcontext, jlong ppinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaGetInfo2W(JNIEnv* km_env, jclass km_clazz, jlong hds, jint infotype, jlong pszobject, jlong puuidforsourcedsaobjguid, jlong pszattributename, jlong pszvalue, jint dwflags, jint dwenumerationcontext, jlong ppinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3585,7 +3585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaGetInfoW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint infotype, jlong pszobject, jlong puuidforsourcedsaobjguid, jlong ppinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaGetInfoW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint infotype, jlong pszobject, jlong puuidforsourcedsaobjguid, jlong ppinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3614,7 +3614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaModifyA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuidsourcedsa, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint replicaflags, jint modifyfields, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaModifyA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuidsourcedsa, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint replicaflags, jint modifyfields, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3647,7 +3647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaModifyW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuidsourcedsa, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint replicaflags, jint modifyfields, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaModifyW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuidsourcedsa, jlong transportdn, jlong sourcedsaaddress, jlong pschedule, jint replicaflags, jint modifyfields, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3680,7 +3680,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaSyncA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3708,7 +3708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaSyncAllA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong psznamecontext, jint ulflags, jlong pfncallback, jlong pcallbackdata, jlong perrors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncAllA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong psznamecontext, jint ulflags, jlong pfncallback, jlong pcallbackdata, jlong perrors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3738,7 +3738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaSyncAllW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong psznamecontext, jint ulflags, jlong pfncallback, jlong pcallbackdata, jlong perrors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncAllW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong psznamecontext, jint ulflags, jlong pfncallback, jlong pcallbackdata, jlong perrors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3768,7 +3768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaSyncW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3796,7 +3796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaUpdateRefsA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsadest, jlong puuiddsadest, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaUpdateRefsA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsadest, jlong puuiddsadest, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3825,7 +3825,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaUpdateRefsW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsadest, jlong puuiddsadest, jint options) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaUpdateRefsW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong dsadest, jlong puuiddsadest, jint options) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3854,7 +3854,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaVerifyObjectsA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint uloptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaVerifyObjectsA(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint uloptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3882,7 +3882,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsReplicaVerifyObjectsW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint uloptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsReplicaVerifyObjectsW(JNIEnv* km_env, jclass km_clazz, jlong hds, jlong namecontext, jlong puuiddsasrc, jint uloptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3910,7 +3910,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsRoleFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsRoleFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3931,7 +3931,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsRoleGetPrimaryDomainInformation(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jint infolevel, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsRoleGetPrimaryDomainInformation(JNIEnv* km_env, jclass km_clazz, jlong lpserver, jint infolevel, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3958,7 +3958,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsServerRegisterSpnA(JNIEnv* km_env, jclass km_clazz, jint operation, jlong serviceclass, jlong userobjectdn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsServerRegisterSpnA(JNIEnv* km_env, jclass km_clazz, jint operation, jlong serviceclass, jlong userobjectdn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3985,7 +3985,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsServerRegisterSpnW(JNIEnv* km_env, jclass km_clazz, jint operation, jlong serviceclass, jlong userobjectdn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsServerRegisterSpnW(JNIEnv* km_env, jclass km_clazz, jint operation, jlong serviceclass, jlong userobjectdn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4012,7 +4012,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsUnBindA(JNIEnv* km_env, jclass km_clazz, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsUnBindA(JNIEnv* km_env, jclass km_clazz, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4037,7 +4037,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsUnBindW(JNIEnv* km_env, jclass km_clazz, jlong phds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsUnBindW(JNIEnv* km_env, jclass km_clazz, jlong phds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4062,7 +4062,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsUnquoteRdnValueA(JNIEnv* km_env, jclass km_clazz, jint cquotedrdnvaluelength, jlong psquotedrdnvalue, jlong pcunquotedrdnvaluelength, jlong psunquotedrdnvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsUnquoteRdnValueA(JNIEnv* km_env, jclass km_clazz, jint cquotedrdnvaluelength, jlong psquotedrdnvalue, jlong pcunquotedrdnvaluelength, jlong psunquotedrdnvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4090,7 +4090,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsUnquoteRdnValueW(JNIEnv* km_env, jclass km_clazz, jint cquotedrdnvaluelength, jlong psquotedrdnvalue, jlong pcunquotedrdnvaluelength, jlong psunquotedrdnvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsUnquoteRdnValueW(JNIEnv* km_env, jclass km_clazz, jint cquotedrdnvaluelength, jlong psquotedrdnvalue, jlong pcunquotedrdnvaluelength, jlong psunquotedrdnvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4118,7 +4118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsValidateSubnetNameA(JNIEnv* km_env, jclass km_clazz, jlong subnetname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsValidateSubnetNameA(JNIEnv* km_env, jclass km_clazz, jlong subnetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4143,7 +4143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsValidateSubnetNameW(JNIEnv* km_env, jclass km_clazz, jlong subnetname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsValidateSubnetNameW(JNIEnv* km_env, jclass km_clazz, jlong subnetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4168,7 +4168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsWriteAccountSpnA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint operation, jlong pszaccount, jint cspn, jlong rpszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsWriteAccountSpnA(JNIEnv* km_env, jclass km_clazz, jlong hds, jint operation, jlong pszaccount, jint cspn, jlong rpszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4197,7 +4197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1dsWriteAccountSpnW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint operation, jlong pszaccount, jint cspn, jlong rpszspn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryDsWriteAccountSpnW(JNIEnv* km_env, jclass km_clazz, jlong hds, jint operation, jlong pszaccount, jint cspn, jlong rpszspn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4226,7 +4226,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1freeADsMem(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryFreeADsMem(JNIEnv* km_env, jclass km_clazz, jlong pmem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4251,7 +4251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1freeADsStr(JNIEnv* km_env, jclass km_clazz, jlong pstr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryFreeADsStr(JNIEnv* km_env, jclass km_clazz, jlong pstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4276,7 +4276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1propVariantToAdsType(JNIEnv* km_env, jclass km_clazz, jlong pvariant, jint dwnumvariant, jlong ppadsvalues, jlong pdwnumvalues) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryPropVariantToAdsType(JNIEnv* km_env, jclass km_clazz, jlong pvariant, jint dwnumvariant, jlong ppadsvalues, jlong pdwnumvalues) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4304,7 +4304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1reallocADsMem(JNIEnv* km_env, jclass km_clazz, jlong poldmem, jint cbold, jint cbnew) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryReallocADsMem(JNIEnv* km_env, jclass km_clazz, jlong poldmem, jint cbold, jint cbnew) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4331,7 +4331,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssys_1windows_1win32_1networking_1activedirectory_1reallocADsStr(JNIEnv* km_env, jclass km_clazz, jlong ppstr, jlong pstr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networking_activedirectory_WindowsWin32NetworkingActivedirectoryJniBridge_windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr(JNIEnv* km_env, jclass km_clazz, jlong ppstr, jlong pstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

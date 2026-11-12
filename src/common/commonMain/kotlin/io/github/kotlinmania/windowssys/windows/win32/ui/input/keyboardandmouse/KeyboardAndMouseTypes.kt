@@ -1,12 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias ActivateKeyboardLayoutFlags = UInt
 
 public typealias GetMouseMovePointsExResolution = UInt
 
-public typealias Hkl = COpaquePointer?
+public typealias Hkl = MutPtr<CVoid>
 
 public typealias HotKeyModifiers = UInt
 

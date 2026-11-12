@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection(void* serverbushandle, void* abortevent) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAllJoynAcceptBusConnection(void* serverbushandle, void* abortevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle(void* bushandle) {
+int32_t windowssysWindowsWin32DevicesAlljoynAllJoynCloseBusHandle(void* bushandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle(void* bus
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus(void* connectionspec) {
+void* windowssysWindowsWin32DevicesAlljoynAllJoynConnectToBus(void* connectionspec) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ void* windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus(void* connect
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_allJoynCreateBus(uint32_t outbuffersize, uint32_t inbuffersize, void* lpsecurityattributes) {
+void* windowssysWindowsWin32DevicesAlljoynAllJoynCreateBus(uint32_t outbuffersize, uint32_t inbuffersize, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ void* windowssys_windows_win32_devices_alljoyn_allJoynCreateBus(uint32_t outbuff
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents(void* connectedbushandle, void* eventtoreset, void* eventtypes) {
+int32_t windowssysWindowsWin32DevicesAlljoynAllJoynEnumEvents(void* connectedbushandle, void* eventtoreset, void* eventtypes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents(void* connect
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_allJoynEventSelect(void* connectedbushandle, void* eventhandle, uint32_t eventtypes) {
+int32_t windowssysWindowsWin32DevicesAlljoynAllJoynEventSelect(void* connectedbushandle, void* eventhandle, uint32_t eventtypes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_allJoynEventSelect(void* connec
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus(void* connectedbushandle, void* buffer, uint32_t bytestoread, void* bytestransferred, void* reserved) {
+int32_t windowssysWindowsWin32DevicesAlljoynAllJoynReceiveFromBus(void* connectedbushandle, void* buffer, uint32_t bytestoread, void* bytestransferred, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -180,7 +180,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus(void* con
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_allJoynSendToBus(void* connectedbushandle, void* buffer, uint32_t bytestowrite, void* bytestransferred, void* reserved) {
+int32_t windowssysWindowsWin32DevicesAlljoynAllJoynSendToBus(void* connectedbushandle, void* buffer, uint32_t bytestowrite, void* bytestransferred, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -206,7 +206,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_allJoynSendToBus(void* connecte
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_qccStatusText(int32_t status) {
+void* windowssysWindowsWin32DevicesAlljoynQccStatusText(int32_t status) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -228,7 +228,7 @@ void* windowssys_windows_win32_devices_alljoyn_qccStatusText(int32_t status) {
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate(void* defaultlanguage) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreate(void* defaultlanguage) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate(void* de
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty(void) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateEmpty(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -271,7 +271,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty(voi
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(int64_t arg, void* language) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreateFull(int64_t arg, void* language) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -294,7 +294,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg(int64_t data, int64_t arg, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefrommsgarg(int64_t data, int64_t arg, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -318,7 +318,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgar
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(int64_t data, void* aboutdataxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataCreatefromxml(int64_t data, void* aboutdataxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -341,7 +341,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(i
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(int64_t data) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataDestroy(int64_t data) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(int64_t da
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(int64_t data, int64_t msgarg, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetaboutdata(int64_t data, int64_t msgarg, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion(int64_t data, void* ajsoftwareversion) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetajsoftwareversion(int64_t data, void* ajsoftwareversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareve
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata(int64_t data, int64_t msgarg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetannouncedaboutdata(int64_t data, int64_t msgarg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedabo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(int64_t data, void* appid, void* num) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappid(int64_t data, void* appid, void* num) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -456,7 +456,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(int64_t data, void* appname, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetappname(int64_t data, void* appname, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -480,7 +480,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture(int64_t data, void* dateofmanufacture) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdateofmanufacture(int64_t data, void* dateofmanufacture) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -503,7 +503,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage(int64_t data, void* defaultlanguage) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdefaultlanguage(int64_t data, void* defaultlanguage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -526,7 +526,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlangu
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(int64_t data, void* description, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdescription(int64_t data, void* description, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -550,7 +550,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(int64_t data, void* deviceid) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdeviceid(int64_t data, void* deviceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -573,7 +573,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(int64_t data, void* devicename, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetdevicename(int64_t data, void* devicename, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(int64_t data, void* name, void* value, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfield(int64_t data, void* name, void* value, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -622,7 +622,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(int64_
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(int64_t data, void* fields, uint64_t num_fields) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfields(int64_t data, void* fields, uint64_t numFields) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,20 +633,20 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(int6
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(data, fields, num_fields);
+        return km_fn_ptr(data, fields, numFields);
     }
     errno = ENOSYS;
     return 0;
 #else
     (void)data;
     (void)fields;
-    (void)num_fields;
+    (void)numFields;
     errno = ENOSYS;
     return 0;
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature(int64_t data, void* fieldname) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetfieldsignature(int64_t data, void* fieldname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -669,7 +669,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion(int64_t data, void* hardwareversion) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGethardwareversion(int64_t data, void* hardwareversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -692,7 +692,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwarevers
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer(int64_t data, void* manufacturer, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmanufacturer(int64_t data, void* manufacturer, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -716,7 +716,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(int64_t data, void* modelnumber) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetmodelnumber(int64_t data, void* modelnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -739,7 +739,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion(int64_t data, void* softwareversion) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsoftwareversion(int64_t data, void* softwareversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -762,7 +762,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwarevers
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages(int64_t data, void* languagetags, uint64_t num) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupportedlanguages(int64_t data, void* languagetags, uint64_t num) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -786,7 +786,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedla
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(int64_t data, void* supporturl) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataGetsupporturl(int64_t data, void* supporturl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -809,7 +809,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(i
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced(int64_t data, void* fieldname) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldannounced(int64_t data, void* fieldname) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -832,7 +832,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounce
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized(int64_t data, void* fieldname) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldlocalized(int64_t data, void* fieldname) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -855,7 +855,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalize
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired(int64_t data, void* fieldname) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsfieldrequired(int64_t data, void* fieldname) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -878,7 +878,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(int64_t data, void* language) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataIsvalid(int64_t data, void* language) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -901,7 +901,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(int64_t data, void* appid, uint64_t num) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappid(int64_t data, void* appid, uint64_t num) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -925,7 +925,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring(int64_t data, void* appid) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappidFromstring(int64_t data, void* appid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -948,7 +948,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(int64_t data, void* appname, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetappname(int64_t data, void* appname, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -972,7 +972,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture(int64_t data, void* dateofmanufacture) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdateofmanufacture(int64_t data, void* dateofmanufacture) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -995,7 +995,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage(int64_t data, void* defaultlanguage) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdefaultlanguage(int64_t data, void* defaultlanguage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1018,7 +1018,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlangu
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(int64_t data, void* description, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdescription(int64_t data, void* description, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1042,7 +1042,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(int64_t data, void* deviceid) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdeviceid(int64_t data, void* deviceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1065,7 +1065,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(int64_t data, void* devicename, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetdevicename(int64_t data, void* devicename, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1089,7 +1089,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(int64_t data, void* name, int64_t value, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetfield(int64_t data, void* name, int64_t value, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1114,7 +1114,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion(int64_t data, void* hardwareversion) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSethardwareversion(int64_t data, void* hardwareversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwarevers
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer(int64_t data, void* manufacturer, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmanufacturer(int64_t data, void* manufacturer, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1161,7 +1161,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(int64_t data, void* modelnumber) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetmodelnumber(int64_t data, void* modelnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1184,7 +1184,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion(int64_t data, void* softwareversion) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsoftwareversion(int64_t data, void* softwareversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1207,7 +1207,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwarevers
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage(int64_t data, void* language) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupportedlanguage(int64_t data, void* language) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1230,7 +1230,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlan
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(int64_t data, void* supporturl) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdataSetsupporturl(int64_t data, void* supporturl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1253,7 +1253,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(i
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1276,7 +1276,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate(
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAboutdatalistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1297,7 +1297,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(in
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(int64_t icon) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonClear(int64_t icon) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1318,7 +1318,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(int64_t icon
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate(void) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonCreate(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1339,7 +1339,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate(void) {
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(int64_t icon) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonDestroy(int64_t icon) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1360,7 +1360,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(int64_t ic
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(int64_t icon, void* data, void* size) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGetcontent(int64_t icon, void* data, void* size) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1383,7 +1383,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(int64_t
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(int64_t icon, void* type, void* url) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonGeturl(int64_t icon, void* type, void* url) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1406,7 +1406,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(int64_t ico
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(int64_t icon, void* type, void* data, uint64_t csize, uint8_t ownsdata) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontent(int64_t icon, void* type, void* data, uint64_t csize, uint8_t ownsdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1432,7 +1432,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg(int64_t icon, int64_t arg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSetcontentFrommsgarg(int64_t icon, int64_t arg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1455,7 +1455,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFromm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(int64_t icon, void* type, void* url) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonSeturl(int64_t icon, void* type, void* url) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1479,7 +1479,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(int64_t 
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(int64_t bus, int64_t icon) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjCreate(int64_t bus, int64_t icon) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1502,7 +1502,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(int64
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(int64_t icon) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonobjDestroy(int64_t icon) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1523,7 +1523,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(int64_t
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1547,7 +1547,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(int
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(int64_t proxy) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyDestroy(int64_t proxy) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1568,7 +1568,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(int64_t proxy, int64_t icon) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGeticon(int64_t proxy, int64_t icon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1591,7 +1591,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion(int64_t proxy, void* version) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAbouticonproxyGetversion(int64_t proxy, void* version) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1614,7 +1614,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate(void* callback, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerCreate(void* callback, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1637,7 +1637,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate(void
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAboutlistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1658,7 +1658,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(int64_t obj, uint16_t sessionport, int64_t aboutdata) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounce(int64_t obj, uint16_t sessionport, int64_t aboutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1682,7 +1682,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener(int64_t obj, uint16_t sessionport, int64_t aboutlistener) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjAnnounceUsingDatalistener(int64_t obj, uint16_t sessionport, int64_t aboutlistener) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1706,7 +1706,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDat
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(int64_t bus, int32_t isannounced) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjCreate(int64_t bus, int32_t isannounced) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1729,7 +1729,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(int64_t b
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(int64_t obj) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjDestroy(int64_t obj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1750,7 +1750,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(int64_t obj
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(int64_t obj) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjUnannounce(int64_t obj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1772,7 +1772,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(int64
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear(int64_t description) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionClear(int64_t description) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1793,7 +1793,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate(void) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreate(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1814,7 +1814,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCr
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(int64_t arg) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreateFull(int64_t arg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1836,7 +1836,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg(int64_t description, int64_t arg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionCreatefrommsgarg(int64_t description, int64_t arg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1859,7 +1859,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCr
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy(int64_t description) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionDestroy(int64_t description) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1880,7 +1880,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestr
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths(int64_t description, void* interfacename, void* paths, uint64_t numpaths) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfacepaths(int64_t description, void* interfacename, void* paths, uint64_t numpaths) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1905,7 +1905,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionG
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces(int64_t description, void* path, void* interfaces, uint64_t numinterfaces) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetinterfaces(int64_t description, void* path, void* interfaces, uint64_t numinterfaces) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1930,7 +1930,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionG
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg(int64_t description, int64_t msgarg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetmsgarg(int64_t description, int64_t msgarg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1953,7 +1953,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGe
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths(int64_t description, void* paths, uint64_t numpaths) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionGetpaths(int64_t description, void* paths, uint64_t numpaths) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1977,7 +1977,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionG
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface(int64_t description, void* interfacename) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterface(int64_t description, void* interfacename) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2000,7 +2000,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHa
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath(int64_t description, void* path, void* interfacename) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHasinterfaceatpath(int64_t description, void* path, void* interfacename) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2024,7 +2024,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHa
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath(int64_t description, void* path) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutobjectdescriptionHaspath(int64_t description, void* path) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2047,7 +2047,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHa
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2071,7 +2071,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(int64_t
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(int64_t proxy) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyDestroy(int64_t proxy) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2092,7 +2092,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(int64_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(int64_t proxy, void* language, int64_t data) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetaboutdata(int64_t proxy, void* language, int64_t data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2116,7 +2116,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription(int64_t proxy, int64_t objectdesc) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetobjectdescription(int64_t proxy, int64_t objectdesc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2139,7 +2139,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(int64_t proxy, void* version) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAboutproxyGetversion(int64_t proxy, void* version) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2162,7 +2162,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(int
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2185,7 +2185,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistener
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynApplicationstatelistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2206,7 +2206,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDes
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2229,7 +2229,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate(void*
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2250,7 +2250,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse(int64_t listener, void* authcontext, int32_t arg_2_accept, int64_t credentials) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerRequestcredentialsresponse(int64_t listener, void* authcontext, int32_t arg2Accept, int64_t credentials) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2261,21 +2261,21 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcrede
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(listener, authcontext, arg_2_accept, credentials);
+        return km_fn_ptr(listener, authcontext, arg2Accept, credentials);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)listener;
     (void)authcontext;
-    (void)arg_2_accept;
+    (void)arg2Accept;
     (void)credentials;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret(int64_t listener, void* sharedsecret, uint64_t sharedsecretsize) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerSetsharedsecret(int64_t listener, void* sharedsecret, uint64_t sharedsecretsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2299,7 +2299,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsec
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse(int64_t listener, void* authcontext, int32_t arg_2_accept) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerVerifycredentialsresponse(int64_t listener, void* authcontext, int32_t arg2Accept) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2310,20 +2310,20 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycreden
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(listener, authcontext, arg_2_accept);
+        return km_fn_ptr(listener, authcontext, arg2Accept);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)listener;
     (void)authcontext;
-    (void)arg_2_accept;
+    (void)arg2Accept;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2346,7 +2346,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate(
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAuthlistenerasyncDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2367,7 +2367,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination(int64_t autopinger, void* group, void* destination) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAdddestination(int64_t autopinger, void* group, void* destination) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2391,7 +2391,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(int64_t autopinger, void* group, int64_t listener, uint32_t pinginterval) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerAddpinggroup(int64_t autopinger, void* group, int64_t listener, uint32_t pinginterval) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2415,7 +2415,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(int6
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(int64_t bus) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerCreate(int64_t bus) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2437,7 +2437,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(int64_t
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(int64_t autopinger) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerDestroy(int64_t autopinger) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2458,7 +2458,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(int64_t a
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(int64_t autopinger) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerPause(int64_t autopinger) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2479,7 +2479,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(int64_t aut
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination(int64_t autopinger, void* group, void* destination, int32_t removeall) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovedestination(int64_t autopinger, void* group, void* destination, int32_t removeall) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2504,7 +2504,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestinat
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(int64_t autopinger, void* group) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerRemovepinggroup(int64_t autopinger, void* group) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2526,7 +2526,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(i
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(int64_t autopinger) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerResume(int64_t autopinger) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2547,7 +2547,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(int64_t au
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval(int64_t autopinger, void* group, uint32_t pinginterval) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynAutopingerSetpinginterval(int64_t autopinger, void* group, uint32_t pinginterval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2571,7 +2571,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterva
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry(int64_t bus, void* authmechanism, void* username, void* password) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddlogonentry(int64_t bus, void* authmechanism, void* username, void* password) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2596,7 +2596,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonent
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch(int64_t bus, void* rule) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAddmatch(int64_t bus, void* rule) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2619,7 +2619,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename(int64_t bus, void* name, uint16_t transports) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentAdvertisename(int64_t bus, void* name, uint16_t transports) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2643,7 +2643,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisena
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport(int64_t bus, void* sessionport, int64_t opts, int64_t listener) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentBindsessionport(int64_t bus, void* sessionport, int64_t opts, int64_t listener) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2668,7 +2668,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsession
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename(int64_t bus, void* name, uint16_t transports) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCanceladvertisename(int64_t bus, void* name, uint16_t transports) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2692,7 +2692,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladver
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname(int64_t bus, void* nameprefix) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisedname(int64_t bus, void* nameprefix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2715,7 +2715,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfinda
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport(int64_t bus, void* nameprefix, uint16_t transports) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelfindadvertisednamebytransport(int64_t bus, void* nameprefix, uint16_t transports) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2739,7 +2739,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfinda
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface(int64_t bus, void* implementsinterface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterface(int64_t bus, void* implementsinterface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2762,7 +2762,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoim
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces(int64_t bus, void* implementsinterfaces, uint64_t numberinterfaces) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCancelwhoimplementsInterfaces(int64_t bus, void* implementsinterfaces, uint64_t numberinterfaces) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2786,7 +2786,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoim
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys(int64_t bus, void* guid) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeys(int64_t bus, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2809,7 +2809,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys(i
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore(int64_t bus) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentClearkeystore(int64_t bus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2830,7 +2830,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect(int64_t bus, void* connectspec) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentConnect(int64_t bus, void* connectspec) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2853,7 +2853,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect(int
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate(void* applicationname, int32_t allowremotemessages) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreate(void* applicationname, int32_t allowremotemessages) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2876,7 +2876,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate(void
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency(void* applicationname, int32_t allowremotemessages, uint32_t concurrency) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateConcurrency(void* applicationname, int32_t allowremotemessages, uint32_t concurrency) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2900,7 +2900,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcu
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface(int64_t bus, void* name, void* iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterface(int64_t bus, void* name, void* iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2924,7 +2924,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinter
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure(int64_t bus, void* name, void* iface, int32_t secpolicy) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfaceSecure(int64_t bus, void* name, void* iface, int32_t secpolicy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2949,7 +2949,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinter
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml(int64_t bus, void* xml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentCreateinterfacesfromxml(int64_t bus, void* xml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2972,7 +2972,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinter
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore(void* applicationname) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeletedefaultkeystore(void* applicationname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2994,7 +2994,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefau
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface(int64_t bus, int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDeleteinterface(int64_t bus, int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3017,7 +3017,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinter
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy(int64_t bus) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDestroy(int64_t bus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3038,7 +3038,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect(int64_t bus, void* unused) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentDisconnect(int64_t bus, void* unused) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3061,7 +3061,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect(
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks(int64_t bus) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnableconcurrentcallbacks(int64_t bus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3082,7 +3082,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurre
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity(int64_t bus, void* authmechanisms, int64_t listener, void* keystorefilename, int32_t isshared) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecurity(int64_t bus, void* authmechanisms, int64_t listener, void* keystorefilename, int32_t isshared) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3108,7 +3108,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeers
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(int64_t bus, void* authmechanisms, int64_t authlistener, void* keystorefilename, int32_t isshared, int64_t permissionconfigurationlistener) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(int64_t bus, void* authmechanisms, int64_t authlistener, void* keystorefilename, int32_t isshared, int64_t permissionconfigurationlistener) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, void*, int32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3135,7 +3135,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeers
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname(int64_t bus, void* nameprefix) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisedname(int64_t bus, void* nameprefix) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3158,7 +3158,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadverti
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport(int64_t bus, void* nameprefix, uint16_t transports) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentFindadvertisednamebytransport(int64_t bus, void* nameprefix, uint16_t transports) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3182,7 +3182,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadverti
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj(int64_t bus) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoyndebugobj(int64_t bus) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3204,7 +3204,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynd
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj(int64_t bus) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetalljoynproxyobj(int64_t bus) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3226,7 +3226,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynp
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency(int64_t bus) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconcurrency(int64_t bus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3248,7 +3248,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurr
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec(int64_t bus) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetconnectspec(int64_t bus) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3270,7 +3270,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspe
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj(int64_t bus) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetdbusproxyobj(int64_t bus) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3292,7 +3292,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusprox
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring(int64_t bus) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetglobalguidstring(int64_t bus) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3314,7 +3314,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguid
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface(int64_t bus, void* name) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterface(int64_t bus, void* name) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3337,7 +3337,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfac
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces(int64_t bus, void* ifaces, uint64_t numifaces) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetinterfaces(int64_t bus, void* ifaces, uint64_t numifaces) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3361,7 +3361,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration(int64_t bus, void* guid, void* timeout) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetkeyexpiration(int64_t bus, void* guid, void* timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3385,7 +3385,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpir
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid(int64_t bus, void* name, void* guid, void* guidsz) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpeerguid(int64_t bus, void* name, void* guid, void* guidsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3410,7 +3410,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator(int64_t bus) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetpermissionconfigurator(int64_t bus) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3432,7 +3432,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp(void) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGettimestamp(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3453,7 +3453,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimesta
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename(int64_t bus) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentGetuniquename(int64_t bus) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3475,7 +3475,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsconnected(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3497,7 +3497,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIspeersecurityenabled(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3519,7 +3519,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecur
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstarted(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3541,7 +3541,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentIsstopping(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3563,7 +3563,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoin(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3585,7 +3585,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession(int64_t bus, void* sessionhost, uint16_t sessionport, int64_t listener, void* sessionid, int64_t opts) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsession(int64_t bus, void* sessionhost, uint16_t sessionport, int64_t listener, void* sessionid, int64_t opts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint16_t, int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3612,7 +3612,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync(int64_t bus, void* sessionhost, uint16_t sessionport, int64_t listener, int64_t opts, void* callback, void* context) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentJoinsessionasync(int64_t bus, void* sessionhost, uint16_t sessionport, int64_t listener, int64_t opts, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint16_t, int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3640,7 +3640,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession(int64_t bus, uint32_t sessionid) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentLeavesession(int64_t bus, uint32_t sessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3663,7 +3663,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesessio
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner(int64_t bus, void* name, void* hasowner) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentNamehasowner(int64_t bus, void* name, void* hasowner) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3687,7 +3687,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowne
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing(int64_t bus, void* name, uint32_t timeout) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentPing(int64_t bus, void* name, uint32_t timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3711,7 +3711,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing(int64_
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener(int64_t bus, int64_t aboutlistener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisteraboutlistener(int64_t bus, int64_t aboutlistener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3733,7 +3733,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener(int64_t bus, int64_t listener) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterapplicationstatelistener(int64_t bus, int64_t listener) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3756,7 +3756,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapp
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener(int64_t bus, int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbuslistener(int64_t bus, int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3778,7 +3778,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslis
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject(int64_t bus, int64_t obj) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobject(int64_t bus, int64_t obj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3801,7 +3801,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbus
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure(int64_t bus, int64_t obj) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterbusobjectSecure(int64_t bus, int64_t obj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3824,7 +3824,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbus
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener(int64_t bus, int64_t listener) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRegisterkeystorelistener(int64_t bus, int64_t listener) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3847,7 +3847,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkey
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename(int64_t bus, void* name) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReleasename(int64_t bus, void* name) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3870,7 +3870,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentReloadkeystore(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3892,7 +3892,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeyst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch(int64_t bus, void* rule) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovematch(int64_t bus, void* rule) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3915,7 +3915,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember(int64_t bus, uint32_t sessionid, void* membername) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRemovesessionmember(int64_t bus, uint32_t sessionid, void* membername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3939,7 +3939,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname(int64_t bus, void* requestedname, uint32_t flags) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentRequestname(int64_t bus, void* requestedname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3963,7 +3963,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection(int64_t bus, void* name, int32_t forceauth) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnection(int64_t bus, void* name, int32_t forceauth) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3987,7 +3987,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconne
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync(int64_t bus, void* name, int32_t forceauth) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSecureconnectionasync(int64_t bus, void* name, int32_t forceauth) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4011,7 +4011,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconne
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug(int64_t bus, void* module, uint32_t level) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetdaemondebug(int64_t bus, void* module, uint32_t level) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4035,7 +4035,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemonde
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration(int64_t bus, void* guid, uint32_t timeout) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetkeyexpiration(int64_t bus, void* guid, uint32_t timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4059,7 +4059,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpir
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout(int64_t bus, uint32_t sessionid, void* linktimeout) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeout(int64_t bus, uint32_t sessionid, void* linktimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4083,7 +4083,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktime
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync(int64_t bus, uint32_t sessionid, uint32_t linktimeout, void* callback, void* context) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetlinktimeoutasync(int64_t bus, uint32_t sessionid, uint32_t linktimeout, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4109,7 +4109,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktime
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener(int64_t bus, uint32_t sessionid, int64_t listener) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentSetsessionlistener(int64_t bus, uint32_t sessionid, int64_t listener) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4133,7 +4133,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStart(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4155,7 +4155,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentStop(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4177,7 +4177,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport(int64_t bus, uint16_t sessionport) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnbindsessionport(int64_t bus, uint16_t sessionport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4200,7 +4200,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessi
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener(int64_t bus, int64_t aboutlistener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisteraboutlistener(int64_t bus, int64_t aboutlistener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4222,7 +4222,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterabou
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners(int64_t bus) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallaboutlisteners(int64_t bus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4243,7 +4243,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteralla
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterallhandlers(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4265,7 +4265,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregistera
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener(int64_t bus, int64_t listener) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterapplicationstatelistener(int64_t bus, int64_t listener) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4288,7 +4288,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregistera
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener(int64_t bus, int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbuslistener(int64_t bus, int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4310,7 +4310,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusl
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject(int64_t bus, int64_t object) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentUnregisterbusobject(int64_t bus, int64_t object) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4332,7 +4332,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuso
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface(int64_t bus, void* implementsinterface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterface(int64_t bus, void* implementsinterface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4355,7 +4355,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplemen
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces(int64_t bus, void* implementsinterfaces, uint64_t numberinterfaces) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusattachmentWhoimplementsInterfaces(int64_t bus, void* implementsinterfaces, uint64_t numberinterfaces) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4379,7 +4379,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplemen
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4402,7 +4402,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate(void* 
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBuslistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4423,7 +4423,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(int64_t bus, int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterface(int64_t bus, int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4446,7 +4446,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced(int64_t bus, int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddinterfaceAnnounced(int64_t bus, int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4469,7 +4469,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers(int64_t bus, void* entries, uint64_t numentries) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectAddmethodhandlers(int64_t bus, void* entries, uint64_t numentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4493,7 +4493,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandle
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage(int64_t bus, int64_t msg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessage(int64_t bus, int64_t msg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4516,7 +4516,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionle
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial(int64_t bus, uint32_t serialnumber) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCancelsessionlessmessageSerial(int64_t bus, uint32_t serialnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4539,7 +4539,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionle
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate(void* path, int32_t isplaceholder, void* callbacks_in, void* context_in) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectCreate(void* path, int32_t isplaceholder, void* callbacksIn, void* contextIn) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4550,21 +4550,21 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate(void* pa
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(path, isplaceholder, callbacks_in, context_in);
+        return km_fn_ptr(path, isplaceholder, callbacksIn, contextIn);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)path;
     (void)isplaceholder;
-    (void)callbacks_in;
-    (void)context_in;
+    (void)callbacksIn;
+    (void)contextIn;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy(int64_t bus) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectDestroy(int64_t bus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4585,7 +4585,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy(int64_t bu
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged(int64_t bus, void* ifcname, void* propnames, uint64_t numprops, uint32_t id) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertieschanged(int64_t bus, void* ifcname, void* propnames, uint64_t numprops, uint32_t id) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4610,7 +4610,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschan
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged(int64_t bus, void* ifcname, void* propname, int64_t val, uint32_t id) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectEmitpropertychanged(int64_t bus, void* ifcname, void* propname, int64_t val, uint32_t id) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4635,7 +4635,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychange
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames(int64_t bus, void* interfaces, uint64_t numinterfaces) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetannouncedinterfacenames(int64_t bus, void* interfaces, uint64_t numinterfaces) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4659,7 +4659,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedin
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment(int64_t bus) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetbusattachment(int64_t bus) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4681,7 +4681,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachmen
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname(int64_t bus, void* buffer, uint64_t buffersz) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetname(int64_t bus, void* buffer, uint64_t buffersz) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4705,7 +4705,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname(int64_
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath(int64_t bus) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectGetpath(int64_t bus) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4727,7 +4727,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath(int64_t b
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure(int64_t bus) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectIssecure(int64_t bus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4749,7 +4749,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs(int64_t bus, int64_t msg, int64_t args, uint64_t numargs) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyArgs(int64_t bus, int64_t msg, int64_t args, uint64_t numargs) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4774,7 +4774,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr(int64_t bus, int64_t msg, void* error, void* errormessage) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyErr(int64_t bus, int64_t msg, void* error, void* errormessage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4799,7 +4799,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus(int64_t bus, int64_t msg, int32_t status) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectMethodreplyStatus(int64_t bus, int64_t msg, int32_t status) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4823,7 +4823,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag(int64_t bus, int64_t iface, int32_t isannounced) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynBusobjectSetannounceflag(int64_t bus, int64_t iface, int32_t isannounced) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4847,7 +4847,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear(int64_t cred) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsClear(int64_t cred) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4868,7 +4868,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear(int64_t cr
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate(void) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsCreate(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4889,7 +4889,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate(void) 
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy(int64_t cred) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsDestroy(int64_t cred) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4910,7 +4910,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy(int64_t 
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain(int64_t cred) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetcertchain(int64_t cred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4932,7 +4932,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration(int64_t cred) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetexpiration(int64_t cred) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4954,7 +4954,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiratio
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry(int64_t cred) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetlogonentry(int64_t cred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4976,7 +4976,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry(i
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword(int64_t cred) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetpassword(int64_t cred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4998,7 +4998,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword(int
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey(int64_t cred) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetprivateKey(int64_t cred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5020,7 +5020,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey(i
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername(int64_t cred) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsGetusername(int64_t cred) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5042,7 +5042,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset(int64_t cred, uint16_t creds) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsIsset(int64_t cred, uint16_t creds) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5065,7 +5065,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset(int64_t
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain(int64_t cred, void* certchain) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetcertchain(int64_t cred, void* certchain) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5087,7 +5087,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain(int
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration(int64_t cred, uint32_t expiration) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetexpiration(int64_t cred, uint32_t expiration) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5109,7 +5109,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration(in
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry(int64_t cred, void* logonentry) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetlogonentry(int64_t cred, void* logonentry) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5131,7 +5131,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry(in
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword(int64_t cred, void* pwd) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetpassword(int64_t cred, void* pwd) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5153,7 +5153,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword(int6
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey(int64_t cred, void* pk) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetprivatekey(int64_t cred, void* pk) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5175,7 +5175,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey(in
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername(int64_t cred, void* username) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynCredentialsSetusername(int64_t cred, void* username) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5197,7 +5197,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername(int6
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo(void) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynGetbuildinfo(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5218,7 +5218,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion(void) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynGetnumericversion(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5239,7 +5239,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion(void)
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynGetversion(void) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynGetversion(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5260,7 +5260,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynGetversion(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInit(void) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInit(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5281,7 +5281,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInit(void) {
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate(int64_t iface) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionActivate(int64_t iface) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5302,7 +5302,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation(int64_t iface, void* name, void* value) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddannotation(int64_t iface, void* name, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5326,7 +5326,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAdda
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation(int64_t iface, void* member, void* argname, void* name, void* value) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddargannotation(int64_t iface, void* member, void* argname, void* name, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5352,7 +5352,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAdda
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember(int64_t iface, int32_t type, void* name, void* inputsig, void* outsig, void* argnames, uint8_t annotation) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmember(int64_t iface, int32_t type, void* name, void* inputsig, void* outsig, void* argnames, uint8_t annotation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5380,7 +5380,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation(int64_t iface, void* member, void* name, void* value) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmemberannotation(int64_t iface, void* member, void* name, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5405,7 +5405,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod(int64_t iface, void* name, void* inputsig, void* outsig, void* argnames, uint8_t annotation, void* accessperms) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddmethod(int64_t iface, void* name, void* inputsig, void* outsig, void* argnames, uint8_t annotation, void* accessperms) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5433,7 +5433,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty(int64_t iface, void* name, void* signature, uint8_t access) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddproperty(int64_t iface, void* name, void* signature, uint8_t access) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5458,7 +5458,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation(int64_t iface, void* property, void* name, void* value) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddpropertyannotation(int64_t iface, void* property, void* name, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5483,7 +5483,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal(int64_t iface, void* name, void* sig, void* argnames, uint8_t annotation, void* accessperms) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionAddsignal(int64_t iface, void* name, void* sig, void* argnames, uint8_t annotation, void* accessperms) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5510,7 +5510,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAdds
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(int64_t one, int64_t other) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionEql(int64_t one, int64_t other) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5533,7 +5533,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation(int64_t iface, void* name, void* value, void* value_size) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotation(int64_t iface, void* name, void* value, void* valueSize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5544,7 +5544,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGeta
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(iface, name, value, value_size);
+        return km_fn_ptr(iface, name, value, valueSize);
     }
     errno = ENOSYS;
     return -1;
@@ -5552,13 +5552,13 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGeta
     (void)iface;
     (void)name;
     (void)value;
-    (void)value_size;
+    (void)valueSize;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex(int64_t iface, uint64_t arg_1_index, void* name, void* name_size, void* value, void* value_size) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationatindex(int64_t iface, uint64_t arg1Index, void* name, void* nameSize, void* value, void* valueSize) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5569,22 +5569,22 @@ void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetanno
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(iface, arg_1_index, name, name_size, value, value_size);
+        km_fn_ptr(iface, arg1Index, name, nameSize, value, valueSize);
         return;
     }
     errno = ENOSYS;
 #else
     (void)iface;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)name;
-    (void)name_size;
+    (void)nameSize;
     (void)value;
-    (void)value_size;
+    (void)valueSize;
     errno = ENOSYS;
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount(int64_t iface) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetannotationscount(int64_t iface) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5606,7 +5606,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage(int64_t iface, void* member, void* arg, void* description, uint64_t maxlanguagelength, void* languagetag) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetargdescriptionforlanguage(int64_t iface, void* member, void* arg, void* description, uint64_t maxlanguagelength, void* languagetag) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5633,7 +5633,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage(int64_t iface, void* description, uint64_t maxlanguagelength, void* languagetag) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionforlanguage(int64_t iface, void* description, uint64_t maxlanguagelength, void* languagetag) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5658,7 +5658,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages(int64_t iface, void* languages, uint64_t size) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages(int64_t iface, void* languages, uint64_t size) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5682,7 +5682,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2(int64_t iface, void* languages, uint64_t languagessize) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptionlanguages2(int64_t iface, void* languages, uint64_t languagessize) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5706,7 +5706,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptiontranslationcallback(int64_t iface) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetdescriptiontranslationcallback(int64_t iface) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5728,7 +5728,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdes
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember(int64_t iface, void* name, void* member) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmember(int64_t iface, void* name, void* member) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5752,7 +5752,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation(int64_t iface, void* member, void* name, void* value, void* value_size) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberannotation(int64_t iface, void* member, void* name, void* value, void* valueSize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5763,7 +5763,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetm
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(iface, member, name, value, value_size);
+        return km_fn_ptr(iface, member, name, value, valueSize);
     }
     errno = ENOSYS;
     return -1;
@@ -5772,13 +5772,13 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetm
     (void)member;
     (void)name;
     (void)value;
-    (void)value_size;
+    (void)valueSize;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation(int64_t iface, void* member, void* argname, void* name, void* value, void* value_size) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberargannotation(int64_t iface, void* member, void* argname, void* name, void* value, void* valueSize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5789,7 +5789,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetm
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(iface, member, argname, name, value, value_size);
+        return km_fn_ptr(iface, member, argname, name, value, valueSize);
     }
     errno = ENOSYS;
     return -1;
@@ -5799,13 +5799,13 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetm
     (void)argname;
     (void)name;
     (void)value;
-    (void)value_size;
+    (void)valueSize;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage(int64_t iface, void* member, void* description, uint64_t maxlanguagelength, void* languagetag) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmemberdescriptionforlanguage(int64_t iface, void* member, void* description, uint64_t maxlanguagelength, void* languagetag) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5831,7 +5831,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers(int64_t iface, void* members, uint64_t nummembers) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmembers(int64_t iface, void* members, uint64_t nummembers) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5855,7 +5855,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod(int64_t iface, void* name, void* member) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetmethod(int64_t iface, void* name, void* member) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5879,7 +5879,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetm
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname(int64_t iface) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetname(int64_t iface) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5901,7 +5901,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetnam
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties(int64_t iface, void* props, uint64_t numprops) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperties(int64_t iface, void* props, uint64_t numprops) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5925,7 +5925,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty(int64_t iface, void* name, void* property) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetproperty(int64_t iface, void* name, void* property) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5949,7 +5949,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation(int64_t iface, void* property, void* name, void* value, void* str_size) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertyannotation(int64_t iface, void* property, void* name, void* value, void* strSize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5960,7 +5960,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetp
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(iface, property, name, value, str_size);
+        return km_fn_ptr(iface, property, name, value, strSize);
     }
     errno = ENOSYS;
     return -1;
@@ -5969,13 +5969,13 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetp
     (void)property;
     (void)name;
     (void)value;
-    (void)str_size;
+    (void)strSize;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage(int64_t iface, void* property, void* description, uint64_t maxlanguagelength, void* languagetag) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetpropertydescriptionforlanguage(int64_t iface, void* property, void* description, uint64_t maxlanguagelength, void* languagetag) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6001,7 +6001,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGet
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy(int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsecuritypolicy(int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6023,7 +6023,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGets
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal(int64_t iface, void* name, void* member) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionGetsignal(int64_t iface, void* name, void* member) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6047,7 +6047,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGets
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription(int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasdescription(int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6069,7 +6069,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasd
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember(int64_t iface, void* name, void* insig, void* outsig) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasmember(int64_t iface, void* name, void* insig, void* outsig) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6094,7 +6094,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties(int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperties(int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6116,7 +6116,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty(int64_t iface, void* name) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionHasproperty(int64_t iface, void* name) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6139,7 +6139,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasp
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect(int64_t iface, void* str, uint64_t buf, uint64_t indent) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIntrospect(int64_t iface, void* str, uint64_t buf, uint64_t indent) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6164,7 +6164,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionInt
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure(int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionIssecure(int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6186,7 +6186,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIsse
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription(int64_t iface, void* member, void* argname, void* description) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescription(int64_t iface, void* member, void* argname, void* description) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6211,7 +6211,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSeta
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage(int64_t iface, void* member, void* arg, void* description, void* languagetag) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetargdescriptionforlanguage(int64_t iface, void* member, void* arg, void* description, void* languagetag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6237,7 +6237,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSeta
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription(int64_t iface, void* description) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescription(int64_t iface, void* description) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6259,7 +6259,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdesc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage(int64_t iface, void* description, void* languagetag) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionforlanguage(int64_t iface, void* description, void* languagetag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6283,7 +6283,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetd
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage(int64_t iface, void* language) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptionlanguage(int64_t iface, void* language) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6305,7 +6305,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdesc
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback(int64_t iface, void* translationcallback) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetdescriptiontranslationcallback(int64_t iface, void* translationcallback) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6327,7 +6327,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdesc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription(int64_t iface, void* member, void* description) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescription(int64_t iface, void* member, void* description) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6351,7 +6351,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage(int64_t iface, void* member, void* description, void* languagetag) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetmemberdescriptionforlanguage(int64_t iface, void* member, void* description, void* languagetag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6376,7 +6376,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetm
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription(int64_t iface, void* name, void* description) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescription(int64_t iface, void* name, void* description) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6400,7 +6400,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage(int64_t iface, void* name, void* description, void* languagetag) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynInterfacedescriptionSetpropertydescriptionforlanguage(int64_t iface, void* name, void* description, void* languagetag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6425,7 +6425,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetp
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6448,7 +6448,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate(v
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6469,7 +6469,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys(int64_t listener, int64_t keystore, void* sink, void* sink_sz) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerGetkeys(int64_t listener, int64_t keystore, void* sink, void* sinkSz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6480,7 +6480,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys(
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(listener, keystore, sink, sink_sz);
+        return km_fn_ptr(listener, keystore, sink, sinkSz);
     }
     errno = ENOSYS;
     return -1;
@@ -6488,13 +6488,13 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys(
     (void)listener;
     (void)keystore;
     (void)sink;
-    (void)sink_sz;
+    (void)sinkSz;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys(int64_t listener, int64_t keystore, void* source, void* password) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerPutkeys(int64_t listener, int64_t keystore, void* source, void* password) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6519,7 +6519,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys(
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynKeystorelistenerWithSynchronizationCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6542,7 +6542,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSync
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate(int64_t bus) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageCreate(int64_t bus) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6564,7 +6564,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate(int64_t bu
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription(int64_t msg, void* str, uint64_t buf) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageDescription(int64_t msg, void* str, uint64_t buf) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6588,7 +6588,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription(int6
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy(int64_t msg) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMessageDestroy(int64_t msg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6609,7 +6609,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy(int64_t msg)
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageEql(int64_t one, int64_t other) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageEql(int64_t one, int64_t other) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6632,7 +6632,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageEql(int64_t one, 
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg(int64_t msg, uint64_t argn) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetarg(int64_t msg, uint64_t argn) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6655,7 +6655,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg(int64_t ms
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs(int64_t msg, void* numargs, void* args) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetargs(int64_t msg, void* numargs, void* args) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6678,7 +6678,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs(int64_t msg,
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetauthmechanism(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6700,7 +6700,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial(int64_t msg) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcallserial(int64_t msg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6722,7 +6722,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken(int64_t msg) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetcompressiontoken(int64_t msg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6744,7 +6744,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressionto
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetdestination(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6766,7 +6766,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination(int6
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname(int64_t msg, void* errormessage, void* errormessage_size) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGeterrorname(int64_t msg, void* errormessage, void* errormessageSize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6777,20 +6777,20 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname(int64_
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(msg, errormessage, errormessage_size);
+        return km_fn_ptr(msg, errormessage, errormessageSize);
     }
     errno = ENOSYS;
     return NULL;
 #else
     (void)msg;
     (void)errormessage;
-    (void)errormessage_size;
+    (void)errormessageSize;
     errno = ENOSYS;
     return NULL;
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags(int64_t msg) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetflags(int64_t msg) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6812,7 +6812,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags(int64_t 
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetinterface(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6834,7 +6834,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface(int64_
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetmembername(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6856,7 +6856,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername(int64
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetobjectpath(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6878,7 +6878,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath(int64
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreceiveendpointname(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6900,7 +6900,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointn
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial(int64_t msg) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetreplyserial(int64_t msg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6922,7 +6922,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial(i
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsender(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6944,7 +6944,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender(int64_t m
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid(int64_t msg) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsessionid(int64_t msg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6966,7 +6966,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid(int
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature(int64_t msg) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMessageGetsignature(int64_t msg) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6988,7 +6988,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp(int64_t msg) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGettimestamp(int64_t msg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7010,7 +7010,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype(int64_t msg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageGettype(int64_t msg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7032,7 +7032,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype(int64_t m
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal(int64_t msg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsbroadcastsignal(int64_t msg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7054,7 +7054,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted(int64_t msg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsencrypted(int64_t msg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7076,7 +7076,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired(int64_t msg, void* tillexpirems) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsexpired(int64_t msg, void* tillexpirems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7099,7 +7099,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast(int64_t msg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsglobalbroadcast(int64_t msg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7121,7 +7121,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless(int64_t msg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageIssessionless(int64_t msg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7143,7 +7143,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable(int64_t msg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageIsunreliable(int64_t msg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7165,7 +7165,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs(int64_t msg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageParseargs(int64_t msg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -7199,7 +7199,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs(int64_t
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess(int8_t endian) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMessageSetendianess(int8_t endian) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7220,7 +7220,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess(int8_t 
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring(int64_t msg, void* str, uint64_t buf) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMessageTostring(int64_t msg, void* str, uint64_t buf) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7244,7 +7244,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring(int64_t
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate(uint64_t size) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayCreate(uint64_t size) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7266,7 +7266,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate(uint64
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement(int64_t arg, uint64_t arg_1_index) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayElement(int64_t arg, uint64_t arg1Index) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7277,19 +7277,19 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement(int64
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg, arg_1_index);
+        return km_fn_ptr(arg, arg1Index);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)arg;
-    (void)arg_1_index;
+    (void)arg1Index;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet(int64_t args, uint64_t numargs, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayGet(int64_t args, uint64_t numargs, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, uint64_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -7324,7 +7324,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet(int64_t args, void* numargs, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySet(int64_t args, void* numargs, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, void*, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -7359,7 +7359,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset(int64_t args, uint64_t argoffset, void* numargs, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySetOffset(int64_t args, uint64_t argoffset, void* numargs, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, uint64_t, void*, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -7395,7 +7395,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset(int
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature(int64_t values, uint64_t numvalues, void* str, uint64_t buf) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArraySignature(int64_t values, uint64_t numvalues, void* str, uint64_t buf) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7420,7 +7420,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature(in
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring(int64_t args, uint64_t numargs, void* str, uint64_t buf, uint64_t indent) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargArrayTostring(int64_t args, uint64_t numargs, void* str, uint64_t buf, uint64_t indent) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7446,7 +7446,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring(int
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear(int64_t arg) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMsgargClear(int64_t arg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7467,7 +7467,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear(int64_t arg) {
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone(int64_t destination, int64_t source) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMsgargClone(int64_t destination, int64_t source) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7489,7 +7489,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone(int64_t destina
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy(int64_t source) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCopy(int64_t source) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7511,7 +7511,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy(int64_t sourc
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate(void) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreate(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7532,7 +7532,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate(void) {
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet(void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargCreateAndSet(void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int64_t (*km_fn_t)(void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -7565,7 +7565,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet(void*
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy(int64_t arg) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMsgargDestroy(int64_t arg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7586,7 +7586,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy(int64_t arg) 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual(int64_t lhv, int64_t rhv) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargEqual(int64_t lhv, int64_t rhv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7609,7 +7609,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual(int64_t lhv,
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet(int64_t arg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGet(int64_t arg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -7643,7 +7643,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet(int64_t arg, v
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement(int64_t arg, uint64_t arg_1_index, void* element) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElement(int64_t arg, uint64_t arg1Index, void* element) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7654,19 +7654,19 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement(int64
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(arg, arg_1_index, element);
+        km_fn_ptr(arg, arg1Index, element);
         return;
     }
     errno = ENOSYS;
 #else
     (void)arg;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)element;
     errno = ENOSYS;
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature(int64_t arg, uint64_t arg_1_index) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayElementsignature(int64_t arg, uint64_t arg1Index) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7677,19 +7677,19 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsigna
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg, arg_1_index);
+        return km_fn_ptr(arg, arg1Index);
     }
     errno = ENOSYS;
     return NULL;
 #else
     (void)arg;
-    (void)arg_1_index;
+    (void)arg1Index;
     errno = ENOSYS;
     return NULL;
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements(int64_t arg) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetArrayNumberofelements(int64_t arg) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7711,7 +7711,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool(int64_t arg, void* b) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBool(int64_t arg, void* b) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7734,7 +7734,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool(int64_t ar
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray(int64_t arg, void* length, void* ab) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetBoolArray(int64_t arg, void* length, void* ab) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7758,7 +7758,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble(int64_t arg, void* d) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDouble(int64_t arg, void* d) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7781,7 +7781,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray(int64_t arg, void* length, void* ad) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetDoubleArray(int64_t arg, void* length, void* ad) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7805,7 +7805,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16(int64_t arg, void* n) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16(int64_t arg, void* n) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7828,7 +7828,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array(int64_t arg, void* length, void* an) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt16Array(int64_t arg, void* length, void* an) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7852,7 +7852,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32(int64_t arg, void* i) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32(int64_t arg, void* i) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7875,7 +7875,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array(int64_t arg, void* length, void* ai) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt32Array(int64_t arg, void* length, void* ai) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7899,7 +7899,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64(int64_t arg, void* x) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64(int64_t arg, void* x) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7922,7 +7922,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array(int64_t arg, void* length, void* ax) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetInt64Array(int64_t arg, void* length, void* ax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7946,7 +7946,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath(int64_t arg, void* o) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetObjectpath(int64_t arg, void* o) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7969,7 +7969,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature(int64_t arg, void* g) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetSignature(int64_t arg, void* g) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7992,7 +7992,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString(int64_t arg, void* s) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetString(int64_t arg, void* s) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8015,7 +8015,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16(int64_t arg, void* q) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16(int64_t arg, void* q) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8038,7 +8038,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array(int64_t arg, void* length, void* aq) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint16Array(int64_t arg, void* length, void* aq) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8062,7 +8062,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32(int64_t arg, void* u) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32(int64_t arg, void* u) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8085,7 +8085,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array(int64_t arg, void* length, void* au) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint32Array(int64_t arg, void* length, void* au) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8109,7 +8109,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64(int64_t arg, void* t) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64(int64_t arg, void* t) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8132,7 +8132,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array(int64_t arg, void* length, void* at) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint64Array(int64_t arg, void* length, void* at) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8156,7 +8156,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8(int64_t arg, void* y) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8(int64_t arg, void* y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8179,7 +8179,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array(int64_t arg, void* length, void* ay) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetUint8Array(int64_t arg, void* length, void* ay) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8203,7 +8203,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant(int64_t arg, int64_t v) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariant(int64_t arg, int64_t v) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8226,7 +8226,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray(int64_t arg, void* signature, void* length, void* av) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetVariantArray(int64_t arg, void* signature, void* length, void* av) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8251,7 +8251,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement(int64_t arg, void* elemsig, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetdictelement(int64_t arg, void* elemsig, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -8285,7 +8285,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement(int
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey(int64_t arg) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetkey(int64_t arg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8307,7 +8307,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey(int64_t arg
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember(int64_t arg, uint64_t arg_1_index) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetmember(int64_t arg, uint64_t arg1Index) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8318,19 +8318,19 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember(int64_t 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg, arg_1_index);
+        return km_fn_ptr(arg, arg1Index);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)arg;
-    (void)arg_1_index;
+    (void)arg1Index;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers(int64_t arg) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetnummembers(int64_t arg) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8352,7 +8352,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype(int64_t arg) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGettype(int64_t arg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8374,7 +8374,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype(int64_t ar
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue(int64_t arg) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargGetvalue(int64_t arg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8396,7 +8396,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature(int64_t arg, void* signature) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargHassignature(int64_t arg, void* signature) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8419,7 +8419,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet(int64_t arg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSet(int64_t arg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -8453,7 +8453,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet(int64_t arg, v
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize(int64_t arg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetAndStabilize(int64_t arg, void* signature, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
 #ifdef _WIN32
     typedef int32_t (*km_fn_t)(int64_t, void*, ...);
     static km_fn_t km_fn_ptr = NULL;
@@ -8487,7 +8487,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool(int64_t arg, int32_t b) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBool(int64_t arg, int32_t b) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8510,7 +8510,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool(int64_t ar
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray(int64_t arg, uint64_t length, void* ab) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetBoolArray(int64_t arg, uint64_t length, void* ab) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8534,7 +8534,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble(int64_t arg, double d) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDouble(int64_t arg, double d) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -8557,7 +8557,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray(int64_t arg, uint64_t length, void* ad) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetDoubleArray(int64_t arg, uint64_t length, void* ad) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8581,7 +8581,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16(int64_t arg, int16_t n) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16(int64_t arg, int16_t n) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8604,7 +8604,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array(int64_t arg, uint64_t length, void* an) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt16Array(int64_t arg, uint64_t length, void* an) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8628,7 +8628,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32(int64_t arg, int32_t i) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32(int64_t arg, int32_t i) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8651,7 +8651,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array(int64_t arg, uint64_t length, void* ai) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt32Array(int64_t arg, uint64_t length, void* ai) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8675,7 +8675,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64(int64_t arg, int64_t x) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64(int64_t arg, int64_t x) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8698,7 +8698,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array(int64_t arg, uint64_t length, void* ax) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetInt64Array(int64_t arg, uint64_t length, void* ax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8722,7 +8722,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath(int64_t arg, void* o) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpath(int64_t arg, void* o) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8745,7 +8745,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray(int64_t arg, uint64_t length, void* ao) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetObjectpathArray(int64_t arg, uint64_t length, void* ao) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8769,7 +8769,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature(int64_t arg, void* g) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignature(int64_t arg, void* g) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8792,7 +8792,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray(int64_t arg, uint64_t length, void* ag) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetSignatureArray(int64_t arg, uint64_t length, void* ag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8816,7 +8816,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString(int64_t arg, void* s) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetString(int64_t arg, void* s) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8839,7 +8839,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray(int64_t arg, uint64_t length, void* as) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetStringArray(int64_t arg, uint64_t length, void* as) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8863,7 +8863,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16(int64_t arg, uint16_t q) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16(int64_t arg, uint16_t q) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8886,7 +8886,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array(int64_t arg, uint64_t length, void* aq) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint16Array(int64_t arg, uint64_t length, void* aq) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8910,7 +8910,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32(int64_t arg, uint32_t u) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32(int64_t arg, uint32_t u) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8933,7 +8933,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array(int64_t arg, uint64_t length, void* au) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint32Array(int64_t arg, uint64_t length, void* au) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8957,7 +8957,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64(int64_t arg, uint64_t t) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64(int64_t arg, uint64_t t) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8980,7 +8980,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array(int64_t arg, uint64_t length, void* at) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint64Array(int64_t arg, uint64_t length, void* at) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9004,7 +9004,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8(int64_t arg, uint8_t y) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8(int64_t arg, uint8_t y) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9027,7 +9027,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8(int64_t a
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array(int64_t arg, uint64_t length, void* ay) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetUint8Array(int64_t arg, uint64_t length, void* ay) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9051,7 +9051,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry(int64_t arg, int64_t key, int64_t value) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetdictentry(int64_t arg, int64_t key, int64_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9075,7 +9075,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct(int64_t arg, int64_t struct_members, uint64_t num_members) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSetstruct(int64_t arg, int64_t structMembers, uint64_t numMembers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9086,20 +9086,20 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct(int64_t 
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg, struct_members, num_members);
+        return km_fn_ptr(arg, structMembers, numMembers);
     }
     errno = ENOSYS;
     return -1;
 #else
     (void)arg;
-    (void)struct_members;
-    (void)num_members;
+    (void)structMembers;
+    (void)numMembers;
     errno = ENOSYS;
     return -1;
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature(int64_t arg, void* str, uint64_t buf) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargSignature(int64_t arg, void* str, uint64_t buf) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9123,7 +9123,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature(int64_t
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize(int64_t arg) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynMsgargStabilize(int64_t arg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9144,7 +9144,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize(int64_t arg
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring(int64_t arg, void* str, uint64_t buf, uint64_t indent) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynMsgargTostring(int64_t arg, void* str, uint64_t buf, uint64_t indent) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9169,7 +9169,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring(int64_t 
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(int64_t bus, void* mandatoryinterfaces, uint64_t nummandatoryinterfaces) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynObserverCreate(int64_t bus, void* mandatoryinterfaces, uint64_t nummandatoryinterfaces) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9193,7 +9193,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(int64_t b
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(int64_t observer) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynObserverDestroy(int64_t observer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9214,7 +9214,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(int64_t obs
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(int64_t observer, void* uniquebusname, void* objectpath) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynObserverGet(int64_t observer, void* uniquebusname, void* objectpath) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9238,7 +9238,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(int64_t obse
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(int64_t observer) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynObserverGetfirst(int64_t observer) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9260,7 +9260,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(int64_t
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(int64_t observer, int64_t proxyref) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynObserverGetnext(int64_t observer, int64_t proxyref) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9283,7 +9283,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(int64_t 
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(int64_t observer, int64_t listener, int32_t triggeronexisting) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynObserverRegisterlistener(int64_t observer, int64_t listener, int32_t triggeronexisting) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9306,7 +9306,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(in
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners(int64_t observer) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisteralllisteners(int64_t observer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9327,7 +9327,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisten
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(int64_t observer, int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynObserverUnregisterlistener(int64_t observer, int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9349,7 +9349,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate(void* callback, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerCreate(void* callback, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9372,7 +9372,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate(v
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynObserverlistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9393,7 +9393,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials(void* authmechanism, void* password) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPasswordmanagerSetcredentials(void* authmechanism, void* password) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9416,7 +9416,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcreden
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9439,7 +9439,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationl
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfigurationlistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9460,7 +9460,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlist
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy(void* certificatechain) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificatechainDestroy(void* certificatechain) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9481,7 +9481,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCerti
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup(void* certificateid) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidCleanup(void* certificateid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9502,7 +9502,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCerti
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup(void* certificateidarray) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorCertificateidarrayCleanup(void* certificateidarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9523,7 +9523,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCerti
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim(int64_t configurator, void* cakey, void* identitycertificatechain, void* groupid, uint64_t groupsize, void* groupauthority, void* manifestsxmls, uint64_t manifestscount) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorClaim(int64_t configurator, void* cakey, void* identitycertificatechain, void* groupid, uint64_t groupsize, void* groupauthority, void* manifestsxmls, uint64_t manifestscount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9552,7 +9552,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCl
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement(int64_t configurator) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorEndmanagement(int64_t configurator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9574,7 +9574,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate(int64_t configurator, void* state) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetapplicationstate(int64_t configurator, void* state) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9597,7 +9597,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities(int64_t configurator, void* claimcapabilities) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilities(int64_t configurator, void* claimcapabilities) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9620,7 +9620,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(int64_t configurator, void* additionalinfo) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(int64_t configurator, void* additionalinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9643,7 +9643,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-uint16_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities(void) {
+uint16_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultclaimcapabilities(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9664,7 +9664,7 @@ uint16_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorG
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy(int64_t configurator, void* policyxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetdefaultpolicy(int64_t configurator, void* policyxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9687,7 +9687,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity(int64_t configurator, void* identitycertificatechain) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentity(int64_t configurator, void* identitycertificatechain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9710,7 +9710,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid(int64_t configurator, void* certificateid) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetidentitycertificateid(int64_t configurator, void* certificateid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9733,7 +9733,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests(int64_t configurator, void* manifestarray) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifests(int64_t configurator, void* manifestarray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9756,7 +9756,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate(int64_t configurator, void* manifesttemplatexml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmanifesttemplate(int64_t configurator, void* manifesttemplatexml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9779,7 +9779,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries(int64_t configurator, void* certificateids) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetmembershipsummaries(int64_t configurator, void* certificateids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9802,7 +9802,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy(int64_t configurator, void* policyxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpolicy(int64_t configurator, void* policyxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9825,7 +9825,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey(int64_t configurator, void* publickey) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorGetpublickey(int64_t configurator, void* publickey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9848,7 +9848,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests(int64_t configurator, void* manifestsxmls, uint64_t manifestscount, int32_t append) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmanifests(int64_t configurator, void* manifestsxmls, uint64_t manifestscount, int32_t append) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9873,7 +9873,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorIn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership(int64_t configurator, void* membershipcertificatechain) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorInstallmembership(int64_t configurator, void* membershipcertificatechain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9896,7 +9896,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorIn
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup(void* manifestarray) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifestarrayCleanup(void* manifestarray) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9917,7 +9917,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManif
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy(void* manifesttemplatexml) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorManifesttemplateDestroy(void* manifesttemplatexml) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9938,7 +9938,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManif
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy(void* policyxml) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPolicyDestroy(void* policyxml) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9959,7 +9959,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolic
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy(void* publickey) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorPublickeyDestroy(void* publickey) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9980,7 +9980,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPubli
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership(int64_t configurator, void* serial, uint64_t seriallen, void* issuerpublickey, void* issueraki, uint64_t issuerakilen) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorRemovemembership(int64_t configurator, void* serial, uint64_t seriallen, void* issuerpublickey, void* issueraki, uint64_t issuerakilen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10007,7 +10007,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset(int64_t configurator) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorReset(int64_t configurator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10029,7 +10029,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy(int64_t configurator) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorResetpolicy(int64_t configurator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10051,7 +10051,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate(int64_t configurator, int32_t state) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetapplicationstate(int64_t configurator, int32_t state) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10074,7 +10074,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities(int64_t configurator, uint16_t claimcapabilities) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilities(int64_t configurator, uint16_t claimcapabilities) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10097,7 +10097,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(int64_t configurator, uint16_t additionalinfo) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(int64_t configurator, uint16_t additionalinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10120,7 +10120,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml(int64_t configurator, void* manifesttemplatexml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorSetmanifesttemplatefromxml(int64_t configurator, void* manifesttemplatexml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10143,7 +10143,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement(int64_t configurator) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorStartmanagement(int64_t configurator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10165,7 +10165,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSt
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity(int64_t configurator, void* identitycertificatechain, void* manifestsxmls, uint64_t manifestscount) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdateidentity(int64_t configurator, void* identitycertificatechain, void* manifestsxmls, uint64_t manifestscount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10190,7 +10190,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy(int64_t configurator, void* policyxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynPermissionconfiguratorUpdatepolicy(int64_t configurator, void* policyxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10213,7 +10213,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUp
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate(void* callback, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerCreate(void* callback, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10236,7 +10236,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate(void*
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynPinglistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10257,7 +10257,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild(int64_t proxyobj, int64_t child) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddchild(int64_t proxyobj, int64_t child) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10280,7 +10280,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface(int64_t proxyobj, int64_t iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterface(int64_t proxyobj, int64_t iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10303,7 +10303,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName(int64_t proxyobj, void* name) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectAddinterfaceByName(int64_t proxyobj, void* name) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10326,7 +10326,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfa
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy(int64_t source) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCopy(int64_t source) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10348,7 +10348,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy(int64
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate(int64_t bus, void* service, void* path, uint32_t sessionid) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreate(int64_t bus, void* service, void* path, uint32_t sessionid) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10373,7 +10373,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate(int
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure(int64_t bus, void* service, void* path, uint32_t sessionid) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectCreateSecure(int64_t bus, void* service, void* path, uint32_t sessionid) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10398,7 +10398,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecu
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy(int64_t proxyobj) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectDestroy(int64_t proxyobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10419,7 +10419,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy(int64
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching(int64_t proxyobj) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectEnablepropertycaching(int64_t proxyobj) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10440,7 +10440,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropert
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties(int64_t proxyobj, void* iface, int64_t values) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallproperties(int64_t proxyobj, void* iface, int64_t values) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10464,7 +10464,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallprop
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync(int64_t proxyobj, void* iface, void* callback, uint32_t timeout, void* context) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetallpropertiesasync(int64_t proxyobj, void* iface, void* callback, uint32_t timeout, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10490,7 +10490,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallprop
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild(int64_t proxyobj, void* path) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchild(int64_t proxyobj, void* path) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10513,7 +10513,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild(i
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren(int64_t proxyobj, void* children, uint64_t numchildren) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetchildren(int64_t proxyobj, void* children, uint64_t numchildren) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10537,7 +10537,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildr
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface(int64_t proxyobj, void* iface) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterface(int64_t proxyobj, void* iface) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10560,7 +10560,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfa
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces(int64_t proxyobj, void* ifaces, uint64_t numifaces) {
+uint64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetinterfaces(int64_t proxyobj, void* ifaces, uint64_t numifaces) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10584,7 +10584,7 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterf
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath(int64_t proxyobj) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpath(int64_t proxyobj) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10606,7 +10606,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty(int64_t proxyobj, void* iface, void* property, int64_t value) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetproperty(int64_t proxyobj, void* iface, void* property, int64_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10631,7 +10631,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropert
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync(int64_t proxyobj, void* iface, void* property, void* callback, uint32_t timeout, void* context) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetpropertyasync(int64_t proxyobj, void* iface, void* property, void* callback, uint32_t timeout, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10658,7 +10658,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropert
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename(int64_t proxyobj) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetservicename(int64_t proxyobj) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10680,7 +10680,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicena
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid(int64_t proxyobj) {
+uint32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetsessionid(int64_t proxyobj) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10702,7 +10702,7 @@ uint32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessio
 #endif
 }
 
-void* windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename(int64_t proxyobj) {
+void* windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectGetuniquename(int64_t proxyobj) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10724,7 +10724,7 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquenam
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface(int64_t proxyobj, void* iface) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectImplementsinterface(int64_t proxyobj, void* iface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10747,7 +10747,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplements
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject(int64_t proxyobj) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobject(int64_t proxyobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10769,7 +10769,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospect
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync(int64_t proxyobj, void* callback, void* context) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIntrospectremoteobjectasync(int64_t proxyobj, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10793,7 +10793,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospect
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure(int64_t proxyobj) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIssecure(int64_t proxyobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10815,7 +10815,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid(int64_t proxyobj) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectIsvalid(int64_t proxyobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10837,7 +10837,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall(int64_t proxyobj, void* ifacename, void* methodname, int64_t args, uint64_t numargs, int64_t replymsg, uint32_t timeout, uint8_t flags) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcall(int64_t proxyobj, void* ifacename, void* methodname, int64_t args, uint64_t numargs, int64_t replymsg, uint32_t timeout, uint8_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int64_t, uint64_t, int64_t, uint32_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10866,7 +10866,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply(int64_t proxyobj, void* ifacename, void* methodname, int64_t args, uint64_t numargs, uint8_t flags) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallNoreply(int64_t proxyobj, void* ifacename, void* methodname, int64_t args, uint64_t numargs, uint8_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int64_t, uint64_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10893,7 +10893,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync(int64_t proxyobj, void* ifacename, void* methodname, void* replyfunc, int64_t args, uint64_t numargs, void* context, uint32_t timeout, uint8_t flags) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectMethodcallasync(int64_t proxyobj, void* ifacename, void* methodname, void* replyfunc, int64_t args, uint64_t numargs, void* context, uint32_t timeout, uint8_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, int64_t, uint64_t, void*, uint32_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10923,7 +10923,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml(int64_t proxyobj, void* xml, void* identifier) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectParsexml(int64_t proxyobj, void* xml, void* identifier) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10947,7 +10947,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml(i
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate(int64_t proxy) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefCreate(int64_t proxy) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10969,7 +10969,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate(
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref(int64_t ref) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefDecref(int64_t ref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10990,7 +10990,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref(int
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet(int64_t ref) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefGet(int64_t ref) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11012,7 +11012,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet(int
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref(int64_t ref) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRefIncref(int64_t ref) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11033,7 +11033,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener(int64_t proxyobj, void* iface, void* properties, uint64_t numproperties, void* callback, void* context) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRegisterpropertieschangedlistener(int64_t proxyobj, void* iface, void* properties, uint64_t numproperties, void* callback, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11060,7 +11060,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild(int64_t proxyobj, void* path) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectRemovechild(int64_t proxyobj, void* path) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11083,7 +11083,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection(int64_t proxyobj, int32_t forceauth) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnection(int64_t proxyobj, int32_t forceauth) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11106,7 +11106,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync(int64_t proxyobj, int32_t forceauth) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSecureconnectionasync(int64_t proxyobj, int32_t forceauth) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11129,7 +11129,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty(int64_t proxyobj, void* iface, void* property, int64_t value) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetproperty(int64_t proxyobj, void* iface, void* property, int64_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11154,7 +11154,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropert
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync(int64_t proxyobj, void* iface, void* property, int64_t value, void* callback, uint32_t timeout, void* context) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectSetpropertyasync(int64_t proxyobj, void* iface, void* property, int64_t value, void* callback, uint32_t timeout, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11182,7 +11182,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropert
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener(int64_t proxyobj, void* iface, void* callback) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynProxybusobjectUnregisterpropertieschangedlistener(int64_t proxyobj, void* iface, void* callback) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11206,7 +11206,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregister
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynRouterinit(void) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynRouterinit(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11227,7 +11227,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynRouterinit(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig(void* configxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynRouterinitwithconfig(void* configxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11249,7 +11249,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown(void) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynRoutershutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11270,7 +11270,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim(int64_t proxy, void* cakey, void* identitycertificatechain, void* groupid, uint64_t groupsize, void* groupauthority, void* manifestsxmls, uint64_t manifestscount) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyClaim(int64_t proxy, void* cakey, void* identitycertificatechain, void* groupid, uint64_t groupsize, void* groupauthority, void* manifestsxmls, uint64_t manifestscount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11299,7 +11299,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest(void* unsignedmanifestxml, void* identitycertificatepem, void* digest, void* digestsize) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyComputemanifestdigest(void* unsignedmanifestxml, void* identitycertificatepem, void* digest, void* digestsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11324,7 +11324,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(int64_t bus, void* appbusname, uint32_t sessionid) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyCreate(int64_t bus, void* appbusname, uint32_t sessionid) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11348,7 +11348,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy(int64_t proxy) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDestroy(int64_t proxy) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11369,7 +11369,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDes
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy(void* digest) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyDigestDestroy(void* digest) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11390,7 +11390,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDig
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy(void* eccpublickey) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEccpublickeyDestroy(void* eccpublickey) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11411,7 +11411,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEcc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement(int64_t proxy) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyEndmanagement(int64_t proxy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11433,7 +11433,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate(int64_t proxy, void* applicationstate) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetapplicationstate(int64_t proxy, void* applicationstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11456,7 +11456,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities(int64_t proxy, void* capabilities) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilities(int64_t proxy, void* capabilities) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11479,7 +11479,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(int64_t proxy, void* additionalinfo) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(int64_t proxy, void* additionalinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11502,7 +11502,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy(int64_t proxy, void* policyxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetdefaultpolicy(int64_t proxy, void* policyxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11525,7 +11525,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey(int64_t proxy, void* eccpublickey) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGeteccpublickey(int64_t proxy, void* eccpublickey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11548,7 +11548,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate(int64_t proxy, void* manifesttemplatexml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetmanifesttemplate(int64_t proxy, void* manifesttemplatexml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11571,7 +11571,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-uint16_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(void) {
+uint16_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpermissionmanagementsessionport(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11592,7 +11592,7 @@ uint16_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationprox
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy(int64_t proxy, void* policyxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyGetpolicy(int64_t proxy, void* policyxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11615,7 +11615,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership(int64_t proxy, void* membershipcertificatechain) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyInstallmembership(int64_t proxy, void* membershipcertificatechain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11638,7 +11638,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy(void* signedmanifestxml) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifestDestroy(void* signedmanifestxml) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11659,7 +11659,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyMan
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy(void* manifesttemplatexml) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyManifesttemplateDestroy(void* manifesttemplatexml) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11680,7 +11680,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyMan
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy(void* policyxml) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyPolicyDestroy(void* policyxml) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11701,7 +11701,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPol
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset(int64_t proxy) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyReset(int64_t proxy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11723,7 +11723,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy(int64_t proxy) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyResetpolicy(int64_t proxy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11745,7 +11745,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature(void* unsignedmanifestxml, void* identitycertificatepem, void* signature, uint64_t signaturesize, void* signedmanifestxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySetmanifestsignature(void* unsignedmanifestxml, void* identitycertificatepem, void* signature, uint64_t signaturesize, void* signedmanifestxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11771,7 +11771,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest(void* unsignedmanifestxml, void* identitycertificatepem, void* signingprivatekeypem, void* signedmanifestxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxySignmanifest(void* unsignedmanifestxml, void* identitycertificatepem, void* signingprivatekeypem, void* signedmanifestxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11796,7 +11796,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement(int64_t proxy) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyStartmanagement(int64_t proxy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11818,7 +11818,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity(int64_t proxy, void* identitycertificatechain, void* manifestsxmls, uint64_t manifestscount) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdateidentity(int64_t proxy, void* identitycertificatechain, void* manifestsxmls, uint64_t manifestscount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11843,7 +11843,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy(int64_t proxy, void* policyxml) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSecurityapplicationproxyUpdatepolicy(int64_t proxy, void* policyxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11866,7 +11866,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11889,7 +11889,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate(vo
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSessionlistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11910,7 +11910,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp(int64_t one, int64_t other) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCmp(int64_t one, int64_t other) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11933,7 +11933,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp(int64_t o
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate(uint8_t traffic, int32_t ismultipoint, uint8_t proximity, uint16_t transports) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsCreate(uint8_t traffic, int32_t ismultipoint, uint8_t proximity, uint16_t transports) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint8_t, int32_t, uint8_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11958,7 +11958,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate(uint8_
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy(int64_t opts) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsDestroy(int64_t opts) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11979,7 +11979,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint(int64_t opts) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetMultipoint(int64_t opts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12001,7 +12001,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity(int64_t opts) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetProximity(int64_t opts) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12023,7 +12023,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity(
 #endif
 }
 
-uint8_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic(int64_t opts) {
+uint8_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTraffic(int64_t opts) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12045,7 +12045,7 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic(in
 #endif
 }
 
-uint16_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports(int64_t opts) {
+uint16_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsGetTransports(int64_t opts) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12067,7 +12067,7 @@ uint16_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransport
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible(int64_t one, int64_t other) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsIscompatible(int64_t one, int64_t other) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12090,7 +12090,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible(
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint(int64_t opts, int32_t ismultipoint) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetMultipoint(int64_t opts, int32_t ismultipoint) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12112,7 +12112,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint(in
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity(int64_t opts, uint8_t proximity) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetProximity(int64_t opts, uint8_t proximity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12134,7 +12134,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity(int
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic(int64_t opts, uint8_t traffic) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTraffic(int64_t opts, uint8_t traffic) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12156,7 +12156,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic(int64
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports(int64_t opts, uint16_t transports) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSessionoptsSetTransports(int64_t opts, uint16_t transports) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12178,7 +12178,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports(in
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate(void* callbacks, void* context) {
+int64_t windowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12201,7 +12201,7 @@ int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreat
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(int64_t listener) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynSessionportlistenerDestroy(int64_t listener) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12222,7 +12222,7 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynShutdown(void) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynShutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12243,7 +12243,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynShutdown(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess(void) {
+int32_t windowssysWindowsWin32DevicesAlljoynAlljoynUnityDeferredCallbacksProcess(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12264,7 +12264,7 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksPr
 #endif
 }
 
-void windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly(int32_t mainthread_only) {
+void windowssysWindowsWin32DevicesAlljoynAlljoynUnitySetDeferredCallbackMainthreadOnly(int32_t mainthreadOnly) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12275,12 +12275,12 @@ void windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMai
         }
     }
     if (km_fn_ptr != NULL) {
-        km_fn_ptr(mainthread_only);
+        km_fn_ptr(mainthreadOnly);
         return;
     }
     errno = ENOSYS;
 #else
-    (void)mainthread_only;
+    (void)mainthreadOnly;
     errno = ENOSYS;
 #endif
 }

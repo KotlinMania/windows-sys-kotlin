@@ -2,106 +2,110 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.threading
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.PtimerApcRoutine
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntCancelTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntCreateTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntOpenEvent
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntOpenProcess
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntOpenTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntQueryInformationProcess
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntQueryInformationThread
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntSetInformationThread
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntSetTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntSetTimerEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntTerminateProcess
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_ntWaitForSingleObject
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwCancelTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwCreateTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwOpenEvent
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwOpenProcess
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwOpenTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwQueryInformationProcess
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwQueryInformationThread
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwSetInformationThread
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwSetTimer
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwSetTimerEx
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwTerminateProcess
-import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssys_windows_wdk_system_threading_zwWaitForSingleObject
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtCancelTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtCreateTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtOpenEvent
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtOpenProcess
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtOpenTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtQueryInformationProcess
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtQueryInformationThread
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtSetInformationThread
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtSetTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtSetTimerEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtTerminateProcess
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingNtWaitForSingleObject
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwCancelTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwCreateTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwOpenEvent
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwOpenProcess
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwOpenTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwQueryInformationProcess
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwQueryInformationThread
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwSetInformationThread
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwSetTimer
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwSetTimerEx
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwTerminateProcess
+import io.github.kotlinmania.windowssys.windows.wdk.system.threading.cinterop.windowssysWindowsWdkSystemThreadingZwWaitForSingleObject
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TimerType
+import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ClientId
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun ntCancelTimer(timerhandle: Handle, currentstate: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntCancelTimer(timerhandle?.value?.toCPointer<ByteVar>(), currentstate?.value?.toCPointer<ByteVar>())
+public actual fun ntCancelTimer(timerhandle: Handle, currentstate: MutPtr<Boolean>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtCancelTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), currentstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, timertype: TimerType): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntCreateTimer(timerhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), timertype)
+public actual fun ntCreateTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, timertype: TimerType): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtCreateTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), timertype)
 
-public actual fun ntOpenEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntOpenEvent(eventhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun ntOpenEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtOpenEvent(eventhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenProcess(processhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, clientid: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntOpenProcess(processhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), clientid?.value?.toCPointer<ByteVar>())
+public actual fun ntOpenProcess(processhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, clientid: ConstPtr<ClientId>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtOpenProcess(processhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), clientid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntOpenTimer(timerhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun ntOpenTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtOpenTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: COpaquePointer?, processinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntQueryInformationProcess(processhandle?.value?.toCPointer<ByteVar>(), processinformationclass, processinformation?.value?.toCPointer<ByteVar>(), processinformationlength, returnlength?.value?.toCPointer<ByteVar>())
+public actual fun ntQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: MutPtr<CVoid>, processinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtQueryInformationProcess(processhandle.rawAddress.toCPointer<ByteVar>(), processinformationclass, processinformation.rawAddress.toCPointer<ByteVar>(), processinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntQueryInformationThread(threadhandle?.value?.toCPointer<ByteVar>(), threadinformationclass, threadinformation?.value?.toCPointer<ByteVar>(), threadinformationlength, returnlength?.value?.toCPointer<ByteVar>())
+public actual fun ntQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: MutPtr<CVoid>, threadinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtQueryInformationThread(threadhandle.rawAddress.toCPointer<ByteVar>(), threadinformationclass, threadinformation.rawAddress.toCPointer<ByteVar>(), threadinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntSetInformationThread(threadhandle?.value?.toCPointer<ByteVar>(), threadinformationclass, threadinformation?.value?.toCPointer<ByteVar>(), threadinformationlength)
+public actual fun ntSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: ConstPtr<CVoid>, threadinformationlength: UInt): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtSetInformationThread(threadhandle.rawAddress.toCPointer<ByteVar>(), threadinformationclass, threadinformation.rawAddress.toCPointer<ByteVar>(), threadinformationlength)
 
-public actual fun ntSetTimer(timerhandle: Handle, duetime: COpaquePointer?, timerapcroutine: PtimerApcRoutine, timercontext: COpaquePointer?, resumetimer: Boolean, period: Int, previousstate: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntSetTimer(timerhandle?.value?.toCPointer<ByteVar>(), duetime?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), timercontext?.value?.toCPointer<ByteVar>(), resumetimer, period, previousstate?.value?.toCPointer<ByteVar>())
+public actual fun ntSetTimer(timerhandle: Handle, duetime: ConstPtr<Long>, timerapcroutine: PtimerApcRoutine, timercontext: ConstPtr<CVoid>, resumetimer: Boolean, period: Int, previousstate: MutPtr<Boolean>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtSetTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), duetime.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), timercontext.rawAddress.toCPointer<ByteVar>(), resumetimer, period, previousstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: COpaquePointer?, timersetinformationlength: UInt): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntSetTimerEx(timerhandle?.value?.toCPointer<ByteVar>(), timersetinformationclass, timersetinformation?.value?.toCPointer<ByteVar>(), timersetinformationlength)
+public actual fun ntSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: MutPtr<CVoid>, timersetinformationlength: UInt): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtSetTimerEx(timerhandle.rawAddress.toCPointer<ByteVar>(), timersetinformationclass, timersetinformation.rawAddress.toCPointer<ByteVar>(), timersetinformationlength)
 
 public actual fun ntTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntTerminateProcess(processhandle?.value?.toCPointer<ByteVar>(), exitstatus)
+    windowssysWindowsWdkSystemThreadingNtTerminateProcess(processhandle.rawAddress.toCPointer<ByteVar>(), exitstatus)
 
-public actual fun ntWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_ntWaitForSingleObject(handle?.value?.toCPointer<ByteVar>(), alertable, timeout?.value?.toCPointer<ByteVar>())
+public actual fun ntWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: MutPtr<Long>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingNtWaitForSingleObject(handle.rawAddress.toCPointer<ByteVar>(), alertable, timeout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCancelTimer(timerhandle: Handle, currentstate: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwCancelTimer(timerhandle?.value?.toCPointer<ByteVar>(), currentstate?.value?.toCPointer<ByteVar>())
+public actual fun zwCancelTimer(timerhandle: Handle, currentstate: MutPtr<Boolean>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwCancelTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), currentstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, timertype: TimerType): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwCreateTimer(timerhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), timertype)
+public actual fun zwCreateTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, timertype: TimerType): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwCreateTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), timertype)
 
-public actual fun zwOpenEvent(eventhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwOpenEvent(eventhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun zwOpenEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwOpenEvent(eventhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenProcess(processhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, clientid: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwOpenProcess(processhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), clientid?.value?.toCPointer<ByteVar>())
+public actual fun zwOpenProcess(processhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, clientid: ConstPtr<ClientId>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwOpenProcess(processhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), clientid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenTimer(timerhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwOpenTimer(timerhandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>())
+public actual fun zwOpenTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwOpenTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: COpaquePointer?, processinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwQueryInformationProcess(processhandle?.value?.toCPointer<ByteVar>(), processinformationclass, processinformation?.value?.toCPointer<ByteVar>(), processinformationlength, returnlength?.value?.toCPointer<ByteVar>())
+public actual fun zwQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: MutPtr<CVoid>, processinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwQueryInformationProcess(processhandle.rawAddress.toCPointer<ByteVar>(), processinformationclass, processinformation.rawAddress.toCPointer<ByteVar>(), processinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwQueryInformationThread(threadhandle?.value?.toCPointer<ByteVar>(), threadinformationclass, threadinformation?.value?.toCPointer<ByteVar>(), threadinformationlength, returnlength?.value?.toCPointer<ByteVar>())
+public actual fun zwQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: MutPtr<CVoid>, threadinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwQueryInformationThread(threadhandle.rawAddress.toCPointer<ByteVar>(), threadinformationclass, threadinformation.rawAddress.toCPointer<ByteVar>(), threadinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: COpaquePointer?, threadinformationlength: UInt): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwSetInformationThread(threadhandle?.value?.toCPointer<ByteVar>(), threadinformationclass, threadinformation?.value?.toCPointer<ByteVar>(), threadinformationlength)
+public actual fun zwSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: ConstPtr<CVoid>, threadinformationlength: UInt): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwSetInformationThread(threadhandle.rawAddress.toCPointer<ByteVar>(), threadinformationclass, threadinformation.rawAddress.toCPointer<ByteVar>(), threadinformationlength)
 
-public actual fun zwSetTimer(timerhandle: Handle, duetime: COpaquePointer?, timerapcroutine: PtimerApcRoutine, timercontext: COpaquePointer?, resumetimer: Boolean, period: Int, previousstate: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwSetTimer(timerhandle?.value?.toCPointer<ByteVar>(), duetime?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), timercontext?.value?.toCPointer<ByteVar>(), resumetimer, period, previousstate?.value?.toCPointer<ByteVar>())
+public actual fun zwSetTimer(timerhandle: Handle, duetime: ConstPtr<Long>, timerapcroutine: PtimerApcRoutine, timercontext: ConstPtr<CVoid>, resumetimer: Boolean, period: Int, previousstate: MutPtr<Boolean>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwSetTimer(timerhandle.rawAddress.toCPointer<ByteVar>(), duetime.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), timercontext.rawAddress.toCPointer<ByteVar>(), resumetimer, period, previousstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: COpaquePointer?, timersetinformationlength: UInt): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwSetTimerEx(timerhandle?.value?.toCPointer<ByteVar>(), timersetinformationclass, timersetinformation?.value?.toCPointer<ByteVar>(), timersetinformationlength)
+public actual fun zwSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: MutPtr<CVoid>, timersetinformationlength: UInt): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwSetTimerEx(timerhandle.rawAddress.toCPointer<ByteVar>(), timersetinformationclass, timersetinformation.rawAddress.toCPointer<ByteVar>(), timersetinformationlength)
 
 public actual fun zwTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwTerminateProcess(processhandle?.value?.toCPointer<ByteVar>(), exitstatus)
+    windowssysWindowsWdkSystemThreadingZwTerminateProcess(processhandle.rawAddress.toCPointer<ByteVar>(), exitstatus)
 
-public actual fun zwWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_system_threading_zwWaitForSingleObject(handle?.value?.toCPointer<ByteVar>(), alertable, timeout?.value?.toCPointer<ByteVar>())
+public actual fun zwWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: ConstPtr<Long>): Ntstatus =
+    windowssysWindowsWdkSystemThreadingZwWaitForSingleObject(handle.rawAddress.toCPointer<ByteVar>(), alertable, timeout.rawAddress.toCPointer<ByteVar>())

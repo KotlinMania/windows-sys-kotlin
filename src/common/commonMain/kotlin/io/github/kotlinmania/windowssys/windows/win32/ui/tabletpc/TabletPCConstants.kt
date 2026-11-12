@@ -1553,9 +1553,9 @@ public val IECN_RECOGNITIONRESULT: UInt = 2051u
 
 public val IECN_STROKE: UInt = 2049u
 
-public val IECN__BASE: UInt = 2048u
+public val IECN_BASE: UInt = 2048u
 
-public val IEC__BASE: UInt = 1536u
+public val IEC_BASE: UInt = 1536u
 
 public val IEF_COPY_FROM_ORIGINAL: InkExtractFlags = 0
 

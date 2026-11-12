@@ -2,486 +2,500 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com.marshal
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coGetMarshalSizeMax
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coGetStandardMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coMarshalHresult
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coMarshalInterThreadInterfaceInStream
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coMarshalInterface
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coReleaseMarshalData
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coUnmarshalHresult
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_coUnmarshalInterface
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_snbUserUnmarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserFree
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserFree64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserSize
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserSize64
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal
-import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgmedium
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoGetMarshalSizeMax
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoGetStandardMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoGetStdMarshalEx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoMarshalHresult
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoMarshalInterThreadInterfaceInStream
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoMarshalInterface
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoReleaseMarshalData
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoUnmarshalHresult
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalCoUnmarshalInterface
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop.windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun bstrUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_bstrUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun bstrUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Bstr>) {
+    windowssysWindowsWin32SystemComMarshalBstrUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun bstrUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_bstrUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun bstrUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Bstr>) {
+    windowssysWindowsWin32SystemComMarshalBstrUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun bstrUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_bstrUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun bstrUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Bstr>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalBstrUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun bstrUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_bstrUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun bstrUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Bstr>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalBstrUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun bstrUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_bstrUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun bstrUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Bstr>): UInt =
+    windowssysWindowsWin32SystemComMarshalBstrUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bstrUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_bstrUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun bstrUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Bstr>): UInt =
+    windowssysWindowsWin32SystemComMarshalBstrUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bstrUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun bstrUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Bstr>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun bstrUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun bstrUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Bstr>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalBstrUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun clipformatUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_clipformatUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun clipformatUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<UShort>) {
+    windowssysWindowsWin32SystemComMarshalClipformatUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun clipformatUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_clipformatUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun clipformatUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<UShort>) {
+    windowssysWindowsWin32SystemComMarshalClipformatUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun clipformatUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_clipformatUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun clipformatUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<UShort>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalClipformatUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun clipformatUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_clipformatUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun clipformatUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<UShort>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalClipformatUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun clipformatUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_clipformatUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun clipformatUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<UShort>): UInt =
+    windowssysWindowsWin32SystemComMarshalClipformatUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clipformatUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_clipformatUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun clipformatUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<UShort>): UInt =
+    windowssysWindowsWin32SystemComMarshalClipformatUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clipformatUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun clipformatUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<UShort>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun clipformatUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_clipformatUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun clipformatUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<UShort>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalClipformatUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun coGetMarshalSizeMax(pulsize: COpaquePointer?, riid: COpaquePointer?, punk: COpaquePointer?, dwdestcontext: UInt, pvdestcontext: COpaquePointer?, mshlflags: UInt): Hresult =
-    windowssys_windows_win32_system_com_marshal_coGetMarshalSizeMax(pulsize?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>(), dwdestcontext, pvdestcontext?.value?.toCPointer<ByteVar>(), mshlflags)
+public actual fun coGetMarshalSizeMax(pulsize: MutPtr<UInt>, riid: ConstPtr<Guid>, punk: MutPtr<CVoid>, dwdestcontext: UInt, pvdestcontext: ConstPtr<CVoid>, mshlflags: UInt): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoGetMarshalSizeMax(pulsize.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>(), dwdestcontext, pvdestcontext.rawAddress.toCPointer<ByteVar>(), mshlflags)
 
-public actual fun coGetStandardMarshal(riid: COpaquePointer?, punk: COpaquePointer?, dwdestcontext: UInt, pvdestcontext: COpaquePointer?, mshlflags: UInt, ppmarshal: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_marshal_coGetStandardMarshal(riid?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>(), dwdestcontext, pvdestcontext?.value?.toCPointer<ByteVar>(), mshlflags, ppmarshal?.value?.toCPointer<ByteVar>())
+public actual fun coGetStandardMarshal(riid: ConstPtr<Guid>, punk: MutPtr<CVoid>, dwdestcontext: UInt, pvdestcontext: ConstPtr<CVoid>, mshlflags: UInt, ppmarshal: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoGetStandardMarshal(riid.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>(), dwdestcontext, pvdestcontext.rawAddress.toCPointer<ByteVar>(), mshlflags, ppmarshal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetStdMarshalEx(punkouter: COpaquePointer?, smexflags: UInt, ppunkinner: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx(punkouter?.value?.toCPointer<ByteVar>(), smexflags, ppunkinner?.value?.toCPointer<ByteVar>())
+public actual fun coGetStdMarshalEx(punkouter: MutPtr<CVoid>, smexflags: UInt, ppunkinner: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoGetStdMarshalEx(punkouter.rawAddress.toCPointer<ByteVar>(), smexflags, ppunkinner.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coMarshalHresult(pstm: COpaquePointer?, hresult: Hresult): Hresult =
-    windowssys_windows_win32_system_com_marshal_coMarshalHresult(pstm?.value?.toCPointer<ByteVar>(), hresult)
+public actual fun coMarshalHresult(pstm: MutPtr<CVoid>, hresult: Hresult): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoMarshalHresult(pstm.rawAddress.toCPointer<ByteVar>(), hresult)
 
-public actual fun coMarshalInterThreadInterfaceInStream(riid: COpaquePointer?, punk: COpaquePointer?, ppstm: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_marshal_coMarshalInterThreadInterfaceInStream(riid?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>(), ppstm?.value?.toCPointer<ByteVar>())
+public actual fun coMarshalInterThreadInterfaceInStream(riid: ConstPtr<Guid>, punk: MutPtr<CVoid>, ppstm: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoMarshalInterThreadInterfaceInStream(riid.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>(), ppstm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coMarshalInterface(pstm: COpaquePointer?, riid: COpaquePointer?, punk: COpaquePointer?, dwdestcontext: UInt, pvdestcontext: COpaquePointer?, mshlflags: UInt): Hresult =
-    windowssys_windows_win32_system_com_marshal_coMarshalInterface(pstm?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>(), dwdestcontext, pvdestcontext?.value?.toCPointer<ByteVar>(), mshlflags)
+public actual fun coMarshalInterface(pstm: MutPtr<CVoid>, riid: ConstPtr<Guid>, punk: MutPtr<CVoid>, dwdestcontext: UInt, pvdestcontext: ConstPtr<CVoid>, mshlflags: UInt): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoMarshalInterface(pstm.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>(), dwdestcontext, pvdestcontext.rawAddress.toCPointer<ByteVar>(), mshlflags)
 
-public actual fun coReleaseMarshalData(pstm: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_marshal_coReleaseMarshalData(pstm?.value?.toCPointer<ByteVar>())
+public actual fun coReleaseMarshalData(pstm: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoReleaseMarshalData(pstm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coUnmarshalHresult(pstm: COpaquePointer?, phresult: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_marshal_coUnmarshalHresult(pstm?.value?.toCPointer<ByteVar>(), phresult?.value?.toCPointer<ByteVar>())
+public actual fun coUnmarshalHresult(pstm: MutPtr<CVoid>, phresult: MutPtr<Hresult>): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoUnmarshalHresult(pstm.rawAddress.toCPointer<ByteVar>(), phresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coUnmarshalInterface(pstm: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_com_marshal_coUnmarshalInterface(pstm?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun coUnmarshalInterface(pstm: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32SystemComMarshalCoUnmarshalInterface(pstm.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun haccelUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_haccelUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun haccelUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Haccel>) {
+    windowssysWindowsWin32SystemComMarshalHaccelUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun haccelUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_haccelUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun haccelUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Haccel>) {
+    windowssysWindowsWin32SystemComMarshalHaccelUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun haccelUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_haccelUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun haccelUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Haccel>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHaccelUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun haccelUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_haccelUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun haccelUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Haccel>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHaccelUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun haccelUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_haccelUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun haccelUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Haccel>): UInt =
+    windowssysWindowsWin32SystemComMarshalHaccelUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun haccelUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_haccelUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun haccelUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Haccel>): UInt =
+    windowssysWindowsWin32SystemComMarshalHaccelUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun haccelUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun haccelUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Haccel>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun haccelUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_haccelUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun haccelUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Haccel>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHaccelUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hbitmapUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hbitmapUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hbitmapUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hbitmap>) {
+    windowssysWindowsWin32SystemComMarshalHbitmapUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hbitmapUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hbitmapUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hbitmapUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hbitmap>) {
+    windowssysWindowsWin32SystemComMarshalHbitmapUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hbitmapUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hbitmapUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hbitmap>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hbitmapUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hbitmapUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hbitmapUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hbitmap>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHbitmapUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hbitmapUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hbitmapUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hbitmapUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hbitmap>): UInt =
+    windowssysWindowsWin32SystemComMarshalHbitmapUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hbitmapUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hbitmapUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hbitmapUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hbitmap>): UInt =
+    windowssysWindowsWin32SystemComMarshalHbitmapUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hbitmapUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hbitmapUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hbitmap>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hbitmapUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hbitmapUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hbitmapUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hbitmap>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHbitmapUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hdcUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hdcUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hdcUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hdc>) {
+    windowssysWindowsWin32SystemComMarshalHdcUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hdcUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hdcUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hdcUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hdc>) {
+    windowssysWindowsWin32SystemComMarshalHdcUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hdcUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hdcUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hdcUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hdc>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHdcUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hdcUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hdcUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hdcUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hdc>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHdcUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hdcUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hdcUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hdcUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hdc>): UInt =
+    windowssysWindowsWin32SystemComMarshalHdcUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hdcUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hdcUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hdcUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hdc>): UInt =
+    windowssysWindowsWin32SystemComMarshalHdcUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hdcUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hdcUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hdc>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hdcUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hdcUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hdc>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHdcUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hglobalUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hglobalUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hglobalUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hglobal>) {
+    windowssysWindowsWin32SystemComMarshalHglobalUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hglobalUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hglobalUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hglobalUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hglobal>) {
+    windowssysWindowsWin32SystemComMarshalHglobalUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hglobalUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hglobalUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hglobalUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hglobal>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHglobalUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hglobalUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hglobalUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hglobalUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hglobal>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHglobalUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hglobalUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hglobalUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hglobalUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hglobal>): UInt =
+    windowssysWindowsWin32SystemComMarshalHglobalUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hglobalUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hglobalUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hglobalUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hglobal>): UInt =
+    windowssysWindowsWin32SystemComMarshalHglobalUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hglobalUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hglobalUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hglobal>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hglobalUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hglobalUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hglobalUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hglobal>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHglobalUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hiconUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hiconUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hiconUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hicon>) {
+    windowssysWindowsWin32SystemComMarshalHiconUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hiconUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hiconUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hiconUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hicon>) {
+    windowssysWindowsWin32SystemComMarshalHiconUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hiconUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hiconUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hiconUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hicon>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHiconUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hiconUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hiconUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hiconUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hicon>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHiconUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hiconUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hiconUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hiconUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hicon>): UInt =
+    windowssysWindowsWin32SystemComMarshalHiconUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hiconUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hiconUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hiconUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hicon>): UInt =
+    windowssysWindowsWin32SystemComMarshalHiconUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hiconUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hiconUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hicon>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hiconUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hiconUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hiconUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hicon>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHiconUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hmenuUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hmenuUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hmenuUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hmenu>) {
+    windowssysWindowsWin32SystemComMarshalHmenuUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hmenuUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hmenuUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hmenuUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hmenu>) {
+    windowssysWindowsWin32SystemComMarshalHmenuUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hmenuUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hmenuUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hmenuUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hmenu>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHmenuUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hmenuUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hmenuUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hmenuUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hmenu>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHmenuUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hmenuUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hmenuUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hmenuUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hmenu>): UInt =
+    windowssysWindowsWin32SystemComMarshalHmenuUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hmenuUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hmenuUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hmenuUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hmenu>): UInt =
+    windowssysWindowsWin32SystemComMarshalHmenuUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hmenuUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hmenuUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hmenu>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hmenuUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hmenuUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hmenuUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hmenu>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHmenuUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hpaletteUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hpaletteUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hpaletteUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hpalette>) {
+    windowssysWindowsWin32SystemComMarshalHpaletteUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hpaletteUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hpaletteUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hpaletteUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hpalette>) {
+    windowssysWindowsWin32SystemComMarshalHpaletteUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hpaletteUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hpaletteUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hpalette>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hpaletteUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hpaletteUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hpaletteUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hpalette>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHpaletteUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hpaletteUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hpaletteUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hpaletteUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hpalette>): UInt =
+    windowssysWindowsWin32SystemComMarshalHpaletteUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hpaletteUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hpaletteUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hpaletteUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hpalette>): UInt =
+    windowssysWindowsWin32SystemComMarshalHpaletteUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hpaletteUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hpaletteUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hpalette>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hpaletteUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hpaletteUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hpaletteUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hpalette>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHpaletteUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hwndUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hwndUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hwndUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hwnd>) {
+    windowssysWindowsWin32SystemComMarshalHwndUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hwndUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_hwndUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun hwndUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hwnd>) {
+    windowssysWindowsWin32SystemComMarshalHwndUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun hwndUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hwndUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hwndUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hwnd>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHwndUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hwndUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hwndUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hwndUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hwnd>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHwndUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hwndUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hwndUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hwndUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hwnd>): UInt =
+    windowssysWindowsWin32SystemComMarshalHwndUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hwndUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_hwndUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun hwndUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hwnd>): UInt =
+    windowssysWindowsWin32SystemComMarshalHwndUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hwndUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hwndUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hwnd>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun hwndUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun hwndUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hwnd>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalHwndUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun lpsafearrayUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun lpsafearrayUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<ConstPtr<Safearray>>) {
+    windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun lpsafearrayUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun lpsafearrayUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<ConstPtr<Safearray>>) {
+    windowssysWindowsWin32SystemComMarshalLpsafearrayUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun lpsafearrayUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun lpsafearrayUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<ConstPtr<Safearray>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun lpsafearrayUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun lpsafearrayUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<ConstPtr<Safearray>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalLpsafearrayUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun lpsafearrayUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun lpsafearrayUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<ConstPtr<Safearray>>): UInt =
+    windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lpsafearrayUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun lpsafearrayUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<ConstPtr<Safearray>>): UInt =
+    windowssysWindowsWin32SystemComMarshalLpsafearrayUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lpsafearrayUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun lpsafearrayUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<MutPtr<Safearray>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun lpsafearrayUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_lpsafearrayUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun lpsafearrayUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<MutPtr<Safearray>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalLpsafearrayUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun snbUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_snbUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun snbUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<ConstPtr<ConstPtr<UShort>>>) {
+    windowssysWindowsWin32SystemComMarshalSnbUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun snbUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_snbUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun snbUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<ConstPtr<ConstPtr<UShort>>>) {
+    windowssysWindowsWin32SystemComMarshalSnbUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun snbUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_snbUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun snbUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<ConstPtr<ConstPtr<UShort>>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalSnbUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun snbUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_snbUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun snbUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<ConstPtr<ConstPtr<UShort>>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalSnbUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun snbUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_snbUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun snbUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<ConstPtr<ConstPtr<UShort>>>): UInt =
+    windowssysWindowsWin32SystemComMarshalSnbUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun snbUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_snbUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun snbUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<ConstPtr<ConstPtr<UShort>>>): UInt =
+    windowssysWindowsWin32SystemComMarshalSnbUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun snbUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_snbUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun snbUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<MutPtr<MutPtr<UShort>>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun snbUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_snbUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun snbUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<MutPtr<MutPtr<UShort>>>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalSnbUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun stgmediumUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_stgmediumUserFree(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun stgmediumUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Stgmedium>) {
+    windowssysWindowsWin32SystemComMarshalStgmediumUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun stgmediumUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
-    windowssys_windows_win32_system_com_marshal_stgmediumUserFree64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())
+public actual fun stgmediumUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Stgmedium>) {
+    windowssysWindowsWin32SystemComMarshalStgmediumUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun stgmediumUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun stgmediumUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Stgmedium>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun stgmediumUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_stgmediumUserMarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun stgmediumUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Stgmedium>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalStgmediumUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun stgmediumUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_stgmediumUserSize(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun stgmediumUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Stgmedium>): UInt =
+    windowssysWindowsWin32SystemComMarshalStgmediumUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun stgmediumUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_com_marshal_stgmediumUserSize64(param0?.value?.toCPointer<ByteVar>(), param1, param2?.value?.toCPointer<ByteVar>())
+public actual fun stgmediumUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Stgmedium>): UInt =
+    windowssysWindowsWin32SystemComMarshalStgmediumUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun stgmediumUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun stgmediumUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Stgmedium>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun stgmediumUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_win32_system_com_marshal_stgmediumUserUnmarshal64(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+public actual fun stgmediumUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Stgmedium>): MutPtr<UByte> =
+    MutPtr(windowssysWindowsWin32SystemComMarshalStgmediumUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)

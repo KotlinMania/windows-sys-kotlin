@@ -2,12 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Htheme
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SystemMetricsIndex
@@ -16,180 +19,231 @@ import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Win
 
 private object WindowsWin32UiHidpiJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32UiHidpiJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi(lprect: Long, dwstyle: Int, bmenu: Int, dwexstyle: Int, dpi: Int): Int
+    external fun windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi(lprect: Long, dwstyle: Int, bmenu: Int, dwexstyle: Int, dpi: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual(dpicontexta: Long, dpicontextb: Long): Int
+    external fun windowssysWindowsWin32UiHidpiAreDpiAwarenessContextsEqual(dpicontexta: Long, dpicontextb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling(hwnd: Long): Int
+    external fun windowssysWindowsWin32UiHidpiEnableNonClientDpiScaling(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext(value: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetAwarenessFromDpiAwarenessContext(value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior(hwnd: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetDialogControlDpiChangeBehavior(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior(hdlg: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetDialogDpiChangeBehavior(hdlg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess(hprocess: Long): Long
+    external fun windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess(hprocess: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getDpiForMonitor(hmonitor: Long, dpitype: Int, dpix: Long, dpiy: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetDpiForMonitor(hmonitor: Long, dpitype: Int, dpix: Long, dpiy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getDpiForSystem(): Int
+    external fun windowssysWindowsWin32UiHidpiGetDpiForSystem(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getDpiForWindow(hwnd: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetDpiForWindow(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext(value: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext(value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness(hprocess: Long, value: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetProcessDpiAwareness(hprocess: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess(hprocess: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetSystemDpiForProcess(hprocess: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi(nindex: Int, dpi: Int): Int
+    external fun windowssysWindowsWin32UiHidpiGetSystemMetricsForDpi(nindex: Int, dpi: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext(): Long
+    external fun windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior(): Int
+    external fun windowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext(hwnd: Long): Long
+    external fun windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext(hwnd: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior(hwnd: Long): Int
+    external fun windowssysWindowsWin32UiHidpiGetWindowDpiHostingBehavior(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext(value: Long): Int
+    external fun windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext(value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI(hwnd: Long, lppoint: Long): Int
+    external fun windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI(hwnd: Long, lppoint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_openThemeDataForDpi(hwnd: Long, pszclasslist: Long, dpi: Int): Long
+    external fun windowssysWindowsWin32UiHidpiOpenThemeDataForDpi(hwnd: Long, pszclasslist: Long, dpi: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI(hwnd: Long, lppoint: Long): Int
+    external fun windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI(hwnd: Long, lppoint: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior(hwnd: Long, mask: Int, values: Int): Int
+    external fun windowssysWindowsWin32UiHidpiSetDialogControlDpiChangeBehavior(hwnd: Long, mask: Int, values: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior(hdlg: Long, mask: Int, values: Int): Int
+    external fun windowssysWindowsWin32UiHidpiSetDialogDpiChangeBehavior(hdlg: Long, mask: Int, values: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness(value: Int): Int
+    external fun windowssysWindowsWin32UiHidpiSetProcessDpiAwareness(value: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext(value: Long): Int
+    external fun windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext(value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext(dpicontext: Long): Long
+    external fun windowssysWindowsWin32UiHidpiSetThreadDpiAwarenessContext(dpicontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior(value: Int): Int
+    external fun windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi(uiaction: Int, uiparam: Int, pvparam: Long, fwinini: Int, dpi: Int): Int
+    external fun windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(uiaction: Int, uiparam: Int, pvparam: Long, fwinini: Int, dpi: Int): Int
 }
 
-public actual fun adjustWindowRectExForDpi(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_adjustWindowRectExForDpi((lprect?.value ?: 0L), dwstyle.toInt(), bmenu, dwexstyle.toInt(), dpi.toInt())
+public actual fun adjustWindowRectExForDpi(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi(lprect.rawAddress, dwstyle.toInt(), bmenu, dwexstyle.toInt(), dpi.toInt())
 
 public actual fun areDpiAwarenessContextsEqual(dpicontexta: DpiAwarenessContext, dpicontextb: DpiAwarenessContext): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_areDpiAwarenessContextsEqual((dpicontexta?.value ?: 0L), (dpicontextb?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiAreDpiAwarenessContextsEqual(dpicontexta.rawAddress, dpicontextb.rawAddress)
 
 public actual fun enableNonClientDpiScaling(hwnd: Hwnd): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_enableNonClientDpiScaling((hwnd?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiEnableNonClientDpiScaling(hwnd.rawAddress)
 
 public actual fun getAwarenessFromDpiAwarenessContext(value: DpiAwarenessContext): DpiAwareness =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getAwarenessFromDpiAwarenessContext((value?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetAwarenessFromDpiAwarenessContext(value.rawAddress)
 
 public actual fun getDialogControlDpiChangeBehavior(hwnd: Hwnd): DialogControlDpiChangeBehaviors =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getDialogControlDpiChangeBehavior((hwnd?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDialogControlDpiChangeBehavior(hwnd.rawAddress)
 
 public actual fun getDialogDpiChangeBehavior(hdlg: Hwnd): DialogDpiChangeBehaviors =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getDialogDpiChangeBehavior((hdlg?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDialogDpiChangeBehavior(hdlg.rawAddress)
 
 public actual fun getDpiAwarenessContextForProcess(hprocess: Handle): DpiAwarenessContext =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getDpiAwarenessContextForProcess((hprocess?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess(hprocess.rawAddress))
 
-public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: COpaquePointer?, dpiy: COpaquePointer?): Hresult =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getDpiForMonitor((hmonitor?.value ?: 0L), dpitype, (dpix?.value ?: 0L), (dpiy?.value ?: 0L))
+public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr<UInt>, dpiy: MutPtr<UInt>): Hresult =
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiForMonitor(hmonitor.rawAddress, dpitype, dpix.rawAddress, dpiy.rawAddress)
 
 public actual fun getDpiForSystem(): UInt =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getDpiForSystem().toUInt()
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiForSystem().toUInt()
 
 public actual fun getDpiForWindow(hwnd: Hwnd): UInt =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getDpiForWindow((hwnd?.value ?: 0L)).toUInt()
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiForWindow(hwnd.rawAddress).toUInt()
 
 public actual fun getDpiFromDpiAwarenessContext(value: DpiAwarenessContext): UInt =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getDpiFromDpiAwarenessContext((value?.value ?: 0L)).toUInt()
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext(value.rawAddress).toUInt()
 
-public actual fun getProcessDpiAwareness(hprocess: Handle, value: COpaquePointer?): Hresult =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getProcessDpiAwareness((hprocess?.value ?: 0L), (value?.value ?: 0L))
+public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr<ProcessDpiAwareness>): Hresult =
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetProcessDpiAwareness(hprocess.rawAddress, value.rawAddress)
 
 public actual fun getSystemDpiForProcess(hprocess: Handle): UInt =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getSystemDpiForProcess((hprocess?.value ?: 0L)).toUInt()
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetSystemDpiForProcess(hprocess.rawAddress).toUInt()
 
 public actual fun getSystemMetricsForDpi(nindex: SystemMetricsIndex, dpi: UInt): Int =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getSystemMetricsForDpi(nindex, dpi.toInt())
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetSystemMetricsForDpi(nindex, dpi.toInt())
 
 public actual fun getThreadDpiAwarenessContext(): DpiAwarenessContext =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getThreadDpiAwarenessContext().let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetThreadDpiAwarenessContext())
 
 public actual fun getThreadDpiHostingBehavior(): DpiHostingBehavior =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getThreadDpiHostingBehavior()
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetThreadDpiHostingBehavior()
 
 public actual fun getWindowDpiAwarenessContext(hwnd: Hwnd): DpiAwarenessContext =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getWindowDpiAwarenessContext((hwnd?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetWindowDpiAwarenessContext(hwnd.rawAddress))
 
 public actual fun getWindowDpiHostingBehavior(hwnd: Hwnd): DpiHostingBehavior =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_getWindowDpiHostingBehavior((hwnd?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetWindowDpiHostingBehavior(hwnd.rawAddress)
 
 public actual fun isValidDpiAwarenessContext(value: DpiAwarenessContext): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_isValidDpiAwarenessContext((value?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext(value.rawAddress)
 
-public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_logicalToPhysicalPointForPerMonitorDPI((hwnd?.value ?: 0L), (lppoint?.value ?: 0L))
+public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI(hwnd.rawAddress, lppoint.rawAddress)
 
 public actual fun openThemeDataForDpi(hwnd: Hwnd, pszclasslist: Pcwstr, dpi: UInt): Htheme =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_openThemeDataForDpi((hwnd?.value ?: 0L), (pszclasslist?.value ?: 0L), dpi.toInt())
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiOpenThemeDataForDpi(hwnd.rawAddress, pszclasslist.rawAddress, dpi.toInt())
 
-public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_physicalToLogicalPointForPerMonitorDPI((hwnd?.value ?: 0L), (lppoint?.value ?: 0L))
+public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI(hwnd.rawAddress, lppoint.rawAddress)
 
 public actual fun setDialogControlDpiChangeBehavior(hwnd: Hwnd, mask: DialogControlDpiChangeBehaviors, values: DialogControlDpiChangeBehaviors): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_setDialogControlDpiChangeBehavior((hwnd?.value ?: 0L), mask, values)
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSetDialogControlDpiChangeBehavior(hwnd.rawAddress, mask, values)
 
 public actual fun setDialogDpiChangeBehavior(hdlg: Hwnd, mask: DialogDpiChangeBehaviors, values: DialogDpiChangeBehaviors): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_setDialogDpiChangeBehavior((hdlg?.value ?: 0L), mask, values)
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSetDialogDpiChangeBehavior(hdlg.rawAddress, mask, values)
 
 public actual fun setProcessDpiAwareness(value: ProcessDpiAwareness): Hresult =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_setProcessDpiAwareness(value)
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSetProcessDpiAwareness(value)
 
 public actual fun setProcessDpiAwarenessContext(value: DpiAwarenessContext): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_setProcessDpiAwarenessContext((value?.value ?: 0L))
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSetProcessDpiAwarenessContext(value.rawAddress)
 
 public actual fun setThreadDpiAwarenessContext(dpicontext: DpiAwarenessContext): DpiAwarenessContext =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_setThreadDpiAwarenessContext((dpicontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSetThreadDpiAwarenessContext(dpicontext.rawAddress))
 
 public actual fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_setThreadDpiHostingBehavior(value)
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value)
 
-public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: COpaquePointer?, fwinini: UInt, dpi: UInt): Bool =
-    WindowsWin32UiHidpiJniBridge.windowssys_windows_win32_ui_hidpi_systemParametersInfoForDpi(uiaction.toInt(), uiparam.toInt(), (pvparam?.value ?: 0L), fwinini.toInt(), dpi.toInt())
+public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: UInt, dpi: UInt): Bool =
+    WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(uiaction.toInt(), uiparam.toInt(), pvparam.rawAddress, fwinini.toInt(), dpi.toInt())

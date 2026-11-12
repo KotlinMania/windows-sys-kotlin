@@ -2,19 +2,31 @@
 
 package io.github.kotlinmania.windowssys.core
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 
 public fun interface IunknownVtblQueryInterfaceCallback {
-    public operator fun invoke(thisRef: COpaquePointer?, iid: COpaquePointer?, iface: COpaquePointer?): Hresult
+    public operator fun invoke(thisRef: MutPtr<CVoid>, iid: ConstPtr<Guid>, iface: MutPtr<MutPtr<CVoid>>): Hresult
 }
 
 public fun interface IunknownVtblAddRefCallback {
-    public operator fun invoke(thisRef: COpaquePointer?): UInt
+    public operator fun invoke(thisRef: MutPtr<CVoid>): UInt
+}
+
+public fun interface IinspectableVtblGetIidsCallback {
+    public operator fun invoke(thisRef: MutPtr<CVoid>, count: MutPtr<UInt>, values: MutPtr<MutPtr<Guid>>): Hresult
 }
 
 public fun interface IinspectableVtblGetRuntimeClassNameCallback {
-    public operator fun invoke(thisRef: COpaquePointer?, value: COpaquePointer?): Hresult
+    public operator fun invoke(thisRef: MutPtr<CVoid>, value: MutPtr<MutPtr<CVoid>>): Hresult
+}
+
+public fun interface IinspectableVtblGetTrustLevelCallback {
+    public operator fun invoke(thisRef: MutPtr<CVoid>, value: MutPtr<Int>): Hresult
 }
 
 public data class Guid(
@@ -42,7 +54,42 @@ public data class Guid(
     }
 
     public companion object {
-        public fun fromU128(uuid: U128): Guid = Guid(data1 = (uuid shr 96).toUInt(), data2 = (uuid shr 80 and U128(0x0uL, 0xffffuL)).toUShort(), data3 = (uuid shr 64 and U128(0x0uL, 0xffffuL)).toUShort(), data4 = run { val _b = (uuid.toULong()); ubyteArrayOf((_b shr 56).toUByte(), (_b shr 48).toUByte(), (_b shr 40).toUByte(), (_b shr 32).toUByte(), (_b shr 24).toUByte(), (_b shr 16).toUByte(), (_b shr 8).toUByte(), _b.toUByte()) })
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<Guid> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<Guid> {
+                override val sizeBytes: Long = 16L
+                override val alignBytes: Long = 4L
+                override fun readNative(addr: Long): Guid =
+                    Guid(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 4L),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 6L),
+                        (
+                            io.github.kotlinmania.rustlang.core.mem
+                                .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
+                        ).readNative(addr + 8L),
+                    )
+                override fun writeNative(addr: Long, value: Guid) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.data1)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 4L, value.data2)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 6L, value.data3)
+                    (
+                        io.github.kotlinmania.rustlang.core.mem
+                            .FixedArrayTypeLayout(io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8, (8).toInt())
+                    ).writeNative(addr + 8L, value.data4)
+                }
+            }
+
+        public fun fromU128(uuid: U128): Guid =
+            Guid(
+                data1 = (uuid shr 96).toUInt(),
+                data2 = (uuid shr 80 and U128(0x0uL, 0xffffuL)).toUShort(),
+                data3 = (uuid shr 64 and U128(0x0uL, 0xffffuL)).toUShort(),
+                data4 =
+                    run {
+                        val rawBits = (uuid.toULong())
+                        ubyteArrayOf((rawBits shr 56).toUByte(), (rawBits shr 48).toUByte(), (rawBits shr 40).toUByte(), (rawBits shr 32).toUByte(), (rawBits shr 24).toUByte(), (rawBits shr 16).toUByte(), (rawBits shr 8).toUByte(), rawBits.toUByte())
+                    },
+            )
     }
 }
 
@@ -54,7 +101,7 @@ public data class IunknownVtbl(
 
 public data class IinspectableVtbl(
     public var base: IunknownVtbl = IunknownVtbl(),
-    public var getIids: IunknownVtblQueryInterfaceCallback = IunknownVtblQueryInterfaceCallback { _, _, _ -> 0 },
+    public var getIids: IinspectableVtblGetIidsCallback = IinspectableVtblGetIidsCallback { _, _, _ -> 0 },
     public var getRuntimeClassName: IinspectableVtblGetRuntimeClassNameCallback = IinspectableVtblGetRuntimeClassNameCallback { _, _ -> 0 },
-    public var getTrustLevel: IinspectableVtblGetRuntimeClassNameCallback = IinspectableVtblGetRuntimeClassNameCallback { _, _ -> 0 },
+    public var getTrustLevel: IinspectableVtblGetTrustLevelCallback = IinspectableVtblGetTrustLevelCallback { _, _ -> 0 },
 )

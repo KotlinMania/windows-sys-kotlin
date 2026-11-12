@@ -2,23 +2,74 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.passwordmanagement
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private object WindowsWin32SystemPasswordmanagementJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SystemPasswordmanagementJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword(servername: Long, username: Long, lmoldpresent: Boolean, lmoldowfpassword: Long, lmnewowfpassword: Long, ntoldowfpassword: Long, ntnewowfpassword: Long): Int
+    external fun windowssysWindowsWin32SystemPasswordmanagementMSChapSrvChangePassword(servername: Long, username: Long, lmoldpresent: Boolean, lmoldowfpassword: Long, lmnewowfpassword: Long, ntoldowfpassword: Long, ntnewowfpassword: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword2(servername: Long, username: Long, newpasswordencryptedwitholdnt: Long, oldntowfpasswordencryptedwithnewnt: Long, lmpresent: Boolean, newpasswordencryptedwitholdlm: Long, oldlmowfpasswordencryptedwithnewlmornt: Long): Int
+    external fun windowssysWindowsWin32SystemPasswordmanagementMSChapSrvChangePassword2(servername: Long, username: Long, newpasswordencryptedwitholdnt: Long, oldntowfpasswordencryptedwithnewnt: Long, lmpresent: Boolean, newpasswordencryptedwitholdlm: Long, oldlmowfpasswordencryptedwithnewlmornt: Long): Int
 }
 
-public actual fun mSChapSrvChangePassword(servername: Pcwstr, username: Pcwstr, lmoldpresent: Boolean, lmoldowfpassword: COpaquePointer?, lmnewowfpassword: COpaquePointer?, ntoldowfpassword: COpaquePointer?, ntnewowfpassword: COpaquePointer?): UInt =
-    WindowsWin32SystemPasswordmanagementJniBridge.windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword((servername?.value ?: 0L), (username?.value ?: 0L), lmoldpresent, (lmoldowfpassword?.value ?: 0L), (lmnewowfpassword?.value ?: 0L), (ntoldowfpassword?.value ?: 0L), (ntnewowfpassword?.value ?: 0L)).toUInt()
+public actual fun mSChapSrvChangePassword(servername: Pcwstr, username: Pcwstr, lmoldpresent: Boolean, lmoldowfpassword: ConstPtr<LmOwfPassword>, lmnewowfpassword: ConstPtr<LmOwfPassword>, ntoldowfpassword: ConstPtr<LmOwfPassword>, ntnewowfpassword: ConstPtr<LmOwfPassword>): UInt =
+    WindowsWin32SystemPasswordmanagementJniBridge.windowssysWindowsWin32SystemPasswordmanagementMSChapSrvChangePassword(servername.rawAddress, username.rawAddress, lmoldpresent, lmoldowfpassword.rawAddress, lmnewowfpassword.rawAddress, ntoldowfpassword.rawAddress, ntnewowfpassword.rawAddress).toUInt()
 
-public actual fun mSChapSrvChangePassword2(servername: Pcwstr, username: Pcwstr, newpasswordencryptedwitholdnt: COpaquePointer?, oldntowfpasswordencryptedwithnewnt: COpaquePointer?, lmpresent: Boolean, newpasswordencryptedwitholdlm: COpaquePointer?, oldlmowfpasswordencryptedwithnewlmornt: COpaquePointer?): UInt =
-    WindowsWin32SystemPasswordmanagementJniBridge.windowssys_windows_win32_system_passwordmanagement_mSChapSrvChangePassword2((servername?.value ?: 0L), (username?.value ?: 0L), (newpasswordencryptedwitholdnt?.value ?: 0L), (oldntowfpasswordencryptedwithnewnt?.value ?: 0L), lmpresent, (newpasswordencryptedwitholdlm?.value ?: 0L), (oldlmowfpasswordencryptedwithnewlmornt?.value ?: 0L)).toUInt()
+public actual fun mSChapSrvChangePassword2(servername: Pcwstr, username: Pcwstr, newpasswordencryptedwitholdnt: ConstPtr<SamprEncryptedUserPassword>, oldntowfpasswordencryptedwithnewnt: ConstPtr<EncryptedLmOwfPassword>, lmpresent: Boolean, newpasswordencryptedwitholdlm: ConstPtr<SamprEncryptedUserPassword>, oldlmowfpasswordencryptedwithnewlmornt: ConstPtr<EncryptedLmOwfPassword>): UInt =
+    WindowsWin32SystemPasswordmanagementJniBridge.windowssysWindowsWin32SystemPasswordmanagementMSChapSrvChangePassword2(servername.rawAddress, username.rawAddress, newpasswordencryptedwitholdnt.rawAddress, oldntowfpasswordencryptedwithnewnt.rawAddress, lmpresent, newpasswordencryptedwitholdlm.rawAddress, oldlmowfpasswordencryptedwithnewlmornt.rawAddress).toUInt()

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networking_winsock_acceptEx(uint64_t slistensocket, uint64_t sacceptsocket, void* lpoutputbuffer, uint32_t dwreceivedatalength, uint32_t dwlocaladdresslength, uint32_t dwremoteaddresslength, void* lpdwbytesreceived, void* lpoverlapped) {
+int32_t windowssysWindowsWin32NetworkingWinsockAcceptEx(uint64_t slistensocket, uint64_t sacceptsocket, void* lpoutputbuffer, uint32_t dwreceivedatalength, uint32_t dwlocaladdresslength, uint32_t dwremoteaddresslength, void* lpdwbytesreceived, void* lpoverlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -44,7 +44,7 @@ int32_t windowssys_windows_win32_networking_winsock_acceptEx(uint64_t slistensoc
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_enumProtocolsA(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockEnumProtocolsA(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -68,7 +68,7 @@ int32_t windowssys_windows_win32_networking_winsock_enumProtocolsA(void* lpiprot
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_enumProtocolsW(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockEnumProtocolsW(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -92,7 +92,7 @@ int32_t windowssys_windows_win32_networking_winsock_enumProtocolsW(void* lpiprot
 #endif
 }
 
-void windowssys_windows_win32_networking_winsock_freeAddrInfoEx(void* paddrinfoex) {
+void windowssysWindowsWin32NetworkingWinsockFreeAddrInfoEx(void* paddrinfoex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ void windowssys_windows_win32_networking_winsock_freeAddrInfoEx(void* paddrinfoe
 #endif
 }
 
-void windowssys_windows_win32_networking_winsock_freeAddrInfoExW(void* paddrinfoex) {
+void windowssysWindowsWin32NetworkingWinsockFreeAddrInfoExW(void* paddrinfoex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ void windowssys_windows_win32_networking_winsock_freeAddrInfoExW(void* paddrinfo
 #endif
 }
 
-void windowssys_windows_win32_networking_winsock_freeAddrInfoW(void* paddrinfo) {
+void windowssysWindowsWin32NetworkingWinsockFreeAddrInfoW(void* paddrinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ void windowssys_windows_win32_networking_winsock_freeAddrInfoW(void* paddrinfo) 
 #endif
 }
 
-void windowssys_windows_win32_networking_winsock_getAcceptExSockaddrs(void* lpoutputbuffer, uint32_t dwreceivedatalength, uint32_t dwlocaladdresslength, uint32_t dwremoteaddresslength, void* localsockaddr, void* localsockaddrlength, void* remotesockaddr, void* remotesockaddrlength) {
+void windowssysWindowsWin32NetworkingWinsockGetAcceptExSockaddrs(void* lpoutputbuffer, uint32_t dwreceivedatalength, uint32_t dwlocaladdresslength, uint32_t dwremoteaddresslength, void* localsockaddr, void* localsockaddrlength, void* remotesockaddr, void* remotesockaddrlength) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ void windowssys_windows_win32_networking_winsock_getAcceptExSockaddrs(void* lpou
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExA(void* pname, void* pservicename, uint32_t dwnamespace, void* lpnspid, void* hints, void* ppresult, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lpnamehandle) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetAddrInfoExA(void* pname, void* pservicename, uint32_t dwnamespace, void* lpnspid, void* hints, void* ppresult, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lpnamehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExA(void* pname, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExCancel(void* lphandle) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetAddrInfoExCancel(void* lphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExCancel(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExOverlappedResult(void* lpoverlapped) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetAddrInfoExOverlappedResult(void* lpoverlapped) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -258,7 +258,7 @@ int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExOverlappedResul
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExW(void* pname, void* pservicename, uint32_t dwnamespace, void* lpnspid, void* hints, void* ppresult, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lphandle) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetAddrInfoExW(void* pname, void* pservicename, uint32_t dwnamespace, void* lpnspid, void* hints, void* ppresult, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ int32_t windowssys_windows_win32_networking_winsock_getAddrInfoExW(void* pname, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getAddrInfoW(void* pnodename, void* pservicename, void* phints, void* ppresult) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetAddrInfoW(void* pnodename, void* pservicename, void* phints, void* ppresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ int32_t windowssys_windows_win32_networking_winsock_getAddrInfoW(void* pnodename
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getAddressByNameA(uint32_t dwnamespace, void* lpservicetype, void* lpservicename, void* lpiprotocols, uint32_t dwresolution, void* lpserviceasyncinfo, void* lpcsaddrbuffer, void* lpdwbufferlength, void* lpaliasbuffer, void* lpdwaliasbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetAddressByNameA(uint32_t dwnamespace, void* lpservicetype, void* lpservicename, void* lpiprotocols, uint32_t dwresolution, void* lpserviceasyncinfo, void* lpcsaddrbuffer, void* lpdwbufferlength, void* lpaliasbuffer, void* lpdwaliasbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -345,7 +345,7 @@ int32_t windowssys_windows_win32_networking_winsock_getAddressByNameA(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getAddressByNameW(uint32_t dwnamespace, void* lpservicetype, void* lpservicename, void* lpiprotocols, uint32_t dwresolution, void* lpserviceasyncinfo, void* lpcsaddrbuffer, void* lpdwbufferlength, void* lpaliasbuffer, void* lpdwaliasbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetAddressByNameW(uint32_t dwnamespace, void* lpservicetype, void* lpservicename, void* lpiprotocols, uint32_t dwresolution, void* lpserviceasyncinfo, void* lpcsaddrbuffer, void* lpdwbufferlength, void* lpaliasbuffer, void* lpdwaliasbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -376,7 +376,7 @@ int32_t windowssys_windows_win32_networking_winsock_getAddressByNameW(uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getHostNameW(void* name, int32_t namelen) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetHostNameW(void* name, int32_t namelen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -399,7 +399,7 @@ int32_t windowssys_windows_win32_networking_winsock_getHostNameW(void* name, int
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getNameByTypeA(void* lpservicetype, void* lpservicename, uint32_t dwnamelength) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetNameByTypeA(void* lpservicetype, void* lpservicename, uint32_t dwnamelength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -423,7 +423,7 @@ int32_t windowssys_windows_win32_networking_winsock_getNameByTypeA(void* lpservi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getNameByTypeW(void* lpservicetype, void* lpservicename, uint32_t dwnamelength) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetNameByTypeW(void* lpservicetype, void* lpservicename, uint32_t dwnamelength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -447,7 +447,7 @@ int32_t windowssys_windows_win32_networking_winsock_getNameByTypeW(void* lpservi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getNameInfoW(void* psockaddr, int32_t sockaddrlength, void* pnodebuffer, uint32_t nodebuffersize, void* pservicebuffer, uint32_t servicebuffersize, int32_t flags) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetNameInfoW(void* psockaddr, int32_t sockaddrlength, void* pnodebuffer, uint32_t nodebuffersize, void* pservicebuffer, uint32_t servicebuffersize, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ int32_t windowssys_windows_win32_networking_winsock_getNameInfoW(void* psockaddr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getServiceA(uint32_t dwnamespace, void* lpguid, void* lpservicename, uint32_t dwproperties, void* lpbuffer, void* lpdwbuffersize, void* lpserviceasyncinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetServiceA(uint32_t dwnamespace, void* lpguid, void* lpservicename, uint32_t dwproperties, void* lpbuffer, void* lpdwbuffersize, void* lpserviceasyncinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -503,7 +503,7 @@ int32_t windowssys_windows_win32_networking_winsock_getServiceA(uint32_t dwnames
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getServiceW(uint32_t dwnamespace, void* lpguid, void* lpservicename, uint32_t dwproperties, void* lpbuffer, void* lpdwbuffersize, void* lpserviceasyncinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetServiceW(uint32_t dwnamespace, void* lpguid, void* lpservicename, uint32_t dwproperties, void* lpbuffer, void* lpdwbuffersize, void* lpserviceasyncinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -531,7 +531,7 @@ int32_t windowssys_windows_win32_networking_winsock_getServiceW(uint32_t dwnames
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getTypeByNameA(void* lpservicename, void* lpservicetype) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetTypeByNameA(void* lpservicename, void* lpservicetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -554,7 +554,7 @@ int32_t windowssys_windows_win32_networking_winsock_getTypeByNameA(void* lpservi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getTypeByNameW(void* lpservicename, void* lpservicetype) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetTypeByNameW(void* lpservicename, void* lpservicetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -577,7 +577,7 @@ int32_t windowssys_windows_win32_networking_winsock_getTypeByNameW(void* lpservi
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_inetNtopW(int32_t family, void* paddr, void* pstringbuf, uint64_t stringbufsize) {
+void* windowssysWindowsWin32NetworkingWinsockInetNtopW(int32_t family, void* paddr, void* pstringbuf, uint64_t stringbufsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -602,7 +602,7 @@ void* windowssys_windows_win32_networking_winsock_inetNtopW(int32_t family, void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_inetPtonW(int32_t family, void* pszaddrstring, void* paddrbuf) {
+int32_t windowssysWindowsWin32NetworkingWinsockInetPtonW(int32_t family, void* pszaddrstring, void* paddrbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -626,7 +626,7 @@ int32_t windowssys_windows_win32_networking_winsock_inetPtonW(int32_t family, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winsock_processSocketNotifications(void* completionport, uint32_t registrationcount, void* registrationinfos, uint32_t timeoutms, uint32_t completioncount, void* completionportentries, void* receivedentrycount) {
+uint32_t windowssysWindowsWin32NetworkingWinsockProcessSocketNotifications(void* completionport, uint32_t registrationcount, void* registrationinfos, uint32_t timeoutms, uint32_t completioncount, void* completionportentries, void* receivedentrycount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -654,7 +654,7 @@ uint32_t windowssys_windows_win32_networking_winsock_processSocketNotifications(
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringA(void* addr, void* s) {
+void* windowssysWindowsWin32NetworkingWinsockRtlEthernetAddressToStringA(void* addr, void* s) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ void* windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringA(vo
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringW(void* addr, void* s) {
+void* windowssysWindowsWin32NetworkingWinsockRtlEthernetAddressToStringW(void* addr, void* s) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -700,7 +700,7 @@ void* windowssys_windows_win32_networking_winsock_rtlEthernetAddressToStringW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressA(void* s, void* terminator, void* addr) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlEthernetStringToAddressA(void* s, void* terminator, void* addr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -724,7 +724,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressA(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressW(void* s, void* terminator, void* addr) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlEthernetStringToAddressW(void* s, void* terminator, void* addr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlEthernetStringToAddressW(
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringA(void* addr, void* s) {
+void* windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringA(void* addr, void* s) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -771,7 +771,7 @@ void* windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExA(void* address, uint16_t port, void* addressstring, void* addressstringlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringExA(void* address, uint16_t port, void* addressstring, void* addressstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -796,7 +796,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExW(void* address, uint16_t port, void* addressstring, void* addressstringlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringExW(void* address, uint16_t port, void* addressstring, void* addressstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -821,7 +821,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringExW(vo
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringW(void* addr, void* s) {
+void* windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringW(void* addr, void* s) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -844,7 +844,7 @@ void* windowssys_windows_win32_networking_winsock_rtlIpv4AddressToStringW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressA(void* s, bool strict, void* terminator, void* addr) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressA(void* s, bool strict, void* terminator, void* addr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -869,7 +869,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExA(void* addressstring, bool strict, void* address, void* port) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressExA(void* addressstring, bool strict, void* address, void* port) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -894,7 +894,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExW(void* addressstring, bool strict, void* address, void* port) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressExW(void* addressstring, bool strict, void* address, void* port) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -919,7 +919,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressExW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressW(void* s, bool strict, void* terminator, void* addr) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressW(void* s, bool strict, void* terminator, void* addr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -944,7 +944,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv4StringToAddressW(void
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringA(void* addr, void* s) {
+void* windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringA(void* addr, void* s) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -967,7 +967,7 @@ void* windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExA(void* address, uint32_t scopeid, uint16_t port, void* addressstring, void* addressstringlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringExA(void* address, uint32_t scopeid, uint16_t port, void* addressstring, void* addressstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -993,7 +993,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExW(void* address, uint32_t scopeid, uint16_t port, void* addressstring, void* addressstringlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringExW(void* address, uint32_t scopeid, uint16_t port, void* addressstring, void* addressstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1019,7 +1019,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringExW(vo
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringW(void* addr, void* s) {
+void* windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringW(void* addr, void* s) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1042,7 +1042,7 @@ void* windowssys_windows_win32_networking_winsock_rtlIpv6AddressToStringW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressA(void* s, void* terminator, void* addr) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressA(void* s, void* terminator, void* addr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1066,7 +1066,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExA(void* addressstring, void* address, void* scopeid, void* port) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressExA(void* addressstring, void* address, void* scopeid, void* port) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1091,7 +1091,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExW(void* addressstring, void* address, void* scopeid, void* port) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressExW(void* addressstring, void* address, void* scopeid, void* port) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1116,7 +1116,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressExW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressW(void* s, void* terminator, void* addr) {
+int32_t windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressW(void* s, void* terminator, void* addr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1140,7 +1140,7 @@ int32_t windowssys_windows_win32_networking_winsock_rtlIpv6StringToAddressW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_setAddrInfoExA(void* pname, void* pservicename, void* paddresses, uint32_t dwaddresscount, void* lpblob, uint32_t dwflags, uint32_t dwnamespace, void* lpnspid, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lpnamehandle) {
+int32_t windowssysWindowsWin32NetworkingWinsockSetAddrInfoExA(void* pname, void* pservicename, void* paddresses, uint32_t dwaddresscount, void* lpblob, uint32_t dwflags, uint32_t dwnamespace, void* lpnspid, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lpnamehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1173,7 +1173,7 @@ int32_t windowssys_windows_win32_networking_winsock_setAddrInfoExA(void* pname, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_setAddrInfoExW(void* pname, void* pservicename, void* paddresses, uint32_t dwaddresscount, void* lpblob, uint32_t dwflags, uint32_t dwnamespace, void* lpnspid, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lpnamehandle) {
+int32_t windowssysWindowsWin32NetworkingWinsockSetAddrInfoExW(void* pname, void* pservicename, void* paddresses, uint32_t dwaddresscount, void* lpblob, uint32_t dwflags, uint32_t dwnamespace, void* lpnspid, void* timeout, void* lpoverlapped, void* lpcompletionroutine, void* lpnamehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1206,7 +1206,7 @@ int32_t windowssys_windows_win32_networking_winsock_setAddrInfoExW(void* pname, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_setServiceA(uint32_t dwnamespace, uint32_t dwoperation, uint32_t dwflags, void* lpserviceinfo, void* lpserviceasyncinfo, void* lpdwstatusflags) {
+int32_t windowssysWindowsWin32NetworkingWinsockSetServiceA(uint32_t dwnamespace, uint32_t dwoperation, uint32_t dwflags, void* lpserviceinfo, void* lpserviceasyncinfo, void* lpdwstatusflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1233,7 +1233,7 @@ int32_t windowssys_windows_win32_networking_winsock_setServiceA(uint32_t dwnames
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_setServiceW(uint32_t dwnamespace, uint32_t dwoperation, uint32_t dwflags, void* lpserviceinfo, void* lpserviceasyncinfo, void* lpdwstatusflags) {
+int32_t windowssysWindowsWin32NetworkingWinsockSetServiceW(uint32_t dwnamespace, uint32_t dwoperation, uint32_t dwflags, void* lpserviceinfo, void* lpserviceasyncinfo, void* lpdwstatusflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1260,7 +1260,7 @@ int32_t windowssys_windows_win32_networking_winsock_setServiceW(uint32_t dwnames
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_setSocketMediaStreamingMode(int32_t value) {
+int32_t windowssysWindowsWin32NetworkingWinsockSetSocketMediaStreamingMode(int32_t value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1282,7 +1282,7 @@ int32_t windowssys_windows_win32_networking_winsock_setSocketMediaStreamingMode(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_transmitFile(uint64_t hsocket, void* hfile, uint32_t nnumberofbytestowrite, uint32_t nnumberofbytespersend, void* lpoverlapped, void* lptransmitbuffers, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32NetworkingWinsockTransmitFile(uint64_t hsocket, void* hfile, uint32_t nnumberofbytestowrite, uint32_t nnumberofbytespersend, void* lpoverlapped, void* lptransmitbuffers, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1310,7 +1310,7 @@ int32_t windowssys_windows_win32_networking_winsock_transmitFile(uint64_t hsocke
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wPUCompleteOverlappedRequest(uint64_t s, void* lpoverlapped, uint32_t dwerror, uint32_t cbtransferred, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWPUCompleteOverlappedRequest(uint64_t s, void* lpoverlapped, uint32_t dwerror, uint32_t cbtransferred, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1336,7 +1336,7 @@ int32_t windowssys_windows_win32_networking_winsock_wPUCompleteOverlappedRequest
 #endif
 }
 
-uint64_t windowssys_windows_win32_networking_winsock_wSAAccept(uint64_t s, void* addr, void* addrlen, void* lpfncondition, uint64_t dwcallbackdata) {
+uint64_t windowssysWindowsWin32NetworkingWinsockWSAAccept(uint64_t s, void* addr, void* addrlen, void* lpfncondition, uint64_t dwcallbackdata) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1362,7 +1362,7 @@ uint64_t windowssys_windows_win32_networking_winsock_wSAAccept(uint64_t s, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAAddressToStringA(void* lpsaaddress, uint32_t dwaddresslength, void* lpprotocolinfo, void* lpszaddressstring, void* lpdwaddressstringlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAAddressToStringA(void* lpsaaddress, uint32_t dwaddresslength, void* lpprotocolinfo, void* lpszaddressstring, void* lpdwaddressstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1388,7 +1388,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAAddressToStringA(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAAddressToStringW(void* lpsaaddress, uint32_t dwaddresslength, void* lpprotocolinfo, void* lpszaddressstring, void* lpdwaddressstringlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAAddressToStringW(void* lpsaaddress, uint32_t dwaddresslength, void* lpprotocolinfo, void* lpszaddressstring, void* lpdwaddressstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1414,7 +1414,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAAddressToStringW(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAAdvertiseProvider(void* puuidproviderid, void* pnspv2routine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAAdvertiseProvider(void* puuidproviderid, void* pnspv2routine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1437,7 +1437,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAAdvertiseProvider(void* p
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByAddr(void* hwnd, uint32_t wmsg, void* addr, int32_t len, int32_t type, void* buf, int32_t buflen) {
+void* windowssysWindowsWin32NetworkingWinsockWSAAsyncGetHostByAddr(void* hwnd, uint32_t wmsg, void* addr, int32_t len, int32_t type, void* buf, int32_t buflen) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1465,7 +1465,7 @@ void* windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByAddr(void* hw
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByName(void* hwnd, uint32_t wmsg, void* name, void* buf, int32_t buflen) {
+void* windowssysWindowsWin32NetworkingWinsockWSAAsyncGetHostByName(void* hwnd, uint32_t wmsg, void* name, void* buf, int32_t buflen) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1491,7 +1491,7 @@ void* windowssys_windows_win32_networking_winsock_wSAAsyncGetHostByName(void* hw
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByName(void* hwnd, uint32_t wmsg, void* name, void* buf, int32_t buflen) {
+void* windowssysWindowsWin32NetworkingWinsockWSAAsyncGetProtoByName(void* hwnd, uint32_t wmsg, void* name, void* buf, int32_t buflen) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1517,7 +1517,7 @@ void* windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByName(void* h
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByNumber(void* hwnd, uint32_t wmsg, int32_t number, void* buf, int32_t buflen) {
+void* windowssysWindowsWin32NetworkingWinsockWSAAsyncGetProtoByNumber(void* hwnd, uint32_t wmsg, int32_t number, void* buf, int32_t buflen) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1543,7 +1543,7 @@ void* windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoByNumber(void*
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_wSAAsyncGetServByName(void* hwnd, uint32_t wmsg, void* name, void* proto, void* buf, int32_t buflen) {
+void* windowssysWindowsWin32NetworkingWinsockWSAAsyncGetServByName(void* hwnd, uint32_t wmsg, void* name, void* proto, void* buf, int32_t buflen) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1570,7 +1570,7 @@ void* windowssys_windows_win32_networking_winsock_wSAAsyncGetServByName(void* hw
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_wSAAsyncGetServByPort(void* hwnd, uint32_t wmsg, int32_t port, void* proto, void* buf, int32_t buflen) {
+void* windowssysWindowsWin32NetworkingWinsockWSAAsyncGetServByPort(void* hwnd, uint32_t wmsg, int32_t port, void* proto, void* buf, int32_t buflen) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1597,7 +1597,7 @@ void* windowssys_windows_win32_networking_winsock_wSAAsyncGetServByPort(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAAsyncSelect(uint64_t s, void* hwnd, uint32_t wmsg, int32_t levent) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAAsyncSelect(uint64_t s, void* hwnd, uint32_t wmsg, int32_t levent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1622,7 +1622,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAAsyncSelect(uint64_t s, v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSACancelAsyncRequest(void* hasynctaskhandle) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSACancelAsyncRequest(void* hasynctaskhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1644,7 +1644,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSACancelAsyncRequest(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSACancelBlockingCall(void) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSACancelBlockingCall(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1665,7 +1665,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSACancelBlockingCall(void) 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSACleanup(void) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSACleanup(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1686,7 +1686,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSACleanup(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSACloseEvent(int64_t hevent) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSACloseEvent(int64_t hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1708,7 +1708,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSACloseEvent(int64_t hevent
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAConnect(uint64_t s, void* name, int32_t namelen, void* lpcallerdata, void* lpcalleedata, void* lpsqos, void* lpgqos) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAConnect(uint64_t s, void* name, int32_t namelen, void* lpcallerdata, void* lpcalleedata, void* lpsqos, void* lpgqos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1736,7 +1736,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAConnect(uint64_t s, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAConnectByList(uint64_t s, void* socketaddress, void* localaddresslength, void* localaddress, void* remoteaddresslength, void* remoteaddress, void* timeout, void* reserved) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAConnectByList(uint64_t s, void* socketaddress, void* localaddresslength, void* localaddress, void* remoteaddresslength, void* remoteaddress, void* timeout, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1765,7 +1765,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAConnectByList(uint64_t s,
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAConnectByNameA(uint64_t s, void* nodename, void* servicename, void* localaddresslength, void* localaddress, void* remoteaddresslength, void* remoteaddress, void* timeout, void* reserved) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAConnectByNameA(uint64_t s, void* nodename, void* servicename, void* localaddresslength, void* localaddress, void* remoteaddresslength, void* remoteaddress, void* timeout, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1795,7 +1795,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAConnectByNameA(uint64_t s
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAConnectByNameW(uint64_t s, void* nodename, void* servicename, void* localaddresslength, void* localaddress, void* remoteaddresslength, void* remoteaddress, void* timeout, void* reserved) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAConnectByNameW(uint64_t s, void* nodename, void* servicename, void* localaddresslength, void* localaddress, void* remoteaddresslength, void* remoteaddress, void* timeout, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1825,7 +1825,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAConnectByNameW(uint64_t s
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_winsock_wSACreateEvent(void) {
+int64_t windowssysWindowsWin32NetworkingWinsockWSACreateEvent(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1846,7 +1846,7 @@ int64_t windowssys_windows_win32_networking_winsock_wSACreateEvent(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSADeleteSocketPeerTargetName(uint64_t arg_0_socket, void* peeraddr, uint32_t peeraddrlen, void* overlapped, void* completionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSADeleteSocketPeerTargetName(uint64_t arg0Socket, void* peeraddr, uint32_t peeraddrlen, void* overlapped, void* completionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1857,12 +1857,12 @@ int32_t windowssys_windows_win32_networking_winsock_wSADeleteSocketPeerTargetNam
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_socket, peeraddr, peeraddrlen, overlapped, completionroutine);
+        return km_fn_ptr(arg0Socket, peeraddr, peeraddrlen, overlapped, completionroutine);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_socket;
+    (void)arg0Socket;
     (void)peeraddr;
     (void)peeraddrlen;
     (void)overlapped;
@@ -1872,7 +1872,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSADeleteSocketPeerTargetNam
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSADuplicateSocketA(uint64_t s, uint32_t dwprocessid, void* lpprotocolinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSADuplicateSocketA(uint64_t s, uint32_t dwprocessid, void* lpprotocolinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1896,7 +1896,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSADuplicateSocketA(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSADuplicateSocketW(uint64_t s, uint32_t dwprocessid, void* lpprotocolinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSADuplicateSocketW(uint64_t s, uint32_t dwprocessid, void* lpprotocolinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1920,7 +1920,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSADuplicateSocketW(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersA(void* lpdwbufferlength, void* lpnspbuffer) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersA(void* lpdwbufferlength, void* lpnspbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1943,7 +1943,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExA(void* lpdwbufferlength, void* lpnspbuffer) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersExA(void* lpdwbufferlength, void* lpnspbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1966,7 +1966,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExA
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExW(void* lpdwbufferlength, void* lpnspbuffer) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersExW(void* lpdwbufferlength, void* lpnspbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1989,7 +1989,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersExW
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersW(void* lpdwbufferlength, void* lpnspbuffer) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersW(void* lpdwbufferlength, void* lpnspbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2012,7 +2012,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceProvidersW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEnumNetworkEvents(uint64_t s, int64_t heventobject, void* lpnetworkevents) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEnumNetworkEvents(uint64_t s, int64_t heventobject, void* lpnetworkevents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2036,7 +2036,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEnumNetworkEvents(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEnumProtocolsA(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEnumProtocolsA(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2060,7 +2060,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEnumProtocolsA(void* lpip
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEnumProtocolsW(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEnumProtocolsW(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2084,7 +2084,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEnumProtocolsW(void* lpip
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAEventSelect(uint64_t s, int64_t heventobject, int32_t lnetworkevents) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAEventSelect(uint64_t s, int64_t heventobject, int32_t lnetworkevents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2108,7 +2108,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAEventSelect(uint64_t s, i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAGetLastError(void) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAGetLastError(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2129,7 +2129,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAGetLastError(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAGetOverlappedResult(uint64_t s, void* lpoverlapped, void* lpcbtransfer, int32_t fwait, void* lpdwflags) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAGetOverlappedResult(uint64_t s, void* lpoverlapped, void* lpcbtransfer, int32_t fwait, void* lpdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2155,7 +2155,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAGetOverlappedResult(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAGetQOSByName(uint64_t s, void* lpqosname, void* lpqos) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAGetQOSByName(uint64_t s, void* lpqosname, void* lpqos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2179,7 +2179,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAGetQOSByName(uint64_t s, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoA(void* lpproviderid, void* lpserviceclassid, void* lpdwbufsize, void* lpserviceclassinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassInfoA(void* lpproviderid, void* lpserviceclassid, void* lpdwbufsize, void* lpserviceclassinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2204,7 +2204,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoW(void* lpproviderid, void* lpserviceclassid, void* lpdwbufsize, void* lpserviceclassinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassInfoW(void* lpproviderid, void* lpserviceclassid, void* lpdwbufsize, void* lpserviceclassinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2229,7 +2229,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassInfoW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdA(void* lpserviceclassid, void* lpszserviceclassname, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassNameByClassIdA(void* lpserviceclassid, void* lpszserviceclassname, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2253,7 +2253,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClas
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClassIdW(void* lpserviceclassid, void* lpszserviceclassname, void* lpdwbufferlength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassNameByClassIdW(void* lpserviceclassid, void* lpszserviceclassname, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2277,7 +2277,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAGetServiceClassNameByClas
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAHtonl(uint64_t s, uint32_t hostlong, void* lpnetlong) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAHtonl(uint64_t s, uint32_t hostlong, void* lpnetlong) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2301,7 +2301,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAHtonl(uint64_t s, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAHtons(uint64_t s, uint16_t hostshort, void* lpnetshort) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAHtons(uint64_t s, uint16_t hostshort, void* lpnetshort) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2325,7 +2325,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAHtons(uint64_t s, uint16_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAImpersonateSocketPeer(uint64_t arg_0_socket, void* peeraddr, uint32_t peeraddrlen) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAImpersonateSocketPeer(uint64_t arg0Socket, void* peeraddr, uint32_t peeraddrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2336,12 +2336,12 @@ int32_t windowssys_windows_win32_networking_winsock_wSAImpersonateSocketPeer(uin
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_socket, peeraddr, peeraddrlen);
+        return km_fn_ptr(arg0Socket, peeraddr, peeraddrlen);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_socket;
+    (void)arg0Socket;
     (void)peeraddr;
     (void)peeraddrlen;
     errno = ENOSYS;
@@ -2349,7 +2349,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAImpersonateSocketPeer(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAInstallServiceClassA(void* lpserviceclassinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAInstallServiceClassA(void* lpserviceclassinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2371,7 +2371,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAInstallServiceClassA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAInstallServiceClassW(void* lpserviceclassinfo) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAInstallServiceClassW(void* lpserviceclassinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2393,7 +2393,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAInstallServiceClassW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAIoctl(uint64_t s, uint32_t dwiocontrolcode, void* lpvinbuffer, uint32_t cbinbuffer, void* lpvoutbuffer, uint32_t cboutbuffer, void* lpcbbytesreturned, void* lpoverlapped, void* lpcompletionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAIoctl(uint64_t s, uint32_t dwiocontrolcode, void* lpvinbuffer, uint32_t cbinbuffer, void* lpvoutbuffer, uint32_t cboutbuffer, void* lpcbbytesreturned, void* lpoverlapped, void* lpcompletionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2423,7 +2423,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAIoctl(uint64_t s, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAIsBlocking(void) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAIsBlocking(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2444,7 +2444,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAIsBlocking(void) {
 #endif
 }
 
-uint64_t windowssys_windows_win32_networking_winsock_wSAJoinLeaf(uint64_t s, void* name, int32_t namelen, void* lpcallerdata, void* lpcalleedata, void* lpsqos, void* lpgqos, uint32_t dwflags) {
+uint64_t windowssysWindowsWin32NetworkingWinsockWSAJoinLeaf(uint64_t s, void* name, int32_t namelen, void* lpcallerdata, void* lpcalleedata, void* lpsqos, void* lpgqos, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2473,7 +2473,7 @@ uint64_t windowssys_windows_win32_networking_winsock_wSAJoinLeaf(uint64_t s, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceBeginA(void* lpqsrestrictions, uint32_t dwcontrolflags, void* lphlookup) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSALookupServiceBeginA(void* lpqsrestrictions, uint32_t dwcontrolflags, void* lphlookup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2497,7 +2497,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceBeginA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceBeginW(void* lpqsrestrictions, uint32_t dwcontrolflags, void* lphlookup) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSALookupServiceBeginW(void* lpqsrestrictions, uint32_t dwcontrolflags, void* lphlookup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2521,7 +2521,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceBeginW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceEnd(void* hlookup) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSALookupServiceEnd(void* hlookup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2543,7 +2543,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceEnd(void* hl
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceNextA(void* hlookup, uint32_t dwcontrolflags, void* lpdwbufferlength, void* lpqsresults) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSALookupServiceNextA(void* hlookup, uint32_t dwcontrolflags, void* lpdwbufferlength, void* lpqsresults) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2568,7 +2568,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceNextA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceNextW(void* hlookup, uint32_t dwcontrolflags, void* lpdwbufferlength, void* lpqsresults) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSALookupServiceNextW(void* hlookup, uint32_t dwcontrolflags, void* lpdwbufferlength, void* lpqsresults) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2593,7 +2593,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSALookupServiceNextW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSANSPIoctl(void* hlookup, uint32_t dwcontrolcode, void* lpvinbuffer, uint32_t cbinbuffer, void* lpvoutbuffer, uint32_t cboutbuffer, void* lpcbbytesreturned, void* lpcompletion) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSANSPIoctl(void* hlookup, uint32_t dwcontrolcode, void* lpvinbuffer, uint32_t cbinbuffer, void* lpvoutbuffer, uint32_t cboutbuffer, void* lpcbbytesreturned, void* lpcompletion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2622,7 +2622,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSANSPIoctl(void* hlookup, u
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSANtohl(uint64_t s, uint32_t netlong, void* lphostlong) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSANtohl(uint64_t s, uint32_t netlong, void* lphostlong) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2646,7 +2646,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSANtohl(uint64_t s, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSANtohs(uint64_t s, uint16_t netshort, void* lphostshort) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSANtohs(uint64_t s, uint16_t netshort, void* lphostshort) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2670,7 +2670,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSANtohs(uint64_t s, uint16_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAPoll(void* fdarray, uint32_t fds, int32_t timeout) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAPoll(void* fdarray, uint32_t fds, int32_t timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2694,7 +2694,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAPoll(void* fdarray, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAProviderCompleteAsyncCall(void* hasynccall, int32_t iretcode) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAProviderCompleteAsyncCall(void* hasynccall, int32_t iretcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2717,7 +2717,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAProviderCompleteAsyncCall
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAProviderConfigChange(void* lpnotificationhandle, void* lpoverlapped, void* lpcompletionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAProviderConfigChange(void* lpnotificationhandle, void* lpoverlapped, void* lpcompletionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2741,7 +2741,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAProviderConfigChange(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAQuerySocketSecurity(uint64_t arg_0_socket, void* securityquerytemplate, uint32_t securityquerytemplatelen, void* securityqueryinfo, void* securityqueryinfolen, void* overlapped, void* completionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAQuerySocketSecurity(uint64_t arg0Socket, void* securityquerytemplate, uint32_t securityquerytemplatelen, void* securityqueryinfo, void* securityqueryinfolen, void* overlapped, void* completionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2752,12 +2752,12 @@ int32_t windowssys_windows_win32_networking_winsock_wSAQuerySocketSecurity(uint6
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_socket, securityquerytemplate, securityquerytemplatelen, securityqueryinfo, securityqueryinfolen, overlapped, completionroutine);
+        return km_fn_ptr(arg0Socket, securityquerytemplate, securityquerytemplatelen, securityqueryinfo, securityqueryinfolen, overlapped, completionroutine);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_socket;
+    (void)arg0Socket;
     (void)securityquerytemplate;
     (void)securityquerytemplatelen;
     (void)securityqueryinfo;
@@ -2769,7 +2769,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAQuerySocketSecurity(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSARecv(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytesrecvd, void* lpflags, void* lpoverlapped, void* lpcompletionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSARecv(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytesrecvd, void* lpflags, void* lpoverlapped, void* lpcompletionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2797,7 +2797,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSARecv(uint64_t s, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSARecvDisconnect(uint64_t s, void* lpinbounddisconnectdata) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSARecvDisconnect(uint64_t s, void* lpinbounddisconnectdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2820,7 +2820,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSARecvDisconnect(uint64_t s
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSARecvEx(uint64_t s, void* buf, int32_t len, void* flags) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSARecvEx(uint64_t s, void* buf, int32_t len, void* flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2845,7 +2845,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSARecvEx(uint64_t s, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSARecvFrom(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytesrecvd, void* lpflags, void* lpfrom, void* lpfromlen, void* lpoverlapped, void* lpcompletionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSARecvFrom(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytesrecvd, void* lpflags, void* lpfrom, void* lpfromlen, void* lpoverlapped, void* lpcompletionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2875,7 +2875,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSARecvFrom(uint64_t s, void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSARemoveServiceClass(void* lpserviceclassid) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSARemoveServiceClass(void* lpserviceclassid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2897,7 +2897,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSARemoveServiceClass(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAResetEvent(int64_t hevent) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAResetEvent(int64_t hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2919,7 +2919,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAResetEvent(int64_t hevent
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSARevertImpersonation(void) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSARevertImpersonation(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2940,7 +2940,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSARevertImpersonation(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASend(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytessent, uint32_t dwflags, void* lpoverlapped, void* lpcompletionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASend(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytessent, uint32_t dwflags, void* lpoverlapped, void* lpcompletionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2968,7 +2968,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASend(uint64_t s, void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASendDisconnect(uint64_t s, void* lpoutbounddisconnectdata) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASendDisconnect(uint64_t s, void* lpoutbounddisconnectdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2991,7 +2991,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASendDisconnect(uint64_t s
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASendMsg(uint64_t handle, void* lpmsg, uint32_t dwflags, void* lpnumberofbytessent, void* lpoverlapped, void* lpcompletionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASendMsg(uint64_t handle, void* lpmsg, uint32_t dwflags, void* lpnumberofbytessent, void* lpoverlapped, void* lpcompletionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3018,7 +3018,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASendMsg(uint64_t handle, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASendTo(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytessent, uint32_t dwflags, void* lpto, int32_t itolen, void* lpoverlapped, void* lpcompletionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASendTo(uint64_t s, void* lpbuffers, uint32_t dwbuffercount, void* lpnumberofbytessent, uint32_t dwflags, void* lpto, int32_t itolen, void* lpoverlapped, void* lpcompletionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3048,7 +3048,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASendTo(uint64_t s, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASetEvent(int64_t hevent) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASetEvent(int64_t hevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3070,7 +3070,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASetEvent(int64_t hevent) 
 #endif
 }
 
-void windowssys_windows_win32_networking_winsock_wSASetLastError(int32_t ierror) {
+void windowssysWindowsWin32NetworkingWinsockWSASetLastError(int32_t ierror) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3091,7 +3091,7 @@ void windowssys_windows_win32_networking_winsock_wSASetLastError(int32_t ierror)
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASetServiceA(void* lpqsreginfo, int32_t essoperation, uint32_t dwcontrolflags) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASetServiceA(void* lpqsreginfo, int32_t essoperation, uint32_t dwcontrolflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3115,7 +3115,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASetServiceA(void* lpqsreg
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASetServiceW(void* lpqsreginfo, int32_t essoperation, uint32_t dwcontrolflags) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASetServiceW(void* lpqsreginfo, int32_t essoperation, uint32_t dwcontrolflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3139,7 +3139,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASetServiceW(void* lpqsreg
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASetSocketPeerTargetName(uint64_t arg_0_socket, void* peertargetname, uint32_t peertargetnamelen, void* overlapped, void* completionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASetSocketPeerTargetName(uint64_t arg0Socket, void* peertargetname, uint32_t peertargetnamelen, void* overlapped, void* completionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3150,12 +3150,12 @@ int32_t windowssys_windows_win32_networking_winsock_wSASetSocketPeerTargetName(u
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_socket, peertargetname, peertargetnamelen, overlapped, completionroutine);
+        return km_fn_ptr(arg0Socket, peertargetname, peertargetnamelen, overlapped, completionroutine);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_socket;
+    (void)arg0Socket;
     (void)peertargetname;
     (void)peertargetnamelen;
     (void)overlapped;
@@ -3165,7 +3165,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASetSocketPeerTargetName(u
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSASetSocketSecurity(uint64_t arg_0_socket, void* securitysettings, uint32_t securitysettingslen, void* overlapped, void* completionroutine) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSASetSocketSecurity(uint64_t arg0Socket, void* securitysettings, uint32_t securitysettingslen, void* overlapped, void* completionroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3176,12 +3176,12 @@ int32_t windowssys_windows_win32_networking_winsock_wSASetSocketSecurity(uint64_
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_socket, securitysettings, securitysettingslen, overlapped, completionroutine);
+        return km_fn_ptr(arg0Socket, securitysettings, securitysettingslen, overlapped, completionroutine);
     }
     errno = ENOSYS;
     return -1;
 #else
-    (void)arg_0_socket;
+    (void)arg0Socket;
     (void)securitysettings;
     (void)securitysettingslen;
     (void)overlapped;
@@ -3191,7 +3191,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSASetSocketSecurity(uint64_
 #endif
 }
 
-uint64_t windowssys_windows_win32_networking_winsock_wSASocketA(int32_t af, int32_t type, int32_t protocol, void* lpprotocolinfo, uint32_t g, uint32_t dwflags) {
+uint64_t windowssysWindowsWin32NetworkingWinsockWSASocketA(int32_t af, int32_t type, int32_t protocol, void* lpprotocolinfo, uint32_t g, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3218,7 +3218,7 @@ uint64_t windowssys_windows_win32_networking_winsock_wSASocketA(int32_t af, int3
 #endif
 }
 
-uint64_t windowssys_windows_win32_networking_winsock_wSASocketW(int32_t af, int32_t type, int32_t protocol, void* lpprotocolinfo, uint32_t g, uint32_t dwflags) {
+uint64_t windowssysWindowsWin32NetworkingWinsockWSASocketW(int32_t af, int32_t type, int32_t protocol, void* lpprotocolinfo, uint32_t g, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3245,7 +3245,7 @@ uint64_t windowssys_windows_win32_networking_winsock_wSASocketW(int32_t af, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAStartup(uint16_t wversionrequested, void* lpwsadata) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAStartup(uint16_t wversionrequested, void* lpwsadata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3268,7 +3268,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAStartup(uint16_t wversion
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAStringToAddressA(void* addressstring, int32_t addressfamily, void* lpprotocolinfo, void* lpaddress, void* lpaddresslength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAStringToAddressA(void* addressstring, int32_t addressfamily, void* lpprotocolinfo, void* lpaddress, void* lpaddresslength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3294,7 +3294,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAStringToAddressA(void* ad
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAStringToAddressW(void* addressstring, int32_t addressfamily, void* lpprotocolinfo, void* lpaddress, void* lpaddresslength) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAStringToAddressW(void* addressstring, int32_t addressfamily, void* lpprotocolinfo, void* lpaddress, void* lpaddresslength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3320,7 +3320,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAStringToAddressW(void* ad
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAUnadvertiseProvider(void* puuidproviderid) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAUnadvertiseProvider(void* puuidproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3342,7 +3342,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAUnadvertiseProvider(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSAUnhookBlockingHook(void) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSAUnhookBlockingHook(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3363,7 +3363,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSAUnhookBlockingHook(void) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winsock_wSAWaitForMultipleEvents(uint32_t cevents, void* lphevents, int32_t fwaitall, uint32_t dwtimeout, int32_t falertable) {
+uint32_t windowssysWindowsWin32NetworkingWinsockWSAWaitForMultipleEvents(uint32_t cevents, void* lphevents, int32_t fwaitall, uint32_t dwtimeout, int32_t falertable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3389,7 +3389,7 @@ uint32_t windowssys_windows_win32_networking_winsock_wSAWaitForMultipleEvents(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCDeinstallProvider(void* lpproviderid, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCDeinstallProvider(void* lpproviderid, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3412,7 +3412,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCDeinstallProvider(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCDeinstallProvider32(void* lpproviderid, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCDeinstallProvider32(void* lpproviderid, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3435,7 +3435,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCDeinstallProvider32(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCEnableNSProvider(void* lpproviderid, int32_t fenable) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCEnableNSProvider(void* lpproviderid, int32_t fenable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3458,7 +3458,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCEnableNSProvider(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCEnableNSProvider32(void* lpproviderid, int32_t fenable) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCEnableNSProvider32(void* lpproviderid, int32_t fenable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3481,7 +3481,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCEnableNSProvider32(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProviders32(void* lpdwbufferlength, void* lpnspbuffer) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCEnumNameSpaceProviders32(void* lpdwbufferlength, void* lpnspbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3504,7 +3504,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProviders32(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProvidersEx32(void* lpdwbufferlength, void* lpnspbuffer) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCEnumNameSpaceProvidersEx32(void* lpdwbufferlength, void* lpnspbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3527,7 +3527,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceProvidersEx3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCEnumProtocols(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCEnumProtocols(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3552,7 +3552,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCEnumProtocols(void* lpipr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCEnumProtocols32(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCEnumProtocols32(void* lpiprotocols, void* lpprotocolbuffer, void* lpdwbufferlength, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3577,7 +3577,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCEnumProtocols32(void* lpi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCGetApplicationCategory(void* path, uint32_t pathlength, void* extra, uint32_t extralength, void* ppermittedlspcategories, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCGetApplicationCategory(void* path, uint32_t pathlength, void* extra, uint32_t extralength, void* ppermittedlspcategories, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3604,7 +3604,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCGetApplicationCategory(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderInfo(void* lpproviderid, int32_t infotype, void* info, void* infosize, uint32_t flags, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCGetProviderInfo(void* lpproviderid, int32_t infotype, void* info, void* infosize, uint32_t flags, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3631,7 +3631,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderInfo(void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderInfo32(void* lpproviderid, int32_t infotype, void* info, void* infosize, uint32_t flags, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCGetProviderInfo32(void* lpproviderid, int32_t infotype, void* info, void* infosize, uint32_t flags, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3658,7 +3658,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderInfo32(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderPath(void* lpproviderid, void* lpszproviderdllpath, void* lpproviderdllpathlen, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCGetProviderPath(void* lpproviderid, void* lpszproviderdllpath, void* lpproviderdllpathlen, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3683,7 +3683,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderPath(void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderPath32(void* lpproviderid, void* lpszproviderdllpath, void* lpproviderdllpathlen, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCGetProviderPath32(void* lpproviderid, void* lpszproviderdllpath, void* lpproviderdllpathlen, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3708,7 +3708,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCGetProviderPath32(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpace(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpace(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3734,7 +3734,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpace(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpace32(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpace32(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3760,7 +3760,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpace32(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid, void* lpproviderspecific) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpaceEx(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid, void* lpproviderspecific) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3787,7 +3787,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx32(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid, void* lpproviderspecific) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpaceEx32(void* lpszidentifier, void* lpszpathname, uint32_t dwnamespace, uint32_t dwversion, void* lpproviderid, void* lpproviderspecific) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3814,7 +3814,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCInstallNameSpaceEx32(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCInstallProvider(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCInstallProvider(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3840,7 +3840,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCInstallProvider(void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wscinstallProvider6432(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWscinstallProvider6432(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3866,7 +3866,7 @@ int32_t windowssys_windows_win32_networking_winsock_wscinstallProvider6432(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wscinstallProviderAndChains6432(void* lpproviderid, void* lpszproviderdllpath, void* lpszproviderdllpath32, void* lpszlspname, uint32_t dwserviceflags, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lpdwcatalogentryid, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWscinstallProviderAndChains6432(void* lpproviderid, void* lpszproviderdllpath, void* lpszproviderdllpath32, void* lpszlspname, uint32_t dwserviceflags, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lpdwcatalogentryid, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3896,7 +3896,7 @@ int32_t windowssys_windows_win32_networking_winsock_wscinstallProviderAndChains6
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCSetApplicationCategory(void* path, uint32_t pathlength, void* extra, uint32_t extralength, uint32_t permittedlspcategories, void* pprevpermlspcat, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCSetApplicationCategory(void* path, uint32_t pathlength, void* extra, uint32_t extralength, uint32_t permittedlspcategories, void* pprevpermlspcat, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3924,7 +3924,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCSetApplicationCategory(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCSetProviderInfo(void* lpproviderid, int32_t infotype, void* info, uint64_t infosize, uint32_t flags, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCSetProviderInfo(void* lpproviderid, int32_t infotype, void* info, uint64_t infosize, uint32_t flags, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3951,7 +3951,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCSetProviderInfo(void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCSetProviderInfo32(void* lpproviderid, int32_t infotype, void* info, uint64_t infosize, uint32_t flags, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCSetProviderInfo32(void* lpproviderid, int32_t infotype, void* info, uint64_t infosize, uint32_t flags, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3978,7 +3978,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCSetProviderInfo32(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace(void* lpproviderid) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCUnInstallNameSpace(void* lpproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4000,7 +4000,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace32(void* lpproviderid) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCUnInstallNameSpace32(void* lpproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4022,7 +4022,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCUnInstallNameSpace32(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCUpdateProvider(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCUpdateProvider(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4048,7 +4048,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCUpdateProvider(void* lppr
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCUpdateProvider32(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCUpdateProvider32(void* lpproviderid, void* lpszproviderdllpath, void* lpprotocolinfolist, uint32_t dwnumberofentries, void* lperrno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4074,7 +4074,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCUpdateProvider32(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder(void* lpproviderid, uint32_t dwnumberofentries) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCWriteNameSpaceOrder(void* lpproviderid, uint32_t dwnumberofentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4097,7 +4097,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder32(void* lpproviderid, uint32_t dwnumberofentries) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCWriteNameSpaceOrder32(void* lpproviderid, uint32_t dwnumberofentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4120,7 +4120,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCWriteNameSpaceOrder32(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder(void* lpwdcatalogentryid, uint32_t dwnumberofentries) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCWriteProviderOrder(void* lpwdcatalogentryid, uint32_t dwnumberofentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4143,7 +4143,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder32(void* lpwdcatalogentryid, uint32_t dwnumberofentries) {
+int32_t windowssysWindowsWin32NetworkingWinsockWSCWriteProviderOrder32(void* lpwdcatalogentryid, uint32_t dwnumberofentries) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4166,7 +4166,7 @@ int32_t windowssys_windows_win32_networking_winsock_wSCWriteProviderOrder32(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_wsafdisSet(uint64_t fd, void* param1) {
+int32_t windowssysWindowsWin32NetworkingWinsockWsafdisSet(uint64_t fd, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4189,7 +4189,7 @@ int32_t windowssys_windows_win32_networking_winsock_wsafdisSet(uint64_t fd, void
 #endif
 }
 
-uint64_t windowssys_windows_win32_networking_winsock_accept(uint64_t s, void* addr, void* addrlen) {
+uint64_t windowssysWindowsWin32NetworkingWinsockAccept(uint64_t s, void* addr, void* addrlen) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4213,7 +4213,7 @@ uint64_t windowssys_windows_win32_networking_winsock_accept(uint64_t s, void* ad
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_bind(uint64_t s, void* name, int32_t namelen) {
+int32_t windowssysWindowsWin32NetworkingWinsockBind(uint64_t s, void* name, int32_t namelen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4237,7 +4237,7 @@ int32_t windowssys_windows_win32_networking_winsock_bind(uint64_t s, void* name,
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_closesocket(uint64_t s) {
+int32_t windowssysWindowsWin32NetworkingWinsockClosesocket(uint64_t s) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4259,7 +4259,7 @@ int32_t windowssys_windows_win32_networking_winsock_closesocket(uint64_t s) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_connect(uint64_t s, void* name, int32_t namelen) {
+int32_t windowssysWindowsWin32NetworkingWinsockConnect(uint64_t s, void* name, int32_t namelen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4283,7 +4283,7 @@ int32_t windowssys_windows_win32_networking_winsock_connect(uint64_t s, void* na
 #endif
 }
 
-void windowssys_windows_win32_networking_winsock_freeaddrinfo(void* paddrinfo) {
+void windowssysWindowsWin32NetworkingWinsockFreeaddrinfo(void* paddrinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4304,7 +4304,7 @@ void windowssys_windows_win32_networking_winsock_freeaddrinfo(void* paddrinfo) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getaddrinfo(void* pnodename, void* pservicename, void* phints, void* ppresult) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetaddrinfo(void* pnodename, void* pservicename, void* phints, void* ppresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4329,7 +4329,7 @@ int32_t windowssys_windows_win32_networking_winsock_getaddrinfo(void* pnodename,
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_gethostbyaddr(void* addr, int32_t len, int32_t type) {
+void* windowssysWindowsWin32NetworkingWinsockGethostbyaddr(void* addr, int32_t len, int32_t type) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4353,7 +4353,7 @@ void* windowssys_windows_win32_networking_winsock_gethostbyaddr(void* addr, int3
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_gethostbyname(void* name) {
+void* windowssysWindowsWin32NetworkingWinsockGethostbyname(void* name) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4375,7 +4375,7 @@ void* windowssys_windows_win32_networking_winsock_gethostbyname(void* name) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_gethostname(void* name, int32_t namelen) {
+int32_t windowssysWindowsWin32NetworkingWinsockGethostname(void* name, int32_t namelen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4398,7 +4398,7 @@ int32_t windowssys_windows_win32_networking_winsock_gethostname(void* name, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getnameinfo(void* psockaddr, int32_t sockaddrlength, void* pnodebuffer, uint32_t nodebuffersize, void* pservicebuffer, uint32_t servicebuffersize, int32_t flags) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetnameinfo(void* psockaddr, int32_t sockaddrlength, void* pnodebuffer, uint32_t nodebuffersize, void* pservicebuffer, uint32_t servicebuffersize, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4426,7 +4426,7 @@ int32_t windowssys_windows_win32_networking_winsock_getnameinfo(void* psockaddr,
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getpeername(uint64_t s, void* name, void* namelen) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetpeername(uint64_t s, void* name, void* namelen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4450,7 +4450,7 @@ int32_t windowssys_windows_win32_networking_winsock_getpeername(uint64_t s, void
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_getprotobyname(void* name) {
+void* windowssysWindowsWin32NetworkingWinsockGetprotobyname(void* name) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4472,7 +4472,7 @@ void* windowssys_windows_win32_networking_winsock_getprotobyname(void* name) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_getprotobynumber(int32_t number) {
+void* windowssysWindowsWin32NetworkingWinsockGetprotobynumber(int32_t number) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4494,7 +4494,7 @@ void* windowssys_windows_win32_networking_winsock_getprotobynumber(int32_t numbe
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_getservbyname(void* name, void* proto) {
+void* windowssysWindowsWin32NetworkingWinsockGetservbyname(void* name, void* proto) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4517,7 +4517,7 @@ void* windowssys_windows_win32_networking_winsock_getservbyname(void* name, void
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_getservbyport(int32_t port, void* proto) {
+void* windowssysWindowsWin32NetworkingWinsockGetservbyport(int32_t port, void* proto) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4540,7 +4540,7 @@ void* windowssys_windows_win32_networking_winsock_getservbyport(int32_t port, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getsockname(uint64_t s, void* name, void* namelen) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetsockname(uint64_t s, void* name, void* namelen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4564,7 +4564,7 @@ int32_t windowssys_windows_win32_networking_winsock_getsockname(uint64_t s, void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_getsockopt(uint64_t s, int32_t level, int32_t optname, void* optval, void* optlen) {
+int32_t windowssysWindowsWin32NetworkingWinsockGetsockopt(uint64_t s, int32_t level, int32_t optname, void* optval, void* optlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4590,7 +4590,7 @@ int32_t windowssys_windows_win32_networking_winsock_getsockopt(uint64_t s, int32
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winsock_htonl(uint32_t hostlong) {
+uint32_t windowssysWindowsWin32NetworkingWinsockHtonl(uint32_t hostlong) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4612,7 +4612,7 @@ uint32_t windowssys_windows_win32_networking_winsock_htonl(uint32_t hostlong) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_networking_winsock_htons(uint16_t hostshort) {
+uint16_t windowssysWindowsWin32NetworkingWinsockHtons(uint16_t hostshort) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4634,7 +4634,7 @@ uint16_t windowssys_windows_win32_networking_winsock_htons(uint16_t hostshort) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winsock_inetAddr(void* cp) {
+uint32_t windowssysWindowsWin32NetworkingWinsockInetAddr(void* cp) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4656,7 +4656,7 @@ uint32_t windowssys_windows_win32_networking_winsock_inetAddr(void* cp) {
 #endif
 }
 
-void* windowssys_windows_win32_networking_winsock_inetNtop(int32_t family, void* paddr, void* pstringbuf, uint64_t stringbufsize) {
+void* windowssysWindowsWin32NetworkingWinsockInetNtop(int32_t family, void* paddr, void* pstringbuf, uint64_t stringbufsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4681,7 +4681,7 @@ void* windowssys_windows_win32_networking_winsock_inetNtop(int32_t family, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_inetPton(int32_t family, void* pszaddrstring, void* paddrbuf) {
+int32_t windowssysWindowsWin32NetworkingWinsockInetPton(int32_t family, void* pszaddrstring, void* paddrbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4705,7 +4705,7 @@ int32_t windowssys_windows_win32_networking_winsock_inetPton(int32_t family, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_ioctlsocket(uint64_t s, int32_t cmd, void* argp) {
+int32_t windowssysWindowsWin32NetworkingWinsockIoctlsocket(uint64_t s, int32_t cmd, void* argp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4729,7 +4729,7 @@ int32_t windowssys_windows_win32_networking_winsock_ioctlsocket(uint64_t s, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_listen(uint64_t s, int32_t backlog) {
+int32_t windowssysWindowsWin32NetworkingWinsockListen(uint64_t s, int32_t backlog) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4752,7 +4752,7 @@ int32_t windowssys_windows_win32_networking_winsock_listen(uint64_t s, int32_t b
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_winsock_ntohl(uint32_t netlong) {
+uint32_t windowssysWindowsWin32NetworkingWinsockNtohl(uint32_t netlong) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4774,7 +4774,7 @@ uint32_t windowssys_windows_win32_networking_winsock_ntohl(uint32_t netlong) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_networking_winsock_ntohs(uint16_t netshort) {
+uint16_t windowssysWindowsWin32NetworkingWinsockNtohs(uint16_t netshort) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4796,7 +4796,7 @@ uint16_t windowssys_windows_win32_networking_winsock_ntohs(uint16_t netshort) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_recv(uint64_t s, void* buf, int32_t len, int32_t flags) {
+int32_t windowssysWindowsWin32NetworkingWinsockRecv(uint64_t s, void* buf, int32_t len, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4821,7 +4821,7 @@ int32_t windowssys_windows_win32_networking_winsock_recv(uint64_t s, void* buf, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_recvfrom(uint64_t s, void* buf, int32_t len, int32_t flags, void* from, void* fromlen) {
+int32_t windowssysWindowsWin32NetworkingWinsockRecvfrom(uint64_t s, void* buf, int32_t len, int32_t flags, void* from, void* fromlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4848,7 +4848,7 @@ int32_t windowssys_windows_win32_networking_winsock_recvfrom(uint64_t s, void* b
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_select(int32_t nfds, void* readfds, void* writefds, void* exceptfds, void* timeout) {
+int32_t windowssysWindowsWin32NetworkingWinsockSelect(int32_t nfds, void* readfds, void* writefds, void* exceptfds, void* timeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4874,7 +4874,7 @@ int32_t windowssys_windows_win32_networking_winsock_select(int32_t nfds, void* r
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_send(uint64_t s, void* buf, int32_t len, int32_t flags) {
+int32_t windowssysWindowsWin32NetworkingWinsockSend(uint64_t s, void* buf, int32_t len, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4899,7 +4899,7 @@ int32_t windowssys_windows_win32_networking_winsock_send(uint64_t s, void* buf, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_sendto(uint64_t s, void* buf, int32_t len, int32_t flags, void* to, int32_t tolen) {
+int32_t windowssysWindowsWin32NetworkingWinsockSendto(uint64_t s, void* buf, int32_t len, int32_t flags, void* to, int32_t tolen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4926,7 +4926,7 @@ int32_t windowssys_windows_win32_networking_winsock_sendto(uint64_t s, void* buf
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_setsockopt(uint64_t s, int32_t level, int32_t optname, void* optval, int32_t optlen) {
+int32_t windowssysWindowsWin32NetworkingWinsockSetsockopt(uint64_t s, int32_t level, int32_t optname, void* optval, int32_t optlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int32_t, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4952,7 +4952,7 @@ int32_t windowssys_windows_win32_networking_winsock_setsockopt(uint64_t s, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_winsock_shutdown(uint64_t s, int32_t how) {
+int32_t windowssysWindowsWin32NetworkingWinsockShutdown(uint64_t s, int32_t how) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4975,7 +4975,7 @@ int32_t windowssys_windows_win32_networking_winsock_shutdown(uint64_t s, int32_t
 #endif
 }
 
-uint64_t windowssys_windows_win32_networking_winsock_socket(int32_t af, int32_t type, int32_t protocol) {
+uint64_t windowssysWindowsWin32NetworkingWinsockSocket(int32_t af, int32_t type, int32_t protocol) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;

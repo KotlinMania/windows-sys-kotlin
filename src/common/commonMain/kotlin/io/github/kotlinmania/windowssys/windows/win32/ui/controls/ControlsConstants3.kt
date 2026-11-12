@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -54,13 +55,13 @@ public val TDP_FLASHBUTTONGROUPMENU: Taskbandparts = 3
 
 public val TDP_GROUPCOUNT: Taskbandparts = 1
 
-public val TD_ERROR_ICON: Pcwstr = COpaquePointer((65534u.toUShort()).toLong())
+public val TD_ERROR_ICON: Pcwstr = MutPtr<CVoid>((65534u.toUShort()).toLong())
 
-public val TD_INFORMATION_ICON: Pcwstr = COpaquePointer((65533u.toUShort()).toLong())
+public val TD_INFORMATION_ICON: Pcwstr = MutPtr<CVoid>((65533u.toUShort()).toLong())
 
-public val TD_SHIELD_ICON: Pcwstr = COpaquePointer((65532u.toUShort()).toLong())
+public val TD_SHIELD_ICON: Pcwstr = MutPtr<CVoid>((65532u.toUShort()).toLong())
 
-public val TD_WARNING_ICON: Pcwstr = COpaquePointer((65535u.toUShort()).toLong())
+public val TD_WARNING_ICON: Pcwstr = MutPtr<CVoid>((65535u.toUShort()).toLong())
 
 public val TEXT_BODYTEXT: Textstyleparts = 4
 

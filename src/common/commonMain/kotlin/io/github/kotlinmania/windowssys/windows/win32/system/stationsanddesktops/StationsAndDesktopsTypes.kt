@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -26,9 +27,9 @@ public typealias DesktopAccessFlags = UInt
 
 public typealias DesktopControlFlags = UInt
 
-public typealias Hdesk = COpaquePointer?
+public typealias Hdesk = MutPtr<CVoid>
 
-public typealias Hwinsta = COpaquePointer?
+public typealias Hwinsta = MutPtr<CVoid>
 
 public typealias UserObjectInformationIndex = Int
 

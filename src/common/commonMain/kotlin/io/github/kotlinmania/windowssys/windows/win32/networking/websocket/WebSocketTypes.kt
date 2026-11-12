@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.websocket
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias WebSocketAction = Int
 
@@ -10,6 +11,6 @@ public typealias WebSocketBufferType = Int
 
 public typealias WebSocketCloseStatus = Int
 
-public typealias WebSocketHandle = COpaquePointer?
+public typealias WebSocketHandle = MutPtr<CVoid>
 
 public typealias WebSocketPropertyType = Int

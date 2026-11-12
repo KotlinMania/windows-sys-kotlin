@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -11,503 +13,557 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
 import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.Hkl
 
 private object WindowsWin32UiInputImeJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32UiInputImeJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immAssociateContext(param0: Long, param1: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmAssociateContext(param0: Long, param1: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immAssociateContextEx(param0: Long, param1: Long, param2: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmAssociateContextEx(param0: Long, param1: Long, param2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immConfigureIMEA(param0: Long, param1: Long, param2: Int, param3: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmConfigureIMEA(param0: Long, param1: Long, param2: Int, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immConfigureIMEW(param0: Long, param1: Long, param2: Int, param3: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmConfigureIMEW(param0: Long, param1: Long, param2: Int, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immCreateContext(): Long
+    external fun windowssysWindowsWin32UiInputImeImmCreateContext(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immCreateIMCC(param0: Int): Long
+    external fun windowssysWindowsWin32UiInputImeImmCreateIMCC(param0: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard(param0: Int, param1: Long, param2: Int, param3: Int): Long
+    external fun windowssysWindowsWin32UiInputImeImmCreateSoftKeyboard(param0: Int, param1: Long, param2: Int, param3: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immDestroyContext(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmDestroyContext(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immDestroyIMCC(param0: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmDestroyIMCC(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmDestroySoftKeyboard(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immDisableIME(param0: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmDisableIME(param0: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immDisableLegacyIME(): Int
+    external fun windowssysWindowsWin32UiInputImeImmDisableLegacyIME(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immDisableTextFrameService(idthread: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmDisableTextFrameService(idthread: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immEnumInputContext(idthread: Int, lpfn: Long, lparam: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmEnumInputContext(idthread: Int, lpfn: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA(param0: Long, param1: Long, lpszreading: Long, param3: Int, lpszregister: Long, param5: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmEnumRegisterWordA(param0: Long, param1: Long, lpszreading: Long, param3: Int, lpszregister: Long, param5: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW(param0: Long, param1: Long, lpszreading: Long, param3: Int, lpszregister: Long, param5: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmEnumRegisterWordW(param0: Long, param1: Long, lpszreading: Long, param3: Int, lpszregister: Long, param5: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immEscapeA(param0: Long, param1: Long, param2: Int, param3: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmEscapeA(param0: Long, param1: Long, param2: Int, param3: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immEscapeW(param0: Long, param1: Long, param2: Int, param3: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmEscapeW(param0: Long, param1: Long, param2: Int, param3: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGenerateMessage(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGenerateMessage(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCandidateListA(param0: Long, deindex: Int, lpcandlist: Long, dwbuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCandidateListA(param0: Long, deindex: Int, lpcandlist: Long, dwbuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA(param0: Long, lpdwlistcount: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCandidateListCountA(param0: Long, lpdwlistcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW(param0: Long, lpdwlistcount: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCandidateListCountW(param0: Long, lpdwlistcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCandidateListW(param0: Long, deindex: Int, lpcandlist: Long, dwbuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCandidateListW(param0: Long, deindex: Int, lpcandlist: Long, dwbuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCandidateWindow(param0: Long, param1: Int, lpcandidate: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCandidateWindow(param0: Long, param1: Int, lpcandidate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCompositionFontA(param0: Long, lplf: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCompositionFontA(param0: Long, lplf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCompositionFontW(param0: Long, lplf: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCompositionFontW(param0: Long, lplf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCompositionStringA(param0: Long, param1: Int, lpbuf: Long, dwbuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCompositionStringA(param0: Long, param1: Int, lpbuf: Long, dwbuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCompositionStringW(param0: Long, param1: Int, lpbuf: Long, dwbuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCompositionStringW(param0: Long, param1: Int, lpbuf: Long, dwbuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetCompositionWindow(param0: Long, lpcompform: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetCompositionWindow(param0: Long, lpcompform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetContext(param0: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmGetContext(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetConversionListA(param0: Long, param1: Long, lpsrc: Long, lpdst: Long, dwbuflen: Int, uflag: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetConversionListA(param0: Long, param1: Long, lpsrc: Long, lpdst: Long, dwbuflen: Int, uflag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetConversionListW(param0: Long, param1: Long, lpsrc: Long, lpdst: Long, dwbuflen: Int, uflag: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetConversionListW(param0: Long, param1: Long, lpsrc: Long, lpdst: Long, dwbuflen: Int, uflag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetConversionStatus(param0: Long, lpfdwconversion: Long, lpfdwsentence: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetConversionStatus(param0: Long, lpfdwconversion: Long, lpfdwsentence: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd(param0: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmGetDefaultIMEWnd(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetDescriptionA(param0: Long, lpszdescription: Long, ubuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetDescriptionA(param0: Long, lpszdescription: Long, ubuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetDescriptionW(param0: Long, lpszdescription: Long, ubuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetDescriptionW(param0: Long, lpszdescription: Long, ubuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetGuideLineA(param0: Long, dwindex: Int, lpbuf: Long, dwbuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetGuideLineA(param0: Long, dwindex: Int, lpbuf: Long, dwbuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetGuideLineW(param0: Long, dwindex: Int, lpbuf: Long, dwbuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetGuideLineW(param0: Long, dwindex: Int, lpbuf: Long, dwbuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetHotKey(param0: Int, lpumodifiers: Long, lpuvkey: Long, phkl: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetHotKey(param0: Int, lpumodifiers: Long, lpuvkey: Long, phkl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetIMCCLockCount(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetIMCCSize(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetIMCCSize(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetIMCLockCount(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetIMCLockCount(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA(param0: Long, lpszfilename: Long, ubuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetIMEFileNameA(param0: Long, lpszfilename: Long, ubuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW(param0: Long, lpszfilename: Long, ubuflen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetIMEFileNameW(param0: Long, lpszfilename: Long, ubuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA(param0: Long, param1: Int, param2: Int, lpimeparentmenu: Long, lpimemenu: Long, dwsize: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetImeMenuItemsA(param0: Long, param1: Int, param2: Int, lpimeparentmenu: Long, lpimemenu: Long, dwsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW(param0: Long, param1: Int, param2: Int, lpimeparentmenu: Long, lpimemenu: Long, dwsize: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetImeMenuItemsW(param0: Long, param1: Int, param2: Int, lpimeparentmenu: Long, lpimemenu: Long, dwsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetOpenStatus(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetOpenStatus(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetProperty(param0: Long, param1: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetProperty(param0: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA(param0: Long, nitem: Int, lpstylebuf: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleA(param0: Long, nitem: Int, lpstylebuf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW(param0: Long, nitem: Int, lpstylebuf: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleW(param0: Long, nitem: Int, lpstylebuf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos(param0: Long, lpptpos: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetStatusWindowPos(param0: Long, lpptpos: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immGetVirtualKey(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmGetVirtualKey(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immInstallIMEA(lpszimefilename: Long, lpszlayouttext: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmInstallIMEA(lpszimefilename: Long, lpszlayouttext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immInstallIMEW(lpszimefilename: Long, lpszlayouttext: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmInstallIMEW(lpszimefilename: Long, lpszlayouttext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immIsIME(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmIsIME(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immIsUIMessageA(param0: Long, param1: Int, param2: Long, param3: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmIsUIMessageA(param0: Long, param1: Int, param2: Long, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immIsUIMessageW(param0: Long, param1: Int, param2: Long, param3: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmIsUIMessageW(param0: Long, param1: Int, param2: Long, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immLockIMC(param0: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmLockIMC(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immLockIMCC(param0: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmLockIMCC(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immNotifyIME(param0: Long, dwaction: Int, dwindex: Int, dwvalue: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmNotifyIME(param0: Long, dwaction: Int, dwindex: Int, dwvalue: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immReSizeIMCC(param0: Long, param1: Int): Long
+    external fun windowssysWindowsWin32UiInputImeImmReSizeIMCC(param0: Long, param1: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immRegisterWordA(param0: Long, lpszreading: Long, param2: Int, lpszregister: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmRegisterWordA(param0: Long, lpszreading: Long, param2: Int, lpszregister: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immRegisterWordW(param0: Long, lpszreading: Long, param2: Int, lpszregister: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmRegisterWordW(param0: Long, lpszreading: Long, param2: Int, lpszregister: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immReleaseContext(param0: Long, param1: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmReleaseContext(param0: Long, param1: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immRequestMessageA(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmRequestMessageA(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immRequestMessageW(param0: Long, param1: Long, param2: Long): Long
+    external fun windowssysWindowsWin32UiInputImeImmRequestMessageW(param0: Long, param1: Long, param2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetCandidateWindow(param0: Long, lpcandidate: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetCandidateWindow(param0: Long, lpcandidate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetCompositionFontA(param0: Long, lplf: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetCompositionFontA(param0: Long, lplf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetCompositionFontW(param0: Long, lplf: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetCompositionFontW(param0: Long, lplf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetCompositionStringA(param0: Long, dwindex: Int, lpcomp: Long, dwcomplen: Int, lpread: Long, dwreadlen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetCompositionStringA(param0: Long, dwindex: Int, lpcomp: Long, dwcomplen: Int, lpread: Long, dwreadlen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetCompositionStringW(param0: Long, dwindex: Int, lpcomp: Long, dwcomplen: Int, lpread: Long, dwreadlen: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetCompositionStringW(param0: Long, dwindex: Int, lpcomp: Long, dwcomplen: Int, lpread: Long, dwreadlen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetCompositionWindow(param0: Long, lpcompform: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetCompositionWindow(param0: Long, lpcompform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetConversionStatus(param0: Long, param1: Int, param2: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetConversionStatus(param0: Long, param1: Int, param2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetHotKey(param0: Int, param1: Int, param2: Int, param3: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetHotKey(param0: Int, param1: Int, param2: Int, param3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetOpenStatus(param0: Long, param1: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetOpenStatus(param0: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos(param0: Long, lpptpos: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmSetStatusWindowPos(param0: Long, lpptpos: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard(param0: Long, param1: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmShowSoftKeyboard(param0: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immSimulateHotKey(param0: Long, param1: Int): Int
+    external fun windowssysWindowsWin32UiInputImeImmSimulateHotKey(param0: Long, param1: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immUnlockIMC(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmUnlockIMC(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immUnlockIMCC(param0: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmUnlockIMCC(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immUnregisterWordA(param0: Long, lpszreading: Long, param2: Int, lpszunregister: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmUnregisterWordA(param0: Long, lpszreading: Long, param2: Int, lpszunregister: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_input_ime_immUnregisterWordW(param0: Long, lpszreading: Long, param2: Int, lpszunregister: Long): Int
+    external fun windowssysWindowsWin32UiInputImeImmUnregisterWordW(param0: Long, lpszreading: Long, param2: Int, lpszunregister: Long): Int
 }
 
 public actual fun immAssociateContext(param0: Hwnd, param1: Himc): Himc =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immAssociateContext((param0?.value ?: 0L), (param1?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmAssociateContext(param0.rawAddress, param1.rawAddress))
 
 public actual fun immAssociateContextEx(param0: Hwnd, param1: Himc, param2: UInt): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immAssociateContextEx((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt())
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmAssociateContextEx(param0.rawAddress, param1.rawAddress, param2.toInt())
 
-public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immConfigureIMEA((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmConfigureIMEA(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
-public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immConfigureIMEW((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmConfigureIMEW(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
 public actual fun immCreateContext(): Himc =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immCreateContext().let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmCreateContext())
 
 public actual fun immCreateIMCC(param0: UInt): Himcc =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immCreateIMCC(param0.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmCreateIMCC(param0.toInt()))
 
 public actual fun immCreateSoftKeyboard(param0: UInt, param1: Hwnd, param2: Int, param3: Int): Hwnd =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immCreateSoftKeyboard(param0.toInt(), (param1?.value ?: 0L), param2, param3).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmCreateSoftKeyboard(param0.toInt(), param1.rawAddress, param2, param3))
 
 public actual fun immDestroyContext(param0: Himc): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immDestroyContext((param0?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmDestroyContext(param0.rawAddress)
 
 public actual fun immDestroyIMCC(param0: Himcc): Himcc =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immDestroyIMCC((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmDestroyIMCC(param0.rawAddress))
 
 public actual fun immDestroySoftKeyboard(param0: Hwnd): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immDestroySoftKeyboard((param0?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmDestroySoftKeyboard(param0.rawAddress)
 
 public actual fun immDisableIME(param0: UInt): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immDisableIME(param0.toInt())
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmDisableIME(param0.toInt())
 
 public actual fun immDisableLegacyIME(): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immDisableLegacyIME()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmDisableLegacyIME()
 
 public actual fun immDisableTextFrameService(idthread: UInt): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immDisableTextFrameService(idthread.toInt())
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmDisableTextFrameService(idthread.toInt())
 
 public actual fun immEnumInputContext(idthread: UInt, lpfn: Imcenumproc, lparam: Lparam): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immEnumInputContext(idthread.toInt(), 0L, lparam)
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmEnumInputContext(idthread.toInt(), 0L, lparam)
 
-public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: COpaquePointer?): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immEnumRegisterWordA((param0?.value ?: 0L), 0L, (lpszreading?.value ?: 0L), param3.toInt(), (lpszregister?.value ?: 0L), (param5?.value ?: 0L)).toUInt()
+public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: MutPtr<CVoid>): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmEnumRegisterWordA(param0.rawAddress, 0L, lpszreading.rawAddress, param3.toInt(), lpszregister.rawAddress, param5.rawAddress).toUInt()
 
-public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: COpaquePointer?): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immEnumRegisterWordW((param0?.value ?: 0L), 0L, (lpszreading?.value ?: 0L), param3.toInt(), (lpszregister?.value ?: 0L), (param5?.value ?: 0L)).toUInt()
+public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: MutPtr<CVoid>): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmEnumRegisterWordW(param0.rawAddress, 0L, lpszreading.rawAddress, param3.toInt(), lpszregister.rawAddress, param5.rawAddress).toUInt()
 
-public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: COpaquePointer?): Lresult =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immEscapeA((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmEscapeA(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
-public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: COpaquePointer?): Lresult =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immEscapeW((param0?.value ?: 0L), (param1?.value ?: 0L), param2.toInt(), (param3?.value ?: 0L))
+public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmEscapeW(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress)
 
 public actual fun immGenerateMessage(param0: Himc): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGenerateMessage((param0?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGenerateMessage(param0.rawAddress)
 
-public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: COpaquePointer?, dwbuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCandidateListA((param0?.value ?: 0L), deindex.toInt(), (lpcandlist?.value ?: 0L), dwbuflen.toInt()).toUInt()
+public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCandidateListA(param0.rawAddress, deindex.toInt(), lpcandlist.rawAddress, dwbuflen.toInt()).toUInt()
 
-public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: COpaquePointer?): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCandidateListCountA((param0?.value ?: 0L), (lpdwlistcount?.value ?: 0L)).toUInt()
+public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCandidateListCountA(param0.rawAddress, lpdwlistcount.rawAddress).toUInt()
 
-public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: COpaquePointer?): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCandidateListCountW((param0?.value ?: 0L), (lpdwlistcount?.value ?: 0L)).toUInt()
+public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCandidateListCountW(param0.rawAddress, lpdwlistcount.rawAddress).toUInt()
 
-public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: COpaquePointer?, dwbuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCandidateListW((param0?.value ?: 0L), deindex.toInt(), (lpcandlist?.value ?: 0L), dwbuflen.toInt()).toUInt()
+public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCandidateListW(param0.rawAddress, deindex.toInt(), lpcandlist.rawAddress, dwbuflen.toInt()).toUInt()
 
-public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCandidateWindow((param0?.value ?: 0L), param1.toInt(), (lpcandidate?.value ?: 0L))
+public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: MutPtr<Candidateform>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCandidateWindow(param0.rawAddress, param1.toInt(), lpcandidate.rawAddress)
 
-public actual fun immGetCompositionFontA(param0: Himc, lplf: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCompositionFontA((param0?.value ?: 0L), (lplf?.value ?: 0L))
+public actual fun immGetCompositionFontA(param0: Himc, lplf: MutPtr<Logfonta>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCompositionFontA(param0.rawAddress, lplf.rawAddress)
 
-public actual fun immGetCompositionFontW(param0: Himc, lplf: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCompositionFontW((param0?.value ?: 0L), (lplf?.value ?: 0L))
+public actual fun immGetCompositionFontW(param0: Himc, lplf: MutPtr<Logfontw>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCompositionFontW(param0.rawAddress, lplf.rawAddress)
 
-public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: COpaquePointer?, dwbuflen: UInt): Int =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCompositionStringA((param0?.value ?: 0L), param1.toInt(), (lpbuf?.value ?: 0L), dwbuflen.toInt())
+public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCompositionStringA(param0.rawAddress, param1.toInt(), lpbuf.rawAddress, dwbuflen.toInt())
 
-public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: COpaquePointer?, dwbuflen: UInt): Int =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCompositionStringW((param0?.value ?: 0L), param1.toInt(), (lpbuf?.value ?: 0L), dwbuflen.toInt())
+public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCompositionStringW(param0.rawAddress, param1.toInt(), lpbuf.rawAddress, dwbuflen.toInt())
 
-public actual fun immGetCompositionWindow(param0: Himc, lpcompform: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetCompositionWindow((param0?.value ?: 0L), (lpcompform?.value ?: 0L))
+public actual fun immGetCompositionWindow(param0: Himc, lpcompform: MutPtr<Compositionform>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetCompositionWindow(param0.rawAddress, lpcompform.rawAddress)
 
 public actual fun immGetContext(param0: Hwnd): Himc =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetContext((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetContext(param0.rawAddress))
 
-public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: COpaquePointer?, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetConversionListA((param0?.value ?: 0L), (param1?.value ?: 0L), (lpsrc?.value ?: 0L), (lpdst?.value ?: 0L), dwbuflen.toInt(), uflag.toInt()).toUInt()
+public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetConversionListA(param0.rawAddress, param1.rawAddress, lpsrc.rawAddress, lpdst.rawAddress, dwbuflen.toInt(), uflag.toInt()).toUInt()
 
-public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: COpaquePointer?, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetConversionListW((param0?.value ?: 0L), (param1?.value ?: 0L), (lpsrc?.value ?: 0L), (lpdst?.value ?: 0L), dwbuflen.toInt(), uflag.toInt()).toUInt()
+public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetConversionListW(param0.rawAddress, param1.rawAddress, lpsrc.rawAddress, lpdst.rawAddress, dwbuflen.toInt(), uflag.toInt()).toUInt()
 
-public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: COpaquePointer?, lpfdwsentence: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetConversionStatus((param0?.value ?: 0L), (lpfdwconversion?.value ?: 0L), (lpfdwsentence?.value ?: 0L))
+public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: MutPtr<ImeConversionMode>, lpfdwsentence: MutPtr<ImeSentenceMode>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetConversionStatus(param0.rawAddress, lpfdwconversion.rawAddress, lpfdwsentence.rawAddress)
 
 public actual fun immGetDefaultIMEWnd(param0: Hwnd): Hwnd =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetDefaultIMEWnd((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetDefaultIMEWnd(param0.rawAddress))
 
 public actual fun immGetDescriptionA(param0: Hkl, lpszdescription: Pstr, ubuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetDescriptionA((param0?.value ?: 0L), (lpszdescription?.value ?: 0L), ubuflen.toInt()).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetDescriptionA(param0.rawAddress, lpszdescription.rawAddress, ubuflen.toInt()).toUInt()
 
 public actual fun immGetDescriptionW(param0: Hkl, lpszdescription: Pwstr, ubuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetDescriptionW((param0?.value ?: 0L), (lpszdescription?.value ?: 0L), ubuflen.toInt()).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetDescriptionW(param0.rawAddress, lpszdescription.rawAddress, ubuflen.toInt()).toUInt()
 
 public actual fun immGetGuideLineA(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pstr, dwbuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetGuideLineA((param0?.value ?: 0L), dwindex.toInt(), (lpbuf?.value ?: 0L), dwbuflen.toInt()).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetGuideLineA(param0.rawAddress, dwindex.toInt(), lpbuf.rawAddress, dwbuflen.toInt()).toUInt()
 
 public actual fun immGetGuideLineW(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pwstr, dwbuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetGuideLineW((param0?.value ?: 0L), dwindex.toInt(), (lpbuf?.value ?: 0L), dwbuflen.toInt()).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetGuideLineW(param0.rawAddress, dwindex.toInt(), lpbuf.rawAddress, dwbuflen.toInt()).toUInt()
 
-public actual fun immGetHotKey(param0: UInt, lpumodifiers: COpaquePointer?, lpuvkey: COpaquePointer?, phkl: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetHotKey(param0.toInt(), (lpumodifiers?.value ?: 0L), (lpuvkey?.value ?: 0L), (phkl?.value ?: 0L))
+public actual fun immGetHotKey(param0: UInt, lpumodifiers: MutPtr<UInt>, lpuvkey: MutPtr<UInt>, phkl: MutPtr<Hkl>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetHotKey(param0.toInt(), lpumodifiers.rawAddress, lpuvkey.rawAddress, phkl.rawAddress)
 
 public actual fun immGetIMCCLockCount(param0: Himcc): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetIMCCLockCount((param0?.value ?: 0L)).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetIMCCLockCount(param0.rawAddress).toUInt()
 
 public actual fun immGetIMCCSize(param0: Himcc): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetIMCCSize((param0?.value ?: 0L)).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetIMCCSize(param0.rawAddress).toUInt()
 
 public actual fun immGetIMCLockCount(param0: Himc): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetIMCLockCount((param0?.value ?: 0L)).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetIMCLockCount(param0.rawAddress).toUInt()
 
 public actual fun immGetIMEFileNameA(param0: Hkl, lpszfilename: Pstr, ubuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetIMEFileNameA((param0?.value ?: 0L), (lpszfilename?.value ?: 0L), ubuflen.toInt()).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetIMEFileNameA(param0.rawAddress, lpszfilename.rawAddress, ubuflen.toInt()).toUInt()
 
 public actual fun immGetIMEFileNameW(param0: Hkl, lpszfilename: Pwstr, ubuflen: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetIMEFileNameW((param0?.value ?: 0L), (lpszfilename?.value ?: 0L), ubuflen.toInt()).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetIMEFileNameW(param0.rawAddress, lpszfilename.rawAddress, ubuflen.toInt()).toUInt()
 
-public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: COpaquePointer?, lpimemenu: COpaquePointer?, dwsize: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsA((param0?.value ?: 0L), param1.toInt(), param2.toInt(), (lpimeparentmenu?.value ?: 0L), (lpimemenu?.value ?: 0L), dwsize.toInt()).toUInt()
+public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfoa>, lpimemenu: MutPtr<Imemenuiteminfoa>, dwsize: UInt): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetImeMenuItemsA(param0.rawAddress, param1.toInt(), param2.toInt(), lpimeparentmenu.rawAddress, lpimemenu.rawAddress, dwsize.toInt()).toUInt()
 
-public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: COpaquePointer?, lpimemenu: COpaquePointer?, dwsize: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetImeMenuItemsW((param0?.value ?: 0L), param1.toInt(), param2.toInt(), (lpimeparentmenu?.value ?: 0L), (lpimemenu?.value ?: 0L), dwsize.toInt()).toUInt()
+public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfow>, lpimemenu: MutPtr<Imemenuiteminfow>, dwsize: UInt): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetImeMenuItemsW(param0.rawAddress, param1.toInt(), param2.toInt(), lpimeparentmenu.rawAddress, lpimemenu.rawAddress, dwsize.toInt()).toUInt()
 
 public actual fun immGetOpenStatus(param0: Himc): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetOpenStatus((param0?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetOpenStatus(param0.rawAddress)
 
 public actual fun immGetProperty(param0: Hkl, param1: UInt): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetProperty((param0?.value ?: 0L), param1.toInt()).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetProperty(param0.rawAddress, param1.toInt()).toUInt()
 
-public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: COpaquePointer?): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleA((param0?.value ?: 0L), nitem.toInt(), (lpstylebuf?.value ?: 0L)).toUInt()
+public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufa>): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleA(param0.rawAddress, nitem.toInt(), lpstylebuf.rawAddress).toUInt()
 
-public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: COpaquePointer?): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetRegisterWordStyleW((param0?.value ?: 0L), nitem.toInt(), (lpstylebuf?.value ?: 0L)).toUInt()
+public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufw>): UInt =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleW(param0.rawAddress, nitem.toInt(), lpstylebuf.rawAddress).toUInt()
 
-public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetStatusWindowPos((param0?.value ?: 0L), (lpptpos?.value ?: 0L))
+public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: MutPtr<Point>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetStatusWindowPos(param0.rawAddress, lpptpos.rawAddress)
 
 public actual fun immGetVirtualKey(param0: Hwnd): UInt =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immGetVirtualKey((param0?.value ?: 0L)).toUInt()
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmGetVirtualKey(param0.rawAddress).toUInt()
 
 public actual fun immInstallIMEA(lpszimefilename: Pcstr, lpszlayouttext: Pcstr): Hkl =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immInstallIMEA((lpszimefilename?.value ?: 0L), (lpszlayouttext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmInstallIMEA(lpszimefilename.rawAddress, lpszlayouttext.rawAddress))
 
 public actual fun immInstallIMEW(lpszimefilename: Pcwstr, lpszlayouttext: Pcwstr): Hkl =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immInstallIMEW((lpszimefilename?.value ?: 0L), (lpszlayouttext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmInstallIMEW(lpszimefilename.rawAddress, lpszlayouttext.rawAddress))
 
 public actual fun immIsIME(param0: Hkl): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immIsIME((param0?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmIsIME(param0.rawAddress)
 
 public actual fun immIsUIMessageA(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immIsUIMessageA((param0?.value ?: 0L), param1.toInt(), param2.toLong(), param3)
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmIsUIMessageA(param0.rawAddress, param1.toInt(), param2.toLong(), param3)
 
 public actual fun immIsUIMessageW(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immIsUIMessageW((param0?.value ?: 0L), param1.toInt(), param2.toLong(), param3)
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmIsUIMessageW(param0.rawAddress, param1.toInt(), param2.toLong(), param3)
 
-public actual fun immLockIMC(param0: Himc): COpaquePointer? =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immLockIMC((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun immLockIMC(param0: Himc): MutPtr<Inputcontext> =
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmLockIMC(param0.rawAddress))
 
-public actual fun immLockIMCC(param0: Himcc): COpaquePointer? =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immLockIMCC((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun immLockIMCC(param0: Himcc): MutPtr<CVoid> =
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmLockIMCC(param0.rawAddress))
 
 public actual fun immNotifyIME(param0: Himc, dwaction: NotifyImeAction, dwindex: NotifyImeIndex, dwvalue: UInt): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immNotifyIME((param0?.value ?: 0L), dwaction.toInt(), dwindex.toInt(), dwvalue.toInt())
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmNotifyIME(param0.rawAddress, dwaction.toInt(), dwindex.toInt(), dwvalue.toInt())
 
 public actual fun immReSizeIMCC(param0: Himcc, param1: UInt): Himcc =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immReSizeIMCC((param0?.value ?: 0L), param1.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmReSizeIMCC(param0.rawAddress, param1.toInt()))
 
 public actual fun immRegisterWordA(param0: Hkl, lpszreading: Pcstr, param2: UInt, lpszregister: Pcstr): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immRegisterWordA((param0?.value ?: 0L), (lpszreading?.value ?: 0L), param2.toInt(), (lpszregister?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmRegisterWordA(param0.rawAddress, lpszreading.rawAddress, param2.toInt(), lpszregister.rawAddress)
 
 public actual fun immRegisterWordW(param0: Hkl, lpszreading: Pcwstr, param2: UInt, lpszregister: Pcwstr): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immRegisterWordW((param0?.value ?: 0L), (lpszreading?.value ?: 0L), param2.toInt(), (lpszregister?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmRegisterWordW(param0.rawAddress, lpszreading.rawAddress, param2.toInt(), lpszregister.rawAddress)
 
 public actual fun immReleaseContext(param0: Hwnd, param1: Himc): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immReleaseContext((param0?.value ?: 0L), (param1?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmReleaseContext(param0.rawAddress, param1.rawAddress)
 
 public actual fun immRequestMessageA(param0: Himc, param1: Wparam, param2: Lparam): Lresult =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immRequestMessageA((param0?.value ?: 0L), param1.toLong(), param2)
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmRequestMessageA(param0.rawAddress, param1.toLong(), param2)
 
 public actual fun immRequestMessageW(param0: Himc, param1: Wparam, param2: Lparam): Lresult =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immRequestMessageW((param0?.value ?: 0L), param1.toLong(), param2)
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmRequestMessageW(param0.rawAddress, param1.toLong(), param2)
 
-public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetCandidateWindow((param0?.value ?: 0L), (lpcandidate?.value ?: 0L))
+public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: ConstPtr<Candidateform>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetCandidateWindow(param0.rawAddress, lpcandidate.rawAddress)
 
-public actual fun immSetCompositionFontA(param0: Himc, lplf: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetCompositionFontA((param0?.value ?: 0L), (lplf?.value ?: 0L))
+public actual fun immSetCompositionFontA(param0: Himc, lplf: ConstPtr<Logfonta>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetCompositionFontA(param0.rawAddress, lplf.rawAddress)
 
-public actual fun immSetCompositionFontW(param0: Himc, lplf: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetCompositionFontW((param0?.value ?: 0L), (lplf?.value ?: 0L))
+public actual fun immSetCompositionFontW(param0: Himc, lplf: ConstPtr<Logfontw>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetCompositionFontW(param0.rawAddress, lplf.rawAddress)
 
-public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: COpaquePointer?, dwcomplen: UInt, lpread: COpaquePointer?, dwreadlen: UInt): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetCompositionStringA((param0?.value ?: 0L), dwindex.toInt(), (lpcomp?.value ?: 0L), dwcomplen.toInt(), (lpread?.value ?: 0L), dwreadlen.toInt())
+public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetCompositionStringA(param0.rawAddress, dwindex.toInt(), lpcomp.rawAddress, dwcomplen.toInt(), lpread.rawAddress, dwreadlen.toInt())
 
-public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: COpaquePointer?, dwcomplen: UInt, lpread: COpaquePointer?, dwreadlen: UInt): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetCompositionStringW((param0?.value ?: 0L), dwindex.toInt(), (lpcomp?.value ?: 0L), dwcomplen.toInt(), (lpread?.value ?: 0L), dwreadlen.toInt())
+public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetCompositionStringW(param0.rawAddress, dwindex.toInt(), lpcomp.rawAddress, dwcomplen.toInt(), lpread.rawAddress, dwreadlen.toInt())
 
-public actual fun immSetCompositionWindow(param0: Himc, lpcompform: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetCompositionWindow((param0?.value ?: 0L), (lpcompform?.value ?: 0L))
+public actual fun immSetCompositionWindow(param0: Himc, lpcompform: ConstPtr<Compositionform>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetCompositionWindow(param0.rawAddress, lpcompform.rawAddress)
 
 public actual fun immSetConversionStatus(param0: Himc, param1: ImeConversionMode, param2: ImeSentenceMode): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetConversionStatus((param0?.value ?: 0L), param1.toInt(), param2.toInt())
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetConversionStatus(param0.rawAddress, param1.toInt(), param2.toInt())
 
 public actual fun immSetHotKey(param0: UInt, param1: UInt, param2: UInt, param3: Hkl): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetHotKey(param0.toInt(), param1.toInt(), param2.toInt(), (param3?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetHotKey(param0.toInt(), param1.toInt(), param2.toInt(), param3.rawAddress)
 
 public actual fun immSetOpenStatus(param0: Himc, param1: Bool): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetOpenStatus((param0?.value ?: 0L), param1)
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetOpenStatus(param0.rawAddress, param1)
 
-public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: COpaquePointer?): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSetStatusWindowPos((param0?.value ?: 0L), (lpptpos?.value ?: 0L))
+public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: ConstPtr<Point>): Bool =
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSetStatusWindowPos(param0.rawAddress, lpptpos.rawAddress)
 
 public actual fun immShowSoftKeyboard(param0: Hwnd, param1: Int): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immShowSoftKeyboard((param0?.value ?: 0L), param1)
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmShowSoftKeyboard(param0.rawAddress, param1)
 
 public actual fun immSimulateHotKey(param0: Hwnd, param1: ImeHotkeyIdentifier): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immSimulateHotKey((param0?.value ?: 0L), param1.toInt())
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmSimulateHotKey(param0.rawAddress, param1.toInt())
 
 public actual fun immUnlockIMC(param0: Himc): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immUnlockIMC((param0?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmUnlockIMC(param0.rawAddress)
 
 public actual fun immUnlockIMCC(param0: Himcc): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immUnlockIMCC((param0?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmUnlockIMCC(param0.rawAddress)
 
 public actual fun immUnregisterWordA(param0: Hkl, lpszreading: Pcstr, param2: UInt, lpszunregister: Pcstr): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immUnregisterWordA((param0?.value ?: 0L), (lpszreading?.value ?: 0L), param2.toInt(), (lpszunregister?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmUnregisterWordA(param0.rawAddress, lpszreading.rawAddress, param2.toInt(), lpszunregister.rawAddress)
 
 public actual fun immUnregisterWordW(param0: Hkl, lpszreading: Pcwstr, param2: UInt, lpszunregister: Pcwstr): Bool =
-    WindowsWin32UiInputImeJniBridge.windowssys_windows_win32_ui_input_ime_immUnregisterWordW((param0?.value ?: 0L), (lpszreading?.value ?: 0L), param2.toInt(), (lpszunregister?.value ?: 0L))
+    WindowsWin32UiInputImeJniBridge.windowssysWindowsWin32UiInputImeImmUnregisterWordW(param0.rawAddress, lpszreading.rawAddress, param2.toInt(), lpszunregister.rawAddress)

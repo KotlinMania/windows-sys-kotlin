@@ -2,320 +2,330 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceToCanonicalValue
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAdapterFromPropertyStore
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDelayedMultiplexPropertyStore
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMemoryPropertyStore
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMultiplexPropertyStore
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyChangeArray
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromObject
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromPropertySetStorage
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSimplePropertyChange
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSEnumeratePropertyDescriptions
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplay
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplayAlloc
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPropertyValue
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetImageReferenceForValue
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandler
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandlerWithCreateObject
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionByName
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertySystem
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyValue
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPropertyHandlerCLSID
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSPropertyKeyFromString
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshPropertySchema
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSRegisterPropertySchema
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSSetPropertyValue
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSStringFromPropertyKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pSUnregisterPropertySchema
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pifMgrCloseProperties
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetProperties
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpenProperties
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetProperties
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagDelete
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBool
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBstr
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadDword
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadGuid
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadInt
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadLong
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPointl
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoints
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPropertyKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadRectl
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadShort
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStr
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStrAlloc
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStream
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadType
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUlonglong
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUnknown
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBool
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBstr
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteDword
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteGuid
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteInt
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteLong
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePointl
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoints
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePropertyKey
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteRectl
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteShort
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStream
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUlonglong
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUnknown
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefaultPropertiesByExt
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreForWindow
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromIDList
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromParsingName
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgCreate
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgReadMultiple
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgWriteMultiple
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Pointl
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Points
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
+import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propspec
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Itemidlist
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateMemoryPropertyStore
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateMultiplexPropertyStore
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyChangeArray
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromPropertySetStorage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateSimplePropertyChange
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSEnumeratePropertyDescriptions
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplay
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplayAlloc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSFormatPropertyValue
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetImageReferenceForValue
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandler
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandlerWithCreateObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetNameFromPropertyKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetNamedPropertyFromPropertyStorage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescription
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionByName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionListFromString
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyFromPropertyStorage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyKeyFromName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetPropertySystem
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyValue
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSLookupPropertyHandlerCLSID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSPropertyKeyFromString
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSSetPropertyValue
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSStringFromPropertyKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSUnregisterPropertySchema
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPifMgrCloseProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPifMgrGetProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPifMgrOpenProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPifMgrSetProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagDelete
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBool
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBstr
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadDword
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadGuid
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadInt
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadLong
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPointl
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPoints
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPropertyKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadRectl
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadShort
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStr
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStrAlloc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUlonglong
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUnknown
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBool
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBstr
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteDword
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteGuid
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteInt
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteLong
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePointl
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePoints
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePropertyKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteRectl
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteShort
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStr
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStream
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUlonglong
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUnknown
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemSHAddDefaultPropertiesByExt
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreForWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromIDList
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromParsingName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemSHPropStgCreate
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemSHPropStgReadMultiple
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemSHPropStgWriteMultiple
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun pSCoerceToCanonicalValue(key: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceToCanonicalValue(key?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
+public actual fun pSCoerceToCanonicalValue(key: ConstPtr<Propertykey>, ppropvar: MutPtr<Propvariant>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue(key.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateAdapterFromPropertyStore(pps: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAdapterFromPropertyStore(pps?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreateAdapterFromPropertyStore(pps: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore(pps.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateDelayedMultiplexPropertyStore(flags: Getpropertystoreflags, pdpsf: COpaquePointer?, rgstoreids: COpaquePointer?, cstores: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDelayedMultiplexPropertyStore(flags, pdpsf?.value?.toCPointer<ByteVar>(), rgstoreids?.value?.toCPointer<ByteVar>(), cstores, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreateDelayedMultiplexPropertyStore(flags: Getpropertystoreflags, pdpsf: MutPtr<CVoid>, rgstoreids: ConstPtr<UInt>, cstores: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore(flags, pdpsf.rawAddress.toCPointer<ByteVar>(), rgstoreids.rawAddress.toCPointer<ByteVar>(), cstores, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateMemoryPropertyStore(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMemoryPropertyStore(riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreateMemoryPropertyStore(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreateMemoryPropertyStore(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateMultiplexPropertyStore(prgpunkstores: COpaquePointer?, cstores: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMultiplexPropertyStore(prgpunkstores?.value?.toCPointer<ByteVar>(), cstores, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreateMultiplexPropertyStore(prgpunkstores: ConstPtr<MutPtr<CVoid>>, cstores: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreateMultiplexPropertyStore(prgpunkstores.rawAddress.toCPointer<ByteVar>(), cstores, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreatePropertyChangeArray(rgpropkey: COpaquePointer?, rgflags: COpaquePointer?, rgpropvar: COpaquePointer?, cchanges: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyChangeArray(rgpropkey?.value?.toCPointer<ByteVar>(), rgflags?.value?.toCPointer<ByteVar>(), rgpropvar?.value?.toCPointer<ByteVar>(), cchanges, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreatePropertyChangeArray(rgpropkey: ConstPtr<Propertykey>, rgflags: ConstPtr<PkaFlags>, rgpropvar: ConstPtr<Propvariant>, cchanges: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyChangeArray(rgpropkey.rawAddress.toCPointer<ByteVar>(), rgflags.rawAddress.toCPointer<ByteVar>(), rgpropvar.rawAddress.toCPointer<ByteVar>(), cchanges, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreatePropertyStoreFromObject(punk: COpaquePointer?, grfmode: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromObject(punk?.value?.toCPointer<ByteVar>(), grfmode, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreatePropertyStoreFromObject(punk: MutPtr<CVoid>, grfmode: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromObject(punk.rawAddress.toCPointer<ByteVar>(), grfmode, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreatePropertyStoreFromPropertySetStorage(ppss: COpaquePointer?, grfmode: UInt, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePropertyStoreFromPropertySetStorage(ppss?.value?.toCPointer<ByteVar>(), grfmode, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreatePropertyStoreFromPropertySetStorage(ppss: MutPtr<CVoid>, grfmode: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromPropertySetStorage(ppss.rawAddress.toCPointer<ByteVar>(), grfmode, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateSimplePropertyChange(flags: PkaFlags, key: COpaquePointer?, propvar: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSimplePropertyChange(flags, key?.value?.toCPointer<ByteVar>(), propvar?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSCreateSimplePropertyChange(flags: PkaFlags, key: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSCreateSimplePropertyChange(flags, key.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSEnumeratePropertyDescriptions(filteron: PropdescEnumfilter, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSEnumeratePropertyDescriptions(filteron, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSEnumeratePropertyDescriptions(filteron: PropdescEnumfilter, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSEnumeratePropertyDescriptions(filteron, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSFormatForDisplay(propkey: COpaquePointer?, propvar: COpaquePointer?, pdfflags: PropdescFormatFlags, pwsztext: Pwstr, cchtext: UInt): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplay(propkey?.value?.toCPointer<ByteVar>(), propvar?.value?.toCPointer<ByteVar>(), pdfflags, pwsztext?.value?.toCPointer<ByteVar>(), cchtext)
+public actual fun pSFormatForDisplay(propkey: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, pdfflags: PropdescFormatFlags, pwsztext: Pwstr, cchtext: UInt): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplay(propkey.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), pdfflags, pwsztext.rawAddress.toCPointer<ByteVar>(), cchtext)
 
-public actual fun pSFormatForDisplayAlloc(key: COpaquePointer?, propvar: COpaquePointer?, pdff: PropdescFormatFlags, ppszdisplay: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSFormatForDisplayAlloc(key?.value?.toCPointer<ByteVar>(), propvar?.value?.toCPointer<ByteVar>(), pdff, ppszdisplay?.value?.toCPointer<ByteVar>())
+public actual fun pSFormatForDisplayAlloc(key: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, pdff: PropdescFormatFlags, ppszdisplay: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplayAlloc(key.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), pdff, ppszdisplay.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSFormatPropertyValue(pps: COpaquePointer?, ppd: COpaquePointer?, pdff: PropdescFormatFlags, ppszdisplay: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPropertyValue(pps?.value?.toCPointer<ByteVar>(), ppd?.value?.toCPointer<ByteVar>(), pdff, ppszdisplay?.value?.toCPointer<ByteVar>())
+public actual fun pSFormatPropertyValue(pps: MutPtr<CVoid>, ppd: MutPtr<CVoid>, pdff: PropdescFormatFlags, ppszdisplay: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSFormatPropertyValue(pps.rawAddress.toCPointer<ByteVar>(), ppd.rawAddress.toCPointer<ByteVar>(), pdff, ppszdisplay.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetImageReferenceForValue(propkey: COpaquePointer?, propvar: COpaquePointer?, ppszimageres: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetImageReferenceForValue(propkey?.value?.toCPointer<ByteVar>(), propvar?.value?.toCPointer<ByteVar>(), ppszimageres?.value?.toCPointer<ByteVar>())
+public actual fun pSGetImageReferenceForValue(propkey: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, ppszimageres: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetImageReferenceForValue(propkey.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), ppszimageres.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetItemPropertyHandler(punkitem: COpaquePointer?, freadwrite: Bool, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandler(punkitem?.value?.toCPointer<ByteVar>(), freadwrite, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSGetItemPropertyHandler(punkitem: MutPtr<CVoid>, freadwrite: Bool, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandler(punkitem.rawAddress.toCPointer<ByteVar>(), freadwrite, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetItemPropertyHandlerWithCreateObject(punkitem: COpaquePointer?, freadwrite: Bool, punkcreateobject: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemPropertyHandlerWithCreateObject(punkitem?.value?.toCPointer<ByteVar>(), freadwrite, punkcreateobject?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSGetItemPropertyHandlerWithCreateObject(punkitem: MutPtr<CVoid>, freadwrite: Bool, punkcreateobject: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandlerWithCreateObject(punkitem.rawAddress.toCPointer<ByteVar>(), freadwrite, punkcreateobject.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetNameFromPropertyKey(propkey: COpaquePointer?, ppszcanonicalname: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey(propkey?.value?.toCPointer<ByteVar>(), ppszcanonicalname?.value?.toCPointer<ByteVar>())
+public actual fun pSGetNameFromPropertyKey(propkey: ConstPtr<Propertykey>, ppszcanonicalname: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetNameFromPropertyKey(propkey.rawAddress.toCPointer<ByteVar>(), ppszcanonicalname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetNamedPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, pszname: Pcwstr, ppropvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage(psps, cb, pszname?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
+public actual fun pSGetNamedPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, pszname: Pcwstr, ppropvar: MutPtr<Propvariant>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetNamedPropertyFromPropertyStorage(psps, cb, pszname.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyDescription(propkey: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription(propkey?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSGetPropertyDescription(propkey: ConstPtr<Propertykey>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescription(propkey.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyDescriptionByName(pszcanonicalname: Pcwstr, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionByName(pszcanonicalname?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSGetPropertyDescriptionByName(pszcanonicalname: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionByName(pszcanonicalname.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyDescriptionListFromString(pszproplist: Pcwstr, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString(pszproplist?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSGetPropertyDescriptionListFromString(pszproplist: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionListFromString(pszproplist.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, rpkey: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage(psps, cb, rpkey?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
+public actual fun pSGetPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, rpkey: ConstPtr<Propertykey>, ppropvar: MutPtr<Propvariant>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyFromPropertyStorage(psps, cb, rpkey.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyKeyFromName(pszname: Pcwstr, ppropkey: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName(pszname?.value?.toCPointer<ByteVar>(), ppropkey?.value?.toCPointer<ByteVar>())
+public actual fun pSGetPropertyKeyFromName(pszname: Pcwstr, ppropkey: MutPtr<Propertykey>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyKeyFromName(pszname.rawAddress.toCPointer<ByteVar>(), ppropkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertySystem(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertySystem(riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pSGetPropertySystem(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetPropertySystem(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyValue(pps: COpaquePointer?, ppd: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyValue(pps?.value?.toCPointer<ByteVar>(), ppd?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
+public actual fun pSGetPropertyValue(pps: MutPtr<CVoid>, ppd: MutPtr<CVoid>, ppropvar: MutPtr<Propvariant>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyValue(pps.rawAddress.toCPointer<ByteVar>(), ppd.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSLookupPropertyHandlerCLSID(pszfilepath: Pcwstr, pclsid: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPropertyHandlerCLSID(pszfilepath?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>())
+public actual fun pSLookupPropertyHandlerCLSID(pszfilepath: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSLookupPropertyHandlerCLSID(pszfilepath.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagDelete(propbag: COpaquePointer?, propname: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagDelete(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagDelete(propbag: MutPtr<CVoid>, propname: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagDelete(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadBool(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBool(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadBool(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Bool>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBool(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadBstr(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadBstr(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadBstr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Bstr>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBstr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadDword(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadDword(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadDword(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadDword(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadGuid(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadGuid(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadGuid(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Guid>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadGuid(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadInt(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadInt(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadInt(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Int>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadInt(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadLong(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadLong(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadLong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Int>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadLong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadPointl(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPointl(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadPointl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Pointl>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPointl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadPoints(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPoints(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadPoints(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Points>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPoints(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadPropertyKey(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadPropertyKey(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadPropertyKey(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Propertykey>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPropertyKey(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadRectl(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadRectl(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadRectl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Rectl>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadRectl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadShort(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadShort(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadShort(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Short>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadShort(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadStr(propbag: COpaquePointer?, propname: Pcwstr, value: Pwstr, charactercount: Int): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStr(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), charactercount)
+public actual fun pspropertyBagReadStr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Pwstr, charactercount: Int): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), charactercount)
 
-public actual fun pspropertyBagReadStrAlloc(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStrAlloc(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadStrAlloc(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Pwstr>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStrAlloc(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadStream(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadStream(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadStream(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadType(propbag: COpaquePointer?, propname: Pcwstr, variable: COpaquePointer?, type: Varenum): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadType(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), variable?.value?.toCPointer<ByteVar>(), type)
+public actual fun pspropertyBagReadType(propbag: MutPtr<CVoid>, propname: Pcwstr, variable: MutPtr<Variant.Variant>, type: Variant.Varenum): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), variable.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun pspropertyBagReadUlonglong(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUlonglong(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadUlonglong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<ULong>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUlonglong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadUnknown(propbag: COpaquePointer?, propname: Pcwstr, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagReadUnknown(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagReadUnknown(propbag: MutPtr<CVoid>, propname: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUnknown(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteBool(propbag: COpaquePointer?, propname: Pcwstr, value: Bool): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBool(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value)
+public actual fun pspropertyBagWriteBool(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Bool): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBool(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteBstr(propbag: COpaquePointer?, propname: Pcwstr, value: Bstr): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteBstr(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWriteBstr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Bstr): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBstr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteDword(propbag: COpaquePointer?, propname: Pcwstr, value: UInt): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteDword(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value)
+public actual fun pspropertyBagWriteDword(propbag: MutPtr<CVoid>, propname: Pcwstr, value: UInt): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteDword(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteGuid(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteGuid(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWriteGuid(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Guid>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteGuid(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteInt(propbag: COpaquePointer?, propname: Pcwstr, value: Int): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteInt(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value)
+public actual fun pspropertyBagWriteInt(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Int): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteInt(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteLong(propbag: COpaquePointer?, propname: Pcwstr, value: Int): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteLong(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value)
+public actual fun pspropertyBagWriteLong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Int): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteLong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWritePointl(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePointl(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWritePointl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Pointl>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePointl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWritePoints(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePoints(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWritePoints(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Points>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePoints(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWritePropertyKey(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWritePropertyKey(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWritePropertyKey(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Propertykey>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePropertyKey(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteRectl(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteRectl(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWriteRectl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Rectl>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteRectl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteShort(propbag: COpaquePointer?, propname: Pcwstr, value: Short): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteShort(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value)
+public actual fun pspropertyBagWriteShort(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Short): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteShort(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteStr(propbag: COpaquePointer?, propname: Pcwstr, value: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStr(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWriteStr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteStream(propbag: COpaquePointer?, propname: Pcwstr, value: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteStream(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWriteStream(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStream(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteUlonglong(propbag: COpaquePointer?, propname: Pcwstr, value: ULong): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUlonglong(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), value)
+public actual fun pspropertyBagWriteUlonglong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ULong): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUlonglong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteUnknown(propbag: COpaquePointer?, propname: Pcwstr, punk: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pspropertyBagWriteUnknown(propbag?.value?.toCPointer<ByteVar>(), propname?.value?.toCPointer<ByteVar>(), punk?.value?.toCPointer<ByteVar>())
+public actual fun pspropertyBagWriteUnknown(propbag: MutPtr<CVoid>, propname: Pcwstr, punk: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUnknown(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSPropertyKeyFromString(pszstring: Pcwstr, pkey: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSPropertyKeyFromString(pszstring?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>())
+public actual fun pSPropertyKeyFromString(pszstring: Pcwstr, pkey: MutPtr<Propertykey>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSPropertyKeyFromString(pszstring.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>())
 
 public actual fun pSRefreshPropertySchema(): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshPropertySchema()
+    windowssysWindowsWin32UiShellPropertiessystemPSRefreshPropertySchema()
 
 public actual fun pSRegisterPropertySchema(pszpath: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSRegisterPropertySchema(pszpath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema(pszpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSSetPropertyValue(pps: COpaquePointer?, ppd: COpaquePointer?, propvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSSetPropertyValue(pps?.value?.toCPointer<ByteVar>(), ppd?.value?.toCPointer<ByteVar>(), propvar?.value?.toCPointer<ByteVar>())
+public actual fun pSSetPropertyValue(pps: MutPtr<CVoid>, ppd: MutPtr<CVoid>, propvar: ConstPtr<Propvariant>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSSetPropertyValue(pps.rawAddress.toCPointer<ByteVar>(), ppd.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSStringFromPropertyKey(pkey: COpaquePointer?, psz: Pwstr, cch: UInt): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSStringFromPropertyKey(pkey?.value?.toCPointer<ByteVar>(), psz?.value?.toCPointer<ByteVar>(), cch)
+public actual fun pSStringFromPropertyKey(pkey: ConstPtr<Propertykey>, psz: Pwstr, cch: UInt): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemPSStringFromPropertyKey(pkey.rawAddress.toCPointer<ByteVar>(), psz.rawAddress.toCPointer<ByteVar>(), cch)
 
 public actual fun pSUnregisterPropertySchema(pszpath: Pcwstr): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSUnregisterPropertySchema(pszpath?.value?.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiShellPropertiessystemPSUnregisterPropertySchema(pszpath.rawAddress.toCPointer<ByteVar>())
 
 public actual fun pifMgrCloseProperties(hprops: Handle, flopt: UInt): Handle =
-    windowssys_windows_win32_ui_shell_propertiessystem_pifMgrCloseProperties(hprops?.value?.toCPointer<ByteVar>(), flopt)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiShellPropertiessystemPifMgrCloseProperties(hprops.rawAddress.toCPointer<ByteVar>(), flopt)?.toLong() ?: 0L)
 
-public actual fun pifMgrGetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: COpaquePointer?, cbprops: Int, flopt: UInt): Int =
-    windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetProperties(hprops?.value?.toCPointer<ByteVar>(), pszgroup?.value?.toCPointer<ByteVar>(), lpprops?.value?.toCPointer<ByteVar>(), cbprops, flopt)
+public actual fun pifMgrGetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: MutPtr<CVoid>, cbprops: Int, flopt: UInt): Int =
+    windowssysWindowsWin32UiShellPropertiessystemPifMgrGetProperties(hprops.rawAddress.toCPointer<ByteVar>(), pszgroup.rawAddress.toCPointer<ByteVar>(), lpprops.rawAddress.toCPointer<ByteVar>(), cbprops, flopt)
 
 public actual fun pifMgrOpenProperties(pszapp: Pcwstr, pszpif: Pcwstr, hinf: UInt, flopt: UInt): Handle =
-    windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpenProperties(pszapp?.value?.toCPointer<ByteVar>(), pszpif?.value?.toCPointer<ByteVar>(), hinf, flopt)?.let { COpaquePointer(it.toLong()) }
+    MutPtr(windowssysWindowsWin32UiShellPropertiessystemPifMgrOpenProperties(pszapp.rawAddress.toCPointer<ByteVar>(), pszpif.rawAddress.toCPointer<ByteVar>(), hinf, flopt)?.toLong() ?: 0L)
 
-public actual fun pifMgrSetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: COpaquePointer?, cbprops: Int, flopt: UInt): Int =
-    windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetProperties(hprops?.value?.toCPointer<ByteVar>(), pszgroup?.value?.toCPointer<ByteVar>(), lpprops?.value?.toCPointer<ByteVar>(), cbprops, flopt)
+public actual fun pifMgrSetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: ConstPtr<CVoid>, cbprops: Int, flopt: UInt): Int =
+    windowssysWindowsWin32UiShellPropertiessystemPifMgrSetProperties(hprops.rawAddress.toCPointer<ByteVar>(), pszgroup.rawAddress.toCPointer<ByteVar>(), lpprops.rawAddress.toCPointer<ByteVar>(), cbprops, flopt)
 
-public actual fun sHAddDefaultPropertiesByExt(pszext: Pcwstr, ppropstore: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefaultPropertiesByExt(pszext?.value?.toCPointer<ByteVar>(), ppropstore?.value?.toCPointer<ByteVar>())
+public actual fun sHAddDefaultPropertiesByExt(pszext: Pcwstr, ppropstore: MutPtr<CVoid>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemSHAddDefaultPropertiesByExt(pszext.rawAddress.toCPointer<ByteVar>(), ppropstore.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHGetPropertyStoreForWindow(hwnd: Hwnd, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreForWindow(hwnd?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun sHGetPropertyStoreForWindow(hwnd: Hwnd, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreForWindow(hwnd.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHGetPropertyStoreFromIDList(pidl: COpaquePointer?, flags: Getpropertystoreflags, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromIDList(pidl?.value?.toCPointer<ByteVar>(), flags, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun sHGetPropertyStoreFromIDList(pidl: ConstPtr<Itemidlist>, flags: Getpropertystoreflags, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromIDList(pidl.rawAddress.toCPointer<ByteVar>(), flags, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHGetPropertyStoreFromParsingName(pszpath: Pcwstr, pbc: COpaquePointer?, flags: Getpropertystoreflags, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_sHGetPropertyStoreFromParsingName(pszpath?.value?.toCPointer<ByteVar>(), pbc?.value?.toCPointer<ByteVar>(), flags, riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
+public actual fun sHGetPropertyStoreFromParsingName(pszpath: Pcwstr, pbc: MutPtr<CVoid>, flags: Getpropertystoreflags, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromParsingName(pszpath.rawAddress.toCPointer<ByteVar>(), pbc.rawAddress.toCPointer<ByteVar>(), flags, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHPropStgCreate(psstg: COpaquePointer?, fmtid: COpaquePointer?, pclsid: COpaquePointer?, grfflags: UInt, grfmode: UInt, dwdisposition: UInt, ppstg: COpaquePointer?, pucodepage: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgCreate(psstg?.value?.toCPointer<ByteVar>(), fmtid?.value?.toCPointer<ByteVar>(), pclsid?.value?.toCPointer<ByteVar>(), grfflags, grfmode, dwdisposition, ppstg?.value?.toCPointer<ByteVar>(), pucodepage?.value?.toCPointer<ByteVar>())
+public actual fun sHPropStgCreate(psstg: MutPtr<CVoid>, fmtid: ConstPtr<Guid>, pclsid: ConstPtr<Guid>, grfflags: UInt, grfmode: UInt, dwdisposition: UInt, ppstg: MutPtr<MutPtr<CVoid>>, pucodepage: MutPtr<UInt>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemSHPropStgCreate(psstg.rawAddress.toCPointer<ByteVar>(), fmtid.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>(), grfflags, grfmode, dwdisposition, ppstg.rawAddress.toCPointer<ByteVar>(), pucodepage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHPropStgReadMultiple(pps: COpaquePointer?, ucodepage: UInt, cpspec: UInt, rgpspec: COpaquePointer?, rgvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgReadMultiple(pps?.value?.toCPointer<ByteVar>(), ucodepage, cpspec, rgpspec?.value?.toCPointer<ByteVar>(), rgvar?.value?.toCPointer<ByteVar>())
+public actual fun sHPropStgReadMultiple(pps: MutPtr<CVoid>, ucodepage: UInt, cpspec: UInt, rgpspec: ConstPtr<Propspec>, rgvar: MutPtr<Propvariant>): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemSHPropStgReadMultiple(pps.rawAddress.toCPointer<ByteVar>(), ucodepage, cpspec, rgpspec.rawAddress.toCPointer<ByteVar>(), rgvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHPropStgWriteMultiple(pps: COpaquePointer?, pucodepage: COpaquePointer?, cpspec: UInt, rgpspec: COpaquePointer?, rgvar: COpaquePointer?, propidnamefirst: UInt): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgWriteMultiple(pps?.value?.toCPointer<ByteVar>(), pucodepage?.value?.toCPointer<ByteVar>(), cpspec, rgpspec?.value?.toCPointer<ByteVar>(), rgvar?.value?.toCPointer<ByteVar>(), propidnamefirst)
+public actual fun sHPropStgWriteMultiple(pps: MutPtr<CVoid>, pucodepage: MutPtr<UInt>, cpspec: UInt, rgpspec: ConstPtr<Propspec>, rgvar: MutPtr<Propvariant>, propidnamefirst: UInt): Hresult =
+    windowssysWindowsWin32UiShellPropertiessystemSHPropStgWriteMultiple(pps.rawAddress.toCPointer<ByteVar>(), pucodepage.rawAddress.toCPointer<ByteVar>(), cpspec, rgpspec.rawAddress.toCPointer<ByteVar>(), rgvar.rawAddress.toCPointer<ByteVar>(), propidnamefirst)

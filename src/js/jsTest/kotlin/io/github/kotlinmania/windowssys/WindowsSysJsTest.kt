@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys
 
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.closeHandle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.getLastError
 import io.github.kotlinmania.windowssys.windows.win32.foundation.setLastError
@@ -13,7 +14,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurren
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import kotlin.test.assertNotNull
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 private fun isNodeWindowsHost(): Boolean =
@@ -30,7 +31,7 @@ class WindowsSysJsTest {
             assertEquals(0u, getLastError())
             return
         }
-        closeHandle(null)
+        closeHandle(MutPtr(0L))
         setLastError(0u)
         assertEquals(0u, getLastError())
     }
@@ -45,13 +46,13 @@ class WindowsSysJsTest {
             assertEquals(0u, getCurrentProcessId())
             return
         }
-        assertNotNull(getCurrentProcess())
+        assertFalse(getCurrentProcess().isNull())
         assertTrue(getCurrentProcessId() != 0u)
-        assertNotNull(getCurrentThread())
+        assertFalse(getCurrentThread().isNull())
         assertTrue(getCurrentThreadId() != 0u)
-        assertNotNull(getCommandLineW())
+        assertFalse(getCommandLineW().isNull())
         val env = getEnvironmentStringsW()
-        assertNotNull(env)
-        assertTrue(freeEnvironmentStringsW(env) != 0)
+        assertFalse(env.isNull())
+        assertTrue(freeEnvironmentStringsW(env.castConst()) != 0)
     }
 }

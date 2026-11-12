@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_createDataModelManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugExtensionsCreateDataModelManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* debughost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* manager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,11 +78,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* remoteoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* arg_2_interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* arg2Interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -92,7 +92,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(remoteoptions, interfaceid, arg_2_interface);
+        km_res = km_fn_ptr(remoteoptions, interfaceid, arg2Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -100,18 +100,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
 #else
     (void)remoteoptions;
     (void)interfaceid;
-    (void)arg_2_interface;
+    (void)arg2Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnectWide_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnectWide_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* remoteoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* interfaceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* arg_2_interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* arg2Interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -121,7 +121,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(remoteoptions, interfaceid, arg_2_interface);
+        km_res = km_fn_ptr(remoteoptions, interfaceid, arg2Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -129,17 +129,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
 #else
     (void)remoteoptions;
     (void)interfaceid;
-    (void)arg_2_interface;
+    (void)arg2Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    void* arg_1_interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* arg1Interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -149,25 +149,25 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(interfaceid, arg_1_interface);
+        km_res = km_fn_ptr(interfaceid, arg1Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)interfaceid;
-    (void)arg_1_interface;
+    (void)arg1Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* interfaceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dbgengoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
-    void* arg_2_interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* arg2Interface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(interfaceid, dbgengoptions, arg_2_interface);
+        km_res = km_fn_ptr(interfaceid, dbgengoptions, arg2Interface);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -185,7 +185,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
 #else
     (void)interfaceid;
     (void)dbgengoptions;
-    (void)arg_2_interface;
+    (void)arg2Interface;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
@@ -193,11 +193,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
 }
 
 static void register_windows_win32_system_diagnostics_debug_extensions_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_extensions_createDataModelManager", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_extensions_createDataModelManager_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnect", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnect_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnectWide", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_extensions_debugConnectWide_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreate", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreate_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreateEx", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_debug_extensions_debugCreateEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugExtensionsCreateDataModelManager", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugExtensionsCreateDataModelManager_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnect", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnect_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnectWide", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnectWide_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreate", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreate_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreateEx", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreateEx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_diagnostics_debug_extensions_napi, nullptr };

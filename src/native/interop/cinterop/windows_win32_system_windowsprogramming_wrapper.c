@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryA(void* lpcszfilelist, void* lpcszbackupdir, void* lpcszbasename, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingAddDelBackupEntryA(void* lpcszfilelist, void* lpcszbackupdir, void* lpcszbasename, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryW(void* lpcszfilelist, void* lpcszbackupdir, void* lpcszbasename, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingAddDelBackupEntryW(void* lpcszfilelist, void* lpcszbackupdir, void* lpcszbasename, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_addDelBackupEntryW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_advInstallFileA(void* hwnd, void* lpszsourcedir, void* lpszsourcefile, void* lpszdestdir, void* lpszdestfile, uint32_t dwflags, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingAdvInstallFileA(void* hwnd, void* lpszsourcedir, void* lpszsourcefile, void* lpszdestdir, void* lpszdestfile, uint32_t dwflags, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -93,7 +93,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_advInstallFileA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_advInstallFileW(void* hwnd, void* lpszsourcedir, void* lpszsourcefile, void* lpszdestdir, void* lpszdestfile, uint32_t dwflags, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingAdvInstallFileW(void* hwnd, void* lpszsourcedir, void* lpszsourcefile, void* lpszdestdir, void* lpszdestfile, uint32_t dwflags, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -121,7 +121,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_advInstallFileW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_apphelpCheckShellObject(void* objectclsid, int32_t bshimifnecessary, void* pullflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingApphelpCheckShellObject(void* objectclsid, int32_t bshimifnecessary, void* pullflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -145,7 +145,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_apphelpCheckShellObje
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_cancelDeviceWakeupRequest(void* hdevice) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingCancelDeviceWakeupRequest(void* hdevice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -167,7 +167,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_cancelDeviceWakeupReq
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_closeINFEngine(void* hinf) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingCloseINFEngine(void* hinf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -189,7 +189,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_closeINFEngine(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_convertAuxiliaryCounterToPerformanceCounter(uint64_t ullauxiliarycountervalue, void* lpperformancecountervalue, void* lpconversionerror) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingConvertAuxiliaryCounterToPerformanceCounter(uint64_t ullauxiliarycountervalue, void* lpperformancecountervalue, void* lpconversionerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -213,7 +213,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_convertAuxiliaryCount
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_convertPerformanceCounterToAuxiliaryCounter(uint64_t ullperformancecountervalue, void* lpauxiliarycountervalue, void* lpconversionerror) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingConvertPerformanceCounterToAuxiliaryCounter(uint64_t ullperformancecountervalue, void* lpauxiliarycountervalue, void* lpconversionerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -237,7 +237,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_convertPerformanceCou
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCIBeginAccess(void* pdci, int32_t x, int32_t y, int32_t dx, int32_t dy) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCIBeginAccess(void* pdci, int32_t x, int32_t y, int32_t dx, int32_t dy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -263,7 +263,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCIBeginAccess(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_dCICloseProvider(void* hdc) {
+void windowssysWindowsWin32SystemWindowsprogrammingDCICloseProvider(void* hdc) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -284,7 +284,7 @@ void windowssys_windows_win32_system_windowsprogramming_dCICloseProvider(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCICreateOffscreen(void* hdc, uint32_t dwcompression, uint32_t dwredmask, uint32_t dwgreenmask, uint32_t dwbluemask, uint32_t dwwidth, uint32_t dwheight, uint32_t dwdcicaps, uint32_t dwbitcount, void* lplpsurface) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCICreateOffscreen(void* hdc, uint32_t dwcompression, uint32_t dwredmask, uint32_t dwgreenmask, uint32_t dwbluemask, uint32_t dwwidth, uint32_t dwheight, uint32_t dwdcicaps, uint32_t dwbitcount, void* lplpsurface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -315,7 +315,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCICreateOffscreen(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCICreateOverlay(void* hdc, void* lpoffscreensurf, void* lplpsurface) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCICreateOverlay(void* hdc, void* lpoffscreensurf, void* lplpsurface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCICreateOverlay(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCICreatePrimary(void* hdc, void* lplpsurface) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCICreatePrimary(void* hdc, void* lplpsurface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCICreatePrimary(void
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_dCIDestroy(void* pdci) {
+void windowssysWindowsWin32SystemWindowsprogrammingDCIDestroy(void* pdci) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -383,7 +383,7 @@ void windowssys_windows_win32_system_windowsprogramming_dCIDestroy(void* pdci) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCIDraw(void* pdci) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCIDraw(void* pdci) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -405,7 +405,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCIDraw(void* pdci) {
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_dCIEndAccess(void* pdci) {
+void windowssysWindowsWin32SystemWindowsprogrammingDCIEndAccess(void* pdci) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -426,7 +426,7 @@ void windowssys_windows_win32_system_windowsprogramming_dCIEndAccess(void* pdci)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCIEnum(void* hdc, void* lprdst, void* lprsrc, void* lpfncallback, void* lpcontext) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCIEnum(void* hdc, void* lprdst, void* lprsrc, void* lpfncallback, void* lpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -452,7 +452,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCIEnum(void* hdc, vo
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_dCIOpenProvider(void) {
+void* windowssysWindowsWin32SystemWindowsprogrammingDCIOpenProvider(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -473,7 +473,7 @@ void* windowssys_windows_win32_system_windowsprogramming_dCIOpenProvider(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCISetClipList(void* pdci, void* prd) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCISetClipList(void* pdci, void* prd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -496,7 +496,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCISetClipList(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCISetDestination(void* pdci, void* dst, void* src) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCISetDestination(void* pdci, void* dst, void* src) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -520,7 +520,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCISetDestination(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dCISetSrcDestClip(void* pdci, void* srcrc, void* destrc, void* prd) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDCISetSrcDestClip(void* pdci, void* srcrc, void* destrc, void* prd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -545,7 +545,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dCISetSrcDestClip(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_delNodeA(void* pszfileordirname, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDelNodeA(void* pszfileordirname, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -568,7 +568,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_delNodeA(void* pszfil
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_delNodeRunDLL32W(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDelNodeRunDLL32W(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -593,7 +593,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_delNodeRunDLL32W(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_delNodeW(void* pszfileordirname, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDelNodeW(void* pszfileordirname, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -616,7 +616,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_delNodeW(void* pszfil
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputerNameA(void* hostname, void* computername, void* nsize) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDnsHostnameToComputerNameA(void* hostname, void* computername, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -640,7 +640,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputer
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputerNameW(void* hostname, void* computername, void* nsize) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDnsHostnameToComputerNameW(void* hostname, void* computername, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -664,7 +664,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dnsHostnameToComputer
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_dosDateTimeToFileTime(uint16_t wfatdate, uint16_t wfattime, void* lpfiletime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingDosDateTimeToFileTime(uint16_t wfatdate, uint16_t wfattime, void* lpfiletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -688,7 +688,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_dosDateTimeToFileTime
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_enableProcessOptionalXStateFeatures(uint64_t features) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingEnableProcessOptionalXStateFeatures(uint64_t features) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -710,7 +710,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_enableProcessOptional
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_executeCabA(void* hwnd, void* pcab, void* preserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingExecuteCabA(void* hwnd, void* pcab, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -734,7 +734,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_executeCabA(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_executeCabW(void* hwnd, void* pcab, void* preserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingExecuteCabW(void* hwnd, void* pcab, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -758,7 +758,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_executeCabW(void* hwn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_extractFilesA(void* pszcabname, void* pszexpanddir, uint32_t dwflags, void* pszfilelist, void* lpreserved, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingExtractFilesA(void* pszcabname, void* pszexpanddir, uint32_t dwflags, void* pszfilelist, void* lpreserved, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -785,7 +785,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_extractFilesA(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_extractFilesW(void* pszcabname, void* pszexpanddir, uint32_t dwflags, void* pszfilelist, void* lpreserved, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingExtractFilesW(void* pszcabname, void* pszexpanddir, uint32_t dwflags, void* pszfilelist, void* lpreserved, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -812,7 +812,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_extractFilesW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistA(void* lpfilelist, void* lpdir, void* lpbasename) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingFileSaveMarkNotExistA(void* lpfilelist, void* lpdir, void* lpbasename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -836,7 +836,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistW(void* lpfilelist, void* lpdir, void* lpbasename) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingFileSaveMarkNotExistW(void* lpfilelist, void* lpdir, void* lpbasename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -860,7 +860,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveMarkNotExistW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFA(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* pszbackupdir, void* pszbasebackupfile, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingFileSaveRestoreOnINFA(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* pszbackupdir, void* pszbasebackupfile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -888,7 +888,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFW(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* pszbackupdir, void* pszbasebackupfile, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingFileSaveRestoreOnINFW(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* pszbackupdir, void* pszbasebackupfile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -916,7 +916,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreOnINFW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreW(void* hdlg, void* lpfilelist, void* lpdir, void* lpbasename, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingFileSaveRestoreW(void* hdlg, void* lpfilelist, void* lpdir, void* lpbasename, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -942,7 +942,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_fileSaveRestoreW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_fileTimeToDosDateTime(void* lpfiletime, void* lpfatdate, void* lpfattime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingFileTimeToDosDateTime(void* lpfiletime, void* lpfatdate, void* lpfattime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_fileTimeToDosDateTime
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_gdiEntry13(void) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGdiEntry13(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -987,7 +987,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_gdiEntry13(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getComputerNameA(void* lpbuffer, void* nsize) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetComputerNameA(void* lpbuffer, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1010,7 +1010,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getComputerNameA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getComputerNameW(void* lpbuffer, void* nsize) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetComputerNameW(void* lpbuffer, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1033,7 +1033,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getComputerNameW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileA(void* lphwprofileinfo) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetCurrentHwProfileA(void* lphwprofileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1055,7 +1055,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileA(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileW(void* lphwprofileinfo) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetCurrentHwProfileW(void* lphwprofileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1077,7 +1077,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getCurrentHwProfileW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getDCRegionData(void* hdc, uint32_t size, void* prd) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetDCRegionData(void* hdc, uint32_t size, void* prd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1101,7 +1101,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getDCRegionData(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getFeatureEnabledState(uint32_t featureid, int32_t changetime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetFeatureEnabledState(uint32_t featureid, int32_t changetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1124,7 +1124,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getFeatureEnabledStat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getFeatureVariant(uint32_t featureid, int32_t changetime, void* payloadid, void* hasnotification) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetFeatureVariant(uint32_t featureid, int32_t changetime, void* payloadid, void* hasnotification) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1149,7 +1149,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getFeatureVariant(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableA(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableA(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1174,7 +1174,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironme
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableExA(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize, void* pdwattribubutes) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableExA(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize, void* pdwattribubutes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1200,7 +1200,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironme
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableExW(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize, void* pdwattribubutes) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableExW(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize, void* pdwattribubutes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1226,7 +1226,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironme
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironmentVariableW(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableW(void* lpname, void* lpguid, void* pbuffer, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1251,7 +1251,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getFirmwareEnvironme
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileIntA(void* lpappname, void* lpkeyname, int32_t ndefault, void* lpfilename) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileIntA(void* lpappname, void* lpkeyname, int32_t ndefault, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1276,7 +1276,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileInt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileIntW(void* lpappname, void* lpkeyname, int32_t ndefault, void* lpfilename) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileIntW(void* lpappname, void* lpkeyname, int32_t ndefault, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1301,7 +1301,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileIntW
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionA(void* lpappname, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileSectionA(void* lpappname, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1326,7 +1326,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionNamesA(void* lpszreturnbuffer, uint32_t nsize, void* lpfilename) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileSectionNamesA(void* lpszreturnbuffer, uint32_t nsize, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1350,7 +1350,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionNamesW(void* lpszreturnbuffer, uint32_t nsize, void* lpfilename) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileSectionNamesW(void* lpszreturnbuffer, uint32_t nsize, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1374,7 +1374,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSectionW(void* lpappname, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileSectionW(void* lpappname, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1399,7 +1399,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileSec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStringA(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStringA(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1426,7 +1426,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStr
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStringW(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStringW(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize, void* lpfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1453,7 +1453,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStructA(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStructA(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1479,7 +1479,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStru
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStructW(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStructW(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1505,7 +1505,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getPrivateProfileStru
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileIntA(void* lpappname, void* lpkeyname, int32_t ndefault) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetProfileIntA(void* lpappname, void* lpkeyname, int32_t ndefault) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1529,7 +1529,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileIntA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileIntW(void* lpappname, void* lpkeyname, int32_t ndefault) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetProfileIntW(void* lpappname, void* lpkeyname, int32_t ndefault) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1553,7 +1553,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileIntW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileSectionA(void* lpappname, void* lpreturnedstring, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetProfileSectionA(void* lpappname, void* lpreturnedstring, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1577,7 +1577,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileSectionA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileSectionW(void* lpappname, void* lpreturnedstring, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetProfileSectionW(void* lpappname, void* lpreturnedstring, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1601,7 +1601,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileSectionW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileStringA(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetProfileStringA(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1627,7 +1627,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileStringA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileStringW(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetProfileStringW(void* lpappname, void* lpkeyname, void* lpdefault, void* lpreturnedstring, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1653,7 +1653,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getProfileStringW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getSystemRegistryQuota(void* pdwquotaallowed, void* pdwquotaused) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetSystemRegistryQuota(void* pdwquotaallowed, void* pdwquotaused) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1676,7 +1676,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getSystemRegistryQuot
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_windowsprogramming_getThreadEnabledXStateFeatures(void) {
+uint64_t windowssysWindowsWin32SystemWindowsprogrammingGetThreadEnabledXStateFeatures(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1697,7 +1697,7 @@ uint64_t windowssys_windows_win32_system_windowsprogramming_getThreadEnabledXSta
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getUserNameA(void* lpbuffer, void* pcbbuffer) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetUserNameA(void* lpbuffer, void* pcbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1720,7 +1720,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getUserNameA(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getUserNameW(void* lpbuffer, void* pcbbuffer) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetUserNameW(void* lpbuffer, void* pcbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1743,7 +1743,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getUserNameW(void* lp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileA(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileA(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1768,7 +1768,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExA(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileExA(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1793,7 +1793,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExW(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileExW(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1818,7 +1818,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileExW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileW(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileW(void* lpszfilename, void* pdwmsver, void* pdwlsver, int32_t bversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1843,7 +1843,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_getVersionFromFileW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_getWindowRegionData(void* hwnd, uint32_t size, void* prd) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingGetWindowRegionData(void* hwnd, uint32_t size, void* prd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1867,7 +1867,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_getWindowRegionData(
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_windowsprogramming_globalCompact(uint32_t dwminfree) {
+uint64_t windowssysWindowsWin32SystemWindowsprogrammingGlobalCompact(uint32_t dwminfree) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1889,7 +1889,7 @@ uint64_t windowssys_windows_win32_system_windowsprogramming_globalCompact(uint32
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_globalFix(void* hmem) {
+void windowssysWindowsWin32SystemWindowsprogrammingGlobalFix(void* hmem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1910,7 +1910,7 @@ void windowssys_windows_win32_system_windowsprogramming_globalFix(void* hmem) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_globalUnWire(void* hmem) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingGlobalUnWire(void* hmem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1932,7 +1932,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_globalUnWire(void* hm
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_globalUnfix(void* hmem) {
+void windowssysWindowsWin32SystemWindowsprogrammingGlobalUnfix(void* hmem) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1953,7 +1953,7 @@ void windowssys_windows_win32_system_windowsprogramming_globalUnfix(void* hmem) 
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_globalWire(void* hmem) {
+void* windowssysWindowsWin32SystemWindowsprogrammingGlobalWire(void* hmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1975,7 +1975,7 @@ void* windowssys_windows_win32_system_windowsprogramming_globalWire(void* hmem) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_iMPGetIMEA(void* param0, void* param1) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIMPGetIMEA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1998,7 +1998,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_iMPGetIMEA(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_iMPGetIMEW(void* param0, void* param1) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIMPGetIMEW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2021,7 +2021,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_iMPGetIMEW(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEA(void* param0) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIMPQueryIMEA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2043,7 +2043,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEA(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEW(void* param0) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIMPQueryIMEW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2065,7 +2065,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_iMPQueryIMEW(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_iMPSetIMEA(void* param0, void* param1) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIMPSetIMEA(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2088,7 +2088,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_iMPSetIMEA(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_iMPSetIMEW(void* param0, void* param1) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIMPSetIMEW(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2111,7 +2111,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_iMPSetIMEW(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_isApiSetImplemented(void* contract) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIsApiSetImplemented(void* contract) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2133,7 +2133,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_isApiSetImplemented(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_isBadHugeReadPtr(void* lp, uint64_t ucb) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIsBadHugeReadPtr(void* lp, uint64_t ucb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2156,7 +2156,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_isBadHugeReadPtr(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_isBadHugeWritePtr(void* lp, uint64_t ucb) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIsBadHugeWritePtr(void* lp, uint64_t ucb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2179,7 +2179,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_isBadHugeWritePtr(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_isNTAdmin(uint32_t dwreserved, void* lpdwreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIsNTAdmin(uint32_t dwreserved, void* lpdwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2202,7 +2202,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_isNTAdmin(uint32_t dw
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_isNativeVhdBoot(void* nativevhdboot) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIsNativeVhdBoot(void* nativevhdboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2224,7 +2224,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_isNativeVhdBoot(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_isTokenUntrusted(void* tokenhandle) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingIsTokenUntrusted(void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2246,7 +2246,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_isTokenUntrusted(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_launchINFSectionExW(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingLaunchINFSectionExW(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2271,7 +2271,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_launchINFSectionExW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_launchINFSectionW(void* hwndowner, void* hinstance, void* pszparams, int32_t nshow) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingLaunchINFSectionW(void* hwndowner, void* hinstance, void* pszparams, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2296,7 +2296,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_launchINFSectionW(voi
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_windowsprogramming_localCompact(uint32_t uminfree) {
+uint64_t windowssysWindowsWin32SystemWindowsprogrammingLocalCompact(uint32_t uminfree) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2318,7 +2318,7 @@ uint64_t windowssys_windows_win32_system_windowsprogramming_localCompact(uint32_
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_windowsprogramming_localShrink(void* hmem, uint32_t cbnewsize) {
+uint64_t windowssysWindowsWin32SystemWindowsprogrammingLocalShrink(void* hmem, uint32_t cbnewsize) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2341,7 +2341,7 @@ uint64_t windowssys_windows_win32_system_windowsprogramming_localShrink(void* hm
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_mulDiv(int32_t nnumber, int32_t nnumerator, int32_t ndenominator) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingMulDiv(int32_t nnumber, int32_t nnumerator, int32_t ndenominator) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2365,7 +2365,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_mulDiv(int32_t nnumbe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_needReboot(uint32_t dwrebootcheck) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingNeedReboot(uint32_t dwrebootcheck) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2387,7 +2387,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_needReboot(uint32_t d
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_needRebootInit(void) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingNeedRebootInit(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2408,7 +2408,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_needRebootInit(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_openINFEngineA(void* pszinffilename, void* pszinstallsection, uint32_t dwflags, void* phinf, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingOpenINFEngineA(void* pszinffilename, void* pszinstallsection, uint32_t dwflags, void* phinf, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2434,7 +2434,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_openINFEngineA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_openINFEngineW(void* pszinffilename, void* pszinstallsection, uint32_t dwflags, void* phinf, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingOpenINFEngineW(void* pszinffilename, void* pszinstallsection, uint32_t dwflags, void* phinf, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2460,7 +2460,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_openINFEngineW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_openMutexA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssysWindowsWin32SystemWindowsprogrammingOpenMutexA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2484,7 +2484,7 @@ void* windowssys_windows_win32_system_windowsprogramming_openMutexA(uint32_t dwd
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_openSemaphoreA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
+void* windowssysWindowsWin32SystemWindowsprogrammingOpenSemaphoreA(uint32_t dwdesiredaccess, int32_t binherithandle, void* lpname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2508,7 +2508,7 @@ void* windowssys_windows_win32_system_windowsprogramming_openSemaphoreA(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_queryAuxiliaryCounterFrequency(void* lpauxiliarycounterfrequency) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingQueryAuxiliaryCounterFrequency(void* lpauxiliarycounterfrequency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2530,7 +2530,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_queryAuxiliaryCounter
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCycleTime(void* bufferlength, void* processoridlecycletime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingQueryIdleProcessorCycleTime(void* bufferlength, void* processoridlecycletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2553,7 +2553,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCyc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCycleTimeEx(uint16_t group, void* bufferlength, void* processoridlecycletime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingQueryIdleProcessorCycleTimeEx(uint16_t group, void* bufferlength, void* processoridlecycletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2577,7 +2577,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_queryIdleProcessorCyc
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_queryInterruptTime(void* lpinterrupttime) {
+void windowssysWindowsWin32SystemWindowsprogrammingQueryInterruptTime(void* lpinterrupttime) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2598,7 +2598,7 @@ void windowssys_windows_win32_system_windowsprogramming_queryInterruptTime(void*
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_queryInterruptTimePrecise(void* lpinterrupttimeprecise) {
+void windowssysWindowsWin32SystemWindowsprogrammingQueryInterruptTimePrecise(void* lpinterrupttimeprecise) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2619,7 +2619,7 @@ void windowssys_windows_win32_system_windowsprogramming_queryInterruptTimePrecis
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_queryProcessCycleTime(void* processhandle, void* cycletime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingQueryProcessCycleTime(void* processhandle, void* cycletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2642,7 +2642,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_queryProcessCycleTime
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_queryThreadCycleTime(void* threadhandle, void* cycletime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingQueryThreadCycleTime(void* threadhandle, void* cycletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2665,7 +2665,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_queryThreadCycleTime(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterruptTime(void* unbiasedtime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingQueryUnbiasedInterruptTime(void* unbiasedtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2687,7 +2687,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterrup
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterruptTimePrecise(void* lpunbiasedinterrupttimeprecise) {
+void windowssysWindowsWin32SystemWindowsprogrammingQueryUnbiasedInterruptTimePrecise(void* lpunbiasedinterrupttimeprecise) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2708,7 +2708,7 @@ void windowssys_windows_win32_system_windowsprogramming_queryUnbiasedInterruptTi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_raiseCustomSystemEventTrigger(void* customsystemeventtriggerconfig) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingRaiseCustomSystemEventTrigger(void* customsystemeventtriggerconfig) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2730,7 +2730,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_raiseCustomSystemEve
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallA(void* hwnd, void* pszinf, void* pszsec, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRebootCheckOnInstallA(void* hwnd, void* pszinf, void* pszsec, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2755,7 +2755,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallW(void* hwnd, void* pszinf, void* pszsec, uint32_t dwreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRebootCheckOnInstallW(void* hwnd, void* pszinf, void* pszsec, uint32_t dwreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2780,7 +2780,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rebootCheckOnInstallW
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_recordFeatureError(uint32_t featureid, void* error) {
+void windowssysWindowsWin32SystemWindowsprogrammingRecordFeatureError(uint32_t featureid, void* error) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2802,7 +2802,7 @@ void windowssys_windows_win32_system_windowsprogramming_recordFeatureError(uint3
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_recordFeatureUsage(uint32_t featureid, uint32_t kind, uint32_t addend, void* originname) {
+void windowssysWindowsWin32SystemWindowsprogrammingRecordFeatureUsage(uint32_t featureid, uint32_t kind, uint32_t addend, void* originname) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2826,7 +2826,7 @@ void windowssys_windows_win32_system_windowsprogramming_recordFeatureUsage(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regInstallA(void* hmod, void* pszsection, void* psttable) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegInstallA(void* hmod, void* pszsection, void* psttable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2850,7 +2850,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regInstallA(void* hmo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regInstallW(void* hmod, void* pszsection, void* psttable) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegInstallW(void* hmod, void* pszsection, void* psttable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2874,7 +2874,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regInstallW(void* hmo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regRestoreAllA(void* hwnd, void* psztitlestring, void* hkbckupkey) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegRestoreAllA(void* hwnd, void* psztitlestring, void* hkbckupkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2898,7 +2898,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regRestoreAllA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regRestoreAllW(void* hwnd, void* psztitlestring, void* hkbckupkey) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegRestoreAllW(void* hwnd, void* psztitlestring, void* hkbckupkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2922,7 +2922,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regRestoreAllW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreA(void* hwnd, void* psztitlestring, void* hkbckupkey, void* pcszrootkey, void* pcszsubkey, void* pcszvaluename, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegSaveRestoreA(void* hwnd, void* psztitlestring, void* hkbckupkey, void* pcszrootkey, void* pcszsubkey, void* pcszvaluename, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2950,7 +2950,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFA(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* hhklmbackkey, void* hhkcubackkey, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegSaveRestoreOnINFA(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* hhklmbackkey, void* hhkcubackkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2978,7 +2978,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFA(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFW(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* hhklmbackkey, void* hhkcubackkey, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegSaveRestoreOnINFW(void* hwnd, void* psztitle, void* pszinf, void* pszsection, void* hhklmbackkey, void* hhkcubackkey, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3006,7 +3006,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreOnINFW(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreW(void* hwnd, void* psztitlestring, void* hkbckupkey, void* pcszrootkey, void* pcszsubkey, void* pcszvaluename, uint32_t dwflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRegSaveRestoreW(void* hwnd, void* psztitlestring, void* hkbckupkey, void* pcszrootkey, void* pcszsubkey, void* pcszvaluename, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3034,7 +3034,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_regSaveRestoreW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_replacePartitionUnit(void* targetpartition, void* sparepartition, uint32_t flags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingReplacePartitionUnit(void* targetpartition, void* sparepartition, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3058,7 +3058,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_replacePartitionUnit(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_requestDeviceWakeup(void* hdevice) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRequestDeviceWakeup(void* hdevice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3080,7 +3080,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_requestDeviceWakeup(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlAnsiStringToUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlAnsiStringToUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -3104,7 +3104,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlAnsiStringToUnicod
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlCharToInteger(void* string, uint32_t base, void* value) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlCharToInteger(void* string, uint32_t base, void* value) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3128,7 +3128,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlCharToInteger(void
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_rtlFreeAnsiString(void* ansistring) {
+void windowssysWindowsWin32SystemWindowsprogrammingRtlFreeAnsiString(void* ansistring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3149,7 +3149,7 @@ void windowssys_windows_win32_system_windowsprogramming_rtlFreeAnsiString(void* 
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_rtlFreeOemString(void* oemstring) {
+void windowssysWindowsWin32SystemWindowsprogrammingRtlFreeOemString(void* oemstring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3170,7 +3170,7 @@ void windowssys_windows_win32_system_windowsprogramming_rtlFreeOemString(void* o
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_rtlFreeUnicodeString(void* unicodestring) {
+void windowssysWindowsWin32SystemWindowsprogrammingRtlFreeUnicodeString(void* unicodestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3191,7 +3191,7 @@ void windowssys_windows_win32_system_windowsprogramming_rtlFreeUnicodeString(voi
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_windowsprogramming_rtlGetReturnAddressHijackTarget(void) {
+uint64_t windowssysWindowsWin32SystemWindowsprogrammingRtlGetReturnAddressHijackTarget(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3212,7 +3212,7 @@ uint64_t windowssys_windows_win32_system_windowsprogramming_rtlGetReturnAddressH
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiString(void* destinationstring, void* sourcestring) {
+void windowssysWindowsWin32SystemWindowsprogrammingRtlInitAnsiString(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3234,7 +3234,7 @@ void windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiString(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiStringEx(void* destinationstring, void* sourcestring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlInitAnsiStringEx(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3257,7 +3257,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlInitAnsiStringEx(v
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_rtlInitString(void* destinationstring, void* sourcestring) {
+void windowssysWindowsWin32SystemWindowsprogrammingRtlInitString(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3279,7 +3279,7 @@ void windowssys_windows_win32_system_windowsprogramming_rtlInitString(void* dest
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlInitStringEx(void* destinationstring, void* sourcestring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlInitStringEx(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3302,7 +3302,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlInitStringEx(void*
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_rtlInitUnicodeString(void* destinationstring, void* sourcestring) {
+void windowssysWindowsWin32SystemWindowsprogrammingRtlInitUnicodeString(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3324,7 +3324,7 @@ void windowssys_windows_win32_system_windowsprogramming_rtlInitUnicodeString(voi
 #endif
 }
 
-bool windowssys_windows_win32_system_windowsprogramming_rtlIsNameLegalDOS8Dot3(void* name, void* oemname, void* namecontainsspaces) {
+bool windowssysWindowsWin32SystemWindowsprogrammingRtlIsNameLegalDOS8Dot3(void* name, void* oemname, void* namecontainsspaces) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3348,7 +3348,7 @@ bool windowssys_windows_win32_system_windowsprogramming_rtlIsNameLegalDOS8Dot3(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlLocalTimeToSystemTime(void* localtime, void* systemtime) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlLocalTimeToSystemTime(void* localtime, void* systemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3371,7 +3371,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlLocalTimeToSystemT
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_rtlRaiseCustomSystemEventTrigger(void* triggerconfig) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingRtlRaiseCustomSystemEventTrigger(void* triggerconfig) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3393,7 +3393,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_rtlRaiseCustomSystem
 #endif
 }
 
-bool windowssys_windows_win32_system_windowsprogramming_rtlTimeToSecondsSince1970(void* arg_0_time, void* elapsedseconds) {
+bool windowssysWindowsWin32SystemWindowsprogrammingRtlTimeToSecondsSince1970(void* arg0Time, void* elapsedseconds) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3404,19 +3404,19 @@ bool windowssys_windows_win32_system_windowsprogramming_rtlTimeToSecondsSince197
         }
     }
     if (km_fn_ptr != NULL) {
-        return km_fn_ptr(arg_0_time, elapsedseconds);
+        return km_fn_ptr(arg0Time, elapsedseconds);
     }
     errno = ENOSYS;
     return false;
 #else
-    (void)arg_0_time;
+    (void)arg0Time;
     (void)elapsedseconds;
     errno = ENOSYS;
     return false;
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToAnsiString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeStringToAnsiString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -3440,7 +3440,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToAns
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeStringToOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -3464,7 +3464,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlUnicodeStringToOem
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_rtlUnicodeToMultiByteSize(void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeToMultiByteSize(void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3488,7 +3488,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_rtlUnicodeToMultiByte
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_rtlUniform(void* seed) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingRtlUniform(void* seed) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3510,7 +3510,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_rtlUniform(void* see
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_runSetupCommandA(void* hwnd, void* szcmdname, void* szinfsection, void* szdir, void* lpsztitle, void* phexe, uint32_t dwflags, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRunSetupCommandA(void* hwnd, void* szcmdname, void* szinfsection, void* szdir, void* lpsztitle, void* phexe, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3539,7 +3539,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_runSetupCommandA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_runSetupCommandW(void* hwnd, void* szcmdname, void* szinfsection, void* szdir, void* lpsztitle, void* phexe, uint32_t dwflags, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingRunSetupCommandW(void* hwnd, void* szcmdname, void* szinfsection, void* szdir, void* lpsztitle, void* phexe, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3568,7 +3568,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_runSetupCommandW(void
 #endif
 }
 
-int64_t windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExA(void* param0, int64_t param1) {
+int64_t windowssysWindowsWin32SystemWindowsprogrammingSendIMEMessageExA(void* param0, int64_t param1) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3591,7 +3591,7 @@ int64_t windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExA(voi
 #endif
 }
 
-int64_t windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExW(void* param0, int64_t param1) {
+int64_t windowssysWindowsWin32SystemWindowsprogrammingSendIMEMessageExW(void* param0, int64_t param1) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3614,7 +3614,7 @@ int64_t windowssys_windows_win32_system_windowsprogramming_sendIMEMessageExW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setEnvironmentStringsA(void* newenvironment) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetEnvironmentStringsA(void* newenvironment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3636,7 +3636,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setEnvironmentStrings
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableA(void* lpname, void* lpguid, void* pvalue, uint32_t nsize) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableA(void* lpname, void* lpguid, void* pvalue, uint32_t nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3661,7 +3661,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableExA(void* lpname, void* lpguid, void* pvalue, uint32_t nsize, uint32_t dwattributes) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableExA(void* lpname, void* lpguid, void* pvalue, uint32_t nsize, uint32_t dwattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3687,7 +3687,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableExW(void* lpname, void* lpguid, void* pvalue, uint32_t nsize, uint32_t dwattributes) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableExW(void* lpname, void* lpguid, void* pvalue, uint32_t nsize, uint32_t dwattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3713,7 +3713,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmentVariableW(void* lpname, void* lpguid, void* pvalue, uint32_t nsize) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableW(void* lpname, void* lpguid, void* pvalue, uint32_t nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3738,7 +3738,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setFirmwareEnvironmen
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_setHandleCount(uint32_t unumber) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingSetHandleCount(uint32_t unumber) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3760,7 +3760,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_setHandleCount(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setMessageWaitingIndicator(void* hmsgindicator, uint32_t ulmsgcount) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetMessageWaitingIndicator(void* hmsgindicator, uint32_t ulmsgcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3783,7 +3783,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setMessageWaitingIndi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesA(void* pperuser) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetPerUserSecValuesA(void* pperuser) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3805,7 +3805,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesA(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesW(void* pperuser) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingSetPerUserSecValuesW(void* pperuser) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3827,7 +3827,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_setPerUserSecValuesW(
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_subscribeFeatureStateChangeNotification(void* subscription, void* callback, void* context) {
+void windowssysWindowsWin32SystemWindowsprogrammingSubscribeFeatureStateChangeNotification(void* subscription, void* callback, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3850,7 +3850,7 @@ void windowssys_windows_win32_system_windowsprogramming_subscribeFeatureStateCha
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringA(void* pszinffilename, void* pszinstallsection, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t cchbuffer, void* pdwrequiredsize, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringA(void* pszinffilename, void* pszinstallsection, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t cchbuffer, void* pdwrequiredsize, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3879,7 +3879,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringExA(void* hinf, void* pszinffilename, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t dwbuffersize, void* pdwrequiredsize, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringExA(void* hinf, void* pszinffilename, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t dwbuffersize, void* pdwrequiredsize, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3908,7 +3908,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringExA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringExW(void* hinf, void* pszinffilename, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t dwbuffersize, void* pdwrequiredsize, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringExW(void* hinf, void* pszinffilename, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t dwbuffersize, void* pdwrequiredsize, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3937,7 +3937,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringExW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringW(void* pszinffilename, void* pszinstallsection, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t cchbuffer, void* pdwrequiredsize, void* pvreserved) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringW(void* pszinffilename, void* pszinstallsection, void* psztranslatesection, void* psztranslatekey, void* pszbuffer, uint32_t cchbuffer, void* pdwrequiredsize, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3966,7 +3966,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_translateInfStringW(v
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_unsubscribeFeatureStateChangeNotification(void* subscription) {
+void windowssysWindowsWin32SystemWindowsprogrammingUnsubscribeFeatureStateChangeNotification(void* subscription) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3987,7 +3987,7 @@ void windowssys_windows_win32_system_windowsprogramming_unsubscribeFeatureStateC
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperA(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUserInstStubWrapperA(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4012,7 +4012,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperA(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperW(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUserInstStubWrapperW(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4037,7 +4037,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_userInstStubWrapperW(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapperA(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUserUnInstStubWrapperA(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4062,7 +4062,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapper
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapperW(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUserUnInstStubWrapperW(void* hwnd, void* hinstance, void* pszparms, int32_t nshow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4087,7 +4087,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_userUnInstStubWrapper
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wINNLSEnableIME(void* param0, int32_t param1) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWINNLSEnableIME(void* param0, int32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4110,7 +4110,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wINNLSEnableIME(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wINNLSGetEnableStatus(void* param0) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWINNLSGetEnableStatus(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4132,7 +4132,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wINNLSGetEnableStatus
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_wINNLSGetIMEHotkey(void* param0) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingWINNLSGetIMEHotkey(void* param0) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4154,7 +4154,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_wINNLSGetIMEHotkey(v
 #endif
 }
 
-void windowssys_windows_win32_system_windowsprogramming_winWatchClose(void* hww) {
+void windowssysWindowsWin32SystemWindowsprogrammingWinWatchClose(void* hww) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4175,7 +4175,7 @@ void windowssys_windows_win32_system_windowsprogramming_winWatchClose(void* hww)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_winWatchDidStatusChange(void* hww) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWinWatchDidStatusChange(void* hww) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4197,7 +4197,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_winWatchDidStatusChan
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_winWatchGetClipList(void* hww, void* prc, uint32_t size, void* prd) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingWinWatchGetClipList(void* hww, void* prc, uint32_t size, void* prd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4222,7 +4222,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_winWatchGetClipList(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_winWatchNotify(void* hww, void* notifycallback, int64_t notifyparam) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWinWatchNotify(void* hww, void* notifycallback, int64_t notifyparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4246,7 +4246,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_winWatchNotify(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_winWatchOpen(void* hwnd) {
+void* windowssysWindowsWin32SystemWindowsprogrammingWinWatchOpen(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4268,7 +4268,7 @@ void* windowssys_windows_win32_system_windowsprogramming_winWatchOpen(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteBuffer(void* host, int32_t options, void* buffer, uint32_t buffersize, void* auditinfo, void* result) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteBuffer(void* host, int32_t options, void* buffer, uint32_t buffersize, void* auditinfo, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4295,7 +4295,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteBuffer(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteFile(void* host, int32_t options, void* filehandle, void* auditinfo, void* result) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteFile(void* host, int32_t options, void* filehandle, void* auditinfo, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4321,7 +4321,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteFile(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteStream(void* host, int32_t options, void* stream, void* auditinfo, void* result) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteStream(void* host, int32_t options, void* stream, void* auditinfo, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4347,7 +4347,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpCanExecuteStream(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpGetLockdownPolicy(void* hostinformation, void* lockdownstate, uint32_t lockdownflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpGetLockdownPolicy(void* hostinformation, void* lockdownstate, uint32_t lockdownflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4371,7 +4371,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpGetLockdownPolicy
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpIsClassInApprovedList(void* classid, void* hostinformation, void* isapproved, uint32_t optionalflags) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpIsClassInApprovedList(void* classid, void* hostinformation, void* isapproved, uint32_t optionalflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4396,7 +4396,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpIsClassInApproved
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpIsDynamicCodePolicyEnabled(void* isenabled) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpIsDynamicCodePolicyEnabled(void* isenabled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4418,7 +4418,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpIsDynamicCodePoli
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpQueryDeviceSecurityInformation(void* information, uint32_t informationlength, void* returnlength) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpQueryDeviceSecurityInformation(void* information, uint32_t informationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4442,7 +4442,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpQueryDeviceSecuri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpQueryDynamicCodeTrust(void* filehandle, void* baseimage, uint32_t imagesize) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpQueryDynamicCodeTrust(void* filehandle, void* baseimage, uint32_t imagesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4466,7 +4466,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpQueryDynamicCodeT
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_wldpSetDynamicCodeTrust(void* filehandle) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWldpSetDynamicCodeTrust(void* filehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4488,7 +4488,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_wldpSetDynamicCodeTru
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSectionA(void* lpappname, void* lpstring, void* lpfilename) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileSectionA(void* lpappname, void* lpstring, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4512,7 +4512,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSectionW(void* lpappname, void* lpstring, void* lpfilename) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileSectionW(void* lpappname, void* lpstring, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4536,7 +4536,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStringA(void* lpappname, void* lpkeyname, void* lpstring, void* lpfilename) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStringA(void* lpappname, void* lpkeyname, void* lpstring, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4561,7 +4561,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStringW(void* lpappname, void* lpkeyname, void* lpstring, void* lpfilename) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStringW(void* lpappname, void* lpkeyname, void* lpstring, void* lpfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4586,7 +4586,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStructA(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStructA(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4612,7 +4612,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileStructW(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStructW(void* lpszsection, void* lpszkey, void* lpstruct, uint32_t usizestruct, void* szfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4638,7 +4638,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writePrivateProfileSt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileSectionA(void* lpappname, void* lpstring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWriteProfileSectionA(void* lpappname, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4661,7 +4661,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileSectionA(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileSectionW(void* lpappname, void* lpstring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWriteProfileSectionW(void* lpappname, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4684,7 +4684,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileSectionW(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileStringA(void* lpappname, void* lpkeyname, void* lpstring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWriteProfileStringA(void* lpappname, void* lpkeyname, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4708,7 +4708,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileStringA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileStringW(void* lpappname, void* lpkeyname, void* lpstring) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingWriteProfileStringW(void* lpappname, void* lpkeyname, void* lpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4732,7 +4732,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_writeProfileStringW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_hread(int32_t hfile, void* lpbuffer, int32_t lbytes) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingHread(int32_t hfile, void* lpbuffer, int32_t lbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4756,7 +4756,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_hread(int32_t hfile, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_hwrite(int32_t hfile, void* lpbuffer, int32_t lbytes) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingHwrite(int32_t hfile, void* lpbuffer, int32_t lbytes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4780,7 +4780,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_hwrite(int32_t hfile,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_lclose(int32_t hfile) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingLclose(int32_t hfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4802,7 +4802,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_lclose(int32_t hfile)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_lcreat(void* lppathname, int32_t iattribute) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingLcreat(void* lppathname, int32_t iattribute) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4825,7 +4825,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_lcreat(void* lppathna
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_llseek(int32_t hfile, int32_t loffset, int32_t iorigin) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingLlseek(int32_t hfile, int32_t loffset, int32_t iorigin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4849,7 +4849,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_llseek(int32_t hfile,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_lopen(void* lppathname, int32_t ireadwrite) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingLopen(void* lppathname, int32_t ireadwrite) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4872,7 +4872,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_lopen(void* lppathnam
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_lread(int32_t hfile, void* lpbuffer, uint32_t ubytes) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingLread(int32_t hfile, void* lpbuffer, uint32_t ubytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4896,7 +4896,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_lread(int32_t hfile,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_windowsprogramming_lwrite(int32_t hfile, void* lpbuffer, uint32_t ubytes) {
+uint32_t windowssysWindowsWin32SystemWindowsprogrammingLwrite(int32_t hfile, void* lpbuffer, uint32_t ubytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4920,7 +4920,7 @@ uint32_t windowssys_windows_win32_system_windowsprogramming_lwrite(int32_t hfile
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_uawLstrcmpW(void* string1, void* string2) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUawLstrcmpW(void* string1, void* string2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4943,7 +4943,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_uawLstrcmpW(void* str
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_uawLstrcmpiW(void* string1, void* string2) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUawLstrcmpiW(void* string1, void* string2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4966,7 +4966,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_uawLstrcmpiW(void* st
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_uawLstrlenW(void* string) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUawLstrlenW(void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4988,7 +4988,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_uawLstrlenW(void* str
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_uawWcschr(void* string, uint16_t character) {
+void* windowssysWindowsWin32SystemWindowsprogrammingUawWcschr(void* string, uint16_t character) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5011,7 +5011,7 @@ void* windowssys_windows_win32_system_windowsprogramming_uawWcschr(void* string,
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_uawWcscpy(void* destination, void* source) {
+void* windowssysWindowsWin32SystemWindowsprogrammingUawWcscpy(void* destination, void* source) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5034,7 +5034,7 @@ void* windowssys_windows_win32_system_windowsprogramming_uawWcscpy(void* destina
 #endif
 }
 
-int32_t windowssys_windows_win32_system_windowsprogramming_uawWcsicmp(void* string1, void* string2) {
+int32_t windowssysWindowsWin32SystemWindowsprogrammingUawWcsicmp(void* string1, void* string2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5057,7 +5057,7 @@ int32_t windowssys_windows_win32_system_windowsprogramming_uawWcsicmp(void* stri
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_windowsprogramming_uawWcslen(void* string) {
+uint64_t windowssysWindowsWin32SystemWindowsprogrammingUawWcslen(void* string) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5079,7 +5079,7 @@ uint64_t windowssys_windows_win32_system_windowsprogramming_uawWcslen(void* stri
 #endif
 }
 
-void* windowssys_windows_win32_system_windowsprogramming_uawWcsrchr(void* string, uint16_t character) {
+void* windowssysWindowsWin32SystemWindowsprogrammingUawWcsrchr(void* string, uint16_t character) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;

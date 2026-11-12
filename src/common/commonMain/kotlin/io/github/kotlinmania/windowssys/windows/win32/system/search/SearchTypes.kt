@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 
@@ -227,7 +229,7 @@ public typealias Osprw = Int
 public typealias Ospxfer = Int
 
 public fun interface PfnfilltextbufferFn {
-    public operator fun invoke(ptextsource: COpaquePointer?): Hresult
+    public operator fun invoke(ptextsource: MutPtr<TextSource>): Hresult
 }
 
 public typealias Pfnfilltextbuffer = PfnfilltextbufferFn?
@@ -259,7 +261,7 @@ public typealias Sqlinterval = Int
 public typealias Sqlvarenum = Int
 
 public fun interface SqlAsyncNotificationCallbackFn {
-    public operator fun invoke(pcontext: COpaquePointer?, flast: Bool): Short
+    public operator fun invoke(pcontext: ConstPtr<CVoid>, flast: Bool): Short
 }
 
 public typealias SqlAsyncNotificationCallback = SqlAsyncNotificationCallbackFn?

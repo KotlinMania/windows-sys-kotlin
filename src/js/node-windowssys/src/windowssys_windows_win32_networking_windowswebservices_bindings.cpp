@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorGetAssertion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszrpid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorMakeCredential_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prpinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -121,7 +121,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNCancelCurrentOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcancellationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -146,7 +146,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNDeletePlatformCredential_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cbcredentialid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbcredentialid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeAssertion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwebauthnassertion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeCredentialAttestation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwebauthncredentialattestation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreePlatformCredentialList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcredentialdetailslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetApiVersionNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -262,7 +262,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetCancellationId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcancellationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -287,7 +287,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetErrorName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hr = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -312,7 +312,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetPlatformCredentialList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgetcredentialsoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcredentialdetailslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t hr = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -364,7 +364,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNIsUserVerifyingPlatformAuthenticatorAvailable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbisuserverifyingplatformauthenticatoravailable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_webAut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbandonCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t callid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAban
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -447,7 +447,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAban
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbortChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAbortChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -474,7 +474,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbortListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAbortListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -528,7 +528,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -555,7 +555,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAbor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAcceptChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -586,7 +586,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAcce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAddCustomHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headerdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -623,7 +623,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddErrorString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAddErrorString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -650,7 +650,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAddMappedHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddressMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAddressMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -716,7 +716,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAddr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t size = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -747,7 +747,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAllo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsAsyncExecute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* asyncstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -782,7 +782,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsAsyn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -821,7 +821,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCall
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCheckMustUnderstandHeaders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -848,7 +848,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsChec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCloseChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCloseChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -877,7 +877,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCloseListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCloseListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -906,7 +906,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -935,7 +935,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -964,7 +964,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCombineUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCombineUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* baseurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* referenceurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -999,7 +999,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsComb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCopyError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCopyError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1026,7 +1026,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCopy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCopyNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCopyNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1055,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCopy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t channeltype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t channelbinding = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1092,7 +1092,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannelForListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1125,7 +1125,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t propertycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1154,7 +1154,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateFaultFromError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t faulterrorcode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1187,7 +1187,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t maxsize = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t trimsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1222,7 +1222,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t channeltype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t channelbinding = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1259,7 +1259,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t envelopeversion = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t addressingversion = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1294,7 +1294,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessageForChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1327,7 +1327,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t propertycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1358,7 +1358,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateReader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateReader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t propertycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1389,7 +1389,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceEndpointFromTemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t channeltype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1440,7 +1440,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* endpoints = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t endpointcount = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1475,7 +1475,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t channeltype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t channelbinding = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1516,7 +1516,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxyFromTemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t channeltype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1559,7 +1559,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateWriter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateWriter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t propertycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1590,7 +1590,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1623,7 +1623,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlSecurityToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* tokenxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tokenkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1658,7 +1658,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsDateTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* datetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1687,7 +1687,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsDate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsDecodeUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* url = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1720,7 +1720,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsDeco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsEncodeUrl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* url = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1753,7 +1753,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsEnco
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsEndReaderCanonicalization_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1780,7 +1780,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsEndR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsEndWriterCanonicalization_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1807,7 +1807,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsEndW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFileTimeToDateTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* datetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1836,7 +1836,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFillBody_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFillBody_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t minsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1867,7 +1867,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFill
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFillReader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFillReader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t minsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1898,7 +1898,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFill
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFindAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFindAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* localname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1933,7 +1933,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFlushBody_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFlushBody_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t minsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1964,7 +1964,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFlus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFlushWriter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFlushWriter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t minsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1995,7 +1995,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFlus
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2017,7 +2017,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2039,7 +2039,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2061,7 +2061,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2083,7 +2083,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2105,7 +2105,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* metadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2127,7 +2127,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeReader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeReader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2149,7 +2149,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeSecurityToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2171,7 +2171,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2193,7 +2193,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2215,7 +2215,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFreeWriter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsFreeWriter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2237,7 +2237,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsFree
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetChannelProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2270,7 +2270,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetCustomHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* customheaderdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2313,7 +2313,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetDictionary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetDictionary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t encoding = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* dictionary = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2342,7 +2342,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2373,10 +2373,10 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetErrorString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t arg1Index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
@@ -2387,14 +2387,14 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetE
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(error, arg_1_index, string);
+        km_res = km_fn_ptr(error, arg1Index, string);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
     (void)error;
-    (void)arg_1_index;
+    (void)arg1Index;
     (void)string;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -2402,7 +2402,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorDetail_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faultdetaildescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2437,7 +2437,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2468,7 +2468,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t headertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2507,7 +2507,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeaderAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2538,7 +2538,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeapProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2571,7 +2571,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetListenerProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2604,7 +2604,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetMappedHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2647,7 +2647,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetMessageProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2680,7 +2680,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataEndpoints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* metadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* endpoints = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2709,7 +2709,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* metadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2742,7 +2742,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetMissingMetadataDocumentAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* metadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2771,7 +2771,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetNamespaceFromPrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2804,7 +2804,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetOperationContextProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2837,7 +2837,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyAlternativeCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2866,7 +2866,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2899,7 +2899,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetPrefixFromNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ns = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2932,7 +2932,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* xmlreader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* node = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2961,7 +2961,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodeposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2990,7 +2990,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3023,7 +3023,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityContextProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3056,7 +3056,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityTokenProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitytoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3091,7 +3091,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceHostProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3124,7 +3124,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceProxyProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3157,7 +3157,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodeposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3186,7 +3186,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3219,7 +3219,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsGetXmlAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* localname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3254,7 +3254,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsGetX
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsInitializeMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t initialization = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3285,7 +3285,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsInit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsMarkHeaderAsUnderstood_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headerposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3314,7 +3314,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMark
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsMatchPolicyAlternative_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t alternativeindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3349,7 +3349,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMatc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMoveReader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsMoveReader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t moveto = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3380,7 +3380,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMoveWriter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsMoveWriter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t moveto = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3411,7 +3411,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsMove
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpenChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsOpenChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* endpointaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3442,7 +3442,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpenListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsOpenListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* url = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3473,7 +3473,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3502,7 +3502,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3533,7 +3533,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsOpen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsPullBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsPullBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3564,7 +3564,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsPull
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsPushBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsPushBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3595,7 +3595,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsPush
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* localname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3638,7 +3638,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* attributedescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3675,7 +3675,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadBody_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadBody_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bodydescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3712,7 +3712,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3745,7 +3745,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadChars_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadChars_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* chars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3778,7 +3778,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadCharsUtf8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3811,7 +3811,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* elementdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3848,7 +3848,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3875,7 +3875,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadEndElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3902,7 +3902,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndpointAddressExtension_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* endpointaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3941,7 +3941,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3968,7 +3968,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4001,7 +4001,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4032,7 +4032,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4063,7 +4063,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* metadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4094,7 +4094,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4121,7 +4121,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadQualifiedName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4156,7 +4156,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t attributeindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4185,7 +4185,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadStartElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4212,7 +4212,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadToStartElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* localname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4245,7 +4245,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t typemapping = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4286,7 +4286,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t valuetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4319,7 +4319,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4350,7 +4350,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBufferFromBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* encoding = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4391,7 +4391,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRead
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsReceiveMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4402,7 +4402,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRece
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
     uint32_t valuesize = static_cast<uint32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
-    void* arg_9_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+    void* arg9Index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 10 ? km_napi_arg_u64(km_info[10]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 11 ? km_napi_arg_u64(km_info[11]) : 0));
 #ifdef _WIN32
@@ -4414,7 +4414,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRece
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(channel, message, messagedescriptions, messagedescriptioncount, receiveoption, readbodyoption, heap, value, valuesize, arg_9_index, asynccontext, error);
+        km_res = km_fn_ptr(channel, message, messagedescriptions, messagedescriptioncount, receiveoption, readbodyoption, heap, value, valuesize, arg9Index, asynccontext, error);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -4429,7 +4429,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRece
     (void)heap;
     (void)value;
     (void)valuesize;
-    (void)arg_9_index;
+    (void)arg9Index;
     (void)asynccontext;
     (void)error;
     errno = ENOSYS;
@@ -4438,7 +4438,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRece
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRegisterOperationForCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cancelcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4471,7 +4471,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRegi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveCustomHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4502,7 +4502,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t headertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4531,7 +4531,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveMappedHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* headername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4560,7 +4560,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemoveNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nodeposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4587,7 +4587,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRemo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRequestReply_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRequestReply_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* requestmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4638,7 +4638,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRequ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRequestSecurityToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* properties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4673,7 +4673,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRequ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4700,7 +4700,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4725,7 +4725,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* heap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4752,7 +4752,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetListener_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetListener_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4779,7 +4779,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4806,7 +4806,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetMetadata_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetMetadata_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* metadata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4833,7 +4833,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servicehost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4860,7 +4860,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceProxy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4887,7 +4887,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRese
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsRevokeSecurityContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* securitycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4914,7 +4914,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsRevo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSendFaultMessageForError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* replymessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4953,7 +4953,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSendMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSendMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4992,7 +4992,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSendReplyMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* replymessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5033,7 +5033,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSend
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetChannelProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5066,7 +5066,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetErrorProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5097,7 +5097,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorDetail_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* faultdetaildescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5130,7 +5130,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5161,7 +5161,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t headertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5198,7 +5198,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* encoding = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5233,7 +5233,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetInputToBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5266,7 +5266,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetListenerProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listener = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5299,7 +5299,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetMessageProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5332,7 +5332,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetOutput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* encoding = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5367,7 +5367,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutputToBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5400,7 +5400,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetReaderPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodeposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5429,7 +5429,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSetWriterPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodeposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5458,7 +5458,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSetW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsShutdownSessionChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* asynccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5487,7 +5487,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsShut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSkipNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsSkipNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5514,7 +5514,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsSkip
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsStartReaderCanonicalization_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* writecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5549,7 +5549,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsStar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsStartWriterCanonicalization_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* writecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5584,7 +5584,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsStar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsTrimXmlWhitespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* chars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t charcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5617,7 +5617,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsTrim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsVerifyXmlNCName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ncnamechars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ncnamecharcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5646,7 +5646,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsVeri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* localname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5687,7 +5687,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* attributedescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5722,7 +5722,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteBody_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBody_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bodydescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5757,7 +5757,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5788,7 +5788,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteChars_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteChars_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* chars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5819,7 +5819,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteCharsUtf8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5850,7 +5850,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* elementdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5885,7 +5885,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5912,7 +5912,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndCData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5939,7 +5939,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5966,7 +5966,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndStartElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5993,7 +5993,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6020,7 +6020,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6053,7 +6053,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6084,7 +6084,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* channel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6115,7 +6115,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* node = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6144,7 +6144,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteQualifiedName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6177,7 +6177,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6212,7 +6212,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartCData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6239,7 +6239,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6272,7 +6272,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteText_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteText_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* text = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6301,7 +6301,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t typemapping = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6340,7 +6340,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t valuetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6373,7 +6373,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* xmlbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6402,7 +6402,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBufferToBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* xmlbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6443,7 +6443,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlnsAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6476,7 +6476,7 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsWrit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32NetworkingWindowswebservicesWsXmlStringEquals_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* string1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* string2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6506,212 +6506,212 @@ static Napi::Value windowssys_windows_win32_networking_windowswebservices_wsXmlS
 }
 
 static void register_windows_win32_networking_windowswebservices_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAbandonCall", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAbandonCall_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAbortChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAbortChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAbortListener", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAbortListener_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAddErrorString", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAddErrorString_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAddressMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAddressMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAlloc", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAlloc_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCall", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCall_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCloseChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCloseChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCloseListener", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCloseListener_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCombineUrl", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCombineUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCopyError", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCopyError_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCopyNode", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCopyNode_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateError", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateError_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateHeap", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateHeap_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateListener", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateListener_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateReader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateReader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateWriter", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateWriter_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFillBody", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFillBody_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFillReader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFillReader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFindAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFindAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFlushBody", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFlushBody_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFlushWriter", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFlushWriter_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeError", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeError_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeHeap", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeHeap_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeListener", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeListener_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeReader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeReader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsFreeWriter", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsFreeWriter_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetDictionary", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetDictionary_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetErrorString", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetErrorString_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsMoveReader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsMoveReader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsMoveWriter", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsMoveWriter_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsOpenChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsOpenChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsOpenListener", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsOpenListener_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsPullBytes", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsPullBytes_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsPushBytes", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsPushBytes_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadArray", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadArray_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadBody", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadBody_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadBytes", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadBytes_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadChars", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadChars_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadEndElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadEndElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadMetadata", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadMetadata_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadNode", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadNode_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadStartElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadStartElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadType", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadType_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadValue", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadValue_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRemoveNode", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRemoveNode_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRequestReply", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRequestReply_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetError", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetError_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetHeap", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetHeap_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetListener", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetListener_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetMetadata", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetMetadata_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSendMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSendMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetHeader", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetHeader_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetInput", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetInput_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetOutput", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetOutput_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsSkipNode", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsSkipNode_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteArray", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteArray_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteBody", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteBody_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteBytes", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteBytes_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteChars", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteChars_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteNode", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteNode_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteText", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteText_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteType", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteType_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteValue", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteValue_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute_napi));
-    exports.Set("windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals", Napi::Function::New(env, windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorGetAssertion", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorGetAssertion_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorMakeCredential", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorMakeCredential_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNCancelCurrentOperation", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNCancelCurrentOperation_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNDeletePlatformCredential", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNDeletePlatformCredential_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeAssertion", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeAssertion_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeCredentialAttestation", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeCredentialAttestation_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreePlatformCredentialList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreePlatformCredentialList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetApiVersionNumber", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetApiVersionNumber_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetCancellationId", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetCancellationId_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetErrorName", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetErrorName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetPlatformCredentialList", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetPlatformCredentialList_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNIsUserVerifyingPlatformAuthenticatorAvailable", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNIsUserVerifyingPlatformAuthenticatorAvailable_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonCall", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonCall_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAbortChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAbortChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAbortListener", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAbortListener_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceHost", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceHost_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceProxy", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceProxy_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAcceptChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAcceptChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAddCustomHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAddCustomHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAddErrorString", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAddErrorString_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAddMappedHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAddMappedHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAddressMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAddressMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAlloc", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAlloc_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsAsyncExecute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsAsyncExecute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCall", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCall_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCheckMustUnderstandHeaders", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCheckMustUnderstandHeaders_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCloseChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCloseChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCloseListener", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCloseListener_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceHost", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceHost_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceProxy", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceProxy_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCombineUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCombineUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCopyError", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCopyError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCopyNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCopyNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannelForListener", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannelForListener_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateError", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateFaultFromError", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateFaultFromError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateHeap", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateHeap_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateListener", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateListener_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessageForChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessageForChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMetadata", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMetadata_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateReader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateReader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceEndpointFromTemplate", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceEndpointFromTemplate_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceHost", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceHost_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxy", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxy_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxyFromTemplate", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxyFromTemplate_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateWriter", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateWriter_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlBuffer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlBuffer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlSecurityToken", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlSecurityToken_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsDateTimeToFileTime", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsDateTimeToFileTime_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsDecodeUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsDecodeUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsEncodeUrl", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsEncodeUrl_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsEndReaderCanonicalization", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsEndReaderCanonicalization_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsEndWriterCanonicalization", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsEndWriterCanonicalization_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFileTimeToDateTime", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFileTimeToDateTime_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFillBody", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFillBody_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFillReader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFillReader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFindAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFindAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFlushBody", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFlushBody_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFlushWriter", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFlushWriter_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeError", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeHeap", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeHeap_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeListener", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeListener_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMetadata", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMetadata_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeReader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeReader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeSecurityToken", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeSecurityToken_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceHost", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceHost_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceProxy", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceProxy_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsFreeWriter", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsFreeWriter_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetChannelProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetChannelProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetCustomHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetCustomHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetDictionary", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetDictionary_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorString", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorString_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorDetail", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorDetail_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeaderAttributes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeaderAttributes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeapProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeapProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetListenerProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetListenerProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetMappedHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetMappedHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetMessageProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetMessageProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataEndpoints", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataEndpoints_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetMissingMetadataDocumentAddress", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetMissingMetadataDocumentAddress_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetNamespaceFromPrefix", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetNamespaceFromPrefix_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetOperationContextProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetOperationContextProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyAlternativeCount", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyAlternativeCount_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetPrefixFromNamespace", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetPrefixFromNamespace_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderPosition", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderPosition_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityContextProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityContextProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityTokenProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityTokenProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceHostProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceHostProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceProxyProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceProxyProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterPosition", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterPosition_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsGetXmlAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsGetXmlAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsInitializeMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsInitializeMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsMarkHeaderAsUnderstood", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsMarkHeaderAsUnderstood_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsMatchPolicyAlternative", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsMatchPolicyAlternative_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsMoveReader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsMoveReader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsMoveWriter", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsMoveWriter_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsOpenChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsOpenChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsOpenListener", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsOpenListener_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceHost", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceHost_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceProxy", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceProxy_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsPullBytes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsPullBytes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsPushBytes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsPushBytes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadArray", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadArray_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadBody", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadBody_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadBytes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadBytes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadChars", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadChars_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadCharsUtf8", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadCharsUtf8_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndpointAddressExtension", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndpointAddressExtension_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeEnd", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeEnd_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeStart", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeStart_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageEnd", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageEnd_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageStart", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageStart_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadMetadata", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadMetadata_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadQualifiedName", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadQualifiedName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadToStartElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadToStartElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadType", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadType_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBuffer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBuffer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBufferFromBytes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBufferFromBytes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsReceiveMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsReceiveMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRegisterOperationForCancel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRegisterOperationForCancel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveCustomHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveCustomHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveMappedHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveMappedHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRequestReply", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRequestReply_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRequestSecurityToken", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRequestSecurityToken_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetError", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetHeap", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetHeap_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetListener", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetListener_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetMetadata", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetMetadata_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceHost", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceHost_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceProxy", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceProxy_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsRevokeSecurityContext", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsRevokeSecurityContext_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSendFaultMessageForError", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSendFaultMessageForError_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSendMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSendMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSendReplyMessage", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSendReplyMessage_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetChannelProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetChannelProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetErrorProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetErrorProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorDetail", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorDetail_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetHeader", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetHeader_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetInput", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetInput_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetInputToBuffer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetInputToBuffer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetListenerProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetListenerProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetMessageProperty", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetMessageProperty_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutput", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutput_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutputToBuffer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutputToBuffer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetReaderPosition", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetReaderPosition_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSetWriterPosition", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSetWriterPosition_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsShutdownSessionChannel", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsShutdownSessionChannel_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsSkipNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsSkipNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsStartReaderCanonicalization", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsStartReaderCanonicalization_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsStartWriterCanonicalization", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsStartWriterCanonicalization_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsTrimXmlWhitespace", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsTrimXmlWhitespace_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsVerifyXmlNCName", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsVerifyXmlNCName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteArray", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteArray_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBody", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBody_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBytes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBytes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteChars", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteChars_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteCharsUtf8", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteCharsUtf8_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndCData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndCData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndStartElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndStartElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeEnd", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeEnd_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeStart", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeStart_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageEnd", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageEnd_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageStart", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageStart_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteNode", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteNode_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteQualifiedName", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteQualifiedName_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartCData", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartCData_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartElement", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartElement_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteText", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteText_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteType", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteType_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteValue", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteValue_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBuffer", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBuffer_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBufferToBytes", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBufferToBytes_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlnsAttribute", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlnsAttribute_napi));
+    exports.Set("windowssysWindowsWin32NetworkingWindowswebservicesWsXmlStringEquals", Napi::Function::New(env, windowssysWindowsWin32NetworkingWindowswebservicesWsXmlStringEquals_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networking_windowswebservices_napi, nullptr };

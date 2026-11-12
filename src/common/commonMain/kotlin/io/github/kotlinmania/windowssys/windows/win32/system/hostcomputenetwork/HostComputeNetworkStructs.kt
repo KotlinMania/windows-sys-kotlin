@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputenetwork
 
+import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
+import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.windowssys.core.Guid
 
 public data class HcnPortRangeEntry(
@@ -17,4 +19,21 @@ public data class HcnPortRangeEntry(
 public data class HcnPortRangeReservation(
     public var startingPort: UShort = 0u,
     public var endingPort: UShort = 0u,
-)
+) {
+    public companion object {
+        public fun typeLayout(): io.github.kotlinmania.rustlang.core.mem.TypeLayout<HcnPortRangeReservation> =
+            object : io.github.kotlinmania.rustlang.core.mem.TypeLayout<HcnPortRangeReservation> {
+                override val sizeBytes: Long = 4L
+                override val alignBytes: Long = 2L
+                override fun readNative(addr: Long): HcnPortRangeReservation =
+                    HcnPortRangeReservation(
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
+                        (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
+                    )
+                override fun writeNative(addr: Long, value: HcnPortRangeReservation) {
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.startingPort)
+                    (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.endingPort)
+                }
+            }
+    }
+}

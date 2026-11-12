@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCaptureSnapshot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssCaptureSnapshot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t captureflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDuplicateSnapshot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssDuplicateSnapshot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourceprocesshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* snapshothandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFreeSnapshot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssFreeSnapshot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* snapshothandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuerySnapshot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssQuerySnapshot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* snapshothandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t informationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* allocator = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* walkmarkerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -200,7 +200,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* walkmarkerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerGetPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerGetPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* walkmarkerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* position = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -252,7 +252,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSeekToBeginning_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSeekToBeginning_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* walkmarkerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -277,7 +277,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSetPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSetPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* walkmarkerhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t position = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -304,7 +304,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkSnapshot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* snapshothandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t informationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -338,16 +338,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
 }
 
 static void register_windows_win32_system_diagnostics_processsnapshotting_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCaptureSnapshot", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssCaptureSnapshot_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDuplicateSnapshot", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssDuplicateSnapshot_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFreeSnapshot", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssFreeSnapshot_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuerySnapshot", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssQuerySnapshot_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerCreate", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerCreate_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerFree", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerFree_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerGetPosition", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerGetPosition_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSeekToBeginning", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSeekToBeginning_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSetPosition", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkMarkerSetPosition_napi));
-    exports.Set("windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkSnapshot", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_processsnapshotting_pssWalkSnapshot_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssCaptureSnapshot", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssCaptureSnapshot_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssDuplicateSnapshot", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssDuplicateSnapshot_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssFreeSnapshot", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssFreeSnapshot_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssQuerySnapshot", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssQuerySnapshot_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerCreate", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerCreate_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerFree", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerFree_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerGetPosition", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerGetPosition_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSeekToBeginning", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSeekToBeginning_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSetPosition", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSetPosition_napi));
+    exports.Set("windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot", Napi::Function::New(env, windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_diagnostics_processsnapshotting_napi, nullptr };

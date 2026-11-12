@@ -2,25 +2,76 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32DataHtmlhelpJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32DataHtmlhelpJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_htmlhelp_htmlHelpA(hwndcaller: Long, pszfile: Long, ucommand: Int, dwdata: Long): Long
+    external fun windowssysWindowsWin32DataHtmlhelpHtmlHelpA(hwndcaller: Long, pszfile: Long, ucommand: Int, dwdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_data_htmlhelp_htmlHelpW(hwndcaller: Long, pszfile: Long, ucommand: Int, dwdata: Long): Long
+    external fun windowssysWindowsWin32DataHtmlhelpHtmlHelpW(hwndcaller: Long, pszfile: Long, ucommand: Int, dwdata: Long): Long
 }
 
 public actual fun htmlHelpA(hwndcaller: Hwnd, pszfile: Pcstr, ucommand: UInt, dwdata: ULong): Hwnd =
-    WindowsWin32DataHtmlhelpJniBridge.windowssys_windows_win32_data_htmlhelp_htmlHelpA((hwndcaller?.value ?: 0L), (pszfile?.value ?: 0L), ucommand.toInt(), dwdata.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32DataHtmlhelpJniBridge.windowssysWindowsWin32DataHtmlhelpHtmlHelpA(hwndcaller.rawAddress, pszfile.rawAddress, ucommand.toInt(), dwdata.toLong()))
 
 public actual fun htmlHelpW(hwndcaller: Hwnd, pszfile: Pcwstr, ucommand: UInt, dwdata: ULong): Hwnd =
-    WindowsWin32DataHtmlhelpJniBridge.windowssys_windows_win32_data_htmlhelp_htmlHelpW((hwndcaller?.value ?: 0L), (pszfile?.value ?: 0L), ucommand.toInt(), dwdata.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32DataHtmlhelpJniBridge.windowssysWindowsWin32DataHtmlhelpHtmlHelpW(hwndcaller.rawAddress, pszfile.rawAddress, ucommand.toInt(), dwdata.toLong()))

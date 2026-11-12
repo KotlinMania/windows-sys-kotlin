@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListAllocateBufferAndSerialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListAllocateBufferAndSerialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcecollection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptargetbuffersizeinbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListAlloc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListCopyAndMarshall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListCopyAndMarshall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* target = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListCopyA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListDeserializeFromBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListDeserializeFromBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sourcebuffersizeinbytes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sourcebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListDeser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetFillableCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListGetFillableCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t buffersizebytes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* collection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSizeWithoutSerialization_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSizeWithoutSerialization_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* collection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetMa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetSerializedSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListGetSerializedSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* collection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -236,7 +236,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListMarshall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListMarshall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* target = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListMarsh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListSerializeToBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListSerializeToBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcecollection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t targetbuffersizeinbytes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -290,7 +290,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListSeria
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListSortSubscribedActivitiesByConfidence_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListSortSubscribedActivitiesByConfidence_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thresholds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcollection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -317,7 +317,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListSortS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListUpdateMarshalledPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsCollectionsListUpdateMarshalledPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* collection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -342,7 +342,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListUpdat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_evaluateActivityThresholds_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsEvaluateActivityThresholds_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* newsample = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldsample = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -371,7 +371,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_evaluateActivityThre
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_getPerformanceTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsGetPerformanceTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timems = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -396,7 +396,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_getPerformanceTime_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_initPropVariantFromCLSIDArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsInitPropVariantFromCLSIDArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* members = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -425,7 +425,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_initPropVariantFromC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_initPropVariantFromFloat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsInitPropVariantFromFloat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltval = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* ppropvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -452,7 +452,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_initPropVariantFromF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_isCollectionListSame_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsIsCollectionListSame_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lista = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* listb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -479,7 +479,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isCollectionListSame
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_isGUIDPresentInList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsIsGUIDPresentInList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guidarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t arraylength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -508,7 +508,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isGUIDPresentInList_
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_isKeyPresentInCollectionList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsIsKeyPresentInCollectionList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isKeyPresentInCollec
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_isKeyPresentInPropertyList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsIsKeyPresentInPropertyList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -562,7 +562,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isKeyPresentInProper
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -591,7 +591,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBoo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDouble_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetDouble_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -620,7 +620,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -649,7 +649,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFloat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFloat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -678,7 +678,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFlo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -707,7 +707,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGui
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt32_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt32_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -736,7 +736,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -765,7 +765,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthInt64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthInt64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -796,7 +796,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNth
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUlong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUlong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -827,7 +827,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNth
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUshort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUshort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -858,7 +858,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNth
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetPropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -889,7 +889,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUlong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -918,7 +918,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUshort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUshort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -947,7 +947,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUsh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeySetPropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropKeyFindKeySetPropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -978,7 +978,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeySetPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propVariantGetInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropVariantGetInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvariantvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propvariantoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1011,7 +1011,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propVariantGetInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propertiesListCopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropertiesListCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* target = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1038,7 +1038,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propertiesListCopy_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_propertiesListGetFillableCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsPropertiesListGetFillableCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t buffersizebytes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1063,9 +1063,9 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propertiesListGetFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_sensorCollectionGetAt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsSensorCollectionGetAt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    uint32_t arg_0_index = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t arg0Index = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psensorslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
     void* pvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
@@ -1078,13 +1078,13 @@ static Napi::Value windowssys_windows_win32_devices_sensors_sensorCollectionGetA
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_index, psensorslist, pkey, pvalue);
+        km_res = km_fn_ptr(arg0Index, psensorslist, pkey, pvalue);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_index;
+    (void)arg0Index;
     (void)psensorslist;
     (void)pkey;
     (void)pvalue;
@@ -1094,7 +1094,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_sensorCollectionGetA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_serializationBufferAllocate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsSerializationBufferAllocate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sizeinbytes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1121,7 +1121,7 @@ static Napi::Value windowssys_windows_win32_devices_sensors_serializationBufferA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_sensors_serializationBufferFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32DevicesSensorsSerializationBufferFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1144,45 +1144,45 @@ static Napi::Value windowssys_windows_win32_devices_sensors_serializationBufferF
 }
 
 static void register_windows_win32_devices_sensors_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListAllocateBufferAndSerialize", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListAllocateBufferAndSerialize_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListCopyAndMarshall", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListCopyAndMarshall_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListDeserializeFromBuffer", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListDeserializeFromBuffer_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListGetFillableCount", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListGetFillableCount_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSize", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSize_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSizeWithoutSerialization", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListGetMarshalledSizeWithoutSerialization_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListGetSerializedSize", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListGetSerializedSize_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListMarshall", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListMarshall_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListSerializeToBuffer", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListSerializeToBuffer_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListSortSubscribedActivitiesByConfidence", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListSortSubscribedActivitiesByConfidence_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_collectionsListUpdateMarshalledPointer", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_collectionsListUpdateMarshalledPointer_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_evaluateActivityThresholds", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_evaluateActivityThresholds_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_getPerformanceTime", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_getPerformanceTime_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_initPropVariantFromCLSIDArray", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_initPropVariantFromCLSIDArray_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_initPropVariantFromFloat", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_initPropVariantFromFloat_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_isCollectionListSame", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_isCollectionListSame_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_isGUIDPresentInList", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_isGUIDPresentInList_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_isKeyPresentInCollectionList", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_isKeyPresentInCollectionList_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_isKeyPresentInPropertyList", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_isKeyPresentInPropertyList_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBool", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBool_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDouble", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDouble_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFileTime", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFileTime_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFloat", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFloat_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGuid", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGuid_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt32", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt32_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt64", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt64_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthInt64", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthInt64_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUlong", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUlong_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUshort", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNthUshort_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPropVariant", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPropVariant_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlong", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlong_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUshort", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUshort_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propKeyFindKeySetPropVariant", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propKeyFindKeySetPropVariant_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propVariantGetInformation", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propVariantGetInformation_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propertiesListCopy", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propertiesListCopy_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_propertiesListGetFillableCount", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_propertiesListGetFillableCount_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_sensorCollectionGetAt", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_sensorCollectionGetAt_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_serializationBufferAllocate", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_serializationBufferAllocate_napi));
-    exports.Set("windowssys_windows_win32_devices_sensors_serializationBufferFree", Napi::Function::New(env, windowssys_windows_win32_devices_sensors_serializationBufferFree_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListAllocateBufferAndSerialize", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListAllocateBufferAndSerialize_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListCopyAndMarshall", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListCopyAndMarshall_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListDeserializeFromBuffer", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListDeserializeFromBuffer_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListGetFillableCount", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListGetFillableCount_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSize", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSize_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSizeWithoutSerialization", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSizeWithoutSerialization_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListGetSerializedSize", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListGetSerializedSize_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListMarshall", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListMarshall_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListSerializeToBuffer", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListSerializeToBuffer_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListSortSubscribedActivitiesByConfidence", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListSortSubscribedActivitiesByConfidence_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsCollectionsListUpdateMarshalledPointer", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsCollectionsListUpdateMarshalledPointer_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsEvaluateActivityThresholds", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsEvaluateActivityThresholds_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsGetPerformanceTime", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsGetPerformanceTime_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsInitPropVariantFromCLSIDArray", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsInitPropVariantFromCLSIDArray_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsInitPropVariantFromFloat", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsInitPropVariantFromFloat_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsIsCollectionListSame", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsIsCollectionListSame_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsIsGUIDPresentInList", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsIsGUIDPresentInList_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsIsKeyPresentInCollectionList", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsIsKeyPresentInCollectionList_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsIsKeyPresentInPropertyList", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsIsKeyPresentInPropertyList_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetBool", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetBool_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetDouble", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetDouble_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFileTime", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFileTime_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFloat", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFloat_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetGuid", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetGuid_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt32", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt32_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt64", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt64_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthInt64", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthInt64_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUlong", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUlong_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUshort", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUshort_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetPropVariant", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetPropVariant_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUlong", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUlong_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUshort", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUshort_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropKeyFindKeySetPropVariant", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropKeyFindKeySetPropVariant_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropVariantGetInformation", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropVariantGetInformation_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropertiesListCopy", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropertiesListCopy_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsPropertiesListGetFillableCount", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsPropertiesListGetFillableCount_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsSensorCollectionGetAt", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsSensorCollectionGetAt_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsSerializationBufferAllocate", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsSerializationBufferAllocate_napi));
+    exports.Set("windowssysWindowsWin32DevicesSensorsSerializationBufferFree", Napi::Function::New(env, windowssysWindowsWin32DevicesSensorsSerializationBufferFree_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_sensors_napi, nullptr };

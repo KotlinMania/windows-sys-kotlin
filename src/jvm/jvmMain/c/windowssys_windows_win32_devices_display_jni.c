@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1brushobjHGetColorTransform(JNIEnv* km_env, jclass km_clazz, jlong pbo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayBrushobjHGetColorTransform(JNIEnv* km_env, jclass km_clazz, jlong pbo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1brushobjPvAllocRbrush(JNIEnv* km_env, jclass km_clazz, jlong pbo, jint cj) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayBrushobjPvAllocRbrush(JNIEnv* km_env, jclass km_clazz, jlong pbo, jint cj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -70,7 +70,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1brushobjPvGetRbrush(JNIEnv* km_env, jclass km_clazz, jlong pbo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayBrushobjPvGetRbrush(JNIEnv* km_env, jclass km_clazz, jlong pbo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1brushobjUlGetBrushColor(JNIEnv* km_env, jclass km_clazz, jlong pbo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayBrushobjUlGetBrushColor(JNIEnv* km_env, jclass km_clazz, jlong pbo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1clipobjBEnum(JNIEnv* km_env, jclass km_clazz, jlong pco, jint cj, jlong pul) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayClipobjBEnum(JNIEnv* km_env, jclass km_clazz, jlong pco, jint cj, jlong pul) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -147,7 +147,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1clipobjCEnumStart(JNIEnv* km_env, jclass km_clazz, jlong pco, jint ball, jint itype, jint idirection, jint climit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayClipobjCEnumStart(JNIEnv* km_env, jclass km_clazz, jlong pco, jint ball, jint itype, jint idirection, jint climit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -176,7 +176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1clipobjPpoGetPath(JNIEnv* km_env, jclass km_clazz, jlong pco) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayClipobjPpoGetPath(JNIEnv* km_env, jclass km_clazz, jlong pco) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -201,7 +201,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1capabilitiesRequestAndCapabilitiesReply(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pszasciicapabilitiesstring, jint dwcapabilitiesstringlengthincharacters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayCapabilitiesRequestAndCapabilitiesReply(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pszasciicapabilitiesstring, jint dwcapabilitiesstringlengthincharacters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -228,7 +228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1degaussMonitor(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayDegaussMonitor(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -253,7 +253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1destroyPhysicalMonitor(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitor(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -278,7 +278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1destroyPhysicalMonitors(JNIEnv* km_env, jclass km_clazz, jint dwphysicalmonitorarraysize, jlong pphysicalmonitorarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayDestroyPhysicalMonitors(JNIEnv* km_env, jclass km_clazz, jint dwphysicalmonitorarraysize, jlong pphysicalmonitorarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -304,7 +304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1displayConfigGetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong requestpacket) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayDisplayConfigGetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong requestpacket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -329,7 +329,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1displayConfigSetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong setpacket) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayDisplayConfigSetDeviceInfo(JNIEnv* km_env, jclass km_clazz, jlong setpacket) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -354,7 +354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engAcquireSemaphore(JNIEnv* km_env, jclass km_clazz, jlong hsem) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngAcquireSemaphore(JNIEnv* km_env, jclass km_clazz, jlong hsem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -375,7 +375,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engAlphaBlend(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong pco, jlong pxlo, jlong prcldest, jlong prclsrc, jlong pblendobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngAlphaBlend(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong pco, jlong pxlo, jlong prcldest, jlong prclsrc, jlong pblendobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -406,7 +406,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engAssociateSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf, jlong hdev, jint flhooks) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngAssociateSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf, jlong hdev, jint flhooks) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -433,7 +433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engBitBlt(JNIEnv* km_env, jclass km_clazz, jlong psotrg, jlong psosrc, jlong psomask, jlong pco, jlong pxlo, jlong prcltrg, jlong pptlsrc, jlong pptlmask, jlong pbo, jlong pptlbrush, jint rop4) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngBitBlt(JNIEnv* km_env, jclass km_clazz, jlong psotrg, jlong psosrc, jlong psomask, jlong pco, jlong pxlo, jlong prcltrg, jlong pptlsrc, jlong pptlmask, jlong pbo, jlong pptlbrush, jint rop4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -468,7 +468,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engCheckAbort(JNIEnv* km_env, jclass km_clazz, jlong pso) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngCheckAbort(JNIEnv* km_env, jclass km_clazz, jlong pso) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -493,7 +493,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engComputeGlyphSet(JNIEnv* km_env, jclass km_clazz, jint ncodepage, jint nfirstchar, jint cchars) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngComputeGlyphSet(JNIEnv* km_env, jclass km_clazz, jint ncodepage, jint nfirstchar, jint cchars) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -520,7 +520,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engCopyBits(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong pco, jlong pxlo, jlong prcldest, jlong pptlsrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngCopyBits(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong pco, jlong pxlo, jlong prcldest, jlong pptlsrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -550,7 +550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engCreateClip(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngCreateClip(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -574,7 +574,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engCreatePalette(JNIEnv* km_env, jclass km_clazz, jint imode, jint ccolors, jlong pulcolors, jint flred, jint flgreen, jint flblue) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngCreatePalette(JNIEnv* km_env, jclass km_clazz, jint imode, jint ccolors, jlong pulcolors, jint flred, jint flgreen, jint flblue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -604,7 +604,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engCreateSemaphore(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngCreateSemaphore(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -628,7 +628,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engDeleteClip(JNIEnv* km_env, jclass km_clazz, jlong pco) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngDeleteClip(JNIEnv* km_env, jclass km_clazz, jlong pco) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -649,7 +649,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engDeletePalette(JNIEnv* km_env, jclass km_clazz, jlong hpal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngDeletePalette(JNIEnv* km_env, jclass km_clazz, jlong hpal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -674,7 +674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engDeletePath(JNIEnv* km_env, jclass km_clazz, jlong ppo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngDeletePath(JNIEnv* km_env, jclass km_clazz, jlong ppo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -695,7 +695,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engDeleteSemaphore(JNIEnv* km_env, jclass km_clazz, jlong hsem) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngDeleteSemaphore(JNIEnv* km_env, jclass km_clazz, jlong hsem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -716,7 +716,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engDeleteSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngDeleteSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -741,7 +741,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engEraseSurface(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong prcl, jint icolor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngEraseSurface(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong prcl, jint icolor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -768,7 +768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engFillPath(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong ppo, jlong pco, jlong pbo, jlong pptlbrushorg, jint mix, jint floptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngFillPath(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong ppo, jlong pco, jlong pbo, jlong pptlbrushorg, jint mix, jint floptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -799,7 +799,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engFindResource(JNIEnv* km_env, jclass km_clazz, jlong h, jint iname, jint itype, jlong pulsize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngFindResource(JNIEnv* km_env, jclass km_clazz, jlong h, jint iname, jint itype, jlong pulsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -827,7 +827,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engFreeModule(JNIEnv* km_env, jclass km_clazz, jlong h) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngFreeModule(JNIEnv* km_env, jclass km_clazz, jlong h) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -848,7 +848,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engGetCurrentCodePage(JNIEnv* km_env, jclass km_clazz, jlong oemcodepage, jlong ansicodepage) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngGetCurrentCodePage(JNIEnv* km_env, jclass km_clazz, jlong oemcodepage, jlong ansicodepage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -870,7 +870,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engGetDriverName(JNIEnv* km_env, jclass km_clazz, jlong hdev) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngGetDriverName(JNIEnv* km_env, jclass km_clazz, jlong hdev) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -895,7 +895,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engGetPrinterDataFileName(JNIEnv* km_env, jclass km_clazz, jlong hdev) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngGetPrinterDataFileName(JNIEnv* km_env, jclass km_clazz, jlong hdev) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -920,7 +920,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engGradientFill(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong pco, jlong pxlo, jlong pvertex, jint nvertex, jlong pmesh, jint nmesh, jlong prclextents, jlong pptlditherorg, jint ulmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngGradientFill(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong pco, jlong pxlo, jlong pvertex, jint nvertex, jlong pmesh, jint nmesh, jlong prclextents, jlong pptlditherorg, jint ulmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -954,7 +954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engLineTo(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong pco, jlong pbo, jint x1, jint y1, jint x2, jint y2, jlong prclbounds, jint mix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngLineTo(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong pco, jlong pbo, jint x1, jint y1, jint x2, jint y2, jlong prclbounds, jint mix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -987,7 +987,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engLoadModule(JNIEnv* km_env, jclass km_clazz, jlong pwsz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngLoadModule(JNIEnv* km_env, jclass km_clazz, jlong pwsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1012,7 +1012,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engLockSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngLockSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1037,7 +1037,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engMarkBandingSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngMarkBandingSurface(JNIEnv* km_env, jclass km_clazz, jlong hsurf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1062,7 +1062,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engMultiByteToUnicodeN(JNIEnv* km_env, jclass km_clazz, jlong unicodestring, jint maxbytesinunicodestring, jlong bytesinunicodestring, jlong multibytestring, jint bytesinmultibytestring) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngMultiByteToUnicodeN(JNIEnv* km_env, jclass km_clazz, jlong unicodestring, jint maxbytesinunicodestring, jlong bytesinunicodestring, jlong multibytestring, jint bytesinmultibytestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1087,7 +1087,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engMultiByteToWideChar(JNIEnv* km_env, jclass km_clazz, jint codepage, jlong widecharstring, jint bytesinwidecharstring, jlong multibytestring, jint bytesinmultibytestring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngMultiByteToWideChar(JNIEnv* km_env, jclass km_clazz, jint codepage, jlong widecharstring, jint bytesinwidecharstring, jlong multibytestring, jint bytesinmultibytestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1116,7 +1116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engPaint(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong pco, jlong pbo, jlong pptlbrushorg, jint mix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngPaint(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong pco, jlong pbo, jlong pptlbrushorg, jint mix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1145,7 +1145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engPlgBlt(JNIEnv* km_env, jclass km_clazz, jlong psotrg, jlong psosrc, jlong psomsk, jlong pco, jlong pxlo, jlong pca, jlong pptlbrushorg, jlong pptfx, jlong prcl, jlong pptl, jint imode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngPlgBlt(JNIEnv* km_env, jclass km_clazz, jlong psotrg, jlong psosrc, jlong psomsk, jlong pco, jlong pxlo, jlong pca, jlong pptlbrushorg, jlong pptfx, jlong prcl, jlong pptl, jint imode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1180,7 +1180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engQueryEMFInfo(JNIEnv* km_env, jclass km_clazz, jlong hdev, jlong pemfinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngQueryEMFInfo(JNIEnv* km_env, jclass km_clazz, jlong hdev, jlong pemfinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1206,7 +1206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engQueryLocalTime(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngQueryLocalTime(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1227,7 +1227,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engReleaseSemaphore(JNIEnv* km_env, jclass km_clazz, jlong hsem) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngReleaseSemaphore(JNIEnv* km_env, jclass km_clazz, jlong hsem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1248,7 +1248,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engStretchBlt(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong psomask, jlong pco, jlong pxlo, jlong pca, jlong pptlhtorg, jlong prcldest, jlong prclsrc, jlong pptlmask, jint imode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngStretchBlt(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong psomask, jlong pco, jlong pxlo, jlong pca, jlong pptlhtorg, jlong prcldest, jlong prclsrc, jlong pptlmask, jint imode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1283,7 +1283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engStretchBltROP(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong psomask, jlong pco, jlong pxlo, jlong pca, jlong pptlhtorg, jlong prcldest, jlong prclsrc, jlong pptlmask, jint imode, jlong pbo, jint rop4) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngStretchBltROP(JNIEnv* km_env, jclass km_clazz, jlong psodest, jlong psosrc, jlong psomask, jlong pco, jlong pxlo, jlong pca, jlong pptlhtorg, jlong prcldest, jlong prclsrc, jlong pptlmask, jint imode, jlong pbo, jint rop4) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1320,7 +1320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engStrokeAndFillPath(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong ppo, jlong pco, jlong pxo, jlong pbostroke, jlong plineattrs, jlong pbofill, jlong pptlbrushorg, jint mixfill, jint floptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngStrokeAndFillPath(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong ppo, jlong pco, jlong pxo, jlong pbostroke, jlong plineattrs, jlong pbofill, jlong pptlbrushorg, jint mixfill, jint floptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1354,7 +1354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engStrokePath(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong ppo, jlong pco, jlong pxo, jlong pbo, jlong pptlbrushorg, jlong plineattrs, jint mix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngStrokePath(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong ppo, jlong pco, jlong pxo, jlong pbo, jlong pptlbrushorg, jlong plineattrs, jint mix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1386,7 +1386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engTextOut(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong pstro, jlong pfo, jlong pco, jlong prclextra, jlong prclopaque, jlong pbofore, jlong pboopaque, jlong pptlorg, jint mix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngTextOut(JNIEnv* km_env, jclass km_clazz, jlong pso, jlong pstro, jlong pfo, jlong pco, jlong prclextra, jlong prclopaque, jlong pbofore, jlong pboopaque, jlong pptlorg, jint mix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1420,7 +1420,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engTransparentBlt(JNIEnv* km_env, jclass km_clazz, jlong psodst, jlong psosrc, jlong pco, jlong pxlo, jlong prcldst, jlong prclsrc, jint transcolor, jint bcalledfrombitblt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngTransparentBlt(JNIEnv* km_env, jclass km_clazz, jlong psodst, jlong psosrc, jlong pco, jlong pxlo, jlong prcldst, jlong prclsrc, jint transcolor, jint bcalledfrombitblt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1452,7 +1452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engUnicodeToMultiByteN(JNIEnv* km_env, jclass km_clazz, jlong multibytestring, jint maxbytesinmultibytestring, jlong bytesinmultibytestring, jlong unicodestring, jint bytesinunicodestring) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngUnicodeToMultiByteN(JNIEnv* km_env, jclass km_clazz, jlong multibytestring, jint maxbytesinmultibytestring, jlong bytesinmultibytestring, jlong unicodestring, jint bytesinunicodestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1477,7 +1477,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engUnlockSurface(JNIEnv* km_env, jclass km_clazz, jlong pso) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngUnlockSurface(JNIEnv* km_env, jclass km_clazz, jlong pso) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1498,7 +1498,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1engWideCharToMultiByte(JNIEnv* km_env, jclass km_clazz, jint codepage, jlong widecharstring, jint bytesinwidecharstring, jlong multibytestring, jint bytesinmultibytestring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayEngWideCharToMultiByte(JNIEnv* km_env, jclass km_clazz, jint codepage, jlong widecharstring, jint bytesinwidecharstring, jlong multibytestring, jint bytesinmultibytestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1527,7 +1527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjCGetAllGlyphHandles(JNIEnv* km_env, jclass km_clazz, jlong pfo, jlong phg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjCGetAllGlyphHandles(JNIEnv* km_env, jclass km_clazz, jlong pfo, jlong phg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1553,7 +1553,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjCGetGlyphs(JNIEnv* km_env, jclass km_clazz, jlong pfo, jint imode, jint cglyph, jlong phg, jlong ppvglyph) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjCGetGlyphs(JNIEnv* km_env, jclass km_clazz, jlong pfo, jint imode, jint cglyph, jlong phg, jlong ppvglyph) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1582,7 +1582,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjPQueryGlyphAttrs(JNIEnv* km_env, jclass km_clazz, jlong pfo, jint imode) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjPQueryGlyphAttrs(JNIEnv* km_env, jclass km_clazz, jlong pfo, jint imode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1608,7 +1608,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjPfdg(JNIEnv* km_env, jclass km_clazz, jlong pfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjPfdg(JNIEnv* km_env, jclass km_clazz, jlong pfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1633,7 +1633,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjPifi(JNIEnv* km_env, jclass km_clazz, jlong pfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjPifi(JNIEnv* km_env, jclass km_clazz, jlong pfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1658,7 +1658,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjPvTrueTypeFontFile(JNIEnv* km_env, jclass km_clazz, jlong pfo, jlong pcjfile) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjPvTrueTypeFontFile(JNIEnv* km_env, jclass km_clazz, jlong pfo, jlong pcjfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1684,7 +1684,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjPxoGetXform(JNIEnv* km_env, jclass km_clazz, jlong pfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjPxoGetXform(JNIEnv* km_env, jclass km_clazz, jlong pfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1709,7 +1709,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1fontobjVGetInfo(JNIEnv* km_env, jclass km_clazz, jlong pfo, jint cjsize, jlong pfi) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayFontobjVGetInfo(JNIEnv* km_env, jclass km_clazz, jlong pfo, jint cjsize, jlong pfi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1732,7 +1732,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getAutoRotationState(JNIEnv* km_env, jclass km_clazz, jlong pstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetAutoRotationState(JNIEnv* km_env, jclass km_clazz, jlong pstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1757,7 +1757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getCapabilitiesStringLength(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwcapabilitiesstringlengthincharacters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetCapabilitiesStringLength(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwcapabilitiesstringlengthincharacters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1783,7 +1783,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getDisplayAutoRotationPreferences(JNIEnv* km_env, jclass km_clazz, jlong porientation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetDisplayAutoRotationPreferences(JNIEnv* km_env, jclass km_clazz, jlong porientation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1808,7 +1808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getDisplayConfigBufferSizes(JNIEnv* km_env, jclass km_clazz, jint flags, jlong numpatharrayelements, jlong nummodeinfoarrayelements) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetDisplayConfigBufferSizes(JNIEnv* km_env, jclass km_clazz, jint flags, jlong numpatharrayelements, jlong nummodeinfoarrayelements) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1835,7 +1835,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorBrightness(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwminimumbrightness, jlong pdwcurrentbrightness, jlong pdwmaximumbrightness) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorBrightness(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwminimumbrightness, jlong pdwcurrentbrightness, jlong pdwmaximumbrightness) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1863,7 +1863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorCapabilities(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwmonitorcapabilities, jlong pdwsupportedcolortemperatures) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorCapabilities(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwmonitorcapabilities, jlong pdwsupportedcolortemperatures) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1890,7 +1890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorColorTemperature(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pctcurrentcolortemperature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorColorTemperature(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pctcurrentcolortemperature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1916,7 +1916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorContrast(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwminimumcontrast, jlong pdwcurrentcontrast, jlong pdwmaximumcontrast) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorContrast(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwminimumcontrast, jlong pdwcurrentcontrast, jlong pdwmaximumcontrast) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1944,7 +1944,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorDisplayAreaPosition(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint ptpositiontype, jlong pdwminimumposition, jlong pdwcurrentposition, jlong pdwmaximumposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaPosition(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint ptpositiontype, jlong pdwminimumposition, jlong pdwcurrentposition, jlong pdwmaximumposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1973,7 +1973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorDisplayAreaSize(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint stsizetype, jlong pdwminimumwidthorheight, jlong pdwcurrentwidthorheight, jlong pdwmaximumwidthorheight) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorDisplayAreaSize(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint stsizetype, jlong pdwminimumwidthorheight, jlong pdwcurrentwidthorheight, jlong pdwmaximumwidthorheight) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2002,7 +2002,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorRedGreenOrBlueDrive(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dtdrivetype, jlong pdwminimumdrive, jlong pdwcurrentdrive, jlong pdwmaximumdrive) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueDrive(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dtdrivetype, jlong pdwminimumdrive, jlong pdwcurrentdrive, jlong pdwmaximumdrive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2031,7 +2031,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorRedGreenOrBlueGain(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint gtgaintype, jlong pdwminimumgain, jlong pdwcurrentgain, jlong pdwmaximumgain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorRedGreenOrBlueGain(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint gtgaintype, jlong pdwminimumgain, jlong pdwcurrentgain, jlong pdwmaximumgain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2060,7 +2060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getMonitorTechnologyType(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdtydisplaytechnologytype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetMonitorTechnologyType(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdtydisplaytechnologytype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2086,7 +2086,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getNumberOfPhysicalMonitorsFromHMONITOR(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwnumberofphysicalmonitors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetNumberOfPhysicalMonitorsFromHMONITOR(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pdwnumberofphysicalmonitors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2112,7 +2112,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getPhysicalMonitorsFromHMONITOR(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dwphysicalmonitorarraysize, jlong pphysicalmonitorarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetPhysicalMonitorsFromHMONITOR(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dwphysicalmonitorarraysize, jlong pphysicalmonitorarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2139,7 +2139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getTimingReport(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pmtrmonitortimingreport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetTimingReport(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jlong pmtrmonitortimingreport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2165,7 +2165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1getVCPFeatureAndVCPFeatureReply(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jbyte bvcpcode, jlong pvct, jlong pdwcurrentvalue, jlong pdwmaximumvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayGetVCPFeatureAndVCPFeatureReply(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jbyte bvcpcode, jlong pvct, jlong pdwcurrentvalue, jlong pdwmaximumvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2194,7 +2194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1htGet8BppformatPalette(JNIEnv* km_env, jclass km_clazz, jlong ppaletteentry, jshort redgamma, jshort greengamma, jshort bluegamma) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayHtGet8BppformatPalette(JNIEnv* km_env, jclass km_clazz, jlong ppaletteentry, jshort redgamma, jshort greengamma, jshort bluegamma) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2222,7 +2222,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1htGet8BppmaskPalette(JNIEnv* km_env, jclass km_clazz, jlong ppaletteentry, jint use8bppmaskpal, jbyte cmymask, jshort redgamma, jshort greengamma, jshort bluegamma) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayHtGet8BppmaskPalette(JNIEnv* km_env, jclass km_clazz, jlong ppaletteentry, jint use8bppmaskpal, jbyte cmymask, jshort redgamma, jshort greengamma, jshort bluegamma) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2252,7 +2252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1pathobjBEnum(JNIEnv* km_env, jclass km_clazz, jlong ppo, jlong ppd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayPathobjBEnum(JNIEnv* km_env, jclass km_clazz, jlong ppo, jlong ppd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2278,7 +2278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1pathobjBEnumClipLines(JNIEnv* km_env, jclass km_clazz, jlong ppo, jint cb, jlong pcl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayPathobjBEnumClipLines(JNIEnv* km_env, jclass km_clazz, jlong ppo, jint cb, jlong pcl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2305,7 +2305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1pathobjVEnumStart(JNIEnv* km_env, jclass km_clazz, jlong ppo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayPathobjVEnumStart(JNIEnv* km_env, jclass km_clazz, jlong ppo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2326,7 +2326,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1pathobjVEnumStartClipLines(JNIEnv* km_env, jclass km_clazz, jlong ppo, jlong pco, jlong pso, jlong pla) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayPathobjVEnumStartClipLines(JNIEnv* km_env, jclass km_clazz, jlong ppo, jlong pco, jlong pso, jlong pla) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2350,7 +2350,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1pathobjVGetBounds(JNIEnv* km_env, jclass km_clazz, jlong ppo, jlong prectfx) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayPathobjVGetBounds(JNIEnv* km_env, jclass km_clazz, jlong ppo, jlong prectfx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2372,7 +2372,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1queryDisplayConfig(JNIEnv* km_env, jclass km_clazz, jint flags, jlong numpatharrayelements, jlong patharray, jlong nummodeinfoarrayelements, jlong modeinfoarray, jlong currenttopologyid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayQueryDisplayConfig(JNIEnv* km_env, jclass km_clazz, jint flags, jlong numpatharrayelements, jlong patharray, jlong nummodeinfoarrayelements, jlong modeinfoarray, jlong currenttopologyid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2402,7 +2402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1restoreMonitorFactoryColorDefaults(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryColorDefaults(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2427,7 +2427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1restoreMonitorFactoryDefaults(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayRestoreMonitorFactoryDefaults(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2452,7 +2452,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1strobjBEnum(JNIEnv* km_env, jclass km_clazz, jlong pstro, jlong pc, jlong ppgpos) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayStrobjBEnum(JNIEnv* km_env, jclass km_clazz, jlong pstro, jlong pc, jlong ppgpos) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2479,7 +2479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1strobjBEnumPositionsOnly(JNIEnv* km_env, jclass km_clazz, jlong pstro, jlong pc, jlong ppgpos) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayStrobjBEnumPositionsOnly(JNIEnv* km_env, jclass km_clazz, jlong pstro, jlong pc, jlong ppgpos) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2506,7 +2506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1strobjBGetAdvanceWidths(JNIEnv* km_env, jclass km_clazz, jlong pso, jint ifirst, jint c, jlong pptqd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayStrobjBGetAdvanceWidths(JNIEnv* km_env, jclass km_clazz, jlong pso, jint ifirst, jint c, jlong pptqd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2534,7 +2534,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1strobjDwGetCodePage(JNIEnv* km_env, jclass km_clazz, jlong pstro) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayStrobjDwGetCodePage(JNIEnv* km_env, jclass km_clazz, jlong pstro) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2559,7 +2559,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1strobjVEnumStart(JNIEnv* km_env, jclass km_clazz, jlong pstro) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayStrobjVEnumStart(JNIEnv* km_env, jclass km_clazz, jlong pstro) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2580,7 +2580,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1saveCurrentMonitorSettings(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySaveCurrentMonitorSettings(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2605,7 +2605,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1saveCurrentSettings(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySaveCurrentSettings(JNIEnv* km_env, jclass km_clazz, jlong hmonitor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2630,7 +2630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setDisplayAutoRotationPreferences(JNIEnv* km_env, jclass km_clazz, jint orientation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetDisplayAutoRotationPreferences(JNIEnv* km_env, jclass km_clazz, jint orientation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2655,7 +2655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setDisplayConfig(JNIEnv* km_env, jclass km_clazz, jint numpatharrayelements, jlong patharray, jint nummodeinfoarrayelements, jlong modeinfoarray, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetDisplayConfig(JNIEnv* km_env, jclass km_clazz, jint numpatharrayelements, jlong patharray, jint nummodeinfoarrayelements, jlong modeinfoarray, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2684,7 +2684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setMonitorBrightness(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dwnewbrightness) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetMonitorBrightness(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dwnewbrightness) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2710,7 +2710,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setMonitorColorTemperature(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint ctcurrentcolortemperature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetMonitorColorTemperature(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint ctcurrentcolortemperature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2736,7 +2736,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setMonitorContrast(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dwnewcontrast) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetMonitorContrast(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dwnewcontrast) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2762,7 +2762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setMonitorDisplayAreaPosition(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint ptpositiontype, jint dwnewposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaPosition(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint ptpositiontype, jint dwnewposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2789,7 +2789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setMonitorDisplayAreaSize(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint stsizetype, jint dwnewdisplayareawidthorheight) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetMonitorDisplayAreaSize(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint stsizetype, jint dwnewdisplayareawidthorheight) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2816,7 +2816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setMonitorRedGreenOrBlueDrive(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dtdrivetype, jint dwnewdrive) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueDrive(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dtdrivetype, jint dwnewdrive) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2843,7 +2843,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setMonitorRedGreenOrBlueGain(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint gtgaintype, jint dwnewgain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetMonitorRedGreenOrBlueGain(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint gtgaintype, jint dwnewgain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2870,7 +2870,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1setVCPFeature(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jbyte bvcpcode, jint dwnewvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplaySetVCPFeature(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jbyte bvcpcode, jint dwnewvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2897,7 +2897,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1xformobjBApplyXform(JNIEnv* km_env, jclass km_clazz, jlong pxo, jint imode, jint cpoints, jlong pvin, jlong pvout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayXformobjBApplyXform(JNIEnv* km_env, jclass km_clazz, jlong pxo, jint imode, jint cpoints, jlong pvin, jlong pvout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2926,7 +2926,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1xformobjIGetXform(JNIEnv* km_env, jclass km_clazz, jlong pxo, jlong pxform) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayXformobjIGetXform(JNIEnv* km_env, jclass km_clazz, jlong pxo, jlong pxform) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2952,7 +2952,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1xlateobjCGetPalette(JNIEnv* km_env, jclass km_clazz, jlong pxlo, jint ipal, jint cpal, jlong ppal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayXlateobjCGetPalette(JNIEnv* km_env, jclass km_clazz, jlong pxlo, jint ipal, jint cpal, jlong ppal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2980,7 +2980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1xlateobjHGetColorTransform(JNIEnv* km_env, jclass km_clazz, jlong pxlo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayXlateobjHGetColorTransform(JNIEnv* km_env, jclass km_clazz, jlong pxlo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3005,7 +3005,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1xlateobjIXlate(JNIEnv* km_env, jclass km_clazz, jlong pxlo, jint icolor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayXlateobjIXlate(JNIEnv* km_env, jclass km_clazz, jlong pxlo, jint icolor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3031,7 +3031,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssys_1windows_1win32_1devices_1display_1xlateobjPiVector(JNIEnv* km_env, jclass km_clazz, jlong pxlo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_display_WindowsWin32DevicesDisplayJniBridge_windowssysWindowsWin32DevicesDisplayXlateobjPiVector(JNIEnv* km_env, jclass km_clazz, jlong pxlo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

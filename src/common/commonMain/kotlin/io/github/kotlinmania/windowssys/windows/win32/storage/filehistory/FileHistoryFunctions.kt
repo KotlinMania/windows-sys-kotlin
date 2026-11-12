@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.filehistory
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 
@@ -8,7 +8,7 @@ public expect fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult
 
 public expect fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult
 
-public expect fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: COpaquePointer?): Hresult
+public expect fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr<FhServicePipeHandle>): Hresult
 
 public expect fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult
 

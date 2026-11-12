@@ -9,10 +9,10 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_iis_getExtensionVersion(void* pver);
-int32_t windowssys_windows_win32_system_iis_getFilterVersion(void* pver);
-uint32_t windowssys_windows_win32_system_iis_httpExtensionProc(void* pecb);
-uint32_t windowssys_windows_win32_system_iis_httpFilterProc(void* pfc, uint32_t notificationtype, void* pvnotification);
+int32_t windowssysWindowsWin32SystemIisGetExtensionVersion(void* pver);
+int32_t windowssysWindowsWin32SystemIisGetFilterVersion(void* pver);
+uint32_t windowssysWindowsWin32SystemIisHttpExtensionProc(void* pecb);
+uint32_t windowssysWindowsWin32SystemIisHttpFilterProc(void* pfc, uint32_t notificationtype, void* pvnotification);
 
 #ifdef __cplusplus
 }

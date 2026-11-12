@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1activateActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx, jlong lpcookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingActivateActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx, jlong lpcookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1addRefActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingAddRefActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -66,7 +66,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyDeltaA(JNIEnv* km_env, jclass km_clazz, jlong applyflags, jlong lpsourcename, jlong lpdeltaname, jlong lptargetname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaA(JNIEnv* km_env, jclass km_clazz, jlong applyflags, jlong lpsourcename, jlong lpdeltaname, jlong lptargetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyDeltaW(JNIEnv* km_env, jclass km_clazz, jlong applyflags, jlong lpsourcename, jlong lpdeltaname, jlong lptargetname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaW(JNIEnv* km_env, jclass km_clazz, jlong applyflags, jlong lpsourcename, jlong lpdeltaname, jlong lptargetname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -122,7 +122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyPatchToFileA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -150,7 +150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyPatchToFileByBuffers(JNIEnv* km_env, jclass km_clazz, jlong patchfilemapped, jint patchfilesize, jlong oldfilemapped, jint oldfilesize, jlong newfilebuffer, jint newfilebuffersize, jlong newfileactualsize, jlong newfiletime, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByBuffers(JNIEnv* km_env, jclass km_clazz, jlong patchfilemapped, jint patchfilesize, jlong oldfilemapped, jint oldfilesize, jlong newfilebuffer, jint newfilebuffersize, jlong newfileactualsize, jlong newfiletime, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -185,7 +185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyPatchToFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong oldfilehandle, jlong newfilehandle, jint applyoptionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong oldfilehandle, jlong newfilehandle, jint applyoptionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -213,7 +213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyPatchToFileByHandlesEx(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong oldfilehandle, jlong newfilehandle, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandlesEx(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong oldfilehandle, jlong newfilehandle, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -243,7 +243,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyPatchToFileExA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -273,7 +273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyPatchToFileExW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags, jlong progresscallback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -303,7 +303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1applyPatchToFileW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jlong newfilename, jint applyoptionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createActCtxA(JNIEnv* km_env, jclass km_clazz, jlong pactctx) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxA(JNIEnv* km_env, jclass km_clazz, jlong pactctx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -356,7 +356,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createActCtxW(JNIEnv* km_env, jclass km_clazz, jlong pactctx) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxW(JNIEnv* km_env, jclass km_clazz, jlong pactctx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -381,7 +381,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createPatchFileA(JNIEnv* km_env, jclass km_clazz, jlong oldfilename, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileA(JNIEnv* km_env, jclass km_clazz, jlong oldfilename, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -410,7 +410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createPatchFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong oldfilehandle, jlong newfilehandle, jlong patchfilehandle, jint optionflags, jlong optiondata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong oldfilehandle, jlong newfilehandle, jlong patchfilehandle, jint optionflags, jlong optiondata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -439,7 +439,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createPatchFileByHandlesEx(JNIEnv* km_env, jclass km_clazz, jint oldfilecount, jlong oldfileinfoarray, jlong newfilehandle, jlong patchfilehandle, jint optionflags, jlong optiondata, jlong progresscallback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandlesEx(JNIEnv* km_env, jclass km_clazz, jint oldfilecount, jlong oldfileinfoarray, jlong newfilehandle, jlong patchfilehandle, jint optionflags, jlong optiondata, jlong progresscallback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -471,7 +471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createPatchFileExA(JNIEnv* km_env, jclass km_clazz, jint oldfilecount, jlong oldfileinfoarray, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata, jlong progresscallback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExA(JNIEnv* km_env, jclass km_clazz, jint oldfilecount, jlong oldfileinfoarray, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata, jlong progresscallback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -503,7 +503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createPatchFileExW(JNIEnv* km_env, jclass km_clazz, jint oldfilecount, jlong oldfileinfoarray, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata, jlong progresscallback, jlong callbackcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExW(JNIEnv* km_env, jclass km_clazz, jint oldfilecount, jlong oldfileinfoarray, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata, jlong progresscallback, jlong callbackcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -535,7 +535,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1createPatchFileW(JNIEnv* km_env, jclass km_clazz, jlong oldfilename, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileW(JNIEnv* km_env, jclass km_clazz, jlong oldfilename, jlong newfilename, jlong patchfilename, jint optionflags, jlong optiondata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -564,7 +564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1deactivateActCtx(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong ulcookie) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong ulcookie) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -590,7 +590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1deltaFree(JNIEnv* km_env, jclass km_clazz, jlong lpmemory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingDeltaFree(JNIEnv* km_env, jclass km_clazz, jlong lpmemory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -615,7 +615,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1extractPatchHeaderToFileA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong patchheaderfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong patchheaderfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -641,7 +641,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1extractPatchHeaderToFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong patchheaderfilehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong patchheaderfilehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -667,7 +667,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1extractPatchHeaderToFileW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong patchheaderfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong patchheaderfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -693,7 +693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1findActCtxSectionGuid(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpextensionguid, jint ulsectionid, jlong lpguidtofind, jlong returneddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionGuid(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpextensionguid, jint ulsectionid, jlong lpguidtofind, jlong returneddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -722,7 +722,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1findActCtxSectionStringA(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpextensionguid, jint ulsectionid, jlong lpstringtofind, jlong returneddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringA(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpextensionguid, jint ulsectionid, jlong lpstringtofind, jlong returneddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -751,7 +751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1findActCtxSectionStringW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpextensionguid, jint ulsectionid, jlong lpstringtofind, jlong returneddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong lpextensionguid, jint ulsectionid, jlong lpstringtofind, jlong returneddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -780,7 +780,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getCurrentActCtx(JNIEnv* km_env, jclass km_clazz, jlong lphactctx) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetCurrentActCtx(JNIEnv* km_env, jclass km_clazz, jlong lphactctx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -805,7 +805,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getDeltaInfoA(JNIEnv* km_env, jclass km_clazz, jlong lpdeltaname, jlong lpheaderinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoA(JNIEnv* km_env, jclass km_clazz, jlong lpdeltaname, jlong lpheaderinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -831,7 +831,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getDeltaInfoW(JNIEnv* km_env, jclass km_clazz, jlong lpdeltaname, jlong lpheaderinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoW(JNIEnv* km_env, jclass km_clazz, jlong lpdeltaname, jlong lpheaderinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -857,7 +857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getDeltaSignatureA(JNIEnv* km_env, jclass km_clazz, jlong filetypeset, jint hashalgid, jlong lpsourcename, jlong lphash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureA(JNIEnv* km_env, jclass km_clazz, jlong filetypeset, jint hashalgid, jlong lpsourcename, jlong lphash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -885,7 +885,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getDeltaSignatureW(JNIEnv* km_env, jclass km_clazz, jlong filetypeset, jint hashalgid, jlong lpsourcename, jlong lphash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureW(JNIEnv* km_env, jclass km_clazz, jlong filetypeset, jint hashalgid, jlong lpsourcename, jlong lphash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -913,7 +913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getFilePatchSignatureA(JNIEnv* km_env, jclass km_clazz, jlong filename, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureA(JNIEnv* km_env, jclass km_clazz, jlong filename, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -946,7 +946,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getFilePatchSignatureByBuffer(JNIEnv* km_env, jclass km_clazz, jlong filebufferwritable, jint filesize, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByBuffer(JNIEnv* km_env, jclass km_clazz, jlong filebufferwritable, jint filesize, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -980,7 +980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getFilePatchSignatureByHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1013,7 +1013,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1getFilePatchSignatureW(JNIEnv* km_env, jclass km_clazz, jlong filename, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureW(JNIEnv* km_env, jclass km_clazz, jlong filename, jint optionflags, jlong optiondata, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray, jint signaturebuffersize, jlong signaturebuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1046,7 +1046,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiAdvertiseProductA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1074,7 +1074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiAdvertiseProductExA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage, jint dwplatform, jint dwoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductExA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage, jint dwplatform, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1104,7 +1104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiAdvertiseProductExW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage, jint dwplatform, jint dwoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductExW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage, jint dwplatform, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1134,7 +1134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiAdvertiseProductW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szscriptfilepath, jlong sztransforms, jshort lgidlanguage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1162,7 +1162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiAdvertiseScriptA(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jint dwflags, jlong phregdata, jint fremoveitems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptA(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jint dwflags, jlong phregdata, jint fremoveitems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1190,7 +1190,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiAdvertiseScriptW(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jint dwflags, jlong phregdata, jint fremoveitems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptW(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jint dwflags, jlong phregdata, jint fremoveitems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1218,7 +1218,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiApplyMultiplePatchesA(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackages, jlong szproductcode, jlong szpropertieslist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyMultiplePatchesA(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackages, jlong szproductcode, jlong szpropertieslist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1245,7 +1245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiApplyMultiplePatchesW(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackages, jlong szproductcode, jlong szpropertieslist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyMultiplePatchesW(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackages, jlong szproductcode, jlong szpropertieslist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1272,7 +1272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiApplyPatchA(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackage, jlong szinstallpackage, jint einstalltype, jlong szcommandline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyPatchA(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackage, jlong szinstallpackage, jint einstalltype, jlong szcommandline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1300,7 +1300,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiApplyPatchW(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackage, jlong szinstallpackage, jint einstalltype, jlong szcommandline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyPatchW(JNIEnv* km_env, jclass km_clazz, jlong szpatchpackage, jlong szinstallpackage, jint einstalltype, jlong szcommandline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1328,7 +1328,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiBeginTransactionA(JNIEnv* km_env, jclass km_clazz, jlong szname, jint dwtransactionattributes, jlong phtransactionhandle, jlong phchangeofownerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionA(JNIEnv* km_env, jclass km_clazz, jlong szname, jint dwtransactionattributes, jlong phtransactionhandle, jlong phchangeofownerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1356,7 +1356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiBeginTransactionW(JNIEnv* km_env, jclass km_clazz, jlong szname, jint dwtransactionattributes, jlong phtransactionhandle, jlong phchangeofownerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionW(JNIEnv* km_env, jclass km_clazz, jlong szname, jint dwtransactionattributes, jlong phtransactionhandle, jlong phchangeofownerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1384,7 +1384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiCloseAllHandles(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCloseAllHandles(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1408,7 +1408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiCloseHandle(JNIEnv* km_env, jclass km_clazz, jint hany) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCloseHandle(JNIEnv* km_env, jclass km_clazz, jint hany) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1433,7 +1433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiCollectUserInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCollectUserInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1458,7 +1458,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiCollectUserInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCollectUserInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1483,7 +1483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiConfigureFeatureA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint einstallstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureFeatureA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint einstallstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1510,7 +1510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiConfigureFeatureW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint einstallstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureFeatureW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint einstallstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1537,7 +1537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiConfigureProductA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1564,7 +1564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiConfigureProductExA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate, jlong szcommandline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductExA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate, jlong szcommandline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1592,7 +1592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiConfigureProductExW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate, jlong szcommandline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductExW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate, jlong szcommandline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1620,7 +1620,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiConfigureProductW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiConfigureProductW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint iinstalllevel, jint einstallstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1647,7 +1647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiCreateRecord(JNIEnv* km_env, jclass km_clazz, jint cparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCreateRecord(JNIEnv* km_env, jclass km_clazz, jint cparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1672,7 +1672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiCreateTransformSummaryInfoA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ierrorconditions, jint ivalidation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCreateTransformSummaryInfoA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ierrorconditions, jint ivalidation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1701,7 +1701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiCreateTransformSummaryInfoW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ierrorconditions, jint ivalidation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiCreateTransformSummaryInfoW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ierrorconditions, jint ivalidation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1730,7 +1730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseApplyTransformA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztransformfile, jint ierrorconditions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseApplyTransformA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztransformfile, jint ierrorconditions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1757,7 +1757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseApplyTransformW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztransformfile, jint ierrorconditions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseApplyTransformW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztransformfile, jint ierrorconditions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1784,7 +1784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseCommit(JNIEnv* km_env, jclass km_clazz, jint hdatabase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseCommit(JNIEnv* km_env, jclass km_clazz, jint hdatabase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1809,7 +1809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseExportA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong szfolderpath, jlong szfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseExportA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong szfolderpath, jlong szfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1837,7 +1837,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseExportW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong szfolderpath, jlong szfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseExportW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong szfolderpath, jlong szfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1865,7 +1865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseGenerateTransformA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ireserved1, jint ireserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGenerateTransformA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ireserved1, jint ireserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1894,7 +1894,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseGenerateTransformW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ireserved1, jint ireserved2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGenerateTransformW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasereference, jlong sztransformfile, jint ireserved1, jint ireserved2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1923,7 +1923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseGetPrimaryKeysA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong phrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong phrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1950,7 +1950,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseGetPrimaryKeysW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong phrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename, jlong phrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1977,7 +1977,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseImportA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szfolderpath, jlong szfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseImportA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szfolderpath, jlong szfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2004,7 +2004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseImportW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szfolderpath, jlong szfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseImportW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szfolderpath, jlong szfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2031,7 +2031,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseIsTablePersistentA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseIsTablePersistentA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2057,7 +2057,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseIsTablePersistentW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseIsTablePersistentW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong sztablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2083,7 +2083,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseMergeA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasemerge, jlong sztablename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseMergeA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasemerge, jlong sztablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2110,7 +2110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseMergeW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasemerge, jlong sztablename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseMergeW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jint hdatabasemerge, jlong sztablename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2137,7 +2137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseOpenViewA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szquery, jlong phview) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szquery, jlong phview) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2164,7 +2164,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDatabaseOpenViewW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szquery, jlong phview) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szquery, jlong phview) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2191,7 +2191,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDetermineApplicablePatchesA(JNIEnv* km_env, jclass km_clazz, jlong szproductpackagepath, jint cpatchinfo, jlong ppatchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesA(JNIEnv* km_env, jclass km_clazz, jlong szproductpackagepath, jint cpatchinfo, jlong ppatchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2218,7 +2218,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDetermineApplicablePatchesW(JNIEnv* km_env, jclass km_clazz, jlong szproductpackagepath, jint cpatchinfo, jlong ppatchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesW(JNIEnv* km_env, jclass km_clazz, jlong szproductpackagepath, jint cpatchinfo, jlong ppatchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2245,7 +2245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDeterminePatchSequenceA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint cpatchinfo, jlong ppatchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint cpatchinfo, jlong ppatchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2274,7 +2274,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDeterminePatchSequenceW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint cpatchinfo, jlong ppatchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint cpatchinfo, jlong ppatchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2303,7 +2303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDoActionA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDoActionA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2329,7 +2329,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiDoActionW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDoActionW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2355,7 +2355,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnableLogA(JNIEnv* km_env, jclass km_clazz, jint dwlogmode, jlong szlogfile, jint dwlogattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableLogA(JNIEnv* km_env, jclass km_clazz, jint dwlogmode, jlong szlogfile, jint dwlogattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2382,7 +2382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnableLogW(JNIEnv* km_env, jclass km_clazz, jint dwlogmode, jlong szlogfile, jint dwlogattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableLogW(JNIEnv* km_env, jclass km_clazz, jint dwlogmode, jlong szlogfile, jint dwlogattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2409,7 +2409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnableUIPreview(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong phpreview) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableUIPreview(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong phpreview) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2435,7 +2435,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEndTransaction(JNIEnv* km_env, jclass km_clazz, jint dwtransactionstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEndTransaction(JNIEnv* km_env, jclass km_clazz, jint dwtransactionstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2460,7 +2460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumClientsA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iproductindex, jlong lpproductbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iproductindex, jlong lpproductbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2487,7 +2487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumClientsExA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong szusersid, jint dwcontext, jint dwproductindex, jlong szproductbuf, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong szusersid, jint dwcontext, jint dwproductindex, jlong szproductbuf, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2519,7 +2519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumClientsExW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong szusersid, jint dwcontext, jint dwproductindex, jlong szproductbuf, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong szusersid, jint dwcontext, jint dwproductindex, jlong szproductbuf, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2551,7 +2551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumClientsW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iproductindex, jlong lpproductbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iproductindex, jlong lpproductbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2578,7 +2578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentCostsA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint dwindex, jint istate, jlong szdrivebuf, jlong pcchdrivebuf, jlong picost, jlong pitempcost) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint dwindex, jint istate, jlong szdrivebuf, jlong pcchdrivebuf, jlong picost, jlong pitempcost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2610,7 +2610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentCostsW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint dwindex, jint istate, jlong szdrivebuf, jlong pcchdrivebuf, jlong picost, jlong pitempcost) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint dwindex, jint istate, jlong szdrivebuf, jlong pcchdrivebuf, jlong picost, jlong pitempcost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2642,7 +2642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentQualifiersA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iindex, jlong lpqualifierbuf, jlong pcchqualifierbuf, jlong lpapplicationdatabuf, jlong pcchapplicationdatabuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iindex, jlong lpqualifierbuf, jlong pcchqualifierbuf, jlong lpapplicationdatabuf, jlong pcchapplicationdatabuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2672,7 +2672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentQualifiersW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iindex, jlong lpqualifierbuf, jlong pcchqualifierbuf, jlong lpapplicationdatabuf, jlong pcchapplicationdatabuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jint iindex, jlong lpqualifierbuf, jlong pcchqualifierbuf, jlong lpapplicationdatabuf, jlong pcchapplicationdatabuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2702,7 +2702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentsA(JNIEnv* km_env, jclass km_clazz, jint icomponentindex, jlong lpcomponentbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsA(JNIEnv* km_env, jclass km_clazz, jint icomponentindex, jlong lpcomponentbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2728,7 +2728,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentsExA(JNIEnv* km_env, jclass km_clazz, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledcomponentcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExA(JNIEnv* km_env, jclass km_clazz, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledcomponentcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2759,7 +2759,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentsExW(JNIEnv* km_env, jclass km_clazz, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledcomponentcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExW(JNIEnv* km_env, jclass km_clazz, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledcomponentcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2790,7 +2790,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumComponentsW(JNIEnv* km_env, jclass km_clazz, jint icomponentindex, jlong lpcomponentbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsW(JNIEnv* km_env, jclass km_clazz, jint icomponentindex, jlong lpcomponentbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2816,7 +2816,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumFeaturesA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ifeatureindex, jlong lpfeaturebuf, jlong lpparentbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumFeaturesA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ifeatureindex, jlong lpfeaturebuf, jlong lpparentbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2844,7 +2844,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumFeaturesW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ifeatureindex, jlong lpfeaturebuf, jlong lpparentbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumFeaturesW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ifeatureindex, jlong lpfeaturebuf, jlong lpparentbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2872,7 +2872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumPatchesA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ipatchindex, jlong lppatchbuf, jlong lptransformsbuf, jlong pcchtransformsbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ipatchindex, jlong lppatchbuf, jlong lptransformsbuf, jlong pcchtransformsbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2901,7 +2901,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumPatchesExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwfilter, jint dwindex, jlong szpatchcode, jlong sztargetproductcode, jlong pdwtargetproductcontext, jlong sztargetusersid, jlong pcchtargetusersid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwfilter, jint dwindex, jlong szpatchcode, jlong sztargetproductcode, jlong pdwtargetproductcontext, jlong sztargetusersid, jlong pcchtargetusersid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2935,7 +2935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumPatchesExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwfilter, jint dwindex, jlong szpatchcode, jlong sztargetproductcode, jlong pdwtargetproductcontext, jlong sztargetusersid, jlong pcchtargetusersid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwfilter, jint dwindex, jlong szpatchcode, jlong sztargetproductcode, jlong pdwtargetproductcontext, jlong sztargetusersid, jlong pcchtargetusersid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2969,7 +2969,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumPatchesW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ipatchindex, jlong lppatchbuf, jlong lptransformsbuf, jlong pcchtransformsbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint ipatchindex, jlong lppatchbuf, jlong lptransformsbuf, jlong pcchtransformsbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2998,7 +2998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumProductsA(JNIEnv* km_env, jclass km_clazz, jint iproductindex, jlong lpproductbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsA(JNIEnv* km_env, jclass km_clazz, jint iproductindex, jlong lpproductbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3024,7 +3024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumProductsExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledproductcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledproductcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3056,7 +3056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumProductsExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledproductcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jint dwindex, jlong szinstalledproductcode, jlong pdwinstalledcontext, jlong szsid, jlong pcchsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3088,7 +3088,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumProductsW(JNIEnv* km_env, jclass km_clazz, jint iproductindex, jlong lpproductbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsW(JNIEnv* km_env, jclass km_clazz, jint iproductindex, jlong lpproductbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3114,7 +3114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumRelatedProductsA(JNIEnv* km_env, jclass km_clazz, jlong lpupgradecode, jint dwreserved, jint iproductindex, jlong lpproductbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumRelatedProductsA(JNIEnv* km_env, jclass km_clazz, jlong lpupgradecode, jint dwreserved, jint iproductindex, jlong lpproductbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3142,7 +3142,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEnumRelatedProductsW(JNIEnv* km_env, jclass km_clazz, jlong lpupgradecode, jint dwreserved, jint iproductindex, jlong lpproductbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumRelatedProductsW(JNIEnv* km_env, jclass km_clazz, jlong lpupgradecode, jint dwreserved, jint iproductindex, jlong lpproductbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3170,7 +3170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEvaluateConditionA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcondition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEvaluateConditionA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcondition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3196,7 +3196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiEvaluateConditionW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcondition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEvaluateConditionW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcondition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3222,7 +3222,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiExtractPatchXMLDataA(JNIEnv* km_env, jclass km_clazz, jlong szpatchpath, jint dwreserved, jlong szxmldata, jlong pcchxmldata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataA(JNIEnv* km_env, jclass km_clazz, jlong szpatchpath, jint dwreserved, jlong szxmldata, jlong pcchxmldata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3250,7 +3250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiExtractPatchXMLDataW(JNIEnv* km_env, jclass km_clazz, jlong szpatchpath, jint dwreserved, jlong szxmldata, jlong pcchxmldata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataW(JNIEnv* km_env, jclass km_clazz, jlong szpatchpath, jint dwreserved, jlong szxmldata, jlong pcchxmldata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3278,7 +3278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiFormatRecordA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint hrecord, jlong szresultbuf, jlong pcchresultbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint hrecord, jlong szresultbuf, jlong pcchresultbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3306,7 +3306,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiFormatRecordW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint hrecord, jlong szresultbuf, jlong pcchresultbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint hrecord, jlong szresultbuf, jlong pcchresultbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3334,7 +3334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetActiveDatabase(JNIEnv* km_env, jclass km_clazz, jint hinstall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetActiveDatabase(JNIEnv* km_env, jclass km_clazz, jint hinstall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3359,7 +3359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetComponentPathA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3387,7 +3387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetComponentPathExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szcomponentcode, jlong szusersid, jint dwcontext, jlong lpoutpathbuffer, jlong pcchoutpathbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szcomponentcode, jlong szusersid, jint dwcontext, jlong lpoutpathbuffer, jlong pcchoutpathbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3417,7 +3417,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetComponentPathExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szcomponentcode, jlong szusersid, jint dwcontext, jlong lpoutpathbuffer, jlong pcchoutpathbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szcomponentcode, jlong szusersid, jint dwcontext, jlong lpoutpathbuffer, jlong pcchoutpathbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3447,7 +3447,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetComponentPathW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3475,7 +3475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetComponentStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jlong piinstalled, jlong piaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jlong piinstalled, jlong piaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3503,7 +3503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetComponentStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jlong piinstalled, jlong piaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jlong piinstalled, jlong piaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3531,7 +3531,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetDatabaseState(JNIEnv* km_env, jclass km_clazz, jint hdatabase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(JNIEnv* km_env, jclass km_clazz, jint hdatabase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3556,7 +3556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureCostA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint icosttree, jint istate, jlong picost) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint icosttree, jint istate, jlong picost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3585,7 +3585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureCostW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint icosttree, jint istate, jlong picost) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint icosttree, jint istate, jlong picost) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3614,7 +3614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureInfoA(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szfeature, jlong lpattributes, jlong lptitlebuf, jlong pcchtitlebuf, jlong lphelpbuf, jlong pcchhelpbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoA(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szfeature, jlong lpattributes, jlong lptitlebuf, jlong pcchtitlebuf, jlong lphelpbuf, jlong pcchhelpbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3645,7 +3645,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureInfoW(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szfeature, jlong lpattributes, jlong lptitlebuf, jlong pcchtitlebuf, jlong lphelpbuf, jlong pcchhelpbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoW(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szfeature, jlong lpattributes, jlong lptitlebuf, jlong pcchtitlebuf, jlong lphelpbuf, jlong pcchhelpbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3676,7 +3676,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong piinstalled, jlong piaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong piinstalled, jlong piaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3704,7 +3704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong piinstalled, jlong piaction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong piinstalled, jlong piaction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3732,7 +3732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureUsageA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong pdwusecount, jlong pwdateused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong pdwusecount, jlong pwdateused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3760,7 +3760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureUsageW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong pdwusecount, jlong pwdateused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong pdwusecount, jlong pwdateused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3788,7 +3788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureValidStatesA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong lpinstallstates) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong lpinstallstates) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3815,7 +3815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFeatureValidStatesW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong lpinstallstates) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jlong lpinstallstates) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3842,7 +3842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFileHashA(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jint dwoptions, jlong phash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashA(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jint dwoptions, jlong phash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3869,7 +3869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFileHashW(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jint dwoptions, jlong phash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashW(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jint dwoptions, jlong phash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3896,7 +3896,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFileSignatureInformationA(JNIEnv* km_env, jclass km_clazz, jlong szsignedobjectpath, jint dwflags, jlong ppccertcontext, jlong pbhashdata, jlong pcbhashdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationA(JNIEnv* km_env, jclass km_clazz, jlong szsignedobjectpath, jint dwflags, jlong ppccertcontext, jlong pbhashdata, jlong pcbhashdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3925,7 +3925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFileSignatureInformationW(JNIEnv* km_env, jclass km_clazz, jlong szsignedobjectpath, jint dwflags, jlong ppccertcontext, jlong pbhashdata, jlong pcbhashdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationW(JNIEnv* km_env, jclass km_clazz, jlong szsignedobjectpath, jint dwflags, jlong ppccertcontext, jlong pbhashdata, jlong pcbhashdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3954,7 +3954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFileVersionA(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jlong lpversionbuf, jlong pcchversionbuf, jlong lplangbuf, jlong pcchlangbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionA(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jlong lpversionbuf, jlong pcchversionbuf, jlong lplangbuf, jlong pcchlangbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3983,7 +3983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetFileVersionW(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jlong lpversionbuf, jlong pcchversionbuf, jlong lplangbuf, jlong pcchlangbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionW(JNIEnv* km_env, jclass km_clazz, jlong szfilepath, jlong lpversionbuf, jlong pcchversionbuf, jlong lplangbuf, jlong pcchlangbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4012,7 +4012,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetLanguage(JNIEnv* km_env, jclass km_clazz, jint hinstall) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetLanguage(JNIEnv* km_env, jclass km_clazz, jint hinstall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4037,7 +4037,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetLastErrorRecord(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetLastErrorRecord(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4061,7 +4061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetMode(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint erunmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint erunmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4087,7 +4087,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPatchFileListA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szpatchpackages, jlong pcfiles, jlong pphfilerecords) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szpatchpackages, jlong pcfiles, jlong pphfilerecords) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4115,7 +4115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPatchFileListW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szpatchpackages, jlong pcfiles, jlong pphfilerecords) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szpatchpackages, jlong pcfiles, jlong pphfilerecords) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4143,7 +4143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPatchInfoA(JNIEnv* km_env, jclass km_clazz, jlong szpatch, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoA(JNIEnv* km_env, jclass km_clazz, jlong szpatch, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4171,7 +4171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPatchInfoExA(JNIEnv* km_env, jclass km_clazz, jlong szpatchcode, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong lpvalue, jlong pcchvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExA(JNIEnv* km_env, jclass km_clazz, jlong szpatchcode, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong lpvalue, jlong pcchvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4202,7 +4202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPatchInfoExW(JNIEnv* km_env, jclass km_clazz, jlong szpatchcode, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong lpvalue, jlong pcchvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExW(JNIEnv* km_env, jclass km_clazz, jlong szpatchcode, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong lpvalue, jlong pcchvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4233,7 +4233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPatchInfoW(JNIEnv* km_env, jclass km_clazz, jlong szpatch, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoW(JNIEnv* km_env, jclass km_clazz, jlong szpatch, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4261,7 +4261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductCodeA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lpbuf39) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductCodeA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lpbuf39) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4287,7 +4287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductCodeW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lpbuf39) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductCodeW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lpbuf39) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4313,7 +4313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4341,7 +4341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductInfoExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong szvalue, jlong pcchvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong szvalue, jlong pcchvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4371,7 +4371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductInfoExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong szvalue, jlong pcchvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szproperty, jlong szvalue, jlong pcchvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4401,7 +4401,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductInfoFromScriptA(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong lpproductbuf39, jlong plgidlanguage, jlong pdwversion, jlong lpnamebuf, jlong pcchnamebuf, jlong lppackagebuf, jlong pcchpackagebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptA(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong lpproductbuf39, jlong plgidlanguage, jlong pdwversion, jlong lpnamebuf, jlong pcchnamebuf, jlong lppackagebuf, jlong pcchpackagebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4433,7 +4433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductInfoFromScriptW(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong lpproductbuf39, jlong plgidlanguage, jlong pdwversion, jlong lpnamebuf, jlong pcchnamebuf, jlong lppackagebuf, jlong pcchpackagebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptW(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong lpproductbuf39, jlong plgidlanguage, jlong pdwversion, jlong lpnamebuf, jlong pcchnamebuf, jlong lppackagebuf, jlong pcchpackagebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4465,7 +4465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szattribute, jlong lpvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4493,7 +4493,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductPropertyA(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szproperty, jlong lpvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyA(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szproperty, jlong lpvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4521,7 +4521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetProductPropertyW(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szproperty, jlong lpvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyW(JNIEnv* km_env, jclass km_clazz, jint hproduct, jlong szproperty, jlong lpvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4549,7 +4549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4577,7 +4577,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4605,7 +4605,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetShortcutTargetA(JNIEnv* km_env, jclass km_clazz, jlong szshortcutpath, jlong szproductcode, jlong szfeatureid, jlong szcomponentcode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetShortcutTargetA(JNIEnv* km_env, jclass km_clazz, jlong szshortcutpath, jlong szproductcode, jlong szfeatureid, jlong szcomponentcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4633,7 +4633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetShortcutTargetW(JNIEnv* km_env, jclass km_clazz, jlong szshortcutpath, jlong szproductcode, jlong szfeatureid, jlong szcomponentcode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetShortcutTargetW(JNIEnv* km_env, jclass km_clazz, jlong szshortcutpath, jlong szproductcode, jlong szfeatureid, jlong szcomponentcode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4661,7 +4661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetSourcePathA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4689,7 +4689,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetSourcePathW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4717,7 +4717,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetSummaryInformationA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szdatabasepath, jint uiupdatecount, jlong phsummaryinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationA(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szdatabasepath, jint uiupdatecount, jlong phsummaryinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4745,7 +4745,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetSummaryInformationW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szdatabasepath, jint uiupdatecount, jlong phsummaryinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationW(JNIEnv* km_env, jclass km_clazz, jint hdatabase, jlong szdatabasepath, jint uiupdatecount, jlong phsummaryinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4773,7 +4773,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetTargetPathA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4801,7 +4801,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetTargetPathW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szpathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4829,7 +4829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetUserInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong lpusernamebuf, jlong pcchusernamebuf, jlong lporgnamebuf, jlong pcchorgnamebuf, jlong lpserialbuf, jlong pcchserialbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong lpusernamebuf, jlong pcchusernamebuf, jlong lporgnamebuf, jlong pcchorgnamebuf, jlong lpserialbuf, jlong pcchserialbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4860,7 +4860,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiGetUserInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong lpusernamebuf, jlong pcchusernamebuf, jlong lporgnamebuf, jlong pcchorgnamebuf, jlong lpserialbuf, jlong pcchserialbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong lpusernamebuf, jlong pcchusernamebuf, jlong lporgnamebuf, jlong pcchorgnamebuf, jlong lpserialbuf, jlong pcchserialbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4891,7 +4891,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiInstallMissingComponentA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jint einstallstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingComponentA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jint einstallstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4918,7 +4918,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiInstallMissingComponentW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jint einstallstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingComponentW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szcomponent, jint einstallstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4945,7 +4945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiInstallMissingFileA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingFileA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4971,7 +4971,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiInstallMissingFileW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallMissingFileW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4997,7 +4997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiInstallProductA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szcommandline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallProductA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szcommandline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5023,7 +5023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiInstallProductW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szcommandline) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallProductW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong szcommandline) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5049,7 +5049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiIsProductElevatedA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong pfelevated) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong pfelevated) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5075,7 +5075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiIsProductElevatedW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong pfelevated) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong pfelevated) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5101,7 +5101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiJoinTransaction(JNIEnv* km_env, jclass km_clazz, jint htransactionhandle, jint dwtransactionattributes, jlong phchangeofownerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiJoinTransaction(JNIEnv* km_env, jclass km_clazz, jint htransactionhandle, jint dwtransactionattributes, jlong phchangeofownerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5128,7 +5128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiLocateComponentA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentA(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5155,7 +5155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiLocateComponentW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentW(JNIEnv* km_env, jclass km_clazz, jlong szcomponent, jlong lppathbuf, jlong pcchbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5182,7 +5182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiNotifySidChangeA(JNIEnv* km_env, jclass km_clazz, jlong poldsid, jlong pnewsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiNotifySidChangeA(JNIEnv* km_env, jclass km_clazz, jlong poldsid, jlong pnewsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5208,7 +5208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiNotifySidChangeW(JNIEnv* km_env, jclass km_clazz, jlong poldsid, jlong pnewsid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiNotifySidChangeW(JNIEnv* km_env, jclass km_clazz, jlong poldsid, jlong pnewsid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5234,7 +5234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenDatabaseA(JNIEnv* km_env, jclass km_clazz, jlong szdatabasepath, jlong szpersist, jlong phdatabase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseA(JNIEnv* km_env, jclass km_clazz, jlong szdatabasepath, jlong szpersist, jlong phdatabase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5261,7 +5261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenDatabaseW(JNIEnv* km_env, jclass km_clazz, jlong szdatabasepath, jlong szpersist, jlong phdatabase) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseW(JNIEnv* km_env, jclass km_clazz, jlong szdatabasepath, jlong szpersist, jlong phdatabase) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5288,7 +5288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenPackageA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong hproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong hproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5314,7 +5314,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenPackageExA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jint dwoptions, jlong hproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jint dwoptions, jlong hproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5341,7 +5341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenPackageExW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jint dwoptions, jlong hproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jint dwoptions, jlong hproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5368,7 +5368,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenPackageW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong hproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath, jlong hproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5394,7 +5394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenProductA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong hproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong hproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5420,7 +5420,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiOpenProductW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong hproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong hproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5446,7 +5446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiPreviewBillboardA(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szcontrolname, jlong szbillboard) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewBillboardA(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szcontrolname, jlong szbillboard) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5473,7 +5473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiPreviewBillboardW(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szcontrolname, jlong szbillboard) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewBillboardW(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szcontrolname, jlong szbillboard) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5500,7 +5500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiPreviewDialogA(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szdialogname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewDialogA(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szdialogname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5526,7 +5526,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiPreviewDialogW(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szdialogname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiPreviewDialogW(JNIEnv* km_env, jclass km_clazz, jint hpreview, jlong szdialogname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5552,7 +5552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProcessAdvertiseScriptA(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong sziconfolder, jlong hregdata, jint fshortcuts, jint fremoveitems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessAdvertiseScriptA(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong sziconfolder, jlong hregdata, jint fshortcuts, jint fremoveitems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5581,7 +5581,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProcessAdvertiseScriptW(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong sziconfolder, jlong hregdata, jint fshortcuts, jint fremoveitems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessAdvertiseScriptW(JNIEnv* km_env, jclass km_clazz, jlong szscriptfile, jlong sziconfolder, jlong hregdata, jint fshortcuts, jint fremoveitems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5610,7 +5610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProcessMessage(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint emessagetype, jint hrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint emessagetype, jint hrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5637,7 +5637,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideAssemblyA(JNIEnv* km_env, jclass km_clazz, jlong szassemblyname, jlong szappcontext, jint dwinstallmode, jint dwassemblyinfo, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyA(JNIEnv* km_env, jclass km_clazz, jlong szassemblyname, jlong szappcontext, jint dwinstallmode, jint dwassemblyinfo, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5667,7 +5667,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideAssemblyW(JNIEnv* km_env, jclass km_clazz, jlong szassemblyname, jlong szappcontext, jint dwinstallmode, jint dwassemblyinfo, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyW(JNIEnv* km_env, jclass km_clazz, jlong szassemblyname, jlong szappcontext, jint dwinstallmode, jint dwassemblyinfo, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5697,7 +5697,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideComponentA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong szcomponent, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong szcomponent, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5727,7 +5727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideComponentW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong szcomponent, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jlong szcomponent, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5757,7 +5757,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideQualifiedComponentA(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentA(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5786,7 +5786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideQualifiedComponentExA(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong szproduct, jint dwunused1, jint dwunused2, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExA(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong szproduct, jint dwunused1, jint dwunused2, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5818,7 +5818,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideQualifiedComponentExW(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong szproduct, jint dwunused1, jint dwunused2, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExW(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong szproduct, jint dwunused1, jint dwunused2, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5850,7 +5850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiProvideQualifiedComponentW(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentW(JNIEnv* km_env, jclass km_clazz, jlong szcategory, jlong szqualifier, jint dwinstallmode, jlong lppathbuf, jlong pcchpathbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5879,7 +5879,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryComponentStateA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szcomponentcode, jlong pdwstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szcomponentcode, jlong pdwstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5908,7 +5908,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryComponentStateW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szcomponentcode, jlong pdwstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szcomponentcode, jlong pdwstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5937,7 +5937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryFeatureStateA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5963,7 +5963,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryFeatureStateExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szfeature, jlong pdwstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szfeature, jlong pdwstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5992,7 +5992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryFeatureStateExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szfeature, jlong pdwstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcode, jlong szusersid, jint dwcontext, jlong szfeature, jlong pdwstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6021,7 +6021,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryFeatureStateW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6047,7 +6047,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryProductStateA(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryProductStateA(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6072,7 +6072,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiQueryProductStateW(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryProductStateW(JNIEnv* km_env, jclass km_clazz, jlong szproduct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6097,7 +6097,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordClearData(JNIEnv* km_env, jclass km_clazz, jint hrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordClearData(JNIEnv* km_env, jclass km_clazz, jint hrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6122,7 +6122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordDataSize(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordDataSize(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6148,7 +6148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordGetFieldCount(JNIEnv* km_env, jclass km_clazz, jint hrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetFieldCount(JNIEnv* km_env, jclass km_clazz, jint hrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6173,7 +6173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordGetInteger(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6199,7 +6199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordGetStringA(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringA(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6227,7 +6227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordGetStringW(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringW(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6255,7 +6255,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordIsNull(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6281,7 +6281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordReadStream(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szdatabuf, jlong pcbdatabuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordReadStream(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szdatabuf, jlong pcbdatabuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6309,7 +6309,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordSetInteger(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jint ivalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetInteger(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jint ivalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6336,7 +6336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordSetStreamA(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szfilepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStreamA(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szfilepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6363,7 +6363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordSetStreamW(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szfilepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStreamW(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szfilepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6390,7 +6390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordSetStringA(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStringA(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6417,7 +6417,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRecordSetStringW(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordSetStringW(JNIEnv* km_env, jclass km_clazz, jint hrecord, jint ifield, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6444,7 +6444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiReinstallFeatureA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwreinstallmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallFeatureA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwreinstallmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6471,7 +6471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiReinstallFeatureW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwreinstallmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallFeatureW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwreinstallmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6498,7 +6498,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiReinstallProductA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint szreinstallmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallProductA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint szreinstallmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6524,7 +6524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiReinstallProductW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint szreinstallmode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiReinstallProductW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jint szreinstallmode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6550,7 +6550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRemovePatchesA(JNIEnv* km_env, jclass km_clazz, jlong szpatchlist, jlong szproductcode, jint euninstalltype, jlong szpropertylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRemovePatchesA(JNIEnv* km_env, jclass km_clazz, jlong szpatchlist, jlong szproductcode, jint euninstalltype, jlong szpropertylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6578,7 +6578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiRemovePatchesW(JNIEnv* km_env, jclass km_clazz, jlong szpatchlist, jlong szproductcode, jint euninstalltype, jlong szpropertylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRemovePatchesW(JNIEnv* km_env, jclass km_clazz, jlong szpatchlist, jlong szproductcode, jint euninstalltype, jlong szpropertylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6606,7 +6606,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSequenceA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong sztable, jint isequencemode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSequenceA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong sztable, jint isequencemode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6633,7 +6633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSequenceW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong sztable, jint isequencemode) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSequenceW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong sztable, jint isequencemode) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6660,7 +6660,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetComponentStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint istate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetComponentStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint istate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6687,7 +6687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetComponentStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint istate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetComponentStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szcomponent, jint istate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6714,7 +6714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetExternalUIA(JNIEnv* km_env, jclass km_clazz, jlong puihandler, jint dwmessagefilter, jlong pvcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIA(JNIEnv* km_env, jclass km_clazz, jlong puihandler, jint dwmessagefilter, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6741,7 +6741,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetExternalUIRecord(JNIEnv* km_env, jclass km_clazz, jlong puihandler, jint dwmessagefilter, jlong pvcontext, jlong ppuiprevhandler) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIRecord(JNIEnv* km_env, jclass km_clazz, jlong puihandler, jint dwmessagefilter, jlong pvcontext, jlong ppuiprevhandler) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6769,7 +6769,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetExternalUIW(JNIEnv* km_env, jclass km_clazz, jlong puihandler, jint dwmessagefilter, jlong pvcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIW(JNIEnv* km_env, jclass km_clazz, jlong puihandler, jint dwmessagefilter, jlong pvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6796,7 +6796,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetFeatureAttributesA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint dwattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureAttributesA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint dwattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6823,7 +6823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetFeatureAttributesW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint dwattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureAttributesW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint dwattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6850,7 +6850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetFeatureStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint istate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureStateA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint istate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6877,7 +6877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetFeatureStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint istate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetFeatureStateW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfeature, jint istate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6904,7 +6904,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetInstallLevel(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint iinstalllevel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInstallLevel(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint iinstalllevel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6930,7 +6930,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetInternalUI(JNIEnv* km_env, jclass km_clazz, jint dwuilevel, jlong phwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInternalUI(JNIEnv* km_env, jclass km_clazz, jint dwuilevel, jlong phwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6956,7 +6956,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetMode(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint erunmode, jint fstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetMode(JNIEnv* km_env, jclass km_clazz, jint hinstall, jint erunmode, jint fstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6983,7 +6983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7010,7 +7010,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szname, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7037,7 +7037,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetTargetPathA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szfolderpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetTargetPathA(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szfolderpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7064,7 +7064,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSetTargetPathW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szfolderpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetTargetPathW(JNIEnv* km_env, jclass km_clazz, jint hinstall, jlong szfolder, jlong szfolderpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7091,7 +7091,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListAddMediaDiskA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid, jlong szvolumelabel, jlong szdiskprompt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddMediaDiskA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid, jlong szvolumelabel, jlong szdiskprompt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7122,7 +7122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListAddMediaDiskW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid, jlong szvolumelabel, jlong szdiskprompt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddMediaDiskW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid, jlong szvolumelabel, jlong szdiskprompt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7153,7 +7153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListAddSourceA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved, jlong szsource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved, jlong szsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7181,7 +7181,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListAddSourceExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource, jint dwindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource, jint dwindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7211,7 +7211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListAddSourceExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource, jint dwindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource, jint dwindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7241,7 +7241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListAddSourceW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved, jlong szsource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListAddSourceW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved, jlong szsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7269,7 +7269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearAllA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7296,7 +7296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearAllExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7324,7 +7324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearAllExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7352,7 +7352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearAllW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearAllW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7379,7 +7379,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearMediaDiskA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearMediaDiskA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7408,7 +7408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearMediaDiskW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearMediaDiskW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwdiskid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7437,7 +7437,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearSourceA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearSourceA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7466,7 +7466,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListClearSourceW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearSourceW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7495,7 +7495,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListEnumMediaDisksA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong pdwdiskid, jlong szvolumelabel, jlong pcchvolumelabel, jlong szdiskprompt, jlong pcchdiskprompt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong pdwdiskid, jlong szvolumelabel, jlong pcchvolumelabel, jlong szdiskprompt, jlong pcchdiskprompt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7529,7 +7529,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListEnumMediaDisksW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong pdwdiskid, jlong szvolumelabel, jlong pcchvolumelabel, jlong szdiskprompt, jlong pcchdiskprompt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong pdwdiskid, jlong szvolumelabel, jlong pcchvolumelabel, jlong szdiskprompt, jlong pcchdiskprompt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7563,7 +7563,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListEnumSourcesA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong szsource, jlong pcchsource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong szsource, jlong pcchsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7594,7 +7594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListEnumSourcesW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong szsource, jlong pcchsource) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jint dwindex, jlong szsource, jlong pcchsource) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7625,7 +7625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListForceResolutionA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7652,7 +7652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListForceResolutionExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionExA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7680,7 +7680,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListForceResolutionExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionExW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7708,7 +7708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListForceResolutionW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szusername, jint dwreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7735,7 +7735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListGetInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue, jlong pcchvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue, jlong pcchvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7766,7 +7766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListGetInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue, jlong pcchvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue, jlong pcchvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7797,7 +7797,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListSetInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListSetInfoA(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7827,7 +7827,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSourceListSetInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListSetInfoW(JNIEnv* km_env, jclass km_clazz, jlong szproductcodeorpatchcode, jlong szusersid, jint dwcontext, jint dwoptions, jlong szproperty, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7857,7 +7857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSummaryInfoGetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jlong puidatatype, jlong pivalue, jlong pftvalue, jlong szvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jlong puidatatype, jlong pivalue, jlong pftvalue, jlong szvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7888,7 +7888,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSummaryInfoGetPropertyCount(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jlong puipropertycount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyCount(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jlong puipropertycount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7914,7 +7914,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSummaryInfoGetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jlong puidatatype, jlong pivalue, jlong pftvalue, jlong szvaluebuf, jlong pcchvaluebuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jlong puidatatype, jlong pivalue, jlong pftvalue, jlong szvaluebuf, jlong pcchvaluebuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7945,7 +7945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSummaryInfoPersist(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoPersist(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7970,7 +7970,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSummaryInfoSetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jint uidatatype, jint ivalue, jlong pftvalue, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyA(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jint uidatatype, jint ivalue, jlong pftvalue, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8000,7 +8000,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiSummaryInfoSetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jint uidatatype, jint ivalue, jlong pftvalue, jlong szvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyW(JNIEnv* km_env, jclass km_clazz, jint hsummaryinfo, jint uiproperty, jint uidatatype, jint ivalue, jlong pftvalue, jlong szvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8030,7 +8030,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiUseFeatureA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8056,7 +8056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiUseFeatureExA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwinstallmode, jint dwreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureExA(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwinstallmode, jint dwreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8084,7 +8084,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiUseFeatureExW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwinstallmode, jint dwreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureExW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature, jint dwinstallmode, jint dwreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8112,7 +8112,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiUseFeatureW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiUseFeatureW(JNIEnv* km_env, jclass km_clazz, jlong szproduct, jlong szfeature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8138,7 +8138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiVerifyDiskSpace(JNIEnv* km_env, jclass km_clazz, jint hinstall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiVerifyDiskSpace(JNIEnv* km_env, jclass km_clazz, jint hinstall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8163,7 +8163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiVerifyPackageA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiVerifyPackageA(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8188,7 +8188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiVerifyPackageW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiVerifyPackageW(JNIEnv* km_env, jclass km_clazz, jlong szpackagepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8213,7 +8213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiViewClose(JNIEnv* km_env, jclass km_clazz, jint hview) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewClose(JNIEnv* km_env, jclass km_clazz, jint hview) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8238,7 +8238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiViewExecute(JNIEnv* km_env, jclass km_clazz, jint hview, jint hrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewExecute(JNIEnv* km_env, jclass km_clazz, jint hview, jint hrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8264,7 +8264,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiViewFetch(JNIEnv* km_env, jclass km_clazz, jint hview, jlong phrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewFetch(JNIEnv* km_env, jclass km_clazz, jint hview, jlong phrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8290,7 +8290,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiViewGetColumnInfo(JNIEnv* km_env, jclass km_clazz, jint hview, jint ecolumninfo, jlong phrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetColumnInfo(JNIEnv* km_env, jclass km_clazz, jint hview, jint ecolumninfo, jlong phrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8317,7 +8317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiViewGetErrorA(JNIEnv* km_env, jclass km_clazz, jint hview, jlong szcolumnnamebuffer, jlong pcchbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorA(JNIEnv* km_env, jclass km_clazz, jint hview, jlong szcolumnnamebuffer, jlong pcchbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8344,7 +8344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiViewGetErrorW(JNIEnv* km_env, jclass km_clazz, jint hview, jlong szcolumnnamebuffer, jlong pcchbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorW(JNIEnv* km_env, jclass km_clazz, jint hview, jlong szcolumnnamebuffer, jlong pcchbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8371,7 +8371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1msiViewModify(JNIEnv* km_env, jclass km_clazz, jint hview, jint emodifymode, jint hrecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewModify(JNIEnv* km_env, jclass km_clazz, jint hview, jint emodifymode, jint hrecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8398,7 +8398,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1normalizeFileForPatchSignature(JNIEnv* km_env, jclass km_clazz, jlong filebuffer, jint filesize, jint optionflags, jlong optiondata, jint newfilecoffbase, jint newfilecofftime, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingNormalizeFileForPatchSignature(JNIEnv* km_env, jclass km_clazz, jlong filebuffer, jint filesize, jint optionflags, jlong optiondata, jint newfilecoffbase, jint newfilecofftime, jint ignorerangecount, jlong ignorerangearray, jint retainrangecount, jlong retainrangearray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8432,7 +8432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1queryActCtxSettingsW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong hactctx, jlong settingsnamespace, jlong settingname, jlong pvbuffer, jlong dwbuffer, jlong pdwwrittenorrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxSettingsW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong hactctx, jlong settingsnamespace, jlong settingname, jlong pvbuffer, jlong dwbuffer, jlong pdwwrittenorrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8463,7 +8463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1queryActCtxW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong hactctx, jlong pvsubinstance, jint ulinfoclass, jlong pvbuffer, jlong cbbuffer, jlong pcbwrittenorrequired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong hactctx, jlong pvsubinstance, jint ulinfoclass, jlong pvbuffer, jlong cbbuffer, jlong pcbwrittenorrequired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8494,7 +8494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1releaseActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingReleaseActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8515,7 +8515,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1sfcGetNextProtectedFile(JNIEnv* km_env, jclass km_clazz, jlong rpchandle, jlong protfiledata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingSfcGetNextProtectedFile(JNIEnv* km_env, jclass km_clazz, jlong rpchandle, jlong protfiledata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8541,7 +8541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1sfcIsFileProtected(JNIEnv* km_env, jclass km_clazz, jlong rpchandle, jlong protfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingSfcIsFileProtected(JNIEnv* km_env, jclass km_clazz, jlong rpchandle, jlong protfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8567,7 +8567,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1sfcIsKeyProtected(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong subkeyname, jint keysam) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingSfcIsKeyProtected(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong subkeyname, jint keysam) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8594,7 +8594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1sfpVerifyFile(JNIEnv* km_env, jclass km_clazz, jlong pszfilename, jlong pszerror, jint dwerrsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingSfpVerifyFile(JNIEnv* km_env, jclass km_clazz, jlong pszfilename, jlong pszerror, jint dwerrsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8621,7 +8621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1testApplyPatchToFileA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jint applyoptionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileA(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jint applyoptionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8648,7 +8648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1testApplyPatchToFileByBuffers(JNIEnv* km_env, jclass km_clazz, jlong patchfilebuffer, jint patchfilesize, jlong oldfilebuffer, jint oldfilesize, jlong newfilesize, jint applyoptionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileByBuffers(JNIEnv* km_env, jclass km_clazz, jlong patchfilebuffer, jint patchfilesize, jlong oldfilebuffer, jint oldfilesize, jlong newfilesize, jint applyoptionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8678,7 +8678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1testApplyPatchToFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong oldfilehandle, jint applyoptionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileByHandles(JNIEnv* km_env, jclass km_clazz, jlong patchfilehandle, jlong oldfilehandle, jint applyoptionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8705,7 +8705,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1testApplyPatchToFileW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jint applyoptionflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileW(JNIEnv* km_env, jclass km_clazz, jlong patchfilename, jlong oldfilename, jint applyoptionflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8732,7 +8732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssys_1windows_1win32_1system_1applicationinstallationandservicing_1zombifyActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_applicationinstallationandservicing_WindowsWin32SystemApplicationinstallationandservicingJniBridge_windowssysWindowsWin32SystemApplicationinstallationandservicingZombifyActCtx(JNIEnv* km_env, jclass km_clazz, jlong hactctx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

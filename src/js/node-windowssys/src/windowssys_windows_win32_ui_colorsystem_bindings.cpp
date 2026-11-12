@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_associateColorProfile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_associateColorProfile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCheckColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpainputcolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckColors_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCheckColorsInGamut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpargbtriple = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckRGBs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCheckRGBs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsrcbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -214,7 +214,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckRGBs_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMConvertColorNameToIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pacolorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -245,7 +245,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMConvertIndexToColorName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* paindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -276,7 +276,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateDeviceLinkProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pahprofiles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nprofiles = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -311,7 +311,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateMultiProfileTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pahprofiles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nprofiles = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -344,7 +344,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileT
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -371,7 +371,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateProfile_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -398,7 +398,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateProfileW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdevcharacter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransform_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateTransformExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdevcharacter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -458,7 +458,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateTransformExtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdevcharacter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -489,7 +489,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMCreateTransformW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdevcharacter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -518,7 +518,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMDeleteTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMDeleteTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -543,7 +543,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMDeleteTransform_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwinfo = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -568,7 +568,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMGetInfo_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMGetNamedProfileInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pnamedprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -595,7 +595,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMIsProfileValid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMIsProfileValid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpbvalid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -622,7 +622,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMIsProfileValid_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMTranslateColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpainputcolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -657,7 +657,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateColors_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGB_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMTranslateRGB_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t colorref = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -688,7 +688,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGB_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMTranslateRGBs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsrcbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -729,7 +729,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCMTranslateRGBsExt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcmtransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsrcbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -774,7 +774,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_checkBitmapBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCheckBitmapBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcolortransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* psrcbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -815,7 +815,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_checkBitmapBits_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_checkColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCheckColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcolortransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* painputcolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -848,7 +848,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_checkColors_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_checkColorsInGamut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCheckColorsInGamut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprgbtriple = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -879,7 +879,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_checkColorsInGamut_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_closeColorProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCloseColorProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -904,7 +904,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_closeColorProfile_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_colorCorrectPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemColorCorrectPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -935,7 +935,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_colorCorrectPalette_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_colorMatchToTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemColorMatchToTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdctarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -964,7 +964,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_colorMatchToTarget_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemConvertColorNameToIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pacolorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -995,7 +995,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_convertColorNameToInd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_convertIndexToColorName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemConvertIndexToColorName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* paindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1026,7 +1026,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_convertIndexToColorNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorSpaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateColorSpaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1051,7 +1051,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorSpaceA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorSpaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateColorSpaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lplcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1076,7 +1076,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorSpaceW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorTransformA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateColorTransformA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plogcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hdestprofile = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1107,7 +1107,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorTransformA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorTransformW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateColorTransformW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plogcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hdestprofile = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1138,7 +1138,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorTransformW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateDeviceLinkProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nprofiles = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1175,7 +1175,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateMultiProfileTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pahprofiles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nprofiles = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1210,7 +1210,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createMultiProfileTra
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plogcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1237,7 +1237,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createProfileFromLogC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plogcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1264,7 +1264,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createProfileFromLogC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_deleteColorSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemDeleteColorSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1289,7 +1289,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_deleteColorSpace_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_deleteColorTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemDeleteColorTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hxform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1314,7 +1314,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_deleteColorTransform_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1343,7 +1343,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_disassociateColorProf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1372,7 +1372,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_disassociateColorProf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_enumColorProfilesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemEnumColorProfilesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penumrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1405,7 +1405,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumColorProfilesA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_enumColorProfilesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemEnumColorProfilesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penumrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1438,7 +1438,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumColorProfilesW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_enumICMProfilesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemEnumICMProfilesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* proc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1467,7 +1467,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumICMProfilesA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_enumICMProfilesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemEnumICMProfilesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* proc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1496,7 +1496,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumICMProfilesW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getCMMInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetCMMInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcolortransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1523,7 +1523,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getCMMInfo_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetColorDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1552,7 +1552,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorDirectoryA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetColorDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1581,7 +1581,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorDirectoryW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetColorProfileElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t tag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1616,7 +1616,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileElemen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetColorProfileElementTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1645,7 +1645,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileElemen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetColorProfileFromHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1674,7 +1674,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileFromHa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetColorProfileHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1701,7 +1701,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileHeader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetColorSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1726,7 +1726,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorSpace_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetCountColorProfileElements_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pnelementcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1753,7 +1753,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getCountColorProfileE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetDeviceGammaRamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpramp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1780,7 +1780,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getICMProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetICMProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbufsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1809,7 +1809,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getICMProfileA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getICMProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetICMProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbufsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1838,7 +1838,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getICMProfileW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetLogColorSpaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1867,7 +1867,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetLogColorSpaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcolorspace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1896,7 +1896,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetNamedProfileInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pnamedprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1923,7 +1923,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingDictionary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwintent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1956,7 +1956,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingIntent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwintent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1987,7 +1987,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetPS2ColorSpaceArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwintent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2022,7 +2022,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwscs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2053,7 +2053,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getStandardColorSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwscs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2084,7 +2084,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getStandardColorSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_installColorProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemInstallColorProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2111,7 +2111,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_installColorProfileA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_installColorProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemInstallColorProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2138,7 +2138,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_installColorProfileW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemIsColorProfileTagPresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t tag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2167,7 +2167,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_isColorProfileTagPres
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_isColorProfileValid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemIsColorProfileValid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pbvalid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2194,7 +2194,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_isColorProfileValid_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_openColorProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemOpenColorProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2225,7 +2225,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_openColorProfileA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_openColorProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemOpenColorProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2256,7 +2256,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_openColorProfileW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_registerCMMA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemRegisterCMMA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cmmid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2285,7 +2285,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_registerCMMA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_registerCMMW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemRegisterCMMW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cmmid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2314,7 +2314,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_registerCMMW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_selectCMM_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSelectCMM_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwcmmtype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2339,7 +2339,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_selectCMM_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetColorProfileElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t tag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2372,7 +2372,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElemen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetColorProfileElementReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t newtag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2401,7 +2401,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElemen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetColorProfileElementSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t tagtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2430,7 +2430,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElemen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileHeader_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetColorProfileHeader_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pheader = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2457,7 +2457,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileHeader
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetColorSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2484,7 +2484,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorSpace_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetDeviceGammaRamp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpramp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2511,7 +2511,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetICMMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2538,7 +2538,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMMode_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetICMProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2565,7 +2565,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMProfileA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetICMProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2592,7 +2592,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMProfileW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwprofileid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2621,7 +2621,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setStandardColorSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwprofileid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2650,7 +2650,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setStandardColorSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setupColorMatchingA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetupColorMatchingA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2675,7 +2675,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setupColorMatchingA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_setupColorMatchingW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemSetupColorMatchingW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcms = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2700,7 +2700,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setupColorMatchingW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_translateBitmapBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemTranslateBitmapBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcolortransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* psrcbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2745,7 +2745,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_translateBitmapBits_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_translateColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemTranslateColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcolortransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* painputcolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2780,7 +2780,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_translateColors_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemUninstallColorProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2809,7 +2809,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_uninstallColorProfile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemUninstallColorProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2838,7 +2838,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_uninstallColorProfile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_unregisterCMMA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemUnregisterCMMA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cmmid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2865,7 +2865,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_unregisterCMMA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_unregisterCMMW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemUnregisterCMMW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cmmid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2892,7 +2892,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_unregisterCMMW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemUpdateICMRegKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszcmid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2923,7 +2923,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemUpdateICMRegKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszcmid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2954,7 +2954,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsAssociateColorProfileWithDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2983,7 +2983,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsCheckColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsCheckColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcolortransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t ncolors = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3020,7 +3020,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsCheckColors_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsCreateIccProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hwcsprofile = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3047,7 +3047,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsDisassociateColorProfileFromDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pprofilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3076,7 +3076,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsEnumColorProfiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* penumrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3109,7 +3109,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsEnumColorProfilesSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* penumrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3138,7 +3138,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsGetCalibrationManagementState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbisenabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3163,7 +3163,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationMana
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3200,7 +3200,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfileSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3235,7 +3235,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsGetDefaultRenderingIntent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdwrenderingintent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3262,7 +3262,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsGetUsePerUserProfiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdeviceclass = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3291,7 +3291,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsOpenColorProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdmpprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcampprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3328,7 +3328,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsOpenColorProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdmpprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcampprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3365,7 +3365,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsSetCalibrationManagementState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bisenabled = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3390,7 +3390,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationMana
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsSetDefaultColorProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3425,7 +3425,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsSetDefaultRenderingIntent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwrenderingintent = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3452,7 +3452,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsSetUsePerUserProfiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdevicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdeviceclass = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3481,7 +3481,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsTranslateColors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiColorsystemWcsTranslateColors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcolortransform = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t ncolors = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3525,121 +3525,121 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsTranslateColors_na
 }
 
 static void register_windows_win32_ui_colorsystem_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCheckColors", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCheckColors_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCheckRGBs", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCheckRGBs_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateProfile", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateTransform", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMCreateTransformW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMCreateTransformW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMDeleteTransform", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMDeleteTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMGetInfo", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMGetInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMIsProfileValid", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMIsProfileValid_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMTranslateColors", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMTranslateColors_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMTranslateRGB", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMTranslateRGB_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_checkBitmapBits", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_checkBitmapBits_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_checkColors", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_checkColors_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_checkColorsInGamut", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_checkColorsInGamut_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_closeColorProfile", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_closeColorProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_colorCorrectPalette", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_colorCorrectPalette_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_colorMatchToTarget", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_colorMatchToTarget_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_convertIndexToColorName", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_convertIndexToColorName_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createColorSpaceA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createColorSpaceA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createColorSpaceW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createColorSpaceW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createColorTransformA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createColorTransformA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createColorTransformW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createColorTransformW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_deleteColorSpace", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_deleteColorSpace_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_deleteColorTransform", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_deleteColorTransform_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_enumColorProfilesA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_enumColorProfilesA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_enumColorProfilesW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_enumColorProfilesW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_enumICMProfilesA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_enumICMProfilesA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_enumICMProfilesW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_enumICMProfilesW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getCMMInfo", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getCMMInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getColorDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getColorDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getColorDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getColorDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getColorProfileElement", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getColorProfileElement_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getColorProfileHeader", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getColorProfileHeader_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getColorSpace", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getColorSpace_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getICMProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getICMProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getICMProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getICMProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_installColorProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_installColorProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_installColorProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_installColorProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_isColorProfileValid", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_isColorProfileValid_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_openColorProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_openColorProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_openColorProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_openColorProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_registerCMMA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_registerCMMA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_registerCMMW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_registerCMMW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_selectCMM", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_selectCMM_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setColorProfileElement", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setColorProfileElement_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setColorProfileHeader", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setColorProfileHeader_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setColorSpace", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setColorSpace_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setICMMode", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setICMMode_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setICMProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setICMProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setICMProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setICMProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setupColorMatchingA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setupColorMatchingA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_setupColorMatchingW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_setupColorMatchingW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_translateBitmapBits", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_translateBitmapBits_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_translateColors", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_translateColors_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_unregisterCMMA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_unregisterCMMA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_unregisterCMMW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_unregisterCMMW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsCheckColors", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsCheckColors_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles_napi));
-    exports.Set("windowssys_windows_win32_ui_colorsystem_wcsTranslateColors", Napi::Function::New(env, windowssys_windows_win32_ui_colorsystem_wcsTranslateColors_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCheckColors", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCheckColors_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCheckColorsInGamut", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCheckColorsInGamut_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCheckRGBs", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCheckRGBs_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMConvertColorNameToIndex", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMConvertColorNameToIndex_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMConvertIndexToColorName", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMConvertIndexToColorName_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateDeviceLinkProfile", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateDeviceLinkProfile_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateMultiProfileTransform", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateMultiProfileTransform_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateProfile", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateProfile_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateTransform", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateTransform_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateTransformExt", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateTransformExt_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateTransformExtW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateTransformExtW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMCreateTransformW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMCreateTransformW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMDeleteTransform", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMDeleteTransform_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMGetInfo", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMGetInfo_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMGetNamedProfileInfo", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMGetNamedProfileInfo_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMIsProfileValid", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMIsProfileValid_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMTranslateColors", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMTranslateColors_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMTranslateRGB", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMTranslateRGB_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMTranslateRGBs", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMTranslateRGBs_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCMTranslateRGBsExt", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCMTranslateRGBsExt_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCheckBitmapBits", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCheckBitmapBits_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCheckColors", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCheckColors_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCheckColorsInGamut", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCheckColorsInGamut_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCloseColorProfile", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCloseColorProfile_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemColorCorrectPalette", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemColorCorrectPalette_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemColorMatchToTarget", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemColorMatchToTarget_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemConvertColorNameToIndex", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemConvertColorNameToIndex_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemConvertIndexToColorName", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemConvertIndexToColorName_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateColorSpaceA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateColorSpaceA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateColorSpaceW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateColorSpaceW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateColorTransformA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateColorTransformA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateColorTransformW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateColorTransformW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateDeviceLinkProfile", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateDeviceLinkProfile_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateMultiProfileTransform", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateMultiProfileTransform_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemDeleteColorSpace", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemDeleteColorSpace_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemDeleteColorTransform", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemDeleteColorTransform_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemEnumColorProfilesA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemEnumColorProfilesA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemEnumColorProfilesW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemEnumColorProfilesW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemEnumICMProfilesA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemEnumICMProfilesA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemEnumICMProfilesW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemEnumICMProfilesW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetCMMInfo", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetCMMInfo_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetColorDirectoryA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetColorDirectoryA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetColorDirectoryW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetColorDirectoryW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetColorProfileElement", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetColorProfileElement_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetColorProfileElementTag", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetColorProfileElementTag_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetColorProfileFromHandle", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetColorProfileFromHandle_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetColorProfileHeader", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetColorProfileHeader_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetColorSpace", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetColorSpace_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetCountColorProfileElements", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetCountColorProfileElements_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetDeviceGammaRamp", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetDeviceGammaRamp_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetICMProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetICMProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetICMProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetICMProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetLogColorSpaceA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetLogColorSpaceA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetLogColorSpaceW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetLogColorSpaceW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetNamedProfileInfo", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetNamedProfileInfo_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingDictionary", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingDictionary_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingIntent", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingIntent_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetPS2ColorSpaceArray", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetPS2ColorSpaceArray_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemInstallColorProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemInstallColorProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemInstallColorProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemInstallColorProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemIsColorProfileTagPresent", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemIsColorProfileTagPresent_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemIsColorProfileValid", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemIsColorProfileValid_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemOpenColorProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemOpenColorProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemOpenColorProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemOpenColorProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemRegisterCMMA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemRegisterCMMA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemRegisterCMMW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemRegisterCMMW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSelectCMM", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSelectCMM_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetColorProfileElement", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetColorProfileElement_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetColorProfileElementReference", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetColorProfileElementReference_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetColorProfileElementSize", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetColorProfileElementSize_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetColorProfileHeader", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetColorProfileHeader_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetColorSpace", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetColorSpace_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetDeviceGammaRamp", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetDeviceGammaRamp_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetICMMode", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetICMMode_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetICMProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetICMProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetICMProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetICMProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetupColorMatchingA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetupColorMatchingA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemSetupColorMatchingW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemSetupColorMatchingW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemTranslateBitmapBits", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemTranslateBitmapBits_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemTranslateColors", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemTranslateColors_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemUninstallColorProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemUninstallColorProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemUninstallColorProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemUninstallColorProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemUnregisterCMMA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemUnregisterCMMA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemUnregisterCMMW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemUnregisterCMMW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemUpdateICMRegKeyA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemUpdateICMRegKeyA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemUpdateICMRegKeyW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemUpdateICMRegKeyW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsAssociateColorProfileWithDevice", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsAssociateColorProfileWithDevice_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsCheckColors", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsCheckColors_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsCreateIccProfile", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsCreateIccProfile_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsDisassociateColorProfileFromDevice", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsDisassociateColorProfileFromDevice_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsEnumColorProfiles", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsEnumColorProfiles_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsEnumColorProfilesSize", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsEnumColorProfilesSize_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsGetCalibrationManagementState", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsGetCalibrationManagementState_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfile", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfile_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfileSize", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfileSize_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsGetDefaultRenderingIntent", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsGetDefaultRenderingIntent_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsGetUsePerUserProfiles", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsGetUsePerUserProfiles_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsOpenColorProfileA", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsOpenColorProfileA_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsOpenColorProfileW", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsOpenColorProfileW_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsSetCalibrationManagementState", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsSetCalibrationManagementState_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsSetDefaultColorProfile", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsSetDefaultColorProfile_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsSetDefaultRenderingIntent", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsSetDefaultRenderingIntent_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsSetUsePerUserProfiles", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsSetUsePerUserProfiles_napi));
+    exports.Set("windowssysWindowsWin32UiColorsystemWcsTranslateColors", Napi::Function::New(env, windowssysWindowsWin32UiColorsystemWcsTranslateColors_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_colorsystem_napi, nullptr };

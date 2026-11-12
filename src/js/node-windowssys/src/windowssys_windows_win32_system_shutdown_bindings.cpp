@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_abortSystemShutdownA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownAbortSystemShutdownA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_abortSystemShutdownA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_abortSystemShutdownW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownAbortSystemShutdownW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_abortSystemShutdownW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_checkForHiberboot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownCheckForHiberboot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phiberboot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool bclearflag = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_checkForHiberboot_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_exitWindowsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownExitWindowsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwreason = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_exitWindowsEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_initiateShutdownA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownInitiateShutdownA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -188,7 +188,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_initiateShutdownA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_initiateShutdownW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownInitiateShutdownW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -221,7 +221,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_initiateShutdownW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdownA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownInitiateSystemShutdownA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -254,7 +254,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -289,7 +289,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdownW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownInitiateSystemShutdownW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -357,7 +357,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_initiateSystemShutdo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_lockWorkStation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownLockWorkStation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -380,7 +380,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_lockWorkStation_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownShutdownBlockReasonCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszreason = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -407,7 +407,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_shutdownBlockReasonC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -432,7 +432,7 @@ static Napi::Value windowssys_windows_win32_system_shutdown_shutdownBlockReasonD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_shutdown_shutdownBlockReasonQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszbuff = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -462,20 +462,20 @@ static Napi::Value windowssys_windows_win32_system_shutdown_shutdownBlockReasonQ
 }
 
 static void register_windows_win32_system_shutdown_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_shutdown_abortSystemShutdownA", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_abortSystemShutdownA_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_abortSystemShutdownW", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_abortSystemShutdownW_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_checkForHiberboot", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_checkForHiberboot_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_exitWindowsEx", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_exitWindowsEx_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_initiateShutdownA", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_initiateShutdownA_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_initiateShutdownW", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_initiateShutdownW_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_initiateSystemShutdownA", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_initiateSystemShutdownA_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_initiateSystemShutdownExA_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_initiateSystemShutdownExW_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_initiateSystemShutdownW", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_initiateSystemShutdownW_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_lockWorkStation", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_lockWorkStation_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_shutdownBlockReasonCreate_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_shutdownBlockReasonDestroy_napi));
-    exports.Set("windowssys_windows_win32_system_shutdown_shutdownBlockReasonQuery", Napi::Function::New(env, windowssys_windows_win32_system_shutdown_shutdownBlockReasonQuery_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownAbortSystemShutdownA", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownAbortSystemShutdownA_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownAbortSystemShutdownW", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownAbortSystemShutdownW_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownCheckForHiberboot", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownCheckForHiberboot_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownExitWindowsEx", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownExitWindowsEx_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownInitiateShutdownA", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownInitiateShutdownA_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownInitiateShutdownW", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownInitiateShutdownW_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownInitiateSystemShutdownA", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownInitiateSystemShutdownA_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExA", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExA_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExW", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownInitiateSystemShutdownExW_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownInitiateSystemShutdownW", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownInitiateSystemShutdownW_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownLockWorkStation", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownLockWorkStation_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownShutdownBlockReasonCreate", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownShutdownBlockReasonCreate_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy_napi));
+    exports.Set("windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery", Napi::Function::New(env, windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_shutdown_napi, nullptr };

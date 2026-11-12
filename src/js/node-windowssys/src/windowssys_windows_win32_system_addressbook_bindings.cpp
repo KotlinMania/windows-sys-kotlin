@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_buildDisplayTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookBuildDisplayTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpallocatebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpallocatemore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -94,7 +94,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_buildDisplayTable
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_changeIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookChangeIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ftg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfnidle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_changeIdleRoutine
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_createIProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookCreateIProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpallocatebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_createIProp_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_createTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookCreateTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpallocatebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -204,7 +204,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_createTable_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_deinitMapiUtil_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookDeinitMapiUtil_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -224,7 +224,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_deinitMapiUtil_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_deregisterIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ftg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -246,7 +246,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_deregisterIdleRou
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_enableIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookEnableIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ftg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fenable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -270,7 +270,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_enableIdleRoutine
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_fEqualNames_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookFEqualNames_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fEqualNames_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_fPropCompareProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookFPropCompareProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpspropvalue1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulrelop = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -326,7 +326,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fPropCompareProp_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_fPropContainsProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookFPropContainsProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpspropvaluedst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpspropvaluesrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fPropContainsProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_fPropExists_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookFPropExists_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmapiprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulproptag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -382,7 +382,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fPropExists_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_freePadrlist_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookFreePadrlist_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpadrlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -404,7 +404,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_freePadrlist_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_freeProws_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookFreeProws_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprows = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -426,7 +426,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_freeProws_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfnidle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvidleparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ftgRegisterIdleRo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrAddColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrAddColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptbl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpproptagcolumnsnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -490,7 +490,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrAddColumns_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrAddColumnsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrAddColumnsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptbl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpproptagcolumnsnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrAddColumnsEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrAllocAdviseSink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrAllocAdviseSink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -552,7 +552,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrAllocAdviseSink
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrDispatchNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrDispatchNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -577,7 +577,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrDispatchNotific
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrGetOneProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrGetOneProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmapiprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulproptag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -606,7 +606,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrGetOneProp_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrIStorageFromStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrIStorageFromStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpunkin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -637,7 +637,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrIStorageFromStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrQueryAllRows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrQueryAllRows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpproptags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -672,7 +672,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrQueryAllRows_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrSetOneProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrSetOneProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmapiprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -699,7 +699,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrSetOneProp_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpadvisesink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppadvisesink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -726,7 +726,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrThisThreadAdvis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_lPropCompareProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookLPropCompareProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpspropvaluea = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpspropvalueb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -753,7 +753,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_lPropCompareProp_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_lpValFindProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookLpValFindProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulproptag = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cvalues = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -782,7 +782,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_lpValFindProp_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_mAPIDeinitIdle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookMAPIDeinitIdle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -802,7 +802,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_mAPIDeinitIdle_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -825,7 +825,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_mAPIGetDefaultMal
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_mAPIInitIdle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookMAPIInitIdle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -850,7 +850,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_mAPIInitIdle_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_openStreamOnFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookOpenStreamOnFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpallocatebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfreebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -885,7 +885,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_openStreamOnFile_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_ppropFindProp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookPpropFindProp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpproparray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cvalues = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -914,7 +914,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ppropFindProp_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_propCopyMore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookPropCopyMore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpspropvaluedest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpspropvaluesrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -945,7 +945,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_propCopyMore_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_rTFSync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookRTFSync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmessage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -974,7 +974,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_rTFSync_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scCopyNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScCopyNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cnotification = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpnotifications = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1005,7 +1005,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCopyNotificatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scCopyProps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScCopyProps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cvalues = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproparray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1036,7 +1036,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCopyProps_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scCountNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScCountNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cnotifications = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpnotifications = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1065,7 +1065,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCountNotificati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scCountProps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScCountProps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cvalues = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproparray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1094,7 +1094,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCountProps_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scCreateConversationIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScCreateConversationIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cbparent = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1125,7 +1125,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCreateConversat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scDupPropset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScDupPropset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cvalues = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproparray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1156,7 +1156,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scDupPropset_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scInitMapiUtil_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScInitMapiUtil_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1181,7 +1181,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scInitMapiUtil_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scLocalPathFromUNC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlocal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1210,7 +1210,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scLocalPathFromUN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scRelocNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScRelocNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cnotification = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpnotifications = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1243,7 +1243,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scRelocNotificati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scRelocProps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScRelocProps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cvalues = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproparray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1276,7 +1276,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scRelocProps_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_scUNCFromLocalPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookScUNCFromLocalPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszlocal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1305,7 +1305,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scUNCFromLocalPat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_szFindCh_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookSzFindCh_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1332,7 +1332,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_szFindCh_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_szFindLastCh_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookSzFindLastCh_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1359,7 +1359,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_szFindLastCh_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_szFindSz_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookSzFindSz_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1386,7 +1386,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_szFindSz_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_uFromSz_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookUFromSz_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_uFromSz_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_ulAddRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookUlAddRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1436,7 +1436,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ulAddRef_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_ulPropSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookUlPropSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpspropvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1461,7 +1461,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ulPropSize_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_ulRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookUlRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1486,7 +1486,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ulRelease_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcompressedrtfstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1515,7 +1515,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_wrapCompressedRTF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_addressbook_wrapStoreEntryID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemAddressbookWrapStoreEntryID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszdllname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1551,58 +1551,58 @@ static Napi::Value windowssys_windows_win32_system_addressbook_wrapStoreEntryID_
 }
 
 static void register_windows_win32_system_addressbook_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_addressbook_buildDisplayTable", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_buildDisplayTable_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_changeIdleRoutine", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_changeIdleRoutine_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_createIProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_createIProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_createTable", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_createTable_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_deinitMapiUtil", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_deinitMapiUtil_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_deregisterIdleRoutine", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_deregisterIdleRoutine_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_enableIdleRoutine", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_enableIdleRoutine_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_fEqualNames", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_fEqualNames_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_fPropCompareProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_fPropCompareProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_fPropContainsProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_fPropContainsProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_fPropExists", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_fPropExists_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_freePadrlist", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_freePadrlist_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_freeProws", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_freeProws_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrAddColumns", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrAddColumns_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrAddColumnsEx", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrAddColumnsEx_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrAllocAdviseSink", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrAllocAdviseSink_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrDispatchNotifications", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrDispatchNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrGetOneProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrGetOneProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrIStorageFromStream", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrIStorageFromStream_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrQueryAllRows", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrQueryAllRows_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrSetOneProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrSetOneProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_lPropCompareProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_lPropCompareProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_lpValFindProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_lpValFindProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_mAPIDeinitIdle", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_mAPIDeinitIdle_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_mAPIInitIdle", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_mAPIInitIdle_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_openStreamOnFile", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_openStreamOnFile_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_ppropFindProp", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_ppropFindProp_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_propCopyMore", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_propCopyMore_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_rTFSync", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_rTFSync_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scCopyNotifications", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scCopyNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scCopyProps", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scCopyProps_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scCountNotifications", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scCountNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scCountProps", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scCountProps_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scCreateConversationIndex", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scCreateConversationIndex_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scDupPropset", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scDupPropset_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scInitMapiUtil", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scInitMapiUtil_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scLocalPathFromUNC", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scLocalPathFromUNC_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scRelocNotifications", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scRelocNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scRelocProps", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scRelocProps_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_scUNCFromLocalPath", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_scUNCFromLocalPath_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_szFindCh", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_szFindCh_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_szFindLastCh", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_szFindLastCh_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_szFindSz", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_szFindSz_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_uFromSz", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_uFromSz_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_ulAddRef", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_ulAddRef_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_ulPropSize", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_ulPropSize_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_ulRelease", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_ulRelease_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream_napi));
-    exports.Set("windowssys_windows_win32_system_addressbook_wrapStoreEntryID", Napi::Function::New(env, windowssys_windows_win32_system_addressbook_wrapStoreEntryID_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookBuildDisplayTable", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookBuildDisplayTable_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookChangeIdleRoutine", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookChangeIdleRoutine_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookCreateIProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookCreateIProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookCreateTable", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookCreateTable_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookDeinitMapiUtil", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookDeinitMapiUtil_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookEnableIdleRoutine", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookEnableIdleRoutine_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookFEqualNames", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookFEqualNames_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookFPropCompareProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookFPropCompareProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookFPropContainsProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookFPropContainsProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookFPropExists", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookFPropExists_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookFreePadrlist", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookFreePadrlist_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookFreeProws", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookFreeProws_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrAddColumns", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrAddColumns_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrAddColumnsEx", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrAddColumnsEx_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrAllocAdviseSink", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrAllocAdviseSink_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrDispatchNotifications", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrDispatchNotifications_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrGetOneProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrGetOneProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrIStorageFromStream", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrIStorageFromStream_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrQueryAllRows", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrQueryAllRows_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrSetOneProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrSetOneProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookLPropCompareProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookLPropCompareProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookLpValFindProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookLpValFindProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookMAPIDeinitIdle", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookMAPIDeinitIdle_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookMAPIInitIdle", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookMAPIInitIdle_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookOpenStreamOnFile", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookOpenStreamOnFile_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookPpropFindProp", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookPpropFindProp_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookPropCopyMore", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookPropCopyMore_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookRTFSync", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookRTFSync_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScCopyNotifications", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScCopyNotifications_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScCopyProps", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScCopyProps_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScCountNotifications", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScCountNotifications_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScCountProps", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScCountProps_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScCreateConversationIndex", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScCreateConversationIndex_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScDupPropset", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScDupPropset_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScInitMapiUtil", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScInitMapiUtil_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScRelocNotifications", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScRelocNotifications_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScRelocProps", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScRelocProps_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookScUNCFromLocalPath", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookScUNCFromLocalPath_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookSzFindCh", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookSzFindCh_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookSzFindLastCh", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookSzFindLastCh_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookSzFindSz", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookSzFindSz_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookUFromSz", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookUFromSz_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookUlAddRef", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookUlAddRef_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookUlPropSize", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookUlPropSize_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookUlRelease", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookUlRelease_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream_napi));
+    exports.Set("windowssysWindowsWin32SystemAddressbookWrapStoreEntryID", Napi::Function::New(env, windowssysWindowsWin32SystemAddressbookWrapStoreEntryID_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_addressbook_napi, nullptr };

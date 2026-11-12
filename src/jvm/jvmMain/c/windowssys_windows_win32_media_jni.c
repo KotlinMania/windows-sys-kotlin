@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssys_1windows_1win32_1media_1timeBeginPeriod(JNIEnv* km_env, jclass km_clazz, jint uperiod) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssysWindowsWin32MediaTimeBeginPeriod(JNIEnv* km_env, jclass km_clazz, jint uperiod) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssys_1windows_1win32_1media_1timeEndPeriod(JNIEnv* km_env, jclass km_clazz, jint uperiod) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssysWindowsWin32MediaTimeEndPeriod(JNIEnv* km_env, jclass km_clazz, jint uperiod) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssys_1windows_1win32_1media_1timeGetDevCaps(JNIEnv* km_env, jclass km_clazz, jlong ptc, jint cbtc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssysWindowsWin32MediaTimeGetDevCaps(JNIEnv* km_env, jclass km_clazz, jlong ptc, jint cbtc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssys_1windows_1win32_1media_1timeGetSystemTime(JNIEnv* km_env, jclass km_clazz, jlong pmmt, jint cbmmt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssysWindowsWin32MediaTimeGetSystemTime(JNIEnv* km_env, jclass km_clazz, jlong pmmt, jint cbmmt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssys_1windows_1win32_1media_1timeGetTime(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssysWindowsWin32MediaTimeGetTime(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -145,7 +145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssys_1windows_1win32_1media_1timeKillEvent(JNIEnv* km_env, jclass km_clazz, jint utimerid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssysWindowsWin32MediaTimeKillEvent(JNIEnv* km_env, jclass km_clazz, jint utimerid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -170,7 +170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssys_1windows_1win32_1media_1timeSetEvent(JNIEnv* km_env, jclass km_clazz, jint udelay, jint uresolution, jlong fptc, jlong dwuser, jint fuevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media_WindowsWin32MediaJniBridge_windowssysWindowsWin32MediaTimeSetEvent(JNIEnv* km_env, jclass km_clazz, jint udelay, jint uresolution, jlong fptc, jlong dwuser, jint fuevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

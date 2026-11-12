@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterAttach(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpinstancename, jint dwcreatedinstancenamelength, jlong lpcreatedinstancename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterAttach(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpinstancename, jint dwcreatedinstancenamelength, jlong lpcreatedinstancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterAttachAtAltitude(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpaltitude, jlong lpinstancename, jint dwcreatedinstancenamelength, jlong lpcreatedinstancename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterAttachAtAltitude(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpaltitude, jlong lpinstancename, jint dwcreatedinstancenamelength, jlong lpcreatedinstancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterClose(JNIEnv* km_env, jclass km_clazz, jlong hfilter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterClose(JNIEnv* km_env, jclass km_clazz, jlong hfilter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -103,7 +103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterConnectCommunicationPort(JNIEnv* km_env, jclass km_clazz, jlong lpportname, jint dwoptions, jlong lpcontext, jshort wsizeofcontext, jlong lpsecurityattributes, jlong hport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterConnectCommunicationPort(JNIEnv* km_env, jclass km_clazz, jlong lpportname, jint dwoptions, jlong lpcontext, jshort wsizeofcontext, jlong lpsecurityattributes, jlong hport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -133,7 +133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterCreate(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong hfilter) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterCreate(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong hfilter) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -159,7 +159,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterDetach(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpinstancename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterDetach(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpinstancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -186,7 +186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterFindClose(JNIEnv* km_env, jclass km_clazz, jlong hfilterfind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterFindClose(JNIEnv* km_env, jclass km_clazz, jlong hfilterfind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -211,7 +211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterFindFirst(JNIEnv* km_env, jclass km_clazz, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpfilterfind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterFindFirst(JNIEnv* km_env, jclass km_clazz, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpfilterfind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -240,7 +240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterFindNext(JNIEnv* km_env, jclass km_clazz, jlong hfilterfind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterFindNext(JNIEnv* km_env, jclass km_clazz, jlong hfilterfind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -269,7 +269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterGetDosName(JNIEnv* km_env, jclass km_clazz, jlong lpvolumename, jlong lpdosname, jint dwdosnamebuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterGetDosName(JNIEnv* km_env, jclass km_clazz, jlong lpvolumename, jlong lpdosname, jint dwdosnamebuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -296,7 +296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterGetInformation(JNIEnv* km_env, jclass km_clazz, jlong hfilter, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterGetInformation(JNIEnv* km_env, jclass km_clazz, jlong hfilter, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -325,7 +325,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterGetMessage(JNIEnv* km_env, jclass km_clazz, jlong hport, jlong lpmessagebuffer, jint dwmessagebuffersize, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterGetMessage(JNIEnv* km_env, jclass km_clazz, jlong hport, jlong lpmessagebuffer, jint dwmessagebuffersize, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -353,7 +353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterInstanceClose(JNIEnv* km_env, jclass km_clazz, jlong hinstance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose(JNIEnv* km_env, jclass km_clazz, jlong hinstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -378,7 +378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterInstanceCreate(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpinstancename, jlong hinstance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceCreate(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jlong lpvolumename, jlong lpinstancename, jlong hinstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -406,7 +406,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterInstanceFindClose(JNIEnv* km_env, jclass km_clazz, jlong hfilterinstancefind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindClose(JNIEnv* km_env, jclass km_clazz, jlong hfilterinstancefind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterInstanceFindFirst(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpfilterinstancefind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindFirst(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpfilterinstancefind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -461,7 +461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterInstanceFindNext(JNIEnv* km_env, jclass km_clazz, jlong hfilterinstancefind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindNext(JNIEnv* km_env, jclass km_clazz, jlong hfilterinstancefind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -490,7 +490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterInstanceGetInformation(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceGetInformation(JNIEnv* km_env, jclass km_clazz, jlong hinstance, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -519,7 +519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterLoad(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterLoad(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -544,7 +544,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterReplyMessage(JNIEnv* km_env, jclass km_clazz, jlong hport, jlong lpreplybuffer, jint dwreplybuffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterReplyMessage(JNIEnv* km_env, jclass km_clazz, jlong hport, jlong lpreplybuffer, jint dwreplybuffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -571,7 +571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterSendMessage(JNIEnv* km_env, jclass km_clazz, jlong hport, jlong lpinbuffer, jint dwinbuffersize, jlong lpoutbuffer, jint dwoutbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterSendMessage(JNIEnv* km_env, jclass km_clazz, jlong hport, jlong lpinbuffer, jint dwinbuffersize, jlong lpoutbuffer, jint dwoutbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -601,7 +601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterUnload(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterUnload(JNIEnv* km_env, jclass km_clazz, jlong lpfiltername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -626,7 +626,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterVolumeFindClose(JNIEnv* km_env, jclass km_clazz, jlong hvolumefind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindClose(JNIEnv* km_env, jclass km_clazz, jlong hvolumefind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -651,7 +651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterVolumeFindFirst(JNIEnv* km_env, jclass km_clazz, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpvolumefind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindFirst(JNIEnv* km_env, jclass km_clazz, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpvolumefind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -680,7 +680,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterVolumeFindNext(JNIEnv* km_env, jclass km_clazz, jlong hvolumefind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindNext(JNIEnv* km_env, jclass km_clazz, jlong hvolumefind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -709,7 +709,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterVolumeInstanceFindClose(JNIEnv* km_env, jclass km_clazz, jlong hvolumeinstancefind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindClose(JNIEnv* km_env, jclass km_clazz, jlong hvolumeinstancefind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -734,7 +734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterVolumeInstanceFindFirst(JNIEnv* km_env, jclass km_clazz, jlong lpvolumename, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpvolumeinstancefind) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindFirst(JNIEnv* km_env, jclass km_clazz, jlong lpvolumename, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned, jlong lpvolumeinstancefind) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -764,7 +764,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssys_1windows_1win32_1storage_1installablefilesystems_1filterVolumeInstanceFindNext(JNIEnv* km_env, jclass km_clazz, jlong hvolumeinstancefind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_installablefilesystems_WindowsWin32StorageInstallablefilesystemsJniBridge_windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindNext(JNIEnv* km_env, jclass km_clazz, jlong hvolumeinstancefind, jint dwinformationclass, jlong lpbuffer, jint dwbuffersize, jlong lpbytesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

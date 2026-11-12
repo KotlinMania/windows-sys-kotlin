@@ -2,17 +2,22 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.security.NcryptDescriptorHandle
 import io.github.kotlinmania.windowssys.windows.win32.security.NcryptStreamHandle
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
@@ -21,2812 +26,2863 @@ import io.github.kotlinmania.windowssys.windows.win32.system.registry.RegValueTy
 
 private object WindowsWin32SecurityCryptographyJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SecurityCryptographyJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptAddContextFunction(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, dwposition: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptAddContextFunction(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, dwposition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptAddContextFunctionProvider(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszprovider: Long, dwposition: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptAddContextFunctionProvider(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszprovider: Long, dwposition: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptCloseAlgorithmProvider(halgorithm: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptCloseAlgorithmProvider(halgorithm: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptConfigureContext(dwtable: Int, pszcontext: Long, pconfig: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptConfigureContext(dwtable: Int, pszcontext: Long, pconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptConfigureContextFunction(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pconfig: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptConfigureContextFunction(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptCreateContext(dwtable: Int, pszcontext: Long, pconfig: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptCreateContext(dwtable: Int, pszcontext: Long, pconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptCreateHash(halgorithm: Long, phhash: Long, pbhashobject: Long, cbhashobject: Int, pbsecret: Long, cbsecret: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptCreateHash(halgorithm: Long, phhash: Long, pbhashobject: Long, cbhashobject: Int, pbsecret: Long, cbsecret: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptCreateMultiHash(halgorithm: Long, phhash: Long, nhashes: Int, pbhashobject: Long, cbhashobject: Int, pbsecret: Long, cbsecret: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptCreateMultiHash(halgorithm: Long, phhash: Long, nhashes: Int, pbhashobject: Long, cbhashobject: Int, pbsecret: Long, cbsecret: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDecrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pbiv: Long, cbiv: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDecrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pbiv: Long, cbiv: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDeleteContext(dwtable: Int, pszcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDeleteContext(dwtable: Int, pszcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDeriveKey(hsharedsecret: Long, pwszkdf: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDeriveKey(hsharedsecret: Long, pwszkdf: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDeriveKeyCapi(hhash: Long, htargetalg: Long, pbderivedkey: Long, cbderivedkey: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyCapi(hhash: Long, htargetalg: Long, pbderivedkey: Long, cbderivedkey: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDeriveKeyPBKDF2(hprf: Long, pbpassword: Long, cbpassword: Int, pbsalt: Long, cbsalt: Int, citerations: Long, pbderivedkey: Long, cbderivedkey: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyPBKDF2(hprf: Long, pbpassword: Long, cbpassword: Int, pbsalt: Long, cbsalt: Int, citerations: Long, pbderivedkey: Long, cbderivedkey: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDestroyHash(hhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDestroyHash(hhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDestroyKey(hkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDestroyKey(hkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDestroySecret(hsecret: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDestroySecret(hsecret: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDuplicateHash(hhash: Long, phnewhash: Long, pbhashobject: Long, cbhashobject: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDuplicateHash(hhash: Long, phnewhash: Long, pbhashobject: Long, cbhashobject: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptDuplicateKey(hkey: Long, phnewkey: Long, pbkeyobject: Long, cbkeyobject: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptDuplicateKey(hkey: Long, phnewkey: Long, pbkeyobject: Long, cbkeyobject: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptEncrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pbiv: Long, cbiv: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptEncrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pbiv: Long, cbiv: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptEnumAlgorithms(dwalgoperations: Int, palgcount: Long, ppalglist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptEnumAlgorithms(dwalgoperations: Int, palgcount: Long, ppalglist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctionProviders(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctionProviders(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctions(dwtable: Int, pszcontext: Long, dwinterface: Int, pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctions(dwtable: Int, pszcontext: Long, dwinterface: Int, pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptEnumContexts(dwtable: Int, pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptEnumContexts(dwtable: Int, pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptEnumProviders(pszalgid: Long, pimplcount: Long, ppimpllist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptEnumProviders(pszalgid: Long, pimplcount: Long, ppimpllist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptEnumRegisteredProviders(pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptEnumRegisteredProviders(pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptExportKey(hkey: Long, hexportkey: Long, pszblobtype: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptExportKey(hkey: Long, hexportkey: Long, pszblobtype: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptFinalizeKeyPair(hkey: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptFinalizeKeyPair(hkey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptFinishHash(hhash: Long, pboutput: Long, cboutput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptFinishHash(hhash: Long, pboutput: Long, cboutput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptFreeBuffer(pvbuffer: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptFreeBuffer(pvbuffer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptGenRandom(halgorithm: Long, pbbuffer: Long, cbbuffer: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptGenRandom(halgorithm: Long, pbbuffer: Long, cbbuffer: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptGenerateKeyPair(halgorithm: Long, phkey: Long, dwlength: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptGenerateKeyPair(halgorithm: Long, phkey: Long, dwlength: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptGenerateSymmetricKey(halgorithm: Long, phkey: Long, pbkeyobject: Long, cbkeyobject: Int, pbsecret: Long, cbsecret: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptGenerateSymmetricKey(halgorithm: Long, phkey: Long, pbkeyobject: Long, cbkeyobject: Int, pbsecret: Long, cbsecret: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptGetFipsAlgorithmMode(pfenabled: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptGetFipsAlgorithmMode(pfenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptGetProperty(hobject: Long, pszproperty: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptGetProperty(hobject: Long, pszproperty: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptHash(halgorithm: Long, pbsecret: Long, cbsecret: Int, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptHash(halgorithm: Long, pbsecret: Long, cbsecret: Int, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptHashData(hhash: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptHashData(hhash: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptImportKey(halgorithm: Long, himportkey: Long, pszblobtype: Long, phkey: Long, pbkeyobject: Long, cbkeyobject: Int, pbinput: Long, cbinput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptImportKey(halgorithm: Long, himportkey: Long, pszblobtype: Long, phkey: Long, pbkeyobject: Long, cbkeyobject: Int, pbinput: Long, cbinput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptImportKeyPair(halgorithm: Long, himportkey: Long, pszblobtype: Long, phkey: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptImportKeyPair(halgorithm: Long, himportkey: Long, pszblobtype: Long, phkey: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptKeyDerivation(hkey: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptKeyDerivation(hkey: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptOpenAlgorithmProvider(phalgorithm: Long, pszalgid: Long, pszimplementation: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptOpenAlgorithmProvider(phalgorithm: Long, pszalgid: Long, pszimplementation: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptProcessMultiOperations(hobject: Long, operationtype: Int, poperations: Long, cboperations: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptProcessMultiOperations(hobject: Long, operationtype: Int, poperations: Long, cboperations: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptQueryContextConfiguration(dwtable: Int, pszcontext: Long, pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptQueryContextConfiguration(dwtable: Int, pszcontext: Long, pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionConfiguration(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionConfiguration(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionProperty(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszproperty: Long, pcbvalue: Long, ppbvalue: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionProperty(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszproperty: Long, pcbvalue: Long, ppbvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptQueryProviderRegistration(pszprovider: Long, dwmode: Int, dwinterface: Int, pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptQueryProviderRegistration(pszprovider: Long, dwmode: Int, dwinterface: Int, pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptRegisterConfigChangeNotify(phevent: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptRegisterConfigChangeNotify(phevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptRegisterProvider(pszprovider: Long, dwflags: Int, preg: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptRegisterProvider(pszprovider: Long, dwflags: Int, preg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunction(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunction(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunctionProvider(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszprovider: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunctionProvider(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptResolveProviders(pszcontext: Long, dwinterface: Int, pszfunction: Long, pszprovider: Long, dwmode: Int, dwflags: Int, pcbbuffer: Long, ppbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptResolveProviders(pszcontext: Long, dwinterface: Int, pszfunction: Long, pszprovider: Long, dwmode: Int, dwflags: Int, pcbbuffer: Long, ppbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptSecretAgreement(hprivkey: Long, hpubkey: Long, phagreedsecret: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptSecretAgreement(hprivkey: Long, hpubkey: Long, phagreedsecret: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptSetContextFunctionProperty(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszproperty: Long, cbvalue: Int, pbvalue: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptSetContextFunctionProperty(dwtable: Int, pszcontext: Long, dwinterface: Int, pszfunction: Long, pszproperty: Long, cbvalue: Int, pbvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptSetProperty(hobject: Long, pszproperty: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptSetProperty(hobject: Long, pszproperty: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptSignHash(hkey: Long, ppaddinginfo: Long, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptSignHash(hkey: Long, ppaddinginfo: Long, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptUnregisterConfigChangeNotify(hevent: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptUnregisterConfigChangeNotify(hevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptUnregisterProvider(pszprovider: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptUnregisterProvider(pszprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_bCryptVerifySignature(hkey: Long, ppaddinginfo: Long, pbhash: Long, cbhash: Int, pbsignature: Long, cbsignature: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyBCryptVerifySignature(hkey: Long, ppaddinginfo: Long, pbhash: Long, cbhash: Int, pbsignature: Long, cbsignature: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddCRLContextToStore(hcertstore: Long, pcrlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddCRLContextToStore(hcertstore: Long, pcrlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddCRLLinkToStore(hcertstore: Long, pcrlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddCRLLinkToStore(hcertstore: Long, pcrlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddCTLContextToStore(hcertstore: Long, pctlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddCTLContextToStore(hcertstore: Long, pctlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddCTLLinkToStore(hcertstore: Long, pctlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddCTLLinkToStore(hcertstore: Long, pctlcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddCertificateContextToStore(hcertstore: Long, pcertcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddCertificateContextToStore(hcertstore: Long, pcertcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddCertificateLinkToStore(hcertstore: Long, pcertcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddCertificateLinkToStore(hcertstore: Long, pcertcontext: Long, dwadddisposition: Int, ppstorecontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddEncodedCRLToStore(hcertstore: Long, dwcertencodingtype: Int, pbcrlencoded: Long, cbcrlencoded: Int, dwadddisposition: Int, ppcrlcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddEncodedCRLToStore(hcertstore: Long, dwcertencodingtype: Int, pbcrlencoded: Long, cbcrlencoded: Int, dwadddisposition: Int, ppcrlcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddEncodedCTLToStore(hcertstore: Long, dwmsgandcertencodingtype: Int, pbctlencoded: Long, cbctlencoded: Int, dwadddisposition: Int, ppctlcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddEncodedCTLToStore(hcertstore: Long, dwmsgandcertencodingtype: Int, pbctlencoded: Long, cbctlencoded: Int, dwadddisposition: Int, ppctlcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToStore(hcertstore: Long, dwcertencodingtype: Int, pbcertencoded: Long, cbcertencoded: Int, dwadddisposition: Int, ppcertcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToStore(hcertstore: Long, dwcertencodingtype: Int, pbcertencoded: Long, cbcertencoded: Int, dwadddisposition: Int, ppcertcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreA(szcertstorename: Long, pbcertencoded: Long, cbcertencoded: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreA(szcertstorename: Long, pbcertencoded: Long, cbcertencoded: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreW(szcertstorename: Long, pbcertencoded: Long, cbcertencoded: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreW(szcertstorename: Long, pbcertencoded: Long, cbcertencoded: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponse(hserverocspresponse: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponse(hserverocspresponse: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponseContext(pserverocspresponsecontext: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponseContext(pserverocspresponsecontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddSerializedElementToStore(hcertstore: Long, pbelement: Long, cbelement: Int, dwadddisposition: Int, dwflags: Int, dwcontexttypeflags: Int, pdwcontexttype: Long, ppvcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddSerializedElementToStore(hcertstore: Long, pbelement: Long, cbelement: Int, dwadddisposition: Int, dwflags: Int, dwcontexttypeflags: Int, pdwcontexttype: Long, ppvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAddStoreToCollection(hcollectionstore: Long, hsiblingstore: Long, dwupdateflags: Int, dwpriority: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertAddStoreToCollection(hcollectionstore: Long, hsiblingstore: Long, dwupdateflags: Int, dwpriority: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certAlgIdToOID(dwalgid: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertAlgIdToOID(dwalgid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCloseServerOcspResponse(hserverocspresponse: Long, dwflags: Int)
+    external fun windowssysWindowsWin32SecurityCryptographyCertCloseServerOcspResponse(hserverocspresponse: Long, dwflags: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCloseStore(hcertstore: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertCloseStore(hcertstore: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCompareCertificate(dwcertencodingtype: Int, pcertid1: Long, pcertid2: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertCompareCertificate(dwcertencodingtype: Int, pcertid1: Long, pcertid2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCompareCertificateName(dwcertencodingtype: Int, pcertname1: Long, pcertname2: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertCompareCertificateName(dwcertencodingtype: Int, pcertname1: Long, pcertname2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCompareIntegerBlob(pint1: Long, pint2: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertCompareIntegerBlob(pint1: Long, pint2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certComparePublicKeyInfo(dwcertencodingtype: Int, ppublickey1: Long, ppublickey2: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertComparePublicKeyInfo(dwcertencodingtype: Int, ppublickey1: Long, ppublickey2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certControlStore(hcertstore: Long, dwflags: Int, dwctrltype: Int, pvctrlpara: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertControlStore(hcertstore: Long, dwflags: Int, dwctrltype: Int, pvctrlpara: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCreateCRLContext(dwcertencodingtype: Int, pbcrlencoded: Long, cbcrlencoded: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertCreateCRLContext(dwcertencodingtype: Int, pbcrlencoded: Long, cbcrlencoded: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCreateCTLContext(dwmsgandcertencodingtype: Int, pbctlencoded: Long, cbctlencoded: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertCreateCTLContext(dwmsgandcertencodingtype: Int, pbctlencoded: Long, cbctlencoded: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCreateCTLEntryFromCertificateContextProperties(pcertcontext: Long, coptattr: Int, rgoptattr: Long, dwflags: Int, pvreserved: Long, pctlentry: Long, pcbctlentry: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertCreateCTLEntryFromCertificateContextProperties(pcertcontext: Long, coptattr: Int, rgoptattr: Long, dwflags: Int, pvreserved: Long, pctlentry: Long, pcbctlentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCreateCertificateChainEngine(pconfig: Long, phchainengine: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertCreateCertificateChainEngine(pconfig: Long, phchainengine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCreateCertificateContext(dwcertencodingtype: Int, pbcertencoded: Long, cbcertencoded: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertCreateCertificateContext(dwcertencodingtype: Int, pbcertencoded: Long, cbcertencoded: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCreateContext(dwcontexttype: Int, dwencodingtype: Int, pbencoded: Long, cbencoded: Int, dwflags: Int, pcreatepara: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertCreateContext(dwcontexttype: Int, dwencodingtype: Int, pbencoded: Long, cbencoded: Int, dwflags: Int, pcreatepara: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certCreateSelfSignCertificate(hcryptprovorncryptkey: Long, psubjectissuerblob: Long, dwflags: Int, pkeyprovinfo: Long, psignaturealgorithm: Long, pstarttime: Long, pendtime: Long, pextensions: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertCreateSelfSignCertificate(hcryptprovorncryptkey: Long, psubjectissuerblob: Long, dwflags: Int, pkeyprovinfo: Long, psignaturealgorithm: Long, pstarttime: Long, pendtime: Long, pextensions: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDeleteCRLFromStore(pcrlcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertDeleteCRLFromStore(pcrlcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDeleteCTLFromStore(pctlcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertDeleteCTLFromStore(pctlcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDeleteCertificateFromStore(pcertcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertDeleteCertificateFromStore(pcertcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDuplicateCRLContext(pcrlcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertDuplicateCRLContext(pcrlcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDuplicateCTLContext(pctlcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertDuplicateCTLContext(pctlcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDuplicateCertificateChain(pchaincontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateChain(pchaincontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDuplicateCertificateContext(pcertcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateContext(pcertcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certDuplicateStore(hcertstore: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertDuplicateStore(hcertstore: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumCRLContextProperties(pcrlcontext: Long, dwpropid: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumCRLContextProperties(pcrlcontext: Long, dwpropid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumCRLsInStore(hcertstore: Long, pprevcrlcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumCRLsInStore(hcertstore: Long, pprevcrlcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumCTLContextProperties(pctlcontext: Long, dwpropid: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumCTLContextProperties(pctlcontext: Long, dwpropid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumCTLsInStore(hcertstore: Long, pprevctlcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumCTLsInStore(hcertstore: Long, pprevctlcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumCertificateContextProperties(pcertcontext: Long, dwpropid: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumCertificateContextProperties(pcertcontext: Long, dwpropid: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumCertificatesInStore(hcertstore: Long, pprevcertcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumCertificatesInStore(hcertstore: Long, pprevcertcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumPhysicalStore(pvsystemstore: Long, dwflags: Int, pvarg: Long, pfnenum: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumPhysicalStore(pvsystemstore: Long, dwflags: Int, pvarg: Long, pfnenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumSubjectInSortedCTL(pctlcontext: Long, ppvnextsubject: Long, psubjectidentifier: Long, pencodedattributes: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumSubjectInSortedCTL(pctlcontext: Long, ppvnextsubject: Long, psubjectidentifier: Long, pencodedattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumSystemStore(dwflags: Int, pvsystemstorelocationpara: Long, pvarg: Long, pfnenum: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumSystemStore(dwflags: Int, pvsystemstorelocationpara: Long, pvarg: Long, pfnenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certEnumSystemStoreLocation(dwflags: Int, pvarg: Long, pfnenum: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertEnumSystemStoreLocation(dwflags: Int, pvarg: Long, pfnenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindAttribute(pszobjid: Long, cattr: Int, rgattr: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindAttribute(pszobjid: Long, cattr: Int, rgattr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindCRLInStore(hcertstore: Long, dwcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevcrlcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindCRLInStore(hcertstore: Long, dwcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevcrlcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindCTLInStore(hcertstore: Long, dwmsgandcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevctlcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindCTLInStore(hcertstore: Long, dwmsgandcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevctlcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindCertificateInCRL(pcert: Long, pcrlcontext: Long, dwflags: Int, pvreserved: Long, ppcrlentry: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindCertificateInCRL(pcert: Long, pcrlcontext: Long, dwflags: Int, pvreserved: Long, ppcrlentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindCertificateInStore(hcertstore: Long, dwcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevcertcontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindCertificateInStore(hcertstore: Long, dwcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevcertcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindChainInStore(hcertstore: Long, dwcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevchaincontext: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindChainInStore(hcertstore: Long, dwcertencodingtype: Int, dwfindflags: Int, dwfindtype: Int, pvfindpara: Long, pprevchaincontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindExtension(pszobjid: Long, cextensions: Int, rgextensions: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindExtension(pszobjid: Long, cextensions: Int, rgextensions: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindRDNAttr(pszobjid: Long, pname: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindRDNAttr(pszobjid: Long, pname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindSubjectInCTL(dwencodingtype: Int, dwsubjecttype: Int, pvsubject: Long, pctlcontext: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindSubjectInCTL(dwencodingtype: Int, dwsubjecttype: Int, pvsubject: Long, pctlcontext: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFindSubjectInSortedCTL(psubjectidentifier: Long, pctlcontext: Long, dwflags: Int, pvreserved: Long, pencodedattributes: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertFindSubjectInSortedCTL(psubjectidentifier: Long, pctlcontext: Long, dwflags: Int, pvreserved: Long, pencodedattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFreeCRLContext(pcrlcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertFreeCRLContext(pcrlcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFreeCTLContext(pctlcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertFreeCTLContext(pctlcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFreeCertificateChain(pchaincontext: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChain(pchaincontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFreeCertificateChainEngine(hchainengine: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainEngine(hchainengine: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFreeCertificateChainList(prgpselection: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainList(prgpselection: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFreeCertificateContext(pcertcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertFreeCertificateContext(pcertcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certFreeServerOcspResponseContext(pserverocspresponsecontext: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCertFreeServerOcspResponseContext(pserverocspresponsecontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetCRLContextProperty(pcrlcontext: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetCRLContextProperty(pcrlcontext: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetCRLFromStore(hcertstore: Long, pissuercontext: Long, pprevcrlcontext: Long, pdwflags: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetCRLFromStore(hcertstore: Long, pissuercontext: Long, pprevcrlcontext: Long, pdwflags: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetCTLContextProperty(pctlcontext: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetCTLContextProperty(pctlcontext: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetCertificateChain(hchainengine: Long, pcertcontext: Long, ptime: Long, hadditionalstore: Long, pchainpara: Long, dwflags: Int, pvreserved: Long, ppchaincontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetCertificateChain(hchainengine: Long, pcertcontext: Long, ptime: Long, hadditionalstore: Long, pchainpara: Long, dwflags: Int, pvreserved: Long, ppchaincontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetCertificateContextProperty(pcertcontext: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetCertificateContextProperty(pcertcontext: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetEnhancedKeyUsage(pcertcontext: Long, dwflags: Int, pusage: Long, pcbusage: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetEnhancedKeyUsage(pcertcontext: Long, dwflags: Int, pusage: Long, pcbusage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetIntendedKeyUsage(dwcertencodingtype: Int, pcertinfo: Long, pbkeyusage: Long, cbkeyusage: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetIntendedKeyUsage(dwcertencodingtype: Int, pcertinfo: Long, pbkeyusage: Long, cbkeyusage: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetIssuerCertificateFromStore(hcertstore: Long, psubjectcontext: Long, pprevissuercontext: Long, pdwflags: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetIssuerCertificateFromStore(hcertstore: Long, psubjectcontext: Long, pprevissuercontext: Long, pdwflags: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetNameStringA(pcertcontext: Long, dwtype: Int, dwflags: Int, pvtypepara: Long, psznamestring: Long, cchnamestring: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetNameStringA(pcertcontext: Long, dwtype: Int, dwflags: Int, pvtypepara: Long, psznamestring: Long, cchnamestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetNameStringW(pcertcontext: Long, dwtype: Int, dwflags: Int, pvtypepara: Long, psznamestring: Long, cchnamestring: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetNameStringW(pcertcontext: Long, dwtype: Int, dwflags: Int, pvtypepara: Long, psznamestring: Long, cchnamestring: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetPublicKeyLength(dwcertencodingtype: Int, ppublickey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetPublicKeyLength(dwcertencodingtype: Int, ppublickey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetServerOcspResponseContext(hserverocspresponse: Long, dwflags: Int, pvreserved: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetServerOcspResponseContext(hserverocspresponse: Long, dwflags: Int, pvreserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetStoreProperty(hcertstore: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetStoreProperty(hcertstore: Long, dwpropid: Int, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetSubjectCertificateFromStore(hcertstore: Long, dwcertencodingtype: Int, pcertid: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetSubjectCertificateFromStore(hcertstore: Long, dwcertencodingtype: Int, pcertid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certGetValidUsages(ccerts: Int, rghcerts: Long, cnumoids: Long, rghoids: Long, pcboids: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertGetValidUsages(ccerts: Int, rghcerts: Long, cnumoids: Long, rghoids: Long, pcboids: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certIsRDNAttrsInCertificateName(dwcertencodingtype: Int, dwflags: Int, pcertname: Long, prdn: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertIsRDNAttrsInCertificateName(dwcertencodingtype: Int, dwflags: Int, pcertname: Long, prdn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certIsStrongHashToSign(pstrongsignpara: Long, pwszcnghashalgid: Long, psigningcert: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertIsStrongHashToSign(pstrongsignpara: Long, pwszcnghashalgid: Long, psigningcert: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certIsValidCRLForCertificate(pcert: Long, pcrl: Long, dwflags: Int, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertIsValidCRLForCertificate(pcert: Long, pcrl: Long, dwflags: Int, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certIsWeakHash(dwhashusetype: Int, pwszcnghashalgid: Long, dwchainflags: Int, psignerchaincontext: Long, ptimestamp: Long, pwszfilename: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertIsWeakHash(dwhashusetype: Int, pwszcnghashalgid: Long, dwchainflags: Int, psignerchaincontext: Long, ptimestamp: Long, pwszfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certNameToStrA(dwcertencodingtype: Int, pname: Long, dwstrtype: Int, psz: Long, csz: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertNameToStrA(dwcertencodingtype: Int, pname: Long, dwstrtype: Int, psz: Long, csz: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certNameToStrW(dwcertencodingtype: Int, pname: Long, dwstrtype: Int, psz: Long, csz: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertNameToStrW(dwcertencodingtype: Int, pname: Long, dwstrtype: Int, psz: Long, csz: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certOIDToAlgId(pszobjid: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertOIDToAlgId(pszobjid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certOpenServerOcspResponse(pchaincontext: Long, dwflags: Int, popenpara: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertOpenServerOcspResponse(pchaincontext: Long, dwflags: Int, popenpara: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certOpenStore(lpszstoreprovider: Long, dwencodingtype: Int, hcryptprov: Long, dwflags: Int, pvpara: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertOpenStore(lpszstoreprovider: Long, dwencodingtype: Int, hcryptprov: Long, dwflags: Int, pvpara: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certOpenSystemStoreA(hprov: Long, szsubsystemprotocol: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreA(hprov: Long, szsubsystemprotocol: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certOpenSystemStoreW(hprov: Long, szsubsystemprotocol: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreW(hprov: Long, szsubsystemprotocol: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certRDNValueToStrA(dwvaluetype: Int, pvalue: Long, psz: Long, csz: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrA(dwvaluetype: Int, pvalue: Long, psz: Long, csz: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certRDNValueToStrW(dwvaluetype: Int, pvalue: Long, psz: Long, csz: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrW(dwvaluetype: Int, pvalue: Long, psz: Long, csz: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certRegisterPhysicalStore(pvsystemstore: Long, dwflags: Int, pwszstorename: Long, pstoreinfo: Long, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertRegisterPhysicalStore(pvsystemstore: Long, dwflags: Int, pwszstorename: Long, pstoreinfo: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certRegisterSystemStore(pvsystemstore: Long, dwflags: Int, pstoreinfo: Long, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertRegisterSystemStore(pvsystemstore: Long, dwflags: Int, pstoreinfo: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certRemoveEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertRemoveEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certRemoveStoreFromCollection(hcollectionstore: Long, hsiblingstore: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCertRemoveStoreFromCollection(hcollectionstore: Long, hsiblingstore: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certResyncCertificateChainEngine(hchainengine: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertResyncCertificateChainEngine(hchainengine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certRetrieveLogoOrBiometricInfo(pcertcontext: Long, lpszlogoorbiometrictype: Long, dwretrievalflags: Int, dwtimeout: Int, dwflags: Int, pvreserved: Long, ppbdata: Long, pcbdata: Long, ppwszmimetype: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertRetrieveLogoOrBiometricInfo(pcertcontext: Long, lpszlogoorbiometrictype: Long, dwretrievalflags: Int, dwtimeout: Int, dwflags: Int, pvreserved: Long, ppbdata: Long, pcbdata: Long, ppwszmimetype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSaveStore(hcertstore: Long, dwencodingtype: Int, dwsaveas: Int, dwsaveto: Int, pvsavetopara: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSaveStore(hcertstore: Long, dwencodingtype: Int, dwsaveas: Int, dwsaveto: Int, pvsavetopara: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSelectCertificateChains(pselectioncontext: Long, dwflags: Int, pchainparameters: Long, ccriteria: Int, rgpcriteria: Long, hstore: Long, pcselection: Long, pprgpselection: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSelectCertificateChains(pselectioncontext: Long, dwflags: Int, pchainparameters: Long, ccriteria: Int, rgpcriteria: Long, hstore: Long, pcselection: Long, pprgpselection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSerializeCRLStoreElement(pcrlcontext: Long, dwflags: Int, pbelement: Long, pcbelement: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSerializeCRLStoreElement(pcrlcontext: Long, dwflags: Int, pbelement: Long, pcbelement: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSerializeCTLStoreElement(pctlcontext: Long, dwflags: Int, pbelement: Long, pcbelement: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSerializeCTLStoreElement(pctlcontext: Long, dwflags: Int, pbelement: Long, pcbelement: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSerializeCertificateStoreElement(pcertcontext: Long, dwflags: Int, pbelement: Long, pcbelement: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSerializeCertificateStoreElement(pcertcontext: Long, dwflags: Int, pbelement: Long, pcbelement: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSetCRLContextProperty(pcrlcontext: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSetCRLContextProperty(pcrlcontext: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSetCTLContextProperty(pctlcontext: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSetCTLContextProperty(pctlcontext: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: Long, pctlentry: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextPropertiesFromCTLEntry(pcertcontext: Long, pctlentry: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSetCertificateContextProperty(pcertcontext: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextProperty(pcertcontext: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSetEnhancedKeyUsage(pcertcontext: Long, pusage: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSetEnhancedKeyUsage(pcertcontext: Long, pusage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certSetStoreProperty(hcertstore: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertSetStoreProperty(hcertstore: Long, dwpropid: Int, dwflags: Int, pvdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certStrToNameA(dwcertencodingtype: Int, pszx500: Long, dwstrtype: Int, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertStrToNameA(dwcertencodingtype: Int, pszx500: Long, dwstrtype: Int, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certStrToNameW(dwcertencodingtype: Int, pszx500: Long, dwstrtype: Int, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertStrToNameW(dwcertencodingtype: Int, pszx500: Long, dwstrtype: Int, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certUnregisterPhysicalStore(pvsystemstore: Long, dwflags: Int, pwszstorename: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertUnregisterPhysicalStore(pvsystemstore: Long, dwflags: Int, pwszstorename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certUnregisterSystemStore(pvsystemstore: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertUnregisterSystemStore(pvsystemstore: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifyCRLRevocation(dwcertencodingtype: Int, pcertid: Long, ccrlinfo: Int, rgpcrlinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifyCRLRevocation(dwcertencodingtype: Int, pcertid: Long, ccrlinfo: Int, rgpcrlinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifyCRLTimeValidity(ptimetoverify: Long, pcrlinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifyCRLTimeValidity(ptimetoverify: Long, pcrlinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifyCTLUsage(dwencodingtype: Int, dwsubjecttype: Int, pvsubject: Long, psubjectusage: Long, dwflags: Int, pverifyusagepara: Long, pverifyusagestatus: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifyCTLUsage(dwencodingtype: Int, dwsubjecttype: Int, pvsubject: Long, psubjectusage: Long, dwflags: Int, pverifyusagepara: Long, pverifyusagestatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifyCertificateChainPolicy(pszpolicyoid: Long, pchaincontext: Long, ppolicypara: Long, ppolicystatus: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifyCertificateChainPolicy(pszpolicyoid: Long, pchaincontext: Long, ppolicypara: Long, ppolicystatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifyRevocation(dwencodingtype: Int, dwrevtype: Int, ccontext: Int, rgpvcontext: Long, dwflags: Int, prevpara: Long, prevstatus: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifyRevocation(dwencodingtype: Int, dwrevtype: Int, ccontext: Int, rgpvcontext: Long, dwflags: Int, prevpara: Long, prevstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifySubjectCertificateContext(psubject: Long, pissuer: Long, pdwflags: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifySubjectCertificateContext(psubject: Long, pissuer: Long, pdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifyTimeValidity(ptimetoverify: Long, pcertinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifyTimeValidity(ptimetoverify: Long, pcertinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_certVerifyValidityNesting(psubjectinfo: Long, pissuerinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCertVerifyValidityNesting(psubjectinfo: Long, pissuerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_closeCryptoHandle(hcrypto: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCloseCryptoHandle(hcrypto: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptAcquireCertificatePrivateKey(pcert: Long, dwflags: Int, pvparameters: Long, phcryptprovorncryptkey: Long, pdwkeyspec: Long, pfcallerfreeprovorncryptkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptAcquireCertificatePrivateKey(pcert: Long, dwflags: Int, pvparameters: Long, phcryptprovorncryptkey: Long, pdwkeyspec: Long, pfcallerfreeprovorncryptkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptAcquireContextA(phprov: Long, szcontainer: Long, szprovider: Long, dwprovtype: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptAcquireContextA(phprov: Long, szcontainer: Long, szprovider: Long, dwprovtype: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptAcquireContextW(phprov: Long, szcontainer: Long, szprovider: Long, dwprovtype: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptAcquireContextW(phprov: Long, szcontainer: Long, szprovider: Long, dwprovtype: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptBinaryToStringA(pbbinary: Long, cbbinary: Int, dwflags: Int, pszstring: Long, pcchstring: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringA(pbbinary: Long, cbbinary: Int, dwflags: Int, pszstring: Long, pcchstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptBinaryToStringW(pbbinary: Long, cbbinary: Int, dwflags: Int, pszstring: Long, pcchstring: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringW(pbbinary: Long, cbbinary: Int, dwflags: Int, pszstring: Long, pcchstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptCloseAsyncHandle(hasync: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(hasync: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptContextAddRef(hprov: Long, pdwreserved: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptContextAddRef(hprov: Long, pdwreserved: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptCreateAsyncHandle(dwflags: Int, phasync: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptCreateAsyncHandle(dwflags: Int, phasync: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptCreateHash(hprov: Long, algid: Int, hkey: Long, dwflags: Int, phhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptCreateHash(hprov: Long, algid: Int, hkey: Long, dwflags: Int, phhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: Int, pszpubkeyoid: Long, ppubkeystruc: Long, cbpubkeystruc: Int, dwflags: Int, pvreserved: Long, pbhash: Long, pcbhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptCreateKeyIdentifierFromCSP(dwcertencodingtype: Int, pszpubkeyoid: Long, ppubkeystruc: Long, cbpubkeystruc: Int, dwflags: Int, pvreserved: Long, pbhash: Long, pcbhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDecodeMessage(dwmsgtypeflags: Int, pdecryptpara: Long, pverifypara: Long, dwsignerindex: Int, pbencodedblob: Long, cbencodedblob: Int, dwprevinnercontenttype: Int, pdwmsgtype: Long, pdwinnercontenttype: Long, pbdecoded: Long, pcbdecoded: Long, ppxchgcert: Long, ppsignercert: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDecodeMessage(dwmsgtypeflags: Int, pdecryptpara: Long, pverifypara: Long, dwsignerindex: Int, pbencodedblob: Long, cbencodedblob: Int, dwprevinnercontenttype: Int, pdwmsgtype: Long, pdwinnercontenttype: Long, pbdecoded: Long, pcbdecoded: Long, ppxchgcert: Long, ppsignercert: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDecodeObject(dwcertencodingtype: Int, lpszstructtype: Long, pbencoded: Long, cbencoded: Int, dwflags: Int, pvstructinfo: Long, pcbstructinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDecodeObject(dwcertencodingtype: Int, lpszstructtype: Long, pbencoded: Long, cbencoded: Int, dwflags: Int, pvstructinfo: Long, pcbstructinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDecodeObjectEx(dwcertencodingtype: Int, lpszstructtype: Long, pbencoded: Long, cbencoded: Int, dwflags: Int, pdecodepara: Long, pvstructinfo: Long, pcbstructinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDecodeObjectEx(dwcertencodingtype: Int, lpszstructtype: Long, pbencoded: Long, cbencoded: Int, dwflags: Int, pdecodepara: Long, pvstructinfo: Long, pcbstructinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDecrypt(hkey: Long, hhash: Long, final: Int, dwflags: Int, pbdata: Long, pdwdatalen: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDecrypt(hkey: Long, hhash: Long, final: Int, dwflags: Int, pbdata: Long, pdwdatalen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDecryptAndVerifyMessageSignature(pdecryptpara: Long, pverifypara: Long, dwsignerindex: Int, pbencryptedblob: Long, cbencryptedblob: Int, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long, ppsignercert: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDecryptAndVerifyMessageSignature(pdecryptpara: Long, pverifypara: Long, dwsignerindex: Int, pbencryptedblob: Long, cbencryptedblob: Int, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long, ppsignercert: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDecryptMessage(pdecryptpara: Long, pbencryptedblob: Long, cbencryptedblob: Int, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDecryptMessage(pdecryptpara: Long, pbencryptedblob: Long, cbencryptedblob: Int, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDeriveKey(hprov: Long, algid: Int, hbasedata: Long, dwflags: Int, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDeriveKey(hprov: Long, algid: Int, hbasedata: Long, dwflags: Int, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDestroyHash(hhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDestroyHash(hhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDestroyKey(hkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDestroyKey(hkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDuplicateHash(hhash: Long, pdwreserved: Long, dwflags: Int, phhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDuplicateHash(hhash: Long, pdwreserved: Long, dwflags: Int, phhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptDuplicateKey(hkey: Long, pdwreserved: Long, dwflags: Int, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptDuplicateKey(hkey: Long, pdwreserved: Long, dwflags: Int, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEncodeObject(dwcertencodingtype: Int, lpszstructtype: Long, pvstructinfo: Long, pbencoded: Long, pcbencoded: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEncodeObject(dwcertencodingtype: Int, lpszstructtype: Long, pvstructinfo: Long, pbencoded: Long, pcbencoded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEncodeObjectEx(dwcertencodingtype: Int, lpszstructtype: Long, pvstructinfo: Long, dwflags: Int, pencodepara: Long, pvencoded: Long, pcbencoded: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEncodeObjectEx(dwcertencodingtype: Int, lpszstructtype: Long, pvstructinfo: Long, dwflags: Int, pencodepara: Long, pvencoded: Long, pcbencoded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEncrypt(hkey: Long, hhash: Long, final: Int, dwflags: Int, pbdata: Long, pdwdatalen: Long, dwbuflen: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEncrypt(hkey: Long, hhash: Long, final: Int, dwflags: Int, pbdata: Long, pdwdatalen: Long, dwbuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEncryptMessage(pencryptpara: Long, crecipientcert: Int, rgprecipientcert: Long, pbtobeencrypted: Long, cbtobeencrypted: Int, pbencryptedblob: Long, pcbencryptedblob: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEncryptMessage(pencryptpara: Long, crecipientcert: Int, rgprecipientcert: Long, pbtobeencrypted: Long, cbtobeencrypted: Int, pbencryptedblob: Long, pcbencryptedblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEnumKeyIdentifierProperties(pkeyidentifier: Long, dwpropid: Int, dwflags: Int, pwszcomputername: Long, pvreserved: Long, pvarg: Long, pfnenum: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEnumKeyIdentifierProperties(pkeyidentifier: Long, dwpropid: Int, dwflags: Int, pwszcomputername: Long, pvreserved: Long, pvarg: Long, pfnenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEnumOIDFunction(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, dwflags: Int, pvarg: Long, pfnenumoidfunc: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEnumOIDFunction(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, dwflags: Int, pvarg: Long, pfnenumoidfunc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEnumOIDInfo(dwgroupid: Int, dwflags: Int, pvarg: Long, pfnenumoidinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEnumOIDInfo(dwgroupid: Int, dwflags: Int, pvarg: Long, pfnenumoidinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesA(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, sztypename: Long, pcbtypename: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesA(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, sztypename: Long, pcbtypename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesW(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, sztypename: Long, pcbtypename: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesW(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, sztypename: Long, pcbtypename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEnumProvidersA(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, szprovname: Long, pcbprovname: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersA(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, szprovname: Long, pcbprovname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptEnumProvidersW(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, szprovname: Long, pcbprovname: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersW(dwindex: Int, pdwreserved: Long, dwflags: Int, pdwprovtype: Long, szprovname: Long, pcbprovname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptExportKey(hkey: Long, hexpkey: Long, dwblobtype: Int, dwflags: Int, pbdata: Long, pdwdatalen: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptExportKey(hkey: Long, hexpkey: Long, dwblobtype: Int, dwflags: Int, pbdata: Long, pdwdatalen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptExportPKCS8(hcryptprov: Long, dwkeyspec: Int, pszprivatekeyobjid: Long, dwflags: Int, pvauxinfo: Long, pbprivatekeyblob: Long, pcbprivatekeyblob: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptExportPKCS8(hcryptprov: Long, dwkeyspec: Int, pszprivatekeyobjid: Long, dwflags: Int, pvauxinfo: Long, pbprivatekeyblob: Long, pcbprivatekeyblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfo(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, pinfo: Long, pcbinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfo(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, pinfo: Long, pcbinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, pszpublickeyobjid: Long, dwflags: Int, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoEx(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, pszpublickeyobjid: Long, dwflags: Int, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: Long, dwcertencodingtype: Int, pszpublickeyobjid: Long, dwflags: Int, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: Long, dwcertencodingtype: Int, pszpublickeyobjid: Long, dwflags: Int, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptFindCertificateKeyProvInfo(pcert: Long, dwflags: Int, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptFindCertificateKeyProvInfo(pcert: Long, dwflags: Int, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptFindLocalizedName(pwszcryptname: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptFindLocalizedName(pwszcryptname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptFindOIDInfo(dwkeytype: Int, pvkey: Long, dwgroupid: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptFindOIDInfo(dwkeytype: Int, pvkey: Long, dwgroupid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptFormatObject(dwcertencodingtype: Int, dwformattype: Int, dwformatstrtype: Int, pformatstruct: Long, lpszstructtype: Long, pbencoded: Long, cbencoded: Int, pbformat: Long, pcbformat: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptFormatObject(dwcertencodingtype: Int, dwformattype: Int, dwformatstrtype: Int, pformatstruct: Long, lpszstructtype: Long, pbencoded: Long, cbencoded: Int, pbformat: Long, pcbformat: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptFreeOIDFunctionAddress(hfuncaddr: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptFreeOIDFunctionAddress(hfuncaddr: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGenKey(hprov: Long, algid: Int, dwflags: Int, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGenKey(hprov: Long, algid: Int, dwflags: Int, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGenRandom(hprov: Long, dwlen: Int, pbbuffer: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGenRandom(hprov: Long, dwlen: Int, pbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetAsyncParam(hasync: Long, pszparamoid: Long, ppvparam: Long, ppfnfree: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetAsyncParam(hasync: Long, pszparamoid: Long, ppvparam: Long, ppfnfree: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDDllList(hfuncset: Long, dwencodingtype: Int, pwszdlllist: Long, pcchdlllist: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDDllList(hfuncset: Long, dwencodingtype: Int, pwszdlllist: Long, pcchdlllist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDFunctionAddress(hfuncset: Long, dwencodingtype: Int, pwszdll: Long, dwflags: Int, ppvfuncaddr: Long, phfuncaddr: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDFunctionAddress(hfuncset: Long, dwencodingtype: Int, pwszdll: Long, dwflags: Int, ppvfuncaddr: Long, phfuncaddr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderA(dwprovtype: Int, pdwreserved: Long, dwflags: Int, pszprovname: Long, pcbprovname: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderA(dwprovtype: Int, pdwreserved: Long, dwflags: Int, pszprovname: Long, pcbprovname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderW(dwprovtype: Int, pdwreserved: Long, dwflags: Int, pszprovname: Long, pcbprovname: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderW(dwprovtype: Int, pdwreserved: Long, dwflags: Int, pszprovname: Long, pcbprovname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetHashParam(hhash: Long, dwparam: Int, pbdata: Long, pdwdatalen: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetHashParam(hhash: Long, dwparam: Int, pbdata: Long, pdwdatalen: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: Int, dwflags: Int, pwszcomputername: Long, pvreserved: Long, pvdata: Long, pcbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: Int, dwflags: Int, pwszcomputername: Long, pvreserved: Long, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetKeyParam(hkey: Long, dwparam: Int, pbdata: Long, pdwdatalen: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetKeyParam(hkey: Long, dwparam: Int, pbdata: Long, pdwdatalen: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetMessageCertificates(dwmsgandcertencodingtype: Int, hcryptprov: Long, dwflags: Int, pbsignedblob: Long, cbsignedblob: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetMessageCertificates(dwmsgandcertencodingtype: Int, hcryptprov: Long, dwflags: Int, pbsignedblob: Long, cbsignedblob: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetMessageSignerCount(dwmsgencodingtype: Int, pbsignedblob: Long, cbsignedblob: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetMessageSignerCount(dwmsgencodingtype: Int, pbsignedblob: Long, cbsignedblob: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionAddress(hfuncset: Long, dwencodingtype: Int, pszoid: Long, dwflags: Int, ppvfuncaddr: Long, phfuncaddr: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionAddress(hfuncset: Long, dwencodingtype: Int, pszoid: Long, dwflags: Int, ppvfuncaddr: Long, phfuncaddr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionValue(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, pwszvaluename: Long, pdwvaluetype: Long, pbvaluedata: Long, pcbvaluedata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionValue(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, pwszvaluename: Long, pdwvaluetype: Long, pbvaluedata: Long, pcbvaluedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetObjectUrl(pszurloid: Long, pvpara: Long, dwflags: Int, purlarray: Long, pcburlarray: Long, purlinfo: Long, pcburlinfo: Long, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetObjectUrl(pszurloid: Long, pvpara: Long, dwflags: Int, purlarray: Long, pcburlarray: Long, purlinfo: Long, pcburlinfo: Long, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetProvParam(hprov: Long, dwparam: Int, pbdata: Long, pdwdatalen: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetProvParam(hprov: Long, dwparam: Int, pbdata: Long, pdwdatalen: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptGetUserKey(hprov: Long, dwkeyspec: Int, phuserkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptGetUserKey(hprov: Long, dwkeyspec: Int, phuserkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptHashCertificate(hcryptprov: Long, algid: Int, dwflags: Int, pbencoded: Long, cbencoded: Int, pbcomputedhash: Long, pcbcomputedhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptHashCertificate(hcryptprov: Long, algid: Int, dwflags: Int, pbencoded: Long, cbencoded: Int, pbcomputedhash: Long, pcbcomputedhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptHashCertificate2(pwszcnghashalgid: Long, dwflags: Int, pvreserved: Long, pbencoded: Long, cbencoded: Int, pbcomputedhash: Long, pcbcomputedhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptHashCertificate2(pwszcnghashalgid: Long, dwflags: Int, pvreserved: Long, pbencoded: Long, cbencoded: Int, pbcomputedhash: Long, pcbcomputedhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptHashData(hhash: Long, pbdata: Long, dwdatalen: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptHashData(hhash: Long, pbdata: Long, dwdatalen: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptHashMessage(phashpara: Long, fdetachedhash: Int, ctobehashed: Int, rgpbtobehashed: Long, rgcbtobehashed: Long, pbhashedblob: Long, pcbhashedblob: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptHashMessage(phashpara: Long, fdetachedhash: Int, ctobehashed: Int, rgpbtobehashed: Long, rgcbtobehashed: Long, pbhashedblob: Long, pcbhashedblob: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptHashPublicKeyInfo(hcryptprov: Long, algid: Int, dwflags: Int, dwcertencodingtype: Int, pinfo: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptHashPublicKeyInfo(hcryptprov: Long, algid: Int, dwflags: Int, dwcertencodingtype: Int, pinfo: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptHashSessionKey(hhash: Long, hkey: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(hhash: Long, hkey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptHashToBeSigned(hcryptprov: Long, dwcertencodingtype: Int, pbencoded: Long, cbencoded: Int, pbcomputedhash: Long, pcbcomputedhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptHashToBeSigned(hcryptprov: Long, dwcertencodingtype: Int, pbencoded: Long, cbencoded: Int, pbcomputedhash: Long, pcbcomputedhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptImportKey(hprov: Long, pbdata: Long, dwdatalen: Int, hpubkey: Long, dwflags: Int, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptImportKey(hprov: Long, pbdata: Long, dwdatalen: Int, hpubkey: Long, dwflags: Int, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfo(hcryptprov: Long, dwcertencodingtype: Int, pinfo: Long, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfo(hcryptprov: Long, dwcertencodingtype: Int, pinfo: Long, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx(hcryptprov: Long, dwcertencodingtype: Int, pinfo: Long, aikeyalg: Int, dwflags: Int, pvauxinfo: Long, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx(hcryptprov: Long, dwcertencodingtype: Int, pinfo: Long, aikeyalg: Int, dwflags: Int, pvauxinfo: Long, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx2(dwcertencodingtype: Int, pinfo: Long, dwflags: Int, pvauxinfo: Long, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx2(dwcertencodingtype: Int, pinfo: Long, dwflags: Int, pvauxinfo: Long, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptInitOIDFunctionSet(pszfuncname: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptInitOIDFunctionSet(pszfuncname: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptInstallCancelRetrieval(pfncancel: Long, pvarg: Long, dwflags: Int, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptInstallCancelRetrieval(pfncancel: Long, pvarg: Long, dwflags: Int, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptInstallDefaultContext(hcryptprov: Long, dwdefaulttype: Int, pvdefaultpara: Long, dwflags: Int, pvreserved: Long, phdefaultcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptInstallDefaultContext(hcryptprov: Long, dwdefaulttype: Int, pvdefaultpara: Long, dwflags: Int, pvreserved: Long, phdefaultcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptInstallOIDFunctionAddress(hmodule: Long, dwencodingtype: Int, pszfuncname: Long, cfuncentry: Int, rgfuncentry: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptInstallOIDFunctionAddress(hmodule: Long, dwencodingtype: Int, pszfuncname: Long, cfuncentry: Int, rgfuncentry: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMemAlloc(cbsize: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMemAlloc(cbsize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMemFree(pv: Long)
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMemFree(pv: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMemRealloc(pv: Long, cbsize: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMemRealloc(pv: Long, cbsize: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgCalculateEncodedLength(dwmsgencodingtype: Int, dwflags: Int, dwmsgtype: Int, pvmsgencodeinfo: Long, pszinnercontentobjid: Long, cbdata: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgCalculateEncodedLength(dwmsgencodingtype: Int, dwflags: Int, dwmsgtype: Int, pvmsgencodeinfo: Long, pszinnercontentobjid: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgClose(hcryptmsg: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgClose(hcryptmsg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgControl(hcryptmsg: Long, dwflags: Int, dwctrltype: Int, pvctrlpara: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgControl(hcryptmsg: Long, dwflags: Int, dwctrltype: Int, pvctrlpara: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgCountersign(hcryptmsg: Long, dwindex: Int, ccountersigners: Int, rgcountersigners: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgCountersign(hcryptmsg: Long, dwindex: Int, ccountersigners: Int, rgcountersigners: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgCountersignEncoded(dwencodingtype: Int, pbsignerinfo: Long, cbsignerinfo: Int, ccountersigners: Int, rgcountersigners: Long, pbcountersignature: Long, pcbcountersignature: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgCountersignEncoded(dwencodingtype: Int, pbsignerinfo: Long, cbsignerinfo: Int, ccountersigners: Int, rgcountersigners: Long, pbcountersignature: Long, pcbcountersignature: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgDuplicate(hcryptmsg: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgDuplicate(hcryptmsg: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgEncodeAndSignCTL(dwmsgencodingtype: Int, pctlinfo: Long, psigninfo: Long, dwflags: Int, pbencoded: Long, pcbencoded: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgEncodeAndSignCTL(dwmsgencodingtype: Int, pctlinfo: Long, psigninfo: Long, dwflags: Int, pbencoded: Long, pcbencoded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgGetAndVerifySigner(hcryptmsg: Long, csignerstore: Int, rghsignerstore: Long, dwflags: Int, ppsigner: Long, pdwsignerindex: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgGetAndVerifySigner(hcryptmsg: Long, csignerstore: Int, rghsignerstore: Long, dwflags: Int, ppsigner: Long, pdwsignerindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgGetParam(hcryptmsg: Long, dwparamtype: Int, dwindex: Int, pvdata: Long, pcbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgGetParam(hcryptmsg: Long, dwparamtype: Int, dwindex: Int, pvdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgOpenToDecode(dwmsgencodingtype: Int, dwflags: Int, dwmsgtype: Int, hcryptprov: Long, precipientinfo: Long, pstreaminfo: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToDecode(dwmsgencodingtype: Int, dwflags: Int, dwmsgtype: Int, hcryptprov: Long, precipientinfo: Long, pstreaminfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgOpenToEncode(dwmsgencodingtype: Int, dwflags: Int, dwmsgtype: Int, pvmsgencodeinfo: Long, pszinnercontentobjid: Long, pstreaminfo: Long): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToEncode(dwmsgencodingtype: Int, dwflags: Int, dwmsgtype: Int, pvmsgencodeinfo: Long, pszinnercontentobjid: Long, pstreaminfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgSignCTL(dwmsgencodingtype: Int, pbctlcontent: Long, cbctlcontent: Int, psigninfo: Long, dwflags: Int, pbencoded: Long, pcbencoded: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgSignCTL(dwmsgencodingtype: Int, pbctlcontent: Long, cbctlcontent: Int, psigninfo: Long, dwflags: Int, pbencoded: Long, pcbencoded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgUpdate(hcryptmsg: Long, pbdata: Long, cbdata: Int, ffinal: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgUpdate(hcryptmsg: Long, pbdata: Long, cbdata: Int, ffinal: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncoded(hcryptprov: Long, dwencodingtype: Int, pbsignerinfo: Long, cbsignerinfo: Int, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: Int, pcicountersigner: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncoded(hcryptprov: Long, dwencodingtype: Int, pbsignerinfo: Long, cbsignerinfo: Int, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: Int, pcicountersigner: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: Long, dwencodingtype: Int, pbsignerinfo: Long, cbsignerinfo: Int, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: Int, dwsignertype: Int, pvsigner: Long, dwflags: Int, pvextra: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncodedEx(hcryptprov: Long, dwencodingtype: Int, pbsignerinfo: Long, cbsignerinfo: Int, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: Int, dwsignertype: Int, pvsigner: Long, dwflags: Int, pvextra: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptProtectData(pdatain: Long, szdatadescr: Long, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: Int, pdataout: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptProtectData(pdatain: Long, szdatadescr: Long, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: Int, pdataout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptProtectMemory(pdatain: Long, cbdatain: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptProtectMemory(pdatain: Long, cbdatain: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptQueryObject(dwobjecttype: Int, pvobject: Long, dwexpectedcontenttypeflags: Int, dwexpectedformattypeflags: Int, dwflags: Int, pdwmsgandcertencodingtype: Long, pdwcontenttype: Long, pdwformattype: Long, phcertstore: Long, phmsg: Long, ppvcontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptQueryObject(dwobjecttype: Int, pvobject: Long, dwexpectedcontenttypeflags: Int, dwexpectedformattypeflags: Int, dwflags: Int, pdwmsgandcertencodingtype: Long, pdwcontenttype: Long, pdwformattype: Long, phcertstore: Long, phmsg: Long, ppvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptRegisterDefaultOIDFunction(dwencodingtype: Int, pszfuncname: Long, dwindex: Int, pwszdll: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptRegisterDefaultOIDFunction(dwencodingtype: Int, pszfuncname: Long, dwindex: Int, pwszdll: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptRegisterOIDFunction(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, pwszdll: Long, pszoverridefuncname: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDFunction(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, pwszdll: Long, pszoverridefuncname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptRegisterOIDInfo(pinfo: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDInfo(pinfo: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptReleaseContext(hprov: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptReleaseContext(hprov: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlA(pszurl: Long, pszobjectoid: Long, dwretrievalflags: Int, dwtimeout: Int, ppvobject: Long, hasyncretrieve: Long, pcredentials: Long, pvverify: Long, pauxinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlA(pszurl: Long, pszobjectoid: Long, dwretrievalflags: Int, dwtimeout: Int, ppvobject: Long, hasyncretrieve: Long, pcredentials: Long, pvverify: Long, pauxinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlW(pszurl: Long, pszobjectoid: Long, dwretrievalflags: Int, dwtimeout: Int, ppvobject: Long, hasyncretrieve: Long, pcredentials: Long, pvverify: Long, pauxinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlW(pszurl: Long, pszobjectoid: Long, dwretrievalflags: Int, dwtimeout: Int, ppvobject: Long, hasyncretrieve: Long, pcredentials: Long, pvverify: Long, pauxinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptRetrieveTimeStamp(wszurl: Long, dwretrievalflags: Int, dwtimeout: Int, pszhashid: Long, ppara: Long, pbdata: Long, cbdata: Int, pptscontext: Long, pptssigner: Long, phstore: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptRetrieveTimeStamp(wszurl: Long, dwretrievalflags: Int, dwtimeout: Int, pszhashid: Long, ppara: Long, pbdata: Long, cbdata: Int, pptscontext: Long, pptssigner: Long, phstore: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetAsyncParam(hasync: Long, pszparamoid: Long, pvparam: Long, pfnfree: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetAsyncParam(hasync: Long, pszparamoid: Long, pvparam: Long, pfnfree: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetHashParam(hhash: Long, dwparam: Int, pbdata: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetHashParam(hhash: Long, dwparam: Int, pbdata: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: Int, dwflags: Int, pwszcomputername: Long, pvreserved: Long, pvdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: Int, dwflags: Int, pwszcomputername: Long, pvreserved: Long, pvdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetKeyParam(hkey: Long, dwparam: Int, pbdata: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetKeyParam(hkey: Long, dwparam: Int, pbdata: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetOIDFunctionValue(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, pwszvaluename: Long, dwvaluetype: Int, pbvaluedata: Long, cbvaluedata: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetOIDFunctionValue(dwencodingtype: Int, pszfuncname: Long, pszoid: Long, pwszvaluename: Long, dwvaluetype: Int, pbvaluedata: Long, cbvaluedata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetProvParam(hprov: Long, dwparam: Int, pbdata: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetProvParam(hprov: Long, dwparam: Int, pbdata: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetProviderA(pszprovname: Long, dwprovtype: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetProviderA(pszprovname: Long, dwprovtype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetProviderExA(pszprovname: Long, dwprovtype: Int, pdwreserved: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetProviderExA(pszprovname: Long, dwprovtype: Int, pdwreserved: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetProviderExW(pszprovname: Long, dwprovtype: Int, pdwreserved: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetProviderExW(pszprovname: Long, dwprovtype: Int, pdwreserved: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSetProviderW(pszprovname: Long, dwprovtype: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSetProviderW(pszprovname: Long, dwprovtype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSignAndEncodeCertificate(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, lpszstructtype: Long, pvstructinfo: Long, psignaturealgorithm: Long, pvhashauxinfo: Long, pbencoded: Long, pcbencoded: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSignAndEncodeCertificate(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, lpszstructtype: Long, pvstructinfo: Long, psignaturealgorithm: Long, pvhashauxinfo: Long, pbencoded: Long, pcbencoded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSignAndEncryptMessage(psignpara: Long, pencryptpara: Long, crecipientcert: Int, rgprecipientcert: Long, pbtobesignedandencrypted: Long, cbtobesignedandencrypted: Int, pbsignedandencryptedblob: Long, pcbsignedandencryptedblob: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSignAndEncryptMessage(psignpara: Long, pencryptpara: Long, crecipientcert: Int, rgprecipientcert: Long, pbtobesignedandencrypted: Long, cbtobesignedandencrypted: Int, pbsignedandencryptedblob: Long, pcbsignedandencryptedblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSignCertificate(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, pbencodedtobesigned: Long, cbencodedtobesigned: Int, psignaturealgorithm: Long, pvhashauxinfo: Long, pbsignature: Long, pcbsignature: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSignCertificate(hcryptprovorncryptkey: Long, dwkeyspec: Int, dwcertencodingtype: Int, pbencodedtobesigned: Long, cbencodedtobesigned: Int, psignaturealgorithm: Long, pvhashauxinfo: Long, pbsignature: Long, pcbsignature: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSignHashA(hhash: Long, dwkeyspec: Int, szdescription: Long, dwflags: Int, pbsignature: Long, pdwsiglen: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSignHashA(hhash: Long, dwkeyspec: Int, szdescription: Long, dwflags: Int, pbsignature: Long, pdwsiglen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSignHashW(hhash: Long, dwkeyspec: Int, szdescription: Long, dwflags: Int, pbsignature: Long, pdwsiglen: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSignHashW(hhash: Long, dwkeyspec: Int, szdescription: Long, dwflags: Int, pbsignature: Long, pdwsiglen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSignMessage(psignpara: Long, fdetachedsignature: Int, ctobesigned: Int, rgpbtobesigned: Long, rgcbtobesigned: Long, pbsignedblob: Long, pcbsignedblob: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSignMessage(psignpara: Long, fdetachedsignature: Int, ctobesigned: Int, rgpbtobesigned: Long, rgcbtobesigned: Long, pbsignedblob: Long, pcbsignedblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptSignMessageWithKey(psignpara: Long, pbtobesigned: Long, cbtobesigned: Int, pbsignedblob: Long, pcbsignedblob: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptSignMessageWithKey(psignpara: Long, pbtobesigned: Long, cbtobesigned: Int, pbsignedblob: Long, pcbsignedblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptStringToBinaryA(pszstring: Long, cchstring: Int, dwflags: Int, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryA(pszstring: Long, cchstring: Int, dwflags: Int, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptStringToBinaryW(pszstring: Long, cchstring: Int, dwflags: Int, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryW(pszstring: Long, cchstring: Int, dwflags: Int, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUninstallCancelRetrieval(dwflags: Int, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUninstallCancelRetrieval(dwflags: Int, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUninstallDefaultContext(hdefaultcontext: Long, dwflags: Int, pvreserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUninstallDefaultContext(hdefaultcontext: Long, dwflags: Int, pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUnprotectData(pdatain: Long, ppszdatadescr: Long, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: Int, pdataout: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUnprotectData(pdatain: Long, ppszdatadescr: Long, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: Int, pdataout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUnprotectMemory(pdatain: Long, cbdatain: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUnprotectMemory(pdatain: Long, cbdatain: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUnregisterDefaultOIDFunction(dwencodingtype: Int, pszfuncname: Long, pwszdll: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUnregisterDefaultOIDFunction(dwencodingtype: Int, pszfuncname: Long, pwszdll: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUnregisterOIDFunction(dwencodingtype: Int, pszfuncname: Long, pszoid: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDFunction(dwencodingtype: Int, pszfuncname: Long, pszoid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUnregisterOIDInfo(pinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDInfo(pinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptUpdateProtectedState(poldsid: Long, pwszoldpassword: Long, dwflags: Int, pdwsuccesscount: Long, pdwfailurecount: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptUpdateProtectedState(poldsid: Long, pwszoldpassword: Long, dwflags: Int, pdwsuccesscount: Long, pdwfailurecount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignature(hcryptprov: Long, dwcertencodingtype: Int, pbencoded: Long, cbencoded: Int, ppublickey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignature(hcryptprov: Long, dwcertencodingtype: Int, pbencoded: Long, cbencoded: Int, ppublickey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignatureEx(hcryptprov: Long, dwcertencodingtype: Int, dwsubjecttype: Int, pvsubject: Long, dwissuertype: Int, pvissuer: Long, dwflags: Int, pvextra: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignatureEx(hcryptprov: Long, dwcertencodingtype: Int, dwsubjecttype: Int, pvsubject: Long, dwissuertype: Int, pvissuer: Long, dwflags: Int, pvextra: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageHash(phashpara: Long, pbdetachedhashblob: Long, cbdetachedhashblob: Int, ctobehashed: Int, rgpbtobehashed: Long, rgcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageHash(phashpara: Long, pbdetachedhashblob: Long, cbdetachedhashblob: Int, ctobehashed: Int, rgpbtobehashed: Long, rgcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageSignature(pverifypara: Long, dwsignerindex: Int, pbdetachedsignblob: Long, cbdetachedsignblob: Int, ctobesigned: Int, rgpbtobesigned: Long, rgcbtobesigned: Long, ppsignercert: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageSignature(pverifypara: Long, dwsignerindex: Int, pbdetachedsignblob: Long, cbdetachedsignblob: Int, ctobesigned: Int, rgpbtobesigned: Long, rgcbtobesigned: Long, ppsignercert: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyMessageHash(phashpara: Long, pbhashedblob: Long, cbhashedblob: Int, pbtobehashed: Long, pcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageHash(phashpara: Long, pbhashedblob: Long, cbhashedblob: Int, pbtobehashed: Long, pcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignature(pverifypara: Long, dwsignerindex: Int, pbsignedblob: Long, cbsignedblob: Int, pbdecoded: Long, pcbdecoded: Long, ppsignercert: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignature(pverifypara: Long, dwsignerindex: Int, pbsignedblob: Long, cbsignedblob: Int, pbdecoded: Long, pcbdecoded: Long, ppsignercert: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignatureWithKey(pverifypara: Long, ppublickeyinfo: Long, pbsignedblob: Long, cbsignedblob: Int, pbdecoded: Long, pcbdecoded: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignatureWithKey(pverifypara: Long, ppublickeyinfo: Long, pbsignedblob: Long, cbsignedblob: Int, pbdecoded: Long, pcbdecoded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifySignatureA(hhash: Long, pbsignature: Long, dwsiglen: Int, hpubkey: Long, szdescription: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureA(hhash: Long, pbsignature: Long, dwsiglen: Int, hpubkey: Long, szdescription: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifySignatureW(hhash: Long, pbsignature: Long, dwsiglen: Int, hpubkey: Long, szdescription: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureW(hhash: Long, pbsignature: Long, dwsiglen: Int, hpubkey: Long, szdescription: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptVerifyTimeStampSignature(pbtscontentinfo: Long, cbtscontentinfo: Int, pbdata: Long, cbdata: Int, hadditionalstore: Long, pptscontext: Long, pptssigner: Long, phstore: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptVerifyTimeStampSignature(pbtscontentinfo: Long, cbtscontentinfo: Int, pbdata: Long, cbdata: Int, hadditionalstore: Long, pptscontext: Long, pptssigner: Long, phstore: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlAddObject(hsignatureorobject: Long, dwflags: Int, rgproperty: Long, cproperty: Int, pencoded: Long, ppobject: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlAddObject(hsignatureorobject: Long, dwflags: Int, rgproperty: Long, cproperty: Int, pencoded: Long, ppobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlClose(hcryptxml: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlClose(hcryptxml: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlCreateReference(hcryptxml: Long, dwflags: Int, wszid: Long, wszuri: Long, wsztype: Long, pdigestmethod: Long, ctransform: Int, rgtransform: Long, phreference: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlCreateReference(hcryptxml: Long, dwflags: Int, wszid: Long, wszuri: Long, wsztype: Long, pdigestmethod: Long, ctransform: Int, rgtransform: Long, phreference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlDigestReference(hreference: Long, dwflags: Int, pdataproviderin: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlDigestReference(hreference: Long, dwflags: Int, pdataproviderin: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlEncode(hcryptxml: Long, dwcharset: Int, rgproperty: Long, cproperty: Int, pvcallbackstate: Long, pfnwrite: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlEncode(hcryptxml: Long, dwcharset: Int, rgproperty: Long, cproperty: Int, pvcallbackstate: Long, pfnwrite: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlEnumAlgorithmInfo(dwgroupid: Int, dwflags: Int, pvarg: Long, pfnenumalginfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlEnumAlgorithmInfo(dwgroupid: Int, dwflags: Int, pvarg: Long, pfnenumalginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlFindAlgorithmInfo(dwfindbytype: Int, pvfindby: Long, dwgroupid: Int, dwflags: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlFindAlgorithmInfo(dwfindbytype: Int, pvfindby: Long, dwgroupid: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlGetAlgorithmInfo(pxmlalgorithm: Long, dwflags: Int, ppalginfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlGetAlgorithmInfo(pxmlalgorithm: Long, dwflags: Int, ppalginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlGetDocContext(hcryptxml: Long, ppstruct: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlGetDocContext(hcryptxml: Long, ppstruct: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlGetReference(hcryptxml: Long, ppstruct: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlGetReference(hcryptxml: Long, ppstruct: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlGetSignature(hcryptxml: Long, ppstruct: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlGetSignature(hcryptxml: Long, ppstruct: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlGetStatus(hcryptxml: Long, pstatus: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlGetStatus(hcryptxml: Long, pstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlGetTransforms(ppconfig: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlGetTransforms(ppconfig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlImportPublicKey(dwflags: Int, pkeyvalue: Long, phkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlImportPublicKey(dwflags: Int, pkeyvalue: Long, phkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlOpenToDecode(pconfig: Long, dwflags: Int, rgproperty: Long, cproperty: Int, pencoded: Long, phcryptxml: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToDecode(pconfig: Long, dwflags: Int, rgproperty: Long, cproperty: Int, pencoded: Long, phcryptxml: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlOpenToEncode(pconfig: Long, dwflags: Int, wszid: Long, rgproperty: Long, cproperty: Int, pencoded: Long, phsignature: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToEncode(pconfig: Long, dwflags: Int, wszid: Long, rgproperty: Long, cproperty: Int, pencoded: Long, phsignature: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlSetHMACSecret(hsignature: Long, pbsecret: Long, cbsecret: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlSetHMACSecret(hsignature: Long, pbsecret: Long, cbsecret: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlSign(hsignature: Long, hkey: Long, dwkeyspec: Int, dwflags: Int, dwkeyinfospec: Int, pvkeyinfospec: Long, psignaturemethod: Long, pcanonicalization: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlSign(hsignature: Long, hkey: Long, dwkeyspec: Int, dwflags: Int, dwkeyinfospec: Int, pvkeyinfospec: Long, psignaturemethod: Long, pcanonicalization: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_cryptXmlVerifySignature(hsignature: Long, hkey: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyCryptXmlVerifySignature(hsignature: Long, hkey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_decrypt(hcrypto: Long, foaep: Int, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyDecrypt(hcrypto: Long, foaep: Int, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_encrypt(hcrypto: Long, foaep: Int, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyEncrypt(hcrypto: Long, foaep: Int, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_findCertsByIssuer(pcertchains: Long, pcbcertchains: Long, pccertchains: Long, pbencodedissuername: Long, cbencodedissuername: Int, pwszpurpose: Long, dwkeyspec: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyFindCertsByIssuer(pcertchains: Long, pcbcertchains: Long, pccertchains: Long, pbencodedissuername: Long, cbencodedissuername: Int, pwszpurpose: Long, dwkeyspec: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_freeToken(pallocmemory: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyFreeToken(pallocmemory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_generateDerivedKey(hcrypto: Long, cblabel: Int, plabel: Long, cbnonce: Int, pnonce: Long, derivedkeylength: Int, offset: Int, algid: Long, pcbkey: Long, ppkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGenerateDerivedKey(hcrypto: Long, cblabel: Int, plabel: Long, cbnonce: Int, pnonce: Long, derivedkeylength: Int, offset: Int, algid: Long, pcbkey: Long, ppkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getAsymmetricEncryptionInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetAsymmetricEncryptionInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getBrowserToken(dwparamtype: Int, pparam: Long, pcbtoken: Long, pptoken: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetBrowserToken(dwparamtype: Int, pparam: Long, pcbtoken: Long, pptoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getCipherInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetCipherInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getHashInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetHashInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getKeyDerivationInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetKeyDerivationInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getKeyStorageInterface(pszprovidername: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetKeyStorageInterface(pszprovidername: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getKeyedHash(hsymmetriccrypto: Long, pphhash: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetKeyedHash(hsymmetriccrypto: Long, pphhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getRngInterface(pszprovidername: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetRngInterface(pszprovidername: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getSChannelInterface(pszprovidername: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetSChannelInterface(pszprovidername: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getSecretAgreementInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetSecretAgreementInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getSignatureInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetSignatureInterface(pszprovidername: Long, pszalgid: Long, ppfunctiontable: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_getToken(cpolicychain: Int, ppolicychain: Long, securitytoken: Long, phprooftokencrypto: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyGetToken(cpolicychain: Int, ppolicychain: Long, securitytoken: Long, phprooftokencrypto: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_hashCore(hcrypto: Long, cbindata: Int, pindata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyHashCore(hcrypto: Long, cbindata: Int, pindata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_hashFinal(hcrypto: Long, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyHashFinal(hcrypto: Long, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_importInformationCard(filename: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyImportInformationCard(filename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_manageCardSpace(): Int
+    external fun windowssysWindowsWin32SecurityCryptographyManageCardSpace(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptCloseProtectionDescriptor(hdescriptor: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptCloseProtectionDescriptor(hdescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptCreateClaim(hsubjectkey: Long, hauthoritykey: Long, dwclaimtype: Int, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptCreateClaim(hsubjectkey: Long, hauthoritykey: Long, dwclaimtype: Int, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptCreatePersistedKey(hprovider: Long, phkey: Long, pszalgid: Long, pszkeyname: Long, dwlegacykeyspec: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptCreatePersistedKey(hprovider: Long, phkey: Long, pszalgid: Long, pszkeyname: Long, dwlegacykeyspec: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptCreateProtectionDescriptor(pwszdescriptorstring: Long, dwflags: Int, phdescriptor: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptCreateProtectionDescriptor(pwszdescriptorstring: Long, dwflags: Int, phdescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptDecrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptDecrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptDeleteKey(hkey: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(hkey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptDeriveKey(hsharedsecret: Long, pwszkdf: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptDeriveKey(hsharedsecret: Long, pwszkdf: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptEncrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptEncrypt(hkey: Long, pbinput: Long, cbinput: Int, ppaddinginfo: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptEnumAlgorithms(hprovider: Long, dwalgoperations: Int, pdwalgcount: Long, ppalglist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptEnumAlgorithms(hprovider: Long, dwalgoperations: Int, pdwalgcount: Long, ppalglist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptEnumKeys(hprovider: Long, pszscope: Long, ppkeyname: Long, ppenumstate: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptEnumKeys(hprovider: Long, pszscope: Long, ppkeyname: Long, ppenumstate: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptEnumStorageProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptEnumStorageProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptExportKey(hkey: Long, hexportkey: Long, pszblobtype: Long, pparameterlist: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptExportKey(hkey: Long, hexportkey: Long, pszblobtype: Long, pparameterlist: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptFinalizeKey(hkey: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(hkey: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptFreeBuffer(pvinput: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptFreeBuffer(pvinput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptFreeObject(hobject: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptFreeObject(hobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptGetProperty(hobject: Long, pszproperty: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptGetProperty(hobject: Long, pszproperty: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptGetProtectionDescriptorInfo(hdescriptor: Long, pmempara: Long, dwinfotype: Int, ppvinfo: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptGetProtectionDescriptorInfo(hdescriptor: Long, pmempara: Long, dwinfotype: Int, ppvinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptImportKey(hprovider: Long, himportkey: Long, pszblobtype: Long, pparameterlist: Long, phkey: Long, pbdata: Long, cbdata: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptImportKey(hprovider: Long, himportkey: Long, pszblobtype: Long, pparameterlist: Long, phkey: Long, pbdata: Long, cbdata: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptIsAlgSupported(hprovider: Long, pszalgid: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptIsAlgSupported(hprovider: Long, pszalgid: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptIsKeyHandle(hkey: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(hkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptKeyDerivation(hkey: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptKeyDerivation(hkey: Long, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptNotifyChangeKey(hprovider: Long, phevent: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptNotifyChangeKey(hprovider: Long, phevent: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptOpenKey(hprovider: Long, phkey: Long, pszkeyname: Long, dwlegacykeyspec: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptOpenKey(hprovider: Long, phkey: Long, pszkeyname: Long, dwlegacykeyspec: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptOpenStorageProvider(phprovider: Long, pszprovidername: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptOpenStorageProvider(phprovider: Long, pszprovidername: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptProtectSecret(hdescriptor: Long, dwflags: Int, pbdata: Long, cbdata: Int, pmempara: Long, hwnd: Long, ppbprotectedblob: Long, pcbprotectedblob: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptProtectSecret(hdescriptor: Long, dwflags: Int, pbdata: Long, cbdata: Int, pmempara: Long, hwnd: Long, ppbprotectedblob: Long, pcbprotectedblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptQueryProtectionDescriptorName(pwszname: Long, pwszdescriptorstring: Long, pcdescriptorstring: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptQueryProtectionDescriptorName(pwszname: Long, pwszdescriptorstring: Long, pcdescriptorstring: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptRegisterProtectionDescriptorName(pwszname: Long, pwszdescriptorstring: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptRegisterProtectionDescriptorName(pwszname: Long, pwszdescriptorstring: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptSecretAgreement(hprivkey: Long, hpubkey: Long, phagreedsecret: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptSecretAgreement(hprivkey: Long, hpubkey: Long, phagreedsecret: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptSetProperty(hobject: Long, pszproperty: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptSetProperty(hobject: Long, pszproperty: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptSignHash(hkey: Long, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptSignHash(hkey: Long, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptStreamClose(hstream: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptStreamClose(hstream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptStreamOpenToProtect(hdescriptor: Long, dwflags: Int, hwnd: Long, pstreaminfo: Long, phstream: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToProtect(hdescriptor: Long, dwflags: Int, hwnd: Long, pstreaminfo: Long, phstream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotect(pstreaminfo: Long, dwflags: Int, hwnd: Long, phstream: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotect(pstreaminfo: Long, dwflags: Int, hwnd: Long, phstream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotectEx(pstreaminfo: Long, dwflags: Int, hwnd: Long, phstream: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotectEx(pstreaminfo: Long, dwflags: Int, hwnd: Long, phstream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptStreamUpdate(hstream: Long, pbdata: Long, cbdata: Long, ffinal: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptStreamUpdate(hstream: Long, pbdata: Long, cbdata: Long, ffinal: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptTranslateHandle(phprovider: Long, phkey: Long, hlegacyprov: Long, hlegacykey: Long, dwlegacykeyspec: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptTranslateHandle(phprovider: Long, phkey: Long, hlegacyprov: Long, hlegacykey: Long, dwlegacykeyspec: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptUnprotectSecret(phdescriptor: Long, dwflags: Int, pbprotectedblob: Long, cbprotectedblob: Int, pmempara: Long, hwnd: Long, ppbdata: Long, pcbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptUnprotectSecret(phdescriptor: Long, dwflags: Int, pbprotectedblob: Long, cbprotectedblob: Int, pmempara: Long, hwnd: Long, ppbdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptVerifyClaim(hsubjectkey: Long, hauthoritykey: Long, dwclaimtype: Int, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: Int, poutput: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptVerifyClaim(hsubjectkey: Long, hauthoritykey: Long, dwclaimtype: Int, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: Int, poutput: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_nCryptVerifySignature(hkey: Long, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyNCryptVerifySignature(hkey: Long, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_pFXExportCertStore(hstore: Long, ppfx: Long, szpassword: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyPFXExportCertStore(hstore: Long, ppfx: Long, szpassword: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_pFXExportCertStoreEx(hstore: Long, ppfx: Long, szpassword: Long, pvpara: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyPFXExportCertStoreEx(hstore: Long, ppfx: Long, szpassword: Long, pvpara: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_pFXImportCertStore(ppfx: Long, szpassword: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32SecurityCryptographyPFXImportCertStore(ppfx: Long, szpassword: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_pFXIsPFXBlob(ppfx: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyPFXIsPFXBlob(ppfx: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_pFXVerifyPassword(ppfx: Long, szpassword: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographyPFXVerifyPassword(ppfx: Long, szpassword: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_processPrng(pbdata: Long, cbdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyProcessPrng(pbdata: Long, cbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signError(): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignError(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signHash(hcrypto: Long, cbhash: Int, phash: Long, hashalgoid: Long, pcbsig: Long, ppsig: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignHash(hcrypto: Long, cbhash: Int, phash: Long, hashalgoid: Long, pcbsig: Long, ppsig: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerFreeSignerContext(psignercontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerFreeSignerContext(psignercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerSign(psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerSign(psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerSignEx(dwflags: Int, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerSignEx(dwflags: Int, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerSignEx2(dwflags: Int, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: Int, psztimestampalgorithmoid: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerSignEx2(dwflags: Int, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: Int, psztimestampalgorithmoid: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerSignEx3(dwflags: Int, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: Int, psztimestampalgorithmoid: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, pdigestsigninfo: Long, preserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerSignEx3(dwflags: Int, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: Int, psztimestampalgorithmoid: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, pdigestsigninfo: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerTimeStamp(psubjectinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerTimeStamp(psubjectinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerTimeStampEx(dwflags: Int, psubjectinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerTimeStampEx(dwflags: Int, psubjectinfo: Long, pwszhttptimestamp: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerTimeStampEx2(dwflags: Int, psubjectinfo: Long, pwszhttptimestamp: Long, dwalgid: Int, psrequest: Long, psipdata: Long, ppsignercontext: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerTimeStampEx2(dwflags: Int, psubjectinfo: Long, pwszhttptimestamp: Long, dwalgid: Int, psrequest: Long, psipdata: Long, ppsignercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_signerTimeStampEx3(dwflags: Int, dwindex: Int, psubjectinfo: Long, pwszhttptimestamp: Long, pszalgorithmoid: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySignerTimeStampEx3(dwflags: Int, dwindex: Int, psubjectinfo: Long, pwszhttptimestamp: Long, pszalgorithmoid: Long, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslChangeNotify(hevent: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslChangeNotify(hevent: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslComputeClientAuthHash(hsslprovider: Long, hmasterkey: Long, hhandshakehash: Long, pszalgid: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslComputeClientAuthHash(hsslprovider: Long, hmasterkey: Long, hhandshakehash: Long, pszalgid: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslComputeEapKeyBlock(hsslprovider: Long, hmasterkey: Long, pbrandoms: Long, cbrandoms: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslComputeEapKeyBlock(hsslprovider: Long, hmasterkey: Long, pbrandoms: Long, cbrandoms: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslComputeFinishedHash(hsslprovider: Long, hmasterkey: Long, hhandshakehash: Long, pboutput: Long, cboutput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslComputeFinishedHash(hsslprovider: Long, hmasterkey: Long, hhandshakehash: Long, pboutput: Long, cboutput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslComputeSessionHash(hsslprovider: Long, hhandshakehash: Long, dwprotocol: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslComputeSessionHash(hsslprovider: Long, hhandshakehash: Long, dwprotocol: Int, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslCreateClientAuthHash(hsslprovider: Long, phhandshakehash: Long, dwprotocol: Int, dwciphersuite: Int, pszhashalgid: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslCreateClientAuthHash(hsslprovider: Long, phhandshakehash: Long, dwprotocol: Int, dwciphersuite: Int, pszhashalgid: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslCreateEphemeralKey(hsslprovider: Long, phephemeralkey: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, dwkeybitlen: Int, pbparams: Long, cbparams: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslCreateEphemeralKey(hsslprovider: Long, phephemeralkey: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, dwkeybitlen: Int, pbparams: Long, cbparams: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslCreateHandshakeHash(hsslprovider: Long, phhandshakehash: Long, dwprotocol: Int, dwciphersuite: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslCreateHandshakeHash(hsslprovider: Long, phhandshakehash: Long, dwprotocol: Int, dwciphersuite: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslDecrementProviderReferenceCount(hsslprovider: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(hsslprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslDecryptPacket(hsslprovider: Long, hkey: Long, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int, pcbresult: Long, sequencenumber: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslDecryptPacket(hsslprovider: Long, hkey: Long, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int, pcbresult: Long, sequencenumber: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslDuplicateTranscriptHash(hsslprovider: Long, htranscripthash: Long, phtranscripthash: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslDuplicateTranscriptHash(hsslprovider: Long, htranscripthash: Long, phtranscripthash: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslEncryptPacket(hsslprovider: Long, hkey: Long, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int, pcbresult: Long, sequencenumber: Long, dwcontenttype: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslEncryptPacket(hsslprovider: Long, hkey: Long, pbinput: Long, cbinput: Int, pboutput: Long, cboutput: Int, pcbresult: Long, sequencenumber: Long, dwcontenttype: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslEnumCipherSuites(hsslprovider: Long, hprivatekey: Long, ppciphersuite: Long, ppenumstate: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslEnumCipherSuites(hsslprovider: Long, hprivatekey: Long, ppciphersuite: Long, ppenumstate: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslEnumCipherSuitesEx(hsslprovider: Long, hprivatekey: Long, ppciphersuite: Long, ppenumstate: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslEnumCipherSuitesEx(hsslprovider: Long, hprivatekey: Long, ppciphersuite: Long, ppenumstate: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslEnumEccCurves(hsslprovider: Long, pecccurvecount: Long, ppecccurve: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslEnumEccCurves(hsslprovider: Long, pecccurvecount: Long, ppecccurve: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslEnumProtocolProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslEnumProtocolProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExpandBinderKey(hsslprovider: Long, hearlykey: Long, phbinderkey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExpandBinderKey(hsslprovider: Long, hearlykey: Long, phbinderkey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExpandExporterMasterKey(hsslprovider: Long, hbasekey: Long, hhashvalue: Long, phexportermasterkey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExpandExporterMasterKey(hsslprovider: Long, hbasekey: Long, hhashvalue: Long, phexportermasterkey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExpandPreSharedKey(hsslprovider: Long, hresumptionmasterkey: Long, pbticketnonce: Long, cbticketnonce: Int, phpresharedkey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExpandPreSharedKey(hsslprovider: Long, hresumptionmasterkey: Long, pbticketnonce: Long, cbticketnonce: Int, phpresharedkey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExpandResumptionMasterKey(hsslprovider: Long, hmasterkey: Long, hhashvalue: Long, phresumptionmasterkey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExpandResumptionMasterKey(hsslprovider: Long, hmasterkey: Long, hhashvalue: Long, phresumptionmasterkey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExpandTrafficKeys(hsslprovider: Long, hbasekey: Long, hhashvalue: Long, phclienttraffickey: Long, phservertraffickey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExpandTrafficKeys(hsslprovider: Long, hbasekey: Long, hhashvalue: Long, phclienttraffickey: Long, phservertraffickey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExpandWriteKey(hsslprovider: Long, hbasetraffickey: Long, phwritekey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExpandWriteKey(hsslprovider: Long, hbasetraffickey: Long, phwritekey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExportKey(hsslprovider: Long, hkey: Long, pszblobtype: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExportKey(hsslprovider: Long, hkey: Long, pszblobtype: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExportKeyingMaterial(hsslprovider: Long, hmasterkey: Long, slabel: Long, pbrandoms: Long, cbrandoms: Int, pbcontextvalue: Long, cbcontextvalue: Short, pboutput: Long, cboutput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExportKeyingMaterial(hsslprovider: Long, hmasterkey: Long, slabel: Long, pbrandoms: Long, cbrandoms: Int, pbcontextvalue: Long, cbcontextvalue: Short, pboutput: Long, cboutput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExtractEarlyKey(hsslprovider: Long, hpresharedkey: Long, phearlykey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExtractEarlyKey(hsslprovider: Long, hpresharedkey: Long, phearlykey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExtractHandshakeKey(hsslprovider: Long, hprivatekey: Long, hpublickey: Long, hearlykey: Long, phhandshakekey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExtractHandshakeKey(hsslprovider: Long, hprivatekey: Long, hpublickey: Long, hearlykey: Long, phhandshakekey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslExtractMasterKey(hsslprovider: Long, hhandshakekey: Long, phmasterkey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslExtractMasterKey(hsslprovider: Long, hhandshakekey: Long, phmasterkey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslFreeBuffer(pvinput: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslFreeBuffer(pvinput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslFreeObject(hobject: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslFreeObject(hobject: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslGenerateMasterKey(hsslprovider: Long, hprivatekey: Long, hpublickey: Long, phmasterkey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslGenerateMasterKey(hsslprovider: Long, hprivatekey: Long, hpublickey: Long, phmasterkey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslGeneratePreMasterKey(hsslprovider: Long, hpublickey: Long, phpremasterkey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslGeneratePreMasterKey(hsslprovider: Long, hpublickey: Long, phpremasterkey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, pboutput: Long, cboutput: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslGenerateSessionKeys(hsslprovider: Long, hmasterkey: Long, phreadkey: Long, phwritekey: Long, pparameterlist: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslGenerateSessionKeys(hsslprovider: Long, hmasterkey: Long, phreadkey: Long, phwritekey: Long, pparameterlist: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslGetCipherSuitePRFHashAlgorithm(hsslprovider: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, szprfhash: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslGetCipherSuitePRFHashAlgorithm(hsslprovider: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, szprfhash: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslGetKeyProperty(hkey: Long, pszproperty: Long, ppboutput: Long, pcboutput: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslGetKeyProperty(hkey: Long, pszproperty: Long, ppboutput: Long, pcboutput: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslGetProviderProperty(hsslprovider: Long, pszproperty: Long, ppboutput: Long, pcboutput: Long, ppenumstate: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslGetProviderProperty(hsslprovider: Long, pszproperty: Long, ppboutput: Long, pcboutput: Long, ppenumstate: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslHashHandshake(hsslprovider: Long, hhandshakehash: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslHashHandshake(hsslprovider: Long, hhandshakehash: Long, pbinput: Long, cbinput: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslImportKey(hsslprovider: Long, phkey: Long, pszblobtype: Long, pbkeyblob: Long, cbkeyblob: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslImportKey(hsslprovider: Long, phkey: Long, pszblobtype: Long, pbkeyblob: Long, cbkeyblob: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslImportMasterKey(hsslprovider: Long, hprivatekey: Long, phmasterkey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, pbencryptedkey: Long, cbencryptedkey: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslImportMasterKey(hsslprovider: Long, hprivatekey: Long, phmasterkey: Long, dwprotocol: Int, dwciphersuite: Int, pparameterlist: Long, pbencryptedkey: Long, cbencryptedkey: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslIncrementProviderReferenceCount(hsslprovider: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(hsslprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslLookupCipherLengths(hsslprovider: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, pcipherlengths: Long, cbcipherlengths: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslLookupCipherLengths(hsslprovider: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, pcipherlengths: Long, cbcipherlengths: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslLookupCipherSuiteInfo(hsslprovider: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, pciphersuite: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslLookupCipherSuiteInfo(hsslprovider: Long, dwprotocol: Int, dwciphersuite: Int, dwkeytype: Int, pciphersuite: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslOpenPrivateKey(hsslprovider: Long, phprivatekey: Long, pcertcontext: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslOpenPrivateKey(hsslprovider: Long, phprivatekey: Long, pcertcontext: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslOpenProvider(phsslprovider: Long, pszprovidername: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslOpenProvider(phsslprovider: Long, pszprovidername: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslSignHash(hsslprovider: Long, hprivatekey: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, pcbresult: Long, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslSignHash(hsslprovider: Long, hprivatekey: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, pcbresult: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_sslVerifySignature(hsslprovider: Long, hpublickey: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, dwflags: Int): Int
+    external fun windowssysWindowsWin32SecurityCryptographySslVerifySignature(hsslprovider: Long, hpublickey: Long, pbhashvalue: Long, cbhashvalue: Int, pbsignature: Long, cbsignature: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_systemPrng(pbrandomdata: Long, cbrandomdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographySystemPrng(pbrandomdata: Long, cbrandomdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_transformBlock(hcrypto: Long, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyTransformBlock(hcrypto: Long, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_transformFinalBlock(hcrypto: Long, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyTransformFinalBlock(hcrypto: Long, cbindata: Int, pindata: Long, pcboutdata: Long, ppoutdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_verifyHash(hcrypto: Long, cbhash: Int, phash: Long, hashalgoid: Long, cbsig: Int, psig: Long, pfverified: Long): Int
+    external fun windowssysWindowsWin32SecurityCryptographyVerifyHash(hcrypto: Long, cbhash: Int, phash: Long, hashalgoid: Long, cbsig: Int, psig: Long, pfverified: Long): Int
 }
 
 public actual fun bCryptAddContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, dwposition: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptAddContextFunction(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), dwposition.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptAddContextFunction(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, dwposition.toInt())
 
 public actual fun bCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwposition: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptAddContextFunctionProvider(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pszprovider?.value ?: 0L), dwposition.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptAddContextFunctionProvider(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszprovider.rawAddress, dwposition.toInt())
 
 public actual fun bCryptCloseAlgorithmProvider(halgorithm: BcryptAlgHandle, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptCloseAlgorithmProvider((halgorithm?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCloseAlgorithmProvider(halgorithm.rawAddress, dwflags.toInt())
 
-public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptConfigureContext(dwtable.toInt(), (pszcontext?.value ?: 0L), (pconfig?.value ?: 0L))
+public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr<CryptContextConfig>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptConfigureContext(dwtable.toInt(), pszcontext.rawAddress, pconfig.rawAddress)
 
-public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptConfigureContextFunction(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pconfig?.value ?: 0L))
+public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: ConstPtr<CryptContextFunctionConfig>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptConfigureContextFunction(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pconfig.rawAddress)
 
-public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptCreateContext(dwtable.toInt(), (pszcontext?.value ?: 0L), (pconfig?.value ?: 0L))
+public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr<CryptContextConfig>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCreateContext(dwtable.toInt(), pszcontext.rawAddress, pconfig.rawAddress)
 
-public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: COpaquePointer?, pbhashobject: COpaquePointer?, cbhashobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptCreateHash((halgorithm?.value ?: 0L), (phhash?.value ?: 0L), (pbhashobject?.value ?: 0L), cbhashobject.toInt(), (pbsecret?.value ?: 0L), cbsecret.toInt(), dwflags.toInt())
+public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: MutPtr<BcryptHashHandle>, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCreateHash(halgorithm.rawAddress, phhash.rawAddress, pbhashobject.rawAddress, cbhashobject.toInt(), pbsecret.rawAddress, cbsecret.toInt(), dwflags.toInt())
 
-public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: COpaquePointer?, nhashes: UInt, pbhashobject: COpaquePointer?, cbhashobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptCreateMultiHash((halgorithm?.value ?: 0L), (phhash?.value ?: 0L), nhashes.toInt(), (pbhashobject?.value ?: 0L), cbhashobject.toInt(), (pbsecret?.value ?: 0L), cbsecret.toInt(), dwflags.toInt())
+public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: MutPtr<BcryptHashHandle>, nhashes: UInt, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCreateMultiHash(halgorithm.rawAddress, phhash.rawAddress, nhashes.toInt(), pbhashobject.rawAddress, cbhashobject.toInt(), pbsecret.rawAddress, cbsecret.toInt(), dwflags.toInt())
 
-public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pbiv: COpaquePointer?, cbiv: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDecrypt((hkey?.value ?: 0L), (pbinput?.value ?: 0L), cbinput.toInt(), (ppaddinginfo?.value ?: 0L), (pbiv?.value ?: 0L), cbiv.toInt(), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pbiv: MutPtr<UByte>, cbiv: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDecrypt(hkey.rawAddress, pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pbiv.rawAddress, cbiv.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun bCryptDeleteContext(dwtable: BcryptTable, pszcontext: Pcwstr): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDeleteContext(dwtable.toInt(), (pszcontext?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeleteContext(dwtable.toInt(), pszcontext.rawAddress)
 
-public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDeriveKey((hsharedsecret?.value ?: 0L), (pwszkdf?.value ?: 0L), (pparameterlist?.value ?: 0L), (pbderivedkey?.value ?: 0L), cbderivedkey.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeriveKey(hsharedsecret.rawAddress, pwszkdf.rawAddress, pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDeriveKeyCapi((hhash?.value ?: 0L), (htargetalg?.value ?: 0L), (pbderivedkey?.value ?: 0L), cbderivedkey.toInt(), dwflags.toInt())
+public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyCapi(hhash.rawAddress, htargetalg.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), dwflags.toInt())
 
-public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: COpaquePointer?, cbpassword: UInt, pbsalt: COpaquePointer?, cbsalt: UInt, citerations: ULong, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDeriveKeyPBKDF2((hprf?.value ?: 0L), (pbpassword?.value ?: 0L), cbpassword.toInt(), (pbsalt?.value ?: 0L), cbsalt.toInt(), citerations.toLong(), (pbderivedkey?.value ?: 0L), cbderivedkey.toInt(), dwflags.toInt())
+public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: ConstPtr<UByte>, cbpassword: UInt, pbsalt: ConstPtr<UByte>, cbsalt: UInt, citerations: ULong, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyPBKDF2(hprf.rawAddress, pbpassword.rawAddress, cbpassword.toInt(), pbsalt.rawAddress, cbsalt.toInt(), citerations.toLong(), pbderivedkey.rawAddress, cbderivedkey.toInt(), dwflags.toInt())
 
 public actual fun bCryptDestroyHash(hhash: BcryptHashHandle): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDestroyHash((hhash?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDestroyHash(hhash.rawAddress)
 
 public actual fun bCryptDestroyKey(hkey: BcryptKeyHandle): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDestroyKey((hkey?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDestroyKey(hkey.rawAddress)
 
 public actual fun bCryptDestroySecret(hsecret: BcryptSecretHandle): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDestroySecret((hsecret?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDestroySecret(hsecret.rawAddress)
 
-public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: COpaquePointer?, pbhashobject: COpaquePointer?, cbhashobject: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDuplicateHash((hhash?.value ?: 0L), (phnewhash?.value ?: 0L), (pbhashobject?.value ?: 0L), cbhashobject.toInt(), dwflags.toInt())
+public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: MutPtr<BcryptHashHandle>, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDuplicateHash(hhash.rawAddress, phnewhash.rawAddress, pbhashobject.rawAddress, cbhashobject.toInt(), dwflags.toInt())
 
-public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptDuplicateKey((hkey?.value ?: 0L), (phnewkey?.value ?: 0L), (pbkeyobject?.value ?: 0L), cbkeyobject.toInt(), dwflags.toInt())
+public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDuplicateKey(hkey.rawAddress, phnewkey.rawAddress, pbkeyobject.rawAddress, cbkeyobject.toInt(), dwflags.toInt())
 
-public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pbiv: COpaquePointer?, cbiv: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptEncrypt((hkey?.value ?: 0L), (pbinput?.value ?: 0L), cbinput.toInt(), (ppaddinginfo?.value ?: 0L), (pbiv?.value ?: 0L), cbiv.toInt(), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pbiv: MutPtr<UByte>, cbiv: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEncrypt(hkey.rawAddress, pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pbiv.rawAddress, cbiv.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: COpaquePointer?, ppalglist: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptEnumAlgorithms(dwalgoperations.toInt(), (palgcount?.value ?: 0L), (ppalglist?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: MutPtr<UInt>, ppalglist: MutPtr<MutPtr<BcryptAlgorithmIdentifier>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumAlgorithms(dwalgoperations.toInt(), palgcount.rawAddress, ppalglist.rawAddress, dwflags.toInt())
 
-public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctionProviders(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctionProviders>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctionProviders(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctions(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctions>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctions(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptEnumContexts(dwtable.toInt(), (pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContexts>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumContexts(dwtable.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: COpaquePointer?, ppimpllist: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptEnumProviders((pszalgid?.value ?: 0L), (pimplcount?.value ?: 0L), (ppimpllist?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: MutPtr<UInt>, ppimpllist: MutPtr<MutPtr<BcryptProviderName>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumProviders(pszalgid.rawAddress, pimplcount.rawAddress, ppimpllist.rawAddress, dwflags.toInt())
 
-public actual fun bCryptEnumRegisteredProviders(pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptEnumRegisteredProviders((pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptEnumRegisteredProviders(pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviders>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumRegisteredProviders(pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptExportKey((hkey?.value ?: 0L), (hexportkey?.value ?: 0L), (pszblobtype?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptExportKey(hkey.rawAddress, hexportkey.rawAddress, pszblobtype.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun bCryptFinalizeKeyPair(hkey: BcryptKeyHandle, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptFinalizeKeyPair((hkey?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptFinalizeKeyPair(hkey.rawAddress, dwflags.toInt())
 
-public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptFinishHash((hhash?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), dwflags.toInt())
+public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptFinishHash(hhash.rawAddress, pboutput.rawAddress, cboutput.toInt(), dwflags.toInt())
 
-public actual fun bCryptFreeBuffer(pvbuffer: COpaquePointer?) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptFreeBuffer((pvbuffer?.value ?: 0L))
+public actual fun bCryptFreeBuffer(pvbuffer: ConstPtr<CVoid>) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptFreeBuffer(pvbuffer.rawAddress)
 }
 
-public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: COpaquePointer?, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptGenRandom((halgorithm?.value ?: 0L), (pbbuffer?.value ?: 0L), cbbuffer.toInt(), dwflags.toInt())
+public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: MutPtr<UByte>, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGenRandom(halgorithm.rawAddress, pbbuffer.rawAddress, cbbuffer.toInt(), dwflags.toInt())
 
-public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: COpaquePointer?, dwlength: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptGenerateKeyPair((halgorithm?.value ?: 0L), (phkey?.value ?: 0L), dwlength.toInt(), dwflags.toInt())
+public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: MutPtr<BcryptKeyHandle>, dwlength: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGenerateKeyPair(halgorithm.rawAddress, phkey.rawAddress, dwlength.toInt(), dwflags.toInt())
 
-public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptGenerateSymmetricKey((halgorithm?.value ?: 0L), (phkey?.value ?: 0L), (pbkeyobject?.value ?: 0L), cbkeyobject.toInt(), (pbsecret?.value ?: 0L), cbsecret.toInt(), dwflags.toInt())
+public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGenerateSymmetricKey(halgorithm.rawAddress, phkey.rawAddress, pbkeyobject.rawAddress, cbkeyobject.toInt(), pbsecret.rawAddress, cbsecret.toInt(), dwflags.toInt())
 
-public actual fun bCryptGetFipsAlgorithmMode(pfenabled: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptGetFipsAlgorithmMode((pfenabled?.value ?: 0L))
+public actual fun bCryptGetFipsAlgorithmMode(pfenabled: MutPtr<UByte>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGetFipsAlgorithmMode(pfenabled.rawAddress)
 
-public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptGetProperty((hobject?.value ?: 0L), (pszproperty?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGetProperty(hobject.rawAddress, pszproperty.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: COpaquePointer?, cbsecret: UInt, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptHash((halgorithm?.value ?: 0L), (pbsecret?.value ?: 0L), cbsecret.toInt(), (pbinput?.value ?: 0L), cbinput.toInt(), (pboutput?.value ?: 0L), cboutput.toInt())
+public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: ConstPtr<UByte>, cbsecret: UInt, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptHash(halgorithm.rawAddress, pbsecret.rawAddress, cbsecret.toInt(), pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt())
 
-public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptHashData((hhash?.value ?: 0L), (pbinput?.value ?: 0L), cbinput.toInt(), dwflags.toInt())
+public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptHashData(hhash.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptImportKey((halgorithm?.value ?: 0L), (himportkey?.value ?: 0L), (pszblobtype?.value ?: 0L), (phkey?.value ?: 0L), (pbkeyobject?.value ?: 0L), cbkeyobject.toInt(), (pbinput?.value ?: 0L), cbinput.toInt(), dwflags.toInt())
+public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptImportKey(halgorithm.rawAddress, himportkey.rawAddress, pszblobtype.rawAddress, phkey.rawAddress, pbkeyobject.rawAddress, cbkeyobject.toInt(), pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: COpaquePointer?, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptImportKeyPair((halgorithm?.value ?: 0L), (himportkey?.value ?: 0L), (pszblobtype?.value ?: 0L), (phkey?.value ?: 0L), (pbinput?.value ?: 0L), cbinput.toInt(), dwflags.toInt())
+public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr<BcryptKeyHandle>, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptImportKeyPair(halgorithm.rawAddress, himportkey.rawAddress, pszblobtype.rawAddress, phkey.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptKeyDerivation((hkey?.value ?: 0L), (pparameterlist?.value ?: 0L), (pbderivedkey?.value ?: 0L), cbderivedkey.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptKeyDerivation(hkey.rawAddress, pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptOpenAlgorithmProvider(phalgorithm: COpaquePointer?, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptOpenAlgorithmProvider((phalgorithm?.value ?: 0L), (pszalgid?.value ?: 0L), (pszimplementation?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptOpenAlgorithmProvider(phalgorithm: MutPtr<BcryptAlgHandle>, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptOpenAlgorithmProvider(phalgorithm.rawAddress, pszalgid.rawAddress, pszimplementation.rawAddress, dwflags.toInt())
 
-public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: COpaquePointer?, cboperations: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptProcessMultiOperations((hobject?.value ?: 0L), operationtype, (poperations?.value ?: 0L), cboperations.toInt(), dwflags.toInt())
+public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: ConstPtr<CVoid>, cboperations: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptProcessMultiOperations(hobject.rawAddress, operationtype, poperations.rawAddress, cboperations.toInt(), dwflags.toInt())
 
-public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptQueryContextConfiguration(dwtable.toInt(), (pszcontext?.value ?: 0L), (pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextConfig>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryContextConfiguration(dwtable.toInt(), pszcontext.rawAddress, pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionConfiguration(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctionConfig>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionConfiguration(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionProperty(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pszproperty?.value ?: 0L), (pcbvalue?.value ?: 0L), (ppbvalue?.value ?: 0L))
+public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionProperty(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszproperty.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptQueryProviderRegistration((pszprovider?.value ?: 0L), dwmode.toInt(), dwinterface.toInt(), (pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviderReg>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryProviderRegistration(pszprovider.rawAddress, dwmode.toInt(), dwinterface.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptRegisterConfigChangeNotify(phevent: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptRegisterConfigChangeNotify((phevent?.value ?: 0L))
+public actual fun bCryptRegisterConfigChangeNotify(phevent: MutPtr<Handle>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptRegisterConfigChangeNotify(phevent.rawAddress)
 
-public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptRegisterProvider((pszprovider?.value ?: 0L), dwflags.toInt(), (preg?.value ?: 0L))
+public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: ConstPtr<CryptProviderReg>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptRegisterProvider(pszprovider.rawAddress, dwflags.toInt(), preg.rawAddress)
 
 public actual fun bCryptRemoveContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunction(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunction(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress)
 
 public actual fun bCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunctionProvider(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pszprovider?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunctionProvider(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszprovider.rawAddress)
 
-public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptResolveProviders((pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pszprovider?.value ?: 0L), dwmode.toInt(), dwflags.toInt(), (pcbbuffer?.value ?: 0L), (ppbuffer?.value ?: 0L))
+public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviderRefs>>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptResolveProviders(pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszprovider.rawAddress, dwmode.toInt(), dwflags.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptSecretAgreement((hprivkey?.value ?: 0L), (hpubkey?.value ?: 0L), (phagreedsecret?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: MutPtr<BcryptSecretHandle>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSecretAgreement(hprivkey.rawAddress, hpubkey.rawAddress, phagreedsecret.rawAddress, dwflags.toInt())
 
-public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptSetContextFunctionProperty(dwtable.toInt(), (pszcontext?.value ?: 0L), dwinterface.toInt(), (pszfunction?.value ?: 0L), (pszproperty?.value ?: 0L), cbvalue.toInt(), (pbvalue?.value ?: 0L))
+public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: ConstPtr<UByte>): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSetContextFunctionProperty(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszproperty.rawAddress, cbvalue.toInt(), pbvalue.rawAddress)
 
-public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptSetProperty((hobject?.value ?: 0L), (pszproperty?.value ?: 0L), (pbinput?.value ?: 0L), cbinput.toInt(), dwflags.toInt())
+public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSetProperty(hobject.rawAddress, pszproperty.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptSignHash((hkey?.value ?: 0L), (ppaddinginfo?.value ?: 0L), (pbinput?.value ?: 0L), cbinput.toInt(), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSignHash(hkey.rawAddress, ppaddinginfo.rawAddress, pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun bCryptUnregisterConfigChangeNotify(hevent: Handle): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptUnregisterConfigChangeNotify((hevent?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptUnregisterConfigChangeNotify(hevent.rawAddress)
 
 public actual fun bCryptUnregisterProvider(pszprovider: Pcwstr): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptUnregisterProvider((pszprovider?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptUnregisterProvider(pszprovider.rawAddress)
 
-public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhash: COpaquePointer?, cbhash: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_bCryptVerifySignature((hkey?.value ?: 0L), (ppaddinginfo?.value ?: 0L), (pbhash?.value ?: 0L), cbhash.toInt(), (pbsignature?.value ?: 0L), cbsignature.toInt(), dwflags.toInt())
+public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhash: ConstPtr<UByte>, cbhash: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptVerifySignature(hkey.rawAddress, ppaddinginfo.rawAddress, pbhash.rawAddress, cbhash.toInt(), pbsignature.rawAddress, cbsignature.toInt(), dwflags.toInt())
 
-public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddCRLContextToStore((hcertstore?.value ?: 0L), (pcrlcontext?.value ?: 0L), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L))
+public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr<CrlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CrlContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCRLContextToStore(hcertstore.rawAddress, pcrlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddCRLLinkToStore((hcertstore?.value ?: 0L), (pcrlcontext?.value ?: 0L), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L))
+public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr<CrlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CrlContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCRLLinkToStore(hcertstore.rawAddress, pcrlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddCTLContextToStore((hcertstore?.value ?: 0L), (pctlcontext?.value ?: 0L), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L))
+public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr<CtlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CtlContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCTLContextToStore(hcertstore.rawAddress, pctlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddCTLLinkToStore((hcertstore?.value ?: 0L), (pctlcontext?.value ?: 0L), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L))
+public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr<CtlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CtlContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCTLLinkToStore(hcertstore.rawAddress, pctlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddCertificateContextToStore((hcertstore?.value ?: 0L), (pcertcontext?.value ?: 0L), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L))
+public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr<CertContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCertificateContextToStore(hcertstore.rawAddress, pcertcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddCertificateLinkToStore((hcertstore?.value ?: 0L), (pcertcontext?.value ?: 0L), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L))
+public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr<CertContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCertificateLinkToStore(hcertstore.rawAddress, pcertcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: COpaquePointer?, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddEncodedCRLToStore((hcertstore?.value ?: 0L), dwcertencodingtype.toInt(), (pbcrlencoded?.value ?: 0L), cbcrlencoded.toInt(), dwadddisposition.toInt(), (ppcrlcontext?.value ?: 0L))
+public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr<UByte>, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: MutPtr<MutPtr<CrlContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCRLToStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), pbcrlencoded.rawAddress, cbcrlencoded.toInt(), dwadddisposition.toInt(), ppcrlcontext.rawAddress)
 
-public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: COpaquePointer?, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddEncodedCTLToStore((hcertstore?.value ?: 0L), dwmsgandcertencodingtype.toInt(), (pbctlencoded?.value ?: 0L), cbctlencoded.toInt(), dwadddisposition.toInt(), (ppctlcontext?.value ?: 0L))
+public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: ConstPtr<UByte>, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: MutPtr<MutPtr<CtlContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCTLToStore(hcertstore.rawAddress, dwmsgandcertencodingtype.toInt(), pbctlencoded.rawAddress, cbctlencoded.toInt(), dwadddisposition.toInt(), ppctlcontext.rawAddress)
 
-public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: COpaquePointer?, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToStore((hcertstore?.value ?: 0L), dwcertencodingtype.toInt(), (pbcertencoded?.value ?: 0L), cbcertencoded.toInt(), dwadddisposition.toInt(), (ppcertcontext?.value ?: 0L))
+public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), pbcertencoded.rawAddress, cbcertencoded.toInt(), dwadddisposition.toInt(), ppcertcontext.rawAddress)
 
-public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreA((szcertstorename?.value ?: 0L), (pbcertencoded?.value ?: 0L), cbcertencoded.toInt())
+public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreA(szcertstorename.rawAddress, pbcertencoded.rawAddress, cbcertencoded.toInt())
 
-public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreW((szcertstorename?.value ?: 0L), (pbcertencoded?.value ?: 0L), cbcertencoded.toInt())
+public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreW(szcertstorename.rawAddress, pbcertencoded.rawAddress, cbcertencoded.toInt())
 
-public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddEnhancedKeyUsageIdentifier((pcertcontext?.value ?: 0L), (pszusageidentifier?.value ?: 0L))
+public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr<CertContext>, pszusageidentifier: Pcstr): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEnhancedKeyUsageIdentifier(pcertcontext.rawAddress, pszusageidentifier.rawAddress)
 
-public actual fun certAddRefServerOcspResponse(hserverocspresponse: COpaquePointer?) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponse((hserverocspresponse?.value ?: 0L))
+public actual fun certAddRefServerOcspResponse(hserverocspresponse: ConstPtr<CVoid>) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponse(hserverocspresponse.rawAddress)
 }
 
-public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponseContext((pserverocspresponsecontext?.value ?: 0L))
+public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: ConstPtr<CertServerOcspResponseContext>) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponseContext(pserverocspresponsecontext.rawAddress)
 }
 
-public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: COpaquePointer?, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: COpaquePointer?, ppvcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddSerializedElementToStore((hcertstore?.value ?: 0L), (pbelement?.value ?: 0L), cbelement.toInt(), dwadddisposition.toInt(), dwflags.toInt(), dwcontexttypeflags.toInt(), (pdwcontexttype?.value ?: 0L), (ppvcontext?.value ?: 0L))
+public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: ConstPtr<UByte>, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: MutPtr<UInt>, ppvcontext: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddSerializedElementToStore(hcertstore.rawAddress, pbelement.rawAddress, cbelement.toInt(), dwadddisposition.toInt(), dwflags.toInt(), dwcontexttypeflags.toInt(), pdwcontexttype.rawAddress, ppvcontext.rawAddress)
 
 public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore, dwupdateflags: UInt, dwpriority: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAddStoreToCollection((hcollectionstore?.value ?: 0L), (hsiblingstore?.value ?: 0L), dwupdateflags.toInt(), dwpriority.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddStoreToCollection(hcollectionstore.rawAddress, hsiblingstore.rawAddress, dwupdateflags.toInt(), dwpriority.toInt())
 
 public actual fun certAlgIdToOID(dwalgid: UInt): Pcstr =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certAlgIdToOID(dwalgid.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    ConstPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAlgIdToOID(dwalgid.toInt()))
 
-public actual fun certCloseServerOcspResponse(hserverocspresponse: COpaquePointer?, dwflags: UInt) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCloseServerOcspResponse((hserverocspresponse?.value ?: 0L), dwflags.toInt())
+public actual fun certCloseServerOcspResponse(hserverocspresponse: ConstPtr<CVoid>, dwflags: UInt) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCloseServerOcspResponse(hserverocspresponse.rawAddress, dwflags.toInt())
 }
 
 public actual fun certCloseStore(hcertstore: Hcertstore, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCloseStore((hcertstore?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCloseStore(hcertstore.rawAddress, dwflags.toInt())
 
-public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: COpaquePointer?, pcertid2: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCompareCertificate(dwcertencodingtype.toInt(), (pcertid1?.value ?: 0L), (pcertid2?.value ?: 0L))
+public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: ConstPtr<CertInfo>, pcertid2: ConstPtr<CertInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCompareCertificate(dwcertencodingtype.toInt(), pcertid1.rawAddress, pcertid2.rawAddress)
 
-public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: COpaquePointer?, pcertname2: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCompareCertificateName(dwcertencodingtype.toInt(), (pcertname1?.value ?: 0L), (pcertname2?.value ?: 0L))
+public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: ConstPtr<CryptIntegerBlob>, pcertname2: ConstPtr<CryptIntegerBlob>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCompareCertificateName(dwcertencodingtype.toInt(), pcertname1.rawAddress, pcertname2.rawAddress)
 
-public actual fun certCompareIntegerBlob(pint1: COpaquePointer?, pint2: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCompareIntegerBlob((pint1?.value ?: 0L), (pint2?.value ?: 0L))
+public actual fun certCompareIntegerBlob(pint1: ConstPtr<CryptIntegerBlob>, pint2: ConstPtr<CryptIntegerBlob>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCompareIntegerBlob(pint1.rawAddress, pint2.rawAddress)
 
-public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: COpaquePointer?, ppublickey2: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certComparePublicKeyInfo(dwcertencodingtype.toInt(), (ppublickey1?.value ?: 0L), (ppublickey2?.value ?: 0L))
+public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: ConstPtr<CertPublicKeyInfo>, ppublickey2: ConstPtr<CertPublicKeyInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertComparePublicKeyInfo(dwcertencodingtype.toInt(), ppublickey1.rawAddress, ppublickey2.rawAddress)
 
-public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certControlStore((hcertstore?.value ?: 0L), dwflags.toInt(), dwctrltype.toInt(), (pvctrlpara?.value ?: 0L))
+public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertControlStore(hcertstore.rawAddress, dwflags.toInt(), dwctrltype.toInt(), pvctrlpara.rawAddress)
 
-public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: COpaquePointer?, cbcrlencoded: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCreateCRLContext(dwcertencodingtype.toInt(), (pbcrlencoded?.value ?: 0L), cbcrlencoded.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr<UByte>, cbcrlencoded: UInt): MutPtr<CrlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCRLContext(dwcertencodingtype.toInt(), pbcrlencoded.rawAddress, cbcrlencoded.toInt()))
 
-public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: COpaquePointer?, cbctlencoded: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCreateCTLContext(dwmsgandcertencodingtype.toInt(), (pbctlencoded?.value ?: 0L), cbctlencoded.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: ConstPtr<UByte>, cbctlencoded: UInt): MutPtr<CtlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCTLContext(dwmsgandcertencodingtype.toInt(), pbctlencoded.rawAddress, cbctlencoded.toInt()))
 
-public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: COpaquePointer?, coptattr: UInt, rgoptattr: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, pctlentry: COpaquePointer?, pcbctlentry: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCreateCTLEntryFromCertificateContextProperties((pcertcontext?.value ?: 0L), coptattr.toInt(), (rgoptattr?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L), (pctlentry?.value ?: 0L), (pcbctlentry?.value ?: 0L))
+public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: ConstPtr<CertContext>, coptattr: UInt, rgoptattr: ConstPtr<CryptAttribute>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pctlentry: MutPtr<CtlEntry>, pcbctlentry: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCTLEntryFromCertificateContextProperties(pcertcontext.rawAddress, coptattr.toInt(), rgoptattr.rawAddress, dwflags.toInt(), pvreserved.rawAddress, pctlentry.rawAddress, pcbctlentry.rawAddress)
 
-public actual fun certCreateCertificateChainEngine(pconfig: COpaquePointer?, phchainengine: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCreateCertificateChainEngine((pconfig?.value ?: 0L), (phchainengine?.value ?: 0L))
+public actual fun certCreateCertificateChainEngine(pconfig: ConstPtr<CertChainEngineConfig>, phchainengine: MutPtr<Hcertchainengine>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCertificateChainEngine(pconfig.rawAddress, phchainengine.rawAddress)
 
-public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCreateCertificateContext(dwcertencodingtype.toInt(), (pbcertencoded?.value ?: 0L), cbcertencoded.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): MutPtr<CertContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCertificateContext(dwcertencodingtype.toInt(), pbcertencoded.rawAddress, cbcertencoded.toInt()))
 
-public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pcreatepara: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCreateContext(dwcontexttype.toInt(), dwencodingtype.toInt(), (pbencoded?.value ?: 0L), cbencoded.toInt(), dwflags.toInt(), (pcreatepara?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pcreatepara: ConstPtr<CertCreateContextPara>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateContext(dwcontexttype.toInt(), dwencodingtype.toInt(), pbencoded.rawAddress, cbencoded.toInt(), dwflags.toInt(), pcreatepara.rawAddress))
 
-public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: COpaquePointer?, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: COpaquePointer?, psignaturealgorithm: COpaquePointer?, pstarttime: COpaquePointer?, pendtime: COpaquePointer?, pextensions: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certCreateSelfSignCertificate(hcryptprovorncryptkey.toLong(), (psubjectissuerblob?.value ?: 0L), dwflags.toInt(), (pkeyprovinfo?.value ?: 0L), (psignaturealgorithm?.value ?: 0L), (pstarttime?.value ?: 0L), (pendtime?.value ?: 0L), (pextensions?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: ConstPtr<CryptIntegerBlob>, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: ConstPtr<CryptKeyProvInfo>, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pstarttime: ConstPtr<Systemtime>, pendtime: ConstPtr<Systemtime>, pextensions: ConstPtr<CertExtensions>): MutPtr<CertContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateSelfSignCertificate(hcryptprovorncryptkey.toLong(), psubjectissuerblob.rawAddress, dwflags.toInt(), pkeyprovinfo.rawAddress, psignaturealgorithm.rawAddress, pstarttime.rawAddress, pendtime.rawAddress, pextensions.rawAddress))
 
-public actual fun certDeleteCRLFromStore(pcrlcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDeleteCRLFromStore((pcrlcontext?.value ?: 0L))
+public actual fun certDeleteCRLFromStore(pcrlcontext: ConstPtr<CrlContext>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDeleteCRLFromStore(pcrlcontext.rawAddress)
 
-public actual fun certDeleteCTLFromStore(pctlcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDeleteCTLFromStore((pctlcontext?.value ?: 0L))
+public actual fun certDeleteCTLFromStore(pctlcontext: ConstPtr<CtlContext>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDeleteCTLFromStore(pctlcontext.rawAddress)
 
-public actual fun certDeleteCertificateFromStore(pcertcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDeleteCertificateFromStore((pcertcontext?.value ?: 0L))
+public actual fun certDeleteCertificateFromStore(pcertcontext: ConstPtr<CertContext>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDeleteCertificateFromStore(pcertcontext.rawAddress)
 
-public actual fun certDuplicateCRLContext(pcrlcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDuplicateCRLContext((pcrlcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certDuplicateCRLContext(pcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCRLContext(pcrlcontext.rawAddress))
 
-public actual fun certDuplicateCTLContext(pctlcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDuplicateCTLContext((pctlcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certDuplicateCTLContext(pctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCTLContext(pctlcontext.rawAddress))
 
-public actual fun certDuplicateCertificateChain(pchaincontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDuplicateCertificateChain((pchaincontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certDuplicateCertificateChain(pchaincontext: ConstPtr<CertChainContext>): MutPtr<CertChainContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateChain(pchaincontext.rawAddress))
 
-public actual fun certDuplicateCertificateContext(pcertcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDuplicateCertificateContext((pcertcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certDuplicateCertificateContext(pcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateContext(pcertcontext.rawAddress))
 
 public actual fun certDuplicateStore(hcertstore: Hcertstore): Hcertstore =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certDuplicateStore((hcertstore?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateStore(hcertstore.rawAddress))
 
-public actual fun certEnumCRLContextProperties(pcrlcontext: COpaquePointer?, dwpropid: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumCRLContextProperties((pcrlcontext?.value ?: 0L), dwpropid.toInt()).toUInt()
+public actual fun certEnumCRLContextProperties(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCRLContextProperties(pcrlcontext.rawAddress, dwpropid.toInt()).toUInt()
 
-public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumCRLsInStore((hcertstore?.value ?: 0L), (pprevcrlcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCRLsInStore(hcertstore.rawAddress, pprevcrlcontext.rawAddress))
 
-public actual fun certEnumCTLContextProperties(pctlcontext: COpaquePointer?, dwpropid: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumCTLContextProperties((pctlcontext?.value ?: 0L), dwpropid.toInt()).toUInt()
+public actual fun certEnumCTLContextProperties(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCTLContextProperties(pctlcontext.rawAddress, dwpropid.toInt()).toUInt()
 
-public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumCTLsInStore((hcertstore?.value ?: 0L), (pprevctlcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCTLsInStore(hcertstore.rawAddress, pprevctlcontext.rawAddress))
 
-public actual fun certEnumCertificateContextProperties(pcertcontext: COpaquePointer?, dwpropid: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumCertificateContextProperties((pcertcontext?.value ?: 0L), dwpropid.toInt()).toUInt()
+public actual fun certEnumCertificateContextProperties(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCertificateContextProperties(pcertcontext.rawAddress, dwpropid.toInt()).toUInt()
 
-public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumCertificatesInStore((hcertstore?.value ?: 0L), (pprevcertcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCertificatesInStore(hcertstore.rawAddress, pprevcertcontext.rawAddress))
 
-public actual fun certEnumPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pvarg: COpaquePointer?, pfnenum: PfnCertEnumPhysicalStore): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumPhysicalStore((pvsystemstore?.value ?: 0L), dwflags.toInt(), (pvarg?.value ?: 0L), 0L)
+public actual fun certEnumPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumPhysicalStore): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumPhysicalStore(pvsystemstore.rawAddress, dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun certEnumSubjectInSortedCTL(pctlcontext: COpaquePointer?, ppvnextsubject: COpaquePointer?, psubjectidentifier: COpaquePointer?, pencodedattributes: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumSubjectInSortedCTL((pctlcontext?.value ?: 0L), (ppvnextsubject?.value ?: 0L), (psubjectidentifier?.value ?: 0L), (pencodedattributes?.value ?: 0L))
+public actual fun certEnumSubjectInSortedCTL(pctlcontext: ConstPtr<CtlContext>, ppvnextsubject: MutPtr<MutPtr<CVoid>>, psubjectidentifier: MutPtr<CryptIntegerBlob>, pencodedattributes: MutPtr<CryptIntegerBlob>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumSubjectInSortedCTL(pctlcontext.rawAddress, ppvnextsubject.rawAddress, psubjectidentifier.rawAddress, pencodedattributes.rawAddress)
 
-public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: COpaquePointer?, pvarg: COpaquePointer?, pfnenum: PfnCertEnumSystemStore): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumSystemStore(dwflags.toInt(), (pvsystemstorelocationpara?.value ?: 0L), (pvarg?.value ?: 0L), 0L)
+public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: ConstPtr<CVoid>, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumSystemStore): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumSystemStore(dwflags.toInt(), pvsystemstorelocationpara.rawAddress, pvarg.rawAddress, 0L)
 
-public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: COpaquePointer?, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certEnumSystemStoreLocation(dwflags.toInt(), (pvarg?.value ?: 0L), 0L)
+public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumSystemStoreLocation(dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindAttribute((pszobjid?.value ?: 0L), cattr.toInt(), (rgattr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: ConstPtr<CryptAttribute>): MutPtr<CryptAttribute> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindAttribute(pszobjid.rawAddress, cattr.toInt(), rgattr.rawAddress))
 
-public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: COpaquePointer?, pprevcrlcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindCRLInStore((hcertstore?.value ?: 0L), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L), (pprevcrlcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: ConstPtr<CVoid>, pprevcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCRLInStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevcrlcontext.rawAddress))
 
-public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: COpaquePointer?, pprevctlcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindCTLInStore((hcertstore?.value ?: 0L), dwmsgandcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L), (pprevctlcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: ConstPtr<CVoid>, pprevctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCTLInStore(hcertstore.rawAddress, dwmsgandcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevctlcontext.rawAddress))
 
-public actual fun certFindCertificateInCRL(pcert: COpaquePointer?, pcrlcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, ppcrlentry: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindCertificateInCRL((pcert?.value ?: 0L), (pcrlcontext?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L), (ppcrlentry?.value ?: 0L))
+public actual fun certFindCertificateInCRL(pcert: ConstPtr<CertContext>, pcrlcontext: ConstPtr<CrlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppcrlentry: MutPtr<MutPtr<CrlEntry>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCertificateInCRL(pcert.rawAddress, pcrlcontext.rawAddress, dwflags.toInt(), pvreserved.rawAddress, ppcrlentry.rawAddress)
 
-public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: COpaquePointer?, pprevcertcontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindCertificateInStore((hcertstore?.value ?: 0L), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L), (pprevcertcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: ConstPtr<CVoid>, pprevcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCertificateInStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevcertcontext.rawAddress))
 
-public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: COpaquePointer?, pprevchaincontext: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindChainInStore((hcertstore?.value ?: 0L), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L), (pprevchaincontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: ConstPtr<CVoid>, pprevchaincontext: ConstPtr<CertChainContext>): MutPtr<CertChainContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindChainInStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevchaincontext.rawAddress))
 
-public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindExtension((pszobjid?.value ?: 0L), cextensions.toInt(), (rgextensions?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: ConstPtr<CertExtension>): MutPtr<CertExtension> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindExtension(pszobjid.rawAddress, cextensions.toInt(), rgextensions.rawAddress))
 
-public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindRDNAttr((pszobjid?.value ?: 0L), (pname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: ConstPtr<CertNameInfo>): MutPtr<CertRdnAttr> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindRDNAttr(pszobjid.rawAddress, pname.rawAddress))
 
-public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: COpaquePointer?, pctlcontext: COpaquePointer?, dwflags: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindSubjectInCTL(dwencodingtype.toInt(), dwsubjecttype.toInt(), (pvsubject?.value ?: 0L), (pctlcontext?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, pctlcontext: ConstPtr<CtlContext>, dwflags: UInt): MutPtr<CtlEntry> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindSubjectInCTL(dwencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.rawAddress, pctlcontext.rawAddress, dwflags.toInt()))
 
-public actual fun certFindSubjectInSortedCTL(psubjectidentifier: COpaquePointer?, pctlcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, pencodedattributes: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFindSubjectInSortedCTL((psubjectidentifier?.value ?: 0L), (pctlcontext?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L), (pencodedattributes?.value ?: 0L))
+public actual fun certFindSubjectInSortedCTL(psubjectidentifier: ConstPtr<CryptIntegerBlob>, pctlcontext: ConstPtr<CtlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pencodedattributes: MutPtr<CryptIntegerBlob>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindSubjectInSortedCTL(psubjectidentifier.rawAddress, pctlcontext.rawAddress, dwflags.toInt(), pvreserved.rawAddress, pencodedattributes.rawAddress)
 
-public actual fun certFreeCRLContext(pcrlcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFreeCRLContext((pcrlcontext?.value ?: 0L))
+public actual fun certFreeCRLContext(pcrlcontext: ConstPtr<CrlContext>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCRLContext(pcrlcontext.rawAddress)
 
-public actual fun certFreeCTLContext(pctlcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFreeCTLContext((pctlcontext?.value ?: 0L))
+public actual fun certFreeCTLContext(pctlcontext: ConstPtr<CtlContext>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCTLContext(pctlcontext.rawAddress)
 
-public actual fun certFreeCertificateChain(pchaincontext: COpaquePointer?) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFreeCertificateChain((pchaincontext?.value ?: 0L))
+public actual fun certFreeCertificateChain(pchaincontext: ConstPtr<CertChainContext>) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChain(pchaincontext.rawAddress)
 }
 
 public actual fun certFreeCertificateChainEngine(hchainengine: Hcertchainengine) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFreeCertificateChainEngine((hchainengine?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainEngine(hchainengine.rawAddress)
 }
 
-public actual fun certFreeCertificateChainList(prgpselection: COpaquePointer?) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFreeCertificateChainList((prgpselection?.value ?: 0L))
+public actual fun certFreeCertificateChainList(prgpselection: ConstPtr<ConstPtr<CertChainContext>>) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainList(prgpselection.rawAddress)
 }
 
-public actual fun certFreeCertificateContext(pcertcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFreeCertificateContext((pcertcontext?.value ?: 0L))
+public actual fun certFreeCertificateContext(pcertcontext: ConstPtr<CertContext>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateContext(pcertcontext.rawAddress)
 
-public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certFreeServerOcspResponseContext((pserverocspresponsecontext?.value ?: 0L))
+public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: ConstPtr<CertServerOcspResponseContext>) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeServerOcspResponseContext(pserverocspresponsecontext.rawAddress)
 }
 
-public actual fun certGetCRLContextProperty(pcrlcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetCRLContextProperty((pcrlcontext?.value ?: 0L), dwpropid.toInt(), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L))
+public actual fun certGetCRLContextProperty(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCRLContextProperty(pcrlcontext.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: COpaquePointer?, pprevcrlcontext: COpaquePointer?, pdwflags: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetCRLFromStore((hcertstore?.value ?: 0L), (pissuercontext?.value ?: 0L), (pprevcrlcontext?.value ?: 0L), (pdwflags?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: ConstPtr<CertContext>, pprevcrlcontext: ConstPtr<CrlContext>, pdwflags: MutPtr<UInt>): MutPtr<CrlContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCRLFromStore(hcertstore.rawAddress, pissuercontext.rawAddress, pprevcrlcontext.rawAddress, pdwflags.rawAddress))
 
-public actual fun certGetCTLContextProperty(pctlcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetCTLContextProperty((pctlcontext?.value ?: 0L), dwpropid.toInt(), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L))
+public actual fun certGetCTLContextProperty(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCTLContextProperty(pctlcontext.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: COpaquePointer?, ptime: COpaquePointer?, hadditionalstore: Hcertstore, pchainpara: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, ppchaincontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetCertificateChain((hchainengine?.value ?: 0L), (pcertcontext?.value ?: 0L), (ptime?.value ?: 0L), (hadditionalstore?.value ?: 0L), (pchainpara?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L), (ppchaincontext?.value ?: 0L))
+public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: ConstPtr<CertContext>, ptime: ConstPtr<Filetime>, hadditionalstore: Hcertstore, pchainpara: ConstPtr<CertChainPara>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppchaincontext: MutPtr<MutPtr<CertChainContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCertificateChain(hchainengine.rawAddress, pcertcontext.rawAddress, ptime.rawAddress, hadditionalstore.rawAddress, pchainpara.rawAddress, dwflags.toInt(), pvreserved.rawAddress, ppchaincontext.rawAddress)
 
-public actual fun certGetCertificateContextProperty(pcertcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetCertificateContextProperty((pcertcontext?.value ?: 0L), dwpropid.toInt(), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L))
+public actual fun certGetCertificateContextProperty(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCertificateContextProperty(pcertcontext.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetEnhancedKeyUsage(pcertcontext: COpaquePointer?, dwflags: UInt, pusage: COpaquePointer?, pcbusage: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetEnhancedKeyUsage((pcertcontext?.value ?: 0L), dwflags.toInt(), (pusage?.value ?: 0L), (pcbusage?.value ?: 0L))
+public actual fun certGetEnhancedKeyUsage(pcertcontext: ConstPtr<CertContext>, dwflags: UInt, pusage: MutPtr<CtlUsage>, pcbusage: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetEnhancedKeyUsage(pcertcontext.rawAddress, dwflags.toInt(), pusage.rawAddress, pcbusage.rawAddress)
 
-public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: COpaquePointer?, pbkeyusage: COpaquePointer?, cbkeyusage: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetIntendedKeyUsage(dwcertencodingtype.toInt(), (pcertinfo?.value ?: 0L), (pbkeyusage?.value ?: 0L), cbkeyusage.toInt())
+public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: ConstPtr<CertInfo>, pbkeyusage: MutPtr<UByte>, cbkeyusage: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetIntendedKeyUsage(dwcertencodingtype.toInt(), pcertinfo.rawAddress, pbkeyusage.rawAddress, cbkeyusage.toInt())
 
-public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: COpaquePointer?, pprevissuercontext: COpaquePointer?, pdwflags: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetIssuerCertificateFromStore((hcertstore?.value ?: 0L), (psubjectcontext?.value ?: 0L), (pprevissuercontext?.value ?: 0L), (pdwflags?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: ConstPtr<CertContext>, pprevissuercontext: ConstPtr<CertContext>, pdwflags: MutPtr<UInt>): MutPtr<CertContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetIssuerCertificateFromStore(hcertstore.rawAddress, psubjectcontext.rawAddress, pprevissuercontext.rawAddress, pdwflags.rawAddress))
 
-public actual fun certGetNameStringA(pcertcontext: COpaquePointer?, dwtype: UInt, dwflags: UInt, pvtypepara: COpaquePointer?, psznamestring: Pstr, cchnamestring: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetNameStringA((pcertcontext?.value ?: 0L), dwtype.toInt(), dwflags.toInt(), (pvtypepara?.value ?: 0L), (psznamestring?.value ?: 0L), cchnamestring.toInt()).toUInt()
+public actual fun certGetNameStringA(pcertcontext: ConstPtr<CertContext>, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr<CVoid>, psznamestring: Pstr, cchnamestring: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetNameStringA(pcertcontext.rawAddress, dwtype.toInt(), dwflags.toInt(), pvtypepara.rawAddress, psznamestring.rawAddress, cchnamestring.toInt()).toUInt()
 
-public actual fun certGetNameStringW(pcertcontext: COpaquePointer?, dwtype: UInt, dwflags: UInt, pvtypepara: COpaquePointer?, psznamestring: Pwstr, cchnamestring: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetNameStringW((pcertcontext?.value ?: 0L), dwtype.toInt(), dwflags.toInt(), (pvtypepara?.value ?: 0L), (psznamestring?.value ?: 0L), cchnamestring.toInt()).toUInt()
+public actual fun certGetNameStringW(pcertcontext: ConstPtr<CertContext>, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr<CVoid>, psznamestring: Pwstr, cchnamestring: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetNameStringW(pcertcontext.rawAddress, dwtype.toInt(), dwflags.toInt(), pvtypepara.rawAddress, psznamestring.rawAddress, cchnamestring.toInt()).toUInt()
 
-public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: COpaquePointer?): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetPublicKeyLength(dwcertencodingtype.toInt(), (ppublickey?.value ?: 0L)).toUInt()
+public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: ConstPtr<CertPublicKeyInfo>): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetPublicKeyLength(dwcertencodingtype.toInt(), ppublickey.rawAddress).toUInt()
 
-public actual fun certGetServerOcspResponseContext(hserverocspresponse: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetServerOcspResponseContext((hserverocspresponse?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certGetServerOcspResponseContext(hserverocspresponse: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): MutPtr<CertServerOcspResponseContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetServerOcspResponseContext(hserverocspresponse.rawAddress, dwflags.toInt(), pvreserved.rawAddress))
 
-public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetStoreProperty((hcertstore?.value ?: 0L), dwpropid.toInt(), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L))
+public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetStoreProperty(hcertstore.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetSubjectCertificateFromStore((hcertstore?.value ?: 0L), dwcertencodingtype.toInt(), (pcertid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr<CertInfo>): MutPtr<CertContext> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetSubjectCertificateFromStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), pcertid.rawAddress))
 
-public actual fun certGetValidUsages(ccerts: UInt, rghcerts: COpaquePointer?, cnumoids: COpaquePointer?, rghoids: COpaquePointer?, pcboids: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certGetValidUsages(ccerts.toInt(), (rghcerts?.value ?: 0L), (cnumoids?.value ?: 0L), (rghoids?.value ?: 0L), (pcboids?.value ?: 0L))
+public actual fun certGetValidUsages(ccerts: UInt, rghcerts: ConstPtr<ConstPtr<CertContext>>, cnumoids: MutPtr<Int>, rghoids: MutPtr<Pstr>, pcboids: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetValidUsages(ccerts.toInt(), rghcerts.rawAddress, cnumoids.rawAddress, rghoids.rawAddress, pcboids.rawAddress)
 
-public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: COpaquePointer?, prdn: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certIsRDNAttrsInCertificateName(dwcertencodingtype.toInt(), dwflags.toInt(), (pcertname?.value ?: 0L), (prdn?.value ?: 0L))
+public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: ConstPtr<CryptIntegerBlob>, prdn: ConstPtr<CertRdn>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsRDNAttrsInCertificateName(dwcertencodingtype.toInt(), dwflags.toInt(), pcertname.rawAddress, prdn.rawAddress)
 
-public actual fun certIsStrongHashToSign(pstrongsignpara: COpaquePointer?, pwszcnghashalgid: Pcwstr, psigningcert: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certIsStrongHashToSign((pstrongsignpara?.value ?: 0L), (pwszcnghashalgid?.value ?: 0L), (psigningcert?.value ?: 0L))
+public actual fun certIsStrongHashToSign(pstrongsignpara: ConstPtr<CertStrongSignPara>, pwszcnghashalgid: Pcwstr, psigningcert: ConstPtr<CertContext>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsStrongHashToSign(pstrongsignpara.rawAddress, pwszcnghashalgid.rawAddress, psigningcert.rawAddress)
 
-public actual fun certIsValidCRLForCertificate(pcert: COpaquePointer?, pcrl: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certIsValidCRLForCertificate((pcert?.value ?: 0L), (pcrl?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L))
+public actual fun certIsValidCRLForCertificate(pcert: ConstPtr<CertContext>, pcrl: ConstPtr<CrlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsValidCRLForCertificate(pcert.rawAddress, pcrl.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: COpaquePointer?, ptimestamp: COpaquePointer?, pwszfilename: Pcwstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certIsWeakHash(dwhashusetype.toInt(), (pwszcnghashalgid?.value ?: 0L), dwchainflags.toInt(), (psignerchaincontext?.value ?: 0L), (ptimestamp?.value ?: 0L), (pwszfilename?.value ?: 0L))
+public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: ConstPtr<CertChainContext>, ptimestamp: ConstPtr<Filetime>, pwszfilename: Pcwstr): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsWeakHash(dwhashusetype.toInt(), pwszcnghashalgid.rawAddress, dwchainflags.toInt(), psignerchaincontext.rawAddress, ptimestamp.rawAddress, pwszfilename.rawAddress)
 
-public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: COpaquePointer?, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certNameToStrA(dwcertencodingtype.toInt(), (pname?.value ?: 0L), dwstrtype.toInt(), (psz?.value ?: 0L), csz.toInt()).toUInt()
+public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr<CryptIntegerBlob>, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertNameToStrA(dwcertencodingtype.toInt(), pname.rawAddress, dwstrtype.toInt(), psz.rawAddress, csz.toInt()).toUInt()
 
-public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: COpaquePointer?, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certNameToStrW(dwcertencodingtype.toInt(), (pname?.value ?: 0L), dwstrtype.toInt(), (psz?.value ?: 0L), csz.toInt()).toUInt()
+public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr<CryptIntegerBlob>, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertNameToStrW(dwcertencodingtype.toInt(), pname.rawAddress, dwstrtype.toInt(), psz.rawAddress, csz.toInt()).toUInt()
 
 public actual fun certOIDToAlgId(pszobjid: Pcstr): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certOIDToAlgId((pszobjid?.value ?: 0L)).toUInt()
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOIDToAlgId(pszobjid.rawAddress).toUInt()
 
-public actual fun certOpenServerOcspResponse(pchaincontext: COpaquePointer?, dwflags: UInt, popenpara: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certOpenServerOcspResponse((pchaincontext?.value ?: 0L), dwflags.toInt(), (popenpara?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certOpenServerOcspResponse(pchaincontext: ConstPtr<CertChainContext>, dwflags: UInt, popenpara: ConstPtr<CertServerOcspResponseOpenPara>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOpenServerOcspResponse(pchaincontext.rawAddress, dwflags.toInt(), popenpara.rawAddress))
 
-public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: COpaquePointer?): Hcertstore =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certOpenStore((lpszstoreprovider?.value ?: 0L), dwencodingtype.toInt(), hcryptprov.toLong(), dwflags.toInt(), (pvpara?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: ConstPtr<CVoid>): Hcertstore =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOpenStore(lpszstoreprovider.rawAddress, dwencodingtype.toInt(), hcryptprov.toLong(), dwflags.toInt(), pvpara.rawAddress))
 
 public actual fun certOpenSystemStoreA(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcstr): Hcertstore =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certOpenSystemStoreA(hprov.toLong(), (szsubsystemprotocol?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreA(hprov.toLong(), szsubsystemprotocol.rawAddress))
 
 public actual fun certOpenSystemStoreW(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcwstr): Hcertstore =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certOpenSystemStoreW(hprov.toLong(), (szsubsystemprotocol?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreW(hprov.toLong(), szsubsystemprotocol.rawAddress))
 
-public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: COpaquePointer?, psz: Pstr, csz: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certRDNValueToStrA(dwvaluetype.toInt(), (pvalue?.value ?: 0L), (psz?.value ?: 0L), csz.toInt()).toUInt()
+public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: ConstPtr<CryptIntegerBlob>, psz: Pstr, csz: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrA(dwvaluetype.toInt(), pvalue.rawAddress, psz.rawAddress, csz.toInt()).toUInt()
 
-public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: COpaquePointer?, psz: Pwstr, csz: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certRDNValueToStrW(dwvaluetype.toInt(), (pvalue?.value ?: 0L), (psz?.value ?: 0L), csz.toInt()).toUInt()
+public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: ConstPtr<CryptIntegerBlob>, psz: Pwstr, csz: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrW(dwvaluetype.toInt(), pvalue.rawAddress, psz.rawAddress, csz.toInt()).toUInt()
 
-public actual fun certRegisterPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certRegisterPhysicalStore((pvsystemstore?.value ?: 0L), dwflags.toInt(), (pwszstorename?.value ?: 0L), (pstoreinfo?.value ?: 0L), (pvreserved?.value ?: 0L))
+public actual fun certRegisterPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: ConstPtr<CertPhysicalStoreInfo>, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRegisterPhysicalStore(pvsystemstore.rawAddress, dwflags.toInt(), pwszstorename.rawAddress, pstoreinfo.rawAddress, pvreserved.rawAddress)
 
-public actual fun certRegisterSystemStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pstoreinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certRegisterSystemStore((pvsystemstore?.value ?: 0L), dwflags.toInt(), (pstoreinfo?.value ?: 0L), (pvreserved?.value ?: 0L))
+public actual fun certRegisterSystemStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pstoreinfo: ConstPtr<CertSystemStoreInfo>, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRegisterSystemStore(pvsystemstore.rawAddress, dwflags.toInt(), pstoreinfo.rawAddress, pvreserved.rawAddress)
 
-public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certRemoveEnhancedKeyUsageIdentifier((pcertcontext?.value ?: 0L), (pszusageidentifier?.value ?: 0L))
+public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr<CertContext>, pszusageidentifier: Pcstr): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRemoveEnhancedKeyUsageIdentifier(pcertcontext.rawAddress, pszusageidentifier.rawAddress)
 
 public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certRemoveStoreFromCollection((hcollectionstore?.value ?: 0L), (hsiblingstore?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRemoveStoreFromCollection(hcollectionstore.rawAddress, hsiblingstore.rawAddress)
 }
 
 public actual fun certResyncCertificateChainEngine(hchainengine: Hcertchainengine): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certResyncCertificateChainEngine((hchainengine?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertResyncCertificateChainEngine(hchainengine.rawAddress)
 
-public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: COpaquePointer?, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: COpaquePointer?, ppbdata: COpaquePointer?, pcbdata: COpaquePointer?, ppwszmimetype: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certRetrieveLogoOrBiometricInfo((pcertcontext?.value ?: 0L), (lpszlogoorbiometrictype?.value ?: 0L), dwretrievalflags.toInt(), dwtimeout.toInt(), dwflags.toInt(), (pvreserved?.value ?: 0L), (ppbdata?.value ?: 0L), (pcbdata?.value ?: 0L), (ppwszmimetype?.value ?: 0L))
+public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: ConstPtr<CertContext>, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppbdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>, ppwszmimetype: MutPtr<Pwstr>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRetrieveLogoOrBiometricInfo(pcertcontext.rawAddress, lpszlogoorbiometrictype.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), dwflags.toInt(), pvreserved.rawAddress, ppbdata.rawAddress, pcbdata.rawAddress, ppwszmimetype.rawAddress)
 
-public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSaveStore((hcertstore?.value ?: 0L), dwencodingtype.toInt(), dwsaveas.toInt(), dwsaveto.toInt(), (pvsavetopara?.value ?: 0L), dwflags.toInt())
+public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: MutPtr<CVoid>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSaveStore(hcertstore.rawAddress, dwencodingtype.toInt(), dwsaveas.toInt(), dwsaveto.toInt(), pvsavetopara.rawAddress, dwflags.toInt())
 
-public actual fun certSelectCertificateChains(pselectioncontext: COpaquePointer?, dwflags: UInt, pchainparameters: COpaquePointer?, ccriteria: UInt, rgpcriteria: COpaquePointer?, hstore: Hcertstore, pcselection: COpaquePointer?, pprgpselection: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSelectCertificateChains((pselectioncontext?.value ?: 0L), dwflags.toInt(), (pchainparameters?.value ?: 0L), ccriteria.toInt(), (rgpcriteria?.value ?: 0L), (hstore?.value ?: 0L), (pcselection?.value ?: 0L), (pprgpselection?.value ?: 0L))
+public actual fun certSelectCertificateChains(pselectioncontext: ConstPtr<Guid>, dwflags: UInt, pchainparameters: ConstPtr<CertSelectChainPara>, ccriteria: UInt, rgpcriteria: ConstPtr<CertSelectCriteria>, hstore: Hcertstore, pcselection: MutPtr<UInt>, pprgpselection: MutPtr<MutPtr<MutPtr<CertChainContext>>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSelectCertificateChains(pselectioncontext.rawAddress, dwflags.toInt(), pchainparameters.rawAddress, ccriteria.toInt(), rgpcriteria.rawAddress, hstore.rawAddress, pcselection.rawAddress, pprgpselection.rawAddress)
 
-public actual fun certSerializeCRLStoreElement(pcrlcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSerializeCRLStoreElement((pcrlcontext?.value ?: 0L), dwflags.toInt(), (pbelement?.value ?: 0L), (pcbelement?.value ?: 0L))
+public actual fun certSerializeCRLStoreElement(pcrlcontext: ConstPtr<CrlContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSerializeCRLStoreElement(pcrlcontext.rawAddress, dwflags.toInt(), pbelement.rawAddress, pcbelement.rawAddress)
 
-public actual fun certSerializeCTLStoreElement(pctlcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSerializeCTLStoreElement((pctlcontext?.value ?: 0L), dwflags.toInt(), (pbelement?.value ?: 0L), (pcbelement?.value ?: 0L))
+public actual fun certSerializeCTLStoreElement(pctlcontext: ConstPtr<CtlContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSerializeCTLStoreElement(pctlcontext.rawAddress, dwflags.toInt(), pbelement.rawAddress, pcbelement.rawAddress)
 
-public actual fun certSerializeCertificateStoreElement(pcertcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSerializeCertificateStoreElement((pcertcontext?.value ?: 0L), dwflags.toInt(), (pbelement?.value ?: 0L), (pcbelement?.value ?: 0L))
+public actual fun certSerializeCertificateStoreElement(pcertcontext: ConstPtr<CertContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSerializeCertificateStoreElement(pcertcontext.rawAddress, dwflags.toInt(), pbelement.rawAddress, pcbelement.rawAddress)
 
-public actual fun certSetCRLContextProperty(pcrlcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSetCRLContextProperty((pcrlcontext?.value ?: 0L), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L))
+public actual fun certSetCRLContextProperty(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCRLContextProperty(pcrlcontext.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certSetCTLContextProperty(pctlcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSetCTLContextProperty((pctlcontext?.value ?: 0L), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L))
+public actual fun certSetCTLContextProperty(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCTLContextProperty(pctlcontext.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: COpaquePointer?, pctlentry: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSetCertificateContextPropertiesFromCTLEntry((pcertcontext?.value ?: 0L), (pctlentry?.value ?: 0L), dwflags.toInt())
+public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: ConstPtr<CertContext>, pctlentry: ConstPtr<CtlEntry>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextPropertiesFromCTLEntry(pcertcontext.rawAddress, pctlentry.rawAddress, dwflags.toInt())
 
-public actual fun certSetCertificateContextProperty(pcertcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSetCertificateContextProperty((pcertcontext?.value ?: 0L), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L))
+public actual fun certSetCertificateContextProperty(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextProperty(pcertcontext.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certSetEnhancedKeyUsage(pcertcontext: COpaquePointer?, pusage: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSetEnhancedKeyUsage((pcertcontext?.value ?: 0L), (pusage?.value ?: 0L))
+public actual fun certSetEnhancedKeyUsage(pcertcontext: ConstPtr<CertContext>, pusage: ConstPtr<CtlUsage>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetEnhancedKeyUsage(pcertcontext.rawAddress, pusage.rawAddress)
 
-public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certSetStoreProperty((hcertstore?.value ?: 0L), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L))
+public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetStoreProperty(hcertstore.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?, ppszerror: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certStrToNameA(dwcertencodingtype.toInt(), (pszx500?.value ?: 0L), dwstrtype.toInt(), (pvreserved?.value ?: 0L), (pbencoded?.value ?: 0L), (pcbencoded?.value ?: 0L), (ppszerror?.value ?: 0L))
+public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>, ppszerror: MutPtr<Pcstr>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertStrToNameA(dwcertencodingtype.toInt(), pszx500.rawAddress, dwstrtype.toInt(), pvreserved.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress, ppszerror.rawAddress)
 
-public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?, ppszerror: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certStrToNameW(dwcertencodingtype.toInt(), (pszx500?.value ?: 0L), dwstrtype.toInt(), (pvreserved?.value ?: 0L), (pbencoded?.value ?: 0L), (pcbencoded?.value ?: 0L), (ppszerror?.value ?: 0L))
+public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>, ppszerror: MutPtr<Pcwstr>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertStrToNameW(dwcertencodingtype.toInt(), pszx500.rawAddress, dwstrtype.toInt(), pvreserved.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress, ppszerror.rawAddress)
 
-public actual fun certUnregisterPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pwszstorename: Pcwstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certUnregisterPhysicalStore((pvsystemstore?.value ?: 0L), dwflags.toInt(), (pwszstorename?.value ?: 0L))
+public actual fun certUnregisterPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pwszstorename: Pcwstr): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertUnregisterPhysicalStore(pvsystemstore.rawAddress, dwflags.toInt(), pwszstorename.rawAddress)
 
-public actual fun certUnregisterSystemStore(pvsystemstore: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certUnregisterSystemStore((pvsystemstore?.value ?: 0L), dwflags.toInt())
+public actual fun certUnregisterSystemStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertUnregisterSystemStore(pvsystemstore.rawAddress, dwflags.toInt())
 
-public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: COpaquePointer?, ccrlinfo: UInt, rgpcrlinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifyCRLRevocation(dwcertencodingtype.toInt(), (pcertid?.value ?: 0L), ccrlinfo.toInt(), (rgpcrlinfo?.value ?: 0L))
+public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr<CertInfo>, ccrlinfo: UInt, rgpcrlinfo: ConstPtr<ConstPtr<CrlInfo>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCRLRevocation(dwcertencodingtype.toInt(), pcertid.rawAddress, ccrlinfo.toInt(), rgpcrlinfo.rawAddress)
 
-public actual fun certVerifyCRLTimeValidity(ptimetoverify: COpaquePointer?, pcrlinfo: COpaquePointer?): Int =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifyCRLTimeValidity((ptimetoverify?.value ?: 0L), (pcrlinfo?.value ?: 0L))
+public actual fun certVerifyCRLTimeValidity(ptimetoverify: ConstPtr<Filetime>, pcrlinfo: ConstPtr<CrlInfo>): Int =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCRLTimeValidity(ptimetoverify.rawAddress, pcrlinfo.rawAddress)
 
-public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: COpaquePointer?, psubjectusage: COpaquePointer?, dwflags: UInt, pverifyusagepara: COpaquePointer?, pverifyusagestatus: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifyCTLUsage(dwencodingtype.toInt(), dwsubjecttype.toInt(), (pvsubject?.value ?: 0L), (psubjectusage?.value ?: 0L), dwflags.toInt(), (pverifyusagepara?.value ?: 0L), (pverifyusagestatus?.value ?: 0L))
+public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, psubjectusage: ConstPtr<CtlUsage>, dwflags: UInt, pverifyusagepara: ConstPtr<CtlVerifyUsagePara>, pverifyusagestatus: MutPtr<CtlVerifyUsageStatus>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCTLUsage(dwencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.rawAddress, psubjectusage.rawAddress, dwflags.toInt(), pverifyusagepara.rawAddress, pverifyusagestatus.rawAddress)
 
-public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: COpaquePointer?, ppolicypara: COpaquePointer?, ppolicystatus: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifyCertificateChainPolicy((pszpolicyoid?.value ?: 0L), (pchaincontext?.value ?: 0L), (ppolicypara?.value ?: 0L), (ppolicystatus?.value ?: 0L))
+public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: ConstPtr<CertChainContext>, ppolicypara: ConstPtr<CertChainPolicyPara>, ppolicystatus: MutPtr<CertChainPolicyStatus>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCertificateChainPolicy(pszpolicyoid.rawAddress, pchaincontext.rawAddress, ppolicypara.rawAddress, ppolicystatus.rawAddress)
 
-public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: COpaquePointer?, dwflags: UInt, prevpara: COpaquePointer?, prevstatus: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifyRevocation(dwencodingtype.toInt(), dwrevtype.toInt(), ccontext.toInt(), (rgpvcontext?.value ?: 0L), dwflags.toInt(), (prevpara?.value ?: 0L), (prevstatus?.value ?: 0L))
+public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: ConstPtr<ConstPtr<CVoid>>, dwflags: UInt, prevpara: ConstPtr<CertRevocationPara>, prevstatus: MutPtr<CertRevocationStatus>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyRevocation(dwencodingtype.toInt(), dwrevtype.toInt(), ccontext.toInt(), rgpvcontext.rawAddress, dwflags.toInt(), prevpara.rawAddress, prevstatus.rawAddress)
 
-public actual fun certVerifySubjectCertificateContext(psubject: COpaquePointer?, pissuer: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifySubjectCertificateContext((psubject?.value ?: 0L), (pissuer?.value ?: 0L), (pdwflags?.value ?: 0L))
+public actual fun certVerifySubjectCertificateContext(psubject: ConstPtr<CertContext>, pissuer: ConstPtr<CertContext>, pdwflags: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifySubjectCertificateContext(psubject.rawAddress, pissuer.rawAddress, pdwflags.rawAddress)
 
-public actual fun certVerifyTimeValidity(ptimetoverify: COpaquePointer?, pcertinfo: COpaquePointer?): Int =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifyTimeValidity((ptimetoverify?.value ?: 0L), (pcertinfo?.value ?: 0L))
+public actual fun certVerifyTimeValidity(ptimetoverify: ConstPtr<Filetime>, pcertinfo: ConstPtr<CertInfo>): Int =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyTimeValidity(ptimetoverify.rawAddress, pcertinfo.rawAddress)
 
-public actual fun certVerifyValidityNesting(psubjectinfo: COpaquePointer?, pissuerinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_certVerifyValidityNesting((psubjectinfo?.value ?: 0L), (pissuerinfo?.value ?: 0L))
+public actual fun certVerifyValidityNesting(psubjectinfo: ConstPtr<CertInfo>, pissuerinfo: ConstPtr<CertInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyValidityNesting(psubjectinfo.rawAddress, pissuerinfo.rawAddress)
 
-public actual fun closeCryptoHandle(hcrypto: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_closeCryptoHandle((hcrypto?.value ?: 0L))
+public actual fun closeCryptoHandle(hcrypto: ConstPtr<InformationcardCryptoHandle>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCloseCryptoHandle(hcrypto.rawAddress)
 
-public actual fun cryptAcquireCertificatePrivateKey(pcert: COpaquePointer?, dwflags: CryptAcquireFlags, pvparameters: COpaquePointer?, phcryptprovorncryptkey: COpaquePointer?, pdwkeyspec: COpaquePointer?, pfcallerfreeprovorncryptkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptAcquireCertificatePrivateKey((pcert?.value ?: 0L), dwflags.toInt(), (pvparameters?.value ?: 0L), (phcryptprovorncryptkey?.value ?: 0L), (pdwkeyspec?.value ?: 0L), (pfcallerfreeprovorncryptkey?.value ?: 0L))
+public actual fun cryptAcquireCertificatePrivateKey(pcert: ConstPtr<CertContext>, dwflags: CryptAcquireFlags, pvparameters: ConstPtr<CVoid>, phcryptprovorncryptkey: MutPtr<HcryptprovOrNcryptKeyHandle>, pdwkeyspec: MutPtr<CertKeySpec>, pfcallerfreeprovorncryptkey: MutPtr<Bool>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptAcquireCertificatePrivateKey(pcert.rawAddress, dwflags.toInt(), pvparameters.rawAddress, phcryptprovorncryptkey.rawAddress, pdwkeyspec.rawAddress, pfcallerfreeprovorncryptkey.rawAddress)
 
-public actual fun cryptAcquireContextA(phprov: COpaquePointer?, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptAcquireContextA((phprov?.value ?: 0L), (szcontainer?.value ?: 0L), (szprovider?.value ?: 0L), dwprovtype.toInt(), dwflags.toInt())
+public actual fun cryptAcquireContextA(phprov: MutPtr<ULong>, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptAcquireContextA(phprov.rawAddress, szcontainer.rawAddress, szprovider.rawAddress, dwprovtype.toInt(), dwflags.toInt())
 
-public actual fun cryptAcquireContextW(phprov: COpaquePointer?, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptAcquireContextW((phprov?.value ?: 0L), (szcontainer?.value ?: 0L), (szprovider?.value ?: 0L), dwprovtype.toInt(), dwflags.toInt())
+public actual fun cryptAcquireContextW(phprov: MutPtr<ULong>, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptAcquireContextW(phprov.rawAddress, szcontainer.rawAddress, szprovider.rawAddress, dwprovtype.toInt(), dwflags.toInt())
 
-public actual fun cryptBinaryToStringA(pbbinary: COpaquePointer?, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptBinaryToStringA((pbbinary?.value ?: 0L), cbbinary.toInt(), dwflags.toInt(), (pszstring?.value ?: 0L), (pcchstring?.value ?: 0L))
+public actual fun cryptBinaryToStringA(pbbinary: ConstPtr<UByte>, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringA(pbbinary.rawAddress, cbbinary.toInt(), dwflags.toInt(), pszstring.rawAddress, pcchstring.rawAddress)
 
-public actual fun cryptBinaryToStringW(pbbinary: COpaquePointer?, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptBinaryToStringW((pbbinary?.value ?: 0L), cbbinary.toInt(), dwflags.toInt(), (pszstring?.value ?: 0L), (pcchstring?.value ?: 0L))
+public actual fun cryptBinaryToStringW(pbbinary: ConstPtr<UByte>, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringW(pbbinary.rawAddress, cbbinary.toInt(), dwflags.toInt(), pszstring.rawAddress, pcchstring.rawAddress)
 
 public actual fun cryptCloseAsyncHandle(hasync: Hcryptasync): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptCloseAsyncHandle(hasync)
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(hasync)
 
-public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptContextAddRef(hprov.toLong(), (pdwreserved?.value ?: 0L), dwflags.toInt())
+public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptContextAddRef(hprov.toLong(), pdwreserved.rawAddress, dwflags.toInt())
 
-public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptCreateAsyncHandle(dwflags.toInt(), (phasync?.value ?: 0L))
+public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: MutPtr<Hcryptasync>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCreateAsyncHandle(dwflags.toInt(), phasync.rawAddress)
 
-public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptCreateHash(hprov.toLong(), algid.toInt(), hkey.toLong(), dwflags.toInt(), (phhash?.value ?: 0L))
+public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCreateHash(hprov.toLong(), algid.toInt(), hkey.toLong(), dwflags.toInt(), phhash.rawAddress)
 
-public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: COpaquePointer?, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: COpaquePointer?, pbhash: COpaquePointer?, pcbhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptCreateKeyIdentifierFromCSP(dwcertencodingtype.toInt(), (pszpubkeyoid?.value ?: 0L), (ppubkeystruc?.value ?: 0L), cbpubkeystruc.toInt(), dwflags.toInt(), (pvreserved?.value ?: 0L), (pbhash?.value ?: 0L), (pcbhash?.value ?: 0L))
+public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: ConstPtr<Publickeystruc>, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pbhash: MutPtr<UByte>, pcbhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCreateKeyIdentifierFromCSP(dwcertencodingtype.toInt(), pszpubkeyoid.rawAddress, ppubkeystruc.rawAddress, cbpubkeystruc.toInt(), dwflags.toInt(), pvreserved.rawAddress, pbhash.rawAddress, pcbhash.rawAddress)
 
-public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: COpaquePointer?, pverifypara: COpaquePointer?, dwsignerindex: UInt, pbencodedblob: COpaquePointer?, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: COpaquePointer?, pdwinnercontenttype: COpaquePointer?, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?, ppxchgcert: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDecodeMessage(dwmsgtypeflags.toInt(), (pdecryptpara?.value ?: 0L), (pverifypara?.value ?: 0L), dwsignerindex.toInt(), (pbencodedblob?.value ?: 0L), cbencodedblob.toInt(), dwprevinnercontenttype.toInt(), (pdwmsgtype?.value ?: 0L), (pdwinnercontenttype?.value ?: 0L), (pbdecoded?.value ?: 0L), (pcbdecoded?.value ?: 0L), (ppxchgcert?.value ?: 0L), (ppsignercert?.value ?: 0L))
+public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbencodedblob: ConstPtr<UByte>, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: MutPtr<UInt>, pdwinnercontenttype: MutPtr<UInt>, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecodeMessage(dwmsgtypeflags.toInt(), pdecryptpara.rawAddress, pverifypara.rawAddress, dwsignerindex.toInt(), pbencodedblob.rawAddress, cbencodedblob.toInt(), dwprevinnercontenttype.toInt(), pdwmsgtype.rawAddress, pdwinnercontenttype.rawAddress, pbdecoded.rawAddress, pcbdecoded.rawAddress, ppxchgcert.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pvstructinfo: COpaquePointer?, pcbstructinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDecodeObject(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L), (pbencoded?.value ?: 0L), cbencoded.toInt(), dwflags.toInt(), (pvstructinfo?.value ?: 0L), (pcbstructinfo?.value ?: 0L))
+public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pvstructinfo: MutPtr<CVoid>, pcbstructinfo: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecodeObject(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), dwflags.toInt(), pvstructinfo.rawAddress, pcbstructinfo.rawAddress)
 
-public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pdecodepara: COpaquePointer?, pvstructinfo: COpaquePointer?, pcbstructinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDecodeObjectEx(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L), (pbencoded?.value ?: 0L), cbencoded.toInt(), dwflags.toInt(), (pdecodepara?.value ?: 0L), (pvstructinfo?.value ?: 0L), (pcbstructinfo?.value ?: 0L))
+public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pdecodepara: ConstPtr<CryptDecodePara>, pvstructinfo: MutPtr<CVoid>, pcbstructinfo: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecodeObjectEx(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), dwflags.toInt(), pdecodepara.rawAddress, pvstructinfo.rawAddress, pcbstructinfo.rawAddress)
 
-public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDecrypt(hkey.toLong(), hhash.toLong(), final, dwflags.toInt(), (pbdata?.value ?: 0L), (pdwdatalen?.value ?: 0L))
+public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecrypt(hkey.toLong(), hhash.toLong(), final, dwflags.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress)
 
-public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: COpaquePointer?, pverifypara: COpaquePointer?, dwsignerindex: UInt, pbencryptedblob: COpaquePointer?, cbencryptedblob: UInt, pbdecrypted: COpaquePointer?, pcbdecrypted: COpaquePointer?, ppxchgcert: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDecryptAndVerifyMessageSignature((pdecryptpara?.value ?: 0L), (pverifypara?.value ?: 0L), dwsignerindex.toInt(), (pbencryptedblob?.value ?: 0L), cbencryptedblob.toInt(), (pbdecrypted?.value ?: 0L), (pcbdecrypted?.value ?: 0L), (ppxchgcert?.value ?: 0L), (ppsignercert?.value ?: 0L))
+public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbencryptedblob: ConstPtr<UByte>, cbencryptedblob: UInt, pbdecrypted: MutPtr<UByte>, pcbdecrypted: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecryptAndVerifyMessageSignature(pdecryptpara.rawAddress, pverifypara.rawAddress, dwsignerindex.toInt(), pbencryptedblob.rawAddress, cbencryptedblob.toInt(), pbdecrypted.rawAddress, pcbdecrypted.rawAddress, ppxchgcert.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptDecryptMessage(pdecryptpara: COpaquePointer?, pbencryptedblob: COpaquePointer?, cbencryptedblob: UInt, pbdecrypted: COpaquePointer?, pcbdecrypted: COpaquePointer?, ppxchgcert: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDecryptMessage((pdecryptpara?.value ?: 0L), (pbencryptedblob?.value ?: 0L), cbencryptedblob.toInt(), (pbdecrypted?.value ?: 0L), (pcbdecrypted?.value ?: 0L), (ppxchgcert?.value ?: 0L))
+public actual fun cryptDecryptMessage(pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pbencryptedblob: ConstPtr<UByte>, cbencryptedblob: UInt, pbdecrypted: MutPtr<UByte>, pcbdecrypted: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecryptMessage(pdecryptpara.rawAddress, pbencryptedblob.rawAddress, cbencryptedblob.toInt(), pbdecrypted.rawAddress, pcbdecrypted.rawAddress, ppxchgcert.rawAddress)
 
-public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDeriveKey(hprov.toLong(), algid.toInt(), hbasedata.toLong(), dwflags.toInt(), (phkey?.value ?: 0L))
+public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDeriveKey(hprov.toLong(), algid.toInt(), hbasedata.toLong(), dwflags.toInt(), phkey.rawAddress)
 
 public actual fun cryptDestroyHash(hhash: ULong): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDestroyHash(hhash.toLong())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDestroyHash(hhash.toLong())
 
 public actual fun cryptDestroyKey(hkey: ULong): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDestroyKey(hkey.toLong())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDestroyKey(hkey.toLong())
 
-public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: COpaquePointer?, dwflags: UInt, phhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDuplicateHash(hhash.toLong(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (phhash?.value ?: 0L))
+public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt, phhash: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDuplicateHash(hhash.toLong(), pdwreserved.rawAddress, dwflags.toInt(), phhash.rawAddress)
 
-public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: COpaquePointer?, dwflags: UInt, phkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptDuplicateKey(hkey.toLong(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (phkey?.value ?: 0L))
+public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt, phkey: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDuplicateKey(hkey.toLong(), pdwreserved.rawAddress, dwflags.toInt(), phkey.rawAddress)
 
-public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEncodeObject(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L), (pvstructinfo?.value ?: 0L), (pbencoded?.value ?: 0L), (pcbencoded?.value ?: 0L))
+public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncodeObject(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pvstructinfo.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, dwflags: CryptEncodeObjectFlags, pencodepara: COpaquePointer?, pvencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEncodeObjectEx(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L), (pvstructinfo?.value ?: 0L), dwflags.toInt(), (pencodepara?.value ?: 0L), (pvencoded?.value ?: 0L), (pcbencoded?.value ?: 0L))
+public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, dwflags: CryptEncodeObjectFlags, pencodepara: ConstPtr<CryptEncodePara>, pvencoded: MutPtr<CVoid>, pcbencoded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncodeObjectEx(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pvstructinfo.rawAddress, dwflags.toInt(), pencodepara.rawAddress, pvencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwbuflen: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEncrypt(hkey.toLong(), hhash.toLong(), final, dwflags.toInt(), (pbdata?.value ?: 0L), (pdwdatalen?.value ?: 0L), dwbuflen.toInt())
+public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwbuflen: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncrypt(hkey.toLong(), hhash.toLong(), final, dwflags.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwbuflen.toInt())
 
-public actual fun cryptEncryptMessage(pencryptpara: COpaquePointer?, crecipientcert: UInt, rgprecipientcert: COpaquePointer?, pbtobeencrypted: COpaquePointer?, cbtobeencrypted: UInt, pbencryptedblob: COpaquePointer?, pcbencryptedblob: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEncryptMessage((pencryptpara?.value ?: 0L), crecipientcert.toInt(), (rgprecipientcert?.value ?: 0L), (pbtobeencrypted?.value ?: 0L), cbtobeencrypted.toInt(), (pbencryptedblob?.value ?: 0L), (pcbencryptedblob?.value ?: 0L))
+public actual fun cryptEncryptMessage(pencryptpara: ConstPtr<CryptEncryptMessagePara>, crecipientcert: UInt, rgprecipientcert: ConstPtr<ConstPtr<CertContext>>, pbtobeencrypted: ConstPtr<UByte>, cbtobeencrypted: UInt, pbencryptedblob: MutPtr<UByte>, pcbencryptedblob: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncryptMessage(pencryptpara.rawAddress, crecipientcert.toInt(), rgprecipientcert.rawAddress, pbtobeencrypted.rawAddress, cbtobeencrypted.toInt(), pbencryptedblob.rawAddress, pcbencryptedblob.rawAddress)
 
-public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvarg: COpaquePointer?, pfnenum: PfnCryptEnumKeyidProp): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEnumKeyIdentifierProperties((pkeyidentifier?.value ?: 0L), dwpropid.toInt(), dwflags.toInt(), (pwszcomputername?.value ?: 0L), (pvreserved?.value ?: 0L), (pvarg?.value ?: 0L), 0L)
+public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvarg: MutPtr<CVoid>, pfnenum: PfnCryptEnumKeyidProp): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumKeyIdentifierProperties(pkeyidentifier.rawAddress, dwpropid.toInt(), dwflags.toInt(), pwszcomputername.rawAddress, pvreserved.rawAddress, pvarg.rawAddress, 0L)
 
-public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: COpaquePointer?, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEnumOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), (pszoid?.value ?: 0L), dwflags.toInt(), (pvarg?.value ?: 0L), 0L)
+public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: COpaquePointer?, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEnumOIDInfo(dwgroupid.toInt(), dwflags.toInt(), (pvarg?.value ?: 0L), 0L)
+public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumOIDInfo(dwgroupid.toInt(), dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, sztypename: Pstr, pcbtypename: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesA(dwindex.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (pdwprovtype?.value ?: 0L), (sztypename?.value ?: 0L), (pcbtypename?.value ?: 0L))
+public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, sztypename: Pstr, pcbtypename: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesA(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, sztypename.rawAddress, pcbtypename.rawAddress)
 
-public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, sztypename: Pwstr, pcbtypename: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesW(dwindex.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (pdwprovtype?.value ?: 0L), (sztypename?.value ?: 0L), (pcbtypename?.value ?: 0L))
+public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, sztypename: Pwstr, pcbtypename: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesW(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, sztypename.rawAddress, pcbtypename.rawAddress)
 
-public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, szprovname: Pstr, pcbprovname: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEnumProvidersA(dwindex.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (pdwprovtype?.value ?: 0L), (szprovname?.value ?: 0L), (pcbprovname?.value ?: 0L))
+public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, szprovname: Pstr, pcbprovname: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersA(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, szprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, szprovname: Pwstr, pcbprovname: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptEnumProvidersW(dwindex.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (pdwprovtype?.value ?: 0L), (szprovname?.value ?: 0L), (pcbprovname?.value ?: 0L))
+public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, szprovname: Pwstr, pcbprovname: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersW(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, szprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptExportKey(hkey.toLong(), hexpkey.toLong(), dwblobtype.toInt(), dwflags.toInt(), (pbdata?.value ?: 0L), (pdwdatalen?.value ?: 0L))
+public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportKey(hkey.toLong(), hexpkey.toLong(), dwblobtype.toInt(), dwflags.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress)
 
-public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pbprivatekeyblob: COpaquePointer?, pcbprivatekeyblob: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptExportPKCS8(hcryptprov.toLong(), dwkeyspec.toInt(), (pszprivatekeyobjid?.value ?: 0L), dwflags.toInt(), (pvauxinfo?.value ?: 0L), (pbprivatekeyblob?.value ?: 0L), (pcbprivatekeyblob?.value ?: 0L))
+public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pbprivatekeyblob: MutPtr<UByte>, pcbprivatekeyblob: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPKCS8(hcryptprov.toLong(), dwkeyspec.toInt(), pszprivatekeyobjid.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, pbprivatekeyblob.rawAddress, pcbprivatekeyblob.rawAddress)
 
-public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfo(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L), (pcbinfo?.value ?: 0L))
+public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfo(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pinfo.rawAddress, pcbinfo.rawAddress)
 
-public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoEx(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (pszpublickeyobjid?.value ?: 0L), dwflags.toInt(), (pvauxinfo?.value ?: 0L), (pinfo?.value ?: 0L), (pcbinfo?.value ?: 0L))
+public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoEx(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pszpublickeyobjid.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, pinfo.rawAddress, pcbinfo.rawAddress)
 
-public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoFromBCryptKeyHandle((hbcryptkey?.value ?: 0L), dwcertencodingtype.toInt(), (pszpublickeyobjid?.value ?: 0L), dwflags.toInt(), (pvauxinfo?.value ?: 0L), (pinfo?.value ?: 0L), (pcbinfo?.value ?: 0L))
+public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey.rawAddress, dwcertencodingtype.toInt(), pszpublickeyobjid.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, pinfo.rawAddress, pcbinfo.rawAddress)
 
-public actual fun cryptFindCertificateKeyProvInfo(pcert: COpaquePointer?, dwflags: CryptFindFlags, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptFindCertificateKeyProvInfo((pcert?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L))
+public actual fun cryptFindCertificateKeyProvInfo(pcert: ConstPtr<CertContext>, dwflags: CryptFindFlags, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFindCertificateKeyProvInfo(pcert.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
 public actual fun cryptFindLocalizedName(pwszcryptname: Pcwstr): Pcwstr =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptFindLocalizedName((pwszcryptname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    ConstPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFindLocalizedName(pwszcryptname.rawAddress))
 
-public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: COpaquePointer?, dwgroupid: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptFindOIDInfo(dwkeytype.toInt(), (pvkey?.value ?: 0L), dwgroupid.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: ConstPtr<CVoid>, dwgroupid: UInt): MutPtr<CryptOidInfo> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFindOIDInfo(dwkeytype.toInt(), pvkey.rawAddress, dwgroupid.toInt()))
 
-public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: COpaquePointer?, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, pbformat: COpaquePointer?, pcbformat: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptFormatObject(dwcertencodingtype.toInt(), dwformattype.toInt(), dwformatstrtype.toInt(), (pformatstruct?.value ?: 0L), (lpszstructtype?.value ?: 0L), (pbencoded?.value ?: 0L), cbencoded.toInt(), (pbformat?.value ?: 0L), (pcbformat?.value ?: 0L))
+public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: ConstPtr<CVoid>, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbformat: MutPtr<CVoid>, pcbformat: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFormatObject(dwcertencodingtype.toInt(), dwformattype.toInt(), dwformatstrtype.toInt(), pformatstruct.rawAddress, lpszstructtype.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), pbformat.rawAddress, pcbformat.rawAddress)
 
-public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptFreeOIDFunctionAddress((hfuncaddr?.value ?: 0L), dwflags.toInt())
+public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: ConstPtr<CVoid>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFreeOIDFunctionAddress(hfuncaddr.rawAddress, dwflags.toInt())
 
-public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGenKey(hprov.toLong(), algid.toInt(), dwflags.toInt(), (phkey?.value ?: 0L))
+public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGenKey(hprov.toLong(), algid.toInt(), dwflags.toInt(), phkey.rawAddress)
 
-public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGenRandom(hprov.toLong(), dwlen.toInt(), (pbbuffer?.value ?: 0L))
+public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: MutPtr<UByte>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGenRandom(hprov.toLong(), dwlen.toInt(), pbbuffer.rawAddress)
 
-public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: COpaquePointer?, ppfnfree: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetAsyncParam(hasync, (pszparamoid?.value ?: 0L), (ppvparam?.value ?: 0L), (ppfnfree?.value ?: 0L))
+public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: MutPtr<MutPtr<CVoid>>, ppfnfree: MutPtr<PfnCryptAsyncParamFreeFunc>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetAsyncParam(hasync, pszparamoid.rawAddress, ppvparam.rawAddress, ppfnfree.rawAddress)
 
-public actual fun cryptGetDefaultOIDDllList(hfuncset: COpaquePointer?, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDDllList((hfuncset?.value ?: 0L), dwencodingtype.toInt(), (pwszdlllist?.value ?: 0L), (pcchdlllist?.value ?: 0L))
+public actual fun cryptGetDefaultOIDDllList(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDDllList(hfuncset.rawAddress, dwencodingtype.toInt(), pwszdlllist.rawAddress, pcchdlllist.rawAddress)
 
-public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: COpaquePointer?, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: COpaquePointer?, phfuncaddr: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDFunctionAddress((hfuncset?.value ?: 0L), dwencodingtype.toInt(), (pwszdll?.value ?: 0L), dwflags.toInt(), (ppvfuncaddr?.value ?: 0L), (phfuncaddr?.value ?: 0L))
+public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: MutPtr<MutPtr<CVoid>>, phfuncaddr: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDFunctionAddress(hfuncset.rawAddress, dwencodingtype.toInt(), pwszdll.rawAddress, dwflags.toInt(), ppvfuncaddr.rawAddress, phfuncaddr.rawAddress)
 
-public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pszprovname: Pstr, pcbprovname: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderA(dwprovtype.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (pszprovname?.value ?: 0L), (pcbprovname?.value ?: 0L))
+public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pszprovname: Pstr, pcbprovname: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderA(dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pszprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pszprovname: Pwstr, pcbprovname: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderW(dwprovtype.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt(), (pszprovname?.value ?: 0L), (pcbprovname?.value ?: 0L))
+public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pszprovname: Pwstr, pcbprovname: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderW(dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pszprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetHashParam(hhash.toLong(), dwparam.toInt(), (pbdata?.value ?: 0L), (pdwdatalen?.value ?: 0L), dwflags.toInt())
+public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetHashParam(hhash.toLong(), dwparam.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwflags.toInt())
 
-public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetKeyIdentifierProperty((pkeyidentifier?.value ?: 0L), dwpropid.toInt(), dwflags.toInt(), (pwszcomputername?.value ?: 0L), (pvreserved?.value ?: 0L), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L))
+public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetKeyIdentifierProperty(pkeyidentifier.rawAddress, dwpropid.toInt(), dwflags.toInt(), pwszcomputername.rawAddress, pvreserved.rawAddress, pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetKeyParam(hkey.toLong(), dwparam.toInt(), (pbdata?.value ?: 0L), (pdwdatalen?.value ?: 0L), dwflags.toInt())
+public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetKeyParam(hkey.toLong(), dwparam.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwflags.toInt())
 
-public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt): Hcertstore =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetMessageCertificates(dwmsgandcertencodingtype.toInt(), hcryptprov.toLong(), dwflags.toInt(), (pbsignedblob?.value ?: 0L), cbsignedblob.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt): Hcertstore =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetMessageCertificates(dwmsgandcertencodingtype.toInt(), hcryptprov.toLong(), dwflags.toInt(), pbsignedblob.rawAddress, cbsignedblob.toInt()))
 
-public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt): Int =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetMessageSignerCount(dwmsgencodingtype.toInt(), (pbsignedblob?.value ?: 0L), cbsignedblob.toInt())
+public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt): Int =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetMessageSignerCount(dwmsgencodingtype.toInt(), pbsignedblob.rawAddress, cbsignedblob.toInt())
 
-public actual fun cryptGetOIDFunctionAddress(hfuncset: COpaquePointer?, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: COpaquePointer?, phfuncaddr: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionAddress((hfuncset?.value ?: 0L), dwencodingtype.toInt(), (pszoid?.value ?: 0L), dwflags.toInt(), (ppvfuncaddr?.value ?: 0L), (phfuncaddr?.value ?: 0L))
+public actual fun cryptGetOIDFunctionAddress(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: MutPtr<MutPtr<CVoid>>, phfuncaddr: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionAddress(hfuncset.rawAddress, dwencodingtype.toInt(), pszoid.rawAddress, dwflags.toInt(), ppvfuncaddr.rawAddress, phfuncaddr.rawAddress)
 
-public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: COpaquePointer?, pbvaluedata: COpaquePointer?, pcbvaluedata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionValue(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), (pszoid?.value ?: 0L), (pwszvaluename?.value ?: 0L), (pdwvaluetype?.value ?: 0L), (pbvaluedata?.value ?: 0L), (pcbvaluedata?.value ?: 0L))
+public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: MutPtr<UInt>, pbvaluedata: MutPtr<UByte>, pcbvaluedata: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionValue(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, pwszvaluename.rawAddress, pdwvaluetype.rawAddress, pbvaluedata.rawAddress, pcbvaluedata.rawAddress)
 
-public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: COpaquePointer?, dwflags: CryptGetUrlFlags, purlarray: COpaquePointer?, pcburlarray: COpaquePointer?, purlinfo: COpaquePointer?, pcburlinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetObjectUrl((pszurloid?.value ?: 0L), (pvpara?.value ?: 0L), dwflags.toInt(), (purlarray?.value ?: 0L), (pcburlarray?.value ?: 0L), (purlinfo?.value ?: 0L), (pcburlinfo?.value ?: 0L), (pvreserved?.value ?: 0L))
+public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: ConstPtr<CVoid>, dwflags: CryptGetUrlFlags, purlarray: MutPtr<CryptUrlArray>, pcburlarray: MutPtr<UInt>, purlinfo: MutPtr<CryptUrlInfo>, pcburlinfo: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetObjectUrl(pszurloid.rawAddress, pvpara.rawAddress, dwflags.toInt(), purlarray.rawAddress, pcburlarray.rawAddress, purlinfo.rawAddress, pcburlinfo.rawAddress, pvreserved.rawAddress)
 
-public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetProvParam(hprov.toLong(), dwparam.toInt(), (pbdata?.value ?: 0L), (pdwdatalen?.value ?: 0L), dwflags.toInt())
+public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetProvParam(hprov.toLong(), dwparam.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwflags.toInt())
 
-public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptGetUserKey(hprov.toLong(), dwkeyspec.toInt(), (phuserkey?.value ?: 0L))
+public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetUserKey(hprov.toLong(), dwkeyspec.toInt(), phuserkey.rawAddress)
 
-public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptHashCertificate(hcryptprov.toLong(), algid.toInt(), dwflags.toInt(), (pbencoded?.value ?: 0L), cbencoded.toInt(), (pbcomputedhash?.value ?: 0L), (pcbcomputedhash?.value ?: 0L))
+public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashCertificate(hcryptprov.toLong(), algid.toInt(), dwflags.toInt(), pbencoded.rawAddress, cbencoded.toInt(), pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptHashCertificate2((pwszcnghashalgid?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L), (pbencoded?.value ?: 0L), cbencoded.toInt(), (pbcomputedhash?.value ?: 0L), (pcbcomputedhash?.value ?: 0L))
+public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashCertificate2(pwszcnghashalgid.rawAddress, dwflags.toInt(), pvreserved.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptHashData(hhash: ULong, pbdata: COpaquePointer?, dwdatalen: UInt, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptHashData(hhash.toLong(), (pbdata?.value ?: 0L), dwdatalen.toInt(), dwflags.toInt())
+public actual fun cryptHashData(hhash: ULong, pbdata: ConstPtr<UByte>, dwdatalen: UInt, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashData(hhash.toLong(), pbdata.rawAddress, dwdatalen.toInt(), dwflags.toInt())
 
-public actual fun cryptHashMessage(phashpara: COpaquePointer?, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: COpaquePointer?, rgcbtobehashed: COpaquePointer?, pbhashedblob: COpaquePointer?, pcbhashedblob: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptHashMessage((phashpara?.value ?: 0L), fdetachedhash, ctobehashed.toInt(), (rgpbtobehashed?.value ?: 0L), (rgcbtobehashed?.value ?: 0L), (pbhashedblob?.value ?: 0L), (pcbhashedblob?.value ?: 0L), (pbcomputedhash?.value ?: 0L), (pcbcomputedhash?.value ?: 0L))
+public actual fun cryptHashMessage(phashpara: ConstPtr<CryptHashMessagePara>, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: ConstPtr<ConstPtr<UByte>>, rgcbtobehashed: ConstPtr<UInt>, pbhashedblob: MutPtr<UByte>, pcbhashedblob: MutPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashMessage(phashpara.rawAddress, fdetachedhash, ctobehashed.toInt(), rgpbtobehashed.rawAddress, rgcbtobehashed.rawAddress, pbhashedblob.rawAddress, pcbhashedblob.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptHashPublicKeyInfo(hcryptprov.toLong(), algid.toInt(), dwflags.toInt(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L), (pbcomputedhash?.value ?: 0L), (pcbcomputedhash?.value ?: 0L))
+public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashPublicKeyInfo(hcryptprov.toLong(), algid.toInt(), dwflags.toInt(), dwcertencodingtype.toInt(), pinfo.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
 public actual fun cryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptHashSessionKey(hhash.toLong(), hkey.toLong(), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(hhash.toLong(), hkey.toLong(), dwflags.toInt())
 
-public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptHashToBeSigned(hcryptprov.toLong(), dwcertencodingtype.toInt(), (pbencoded?.value ?: 0L), cbencoded.toInt(), (pbcomputedhash?.value ?: 0L), (pcbcomputedhash?.value ?: 0L))
+public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashToBeSigned(hcryptprov.toLong(), dwcertencodingtype.toInt(), pbencoded.rawAddress, cbencoded.toInt(), pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptImportKey(hprov: ULong, pbdata: COpaquePointer?, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptImportKey(hprov.toLong(), (pbdata?.value ?: 0L), dwdatalen.toInt(), hpubkey.toLong(), dwflags.toInt(), (phkey?.value ?: 0L))
+public actual fun cryptImportKey(hprov: ULong, pbdata: ConstPtr<UByte>, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportKey(hprov.toLong(), pbdata.rawAddress, dwdatalen.toInt(), hpubkey.toLong(), dwflags.toInt(), phkey.rawAddress)
 
-public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: COpaquePointer?, pvauxinfo: COpaquePointer?): Bool =
+public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: MutPtr<ULong>, pvauxinfo: ConstPtr<CVoid>): Bool =
     0
 
-public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfo(hcryptprov.toLong(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L), (phkey?.value ?: 0L))
+public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, phkey: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfo(hcryptprov.toLong(), dwcertencodingtype.toInt(), pinfo.rawAddress, phkey.rawAddress)
 
-public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx(hcryptprov.toLong(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L), aikeyalg.toInt(), dwflags.toInt(), (pvauxinfo?.value ?: 0L), (phkey?.value ?: 0L))
+public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, phkey: MutPtr<ULong>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx(hcryptprov.toLong(), dwcertencodingtype.toInt(), pinfo.rawAddress, aikeyalg.toInt(), dwflags.toInt(), pvauxinfo.rawAddress, phkey.rawAddress)
 
-public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, dwflags: CryptImportPublicKeyFlags, pvauxinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx2(dwcertencodingtype.toInt(), (pinfo?.value ?: 0L), dwflags.toInt(), (pvauxinfo?.value ?: 0L), (phkey?.value ?: 0L))
+public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, dwflags: CryptImportPublicKeyFlags, pvauxinfo: ConstPtr<CVoid>, phkey: MutPtr<BcryptKeyHandle>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx2(dwcertencodingtype.toInt(), pinfo.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, phkey.rawAddress)
 
-public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptInitOIDFunctionSet((pszfuncname?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInitOIDFunctionSet(pszfuncname.rawAddress, dwflags.toInt()))
 
-public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptInstallCancelRetrieval(0L, (pvarg?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L))
+public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInstallCancelRetrieval(0L, pvarg.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: COpaquePointer?, dwflags: CryptDefaultContextFlags, pvreserved: COpaquePointer?, phdefaultcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptInstallDefaultContext(hcryptprov.toLong(), dwdefaulttype.toInt(), (pvdefaultpara?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L), (phdefaultcontext?.value ?: 0L))
+public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: ConstPtr<CVoid>, dwflags: CryptDefaultContextFlags, pvreserved: ConstPtr<CVoid>, phdefaultcontext: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInstallDefaultContext(hcryptprov.toLong(), dwdefaulttype.toInt(), pvdefaultpara.rawAddress, dwflags.toInt(), pvreserved.rawAddress, phdefaultcontext.rawAddress)
 
-public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptInstallOIDFunctionAddress((hmodule?.value ?: 0L), dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), cfuncentry.toInt(), (rgfuncentry?.value ?: 0L), dwflags.toInt())
+public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: ConstPtr<CryptOidFuncEntry>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInstallOIDFunctionAddress(hmodule.rawAddress, dwencodingtype.toInt(), pszfuncname.rawAddress, cfuncentry.toInt(), rgfuncentry.rawAddress, dwflags.toInt())
 
-public actual fun cryptMemAlloc(cbsize: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMemAlloc(cbsize.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptMemAlloc(cbsize: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMemAlloc(cbsize.toInt()))
 
-public actual fun cryptMemFree(pv: COpaquePointer?) {
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMemFree((pv?.value ?: 0L))
+public actual fun cryptMemFree(pv: ConstPtr<CVoid>) {
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMemFree(pv.rawAddress)
 }
 
-public actual fun cryptMemRealloc(pv: COpaquePointer?, cbsize: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMemRealloc((pv?.value ?: 0L), cbsize.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptMemRealloc(pv: ConstPtr<CVoid>, cbsize: UInt): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMemRealloc(pv.rawAddress, cbsize.toInt()))
 
-public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: COpaquePointer?, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgCalculateEncodedLength(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), (pvmsgencodeinfo?.value ?: 0L), (pszinnercontentobjid?.value ?: 0L), cbdata.toInt()).toUInt()
+public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: ConstPtr<CVoid>, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgCalculateEncodedLength(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), pvmsgencodeinfo.rawAddress, pszinnercontentobjid.rawAddress, cbdata.toInt()).toUInt()
 
-public actual fun cryptMsgClose(hcryptmsg: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgClose((hcryptmsg?.value ?: 0L))
+public actual fun cryptMsgClose(hcryptmsg: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgClose(hcryptmsg.rawAddress)
 
-public actual fun cryptMsgControl(hcryptmsg: COpaquePointer?, dwflags: UInt, dwctrltype: UInt, pvctrlpara: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgControl((hcryptmsg?.value ?: 0L), dwflags.toInt(), dwctrltype.toInt(), (pvctrlpara?.value ?: 0L))
+public actual fun cryptMsgControl(hcryptmsg: ConstPtr<CVoid>, dwflags: UInt, dwctrltype: UInt, pvctrlpara: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgControl(hcryptmsg.rawAddress, dwflags.toInt(), dwctrltype.toInt(), pvctrlpara.rawAddress)
 
-public actual fun cryptMsgCountersign(hcryptmsg: COpaquePointer?, dwindex: UInt, ccountersigners: UInt, rgcountersigners: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgCountersign((hcryptmsg?.value ?: 0L), dwindex.toInt(), ccountersigners.toInt(), (rgcountersigners?.value ?: 0L))
+public actual fun cryptMsgCountersign(hcryptmsg: ConstPtr<CVoid>, dwindex: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr<CmsgSignerEncodeInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgCountersign(hcryptmsg.rawAddress, dwindex.toInt(), ccountersigners.toInt(), rgcountersigners.rawAddress)
 
-public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: COpaquePointer?, pbcountersignature: COpaquePointer?, pcbcountersignature: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgCountersignEncoded(dwencodingtype.toInt(), (pbsignerinfo?.value ?: 0L), cbsignerinfo.toInt(), ccountersigners.toInt(), (rgcountersigners?.value ?: 0L), (pbcountersignature?.value ?: 0L), (pcbcountersignature?.value ?: 0L))
+public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr<CmsgSignerEncodeInfo>, pbcountersignature: MutPtr<UByte>, pcbcountersignature: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgCountersignEncoded(dwencodingtype.toInt(), pbsignerinfo.rawAddress, cbsignerinfo.toInt(), ccountersigners.toInt(), rgcountersigners.rawAddress, pbcountersignature.rawAddress, pcbcountersignature.rawAddress)
 
-public actual fun cryptMsgDuplicate(hcryptmsg: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgDuplicate((hcryptmsg?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptMsgDuplicate(hcryptmsg: ConstPtr<CVoid>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgDuplicate(hcryptmsg.rawAddress))
 
-public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: COpaquePointer?, psigninfo: COpaquePointer?, dwflags: UInt, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgEncodeAndSignCTL(dwmsgencodingtype.toInt(), (pctlinfo?.value ?: 0L), (psigninfo?.value ?: 0L), dwflags.toInt(), (pbencoded?.value ?: 0L), (pcbencoded?.value ?: 0L))
+public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: ConstPtr<CtlInfo>, psigninfo: ConstPtr<CmsgSignedEncodeInfo>, dwflags: UInt, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgEncodeAndSignCTL(dwmsgencodingtype.toInt(), pctlinfo.rawAddress, psigninfo.rawAddress, dwflags.toInt(), pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: COpaquePointer?, csignerstore: UInt, rghsignerstore: COpaquePointer?, dwflags: UInt, ppsigner: COpaquePointer?, pdwsignerindex: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgGetAndVerifySigner((hcryptmsg?.value ?: 0L), csignerstore.toInt(), (rghsignerstore?.value ?: 0L), dwflags.toInt(), (ppsigner?.value ?: 0L), (pdwsignerindex?.value ?: 0L))
+public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: ConstPtr<CVoid>, csignerstore: UInt, rghsignerstore: ConstPtr<Hcertstore>, dwflags: UInt, ppsigner: MutPtr<MutPtr<CertContext>>, pdwsignerindex: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgGetAndVerifySigner(hcryptmsg.rawAddress, csignerstore.toInt(), rghsignerstore.rawAddress, dwflags.toInt(), ppsigner.rawAddress, pdwsignerindex.rawAddress)
 
-public actual fun cryptMsgGetParam(hcryptmsg: COpaquePointer?, dwparamtype: UInt, dwindex: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgGetParam((hcryptmsg?.value ?: 0L), dwparamtype.toInt(), dwindex.toInt(), (pvdata?.value ?: 0L), (pcbdata?.value ?: 0L))
+public actual fun cryptMsgGetParam(hcryptmsg: ConstPtr<CVoid>, dwparamtype: UInt, dwindex: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgGetParam(hcryptmsg.rawAddress, dwparamtype.toInt(), dwindex.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: COpaquePointer?, pstreaminfo: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgOpenToDecode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), hcryptprov.toLong(), (precipientinfo?.value ?: 0L), (pstreaminfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: ConstPtr<CertInfo>, pstreaminfo: ConstPtr<CmsgStreamInfo>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToDecode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), hcryptprov.toLong(), precipientinfo.rawAddress, pstreaminfo.rawAddress))
 
-public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: COpaquePointer?, pszinnercontentobjid: Pcstr, pstreaminfo: COpaquePointer?): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgOpenToEncode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), (pvmsgencodeinfo?.value ?: 0L), (pszinnercontentobjid?.value ?: 0L), (pstreaminfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: ConstPtr<CVoid>, pszinnercontentobjid: Pcstr, pstreaminfo: ConstPtr<CmsgStreamInfo>): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToEncode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), pvmsgencodeinfo.rawAddress, pszinnercontentobjid.rawAddress, pstreaminfo.rawAddress))
 
-public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: COpaquePointer?, cbctlcontent: UInt, psigninfo: COpaquePointer?, dwflags: UInt, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgSignCTL(dwmsgencodingtype.toInt(), (pbctlcontent?.value ?: 0L), cbctlcontent.toInt(), (psigninfo?.value ?: 0L), dwflags.toInt(), (pbencoded?.value ?: 0L), (pcbencoded?.value ?: 0L))
+public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: ConstPtr<UByte>, cbctlcontent: UInt, psigninfo: ConstPtr<CmsgSignedEncodeInfo>, dwflags: UInt, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgSignCTL(dwmsgencodingtype.toInt(), pbctlcontent.rawAddress, cbctlcontent.toInt(), psigninfo.rawAddress, dwflags.toInt(), pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptMsgUpdate(hcryptmsg: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, ffinal: Bool): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgUpdate((hcryptmsg?.value ?: 0L), (pbdata?.value ?: 0L), cbdata.toInt(), ffinal)
+public actual fun cryptMsgUpdate(hcryptmsg: ConstPtr<CVoid>, pbdata: ConstPtr<UByte>, cbdata: UInt, ffinal: Bool): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgUpdate(hcryptmsg.rawAddress, pbdata.rawAddress, cbdata.toInt(), ffinal)
 
-public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, pbsignerinfocountersignature: COpaquePointer?, cbsignerinfocountersignature: UInt, pcicountersigner: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncoded(hcryptprov.toLong(), dwencodingtype.toInt(), (pbsignerinfo?.value ?: 0L), cbsignerinfo.toInt(), (pbsignerinfocountersignature?.value ?: 0L), cbsignerinfocountersignature.toInt(), (pcicountersigner?.value ?: 0L))
+public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr<UByte>, cbsignerinfocountersignature: UInt, pcicountersigner: ConstPtr<CertInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncoded(hcryptprov.toLong(), dwencodingtype.toInt(), pbsignerinfo.rawAddress, cbsignerinfo.toInt(), pbsignerinfocountersignature.rawAddress, cbsignerinfocountersignature.toInt(), pcicountersigner.rawAddress)
 
-public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, pbsignerinfocountersignature: COpaquePointer?, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: COpaquePointer?, dwflags: UInt, pvextra: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncodedEx(hcryptprov.toLong(), dwencodingtype.toInt(), (pbsignerinfo?.value ?: 0L), cbsignerinfo.toInt(), (pbsignerinfocountersignature?.value ?: 0L), cbsignerinfocountersignature.toInt(), dwsignertype.toInt(), (pvsigner?.value ?: 0L), dwflags.toInt(), (pvextra?.value ?: 0L))
+public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr<UByte>, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: ConstPtr<CVoid>, dwflags: UInt, pvextra: MutPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncodedEx(hcryptprov.toLong(), dwencodingtype.toInt(), pbsignerinfo.rawAddress, cbsignerinfo.toInt(), pbsignerinfocountersignature.rawAddress, cbsignerinfocountersignature.toInt(), dwsignertype.toInt(), pvsigner.rawAddress, dwflags.toInt(), pvextra.rawAddress)
 
-public actual fun cryptProtectData(pdatain: COpaquePointer?, szdatadescr: Pcwstr, poptionalentropy: COpaquePointer?, pvreserved: COpaquePointer?, ppromptstruct: COpaquePointer?, dwflags: UInt, pdataout: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptProtectData((pdatain?.value ?: 0L), (szdatadescr?.value ?: 0L), (poptionalentropy?.value ?: 0L), (pvreserved?.value ?: 0L), (ppromptstruct?.value ?: 0L), dwflags.toInt(), (pdataout?.value ?: 0L))
+public actual fun cryptProtectData(pdatain: ConstPtr<CryptIntegerBlob>, szdatadescr: Pcwstr, poptionalentropy: ConstPtr<CryptIntegerBlob>, pvreserved: ConstPtr<CVoid>, ppromptstruct: ConstPtr<CryptprotectPromptstruct>, dwflags: UInt, pdataout: MutPtr<CryptIntegerBlob>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptProtectData(pdatain.rawAddress, szdatadescr.rawAddress, poptionalentropy.rawAddress, pvreserved.rawAddress, ppromptstruct.rawAddress, dwflags.toInt(), pdataout.rawAddress)
 
-public actual fun cryptProtectMemory(pdatain: COpaquePointer?, cbdatain: UInt, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptProtectMemory((pdatain?.value ?: 0L), cbdatain.toInt(), dwflags.toInt())
+public actual fun cryptProtectMemory(pdatain: MutPtr<CVoid>, cbdatain: UInt, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptProtectMemory(pdatain.rawAddress, cbdatain.toInt(), dwflags.toInt())
 
-public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: COpaquePointer?, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: COpaquePointer?, pdwcontenttype: COpaquePointer?, pdwformattype: COpaquePointer?, phcertstore: COpaquePointer?, phmsg: COpaquePointer?, ppvcontext: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptQueryObject(dwobjecttype.toInt(), (pvobject?.value ?: 0L), dwexpectedcontenttypeflags.toInt(), dwexpectedformattypeflags.toInt(), dwflags.toInt(), (pdwmsgandcertencodingtype?.value ?: 0L), (pdwcontenttype?.value ?: 0L), (pdwformattype?.value ?: 0L), (phcertstore?.value ?: 0L), (phmsg?.value ?: 0L), (ppvcontext?.value ?: 0L))
+public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: ConstPtr<CVoid>, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: MutPtr<CertQueryEncodingType>, pdwcontenttype: MutPtr<CertQueryContentType>, pdwformattype: MutPtr<CertQueryFormatType>, phcertstore: MutPtr<Hcertstore>, phmsg: MutPtr<MutPtr<CVoid>>, ppvcontext: MutPtr<MutPtr<CVoid>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptQueryObject(dwobjecttype.toInt(), pvobject.rawAddress, dwexpectedcontenttypeflags.toInt(), dwexpectedformattypeflags.toInt(), dwflags.toInt(), pdwmsgandcertencodingtype.rawAddress, pdwcontenttype.rawAddress, pdwformattype.rawAddress, phcertstore.rawAddress, phmsg.rawAddress, ppvcontext.rawAddress)
 
 public actual fun cryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, dwindex: UInt, pwszdll: Pcwstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptRegisterDefaultOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), dwindex.toInt(), (pwszdll?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRegisterDefaultOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, dwindex.toInt(), pwszdll.rawAddress)
 
 public actual fun cryptRegisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszdll: Pcwstr, pszoverridefuncname: Pcstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptRegisterOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), (pszoid?.value ?: 0L), (pwszdll?.value ?: 0L), (pszoverridefuncname?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, pwszdll.rawAddress, pszoverridefuncname.rawAddress)
 
-public actual fun cryptRegisterOIDInfo(pinfo: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptRegisterOIDInfo((pinfo?.value ?: 0L), dwflags.toInt())
+public actual fun cryptRegisterOIDInfo(pinfo: ConstPtr<CryptOidInfo>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDInfo(pinfo.rawAddress, dwflags.toInt())
 
 public actual fun cryptReleaseContext(hprov: ULong, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptReleaseContext(hprov.toLong(), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptReleaseContext(hprov.toLong(), dwflags.toInt())
 
-public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: COpaquePointer?, hasyncretrieve: Hcryptasync, pcredentials: COpaquePointer?, pvverify: COpaquePointer?, pauxinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlA((pszurl?.value ?: 0L), (pszobjectoid?.value ?: 0L), dwretrievalflags.toInt(), dwtimeout.toInt(), (ppvobject?.value ?: 0L), hasyncretrieve, (pcredentials?.value ?: 0L), (pvverify?.value ?: 0L), (pauxinfo?.value ?: 0L))
+public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr<MutPtr<CVoid>>, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr<CryptCredentials>, pvverify: ConstPtr<CVoid>, pauxinfo: MutPtr<CryptRetrieveAuxInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlA(pszurl.rawAddress, pszobjectoid.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), ppvobject.rawAddress, hasyncretrieve, pcredentials.rawAddress, pvverify.rawAddress, pauxinfo.rawAddress)
 
-public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: COpaquePointer?, hasyncretrieve: Hcryptasync, pcredentials: COpaquePointer?, pvverify: COpaquePointer?, pauxinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlW((pszurl?.value ?: 0L), (pszobjectoid?.value ?: 0L), dwretrievalflags.toInt(), dwtimeout.toInt(), (ppvobject?.value ?: 0L), hasyncretrieve, (pcredentials?.value ?: 0L), (pvverify?.value ?: 0L), (pauxinfo?.value ?: 0L))
+public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr<MutPtr<CVoid>>, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr<CryptCredentials>, pvverify: ConstPtr<CVoid>, pauxinfo: MutPtr<CryptRetrieveAuxInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlW(pszurl.rawAddress, pszobjectoid.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), ppvobject.rawAddress, hasyncretrieve, pcredentials.rawAddress, pvverify.rawAddress, pauxinfo.rawAddress)
 
-public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, pptscontext: COpaquePointer?, pptssigner: COpaquePointer?, phstore: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptRetrieveTimeStamp((wszurl?.value ?: 0L), dwretrievalflags.toInt(), dwtimeout.toInt(), (pszhashid?.value ?: 0L), (ppara?.value ?: 0L), (pbdata?.value ?: 0L), cbdata.toInt(), (pptscontext?.value ?: 0L), (pptssigner?.value ?: 0L), (phstore?.value ?: 0L))
+public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: ConstPtr<CryptTimestampPara>, pbdata: ConstPtr<UByte>, cbdata: UInt, pptscontext: MutPtr<MutPtr<CryptTimestampContext>>, pptssigner: MutPtr<MutPtr<CertContext>>, phstore: MutPtr<Hcertstore>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRetrieveTimeStamp(wszurl.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), pszhashid.rawAddress, ppara.rawAddress, pbdata.rawAddress, cbdata.toInt(), pptscontext.rawAddress, pptssigner.rawAddress, phstore.rawAddress)
 
-public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: COpaquePointer?, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetAsyncParam(hasync, (pszparamoid?.value ?: 0L), (pvparam?.value ?: 0L), 0L)
+public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: ConstPtr<CVoid>, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetAsyncParam(hasync, pszparamoid.rawAddress, pvparam.rawAddress, 0L)
 
-public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetHashParam(hhash.toLong(), dwparam.toInt(), (pbdata?.value ?: 0L), dwflags.toInt())
+public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetHashParam(hhash.toLong(), dwparam.toInt(), pbdata.rawAddress, dwflags.toInt())
 
-public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvdata: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetKeyIdentifierProperty((pkeyidentifier?.value ?: 0L), dwpropid.toInt(), dwflags.toInt(), (pwszcomputername?.value ?: 0L), (pvreserved?.value ?: 0L), (pvdata?.value ?: 0L))
+public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvdata: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetKeyIdentifierProperty(pkeyidentifier.rawAddress, dwpropid.toInt(), dwflags.toInt(), pwszcomputername.rawAddress, pvreserved.rawAddress, pvdata.rawAddress)
 
-public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetKeyParam(hkey.toLong(), dwparam.toInt(), (pbdata?.value ?: 0L), dwflags.toInt())
+public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetKeyParam(hkey.toLong(), dwparam.toInt(), pbdata.rawAddress, dwflags.toInt())
 
-public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: COpaquePointer?, cbvaluedata: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetOIDFunctionValue(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), (pszoid?.value ?: 0L), (pwszvaluename?.value ?: 0L), dwvaluetype.toInt(), (pbvaluedata?.value ?: 0L), cbvaluedata.toInt())
+public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: ConstPtr<UByte>, cbvaluedata: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetOIDFunctionValue(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, pwszvaluename.rawAddress, dwvaluetype.toInt(), pbvaluedata.rawAddress, cbvaluedata.toInt())
 
-public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetProvParam(hprov.toLong(), dwparam.toInt(), (pbdata?.value ?: 0L), dwflags.toInt())
+public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProvParam(hprov.toLong(), dwparam.toInt(), pbdata.rawAddress, dwflags.toInt())
 
 public actual fun cryptSetProviderA(pszprovname: Pcstr, dwprovtype: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetProviderA((pszprovname?.value ?: 0L), dwprovtype.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderA(pszprovname.rawAddress, dwprovtype.toInt())
 
-public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetProviderExA((pszprovname?.value ?: 0L), dwprovtype.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt())
+public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderExA(pszprovname.rawAddress, dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt())
 
-public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetProviderExW((pszprovname?.value ?: 0L), dwprovtype.toInt(), (pdwreserved?.value ?: 0L), dwflags.toInt())
+public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderExW(pszprovname.rawAddress, dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt())
 
 public actual fun cryptSetProviderW(pszprovname: Pcwstr, dwprovtype: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSetProviderW((pszprovname?.value ?: 0L), dwprovtype.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderW(pszprovname.rawAddress, dwprovtype.toInt())
 
-public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, psignaturealgorithm: COpaquePointer?, pvhashauxinfo: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSignAndEncodeCertificate(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L), (pvstructinfo?.value ?: 0L), (psignaturealgorithm?.value ?: 0L), (pvhashauxinfo?.value ?: 0L), (pbencoded?.value ?: 0L), (pcbencoded?.value ?: 0L))
+public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pvhashauxinfo: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignAndEncodeCertificate(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pvstructinfo.rawAddress, psignaturealgorithm.rawAddress, pvhashauxinfo.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptSignAndEncryptMessage(psignpara: COpaquePointer?, pencryptpara: COpaquePointer?, crecipientcert: UInt, rgprecipientcert: COpaquePointer?, pbtobesignedandencrypted: COpaquePointer?, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: COpaquePointer?, pcbsignedandencryptedblob: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSignAndEncryptMessage((psignpara?.value ?: 0L), (pencryptpara?.value ?: 0L), crecipientcert.toInt(), (rgprecipientcert?.value ?: 0L), (pbtobesignedandencrypted?.value ?: 0L), cbtobesignedandencrypted.toInt(), (pbsignedandencryptedblob?.value ?: 0L), (pcbsignedandencryptedblob?.value ?: 0L))
+public actual fun cryptSignAndEncryptMessage(psignpara: ConstPtr<CryptSignMessagePara>, pencryptpara: ConstPtr<CryptEncryptMessagePara>, crecipientcert: UInt, rgprecipientcert: ConstPtr<ConstPtr<CertContext>>, pbtobesignedandencrypted: ConstPtr<UByte>, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: MutPtr<UByte>, pcbsignedandencryptedblob: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignAndEncryptMessage(psignpara.rawAddress, pencryptpara.rawAddress, crecipientcert.toInt(), rgprecipientcert.rawAddress, pbtobesignedandencrypted.rawAddress, cbtobesignedandencrypted.toInt(), pbsignedandencryptedblob.rawAddress, pcbsignedandencryptedblob.rawAddress)
 
-public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: COpaquePointer?, cbencodedtobesigned: UInt, psignaturealgorithm: COpaquePointer?, pvhashauxinfo: COpaquePointer?, pbsignature: COpaquePointer?, pcbsignature: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSignCertificate(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (pbencodedtobesigned?.value ?: 0L), cbencodedtobesigned.toInt(), (psignaturealgorithm?.value ?: 0L), (pvhashauxinfo?.value ?: 0L), (pbsignature?.value ?: 0L), (pcbsignature?.value ?: 0L))
+public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: ConstPtr<UByte>, cbencodedtobesigned: UInt, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pvhashauxinfo: ConstPtr<CVoid>, pbsignature: MutPtr<UByte>, pcbsignature: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignCertificate(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pbencodedtobesigned.rawAddress, cbencodedtobesigned.toInt(), psignaturealgorithm.rawAddress, pvhashauxinfo.rawAddress, pbsignature.rawAddress, pcbsignature.rawAddress)
 
-public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: COpaquePointer?, pdwsiglen: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSignHashA(hhash.toLong(), dwkeyspec.toInt(), (szdescription?.value ?: 0L), dwflags.toInt(), (pbsignature?.value ?: 0L), (pdwsiglen?.value ?: 0L))
+public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: MutPtr<UByte>, pdwsiglen: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignHashA(hhash.toLong(), dwkeyspec.toInt(), szdescription.rawAddress, dwflags.toInt(), pbsignature.rawAddress, pdwsiglen.rawAddress)
 
-public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: COpaquePointer?, pdwsiglen: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSignHashW(hhash.toLong(), dwkeyspec.toInt(), (szdescription?.value ?: 0L), dwflags.toInt(), (pbsignature?.value ?: 0L), (pdwsiglen?.value ?: 0L))
+public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: MutPtr<UByte>, pdwsiglen: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignHashW(hhash.toLong(), dwkeyspec.toInt(), szdescription.rawAddress, dwflags.toInt(), pbsignature.rawAddress, pdwsiglen.rawAddress)
 
-public actual fun cryptSignMessage(psignpara: COpaquePointer?, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: COpaquePointer?, rgcbtobesigned: COpaquePointer?, pbsignedblob: COpaquePointer?, pcbsignedblob: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSignMessage((psignpara?.value ?: 0L), fdetachedsignature, ctobesigned.toInt(), (rgpbtobesigned?.value ?: 0L), (rgcbtobesigned?.value ?: 0L), (pbsignedblob?.value ?: 0L), (pcbsignedblob?.value ?: 0L))
+public actual fun cryptSignMessage(psignpara: ConstPtr<CryptSignMessagePara>, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: ConstPtr<ConstPtr<UByte>>, rgcbtobesigned: ConstPtr<UInt>, pbsignedblob: MutPtr<UByte>, pcbsignedblob: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignMessage(psignpara.rawAddress, fdetachedsignature, ctobesigned.toInt(), rgpbtobesigned.rawAddress, rgcbtobesigned.rawAddress, pbsignedblob.rawAddress, pcbsignedblob.rawAddress)
 
-public actual fun cryptSignMessageWithKey(psignpara: COpaquePointer?, pbtobesigned: COpaquePointer?, cbtobesigned: UInt, pbsignedblob: COpaquePointer?, pcbsignedblob: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptSignMessageWithKey((psignpara?.value ?: 0L), (pbtobesigned?.value ?: 0L), cbtobesigned.toInt(), (pbsignedblob?.value ?: 0L), (pcbsignedblob?.value ?: 0L))
+public actual fun cryptSignMessageWithKey(psignpara: ConstPtr<CryptKeySignMessagePara>, pbtobesigned: ConstPtr<UByte>, cbtobesigned: UInt, pbsignedblob: MutPtr<UByte>, pcbsignedblob: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignMessageWithKey(psignpara.rawAddress, pbtobesigned.rawAddress, cbtobesigned.toInt(), pbsignedblob.rawAddress, pcbsignedblob.rawAddress)
 
-public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: COpaquePointer?, pcbbinary: COpaquePointer?, pdwskip: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptStringToBinaryA((pszstring?.value ?: 0L), cchstring.toInt(), dwflags.toInt(), (pbbinary?.value ?: 0L), (pcbbinary?.value ?: 0L), (pdwskip?.value ?: 0L), (pdwflags?.value ?: 0L))
+public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr<UByte>, pcbbinary: MutPtr<UInt>, pdwskip: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryA(pszstring.rawAddress, cchstring.toInt(), dwflags.toInt(), pbbinary.rawAddress, pcbbinary.rawAddress, pdwskip.rawAddress, pdwflags.rawAddress)
 
-public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: COpaquePointer?, pcbbinary: COpaquePointer?, pdwskip: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptStringToBinaryW((pszstring?.value ?: 0L), cchstring.toInt(), dwflags.toInt(), (pbbinary?.value ?: 0L), (pcbbinary?.value ?: 0L), (pdwskip?.value ?: 0L), (pdwflags?.value ?: 0L))
+public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr<UByte>, pcbbinary: MutPtr<UInt>, pdwskip: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryW(pszstring.rawAddress, cchstring.toInt(), dwflags.toInt(), pbbinary.rawAddress, pcbbinary.rawAddress, pdwskip.rawAddress, pdwflags.rawAddress)
 
-public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUninstallCancelRetrieval(dwflags.toInt(), (pvreserved?.value ?: 0L))
+public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUninstallCancelRetrieval(dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun cryptUninstallDefaultContext(hdefaultcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUninstallDefaultContext((hdefaultcontext?.value ?: 0L), dwflags.toInt(), (pvreserved?.value ?: 0L))
+public actual fun cryptUninstallDefaultContext(hdefaultcontext: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUninstallDefaultContext(hdefaultcontext.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun cryptUnprotectData(pdatain: COpaquePointer?, ppszdatadescr: COpaquePointer?, poptionalentropy: COpaquePointer?, pvreserved: COpaquePointer?, ppromptstruct: COpaquePointer?, dwflags: UInt, pdataout: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUnprotectData((pdatain?.value ?: 0L), (ppszdatadescr?.value ?: 0L), (poptionalentropy?.value ?: 0L), (pvreserved?.value ?: 0L), (ppromptstruct?.value ?: 0L), dwflags.toInt(), (pdataout?.value ?: 0L))
+public actual fun cryptUnprotectData(pdatain: ConstPtr<CryptIntegerBlob>, ppszdatadescr: MutPtr<Pwstr>, poptionalentropy: ConstPtr<CryptIntegerBlob>, pvreserved: ConstPtr<CVoid>, ppromptstruct: ConstPtr<CryptprotectPromptstruct>, dwflags: UInt, pdataout: MutPtr<CryptIntegerBlob>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnprotectData(pdatain.rawAddress, ppszdatadescr.rawAddress, poptionalentropy.rawAddress, pvreserved.rawAddress, ppromptstruct.rawAddress, dwflags.toInt(), pdataout.rawAddress)
 
-public actual fun cryptUnprotectMemory(pdatain: COpaquePointer?, cbdatain: UInt, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUnprotectMemory((pdatain?.value ?: 0L), cbdatain.toInt(), dwflags.toInt())
+public actual fun cryptUnprotectMemory(pdatain: MutPtr<CVoid>, cbdatain: UInt, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnprotectMemory(pdatain.rawAddress, cbdatain.toInt(), dwflags.toInt())
 
 public actual fun cryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pwszdll: Pcwstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUnregisterDefaultOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), (pwszdll?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnregisterDefaultOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, pwszdll.rawAddress)
 
 public actual fun cryptUnregisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUnregisterOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L), (pszoid?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress)
 
-public actual fun cryptUnregisterOIDInfo(pinfo: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUnregisterOIDInfo((pinfo?.value ?: 0L))
+public actual fun cryptUnregisterOIDInfo(pinfo: ConstPtr<CryptOidInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDInfo(pinfo.rawAddress)
 
-public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: COpaquePointer?, pdwfailurecount: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptUpdateProtectedState((poldsid?.value ?: 0L), (pwszoldpassword?.value ?: 0L), dwflags.toInt(), (pdwsuccesscount?.value ?: 0L), (pdwfailurecount?.value ?: 0L))
+public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: MutPtr<UInt>, pdwfailurecount: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUpdateProtectedState(poldsid.rawAddress, pwszoldpassword.rawAddress, dwflags.toInt(), pdwsuccesscount.rawAddress, pdwfailurecount.rawAddress)
 
-public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: COpaquePointer?, cbencoded: UInt, ppublickey: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignature(hcryptprov.toLong(), dwcertencodingtype.toInt(), (pbencoded?.value ?: 0L), cbencoded.toInt(), (ppublickey?.value ?: 0L))
+public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr<UByte>, cbencoded: UInt, ppublickey: ConstPtr<CertPublicKeyInfo>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignature(hcryptprov.toLong(), dwcertencodingtype.toInt(), pbencoded.rawAddress, cbencoded.toInt(), ppublickey.rawAddress)
 
-public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: COpaquePointer?, dwissuertype: UInt, pvissuer: COpaquePointer?, dwflags: CryptVerifyCertFlags, pvextra: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignatureEx(hcryptprov.toLong(), dwcertencodingtype.toInt(), dwsubjecttype.toInt(), (pvsubject?.value ?: 0L), dwissuertype.toInt(), (pvissuer?.value ?: 0L), dwflags.toInt(), (pvextra?.value ?: 0L))
+public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, dwissuertype: UInt, pvissuer: ConstPtr<CVoid>, dwflags: CryptVerifyCertFlags, pvextra: MutPtr<CVoid>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignatureEx(hcryptprov.toLong(), dwcertencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.rawAddress, dwissuertype.toInt(), pvissuer.rawAddress, dwflags.toInt(), pvextra.rawAddress)
 
-public actual fun cryptVerifyDetachedMessageHash(phashpara: COpaquePointer?, pbdetachedhashblob: COpaquePointer?, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: COpaquePointer?, rgcbtobehashed: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageHash((phashpara?.value ?: 0L), (pbdetachedhashblob?.value ?: 0L), cbdetachedhashblob.toInt(), ctobehashed.toInt(), (rgpbtobehashed?.value ?: 0L), (rgcbtobehashed?.value ?: 0L), (pbcomputedhash?.value ?: 0L), (pcbcomputedhash?.value ?: 0L))
+public actual fun cryptVerifyDetachedMessageHash(phashpara: ConstPtr<CryptHashMessagePara>, pbdetachedhashblob: ConstPtr<UByte>, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: ConstPtr<ConstPtr<UByte>>, rgcbtobehashed: ConstPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageHash(phashpara.rawAddress, pbdetachedhashblob.rawAddress, cbdetachedhashblob.toInt(), ctobehashed.toInt(), rgpbtobehashed.rawAddress, rgcbtobehashed.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptVerifyDetachedMessageSignature(pverifypara: COpaquePointer?, dwsignerindex: UInt, pbdetachedsignblob: COpaquePointer?, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: COpaquePointer?, rgcbtobesigned: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageSignature((pverifypara?.value ?: 0L), dwsignerindex.toInt(), (pbdetachedsignblob?.value ?: 0L), cbdetachedsignblob.toInt(), ctobesigned.toInt(), (rgpbtobesigned?.value ?: 0L), (rgcbtobesigned?.value ?: 0L), (ppsignercert?.value ?: 0L))
+public actual fun cryptVerifyDetachedMessageSignature(pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbdetachedsignblob: ConstPtr<UByte>, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: ConstPtr<ConstPtr<UByte>>, rgcbtobesigned: ConstPtr<UInt>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageSignature(pverifypara.rawAddress, dwsignerindex.toInt(), pbdetachedsignblob.rawAddress, cbdetachedsignblob.toInt(), ctobesigned.toInt(), rgpbtobesigned.rawAddress, rgcbtobesigned.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptVerifyMessageHash(phashpara: COpaquePointer?, pbhashedblob: COpaquePointer?, cbhashedblob: UInt, pbtobehashed: COpaquePointer?, pcbtobehashed: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyMessageHash((phashpara?.value ?: 0L), (pbhashedblob?.value ?: 0L), cbhashedblob.toInt(), (pbtobehashed?.value ?: 0L), (pcbtobehashed?.value ?: 0L), (pbcomputedhash?.value ?: 0L), (pcbcomputedhash?.value ?: 0L))
+public actual fun cryptVerifyMessageHash(phashpara: ConstPtr<CryptHashMessagePara>, pbhashedblob: ConstPtr<UByte>, cbhashedblob: UInt, pbtobehashed: MutPtr<UByte>, pcbtobehashed: MutPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageHash(phashpara.rawAddress, pbhashedblob.rawAddress, cbhashedblob.toInt(), pbtobehashed.rawAddress, pcbtobehashed.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptVerifyMessageSignature(pverifypara: COpaquePointer?, dwsignerindex: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignature((pverifypara?.value ?: 0L), dwsignerindex.toInt(), (pbsignedblob?.value ?: 0L), cbsignedblob.toInt(), (pbdecoded?.value ?: 0L), (pcbdecoded?.value ?: 0L), (ppsignercert?.value ?: 0L))
+public actual fun cryptVerifyMessageSignature(pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignature(pverifypara.rawAddress, dwsignerindex.toInt(), pbsignedblob.rawAddress, cbsignedblob.toInt(), pbdecoded.rawAddress, pcbdecoded.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: COpaquePointer?, ppublickeyinfo: COpaquePointer?, pbsignedblob: COpaquePointer?, cbsignedblob: UInt, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignatureWithKey((pverifypara?.value ?: 0L), (ppublickeyinfo?.value ?: 0L), (pbsignedblob?.value ?: 0L), cbsignedblob.toInt(), (pbdecoded?.value ?: 0L), (pcbdecoded?.value ?: 0L))
+public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: ConstPtr<CryptKeyVerifyMessagePara>, ppublickeyinfo: ConstPtr<CertPublicKeyInfo>, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignatureWithKey(pverifypara.rawAddress, ppublickeyinfo.rawAddress, pbsignedblob.rawAddress, cbsignedblob.toInt(), pbdecoded.rawAddress, pcbdecoded.rawAddress)
 
-public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: COpaquePointer?, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifySignatureA(hhash.toLong(), (pbsignature?.value ?: 0L), dwsiglen.toInt(), hpubkey.toLong(), (szdescription?.value ?: 0L), dwflags.toInt())
+public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: ConstPtr<UByte>, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureA(hhash.toLong(), pbsignature.rawAddress, dwsiglen.toInt(), hpubkey.toLong(), szdescription.rawAddress, dwflags.toInt())
 
-public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: COpaquePointer?, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifySignatureW(hhash.toLong(), (pbsignature?.value ?: 0L), dwsiglen.toInt(), hpubkey.toLong(), (szdescription?.value ?: 0L), dwflags.toInt())
+public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: ConstPtr<UByte>, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureW(hhash.toLong(), pbsignature.rawAddress, dwsiglen.toInt(), hpubkey.toLong(), szdescription.rawAddress, dwflags.toInt())
 
-public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: COpaquePointer?, cbtscontentinfo: UInt, pbdata: COpaquePointer?, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: COpaquePointer?, pptssigner: COpaquePointer?, phstore: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptVerifyTimeStampSignature((pbtscontentinfo?.value ?: 0L), cbtscontentinfo.toInt(), (pbdata?.value ?: 0L), cbdata.toInt(), (hadditionalstore?.value ?: 0L), (pptscontext?.value ?: 0L), (pptssigner?.value ?: 0L), (phstore?.value ?: 0L))
+public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: ConstPtr<UByte>, cbtscontentinfo: UInt, pbdata: ConstPtr<UByte>, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: MutPtr<MutPtr<CryptTimestampContext>>, pptssigner: MutPtr<MutPtr<CertContext>>, phstore: MutPtr<Hcertstore>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyTimeStampSignature(pbtscontentinfo.rawAddress, cbtscontentinfo.toInt(), pbdata.rawAddress, cbdata.toInt(), hadditionalstore.rawAddress, pptscontext.rawAddress, pptssigner.rawAddress, phstore.rawAddress)
 
-public actual fun cryptXmlAddObject(hsignatureorobject: COpaquePointer?, dwflags: UInt, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlAddObject((hsignatureorobject?.value ?: 0L), dwflags.toInt(), (rgproperty?.value ?: 0L), cproperty.toInt(), (pencoded?.value ?: 0L), (ppobject?.value ?: 0L))
+public actual fun cryptXmlAddObject(hsignatureorobject: ConstPtr<CVoid>, dwflags: UInt, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, ppobject: MutPtr<MutPtr<CryptXmlObject>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlAddObject(hsignatureorobject.rawAddress, dwflags.toInt(), rgproperty.rawAddress, cproperty.toInt(), pencoded.rawAddress, ppobject.rawAddress)
 
-public actual fun cryptXmlClose(hcryptxml: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlClose((hcryptxml?.value ?: 0L))
+public actual fun cryptXmlClose(hcryptxml: ConstPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlClose(hcryptxml.rawAddress)
 
-public actual fun cryptXmlCreateReference(hcryptxml: COpaquePointer?, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: COpaquePointer?, ctransform: UInt, rgtransform: COpaquePointer?, phreference: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlCreateReference((hcryptxml?.value ?: 0L), dwflags.toInt(), (wszid?.value ?: 0L), (wszuri?.value ?: 0L), (wsztype?.value ?: 0L), (pdigestmethod?.value ?: 0L), ctransform.toInt(), (rgtransform?.value ?: 0L), (phreference?.value ?: 0L))
+public actual fun cryptXmlCreateReference(hcryptxml: ConstPtr<CVoid>, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: ConstPtr<CryptXmlAlgorithm>, ctransform: UInt, rgtransform: ConstPtr<CryptXmlAlgorithm>, phreference: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlCreateReference(hcryptxml.rawAddress, dwflags.toInt(), wszid.rawAddress, wszuri.rawAddress, wsztype.rawAddress, pdigestmethod.rawAddress, ctransform.toInt(), rgtransform.rawAddress, phreference.rawAddress)
 
-public actual fun cryptXmlDigestReference(hreference: COpaquePointer?, dwflags: UInt, pdataproviderin: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlDigestReference((hreference?.value ?: 0L), dwflags.toInt(), (pdataproviderin?.value ?: 0L))
+public actual fun cryptXmlDigestReference(hreference: ConstPtr<CVoid>, dwflags: UInt, pdataproviderin: ConstPtr<CryptXmlDataProvider>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlDigestReference(hreference.rawAddress, dwflags.toInt(), pdataproviderin.rawAddress)
 
-public actual fun cryptXmlEncode(hcryptxml: COpaquePointer?, dwcharset: CryptXmlCharset, rgproperty: COpaquePointer?, cproperty: UInt, pvcallbackstate: COpaquePointer?, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlEncode((hcryptxml?.value ?: 0L), dwcharset, (rgproperty?.value ?: 0L), cproperty.toInt(), (pvcallbackstate?.value ?: 0L), 0L)
+public actual fun cryptXmlEncode(hcryptxml: ConstPtr<CVoid>, dwcharset: CryptXmlCharset, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pvcallbackstate: MutPtr<CVoid>, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlEncode(hcryptxml.rawAddress, dwcharset, rgproperty.rawAddress, cproperty.toInt(), pvcallbackstate.rawAddress, 0L)
 
-public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: COpaquePointer?, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlEnumAlgorithmInfo(dwgroupid.toInt(), dwflags.toInt(), (pvarg?.value ?: 0L), 0L)
+public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlEnumAlgorithmInfo(dwgroupid.toInt(), dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: COpaquePointer?, dwgroupid: UInt, dwflags: UInt): COpaquePointer? =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlFindAlgorithmInfo(dwfindbytype.toInt(), (pvfindby?.value ?: 0L), dwgroupid.toInt(), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: ConstPtr<CVoid>, dwgroupid: UInt, dwflags: UInt): MutPtr<CryptXmlAlgorithmInfo> =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlFindAlgorithmInfo(dwfindbytype.toInt(), pvfindby.rawAddress, dwgroupid.toInt(), dwflags.toInt()))
 
-public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: COpaquePointer?, dwflags: CryptXmlFlags, ppalginfo: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlGetAlgorithmInfo((pxmlalgorithm?.value ?: 0L), dwflags.toInt(), (ppalginfo?.value ?: 0L))
+public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: ConstPtr<CryptXmlAlgorithm>, dwflags: CryptXmlFlags, ppalginfo: MutPtr<MutPtr<CryptXmlAlgorithmInfo>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetAlgorithmInfo(pxmlalgorithm.rawAddress, dwflags.toInt(), ppalginfo.rawAddress)
 
-public actual fun cryptXmlGetDocContext(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlGetDocContext((hcryptxml?.value ?: 0L), (ppstruct?.value ?: 0L))
+public actual fun cryptXmlGetDocContext(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlDocCtxt>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetDocContext(hcryptxml.rawAddress, ppstruct.rawAddress)
 
-public actual fun cryptXmlGetReference(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlGetReference((hcryptxml?.value ?: 0L), (ppstruct?.value ?: 0L))
+public actual fun cryptXmlGetReference(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlReference>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetReference(hcryptxml.rawAddress, ppstruct.rawAddress)
 
-public actual fun cryptXmlGetSignature(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlGetSignature((hcryptxml?.value ?: 0L), (ppstruct?.value ?: 0L))
+public actual fun cryptXmlGetSignature(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlSignature>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetSignature(hcryptxml.rawAddress, ppstruct.rawAddress)
 
-public actual fun cryptXmlGetStatus(hcryptxml: COpaquePointer?, pstatus: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlGetStatus((hcryptxml?.value ?: 0L), (pstatus?.value ?: 0L))
+public actual fun cryptXmlGetStatus(hcryptxml: ConstPtr<CVoid>, pstatus: MutPtr<CryptXmlStatus>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetStatus(hcryptxml.rawAddress, pstatus.rawAddress)
 
-public actual fun cryptXmlGetTransforms(ppconfig: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlGetTransforms((ppconfig?.value ?: 0L))
+public actual fun cryptXmlGetTransforms(ppconfig: MutPtr<MutPtr<CryptXmlTransformChainConfig>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetTransforms(ppconfig.rawAddress)
 
-public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: COpaquePointer?, phkey: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlImportPublicKey(dwflags.toInt(), (pkeyvalue?.value ?: 0L), (phkey?.value ?: 0L))
+public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: ConstPtr<CryptXmlKeyValue>, phkey: MutPtr<BcryptKeyHandle>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlImportPublicKey(dwflags.toInt(), pkeyvalue.rawAddress, phkey.rawAddress)
 
-public actual fun cryptXmlOpenToDecode(pconfig: COpaquePointer?, dwflags: CryptXmlFlags, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, phcryptxml: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlOpenToDecode((pconfig?.value ?: 0L), dwflags.toInt(), (rgproperty?.value ?: 0L), cproperty.toInt(), (pencoded?.value ?: 0L), (phcryptxml?.value ?: 0L))
+public actual fun cryptXmlOpenToDecode(pconfig: ConstPtr<CryptXmlTransformChainConfig>, dwflags: CryptXmlFlags, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, phcryptxml: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToDecode(pconfig.rawAddress, dwflags.toInt(), rgproperty.rawAddress, cproperty.toInt(), pencoded.rawAddress, phcryptxml.rawAddress)
 
-public actual fun cryptXmlOpenToEncode(pconfig: COpaquePointer?, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, phsignature: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlOpenToEncode((pconfig?.value ?: 0L), dwflags.toInt(), (wszid?.value ?: 0L), (rgproperty?.value ?: 0L), cproperty.toInt(), (pencoded?.value ?: 0L), (phsignature?.value ?: 0L))
+public actual fun cryptXmlOpenToEncode(pconfig: ConstPtr<CryptXmlTransformChainConfig>, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, phsignature: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToEncode(pconfig.rawAddress, dwflags.toInt(), wszid.rawAddress, rgproperty.rawAddress, cproperty.toInt(), pencoded.rawAddress, phsignature.rawAddress)
 
-public actual fun cryptXmlSetHMACSecret(hsignature: COpaquePointer?, pbsecret: COpaquePointer?, cbsecret: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlSetHMACSecret((hsignature?.value ?: 0L), (pbsecret?.value ?: 0L), cbsecret.toInt())
+public actual fun cryptXmlSetHMACSecret(hsignature: ConstPtr<CVoid>, pbsecret: ConstPtr<UByte>, cbsecret: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlSetHMACSecret(hsignature.rawAddress, pbsecret.rawAddress, cbsecret.toInt())
 
-public actual fun cryptXmlSign(hsignature: COpaquePointer?, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: COpaquePointer?, psignaturemethod: COpaquePointer?, pcanonicalization: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlSign((hsignature?.value ?: 0L), hkey.toLong(), dwkeyspec.toInt(), dwflags.toInt(), dwkeyinfospec, (pvkeyinfospec?.value ?: 0L), (psignaturemethod?.value ?: 0L), (pcanonicalization?.value ?: 0L))
+public actual fun cryptXmlSign(hsignature: ConstPtr<CVoid>, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: ConstPtr<CVoid>, psignaturemethod: ConstPtr<CryptXmlAlgorithm>, pcanonicalization: ConstPtr<CryptXmlAlgorithm>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlSign(hsignature.rawAddress, hkey.toLong(), dwkeyspec.toInt(), dwflags.toInt(), dwkeyinfospec, pvkeyinfospec.rawAddress, psignaturemethod.rawAddress, pcanonicalization.rawAddress)
 
-public actual fun cryptXmlVerifySignature(hsignature: COpaquePointer?, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_cryptXmlVerifySignature((hsignature?.value ?: 0L), (hkey?.value ?: 0L), dwflags.toInt())
+public actual fun cryptXmlVerifySignature(hsignature: ConstPtr<CVoid>, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlVerifySignature(hsignature.rawAddress, hkey.rawAddress, dwflags.toInt())
 
-public actual fun decrypt(hcrypto: COpaquePointer?, foaep: Bool, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_decrypt((hcrypto?.value ?: 0L), foaep, cbindata.toInt(), (pindata?.value ?: 0L), (pcboutdata?.value ?: 0L), (ppoutdata?.value ?: 0L))
+public actual fun decrypt(hcrypto: ConstPtr<InformationcardCryptoHandle>, foaep: Bool, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyDecrypt(hcrypto.rawAddress, foaep, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun encrypt(hcrypto: COpaquePointer?, foaep: Bool, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_encrypt((hcrypto?.value ?: 0L), foaep, cbindata.toInt(), (pindata?.value ?: 0L), (pcboutdata?.value ?: 0L), (ppoutdata?.value ?: 0L))
+public actual fun encrypt(hcrypto: ConstPtr<InformationcardCryptoHandle>, foaep: Bool, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyEncrypt(hcrypto.rawAddress, foaep, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun findCertsByIssuer(pcertchains: COpaquePointer?, pcbcertchains: COpaquePointer?, pccertchains: COpaquePointer?, pbencodedissuername: COpaquePointer?, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_findCertsByIssuer((pcertchains?.value ?: 0L), (pcbcertchains?.value ?: 0L), (pccertchains?.value ?: 0L), (pbencodedissuername?.value ?: 0L), cbencodedissuername.toInt(), (pwszpurpose?.value ?: 0L), dwkeyspec.toInt())
+public actual fun findCertsByIssuer(pcertchains: MutPtr<CertChain>, pcbcertchains: MutPtr<UInt>, pccertchains: MutPtr<UInt>, pbencodedissuername: ConstPtr<UByte>, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyFindCertsByIssuer(pcertchains.rawAddress, pcbcertchains.rawAddress, pccertchains.rawAddress, pbencodedissuername.rawAddress, cbencodedissuername.toInt(), pwszpurpose.rawAddress, dwkeyspec.toInt())
 
-public actual fun freeToken(pallocmemory: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_freeToken((pallocmemory?.value ?: 0L))
+public actual fun freeToken(pallocmemory: ConstPtr<GenericXmlToken>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyFreeToken(pallocmemory.rawAddress)
 
-public actual fun generateDerivedKey(hcrypto: COpaquePointer?, cblabel: UInt, plabel: COpaquePointer?, cbnonce: UInt, pnonce: COpaquePointer?, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: COpaquePointer?, ppkey: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_generateDerivedKey((hcrypto?.value ?: 0L), cblabel.toInt(), (plabel?.value ?: 0L), cbnonce.toInt(), (pnonce?.value ?: 0L), derivedkeylength.toInt(), offset.toInt(), (algid?.value ?: 0L), (pcbkey?.value ?: 0L), (ppkey?.value ?: 0L))
+public actual fun generateDerivedKey(hcrypto: ConstPtr<InformationcardCryptoHandle>, cblabel: UInt, plabel: ConstPtr<UByte>, cbnonce: UInt, pnonce: ConstPtr<UByte>, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: MutPtr<UInt>, ppkey: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGenerateDerivedKey(hcrypto.rawAddress, cblabel.toInt(), plabel.rawAddress, cbnonce.toInt(), pnonce.rawAddress, derivedkeylength.toInt(), offset.toInt(), algid.rawAddress, pcbkey.rawAddress, ppkey.rawAddress)
 
-public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getAsymmetricEncryptionInterface((pszprovidername?.value ?: 0L), (pszalgid?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptAsymmetricEncryptionFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetAsymmetricEncryptionInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getBrowserToken(dwparamtype: UInt, pparam: COpaquePointer?, pcbtoken: COpaquePointer?, pptoken: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getBrowserToken(dwparamtype.toInt(), (pparam?.value ?: 0L), (pcbtoken?.value ?: 0L), (pptoken?.value ?: 0L))
+public actual fun getBrowserToken(dwparamtype: UInt, pparam: ConstPtr<CVoid>, pcbtoken: MutPtr<UInt>, pptoken: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetBrowserToken(dwparamtype.toInt(), pparam.rawAddress, pcbtoken.rawAddress, pptoken.rawAddress)
 
-public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getCipherInterface((pszprovidername?.value ?: 0L), (pszalgid?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptCipherFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetCipherInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getCryptoTransform(hsymmetriccrypto: COpaquePointer?, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: COpaquePointer?, pphtransform: COpaquePointer?): Hresult =
+public actual fun getCryptoTransform(hsymmetriccrypto: ConstPtr<InformationcardCryptoHandle>, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: ConstPtr<UByte>, pphtransform: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
     0
 
-public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getHashInterface((pszprovidername?.value ?: 0L), (pszalgid?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptHashFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetHashInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getKeyDerivationInterface((pszprovidername?.value ?: 0L), (pszalgid?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptKeyDerivationFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetKeyDerivationInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getKeyStorageInterface((pszprovidername?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<NcryptKeyStorageFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetKeyStorageInterface(pszprovidername.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getKeyedHash(hsymmetriccrypto: COpaquePointer?, pphhash: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getKeyedHash((hsymmetriccrypto?.value ?: 0L), (pphhash?.value ?: 0L))
+public actual fun getKeyedHash(hsymmetriccrypto: ConstPtr<InformationcardCryptoHandle>, pphhash: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetKeyedHash(hsymmetriccrypto.rawAddress, pphhash.rawAddress)
 
-public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getRngInterface((pszprovidername?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptRngFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetRngInterface(pszprovidername.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getSChannelInterface((pszprovidername?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<NcryptSslFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetSChannelInterface(pszprovidername.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getSecretAgreementInterface((pszprovidername?.value ?: 0L), (pszalgid?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptSecretAgreementFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetSecretAgreementInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getSignatureInterface((pszprovidername?.value ?: 0L), (pszalgid?.value ?: 0L), (ppfunctiontable?.value ?: 0L), dwflags.toInt())
+public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptSignatureFunctionTable>>, dwflags: UInt): Ntstatus =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetSignatureInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getToken(cpolicychain: UInt, ppolicychain: COpaquePointer?, securitytoken: COpaquePointer?, phprooftokencrypto: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_getToken(cpolicychain.toInt(), (ppolicychain?.value ?: 0L), (securitytoken?.value ?: 0L), (phprooftokencrypto?.value ?: 0L))
+public actual fun getToken(cpolicychain: UInt, ppolicychain: ConstPtr<PolicyElement>, securitytoken: MutPtr<MutPtr<GenericXmlToken>>, phprooftokencrypto: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetToken(cpolicychain.toInt(), ppolicychain.rawAddress, securitytoken.rawAddress, phprooftokencrypto.rawAddress)
 
-public actual fun hashCore(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_hashCore((hcrypto?.value ?: 0L), cbindata.toInt(), (pindata?.value ?: 0L))
+public actual fun hashCore(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyHashCore(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress)
 
-public actual fun hashFinal(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_hashFinal((hcrypto?.value ?: 0L), cbindata.toInt(), (pindata?.value ?: 0L), (pcboutdata?.value ?: 0L), (ppoutdata?.value ?: 0L))
+public actual fun hashFinal(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyHashFinal(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
 public actual fun importInformationCard(filename: Pcwstr): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_importInformationCard((filename?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyImportInformationCard(filename.rawAddress)
 
 public actual fun manageCardSpace(): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_manageCardSpace()
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyManageCardSpace()
 
 public actual fun nCryptCloseProtectionDescriptor(hdescriptor: NcryptDescriptorHandle): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptCloseProtectionDescriptor((hdescriptor?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCloseProtectionDescriptor(hdescriptor.rawAddress)
 
-public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: COpaquePointer?, pbclaimblob: COpaquePointer?, cbclaimblob: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptCreateClaim(hsubjectkey.toLong(), hauthoritykey.toLong(), dwclaimtype.toInt(), (pparameterlist?.value ?: 0L), (pbclaimblob?.value ?: 0L), cbclaimblob.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbclaimblob: MutPtr<UByte>, cbclaimblob: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCreateClaim(hsubjectkey.toLong(), hauthoritykey.toLong(), dwclaimtype.toInt(), pparameterlist.rawAddress, pbclaimblob.rawAddress, cbclaimblob.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: COpaquePointer?, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptCreatePersistedKey(hprovider.toLong(), (phkey?.value ?: 0L), (pszalgid?.value ?: 0L), (pszkeyname?.value ?: 0L), dwlegacykeyspec.toInt(), dwflags.toInt())
+public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCreatePersistedKey(hprovider.toLong(), phkey.rawAddress, pszalgid.rawAddress, pszkeyname.rawAddress, dwlegacykeyspec.toInt(), dwflags.toInt())
 
-public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptCreateProtectionDescriptor((pwszdescriptorstring?.value ?: 0L), dwflags.toInt(), (phdescriptor?.value ?: 0L))
+public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: MutPtr<NcryptDescriptorHandle>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCreateProtectionDescriptor(pwszdescriptorstring.rawAddress, dwflags.toInt(), phdescriptor.rawAddress)
 
-public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptDecrypt(hkey.toLong(), (pbinput?.value ?: 0L), cbinput.toInt(), (ppaddinginfo?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptDecrypt(hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun nCryptDeleteKey(hkey: NcryptKeyHandle, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptDeleteKey(hkey.toLong(), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(hkey.toLong(), dwflags.toInt())
 
-public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptDeriveKey(hsharedsecret.toLong(), (pwszkdf?.value ?: 0L), (pparameterlist?.value ?: 0L), (pbderivedkey?.value ?: 0L), cbderivedkey.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptDeriveKey(hsharedsecret.toLong(), pwszkdf.rawAddress, pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptEncrypt(hkey.toLong(), (pbinput?.value ?: 0L), cbinput.toInt(), (ppaddinginfo?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEncrypt(hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: COpaquePointer?, ppalglist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptEnumAlgorithms(hprovider.toLong(), dwalgoperations.toInt(), (pdwalgcount?.value ?: 0L), (ppalglist?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: MutPtr<UInt>, ppalglist: MutPtr<MutPtr<NCryptAlgorithmName>>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEnumAlgorithms(hprovider.toLong(), dwalgoperations.toInt(), pdwalgcount.rawAddress, ppalglist.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptEnumKeys(hprovider.toLong(), (pszscope?.value ?: 0L), (ppkeyname?.value ?: 0L), (ppenumstate?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: MutPtr<MutPtr<NCryptKeyName>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEnumKeys(hprovider.toLong(), pszscope.rawAddress, ppkeyname.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEnumStorageProviders(pdwprovidercount: COpaquePointer?, ppproviderlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptEnumStorageProviders((pdwprovidercount?.value ?: 0L), (ppproviderlist?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptEnumStorageProviders(pdwprovidercount: MutPtr<UInt>, ppproviderlist: MutPtr<MutPtr<NCryptProviderName>>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEnumStorageProviders(pdwprovidercount.rawAddress, ppproviderlist.rawAddress, dwflags.toInt())
 
-public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptExportKey(hkey.toLong(), hexportkey.toLong(), (pszblobtype?.value ?: 0L), (pparameterlist?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptExportKey(hkey.toLong(), hexportkey.toLong(), pszblobtype.rawAddress, pparameterlist.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun nCryptFinalizeKey(hkey: NcryptKeyHandle, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptFinalizeKey(hkey.toLong(), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(hkey.toLong(), dwflags.toInt())
 
-public actual fun nCryptFreeBuffer(pvinput: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptFreeBuffer((pvinput?.value ?: 0L))
+public actual fun nCryptFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptFreeBuffer(pvinput.rawAddress)
 
 public actual fun nCryptFreeObject(hobject: NcryptHandle): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptFreeObject(hobject.toLong())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptFreeObject(hobject.toLong())
 
-public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: ObjectSecurityInformation): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptGetProperty(hobject.toLong(), (pszproperty?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: ObjectSecurityInformation): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptGetProperty(hobject.toLong(), pszproperty.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: COpaquePointer?, dwinfotype: UInt, ppvinfo: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptGetProtectionDescriptorInfo((hdescriptor?.value ?: 0L), (pmempara?.value ?: 0L), dwinfotype.toInt(), (ppvinfo?.value ?: 0L))
+public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: ConstPtr<NcryptAllocPara>, dwinfotype: UInt, ppvinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptGetProtectionDescriptorInfo(hdescriptor.rawAddress, pmempara.rawAddress, dwinfotype.toInt(), ppvinfo.rawAddress)
 
-public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: COpaquePointer?, phkey: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptImportKey(hprovider.toLong(), himportkey.toLong(), (pszblobtype?.value ?: 0L), (pparameterlist?.value ?: 0L), (phkey?.value ?: 0L), (pbdata?.value ?: 0L), cbdata.toInt(), dwflags.toInt())
+public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, phkey: MutPtr<NcryptKeyHandle>, pbdata: ConstPtr<UByte>, cbdata: UInt, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptImportKey(hprovider.toLong(), himportkey.toLong(), pszblobtype.rawAddress, pparameterlist.rawAddress, phkey.rawAddress, pbdata.rawAddress, cbdata.toInt(), dwflags.toInt())
 
 public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pcwstr, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptIsAlgSupported(hprovider.toLong(), (pszalgid?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptIsAlgSupported(hprovider.toLong(), pszalgid.rawAddress, dwflags.toInt())
 
 public actual fun nCryptIsKeyHandle(hkey: NcryptKeyHandle): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptIsKeyHandle(hkey.toLong())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(hkey.toLong())
 
-public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptKeyDerivation(hkey.toLong(), (pparameterlist?.value ?: 0L), (pbderivedkey?.value ?: 0L), cbderivedkey.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptKeyDerivation(hkey.toLong(), pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: COpaquePointer?, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptNotifyChangeKey(hprovider.toLong(), (phevent?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: MutPtr<Handle>, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptNotifyChangeKey(hprovider.toLong(), phevent.rawAddress, dwflags.toInt())
 
-public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: COpaquePointer?, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptOpenKey(hprovider.toLong(), (phkey?.value ?: 0L), (pszkeyname?.value ?: 0L), dwlegacykeyspec.toInt(), dwflags.toInt())
+public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptOpenKey(hprovider.toLong(), phkey.rawAddress, pszkeyname.rawAddress, dwlegacykeyspec.toInt(), dwflags.toInt())
 
-public actual fun nCryptOpenStorageProvider(phprovider: COpaquePointer?, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptOpenStorageProvider((phprovider?.value ?: 0L), (pszprovidername?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptOpenStorageProvider(phprovider: MutPtr<NcryptProvHandle>, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptOpenStorageProvider(phprovider.rawAddress, pszprovidername.rawAddress, dwflags.toInt())
 
-public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: COpaquePointer?, cbdata: UInt, pmempara: COpaquePointer?, hwnd: Hwnd, ppbprotectedblob: COpaquePointer?, pcbprotectedblob: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptProtectSecret((hdescriptor?.value ?: 0L), dwflags.toInt(), (pbdata?.value ?: 0L), cbdata.toInt(), (pmempara?.value ?: 0L), (hwnd?.value ?: 0L), (ppbprotectedblob?.value ?: 0L), (pcbprotectedblob?.value ?: 0L))
+public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: ConstPtr<UByte>, cbdata: UInt, pmempara: ConstPtr<NcryptAllocPara>, hwnd: Hwnd, ppbprotectedblob: MutPtr<MutPtr<UByte>>, pcbprotectedblob: MutPtr<UInt>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptProtectSecret(hdescriptor.rawAddress, dwflags.toInt(), pbdata.rawAddress, cbdata.toInt(), pmempara.rawAddress, hwnd.rawAddress, ppbprotectedblob.rawAddress, pcbprotectedblob.rawAddress)
 
-public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptQueryProtectionDescriptorName((pwszname?.value ?: 0L), (pwszdescriptorstring?.value ?: 0L), (pcdescriptorstring?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: MutPtr<ULong>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptQueryProtectionDescriptorName(pwszname.rawAddress, pwszdescriptorstring.rawAddress, pcdescriptorstring.rawAddress, dwflags.toInt())
 
 public actual fun nCryptRegisterProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pcwstr, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptRegisterProtectionDescriptorName((pwszname?.value ?: 0L), (pwszdescriptorstring?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptRegisterProtectionDescriptorName(pwszname.rawAddress, pwszdescriptorstring.rawAddress, dwflags.toInt())
 
-public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: COpaquePointer?, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptSecretAgreement(hprivkey.toLong(), hpubkey.toLong(), (phagreedsecret?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: MutPtr<NcryptSecretHandle>, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptSecretAgreement(hprivkey.toLong(), hpubkey.toLong(), phagreedsecret.rawAddress, dwflags.toInt())
 
-public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: COpaquePointer?, cbinput: UInt, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptSetProperty(hobject.toLong(), (pszproperty?.value ?: 0L), (pbinput?.value ?: 0L), cbinput.toInt(), dwflags.toInt())
+public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptSetProperty(hobject.toLong(), pszproperty.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptSignHash(hkey.toLong(), (ppaddinginfo?.value ?: 0L), (pbhashvalue?.value ?: 0L), cbhashvalue.toInt(), (pbsignature?.value ?: 0L), cbsignature.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: MutPtr<UByte>, cbsignature: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptSignHash(hkey.toLong(), ppaddinginfo.rawAddress, pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun nCryptStreamClose(hstream: NcryptStreamHandle): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptStreamClose((hstream?.value ?: 0L))
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamClose(hstream.rawAddress)
 
-public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: COpaquePointer?, phstream: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToProtect((hdescriptor?.value ?: 0L), dwflags.toInt(), (hwnd?.value ?: 0L), (pstreaminfo?.value ?: 0L), (phstream?.value ?: 0L))
+public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: ConstPtr<NcryptProtectStreamInfo>, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToProtect(hdescriptor.rawAddress, dwflags.toInt(), hwnd.rawAddress, pstreaminfo.rawAddress, phstream.rawAddress)
 
-public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: COpaquePointer?, dwflags: UInt, hwnd: Hwnd, phstream: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotect((pstreaminfo?.value ?: 0L), dwflags.toInt(), (hwnd?.value ?: 0L), (phstream?.value ?: 0L))
+public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: ConstPtr<NcryptProtectStreamInfo>, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotect(pstreaminfo.rawAddress, dwflags.toInt(), hwnd.rawAddress, phstream.rawAddress)
 
-public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: COpaquePointer?, dwflags: UInt, hwnd: Hwnd, phstream: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotectEx((pstreaminfo?.value ?: 0L), dwflags.toInt(), (hwnd?.value ?: 0L), (phstream?.value ?: 0L))
+public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: ConstPtr<NcryptProtectStreamInfoEx>, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotectEx(pstreaminfo.rawAddress, dwflags.toInt(), hwnd.rawAddress, phstream.rawAddress)
 
-public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: COpaquePointer?, cbdata: ULong, ffinal: Bool): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptStreamUpdate((hstream?.value ?: 0L), (pbdata?.value ?: 0L), cbdata.toLong(), ffinal)
+public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: ConstPtr<UByte>, cbdata: ULong, ffinal: Bool): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamUpdate(hstream.rawAddress, pbdata.rawAddress, cbdata.toLong(), ffinal)
 
-public actual fun nCryptTranslateHandle(phprovider: COpaquePointer?, phkey: COpaquePointer?, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptTranslateHandle((phprovider?.value ?: 0L), (phkey?.value ?: 0L), hlegacyprov.toLong(), hlegacykey.toLong(), dwlegacykeyspec.toInt(), dwflags.toInt())
+public actual fun nCryptTranslateHandle(phprovider: MutPtr<NcryptProvHandle>, phkey: MutPtr<NcryptKeyHandle>, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptTranslateHandle(phprovider.rawAddress, phkey.rawAddress, hlegacyprov.toLong(), hlegacykey.toLong(), dwlegacykeyspec.toInt(), dwflags.toInt())
 
-public actual fun nCryptUnprotectSecret(phdescriptor: COpaquePointer?, dwflags: NcryptFlags, pbprotectedblob: COpaquePointer?, cbprotectedblob: UInt, pmempara: COpaquePointer?, hwnd: Hwnd, ppbdata: COpaquePointer?, pcbdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptUnprotectSecret((phdescriptor?.value ?: 0L), dwflags.toInt(), (pbprotectedblob?.value ?: 0L), cbprotectedblob.toInt(), (pmempara?.value ?: 0L), (hwnd?.value ?: 0L), (ppbdata?.value ?: 0L), (pcbdata?.value ?: 0L))
+public actual fun nCryptUnprotectSecret(phdescriptor: MutPtr<NcryptDescriptorHandle>, dwflags: NcryptFlags, pbprotectedblob: ConstPtr<UByte>, cbprotectedblob: UInt, pmempara: ConstPtr<NcryptAllocPara>, hwnd: Hwnd, ppbdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptUnprotectSecret(phdescriptor.rawAddress, dwflags.toInt(), pbprotectedblob.rawAddress, cbprotectedblob.toInt(), pmempara.rawAddress, hwnd.rawAddress, ppbdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: COpaquePointer?, pbclaimblob: COpaquePointer?, cbclaimblob: UInt, poutput: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptVerifyClaim(hsubjectkey.toLong(), hauthoritykey.toLong(), dwclaimtype.toInt(), (pparameterlist?.value ?: 0L), (pbclaimblob?.value ?: 0L), cbclaimblob.toInt(), (poutput?.value ?: 0L), dwflags.toInt())
+public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbclaimblob: ConstPtr<UByte>, cbclaimblob: UInt, poutput: MutPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptVerifyClaim(hsubjectkey.toLong(), hauthoritykey.toLong(), dwclaimtype.toInt(), pparameterlist.rawAddress, pbclaimblob.rawAddress, cbclaimblob.toInt(), poutput.rawAddress, dwflags.toInt())
 
-public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_nCryptVerifySignature(hkey.toLong(), (ppaddinginfo?.value ?: 0L), (pbhashvalue?.value ?: 0L), cbhashvalue.toInt(), (pbsignature?.value ?: 0L), cbsignature.toInt(), dwflags.toInt())
+public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptVerifySignature(hkey.toLong(), ppaddinginfo.rawAddress, pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), dwflags.toInt())
 
-public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_pFXExportCertStore((hstore?.value ?: 0L), (ppfx?.value ?: 0L), (szpassword?.value ?: 0L), dwflags.toInt())
+public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: MutPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXExportCertStore(hstore.rawAddress, ppfx.rawAddress, szpassword.rawAddress, dwflags.toInt())
 
-public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: COpaquePointer?, szpassword: Pcwstr, pvpara: COpaquePointer?, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_pFXExportCertStoreEx((hstore?.value ?: 0L), (ppfx?.value ?: 0L), (szpassword?.value ?: 0L), (pvpara?.value ?: 0L), dwflags.toInt())
+public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: MutPtr<CryptIntegerBlob>, szpassword: Pcwstr, pvpara: ConstPtr<CVoid>, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXExportCertStoreEx(hstore.rawAddress, ppfx.rawAddress, szpassword.rawAddress, pvpara.rawAddress, dwflags.toInt())
 
-public actual fun pFXImportCertStore(ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_pFXImportCertStore((ppfx?.value ?: 0L), (szpassword?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun pFXImportCertStore(ppfx: ConstPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
+    MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXImportCertStore(ppfx.rawAddress, szpassword.rawAddress, dwflags.toInt()))
 
-public actual fun pFXIsPFXBlob(ppfx: COpaquePointer?): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_pFXIsPFXBlob((ppfx?.value ?: 0L))
+public actual fun pFXIsPFXBlob(ppfx: ConstPtr<CryptIntegerBlob>): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXIsPFXBlob(ppfx.rawAddress)
 
-public actual fun pFXVerifyPassword(ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: UInt): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_pFXVerifyPassword((ppfx?.value ?: 0L), (szpassword?.value ?: 0L), dwflags.toInt())
+public actual fun pFXVerifyPassword(ppfx: ConstPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXVerifyPassword(ppfx.rawAddress, szpassword.rawAddress, dwflags.toInt())
 
-public actual fun processPrng(pbdata: COpaquePointer?, cbdata: ULong): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_processPrng((pbdata?.value ?: 0L), cbdata.toLong())
+public actual fun processPrng(pbdata: MutPtr<UByte>, cbdata: ULong): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyProcessPrng(pbdata.rawAddress, cbdata.toLong())
 
 public actual fun signError(): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signError()
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignError()
 
-public actual fun signHash(hcrypto: COpaquePointer?, cbhash: UInt, phash: COpaquePointer?, hashalgoid: Pcwstr, pcbsig: COpaquePointer?, ppsig: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signHash((hcrypto?.value ?: 0L), cbhash.toInt(), (phash?.value ?: 0L), (hashalgoid?.value ?: 0L), (pcbsig?.value ?: 0L), (ppsig?.value ?: 0L))
+public actual fun signHash(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbhash: UInt, phash: ConstPtr<UByte>, hashalgoid: Pcwstr, pcbsig: MutPtr<UInt>, ppsig: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignHash(hcrypto.rawAddress, cbhash.toInt(), phash.rawAddress, hashalgoid.rawAddress, pcbsig.rawAddress, ppsig.rawAddress)
 
-public actual fun signerFreeSignerContext(psignercontext: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerFreeSignerContext((psignercontext?.value ?: 0L))
+public actual fun signerFreeSignerContext(psignercontext: ConstPtr<SignerContext>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerFreeSignerContext(psignercontext.rawAddress)
 
-public actual fun signerSign(psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerSign((psubjectinfo?.value ?: 0L), (psignercert?.value ?: 0L), (psignatureinfo?.value ?: 0L), (pproviderinfo?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L))
+public actual fun signerSign(psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSign(psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress)
 
-public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerSignEx(dwflags.toInt(), (psubjectinfo?.value ?: 0L), (psignercert?.value ?: 0L), (psignatureinfo?.value ?: 0L), (pproviderinfo?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L), (ppsignercontext?.value ?: 0L))
+public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSignEx(dwflags.toInt(), psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress)
 
-public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, preserved: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerSignEx2(dwflags.toInt(), (psubjectinfo?.value ?: 0L), (psignercert?.value ?: 0L), (psignatureinfo?.value ?: 0L), (pproviderinfo?.value ?: 0L), dwtimestampflags.toInt(), (psztimestampalgorithmoid?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L), (ppsignercontext?.value ?: 0L), (pcryptopolicy?.value ?: 0L), (preserved?.value ?: 0L))
+public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, preserved: ConstPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSignEx2(dwflags.toInt(), psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, dwtimestampflags.toInt(), psztimestampalgorithmoid.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress, pcryptopolicy.rawAddress, preserved.rawAddress)
 
-public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, pdigestsigninfo: COpaquePointer?, preserved: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerSignEx3(dwflags.toInt(), (psubjectinfo?.value ?: 0L), (psignercert?.value ?: 0L), (psignatureinfo?.value ?: 0L), (pproviderinfo?.value ?: 0L), dwtimestampflags.toInt(), (psztimestampalgorithmoid?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L), (ppsignercontext?.value ?: 0L), (pcryptopolicy?.value ?: 0L), (pdigestsigninfo?.value ?: 0L), (preserved?.value ?: 0L))
+public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, pdigestsigninfo: ConstPtr<SignerDigestSignInfo>, preserved: ConstPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSignEx3(dwflags.toInt(), psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, dwtimestampflags.toInt(), psztimestampalgorithmoid.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress, pcryptopolicy.rawAddress, pdigestsigninfo.rawAddress, preserved.rawAddress)
 
-public actual fun signerTimeStamp(psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerTimeStamp((psubjectinfo?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L))
+public actual fun signerTimeStamp(psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStamp(psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress)
 
-public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerTimeStampEx(dwflags.toInt(), (psubjectinfo?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L), (ppsignercontext?.value ?: 0L))
+public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStampEx(dwflags.toInt(), psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress)
 
-public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerTimeStampEx2(dwflags.toInt(), (psubjectinfo?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), dwalgid.toInt(), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L), (ppsignercontext?.value ?: 0L))
+public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStampEx2(dwflags.toInt(), psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, dwalgid.toInt(), psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress)
 
-public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, preserved: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_signerTimeStampEx3(dwflags.toInt(), dwindex.toInt(), (psubjectinfo?.value ?: 0L), (pwszhttptimestamp?.value ?: 0L), (pszalgorithmoid?.value ?: 0L), (psrequest?.value ?: 0L), (psipdata?.value ?: 0L), (ppsignercontext?.value ?: 0L), (pcryptopolicy?.value ?: 0L), (preserved?.value ?: 0L))
+public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, preserved: ConstPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStampEx3(dwflags.toInt(), dwindex.toInt(), psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, pszalgorithmoid.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress, pcryptopolicy.rawAddress, preserved.rawAddress)
 
 public actual fun sslChangeNotify(hevent: Handle, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslChangeNotify((hevent?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslChangeNotify(hevent.rawAddress, dwflags.toInt())
 
-public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslComputeClientAuthHash(hsslprovider.toLong(), hmasterkey.toLong(), hhandshakehash.toLong(), (pszalgid?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeClientAuthHash(hsslprovider.toLong(), hmasterkey.toLong(), hhandshakehash.toLong(), pszalgid.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: COpaquePointer?, cbrandoms: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslComputeEapKeyBlock(hsslprovider.toLong(), hmasterkey.toLong(), (pbrandoms?.value ?: 0L), cbrandoms.toInt(), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: ConstPtr<UByte>, cbrandoms: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeEapKeyBlock(hsslprovider.toLong(), hmasterkey.toLong(), pbrandoms.rawAddress, cbrandoms.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslComputeFinishedHash(hsslprovider.toLong(), hmasterkey.toLong(), hhandshakehash.toLong(), (pboutput?.value ?: 0L), cboutput.toInt(), dwflags.toInt())
+public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeFinishedHash(hsslprovider.toLong(), hmasterkey.toLong(), hhandshakehash.toLong(), pboutput.rawAddress, cboutput.toInt(), dwflags.toInt())
 
-public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslComputeSessionHash(hsslprovider.toLong(), hhandshakehash.toLong(), dwprotocol.toInt(), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeSessionHash(hsslprovider.toLong(), hhandshakehash.toLong(), dwprotocol.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslCreateClientAuthHash(hsslprovider.toLong(), (phhandshakehash?.value ?: 0L), dwprotocol.toInt(), dwciphersuite.toInt(), (pszhashalgid?.value ?: 0L), dwflags.toInt())
+public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr<NcryptHashHandle>, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslCreateClientAuthHash(hsslprovider.toLong(), phhandshakehash.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pszhashalgid.rawAddress, dwflags.toInt())
 
-public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: COpaquePointer?, cbparams: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslCreateEphemeralKey(hsslprovider.toLong(), (phephemeralkey?.value ?: 0L), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), dwkeybitlen.toInt(), (pbparams?.value ?: 0L), cbparams.toInt(), dwflags.toInt())
+public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: ConstPtr<UByte>, cbparams: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslCreateEphemeralKey(hsslprovider.toLong(), phephemeralkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), dwkeybitlen.toInt(), pbparams.rawAddress, cbparams.toInt(), dwflags.toInt())
 
-public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslCreateHandshakeHash(hsslprovider.toLong(), (phhandshakehash?.value ?: 0L), dwprotocol.toInt(), dwciphersuite.toInt(), dwflags.toInt())
+public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr<NcryptHashHandle>, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslCreateHandshakeHash(hsslprovider.toLong(), phhandshakehash.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), dwflags.toInt())
 
 public actual fun sslDecrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslDecrementProviderReferenceCount(hsslprovider.toLong())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(hsslprovider.toLong())
 
-public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, sequencenumber: ULong, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslDecryptPacket(hsslprovider.toLong(), hkey.toLong(), (pbinput?.value ?: 0L), cbinput.toInt(), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), sequencenumber.toLong(), dwflags.toInt())
+public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, sequencenumber: ULong, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslDecryptPacket(hsslprovider.toLong(), hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, sequencenumber.toLong(), dwflags.toInt())
 
-public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslDuplicateTranscriptHash(hsslprovider.toLong(), htranscripthash.toLong(), (phtranscripthash?.value ?: 0L), dwflags.toInt())
+public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: MutPtr<NcryptHashHandle>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslDuplicateTranscriptHash(hsslprovider.toLong(), htranscripthash.toLong(), phtranscripthash.rawAddress, dwflags.toInt())
 
-public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslEncryptPacket(hsslprovider.toLong(), hkey.toLong(), (pbinput?.value ?: 0L), cbinput.toInt(), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), sequencenumber.toLong(), dwcontenttype.toInt(), dwflags.toInt())
+public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEncryptPacket(hsslprovider.toLong(), hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, sequencenumber.toLong(), dwcontenttype.toInt(), dwflags.toInt())
 
-public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslEnumCipherSuites(hsslprovider.toLong(), hprivatekey.toLong(), (ppciphersuite?.value ?: 0L), (ppenumstate?.value ?: 0L), dwflags.toInt())
+public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr<MutPtr<NcryptSslCipherSuite>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumCipherSuites(hsslprovider.toLong(), hprivatekey.toLong(), ppciphersuite.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslEnumCipherSuitesEx(hsslprovider.toLong(), hprivatekey.toLong(), (ppciphersuite?.value ?: 0L), (ppenumstate?.value ?: 0L), dwflags.toInt())
+public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr<MutPtr<NcryptSslCipherSuiteEx>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumCipherSuitesEx(hsslprovider.toLong(), hprivatekey.toLong(), ppciphersuite.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: COpaquePointer?, ppecccurve: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslEnumEccCurves(hsslprovider.toLong(), (pecccurvecount?.value ?: 0L), (ppecccurve?.value ?: 0L), dwflags.toInt())
+public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: MutPtr<UInt>, ppecccurve: MutPtr<MutPtr<NcryptSslEccCurve>>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumEccCurves(hsslprovider.toLong(), pecccurvecount.rawAddress, ppecccurve.rawAddress, dwflags.toInt())
 
-public actual fun sslEnumProtocolProviders(pdwprovidercount: COpaquePointer?, ppproviderlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslEnumProtocolProviders((pdwprovidercount?.value ?: 0L), (ppproviderlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslEnumProtocolProviders(pdwprovidercount: MutPtr<UInt>, ppproviderlist: MutPtr<MutPtr<NCryptProviderName>>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumProtocolProviders(pdwprovidercount.rawAddress, ppproviderlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExpandBinderKey(hsslprovider.toLong(), hearlykey.toLong(), (phbinderkey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandBinderKey(hsslprovider.toLong(), hearlykey.toLong(), phbinderkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExpandExporterMasterKey(hsslprovider.toLong(), hbasekey.toLong(), hhashvalue.toLong(), (phexportermasterkey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandExporterMasterKey(hsslprovider.toLong(), hbasekey.toLong(), hhashvalue.toLong(), phexportermasterkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: COpaquePointer?, cbticketnonce: UInt, phpresharedkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExpandPreSharedKey(hsslprovider.toLong(), hresumptionmasterkey.toLong(), (pbticketnonce?.value ?: 0L), cbticketnonce.toInt(), (phpresharedkey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: ConstPtr<UByte>, cbticketnonce: UInt, phpresharedkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandPreSharedKey(hsslprovider.toLong(), hresumptionmasterkey.toLong(), pbticketnonce.rawAddress, cbticketnonce.toInt(), phpresharedkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExpandResumptionMasterKey(hsslprovider.toLong(), hmasterkey.toLong(), hhashvalue.toLong(), (phresumptionmasterkey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandResumptionMasterKey(hsslprovider.toLong(), hmasterkey.toLong(), hhashvalue.toLong(), phresumptionmasterkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: COpaquePointer?, phservertraffickey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExpandTrafficKeys(hsslprovider.toLong(), hbasekey.toLong(), hhashvalue.toLong(), (phclienttraffickey?.value ?: 0L), (phservertraffickey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: MutPtr<NcryptKeyHandle>, phservertraffickey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandTrafficKeys(hsslprovider.toLong(), hbasekey.toLong(), hhashvalue.toLong(), phclienttraffickey.rawAddress, phservertraffickey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExpandWriteKey(hsslprovider.toLong(), hbasetraffickey.toLong(), (phwritekey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandWriteKey(hsslprovider.toLong(), hbasetraffickey.toLong(), phwritekey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExportKey(hsslprovider.toLong(), hkey.toLong(), (pszblobtype?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExportKey(hsslprovider.toLong(), hkey.toLong(), pszblobtype.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: COpaquePointer?, cbrandoms: UInt, pbcontextvalue: COpaquePointer?, cbcontextvalue: UShort, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExportKeyingMaterial(hsslprovider.toLong(), hmasterkey.toLong(), (slabel?.value ?: 0L), (pbrandoms?.value ?: 0L), cbrandoms.toInt(), (pbcontextvalue?.value ?: 0L), cbcontextvalue.toShort(), (pboutput?.value ?: 0L), cboutput.toInt(), dwflags.toInt())
+public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: ConstPtr<UByte>, cbrandoms: UInt, pbcontextvalue: ConstPtr<UByte>, cbcontextvalue: UShort, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExportKeyingMaterial(hsslprovider.toLong(), hmasterkey.toLong(), slabel.rawAddress, pbrandoms.rawAddress, cbrandoms.toInt(), pbcontextvalue.rawAddress, cbcontextvalue.toShort(), pboutput.rawAddress, cboutput.toInt(), dwflags.toInt())
 
-public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExtractEarlyKey(hsslprovider.toLong(), hpresharedkey.toLong(), (phearlykey?.value ?: 0L), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExtractEarlyKey(hsslprovider.toLong(), hpresharedkey.toLong(), phearlykey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExtractHandshakeKey(hsslprovider.toLong(), hprivatekey.toLong(), hpublickey.toLong(), hearlykey.toLong(), (phhandshakekey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExtractHandshakeKey(hsslprovider.toLong(), hprivatekey.toLong(), hpublickey.toLong(), hearlykey.toLong(), phhandshakekey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslExtractMasterKey(hsslprovider.toLong(), hhandshakekey.toLong(), (phmasterkey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExtractMasterKey(hsslprovider.toLong(), hhandshakekey.toLong(), phmasterkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslFreeBuffer(pvinput: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslFreeBuffer((pvinput?.value ?: 0L))
+public actual fun sslFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslFreeBuffer(pvinput.rawAddress)
 
 public actual fun sslFreeObject(hobject: NcryptHandle, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslFreeObject(hobject.toLong(), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslFreeObject(hobject.toLong(), dwflags.toInt())
 
-public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslGenerateMasterKey(hsslprovider.toLong(), hprivatekey.toLong(), hpublickey.toLong(), (phmasterkey?.value ?: 0L), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGenerateMasterKey(hsslprovider.toLong(), hprivatekey.toLong(), hpublickey.toLong(), phmasterkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslGeneratePreMasterKey(hsslprovider.toLong(), hpublickey.toLong(), (phpremasterkey?.value ?: 0L), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L), (pboutput?.value ?: 0L), cboutput.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGeneratePreMasterKey(hsslprovider.toLong(), hpublickey.toLong(), phpremasterkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: COpaquePointer?, phwritekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslGenerateSessionKeys(hsslprovider.toLong(), hmasterkey.toLong(), (phreadkey?.value ?: 0L), (phwritekey?.value ?: 0L), (pparameterlist?.value ?: 0L), dwflags.toInt())
+public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: MutPtr<NcryptKeyHandle>, phwritekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGenerateSessionKeys(hsslprovider.toLong(), hmasterkey.toLong(), phreadkey.rawAddress, phwritekey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
 public actual fun sslGetCipherSuitePRFHashAlgorithm(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, szprfhash: Pwstr, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslGetCipherSuitePRFHashAlgorithm(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), (szprfhash?.value ?: 0L), dwflags.toInt())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGetCipherSuitePRFHashAlgorithm(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), szprfhash.rawAddress, dwflags.toInt())
 
-public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: COpaquePointer?, pcboutput: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslGetKeyProperty(hkey.toLong(), (pszproperty?.value ?: 0L), (ppboutput?.value ?: 0L), (pcboutput?.value ?: 0L), dwflags.toInt())
+public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: MutPtr<MutPtr<UByte>>, pcboutput: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGetKeyProperty(hkey.toLong(), pszproperty.rawAddress, ppboutput.rawAddress, pcboutput.rawAddress, dwflags.toInt())
 
-public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: COpaquePointer?, pcboutput: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslGetProviderProperty(hsslprovider.toLong(), (pszproperty?.value ?: 0L), (ppboutput?.value ?: 0L), (pcboutput?.value ?: 0L), (ppenumstate?.value ?: 0L), dwflags.toInt())
+public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: MutPtr<MutPtr<UByte>>, pcboutput: MutPtr<UInt>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGetProviderProperty(hsslprovider.toLong(), pszproperty.rawAddress, ppboutput.rawAddress, pcboutput.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslHashHandshake(hsslprovider.toLong(), hhandshakehash.toLong(), (pbinput?.value ?: 0L), cbinput.toInt(), dwflags.toInt())
+public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslHashHandshake(hsslprovider.toLong(), hhandshakehash.toLong(), pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: COpaquePointer?, pszblobtype: Pcwstr, pbkeyblob: COpaquePointer?, cbkeyblob: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslImportKey(hsslprovider.toLong(), (phkey?.value ?: 0L), (pszblobtype?.value ?: 0L), (pbkeyblob?.value ?: 0L), cbkeyblob.toInt(), dwflags.toInt())
+public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszblobtype: Pcwstr, pbkeyblob: ConstPtr<UByte>, cbkeyblob: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslImportKey(hsslprovider.toLong(), phkey.rawAddress, pszblobtype.rawAddress, pbkeyblob.rawAddress, cbkeyblob.toInt(), dwflags.toInt())
 
-public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pbencryptedkey: COpaquePointer?, cbencryptedkey: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslImportMasterKey(hsslprovider.toLong(), hprivatekey.toLong(), (phmasterkey?.value ?: 0L), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L), (pbencryptedkey?.value ?: 0L), cbencryptedkey.toInt(), dwflags.toInt())
+public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbencryptedkey: ConstPtr<UByte>, cbencryptedkey: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslImportMasterKey(hsslprovider.toLong(), hprivatekey.toLong(), phmasterkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, pbencryptedkey.rawAddress, cbencryptedkey.toInt(), dwflags.toInt())
 
 public actual fun sslIncrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslIncrementProviderReferenceCount(hsslprovider.toLong())
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(hsslprovider.toLong())
 
-public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: COpaquePointer?, cbcipherlengths: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslLookupCipherLengths(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), (pcipherlengths?.value ?: 0L), cbcipherlengths.toInt(), dwflags.toInt())
+public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: MutPtr<NcryptSslCipherLengths>, cbcipherlengths: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslLookupCipherLengths(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), pcipherlengths.rawAddress, cbcipherlengths.toInt(), dwflags.toInt())
 
-public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslLookupCipherSuiteInfo(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), (pciphersuite?.value ?: 0L), dwflags.toInt())
+public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: MutPtr<NcryptSslCipherSuite>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslLookupCipherSuiteInfo(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), pciphersuite.rawAddress, dwflags.toInt())
 
-public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: COpaquePointer?, pcertcontext: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslOpenPrivateKey(hsslprovider.toLong(), (phprivatekey?.value ?: 0L), (pcertcontext?.value ?: 0L), dwflags.toInt())
+public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: MutPtr<NcryptKeyHandle>, pcertcontext: ConstPtr<CertContext>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslOpenPrivateKey(hsslprovider.toLong(), phprivatekey.rawAddress, pcertcontext.rawAddress, dwflags.toInt())
 
-public actual fun sslOpenProvider(phsslprovider: COpaquePointer?, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslOpenProvider((phsslprovider?.value ?: 0L), (pszprovidername?.value ?: 0L), dwflags.toInt())
+public actual fun sslOpenProvider(phsslprovider: MutPtr<NcryptProvHandle>, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslOpenProvider(phsslprovider.rawAddress, pszprovidername.rawAddress, dwflags.toInt())
 
-public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslSignHash(hsslprovider.toLong(), hprivatekey.toLong(), (pbhashvalue?.value ?: 0L), cbhashvalue.toInt(), (pbsignature?.value ?: 0L), cbsignature.toInt(), (pcbresult?.value ?: 0L), dwflags.toInt())
+public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: MutPtr<UByte>, cbsignature: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslSignHash(hsslprovider.toLong(), hprivatekey.toLong(), pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: UInt): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_sslVerifySignature(hsslprovider.toLong(), hpublickey.toLong(), (pbhashvalue?.value ?: 0L), cbhashvalue.toInt(), (pbsignature?.value ?: 0L), cbsignature.toInt(), dwflags.toInt())
+public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: UInt): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslVerifySignature(hsslprovider.toLong(), hpublickey.toLong(), pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), dwflags.toInt())
 
-public actual fun systemPrng(pbrandomdata: COpaquePointer?, cbrandomdata: ULong): Bool =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_systemPrng((pbrandomdata?.value ?: 0L), cbrandomdata.toLong())
+public actual fun systemPrng(pbrandomdata: MutPtr<UByte>, cbrandomdata: ULong): Bool =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySystemPrng(pbrandomdata.rawAddress, cbrandomdata.toLong())
 
-public actual fun transformBlock(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_transformBlock((hcrypto?.value ?: 0L), cbindata.toInt(), (pindata?.value ?: 0L), (pcboutdata?.value ?: 0L), (ppoutdata?.value ?: 0L))
+public actual fun transformBlock(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyTransformBlock(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun transformFinalBlock(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_transformFinalBlock((hcrypto?.value ?: 0L), cbindata.toInt(), (pindata?.value ?: 0L), (pcboutdata?.value ?: 0L), (ppoutdata?.value ?: 0L))
+public actual fun transformFinalBlock(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyTransformFinalBlock(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun verifyHash(hcrypto: COpaquePointer?, cbhash: UInt, phash: COpaquePointer?, hashalgoid: Pcwstr, cbsig: UInt, psig: COpaquePointer?, pfverified: COpaquePointer?): Hresult =
-    WindowsWin32SecurityCryptographyJniBridge.windowssys_windows_win32_security_cryptography_verifyHash((hcrypto?.value ?: 0L), cbhash.toInt(), (phash?.value ?: 0L), (hashalgoid?.value ?: 0L), cbsig.toInt(), (psig?.value ?: 0L), (pfverified?.value ?: 0L))
+public actual fun verifyHash(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbhash: UInt, phash: ConstPtr<UByte>, hashalgoid: Pcwstr, cbsig: UInt, psig: ConstPtr<UByte>, pfverified: MutPtr<Bool>): Hresult =
+    WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyVerifyHash(hcrypto.rawAddress, cbhash.toInt(), phash.rawAddress, hashalgoid.rawAddress, cbsig.toInt(), psig.rawAddress, pfverified.rawAddress)

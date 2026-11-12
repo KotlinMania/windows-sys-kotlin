@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwstyle = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_adjustWindowR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRectEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRectEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwstyle = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_adjustWindowR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_allowSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingAllowSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_allowSetForeg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_animateWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingAnimateWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwtime = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_animateWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_anyPopup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingAnyPopup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -188,7 +188,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_anyPopup_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_appendMenuA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingAppendMenuA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_appendMenuA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_appendMenuW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingAppendMenuW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -250,7 +250,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_appendMenuW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_arrangeIconicWindows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingArrangeIconicWindows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -275,7 +275,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_arrangeIconic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_beginDeferWindowPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingBeginDeferWindowPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nnumwindows = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -300,7 +300,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_beginDeferWin
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_bringWindowToTop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingBringWindowToTop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -325,7 +325,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_bringWindowTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_calculatePopupWindowPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCalculatePopupWindowPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* anchorpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* windowsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -358,7 +358,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_calculatePopu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ncode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -385,7 +385,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callMsgFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ncode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -412,7 +412,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callMsgFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callNextHookEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCallNextHookEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ncode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -443,7 +443,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callNextHookE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callWindowProcA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCallWindowProcA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprevwndfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -476,7 +476,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callWindowPro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callWindowProcW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCallWindowProcW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprevwndfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -509,7 +509,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_callWindowPro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_cancelShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCancelShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -532,7 +532,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_cancelShutdow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_cascadeWindows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCascadeWindows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t whow = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -565,7 +565,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_cascadeWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeMenuA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingChangeMenuA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cmd = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -598,7 +598,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeMenuA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeMenuW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingChangeMenuW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cmd = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -631,7 +631,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeMenuW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t message = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflag = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -658,7 +658,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeWindowM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilterEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t message = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -689,7 +689,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_changeWindowM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharLowerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -714,7 +714,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -741,7 +741,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -768,7 +768,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharLowerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -793,7 +793,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charLowerW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charNextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharNextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -818,7 +818,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charNextA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charNextExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharNextExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t codepage = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcurrentchar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -847,7 +847,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charNextExA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charNextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharNextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -872,7 +872,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charNextW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charPrevA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharPrevA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcurrent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -899,7 +899,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charPrevA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charPrevExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharPrevExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t codepage = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -930,7 +930,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charPrevExA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charPrevW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharPrevW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcurrent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -957,7 +957,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charPrevW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharToOemA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -984,7 +984,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1013,7 +1013,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1042,7 +1042,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharToOemW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1069,7 +1069,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charToOemW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharUpperA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1094,7 +1094,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1121,7 +1121,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1148,7 +1148,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCharUpperW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1173,7 +1173,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_charUpperW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_checkMenuItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCheckMenuItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uidcheckitem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1202,7 +1202,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_checkMenuItem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_checkMenuRadioItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCheckMenuRadioItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t first = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1235,7 +1235,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_checkMenuRadi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_clipCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingClipCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1260,7 +1260,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_clipCursor_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_closeWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCloseWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1285,7 +1285,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_closeWindow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* haccelsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpacceldst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1314,7 +1314,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyAccelerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* haccelsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpacceldst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1343,7 +1343,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyAccelerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCopyIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1368,7 +1368,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyIcon_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCopyImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1401,7 +1401,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_copyImage_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paccel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t caccel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1428,7 +1428,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createAcceler
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paccel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t caccel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1455,7 +1455,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createAcceler
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createCaret_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateCaret_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hbitmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1486,7 +1486,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createCaret_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xhotspot = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1523,7 +1523,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createCursor_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1556,7 +1556,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogI
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1589,7 +1589,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogI
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogParamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptemplatename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1622,7 +1622,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogP
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogParamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptemplatename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1655,7 +1655,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createDialogP
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nwidth = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1692,7 +1692,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIcon_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIconFromResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwressize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1723,7 +1723,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIconFro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIconFromResourceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResourceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwressize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1760,7 +1760,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIconFro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIconIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateIconIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piconinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1785,7 +1785,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createIconInd
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwindowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1828,7 +1828,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createMDIWind
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwindowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1871,7 +1871,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createMDIWind
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1894,7 +1894,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createMenu_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createPopupMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreatePopupMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1917,7 +1917,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createPopupMe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createResourceIndexer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateResourceIndexer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* projectroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* extensiondllpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1946,7 +1946,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createResourc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createWindowExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateWindowExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwexstyle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1993,7 +1993,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createWindowE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createWindowExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingCreateWindowExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwexstyle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2040,7 +2040,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_createWindowE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defDlgProcA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefDlgProcA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2071,7 +2071,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defDlgProcA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defDlgProcW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefDlgProcW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2102,7 +2102,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defDlgProcW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defFrameProcA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefFrameProcA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndmdiclient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2135,7 +2135,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defFrameProcA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defFrameProcW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefFrameProcW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndmdiclient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2168,7 +2168,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defFrameProcW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2199,7 +2199,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defMDIChildPr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2230,7 +2230,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defMDIChildPr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defWindowProcA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefWindowProcA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2261,7 +2261,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defWindowProc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defWindowProcW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDefWindowProcW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2292,7 +2292,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_defWindowProc
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_deferWindowPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDeferWindowPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwinposinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2331,7 +2331,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_deferWindowPo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_deleteMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDeleteMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2360,7 +2360,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_deleteMenu_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_deregisterShellHookWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDeregisterShellHookWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2385,7 +2385,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_deregisterShe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyAcceleratorTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyAcceleratorTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* haccel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2410,7 +2410,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyAccele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyCaret_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyCaret_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2433,7 +2433,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyCaret_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2458,7 +2458,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyCursor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2483,7 +2483,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyIcon_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyIndexedResults_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyIndexedResults_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourceuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t qualifiercount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2509,7 +2509,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyIndexe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2534,7 +2534,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyMenu_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyResourceIndexer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyResourceIndexer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourceindexer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2556,7 +2556,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyResour
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDestroyWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2581,7 +2581,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_destroyWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdialogtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2614,7 +2614,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdialogtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2647,7 +2647,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptemplatename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2680,7 +2680,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxPara
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptemplatename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2713,7 +2713,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dialogBoxPara
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_disableProcessWindowsGhosting_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDisableProcessWindowsGhosting_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2733,7 +2733,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_disableProces
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDispatchMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2758,7 +2758,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dispatchMessa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDispatchMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2783,7 +2783,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dispatchMessa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dragObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDragObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndfrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2816,7 +2816,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_dragObject_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_drawIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDrawIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2847,7 +2847,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_drawIcon_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_drawIconEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDrawIconEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xleft = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2888,7 +2888,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_drawIconEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_drawMenuBar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingDrawMenuBar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2913,7 +2913,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_drawMenuBar_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enableMenuItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnableMenuItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uidenableitem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2942,7 +2942,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enableMenuIte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_endDeferWindowPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEndDeferWindowPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwinposinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2967,7 +2967,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_endDeferWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_endDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEndDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t nresult = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2994,7 +2994,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_endDialog_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_endMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEndMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3017,7 +3017,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_endMenu_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumChildWindows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnumChildWindows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3046,7 +3046,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumChildWind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnumPropsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3073,7 +3073,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnumPropsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3102,7 +3102,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsExA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnumPropsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3131,7 +3131,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsExW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnumPropsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3158,7 +3158,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumPropsW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumThreadWindows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnumThreadWindows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3187,7 +3187,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumThreadWin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumWindows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingEnumWindows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenumfunc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lparam = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -3214,7 +3214,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_enumWindows_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingFindWindowA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwindowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3241,7 +3241,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingFindWindowExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndchildafter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3272,7 +3272,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowExA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingFindWindowExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndchildafter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3303,7 +3303,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowExW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingFindWindowW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwindowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3330,7 +3330,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_findWindowW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_flashWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingFlashWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t binvert = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3357,7 +3357,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_flashWindow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_flashWindowEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingFlashWindowEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3382,7 +3382,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_flashWindowEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3415,7 +3415,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3448,7 +3448,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getAncestor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetAncestor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t gaflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3475,7 +3475,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getAncestor_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCaretBlinkTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetCaretBlinkTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -3498,7 +3498,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCaretBlink
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCaretPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetCaretPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3523,7 +3523,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCaretPos_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3552,7 +3552,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3581,7 +3581,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3610,7 +3610,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3639,7 +3639,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassInfoW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassLongA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3666,7 +3666,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3693,7 +3693,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongP
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3720,7 +3720,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongP
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassLongW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3747,7 +3747,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassLongW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3776,7 +3776,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3805,7 +3805,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassWord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClassWord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3832,7 +3832,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClassWord_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClientRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClientRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3859,7 +3859,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClientRect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClipCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetClipCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3884,7 +3884,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getClipCursor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -3907,7 +3907,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCursor_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCursorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetCursorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pci = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3932,7 +3932,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCursorInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCursorPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetCursorPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3957,7 +3957,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getCursorPos_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDesktopWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetDesktopWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -3980,7 +3980,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDesktopWin
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDialogBaseUnits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetDialogBaseUnits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4003,7 +4003,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDialogBase
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgCtrlID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetDlgCtrlID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4028,7 +4028,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgCtrlID_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetDlgItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4055,7 +4055,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItem_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItemInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetDlgItemInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4086,7 +4086,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItemInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4117,7 +4117,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4148,7 +4148,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -4171,7 +4171,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getForeground
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getGUIThreadInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetGUIThreadInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idthread = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pgui = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4198,7 +4198,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getGUIThreadI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getIconInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetIconInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* piconinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4225,7 +4225,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getIconInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* piconinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4252,7 +4252,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getIconInfoEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* piconinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4279,7 +4279,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getIconInfoEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getInputState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetInputState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4302,7 +4302,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getInputState
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getLastActivePopup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4327,7 +4327,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getLastActive
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getLayeredWindowAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetLayeredWindowAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcrkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4358,7 +4358,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getLayeredWin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4383,7 +4383,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenu_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuBarInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuBarInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idobject = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4414,7 +4414,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuBarInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuCheckMarkDimensions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuCheckMarkDimensions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4437,7 +4437,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuCheckM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuDefaultItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fbypos = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4466,7 +4466,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuDefaul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4493,7 +4493,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuItemCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4518,7 +4518,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuItemID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t npos = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4545,7 +4545,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemID
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t item = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4576,7 +4576,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t item = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4607,7 +4607,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuItemRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4638,7 +4638,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuItemRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4667,7 +4667,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuState_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiditem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4700,7 +4700,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMenuStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiditem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4733,7 +4733,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMenuString
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4764,7 +4764,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageExtraInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMessageExtraInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
@@ -4787,7 +4787,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageExt
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessagePos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMessagePos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -4810,7 +4810,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessagePos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMessageTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4833,7 +4833,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageTim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4864,7 +4864,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getMessageW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getNextDlgGroupItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetNextDlgGroupItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hctl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4893,7 +4893,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getNextDlgGro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getNextDlgTabItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetNextDlgTabItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hctl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4922,7 +4922,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getNextDlgTab
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4947,7 +4947,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getParent_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getPhysicalCursorPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetPhysicalCursorPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4972,7 +4972,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getPhysicalCu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getProcessDefaultLayout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetProcessDefaultLayout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwdefaultlayout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4997,7 +4997,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getProcessDef
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getPropA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetPropA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5024,7 +5024,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getPropA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getPropW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetPropW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5051,7 +5051,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getPropW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getQueueStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetQueueStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5076,7 +5076,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getQueueStatu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollBarInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetScrollBarInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idobject = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5105,7 +5105,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollBarI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetScrollInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nbar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5134,7 +5134,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetScrollPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nbar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5161,7 +5161,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollPos_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetScrollRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nbar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5192,7 +5192,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getScrollRang
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getShellWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetShellWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -5215,7 +5215,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getShellWindo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getSubMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetSubMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t npos = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5242,7 +5242,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getSubMenu_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getSystemMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetSystemMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t brevert = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5269,7 +5269,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getSystemMenu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getSystemMetrics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5294,7 +5294,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getSystemMetr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getTitleBarInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pti = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5321,7 +5321,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getTitleBarIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getTopWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetTopWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5346,7 +5346,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getTopWindow_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ucmd = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5373,7 +5373,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindow_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowDisplayAffinity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowDisplayAffinity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwaffinity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5400,7 +5400,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowDisp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5427,7 +5427,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLongA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowLongA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5454,7 +5454,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLong
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5481,7 +5481,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLong
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5508,7 +5508,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLong
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLongW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowLongW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5535,7 +5535,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowLong
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5564,7 +5564,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowModu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5593,7 +5593,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowModu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowPlacement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowPlacement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwndpl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5620,7 +5620,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowPlac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5647,7 +5647,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowRect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5676,7 +5676,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowText
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5701,7 +5701,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowText
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5726,7 +5726,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowText
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5755,7 +5755,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowText
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowThreadProcessId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowThreadProcessId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwprocessid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5782,7 +5782,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowThre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowWord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingGetWindowWord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5809,7 +5809,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_getWindowWord
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_hideCaret_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingHideCaret_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5834,7 +5834,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_hideCaret_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_hiliteMenuItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingHiliteMenuItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5865,7 +5865,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_hiliteMenuIte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_inSendMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInSendMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5888,7 +5888,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_inSendMessage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_inSendMessageEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInSendMessageEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5913,7 +5913,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_inSendMessage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_indexFilePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIndexFilePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* resourceindexer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5946,7 +5946,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_indexFilePath
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_inheritWindowMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInheritWindowMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndinherit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5973,7 +5973,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_inheritWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInsertMenuA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6006,7 +6006,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t item = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6037,7 +6037,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuIte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t item = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6068,7 +6068,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuIte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInsertMenuW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6101,7 +6101,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_insertMenuW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_internalGetWindowText_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingInternalGetWindowText_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6130,7 +6130,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_internalGetWi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t ch = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6155,7 +6155,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t ch = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6180,7 +6180,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6205,7 +6205,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6230,7 +6230,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharLowerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsCharLowerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t ch = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6255,7 +6255,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharLowerA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharUpperA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsCharUpperA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t ch = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6280,7 +6280,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharUpperA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharUpperW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsCharUpperW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6305,7 +6305,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isCharUpperW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isChild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsChild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6332,7 +6332,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isChild_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6359,7 +6359,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isDialogMessa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6386,7 +6386,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isDialogMessa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isGUIThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsGUIThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bconvert = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6411,7 +6411,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isGUIThread_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isHungAppWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsHungAppWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6436,7 +6436,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isHungAppWind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isIconic_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsIconic_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6461,7 +6461,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isIconic_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6486,7 +6486,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isMenu_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isProcessDPIAware_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsProcessDPIAware_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -6509,7 +6509,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isProcessDPIA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6534,7 +6534,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindow_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindowArranged_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsWindowArranged_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6559,7 +6559,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindowArran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindowUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsWindowUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6584,7 +6584,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindowUnico
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindowVisible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsWindowVisible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6609,7 +6609,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWindowVisib
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWow64Message_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsWow64Message_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -6632,7 +6632,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isWow64Messag
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isZoomed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingIsZoomed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6657,7 +6657,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_isZoomed_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_killTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingKillTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t uidevent = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -6684,7 +6684,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_killTimer_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6711,7 +6711,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadAccelerat
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6738,7 +6738,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadAccelerat
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadCursorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcursorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6765,7 +6765,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6790,7 +6790,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorFro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6815,7 +6815,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorFro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadCursorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcursorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6842,7 +6842,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadCursorW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpiconname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6869,7 +6869,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadIconA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpiconname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6896,7 +6896,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadIconW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadImageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadImageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6931,7 +6931,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadImageA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadImageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadImageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6966,7 +6966,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadImageW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadMenuA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmenuname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6993,7 +6993,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmenutemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7018,7 +7018,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndir
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmenutemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7043,7 +7043,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndir
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadMenuW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmenuname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7070,7 +7070,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadMenuW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7101,7 +7101,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadStringA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLoadStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7132,7 +7132,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_loadStringW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_lockSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulockcode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -7157,7 +7157,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_lockSetForegr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_logicalToPhysicalPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7184,7 +7184,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_logicalToPhys
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ficon = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7211,7 +7211,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectoryEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectoryEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ficon = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7244,7 +7244,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mapDialogRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMapDialogRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lprect = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7271,7 +7271,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mapDialogRect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMessageBoxA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7302,7 +7302,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMessageBoxExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7335,7 +7335,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxExA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMessageBoxExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7368,7 +7368,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxExW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmbp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7393,7 +7393,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxInd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmbp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7418,7 +7418,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxInd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMessageBoxW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7449,7 +7449,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_messageBoxW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_modifyMenuA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingModifyMenuA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmnu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7482,7 +7482,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_modifyMenuA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_modifyMenuW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingModifyMenuW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmnu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7515,7 +7515,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_modifyMenuW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_moveWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMoveWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t x = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7550,7 +7550,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_moveWindow_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t platformversion = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* defaultqualifiers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7579,7 +7579,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfigInMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfigInMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t platformversion = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* defaultqualifiers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7610,7 +7610,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* projectroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7643,7 +7643,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* projectroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t platformversion = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7678,7 +7678,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* projectroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t platformversion = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7711,7 +7711,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* projectroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t platformversion = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7746,7 +7746,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* projectroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t platformversion = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7779,7 +7779,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerWithFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerWithFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* packagefamilyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* projectroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7814,7 +7814,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmCreateReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriDataInMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriDataInMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* inputpridata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t inputprisize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7851,7 +7851,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriDat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* indexfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemaprifile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7882,7 +7882,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFileInMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFileInMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* indexfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* schemaprifile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7915,7 +7915,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* data = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7940,7 +7940,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmFreeMemory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmGetPriFileContentChecksum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMrmGetPriFileContentChecksum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prifile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* checksum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7967,7 +7967,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_mrmGetPriFile
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ncount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phandles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8000,7 +8000,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjectsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjectsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ncount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phandles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8033,7 +8033,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingOemToCharA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8060,7 +8060,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8089,7 +8089,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8118,7 +8118,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingOemToCharW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8145,7 +8145,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_oemToCharW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_openIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingOpenIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8170,7 +8170,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_openIcon_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_peekMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPeekMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8203,7 +8203,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_peekMessageA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_peekMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPeekMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8236,7 +8236,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_peekMessageW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_physicalToLogicalPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPhysicalToLogicalPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8263,7 +8263,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_physicalToLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPostMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8294,7 +8294,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postMessageA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPostMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8325,7 +8325,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postMessageW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postQuitMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPostQuitMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nexitcode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -8347,7 +8347,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postQuitMessa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idthread = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8378,7 +8378,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postThreadMes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idthread = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8409,7 +8409,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_postThreadMes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8448,7 +8448,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_privateExtrac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8487,7 +8487,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_privateExtrac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptszclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8516,7 +8516,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_realGetWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptszclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8545,7 +8545,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_realGetWindow
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClassA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterClassA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwndclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8570,7 +8570,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClassExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterClassExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8595,7 +8595,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClassExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterClassExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8620,7 +8620,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClassW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterClassW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwndclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8645,7 +8645,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrecipient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* notificationfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8674,7 +8674,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerDevic
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hrecipient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* notificationfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8703,7 +8703,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerDevic
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerForTooltipDismissNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterForTooltipDismissNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t tdflags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8730,7 +8730,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerForTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerShellHookWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterShellHookWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8755,7 +8755,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerShell
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8780,7 +8780,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8805,7 +8805,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_registerWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_removeMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRemoveMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8834,7 +8834,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_removeMenu_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_removePropA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRemovePropA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8861,7 +8861,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_removePropA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_removePropW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingRemovePropW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8888,7 +8888,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_removePropW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_replyMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingReplyMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t lresult = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -8913,7 +8913,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_replyMessage_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_scrollDC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingScrollDC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8950,7 +8950,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_scrollDC_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_scrollWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingScrollWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t xamount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8983,7 +8983,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_scrollWindow_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_scrollWindowEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingScrollWindowEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9022,7 +9022,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_scrollWindowE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9055,7 +9055,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9088,7 +9088,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9119,7 +9119,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9154,7 +9154,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageCa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9189,7 +9189,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageCa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9226,7 +9226,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageTi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9263,7 +9263,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageTi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9294,7 +9294,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendMessageW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9325,7 +9325,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9356,7 +9356,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setAdditionalForegroundBoostProcesses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetAdditionalForegroundBoostProcesses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* toplevelwindow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t processhandlecount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9385,7 +9385,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setAdditional
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCaretBlinkTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetCaretBlinkTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t umseconds = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -9410,7 +9410,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCaretBlink
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCaretPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetCaretPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t x = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t y = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9437,7 +9437,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCaretPos_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetClassLongA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9466,7 +9466,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9495,7 +9495,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongP
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9524,7 +9524,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongP
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetClassLongW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9553,7 +9553,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassLongW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassWord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetClassWord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9582,7 +9582,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setClassWord_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCoalescableTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetCoalescableTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t nidevent = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -9615,7 +9615,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCoalescabl
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9640,7 +9640,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCursor_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCursorPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetCursorPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t x = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t y = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9667,7 +9667,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setCursorPos_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDebugErrorLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetDebugErrorLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -9689,7 +9689,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDebugError
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDlgItemInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetDlgItemInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9720,7 +9720,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDlgItemInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9749,7 +9749,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niddlgitem = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9778,7 +9778,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9803,7 +9803,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setForeground
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setLayeredWindowAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetLayeredWindowAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t crkey = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9834,7 +9834,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setLayeredWin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9861,7 +9861,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenu_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuDefaultItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMenuDefaultItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uitem = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9890,7 +9890,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuDefaul
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMenuInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9917,7 +9917,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuItemBitmaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMenuItemBitmaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uposition = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9950,7 +9950,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuItemBi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t item = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9981,7 +9981,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuItemIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t item = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10012,7 +10012,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMenuItemIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMessageExtraInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMessageExtraInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t lparam = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10037,7 +10037,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMessageExt
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMessageQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetMessageQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t cmessagesmax = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -10062,7 +10062,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setMessageQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndchild = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndnewparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10089,7 +10089,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setParent_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setPhysicalCursorPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetPhysicalCursorPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t x = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t y = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10116,7 +10116,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setPhysicalCu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setProcessDPIAware_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -10139,7 +10139,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setProcessDPI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setProcessDefaultLayout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdefaultlayout = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -10164,7 +10164,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setProcessDef
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setPropA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetPropA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10193,7 +10193,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setPropA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setPropW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetPropW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10222,7 +10222,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setPropW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setSystemCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetSystemCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcur = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10249,7 +10249,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setSystemCurs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t nidevent = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -10280,7 +10280,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setTimer_napi
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowDisplayAffinity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowDisplayAffinity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaffinity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10307,7 +10307,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowDisp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLongA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowLongA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10336,7 +10336,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLong
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10365,7 +10365,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLong
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10394,7 +10394,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLong
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLongW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowLongW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10423,7 +10423,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowLong
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowPlacement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowPlacement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwndpl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10450,7 +10450,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowPlac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndinsertafter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10487,7 +10487,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowPos_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10514,7 +10514,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowText
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10541,7 +10541,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowText
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowWord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowWord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10570,7 +10570,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowWord
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nfiltertype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfnfilterproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10597,7 +10597,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHoo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t idhook = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10628,7 +10628,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHoo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t idhook = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10659,7 +10659,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHoo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nfiltertype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfnfilterproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10686,7 +10686,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_setWindowsHoo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showCaret_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingShowCaret_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10711,7 +10711,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showCaret_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingShowCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bshow = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -10736,7 +10736,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showCursor_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showOwnedPopups_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingShowOwnedPopups_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fshow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10763,7 +10763,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showOwnedPopu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingShowWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ncmdshow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10790,7 +10790,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showWindow_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showWindowAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingShowWindowAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ncmdshow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10817,7 +10817,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_showWindowAsy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_soundSentry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSoundSentry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -10840,7 +10840,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_soundSentry_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_switchToThisWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSwitchToThisWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t funknown = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10864,7 +10864,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_switchToThisW
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiaction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uiparam = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10895,7 +10895,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_systemParamet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uiaction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uiparam = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10926,7 +10926,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_systemParamet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_tileWindows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingTileWindows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t whow = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10959,7 +10959,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_tileWindows_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10996,7 +10996,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_trackPopupMen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenuEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenuEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11031,7 +11031,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_trackPopupMen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hacctable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11060,7 +11060,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateAcce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hacctable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11089,7 +11089,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateAcce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateMDISysAccel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingTranslateMDISysAccel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndclient = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11116,7 +11116,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateMDIS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingTranslateMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmsg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11141,7 +11141,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_translateMess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHook_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHook_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t ncode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfnfilterproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11168,7 +11168,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unhookWindows
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHookEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHookEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11193,7 +11193,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unhookWindows
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unregisterClassA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingUnregisterClassA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11220,7 +11220,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unregisterCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unregisterClassW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingUnregisterClassW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11247,7 +11247,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unregisterCla
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unregisterDeviceNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingUnregisterDeviceNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11272,7 +11272,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_unregisterDev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdcdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11313,7 +11313,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_updateLayered
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindowIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindowIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulwinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11340,7 +11340,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_updateLayered
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_waitMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingWaitMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -11363,7 +11363,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_waitMessage_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wsprintfA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingWsprintfA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11401,7 +11401,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wsprintfA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wsprintfW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingWsprintfW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11439,7 +11439,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wsprintfW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wvsprintfA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingWvsprintfA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11468,7 +11468,7 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wvsprintfA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wvsprintfW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32UiWindowsandmessagingWvsprintfW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11498,406 +11498,406 @@ static Napi::Value windowssys_windows_win32_ui_windowsandmessaging_wvsprintfW_na
 }
 
 static void register_windows_win32_ui_windowsandmessaging_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRect", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRect_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRectEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRectEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_allowSetForegroundWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_allowSetForegroundWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_animateWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_animateWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_anyPopup", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_anyPopup_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_appendMenuA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_appendMenuA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_appendMenuW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_appendMenuW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_arrangeIconicWindows", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_arrangeIconicWindows_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_beginDeferWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_beginDeferWindowPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_bringWindowToTop", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_bringWindowToTop_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_calculatePopupWindowPosition", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_calculatePopupWindowPosition_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_callNextHookEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_callNextHookEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_callWindowProcA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_callWindowProcA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_callWindowProcW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_callWindowProcW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_cancelShutdown", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_cancelShutdown_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_cascadeWindows", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_cascadeWindows_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_changeMenuA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_changeMenuA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_changeMenuW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_changeMenuW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilter", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilter_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilterEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilterEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charLowerA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charLowerA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charLowerW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charLowerW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charNextA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charNextA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charNextExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charNextExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charNextW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charNextW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charPrevA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charPrevA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charPrevExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charPrevExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charPrevW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charPrevW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charToOemA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charToOemA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charToOemW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charToOemW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charUpperA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charUpperA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_charUpperW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_charUpperW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_checkMenuItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_checkMenuItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_checkMenuRadioItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_checkMenuRadioItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_clipCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_clipCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_closeWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_closeWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_copyIcon", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_copyIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_copyImage", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_copyImage_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createCaret", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createCaret_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createDialogParamA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createDialogParamA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createDialogParamW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createDialogParamW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createIcon", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createIconFromResource", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createIconFromResource_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createIconFromResourceEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createIconFromResourceEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createIconIndirect", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createIconIndirect_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createPopupMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createPopupMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createResourceIndexer", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createResourceIndexer_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createWindowExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createWindowExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_createWindowExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_createWindowExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defDlgProcA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defDlgProcA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defDlgProcW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defDlgProcW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defFrameProcA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defFrameProcA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defFrameProcW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defFrameProcW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defWindowProcA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defWindowProcA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_defWindowProcW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_defWindowProcW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_deferWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_deferWindowPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_deleteMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_deleteMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_deregisterShellHookWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_deregisterShellHookWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyAcceleratorTable", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyAcceleratorTable_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyCaret", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyCaret_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyIcon", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyIndexedResults", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyIndexedResults_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyResourceIndexer", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyResourceIndexer_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_destroyWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_destroyWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_disableProcessWindowsGhosting", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_disableProcessWindowsGhosting_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_dragObject", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_dragObject_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_drawIcon", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_drawIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_drawIconEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_drawIconEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_drawMenuBar", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_drawMenuBar_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enableMenuItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enableMenuItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_endDeferWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_endDeferWindowPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_endDialog", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_endDialog_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_endMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_endMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enumChildWindows", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enumChildWindows_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enumPropsA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enumPropsA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enumPropsExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enumPropsExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enumPropsExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enumPropsExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enumPropsW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enumPropsW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enumThreadWindows", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enumThreadWindows_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_enumWindows", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_enumWindows_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_findWindowA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_findWindowA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_findWindowExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_findWindowExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_findWindowExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_findWindowExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_findWindowW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_findWindowW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_flashWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_flashWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_flashWindowEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_flashWindowEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getAncestor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getAncestor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getCaretBlinkTime", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getCaretBlinkTime_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getCaretPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getCaretPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassLongA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassLongA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassLongW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassLongW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassNameA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassNameA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassNameW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassNameW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClassWord", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClassWord_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClientRect", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClientRect_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getClipCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getClipCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getCursorInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getCursorInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getCursorPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getCursorPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getDesktopWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getDesktopWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getDialogBaseUnits", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getDialogBaseUnits_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getDlgCtrlID", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getDlgCtrlID_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getDlgItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getDlgItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getDlgItemInt", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getDlgItemInt_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getForegroundWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getForegroundWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getGUIThreadInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getGUIThreadInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getIconInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getIconInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getInputState", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getInputState_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getLastActivePopup", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getLastActivePopup_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getLayeredWindowAttributes", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getLayeredWindowAttributes_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuBarInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuBarInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuCheckMarkDimensions", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuCheckMarkDimensions_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuDefaultItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuDefaultItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuItemCount", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuItemCount_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuItemID", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuItemID_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuItemRect", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuItemRect_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuState", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuState_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuStringA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuStringA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMenuStringW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMenuStringW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMessageExtraInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMessageExtraInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMessagePos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMessagePos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMessageTime", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMessageTime_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getNextDlgGroupItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getNextDlgGroupItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getNextDlgTabItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getNextDlgTabItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getParent", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getParent_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getPhysicalCursorPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getPhysicalCursorPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getProcessDefaultLayout", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getProcessDefaultLayout_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getPropA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getPropA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getPropW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getPropW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getQueueStatus", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getQueueStatus_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getScrollBarInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getScrollBarInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getScrollInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getScrollInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getScrollPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getScrollPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getScrollRange", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getScrollRange_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getShellWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getShellWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getSubMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getSubMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getSystemMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getSystemMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getSystemMetrics", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getSystemMetrics_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getTitleBarInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getTitleBarInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getTopWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getTopWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowDisplayAffinity", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowDisplayAffinity_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowLongA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowLongA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowLongW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowLongW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowPlacement", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowPlacement_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowRect", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowRect_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowTextA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowTextW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowThreadProcessId", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowThreadProcessId_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_getWindowWord", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_getWindowWord_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_hideCaret", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_hideCaret_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_hiliteMenuItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_hiliteMenuItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_inSendMessage", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_inSendMessage_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_inSendMessageEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_inSendMessageEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_indexFilePath", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_indexFilePath_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_inheritWindowMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_inheritWindowMonitor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_insertMenuA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_insertMenuA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_insertMenuW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_insertMenuW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_internalGetWindowText", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_internalGetWindowText_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isCharLowerA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isCharLowerA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isCharUpperA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isCharUpperA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isCharUpperW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isCharUpperW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isChild", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isChild_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isGUIThread", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isGUIThread_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isHungAppWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isHungAppWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isIconic", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isIconic_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isProcessDPIAware", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isProcessDPIAware_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isWindowArranged", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isWindowArranged_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isWindowUnicode", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isWindowUnicode_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isWindowVisible", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isWindowVisible_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isWow64Message", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isWow64Message_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_isZoomed", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_isZoomed_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_killTimer", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_killTimer_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadCursorA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadCursorA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadCursorW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadCursorW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadIconA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadIconA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadIconW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadIconW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadImageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadImageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadImageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadImageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadMenuA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadMenuA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadMenuW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadMenuW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadStringA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadStringA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_loadStringW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_loadStringW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_lockSetForegroundWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_lockSetForegroundWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_logicalToPhysicalPoint", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_logicalToPhysicalPoint_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectory", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectory_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectoryEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectoryEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mapDialogRect", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mapDialogRect_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_messageBoxA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_messageBoxA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_messageBoxExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_messageBoxExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_messageBoxExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_messageBoxExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_messageBoxW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_messageBoxW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_modifyMenuA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_modifyMenuA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_modifyMenuW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_modifyMenuW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_moveWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_moveWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfig", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfig_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfigInMemory", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfigInMemory_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexer", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexer_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriData", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriData_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriFile", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriFile_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaData", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaData_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaFile", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaFile_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerWithFlags", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerWithFlags_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriDataInMemory", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriDataInMemory_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFile", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFile_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFileInMemory", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFileInMemory_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmFreeMemory", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_mrmGetPriFileContentChecksum", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_mrmGetPriFileContentChecksum_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjects", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjects_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjectsEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjectsEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_oemToCharA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_oemToCharA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_oemToCharW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_oemToCharW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_openIcon", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_openIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_peekMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_peekMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_peekMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_peekMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_physicalToLogicalPoint", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_physicalToLogicalPoint_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_postMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_postMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_postMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_postMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_postQuitMessage", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_postQuitMessage_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerClassA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerClassA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerClassExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerClassExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerClassExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerClassExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerClassW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerClassW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerForTooltipDismissNotification", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerForTooltipDismissNotification_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerShellHookWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerShellHookWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_removeMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_removeMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_removePropA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_removePropA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_removePropW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_removePropW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_replyMessage", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_replyMessage_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_scrollDC", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_scrollDC_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_scrollWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_scrollWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_scrollWindowEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_scrollWindowEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setAdditionalForegroundBoostProcesses", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setAdditionalForegroundBoostProcesses_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setCaretBlinkTime", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setCaretBlinkTime_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setCaretPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setCaretPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setClassLongA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setClassLongA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setClassLongW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setClassLongW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setClassWord", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setClassWord_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setCoalescableTimer", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setCoalescableTimer_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setCursorPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setCursorPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setDebugErrorLevel", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setDebugErrorLevel_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setDlgItemInt", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setDlgItemInt_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setForegroundWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setForegroundWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setLayeredWindowAttributes", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setLayeredWindowAttributes_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMenuDefaultItem", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMenuDefaultItem_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMenuInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMenuInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMenuItemBitmaps", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMenuItemBitmaps_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMessageExtraInfo", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMessageExtraInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setMessageQueue", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setMessageQueue_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setParent", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setParent_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setPhysicalCursorPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setPhysicalCursorPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setProcessDPIAware", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setProcessDPIAware_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setProcessDefaultLayout", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setProcessDefaultLayout_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setPropA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setPropA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setPropW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setPropW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setSystemCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setSystemCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setTimer", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setTimer_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowDisplayAffinity", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowDisplayAffinity_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowLongA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowLongA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowLongW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowLongW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowPlacement", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowPlacement_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowPos", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowPos_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowTextA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowTextW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowWord", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowWord_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_showCaret", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_showCaret_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_showCursor", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_showCursor_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_showOwnedPopups", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_showOwnedPopups_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_showWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_showWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_showWindowAsync", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_showWindowAsync_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_soundSentry", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_soundSentry_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_switchToThisWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_switchToThisWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_tileWindows", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_tileWindows_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenu", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenuEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenuEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_translateMDISysAccel", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_translateMDISysAccel_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_translateMessage", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_translateMessage_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHook", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHook_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHookEx", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHookEx_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_unregisterClassA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_unregisterClassA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_unregisterClassW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_unregisterClassW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_unregisterDeviceNotification", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_unregisterDeviceNotification_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindow", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindowIndirect", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindowIndirect_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_waitMessage", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_waitMessage_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_wsprintfA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_wsprintfA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_wsprintfW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_wsprintfW_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_wvsprintfA", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_wvsprintfA_napi));
-    exports.Set("windowssys_windows_win32_ui_windowsandmessaging_wvsprintfW", Napi::Function::New(env, windowssys_windows_win32_ui_windowsandmessaging_wvsprintfW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRect", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRect_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRectEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRectEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingAllowSetForegroundWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingAllowSetForegroundWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingAnimateWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingAnimateWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingAnyPopup", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingAnyPopup_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingAppendMenuA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingAppendMenuA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingAppendMenuW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingAppendMenuW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingArrangeIconicWindows", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingArrangeIconicWindows_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingBeginDeferWindowPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingBeginDeferWindowPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingBringWindowToTop", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingBringWindowToTop_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCalculatePopupWindowPosition", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCalculatePopupWindowPosition_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCallNextHookEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCallNextHookEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCallWindowProcA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCallWindowProcA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCallWindowProcW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCallWindowProcW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCancelShutdown", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCancelShutdown_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCascadeWindows", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCascadeWindows_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingChangeMenuA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingChangeMenuA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingChangeMenuW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingChangeMenuW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharLowerA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharLowerA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharLowerBuffW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharLowerW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharLowerW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharNextA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharNextA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharNextExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharNextExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharNextW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharNextW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharPrevA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharPrevA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharPrevExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharPrevExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharPrevW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharPrevW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharToOemA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharToOemA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharToOemBuffW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharToOemW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharToOemW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharUpperA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharUpperA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharUpperBuffW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCharUpperW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCharUpperW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCheckMenuItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCheckMenuItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCheckMenuRadioItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCheckMenuRadioItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingClipCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingClipCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCloseWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCloseWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCopyIcon", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCopyIcon_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCopyImage", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCopyImage_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateCaret", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateCaret_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateIcon", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateIcon_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResource", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResource_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResourceEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResourceEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateIconIndirect", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateIconIndirect_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateMDIWindowW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreatePopupMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreatePopupMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateResourceIndexer", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateResourceIndexer_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateWindowExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateWindowExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingCreateWindowExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingCreateWindowExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefDlgProcA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefDlgProcA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefDlgProcW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefDlgProcW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefFrameProcA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefFrameProcA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefFrameProcW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefFrameProcW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefMDIChildProcW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefWindowProcA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefWindowProcA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDefWindowProcW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDefWindowProcW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDeferWindowPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDeferWindowPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDeleteMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDeleteMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDeregisterShellHookWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDeregisterShellHookWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyAcceleratorTable", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyAcceleratorTable_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyCaret", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyCaret_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyIcon", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyIcon_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyIndexedResults", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyIndexedResults_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyResourceIndexer", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyResourceIndexer_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDestroyWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDestroyWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDialogBoxParamW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDisableProcessWindowsGhosting", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDisableProcessWindowsGhosting_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDispatchMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDispatchMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDispatchMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDispatchMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDragObject", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDragObject_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDrawIcon", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDrawIcon_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDrawIconEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDrawIconEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingDrawMenuBar", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingDrawMenuBar_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnableMenuItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnableMenuItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEndDeferWindowPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEndDeferWindowPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEndDialog", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEndDialog_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEndMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEndMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnumChildWindows", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnumChildWindows_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnumPropsA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnumPropsA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnumPropsExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnumPropsExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnumPropsExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnumPropsExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnumPropsW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnumPropsW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnumThreadWindows", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnumThreadWindows_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingEnumWindows", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingEnumWindows_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingFindWindowA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingFindWindowA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingFindWindowExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingFindWindowExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingFindWindowExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingFindWindowExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingFindWindowW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingFindWindowW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingFlashWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingFlashWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingFlashWindowEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingFlashWindowEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetAncestor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetAncestor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetCaretBlinkTime", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetCaretBlinkTime_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetCaretPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetCaretPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassInfoA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassInfoA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassInfoW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassInfoW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassLongA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassLongA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassLongPtrW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassLongW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassLongW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassNameA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassNameA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassNameW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassNameW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClassWord", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClassWord_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClientRect", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClientRect_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetClipCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetClipCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetCursorInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetCursorInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetCursorPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetCursorPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetDesktopWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetDesktopWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetDialogBaseUnits", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetDialogBaseUnits_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetDlgCtrlID", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetDlgCtrlID_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetDlgItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetDlgItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetDlgItemInt", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetDlgItemInt_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetDlgItemTextW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetForegroundWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetForegroundWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetGUIThreadInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetGUIThreadInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetIconInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetIconInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetInputState", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetInputState_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetLayeredWindowAttributes", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetLayeredWindowAttributes_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuBarInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuBarInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuCheckMarkDimensions", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuCheckMarkDimensions_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuItemCount", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuItemCount_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuItemID", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuItemID_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuItemRect", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuItemRect_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuState", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuState_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuStringA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuStringA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMenuStringW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMenuStringW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMessageExtraInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMessageExtraInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMessagePos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMessagePos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMessageTime", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMessageTime_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetNextDlgGroupItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetNextDlgGroupItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetNextDlgTabItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetNextDlgTabItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetParent", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetParent_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetPhysicalCursorPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetPhysicalCursorPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetProcessDefaultLayout", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetProcessDefaultLayout_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetPropA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetPropA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetPropW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetPropW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetQueueStatus", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetQueueStatus_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetScrollBarInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetScrollBarInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetScrollInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetScrollInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetScrollPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetScrollPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetScrollRange", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetScrollRange_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetShellWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetShellWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetSubMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetSubMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetSystemMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetSystemMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetTopWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetTopWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowDisplayAffinity", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowDisplayAffinity_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowLongA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowLongA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowLongPtrW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowLongW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowLongW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowPlacement", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowPlacement_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowRect", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowRect_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowTextA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowTextA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowTextLengthW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowTextW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowTextW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowThreadProcessId", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowThreadProcessId_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingGetWindowWord", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingGetWindowWord_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingHideCaret", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingHideCaret_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingHiliteMenuItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingHiliteMenuItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInSendMessage", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInSendMessage_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInSendMessageEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInSendMessageEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIndexFilePath", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIndexFilePath_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInheritWindowMonitor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInheritWindowMonitor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInsertMenuA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInsertMenuA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInsertMenuW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInsertMenuW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingInternalGetWindowText", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingInternalGetWindowText_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaNumericW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsCharAlphaW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsCharLowerA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsCharLowerA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsCharUpperA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsCharUpperA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsCharUpperW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsCharUpperW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsChild", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsChild_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsGUIThread", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsGUIThread_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsHungAppWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsHungAppWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsIconic", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsIconic_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsProcessDPIAware", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsProcessDPIAware_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsWindowArranged", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsWindowArranged_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsWindowUnicode", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsWindowUnicode_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsWindowVisible", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsWindowVisible_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsWow64Message", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsWow64Message_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingIsZoomed", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingIsZoomed_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingKillTimer", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingKillTimer_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadAcceleratorsW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadCursorA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadCursorA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadCursorFromFileW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadCursorW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadCursorW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadIconA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadIconA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadIconW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadIconW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadImageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadImageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadImageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadImageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadMenuA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadMenuA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadMenuW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadMenuW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadStringA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadStringA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLoadStringW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLoadStringW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectory", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectory_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectoryEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectoryEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMapDialogRect", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMapDialogRect_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMessageBoxA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMessageBoxA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMessageBoxExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMessageBoxExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMessageBoxExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMessageBoxExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMessageBoxW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMessageBoxW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingModifyMenuA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingModifyMenuA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingModifyMenuW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingModifyMenuW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMoveWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMoveWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfig", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfig_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfigInMemory", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfigInMemory_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexer", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexer_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriData", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriData_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriFile", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriFile_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaData", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaData_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaFile", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaFile_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerWithFlags", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerWithFlags_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriDataInMemory", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriDataInMemory_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFile", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFile_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFileInMemory", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFileInMemory_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmFreeMemory", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmFreeMemory_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMrmGetPriFileContentChecksum", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMrmGetPriFileContentChecksum_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjects", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjects_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjectsEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjectsEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingOemToCharA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingOemToCharA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingOemToCharBuffW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingOemToCharW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingOemToCharW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingOpenIcon", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingOpenIcon_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPeekMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPeekMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPeekMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPeekMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPhysicalToLogicalPoint", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPhysicalToLogicalPoint_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPostMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPostMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPostMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPostMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPostQuitMessage", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPostQuitMessage_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterClassA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterClassA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterClassExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterClassExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterClassExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterClassExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterClassW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterClassW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterForTooltipDismissNotification", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterForTooltipDismissNotification_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterShellHookWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterShellHookWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRegisterWindowMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRemoveMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRemoveMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRemovePropA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRemovePropA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingRemovePropW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingRemovePropW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingReplyMessage", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingReplyMessage_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingScrollDC", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingScrollDC_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingScrollWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingScrollWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingScrollWindowEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingScrollWindowEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendDlgItemMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetAdditionalForegroundBoostProcesses", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetAdditionalForegroundBoostProcesses_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetCaretBlinkTime", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetCaretBlinkTime_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetCaretPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetCaretPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetClassLongA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetClassLongA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetClassLongPtrW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetClassLongW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetClassLongW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetClassWord", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetClassWord_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetCoalescableTimer", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetCoalescableTimer_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetCursorPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetCursorPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetDebugErrorLevel", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetDebugErrorLevel_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetDlgItemInt", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetDlgItemInt_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetDlgItemTextW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetForegroundWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetForegroundWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetLayeredWindowAttributes", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetLayeredWindowAttributes_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMenuDefaultItem", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMenuDefaultItem_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMenuInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMenuInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMenuItemBitmaps", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMenuItemBitmaps_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMessageExtraInfo", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMessageExtraInfo_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetMessageQueue", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetMessageQueue_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetParent", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetParent_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetPhysicalCursorPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetPhysicalCursorPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetProcessDPIAware_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetProcessDefaultLayout_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetPropA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetPropA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetPropW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetPropW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetSystemCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetSystemCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetTimer", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetTimer_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowDisplayAffinity", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowDisplayAffinity_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowLongA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowLongA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowLongPtrW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowLongW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowLongW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowPlacement", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowPlacement_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowPos", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowPos_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowTextA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowTextA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowTextW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowTextW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowWord", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowWord_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookExW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSetWindowsHookW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingShowCaret", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingShowCaret_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingShowCursor", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingShowCursor_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingShowOwnedPopups", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingShowOwnedPopups_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingShowWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingShowWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingShowWindowAsync", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingShowWindowAsync_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSoundSentry", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSoundSentry_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSwitchToThisWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSwitchToThisWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingTileWindows", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingTileWindows_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenu", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenu_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenuEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenuEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingTranslateMDISysAccel", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingTranslateMDISysAccel_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingTranslateMessage", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingTranslateMessage_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHook", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHook_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHookEx", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingUnhookWindowsHookEx_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingUnregisterClassA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingUnregisterClassA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingUnregisterClassW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingUnregisterClassW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingUnregisterDeviceNotification", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingUnregisterDeviceNotification_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindow", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindow_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindowIndirect", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindowIndirect_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingWaitMessage", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingWaitMessage_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingWsprintfA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingWsprintfA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingWsprintfW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingWsprintfW_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingWvsprintfA", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingWvsprintfA_napi));
+    exports.Set("windowssysWindowsWin32UiWindowsandmessagingWvsprintfW", Napi::Function::New(env, windowssysWindowsWin32UiWindowsandmessagingWvsprintfW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_windowsandmessaging_napi, nullptr };

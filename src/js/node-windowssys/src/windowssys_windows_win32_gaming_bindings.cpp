@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeSilently_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingCheckGamingPrivilegeSilently_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t privilegeid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* scope = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeSilently_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeSilentlyForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingCheckGamingPrivilegeSilentlyForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t privilegeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeSilentlyF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingCheckGamingPrivilegeWithUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t privilegeid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* scope = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -150,7 +150,7 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUI_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingCheckGamingPrivilegeWithUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t privilegeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -187,7 +187,7 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUIFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_getExpandedResourceExclusiveCpuCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingGetExpandedResourceExclusiveCpuCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exclusivecpucount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -212,7 +212,7 @@ static Napi::Value windowssys_windows_win32_gaming_getExpandedResourceExclusiveC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_getGamingDeviceModelInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingGetGamingDeviceModelInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* information = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_gaming_getGamingDeviceModelInformati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_hasExpandedResources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingHasExpandedResources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hasexpandedresources = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -262,7 +262,7 @@ static Napi::Value windowssys_windows_win32_gaming_hasExpandedResources_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_processPendingGameUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingProcessPendingGameUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t waitforcompletion = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -287,7 +287,7 @@ static Napi::Value windowssys_windows_win32_gaming_processPendingGameUI_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_releaseExclusiveCpuSets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingReleaseExclusiveCpuSets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -310,7 +310,7 @@ static Napi::Value windowssys_windows_win32_gaming_releaseExclusiveCpuSets_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showChangeFriendRelationshipUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowChangeFriendRelationshipUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetuserxuid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_gaming_showChangeFriendRelationshipU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showChangeFriendRelationshipUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowChangeFriendRelationshipUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetuserxuid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -370,7 +370,7 @@ static Napi::Value windowssys_windows_win32_gaming_showChangeFriendRelationshipU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showCustomizeUserProfileUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowCustomizeUserProfileUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -397,7 +397,7 @@ static Napi::Value windowssys_windows_win32_gaming_showCustomizeUserProfileUI_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showCustomizeUserProfileUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowCustomizeUserProfileUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -426,7 +426,7 @@ static Napi::Value windowssys_windows_win32_gaming_showCustomizeUserProfileUIFor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showFindFriendsUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowFindFriendsUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -453,7 +453,7 @@ static Napi::Value windowssys_windows_win32_gaming_showFindFriendsUI_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showFindFriendsUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowFindFriendsUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_win32_gaming_showFindFriendsUIForUser_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showGameInfoUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowGameInfoUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t titleid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -511,7 +511,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInfoUI_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showGameInfoUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowGameInfoUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t titleid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -542,7 +542,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInfoUIForUser_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showGameInviteUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowGameInviteUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceconfigurationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sessiontemplatename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -577,7 +577,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUI_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowGameInviteUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serviceconfigurationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -614,7 +614,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIForUser_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowGameInviteUIWithContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceconfigurationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sessiontemplatename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -651,7 +651,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContext_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContextForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowGameInviteUIWithContextForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serviceconfigurationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -690,7 +690,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContextFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowPlayerPickerUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* promptdisplaytext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* xuids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -731,7 +731,7 @@ static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUI_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowPlayerPickerUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* promptdisplaytext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -774,7 +774,7 @@ static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUIForUser_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showProfileCardUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowProfileCardUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetuserxuid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -803,7 +803,7 @@ static Napi::Value windowssys_windows_win32_gaming_showProfileCardUI_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showProfileCardUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowProfileCardUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetuserxuid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -834,7 +834,7 @@ static Napi::Value windowssys_windows_win32_gaming_showProfileCardUIForUser_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showTitleAchievementsUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowTitleAchievementsUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t titleid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -863,7 +863,7 @@ static Napi::Value windowssys_windows_win32_gaming_showTitleAchievementsUI_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showTitleAchievementsUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowTitleAchievementsUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t titleid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -894,7 +894,7 @@ static Napi::Value windowssys_windows_win32_gaming_showTitleAchievementsUIForUse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showUserSettingsUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowUserSettingsUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -921,7 +921,7 @@ static Napi::Value windowssys_windows_win32_gaming_showUserSettingsUI_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_showUserSettingsUIForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingShowUserSettingsUIForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -950,7 +950,7 @@ static Napi::Value windowssys_windows_win32_gaming_showUserSettingsUIForUser_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_gaming_tryCancelPendingGameUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32GamingTryCancelPendingGameUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -974,36 +974,36 @@ static Napi::Value windowssys_windows_win32_gaming_tryCancelPendingGameUI_napi(c
 }
 
 static void register_windows_win32_gaming_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_gaming_checkGamingPrivilegeSilently", Napi::Function::New(env, windowssys_windows_win32_gaming_checkGamingPrivilegeSilently_napi));
-    exports.Set("windowssys_windows_win32_gaming_checkGamingPrivilegeSilentlyForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_checkGamingPrivilegeSilentlyForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_checkGamingPrivilegeWithUI", Napi::Function::New(env, windowssys_windows_win32_gaming_checkGamingPrivilegeWithUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_checkGamingPrivilegeWithUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_checkGamingPrivilegeWithUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_getExpandedResourceExclusiveCpuCount", Napi::Function::New(env, windowssys_windows_win32_gaming_getExpandedResourceExclusiveCpuCount_napi));
-    exports.Set("windowssys_windows_win32_gaming_getGamingDeviceModelInformation", Napi::Function::New(env, windowssys_windows_win32_gaming_getGamingDeviceModelInformation_napi));
-    exports.Set("windowssys_windows_win32_gaming_hasExpandedResources", Napi::Function::New(env, windowssys_windows_win32_gaming_hasExpandedResources_napi));
-    exports.Set("windowssys_windows_win32_gaming_processPendingGameUI", Napi::Function::New(env, windowssys_windows_win32_gaming_processPendingGameUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_releaseExclusiveCpuSets", Napi::Function::New(env, windowssys_windows_win32_gaming_releaseExclusiveCpuSets_napi));
-    exports.Set("windowssys_windows_win32_gaming_showChangeFriendRelationshipUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showChangeFriendRelationshipUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showChangeFriendRelationshipUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showChangeFriendRelationshipUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showCustomizeUserProfileUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showCustomizeUserProfileUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showCustomizeUserProfileUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showCustomizeUserProfileUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showFindFriendsUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showFindFriendsUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showFindFriendsUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showFindFriendsUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showGameInfoUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showGameInfoUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showGameInfoUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showGameInfoUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showGameInviteUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showGameInviteUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showGameInviteUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showGameInviteUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showGameInviteUIWithContext", Napi::Function::New(env, windowssys_windows_win32_gaming_showGameInviteUIWithContext_napi));
-    exports.Set("windowssys_windows_win32_gaming_showGameInviteUIWithContextForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showGameInviteUIWithContextForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showPlayerPickerUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showPlayerPickerUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showPlayerPickerUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showPlayerPickerUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showProfileCardUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showProfileCardUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showProfileCardUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showProfileCardUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showTitleAchievementsUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showTitleAchievementsUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showTitleAchievementsUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showTitleAchievementsUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_showUserSettingsUI", Napi::Function::New(env, windowssys_windows_win32_gaming_showUserSettingsUI_napi));
-    exports.Set("windowssys_windows_win32_gaming_showUserSettingsUIForUser", Napi::Function::New(env, windowssys_windows_win32_gaming_showUserSettingsUIForUser_napi));
-    exports.Set("windowssys_windows_win32_gaming_tryCancelPendingGameUI", Napi::Function::New(env, windowssys_windows_win32_gaming_tryCancelPendingGameUI_napi));
+    exports.Set("windowssysWindowsWin32GamingCheckGamingPrivilegeSilently", Napi::Function::New(env, windowssysWindowsWin32GamingCheckGamingPrivilegeSilently_napi));
+    exports.Set("windowssysWindowsWin32GamingCheckGamingPrivilegeSilentlyForUser", Napi::Function::New(env, windowssysWindowsWin32GamingCheckGamingPrivilegeSilentlyForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingCheckGamingPrivilegeWithUI", Napi::Function::New(env, windowssysWindowsWin32GamingCheckGamingPrivilegeWithUI_napi));
+    exports.Set("windowssysWindowsWin32GamingCheckGamingPrivilegeWithUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingCheckGamingPrivilegeWithUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingGetExpandedResourceExclusiveCpuCount", Napi::Function::New(env, windowssysWindowsWin32GamingGetExpandedResourceExclusiveCpuCount_napi));
+    exports.Set("windowssysWindowsWin32GamingGetGamingDeviceModelInformation", Napi::Function::New(env, windowssysWindowsWin32GamingGetGamingDeviceModelInformation_napi));
+    exports.Set("windowssysWindowsWin32GamingHasExpandedResources", Napi::Function::New(env, windowssysWindowsWin32GamingHasExpandedResources_napi));
+    exports.Set("windowssysWindowsWin32GamingProcessPendingGameUI", Napi::Function::New(env, windowssysWindowsWin32GamingProcessPendingGameUI_napi));
+    exports.Set("windowssysWindowsWin32GamingReleaseExclusiveCpuSets", Napi::Function::New(env, windowssysWindowsWin32GamingReleaseExclusiveCpuSets_napi));
+    exports.Set("windowssysWindowsWin32GamingShowChangeFriendRelationshipUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowChangeFriendRelationshipUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowChangeFriendRelationshipUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowChangeFriendRelationshipUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowCustomizeUserProfileUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowCustomizeUserProfileUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowCustomizeUserProfileUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowCustomizeUserProfileUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowFindFriendsUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowFindFriendsUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowFindFriendsUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowFindFriendsUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowGameInfoUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowGameInfoUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowGameInfoUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowGameInfoUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowGameInviteUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowGameInviteUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowGameInviteUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowGameInviteUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowGameInviteUIWithContext", Napi::Function::New(env, windowssysWindowsWin32GamingShowGameInviteUIWithContext_napi));
+    exports.Set("windowssysWindowsWin32GamingShowGameInviteUIWithContextForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowGameInviteUIWithContextForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowPlayerPickerUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowPlayerPickerUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowPlayerPickerUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowPlayerPickerUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowProfileCardUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowProfileCardUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowProfileCardUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowProfileCardUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowTitleAchievementsUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowTitleAchievementsUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowTitleAchievementsUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowTitleAchievementsUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingShowUserSettingsUI", Napi::Function::New(env, windowssysWindowsWin32GamingShowUserSettingsUI_napi));
+    exports.Set("windowssysWindowsWin32GamingShowUserSettingsUIForUser", Napi::Function::New(env, windowssysWindowsWin32GamingShowUserSettingsUIForUser_napi));
+    exports.Set("windowssysWindowsWin32GamingTryCancelPendingGameUI", Napi::Function::New(env, windowssysWindowsWin32GamingTryCancelPendingGameUI_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_gaming_napi, nullptr };

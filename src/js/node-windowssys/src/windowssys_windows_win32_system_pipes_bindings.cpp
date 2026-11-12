@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesCallNamedPipeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnamedpipename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -88,7 +88,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesCallNamedPipeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnamedpipename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_connectNamedPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesConnectNamedPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -152,7 +152,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_connectNamedPipe_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesCreateNamedPipeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwopenmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesCreateNamedPipeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwopenmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -230,7 +230,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_createPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesCreatePipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hreadpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwritepipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_createPipe_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_disconnectNamedPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesDisconnectNamedPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -286,9 +286,9 @@ static Napi::Value windowssys_windows_win32_system_pipes_disconnectNamedPipe_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientcomputername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t clientcomputernamelength = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -300,13 +300,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientCompu
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength);
+        km_res = km_fn_ptr(arg0Pipe, clientcomputername, clientcomputernamelength);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
     errno = ENOSYS;
@@ -315,9 +315,9 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientCompu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientcomputername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t clientcomputernamelength = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -329,13 +329,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientCompu
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength);
+        km_res = km_fn_ptr(arg0Pipe, clientcomputername, clientcomputernamelength);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
     errno = ENOSYS;
@@ -344,9 +344,9 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientCompu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientprocessid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
@@ -357,13 +357,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientProce
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, clientprocessid);
+        km_res = km_fn_ptr(arg0Pipe, clientprocessid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientprocessid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -371,9 +371,9 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clientsessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
@@ -384,13 +384,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientSessi
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, clientsessionid);
+        km_res = km_fn_ptr(arg0Pipe, clientsessionid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)clientsessionid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -398,7 +398,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -435,7 +435,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleState
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -472,7 +472,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleState
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -505,9 +505,9 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeInfo_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serverprocessid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
@@ -518,13 +518,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerProce
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, serverprocessid);
+        km_res = km_fn_ptr(arg0Pipe, serverprocessid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)serverprocessid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -532,9 +532,9 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* arg_0_pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg0Pipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serversessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
@@ -545,13 +545,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerSessi
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(arg_0_pipe, serversessionid);
+        km_res = km_fn_ptr(arg0Pipe, serversessionid);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)arg_0_pipe;
+    (void)arg0Pipe;
     (void)serversessionid;
     errno = ENOSYS;
     int32_t km_res = -1;
@@ -559,7 +559,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerSessi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_impersonateNamedPipeClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -584,7 +584,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_impersonateNamedPipeCli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_peekNamedPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesPeekNamedPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -619,7 +619,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_peekNamedPipe_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_setNamedPipeHandleState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesSetNamedPipeHandleState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -650,7 +650,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_setNamedPipeHandleState
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_transactNamedPipe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesTransactNamedPipe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamedpipe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_transactNamedPipe_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_waitNamedPipeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesWaitNamedPipeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnamedpipename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ntimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -714,7 +714,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_waitNamedPipeA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_pipes_waitNamedPipeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemPipesWaitNamedPipeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnamedpipename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ntimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -742,28 +742,28 @@ static Napi::Value windowssys_windows_win32_system_pipes_waitNamedPipeW_napi(con
 }
 
 static void register_windows_win32_system_pipes_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_pipes_callNamedPipeA", Napi::Function::New(env, windowssys_windows_win32_system_pipes_callNamedPipeA_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_callNamedPipeW", Napi::Function::New(env, windowssys_windows_win32_system_pipes_callNamedPipeW_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_connectNamedPipe", Napi::Function::New(env, windowssys_windows_win32_system_pipes_connectNamedPipe_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_createNamedPipeA", Napi::Function::New(env, windowssys_windows_win32_system_pipes_createNamedPipeA_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_createNamedPipeW", Napi::Function::New(env, windowssys_windows_win32_system_pipes_createNamedPipeW_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_createPipe", Napi::Function::New(env, windowssys_windows_win32_system_pipes_createPipe_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_disconnectNamedPipe", Napi::Function::New(env, windowssys_windows_win32_system_pipes_disconnectNamedPipe_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameA_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeClientComputerNameW_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeClientProcessId_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeClientSessionId_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeHandleStateA_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeHandleStateW_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeInfo", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeInfo_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeServerProcessId_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId", Napi::Function::New(env, windowssys_windows_win32_system_pipes_getNamedPipeServerSessionId_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_impersonateNamedPipeClient", Napi::Function::New(env, windowssys_windows_win32_system_pipes_impersonateNamedPipeClient_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_peekNamedPipe", Napi::Function::New(env, windowssys_windows_win32_system_pipes_peekNamedPipe_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_setNamedPipeHandleState", Napi::Function::New(env, windowssys_windows_win32_system_pipes_setNamedPipeHandleState_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_transactNamedPipe", Napi::Function::New(env, windowssys_windows_win32_system_pipes_transactNamedPipe_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_waitNamedPipeA", Napi::Function::New(env, windowssys_windows_win32_system_pipes_waitNamedPipeA_napi));
-    exports.Set("windowssys_windows_win32_system_pipes_waitNamedPipeW", Napi::Function::New(env, windowssys_windows_win32_system_pipes_waitNamedPipeW_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesCallNamedPipeA", Napi::Function::New(env, windowssysWindowsWin32SystemPipesCallNamedPipeA_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesCallNamedPipeW", Napi::Function::New(env, windowssysWindowsWin32SystemPipesCallNamedPipeW_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesConnectNamedPipe", Napi::Function::New(env, windowssysWindowsWin32SystemPipesConnectNamedPipe_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesCreateNamedPipeA", Napi::Function::New(env, windowssysWindowsWin32SystemPipesCreateNamedPipeA_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesCreateNamedPipeW", Napi::Function::New(env, windowssysWindowsWin32SystemPipesCreateNamedPipeW_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesCreatePipe", Napi::Function::New(env, windowssysWindowsWin32SystemPipesCreatePipe_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesDisconnectNamedPipe", Napi::Function::New(env, windowssysWindowsWin32SystemPipesDisconnectNamedPipe_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameA", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeInfo", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId", Napi::Function::New(env, windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient", Napi::Function::New(env, windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesPeekNamedPipe", Napi::Function::New(env, windowssysWindowsWin32SystemPipesPeekNamedPipe_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesSetNamedPipeHandleState", Napi::Function::New(env, windowssysWindowsWin32SystemPipesSetNamedPipeHandleState_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesTransactNamedPipe", Napi::Function::New(env, windowssysWindowsWin32SystemPipesTransactNamedPipe_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesWaitNamedPipeA", Napi::Function::New(env, windowssysWindowsWin32SystemPipesWaitNamedPipeA_napi));
+    exports.Set("windowssysWindowsWin32SystemPipesWaitNamedPipeW", Napi::Function::New(env, windowssysWindowsWin32SystemPipesWaitNamedPipeW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_pipes_napi, nullptr };

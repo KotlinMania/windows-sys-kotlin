@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_assignProcessToJobObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hjob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_assignProcessToJob
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_createJobObjectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsCreateJobObjectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpjobattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_createJobObjectA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_createJobObjectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsCreateJobObjectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpjobattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -132,7 +132,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_createJobObjectW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_createJobSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsCreateJobSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t numjob = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* userjobset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_createJobSet_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_freeMemoryJobObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_freeMemoryJobObjec
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_isProcessInJob_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsIsProcessInJob_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* jobhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -212,7 +212,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_isProcessInJob_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_openJobObjectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsOpenJobObjectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_openJobObjectA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_openJobObjectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsOpenJobObjectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -270,7 +270,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_openJobObjectW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_queryInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsQueryInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hjob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t jobobjectinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_queryInformationJo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_queryIoRateControlInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hjob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* volumename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -334,7 +334,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_queryIoRateControl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_setInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsSetInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hjob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t jobobjectinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_setInformationJobO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_setIoRateControlInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hjob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ioratecontrolinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -392,7 +392,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_setIoRateControlIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_terminateJobObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsTerminateJobObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hjob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uexitcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_terminateJobObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_jobobjects_userHandleGrantAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemJobobjectsUserHandleGrantAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* huserhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hjob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -449,20 +449,20 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_userHandleGrantAcc
 }
 
 static void register_windows_win32_system_jobobjects_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_jobobjects_assignProcessToJobObject", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_assignProcessToJobObject_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_createJobObjectA", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_createJobObjectA_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_createJobObjectW", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_createJobObjectW_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_createJobSet", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_createJobSet_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_freeMemoryJobObject", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_freeMemoryJobObject_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_isProcessInJob", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_isProcessInJob_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_openJobObjectA", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_openJobObjectA_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_openJobObjectW", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_openJobObjectW_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_queryInformationJobObject", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_queryInformationJobObject_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_queryIoRateControlInformationJobObject", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_queryIoRateControlInformationJobObject_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_setInformationJobObject", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_setInformationJobObject_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_setIoRateControlInformationJobObject", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_setIoRateControlInformationJobObject_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_terminateJobObject", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_terminateJobObject_napi));
-    exports.Set("windowssys_windows_win32_system_jobobjects_userHandleGrantAccess", Napi::Function::New(env, windowssys_windows_win32_system_jobobjects_userHandleGrantAccess_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsCreateJobObjectA", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsCreateJobObjectA_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsCreateJobObjectW", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsCreateJobObjectW_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsCreateJobSet", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsCreateJobSet_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsIsProcessInJob", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsIsProcessInJob_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsOpenJobObjectA", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsOpenJobObjectA_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsOpenJobObjectW", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsOpenJobObjectW_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsQueryInformationJobObject", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsQueryInformationJobObject_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsSetInformationJobObject", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsSetInformationJobObject_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsTerminateJobObject", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsTerminateJobObject_napi));
+    exports.Set("windowssysWindowsWin32SystemJobobjectsUserHandleGrantAccess", Napi::Function::New(env, windowssysWindowsWin32SystemJobobjectsUserHandleGrantAccess_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_jobobjects_napi, nullptr };

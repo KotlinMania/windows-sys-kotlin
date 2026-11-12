@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssys_1windows_1wdk_1system_1systeminformation_1ntQuerySystemInformation(JNIEnv* km_env, jclass km_clazz, jint systeminformationclass, jlong systeminformation, jint systeminformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssysWindowsWdkSystemSysteminformationNtQuerySystemInformation(JNIEnv* km_env, jclass km_clazz, jint systeminformationclass, jlong systeminformation, jint systeminformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -47,7 +47,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssys_1windows_1wdk_1system_1systeminformation_1ntQuerySystemTime(JNIEnv* km_env, jclass km_clazz, jlong systemtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssysWindowsWdkSystemSysteminformationNtQuerySystemTime(JNIEnv* km_env, jclass km_clazz, jlong systemtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssys_1windows_1wdk_1system_1systeminformation_1ntQueryTimerResolution(JNIEnv* km_env, jclass km_clazz, jlong maximumtime, jlong minimumtime, jlong currenttime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssysWindowsWdkSystemSysteminformationNtQueryTimerResolution(JNIEnv* km_env, jclass km_clazz, jlong maximumtime, jlong minimumtime, jlong currenttime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssys_1windows_1wdk_1system_1systeminformation_1zwQuerySystemInformation(JNIEnv* km_env, jclass km_clazz, jint systeminformationclass, jlong systeminformation, jint systeminformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssysWindowsWdkSystemSysteminformationZwQuerySystemInformation(JNIEnv* km_env, jclass km_clazz, jint systeminformationclass, jlong systeminformation, jint systeminformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssys_1windows_1wdk_1system_1systeminformation_1zwQuerySystemTime(JNIEnv* km_env, jclass km_clazz, jlong systemtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssysWindowsWdkSystemSysteminformationZwQuerySystemTime(JNIEnv* km_env, jclass km_clazz, jlong systemtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssys_1windows_1wdk_1system_1systeminformation_1zwQueryTimerResolution(JNIEnv* km_env, jclass km_clazz, jlong maximumtime, jlong minimumtime, jlong currenttime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_systeminformation_WindowsWdkSystemSysteminformationJniBridge_windowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution(JNIEnv* km_env, jclass km_clazz, jlong maximumtime, jlong minimumtime, jlong currenttime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

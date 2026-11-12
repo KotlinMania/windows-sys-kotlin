@@ -2,83 +2,84 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.magnification
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magGetColorEffect
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magGetFullscreenTransform
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magGetInputTransform
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magGetWindowFilterList
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magGetWindowSource
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magGetWindowTransform
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magInitialize
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magSetColorEffect
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magSetFullscreenTransform
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magSetImageScalingCallback
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magSetInputTransform
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magSetWindowFilterList
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magSetWindowTransform
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magShowSystemCursor
-import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssys_windows_win32_ui_magnification_magUninitialize
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagGetColorEffect
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagGetFullscreenColorEffect
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagGetFullscreenTransform
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagGetInputTransform
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagGetWindowFilterList
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagGetWindowSource
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagGetWindowTransform
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagInitialize
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagSetColorEffect
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagSetFullscreenColorEffect
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagSetFullscreenTransform
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagSetImageScalingCallback
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagSetInputTransform
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagSetWindowFilterList
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagSetWindowTransform
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagShowSystemCursor
+import io.github.kotlinmania.windowssys.windows.win32.ui.magnification.cinterop.windowssysWindowsWin32UiMagnificationMagUninitialize
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun magGetColorEffect(hwnd: Hwnd, peffect: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magGetColorEffect(hwnd?.value?.toCPointer<ByteVar>(), peffect?.value?.toCPointer<ByteVar>())
+public actual fun magGetColorEffect(hwnd: Hwnd, peffect: MutPtr<Magcoloreffect>): Bool =
+    windowssysWindowsWin32UiMagnificationMagGetColorEffect(hwnd.rawAddress.toCPointer<ByteVar>(), peffect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun magGetFullscreenColorEffect(peffect: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect(peffect?.value?.toCPointer<ByteVar>())
+public actual fun magGetFullscreenColorEffect(peffect: MutPtr<Magcoloreffect>): Bool =
+    windowssysWindowsWin32UiMagnificationMagGetFullscreenColorEffect(peffect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun magGetFullscreenTransform(pmaglevel: COpaquePointer?, pxoffset: COpaquePointer?, pyoffset: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magGetFullscreenTransform(pmaglevel?.value?.toCPointer<ByteVar>(), pxoffset?.value?.toCPointer<ByteVar>(), pyoffset?.value?.toCPointer<ByteVar>())
+public actual fun magGetFullscreenTransform(pmaglevel: MutPtr<Float>, pxoffset: MutPtr<Int>, pyoffset: MutPtr<Int>): Bool =
+    windowssysWindowsWin32UiMagnificationMagGetFullscreenTransform(pmaglevel.rawAddress.toCPointer<ByteVar>(), pxoffset.rawAddress.toCPointer<ByteVar>(), pyoffset.rawAddress.toCPointer<ByteVar>())
 
 public actual fun magGetImageScalingCallback(hwnd: Hwnd): MagImageScalingCallback =
     null
 
-public actual fun magGetInputTransform(pfenabled: COpaquePointer?, prectsource: COpaquePointer?, prectdest: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magGetInputTransform(pfenabled?.value?.toCPointer<ByteVar>(), prectsource?.value?.toCPointer<ByteVar>(), prectdest?.value?.toCPointer<ByteVar>())
+public actual fun magGetInputTransform(pfenabled: MutPtr<Bool>, prectsource: MutPtr<Rect>, prectdest: MutPtr<Rect>): Bool =
+    windowssysWindowsWin32UiMagnificationMagGetInputTransform(pfenabled.rawAddress.toCPointer<ByteVar>(), prectsource.rawAddress.toCPointer<ByteVar>(), prectdest.rawAddress.toCPointer<ByteVar>())
 
-public actual fun magGetWindowFilterList(hwnd: Hwnd, pdwfiltermode: COpaquePointer?, count: Int, phwnd: COpaquePointer?): Int =
-    windowssys_windows_win32_ui_magnification_magGetWindowFilterList(hwnd?.value?.toCPointer<ByteVar>(), pdwfiltermode?.value?.toCPointer<ByteVar>(), count, phwnd?.value?.toCPointer<ByteVar>())
+public actual fun magGetWindowFilterList(hwnd: Hwnd, pdwfiltermode: MutPtr<MwFiltermode>, count: Int, phwnd: MutPtr<Hwnd>): Int =
+    windowssysWindowsWin32UiMagnificationMagGetWindowFilterList(hwnd.rawAddress.toCPointer<ByteVar>(), pdwfiltermode.rawAddress.toCPointer<ByteVar>(), count, phwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun magGetWindowSource(hwnd: Hwnd, prect: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magGetWindowSource(hwnd?.value?.toCPointer<ByteVar>(), prect?.value?.toCPointer<ByteVar>())
+public actual fun magGetWindowSource(hwnd: Hwnd, prect: MutPtr<Rect>): Bool =
+    windowssysWindowsWin32UiMagnificationMagGetWindowSource(hwnd.rawAddress.toCPointer<ByteVar>(), prect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun magGetWindowTransform(hwnd: Hwnd, ptransform: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magGetWindowTransform(hwnd?.value?.toCPointer<ByteVar>(), ptransform?.value?.toCPointer<ByteVar>())
+public actual fun magGetWindowTransform(hwnd: Hwnd, ptransform: MutPtr<Magtransform>): Bool =
+    windowssysWindowsWin32UiMagnificationMagGetWindowTransform(hwnd.rawAddress.toCPointer<ByteVar>(), ptransform.rawAddress.toCPointer<ByteVar>())
 
 public actual fun magInitialize(): Bool =
-    windowssys_windows_win32_ui_magnification_magInitialize()
+    windowssysWindowsWin32UiMagnificationMagInitialize()
 
-public actual fun magSetColorEffect(hwnd: Hwnd, peffect: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magSetColorEffect(hwnd?.value?.toCPointer<ByteVar>(), peffect?.value?.toCPointer<ByteVar>())
+public actual fun magSetColorEffect(hwnd: Hwnd, peffect: MutPtr<Magcoloreffect>): Bool =
+    windowssysWindowsWin32UiMagnificationMagSetColorEffect(hwnd.rawAddress.toCPointer<ByteVar>(), peffect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun magSetFullscreenColorEffect(peffect: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect(peffect?.value?.toCPointer<ByteVar>())
+public actual fun magSetFullscreenColorEffect(peffect: ConstPtr<Magcoloreffect>): Bool =
+    windowssysWindowsWin32UiMagnificationMagSetFullscreenColorEffect(peffect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun magSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffset: Int): Bool =
-    windowssys_windows_win32_ui_magnification_magSetFullscreenTransform(maglevel, xoffset, yoffset)
+    windowssysWindowsWin32UiMagnificationMagSetFullscreenTransform(maglevel, xoffset, yoffset)
 
 public actual fun magSetImageScalingCallback(hwnd: Hwnd, callback: MagImageScalingCallback): Bool =
-    windowssys_windows_win32_ui_magnification_magSetImageScalingCallback(hwnd?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
+    windowssysWindowsWin32UiMagnificationMagSetImageScalingCallback(hwnd.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun magSetInputTransform(fenabled: Bool, prectsource: COpaquePointer?, prectdest: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magSetInputTransform(fenabled, prectsource?.value?.toCPointer<ByteVar>(), prectdest?.value?.toCPointer<ByteVar>())
+public actual fun magSetInputTransform(fenabled: Bool, prectsource: ConstPtr<Rect>, prectdest: ConstPtr<Rect>): Bool =
+    windowssysWindowsWin32UiMagnificationMagSetInputTransform(fenabled, prectsource.rawAddress.toCPointer<ByteVar>(), prectdest.rawAddress.toCPointer<ByteVar>())
 
-public actual fun magSetWindowFilterList(hwnd: Hwnd, dwfiltermode: MwFiltermode, count: Int, phwnd: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magSetWindowFilterList(hwnd?.value?.toCPointer<ByteVar>(), dwfiltermode, count, phwnd?.value?.toCPointer<ByteVar>())
+public actual fun magSetWindowFilterList(hwnd: Hwnd, dwfiltermode: MwFiltermode, count: Int, phwnd: MutPtr<Hwnd>): Bool =
+    windowssysWindowsWin32UiMagnificationMagSetWindowFilterList(hwnd.rawAddress.toCPointer<ByteVar>(), dwfiltermode, count, phwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun magSetWindowSource(hwnd: Hwnd, rect: Rect): Bool =
     0
 
-public actual fun magSetWindowTransform(hwnd: Hwnd, ptransform: COpaquePointer?): Bool =
-    windowssys_windows_win32_ui_magnification_magSetWindowTransform(hwnd?.value?.toCPointer<ByteVar>(), ptransform?.value?.toCPointer<ByteVar>())
+public actual fun magSetWindowTransform(hwnd: Hwnd, ptransform: MutPtr<Magtransform>): Bool =
+    windowssysWindowsWin32UiMagnificationMagSetWindowTransform(hwnd.rawAddress.toCPointer<ByteVar>(), ptransform.rawAddress.toCPointer<ByteVar>())
 
 public actual fun magShowSystemCursor(fshowcursor: Bool): Bool =
-    windowssys_windows_win32_ui_magnification_magShowSystemCursor(fshowcursor)
+    windowssysWindowsWin32UiMagnificationMagShowSystemCursor(fshowcursor)
 
 public actual fun magUninitialize(): Bool =
-    windowssys_windows_win32_ui_magnification_magUninitialize()
+    windowssysWindowsWin32UiMagnificationMagUninitialize()

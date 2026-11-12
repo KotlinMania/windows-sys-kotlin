@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
@@ -1001,27 +1002,27 @@ public val HANDEDNESS_LEFT: Handedness = 0
 
 public val HANDEDNESS_RIGHT: Handedness = 1
 
-public val HBMMENU_CALLBACK: Hbitmap = COpaquePointer((-1).toLong())
+public val HBMMENU_CALLBACK: Hbitmap = MutPtr<CVoid>((-1).toLong())
 
-public val HBMMENU_MBAR_CLOSE: Hbitmap = COpaquePointer(5.toLong())
+public val HBMMENU_MBAR_CLOSE: Hbitmap = MutPtr<CVoid>(5.toLong())
 
-public val HBMMENU_MBAR_CLOSE_D: Hbitmap = COpaquePointer(6.toLong())
+public val HBMMENU_MBAR_CLOSE_D: Hbitmap = MutPtr<CVoid>(6.toLong())
 
-public val HBMMENU_MBAR_MINIMIZE: Hbitmap = COpaquePointer(3.toLong())
+public val HBMMENU_MBAR_MINIMIZE: Hbitmap = MutPtr<CVoid>(3.toLong())
 
-public val HBMMENU_MBAR_MINIMIZE_D: Hbitmap = COpaquePointer(7.toLong())
+public val HBMMENU_MBAR_MINIMIZE_D: Hbitmap = MutPtr<CVoid>(7.toLong())
 
-public val HBMMENU_MBAR_RESTORE: Hbitmap = COpaquePointer(2.toLong())
+public val HBMMENU_MBAR_RESTORE: Hbitmap = MutPtr<CVoid>(2.toLong())
 
-public val HBMMENU_POPUP_CLOSE: Hbitmap = COpaquePointer(8.toLong())
+public val HBMMENU_POPUP_CLOSE: Hbitmap = MutPtr<CVoid>(8.toLong())
 
-public val HBMMENU_POPUP_MAXIMIZE: Hbitmap = COpaquePointer(10.toLong())
+public val HBMMENU_POPUP_MAXIMIZE: Hbitmap = MutPtr<CVoid>(10.toLong())
 
-public val HBMMENU_POPUP_MINIMIZE: Hbitmap = COpaquePointer(11.toLong())
+public val HBMMENU_POPUP_MINIMIZE: Hbitmap = MutPtr<CVoid>(11.toLong())
 
-public val HBMMENU_POPUP_RESTORE: Hbitmap = COpaquePointer(9.toLong())
+public val HBMMENU_POPUP_RESTORE: Hbitmap = MutPtr<CVoid>(9.toLong())
 
-public val HBMMENU_SYSTEM: Hbitmap = COpaquePointer(1.toLong())
+public val HBMMENU_SYSTEM: Hbitmap = MutPtr<CVoid>(1.toLong())
 
 public val HCBT_ACTIVATE: UInt = 5u
 
@@ -1199,19 +1200,19 @@ public val HTVSCROLL: UInt = 7u
 
 public val HTZOOM: UInt = 9u
 
-public val HWND_BOTTOM: Hwnd = COpaquePointer(1.toLong())
+public val HWND_BOTTOM: Hwnd = MutPtr<CVoid>(1.toLong())
 
-public val HWND_BROADCAST: Hwnd = COpaquePointer(65535.toLong())
+public val HWND_BROADCAST: Hwnd = MutPtr<CVoid>(65535.toLong())
 
-public val HWND_DESKTOP: Hwnd = null
+public val HWND_DESKTOP: Hwnd = MutPtr<CVoid>(0L)
 
-public val HWND_MESSAGE: Hwnd = COpaquePointer((-3).toLong())
+public val HWND_MESSAGE: Hwnd = MutPtr<CVoid>((-3).toLong())
 
-public val HWND_NOTOPMOST: Hwnd = COpaquePointer((-2).toLong())
+public val HWND_NOTOPMOST: Hwnd = MutPtr<CVoid>((-2).toLong())
 
-public val HWND_TOP: Hwnd = null
+public val HWND_TOP: Hwnd = MutPtr<CVoid>(0L)
 
-public val HWND_TOPMOST: Hwnd = COpaquePointer((-1).toLong())
+public val HWND_TOPMOST: Hwnd = MutPtr<CVoid>((-1).toLong())
 
 public val ICON_BIG: UInt = 1u
 
@@ -1233,43 +1234,43 @@ public val IDCLOSE: MessageboxResult = 8
 
 public val IDCONTINUE: MessageboxResult = 11
 
-public val IDC_APPSTARTING: Pcwstr = COpaquePointer((32650u.toUShort()).toLong())
+public val IDC_APPSTARTING: Pcwstr = MutPtr<CVoid>((32650u.toUShort()).toLong())
 
-public val IDC_ARROW: Pcwstr = COpaquePointer((32512u.toUShort()).toLong())
+public val IDC_ARROW: Pcwstr = MutPtr<CVoid>((32512u.toUShort()).toLong())
 
-public val IDC_CROSS: Pcwstr = COpaquePointer((32515u.toUShort()).toLong())
+public val IDC_CROSS: Pcwstr = MutPtr<CVoid>((32515u.toUShort()).toLong())
 
-public val IDC_HAND: Pcwstr = COpaquePointer((32649u.toUShort()).toLong())
+public val IDC_HAND: Pcwstr = MutPtr<CVoid>((32649u.toUShort()).toLong())
 
-public val IDC_HELP: Pcwstr = COpaquePointer((32651u.toUShort()).toLong())
+public val IDC_HELP: Pcwstr = MutPtr<CVoid>((32651u.toUShort()).toLong())
 
-public val IDC_IBEAM: Pcwstr = COpaquePointer((32513u.toUShort()).toLong())
+public val IDC_IBEAM: Pcwstr = MutPtr<CVoid>((32513u.toUShort()).toLong())
 
-public val IDC_ICON: Pcwstr = COpaquePointer((32641u.toUShort()).toLong())
+public val IDC_ICON: Pcwstr = MutPtr<CVoid>((32641u.toUShort()).toLong())
 
-public val IDC_NO: Pcwstr = COpaquePointer((32648u.toUShort()).toLong())
+public val IDC_NO: Pcwstr = MutPtr<CVoid>((32648u.toUShort()).toLong())
 
-public val IDC_PERSON: Pcwstr = COpaquePointer((32672u.toUShort()).toLong())
+public val IDC_PERSON: Pcwstr = MutPtr<CVoid>((32672u.toUShort()).toLong())
 
-public val IDC_PIN: Pcwstr = COpaquePointer((32671u.toUShort()).toLong())
+public val IDC_PIN: Pcwstr = MutPtr<CVoid>((32671u.toUShort()).toLong())
 
-public val IDC_SIZE: Pcwstr = COpaquePointer((32640u.toUShort()).toLong())
+public val IDC_SIZE: Pcwstr = MutPtr<CVoid>((32640u.toUShort()).toLong())
 
-public val IDC_SIZEALL: Pcwstr = COpaquePointer((32646u.toUShort()).toLong())
+public val IDC_SIZEALL: Pcwstr = MutPtr<CVoid>((32646u.toUShort()).toLong())
 
-public val IDC_SIZENESW: Pcwstr = COpaquePointer((32643u.toUShort()).toLong())
+public val IDC_SIZENESW: Pcwstr = MutPtr<CVoid>((32643u.toUShort()).toLong())
 
-public val IDC_SIZENS: Pcwstr = COpaquePointer((32645u.toUShort()).toLong())
+public val IDC_SIZENS: Pcwstr = MutPtr<CVoid>((32645u.toUShort()).toLong())
 
-public val IDC_SIZENWSE: Pcwstr = COpaquePointer((32642u.toUShort()).toLong())
+public val IDC_SIZENWSE: Pcwstr = MutPtr<CVoid>((32642u.toUShort()).toLong())
 
-public val IDC_SIZEWE: Pcwstr = COpaquePointer((32644u.toUShort()).toLong())
+public val IDC_SIZEWE: Pcwstr = MutPtr<CVoid>((32644u.toUShort()).toLong())
 
 public val IDC_STATIC: Int = -1
 
-public val IDC_UPARROW: Pcwstr = COpaquePointer((32516u.toUShort()).toLong())
+public val IDC_UPARROW: Pcwstr = MutPtr<CVoid>((32516u.toUShort()).toLong())
 
-public val IDC_WAIT: Pcwstr = COpaquePointer((32514u.toUShort()).toLong())
+public val IDC_WAIT: Pcwstr = MutPtr<CVoid>((32514u.toUShort()).toLong())
 
 public val IDHELP: MessageboxResult = 9
 
@@ -1291,25 +1292,25 @@ public val IDH_OK: UInt = 28443u
 
 public val IDIGNORE: MessageboxResult = 5
 
-public val IDI_APPLICATION: Pcwstr = COpaquePointer(32512u.toLong())
+public val IDI_APPLICATION: Pcwstr = MutPtr<CVoid>(32512u.toLong())
 
-public val IDI_ASTERISK: Pcwstr = COpaquePointer(32516u.toLong())
+public val IDI_ASTERISK: Pcwstr = MutPtr<CVoid>(32516u.toLong())
 
-public val IDI_ERROR: Pcwstr = COpaquePointer(32513u.toLong())
+public val IDI_ERROR: Pcwstr = MutPtr<CVoid>(32513u.toLong())
 
-public val IDI_EXCLAMATION: Pcwstr = COpaquePointer(32515u.toLong())
+public val IDI_EXCLAMATION: Pcwstr = MutPtr<CVoid>(32515u.toLong())
 
-public val IDI_HAND: Pcwstr = COpaquePointer(32513u.toLong())
+public val IDI_HAND: Pcwstr = MutPtr<CVoid>(32513u.toLong())
 
-public val IDI_INFORMATION: Pcwstr = COpaquePointer(32516u.toLong())
+public val IDI_INFORMATION: Pcwstr = MutPtr<CVoid>(32516u.toLong())
 
-public val IDI_QUESTION: Pcwstr = COpaquePointer(32514u.toLong())
+public val IDI_QUESTION: Pcwstr = MutPtr<CVoid>(32514u.toLong())
 
-public val IDI_SHIELD: Pcwstr = COpaquePointer(32518u.toLong())
+public val IDI_SHIELD: Pcwstr = MutPtr<CVoid>(32518u.toLong())
 
-public val IDI_WARNING: Pcwstr = COpaquePointer(32515u.toLong())
+public val IDI_WARNING: Pcwstr = MutPtr<CVoid>(32515u.toLong())
 
-public val IDI_WINLOGO: Pcwstr = COpaquePointer(32517u.toLong())
+public val IDI_WINLOGO: Pcwstr = MutPtr<CVoid>(32517u.toLong())
 
 public val IDNO: MessageboxResult = 7
 
@@ -2389,43 +2390,43 @@ public val RI_MOUSE_RIGHT_BUTTON_UP: UInt = 8u
 
 public val RI_MOUSE_WHEEL: UInt = 1024u
 
-public val RT_ACCELERATOR: Pcwstr = COpaquePointer((9u.toUShort()).toLong())
+public val RT_ACCELERATOR: Pcwstr = MutPtr<CVoid>((9u.toUShort()).toLong())
 
-public val RT_ANICURSOR: Pcwstr = COpaquePointer((21u.toUShort()).toLong())
+public val RT_ANICURSOR: Pcwstr = MutPtr<CVoid>((21u.toUShort()).toLong())
 
-public val RT_ANIICON: Pcwstr = COpaquePointer((22u.toUShort()).toLong())
+public val RT_ANIICON: Pcwstr = MutPtr<CVoid>((22u.toUShort()).toLong())
 
-public val RT_BITMAP: Pcwstr = COpaquePointer((2u.toUShort()).toLong())
+public val RT_BITMAP: Pcwstr = MutPtr<CVoid>((2u.toUShort()).toLong())
 
-public val RT_CURSOR: Pcwstr = COpaquePointer((1u.toUShort()).toLong())
+public val RT_CURSOR: Pcwstr = MutPtr<CVoid>((1u.toUShort()).toLong())
 
-public val RT_DIALOG: Pcwstr = COpaquePointer((5u.toUShort()).toLong())
+public val RT_DIALOG: Pcwstr = MutPtr<CVoid>((5u.toUShort()).toLong())
 
-public val RT_DLGINCLUDE: Pcwstr = COpaquePointer((17u.toUShort()).toLong())
+public val RT_DLGINCLUDE: Pcwstr = MutPtr<CVoid>((17u.toUShort()).toLong())
 
-public val RT_FONT: Pcwstr = COpaquePointer((8u.toUShort()).toLong())
+public val RT_FONT: Pcwstr = MutPtr<CVoid>((8u.toUShort()).toLong())
 
-public val RT_FONTDIR: Pcwstr = COpaquePointer((7u.toUShort()).toLong())
+public val RT_FONTDIR: Pcwstr = MutPtr<CVoid>((7u.toUShort()).toLong())
 
-public val RT_GROUP_CURSOR: Pcwstr = COpaquePointer((12u.toUShort()).toLong())
+public val RT_GROUP_CURSOR: Pcwstr = MutPtr<CVoid>((12u.toUShort()).toLong())
 
-public val RT_GROUP_ICON: Pcwstr = COpaquePointer((14u.toUShort()).toLong())
+public val RT_GROUP_ICON: Pcwstr = MutPtr<CVoid>((14u.toUShort()).toLong())
 
-public val RT_HTML: Pcwstr = COpaquePointer((23u.toUShort()).toLong())
+public val RT_HTML: Pcwstr = MutPtr<CVoid>((23u.toUShort()).toLong())
 
-public val RT_ICON: Pcwstr = COpaquePointer((3u.toUShort()).toLong())
+public val RT_ICON: Pcwstr = MutPtr<CVoid>((3u.toUShort()).toLong())
 
-public val RT_MANIFEST: Pcwstr = COpaquePointer((24u.toUShort()).toLong())
+public val RT_MANIFEST: Pcwstr = MutPtr<CVoid>((24u.toUShort()).toLong())
 
-public val RT_MENU: Pcwstr = COpaquePointer((4u.toUShort()).toLong())
+public val RT_MENU: Pcwstr = MutPtr<CVoid>((4u.toUShort()).toLong())
 
-public val RT_MESSAGETABLE: Pcwstr = COpaquePointer((11u.toUShort()).toLong())
+public val RT_MESSAGETABLE: Pcwstr = MutPtr<CVoid>((11u.toUShort()).toLong())
 
-public val RT_PLUGPLAY: Pcwstr = COpaquePointer((19u.toUShort()).toLong())
+public val RT_PLUGPLAY: Pcwstr = MutPtr<CVoid>((19u.toUShort()).toLong())
 
-public val RT_VERSION: Pcwstr = COpaquePointer((16u.toUShort()).toLong())
+public val RT_VERSION: Pcwstr = MutPtr<CVoid>((16u.toUShort()).toLong())
 
-public val RT_VXD: Pcwstr = COpaquePointer((20u.toUShort()).toLong())
+public val RT_VXD: Pcwstr = MutPtr<CVoid>((20u.toUShort()).toLong())
 
 public val SBM_ENABLE_ARROWS: UInt = 228u
 

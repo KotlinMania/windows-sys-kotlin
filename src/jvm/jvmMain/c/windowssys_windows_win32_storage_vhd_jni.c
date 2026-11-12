@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1addVirtualDiskParent(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parentpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdAddVirtualDiskParent(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parentpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1applySnapshotVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdApplySnapshotVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1attachVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong securitydescriptor, jint flags, jint providerspecificflags, jlong parameters, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdAttachVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong securitydescriptor, jint flags, jint providerspecificflags, jlong parameters, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -102,7 +102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1breakMirrorVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdBreakMirrorVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1compactVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdCompactVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1completeForkVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdCompleteForkVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -180,7 +180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1createVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualstoragetype, jlong path, jint virtualdiskaccessmask, jlong securitydescriptor, jint flags, jint providerspecificflags, jlong parameters, jlong overlapped, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdCreateVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualstoragetype, jlong path, jint virtualdiskaccessmask, jlong securitydescriptor, jint flags, jint providerspecificflags, jlong parameters, jlong overlapped, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -213,7 +213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1deleteSnapshotVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdDeleteSnapshotVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -240,7 +240,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1deleteVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong item) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdDeleteVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong item) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -266,7 +266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1detachVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jint providerspecificflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdDetachVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jint providerspecificflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -293,7 +293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1enumerateVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong numberofitems, jlong items) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdEnumerateVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong numberofitems, jlong items) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -320,7 +320,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1expandVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdExpandVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -348,7 +348,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1forkVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdForkVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -376,7 +376,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1getAllAttachedVirtualDiskPhysicalPaths(JNIEnv* km_env, jclass km_clazz, jlong pathsbuffersizeinbytes, jlong pathsbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdGetAllAttachedVirtualDiskPhysicalPaths(JNIEnv* km_env, jclass km_clazz, jlong pathsbuffersizeinbytes, jlong pathsbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1getStorageDependencyInformation(JNIEnv* km_env, jclass km_clazz, jlong objecthandle, jint flags, jint storagedependencyinfosize, jlong storagedependencyinfo, jlong sizeused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdGetStorageDependencyInformation(JNIEnv* km_env, jclass km_clazz, jlong objecthandle, jint flags, jint storagedependencyinfosize, jlong storagedependencyinfo, jlong sizeused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1getVirtualDiskInformation(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong virtualdiskinfosize, jlong virtualdiskinfo, jlong sizeused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdGetVirtualDiskInformation(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong virtualdiskinfosize, jlong virtualdiskinfo, jlong sizeused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -459,7 +459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1getVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong item, jlong metadatasize, jlong metadata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdGetVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong item, jlong metadatasize, jlong metadata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -487,7 +487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1getVirtualDiskOperationProgress(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong overlapped, jlong progress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdGetVirtualDiskOperationProgress(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong overlapped, jlong progress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -514,7 +514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1getVirtualDiskPhysicalPath(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong diskpathsizeinbytes, jlong diskpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdGetVirtualDiskPhysicalPath(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong diskpathsizeinbytes, jlong diskpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -541,7 +541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1mergeVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdMergeVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -569,7 +569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1mirrorVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdMirrorVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -597,7 +597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1modifyVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdModifyVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -624,7 +624,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1openVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualstoragetype, jlong path, jint virtualdiskaccessmask, jint flags, jlong parameters, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdOpenVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualstoragetype, jlong path, jint virtualdiskaccessmask, jint flags, jlong parameters, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -654,7 +654,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1queryChangesVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong changetrackingid, jlong byteoffset, jlong bytelength, jint flags, jlong ranges, jlong rangecount, jlong processedlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdQueryChangesVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong changetrackingid, jlong byteoffset, jlong bytelength, jint flags, jlong ranges, jlong rangecount, jlong processedlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -686,7 +686,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1rawSCSIVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags, jlong response) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdRawSCSIVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags, jlong response) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -714,7 +714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1resizeVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdResizeVirtualDisk(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jint flags, jlong parameters, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -742,7 +742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1setVirtualDiskInformation(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong virtualdiskinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdSetVirtualDiskInformation(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong virtualdiskinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -768,7 +768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1setVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong item, jint metadatasize, jlong metadata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdSetVirtualDiskMetadata(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong item, jint metadatasize, jlong metadata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -796,7 +796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssys_1windows_1win32_1storage_1vhd_1takeSnapshotVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_vhd_WindowsWin32StorageVhdJniBridge_windowssysWindowsWin32StorageVhdTakeSnapshotVhdSet(JNIEnv* km_env, jclass km_clazz, jlong virtualdiskhandle, jlong parameters, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

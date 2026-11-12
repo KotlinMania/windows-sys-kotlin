@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_networkmanagement_p2p_drtClose(void* hdrt) {
+void windowssysWindowsWin32NetworkmanagementP2pDrtClose(void* hdrt) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_networkmanagement_p2p_drtClose(void* hdrt) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtContinueSearch(void* hsearchcontext) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtContinueSearch(void* hsearchcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -58,7 +58,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtContinueSearch(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKey(void* plocalcert, void* pkey) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtCreateDerivedKey(void* plocalcert, void* pkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKey(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKeySecurityProvider(void* prootcert, void* plocalcert, void* ppsecurityprovider) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtCreateDerivedKeySecurityProvider(void* prootcert, void* plocalcert, void* ppsecurityprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKeySecuri
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBootstrapResolver(uint16_t port, void* pwszaddress, void* ppmodule) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtCreateDnsBootstrapResolver(uint16_t port, void* pwszaddress, void* ppmodule) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBootstrapReso
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6UdpTransport(int32_t scope, uint32_t dwscopeid, uint32_t dwlocalitythreshold, void* pwport, void* phtransport) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtCreateIpv6UdpTransport(int32_t scope, uint32_t dwscopeid, uint32_t dwlocalitythreshold, void* pwport, void* phtransport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6UdpTransport
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateNullSecurityProvider(void* ppsecurityprovider) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtCreateNullSecurityProvider(void* ppsecurityprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreateNullSecurityProv
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpBootstrapResolver(int32_t fpublish, void* pwzpeername, void* pwzcloudname, void* pwzpublishingidentity, void* ppresolver) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtCreatePnrpBootstrapResolver(int32_t fpublish, void* pwzpeername, void* pwzcloudname, void* pwzpublishingidentity, void* ppresolver) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpBootstrapRes
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_p2p_drtDeleteDerivedKeySecurityProvider(void* psecurityprovider) {
+void windowssysWindowsWin32NetworkmanagementP2pDrtDeleteDerivedKeySecurityProvider(void* psecurityprovider) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -224,7 +224,7 @@ void windowssys_windows_win32_networkmanagement_p2p_drtDeleteDerivedKeySecurityP
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBootstrapResolver(void* presolver) {
+void windowssysWindowsWin32NetworkmanagementP2pDrtDeleteDnsBootstrapResolver(void* presolver) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ void windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBootstrapResolve
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6UdpTransport(void* htransport) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtDeleteIpv6UdpTransport(void* htransport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -267,7 +267,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6UdpTransport
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullSecurityProvider(void* psecurityprovider) {
+void windowssysWindowsWin32NetworkmanagementP2pDrtDeleteNullSecurityProvider(void* psecurityprovider) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -288,7 +288,7 @@ void windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullSecurityProvide
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpBootstrapResolver(void* presolver) {
+void windowssysWindowsWin32NetworkmanagementP2pDrtDeletePnrpBootstrapResolver(void* presolver) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -309,7 +309,7 @@ void windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpBootstrapResolv
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtEndSearch(void* hsearchcontext) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtEndSearch(void* hsearchcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -331,7 +331,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtEndSearch(void* hsearc
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetEventData(void* hdrt, uint32_t uleventdatalen, void* peventdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetEventData(void* hdrt, uint32_t uleventdatalen, void* peventdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -355,7 +355,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetEventData(void* hdr
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetEventDataSize(void* hdrt, void* puleventdatalen) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetEventDataSize(void* hdrt, void* puleventdatalen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -378,7 +378,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetEventDataSize(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceName(void* hdrt, uint32_t ulcbinstancenamesize, void* pwzdrtinstancename) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetInstanceName(void* hdrt, uint32_t ulcbinstancenamesize, void* pwzdrtinstancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -402,7 +402,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceName(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceNameSize(void* hdrt, void* pulcbinstancenamesize) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetInstanceNameSize(void* hdrt, void* pulcbinstancenamesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -425,7 +425,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceNameSize(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPath(void* hsearchcontext, uint32_t ulsearchpathsize, void* psearchpath) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchPath(void* hsearchcontext, uint32_t ulsearchpathsize, void* psearchpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -449,7 +449,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPath(void* hs
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPathSize(void* hsearchcontext, void* pulsearchpathsize) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchPathSize(void* hsearchcontext, void* pulsearchpathsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -472,7 +472,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPathSize(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResult(void* hsearchcontext, uint32_t ulsearchresultsize, void* psearchresult) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchResult(void* hsearchcontext, uint32_t ulsearchresultsize, void* psearchresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -496,7 +496,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResult(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResultSize(void* hsearchcontext, void* pulsearchresultsize) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchResultSize(void* hsearchcontext, void* pulsearchresultsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -519,7 +519,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResultSize(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtOpen(void* psettings, void* hevent, void* pvcontext, void* phdrt) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtOpen(void* psettings, void* hevent, void* pvcontext, void* phdrt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -544,7 +544,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtOpen(void* psettings, 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey(void* hdrt, void* pregistration, void* pvkeycontext, void* phkeyregistration) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtRegisterKey(void* hdrt, void* pregistration, void* pvkeycontext, void* phkeyregistration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -569,7 +569,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey(void* hdrt
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtStartSearch(void* hdrt, void* pkey, void* pinfo, uint32_t timeout, void* hevent, void* pvcontext, void* hsearchcontext) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtStartSearch(void* hdrt, void* pkey, void* pinfo, uint32_t timeout, void* hevent, void* pvcontext, void* hsearchcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtStartSearch(void* hdrt
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_p2p_drtUnregisterKey(void* hkeyregistration) {
+void windowssysWindowsWin32NetworkmanagementP2pDrtUnregisterKey(void* hkeyregistration) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -618,7 +618,7 @@ void windowssys_windows_win32_networkmanagement_p2p_drtUnregisterKey(void* hkeyr
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey(void* hkeyregistration, void* pappdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pDrtUpdateKey(void* hkeyregistration, void* pappdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -641,7 +641,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey(void* hkeyre
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabAddContact(void* pwzcontactdata, void* ppcontact) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabAddContact(void* pwzcontactdata, void* ppcontact) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -664,7 +664,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabAddContact(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteContact(void* pccontact, void* pcendpoint, void* pcinvitation, void* hevent, void* phinvitation) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabAsyncInviteContact(void* pccontact, void* pcendpoint, void* pcinvitation, void* hevent, void* phinvitation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -690,7 +690,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteCont
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteEndpoint(void* pcendpoint, void* pcinvitation, void* hevent, void* phinvitation) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabAsyncInviteEndpoint(void* pcendpoint, void* pcinvitation, void* hevent, void* phinvitation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -715,7 +715,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteEndp
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabCancelInvitation(void* hinvitation) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabCancelInvitation(void* hinvitation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabCancelInvitatio
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabCloseHandle(void* hinvitation) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabCloseHandle(void* hinvitation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -759,7 +759,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabCloseHandle(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteContact(void* pwzpeername) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabDeleteContact(void* pwzpeername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteContact(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteEndpointData(void* pcendpoint) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabDeleteEndpointData(void* pcendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -803,7 +803,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteEndpointD
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteObject(void* pobjectid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabDeleteObject(void* pobjectid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -825,7 +825,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteObject(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplicationRegistrationInfo(int32_t registrationtype, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumApplicationRegistrationInfo(int32_t registrationtype, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -848,7 +848,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplication
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplications(void* pcendpoint, void* papplicationid, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumApplications(void* pcendpoint, void* papplicationid, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -872,7 +872,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplication
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumContacts(void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumContacts(void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -894,7 +894,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumContacts(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumEndpoints(void* pccontact, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumEndpoints(void* pccontact, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumEndpoints(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumObjects(void* pcendpoint, void* pobjectid, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumObjects(void* pcendpoint, void* pobjectid, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +941,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumObjects(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumPeopleNearMe(void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumPeopleNearMe(void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -963,7 +963,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumPeopleNearM
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabExportContact(void* pwzpeername, void* ppwzcontactdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabExportContact(void* pwzpeername, void* ppwzcontactdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -986,7 +986,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabExportContact(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetAppLaunchInfo(void* pplaunchinfo) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetAppLaunchInfo(void* pplaunchinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1008,7 +1008,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetAppLaunchInf
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetApplicationRegistrationInfo(void* papplicationid, int32_t registrationtype, void* ppapplication) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetApplicationRegistrationInfo(void* papplicationid, int32_t registrationtype, void* ppapplication) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1032,7 +1032,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetApplicationR
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetContact(void* pwzpeername, void* ppcontact) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetContact(void* pwzpeername, void* ppcontact) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1055,7 +1055,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetContact(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEndpointName(void* ppwzendpointname) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetEndpointName(void* ppwzendpointname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1077,7 +1077,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEndpointName
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEventData(void* hpeerevent, void* ppeventdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetEventData(void* hpeerevent, void* ppeventdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1100,7 +1100,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEventData(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetInvitationResponse(void* hinvitation, void* ppinvitationresponse) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetInvitationResponse(void* hinvitation, void* ppinvitationresponse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1123,7 +1123,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetInvitationRe
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetPresenceInfo(void* pcendpoint, void* pppresenceinfo) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetPresenceInfo(void* pcendpoint, void* pppresenceinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1146,7 +1146,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetPresenceInfo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetSigninOptions(void* pdwsigninoptions) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetSigninOptions(void* pdwsigninoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1168,7 +1168,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabGetSigninOption
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteContact(void* pccontact, void* pcendpoint, void* pcinvitation, void* ppresponse) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabInviteContact(void* pccontact, void* pcendpoint, void* pcinvitation, void* ppresponse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1193,7 +1193,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteContact(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteEndpoint(void* pcendpoint, void* pcinvitation, void* ppresponse) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabInviteEndpoint(void* pcendpoint, void* pcinvitation, void* ppresponse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1217,7 +1217,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteEndpoint(
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabParseContact(void* pwzcontactdata, void* ppcontact) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabParseContact(void* pwzcontactdata, void* ppcontact) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1240,7 +1240,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabParseContact(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabQueryContactData(void* pcendpoint, void* ppwzcontactdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabQueryContactData(void* pcendpoint, void* ppwzcontactdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1263,7 +1263,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabQueryContactDat
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabRefreshEndpointData(void* pcendpoint) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabRefreshEndpointData(void* pcendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1285,7 +1285,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabRefreshEndpoint
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterApplication(void* pcapplication, int32_t registrationtype) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabRegisterApplication(void* pcapplication, int32_t registrationtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1308,7 +1308,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterApplica
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterEvent(void* hevent, uint32_t ceventregistration, void* peventregistrations, void* phpeerevent) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabRegisterEvent(void* hevent, uint32_t ceventregistration, void* peventregistrations, void* phpeerevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1333,7 +1333,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterEvent(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSetEndpointName(void* pwzendpointname) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabSetEndpointName(void* pwzendpointname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1355,7 +1355,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSetEndpointName
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSetObject(void* pcobject) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabSetObject(void* pcobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1377,7 +1377,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSetObject(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSetPresenceInfo(void* pcpresenceinfo) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabSetPresenceInfo(void* pcpresenceinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1399,7 +1399,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSetPresenceInfo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabShutdown(void) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabShutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1420,7 +1420,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabShutdown(void) 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSignin(void* hwndparent, uint32_t dwsigninoptions) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabSignin(void* hwndparent, uint32_t dwsigninoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1443,7 +1443,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSignin(void* hw
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSignout(uint32_t dwsigninoptions) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabSignout(uint32_t dwsigninoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1465,7 +1465,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSignout(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabStartup(uint16_t wversionrequested) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabStartup(uint16_t wversionrequested) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1487,7 +1487,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabStartup(uint16_
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSubscribeEndpointData(void* pcendpoint) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabSubscribeEndpointData(void* pcendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1509,7 +1509,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabSubscribeEndpoi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterApplication(void* papplicationid, int32_t registrationtype) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabUnregisterApplication(void* papplicationid, int32_t registrationtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1532,7 +1532,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterAppli
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterEvent(void* hpeerevent) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabUnregisterEvent(void* hpeerevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1554,7 +1554,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterEvent
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsubscribeEndpointData(void* pcendpoint) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabUnsubscribeEndpointData(void* pcendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1576,7 +1576,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsubscribeEndp
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUpdateContact(void* pcontact) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCollabUpdateContact(void* pcontact) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1598,7 +1598,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCollabUpdateContact(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerCreatePeerName(void* pwzidentity, void* pwzclassifier, void* ppwzpeername) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerCreatePeerName(void* pwzidentity, void* pwzclassifier, void* ppwzpeername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1622,7 +1622,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerCreatePeerName(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddContentInformation(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbnumberofbytes, void* pbuffer, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientAddContentInformation(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbnumberofbytes, void* pbuffer, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1648,7 +1648,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddContent
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddData(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbnumberofbytes, void* pbuffer, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientAddData(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbnumberofbytes, void* pbuffer, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1674,7 +1674,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddData(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientBlockRead(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbmaxnumberofbytes, void* pbuffer, uint32_t dwtimeoutinmilliseconds, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientBlockRead(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbmaxnumberofbytes, void* pbuffer, uint32_t dwtimeoutinmilliseconds, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1701,7 +1701,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientBlockRead(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientCancelAsyncOperation(int64_t hpeerdist, int64_t hcontenthandle, void* poverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientCancelAsyncOperation(int64_t hpeerdist, int64_t hcontenthandle, void* poverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1725,7 +1725,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientCancelAsyn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientCloseContent(int64_t hpeerdist, int64_t hcontenthandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientCloseContent(int64_t hpeerdist, int64_t hcontenthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1748,7 +1748,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientCloseConte
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientCompleteContentInformation(int64_t hpeerdist, int64_t hcontenthandle, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientCompleteContentInformation(int64_t hpeerdist, int64_t hcontenthandle, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1772,7 +1772,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientCompleteCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientFlushContent(int64_t hpeerdist, void* pcontenttag, void* hcompletionport, uint64_t ulcompletionkey, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientFlushContent(int64_t hpeerdist, void* pcontenttag, void* hcompletionport, uint64_t ulcompletionkey, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1798,7 +1798,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientFlushConte
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientGetInformationByHandle(int64_t hpeerdist, int64_t hcontenthandle, int32_t peerdistclientinfoclass, uint32_t dwbuffersize, void* lpinformation) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientGetInformationByHandle(int64_t hpeerdist, int64_t hcontenthandle, int32_t peerdistclientinfoclass, uint32_t dwbuffersize, void* lpinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1824,7 +1824,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientGetInforma
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientOpenContent(int64_t hpeerdist, void* pcontenttag, void* hcompletionport, uint64_t ulcompletionkey, void* phcontenthandle) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientOpenContent(int64_t hpeerdist, void* pcontenttag, void* hcompletionport, uint64_t ulcompletionkey, void* phcontenthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1850,7 +1850,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientOpenConten
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientStreamRead(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbmaxnumberofbytes, void* pbuffer, uint32_t dwtimeoutinmilliseconds, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistClientStreamRead(int64_t hpeerdist, int64_t hcontenthandle, uint32_t cbmaxnumberofbytes, void* pbuffer, uint32_t dwtimeoutinmilliseconds, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1877,7 +1877,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistClientStreamRead
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerDistGetOverlappedResult(void* lpoverlapped, void* lpnumberofbytestransferred, int32_t bwait) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistGetOverlappedResult(void* lpoverlapped, void* lpnumberofbytestransferred, int32_t bwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1901,7 +1901,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerDistGetOverlappedResu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatus(int64_t hpeerdist, void* ppeerdiststatus) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistGetStatus(int64_t hpeerdist, void* ppeerdiststatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1924,7 +1924,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatus(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatusEx(int64_t hpeerdist, void* ppeerdiststatus) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistGetStatusEx(int64_t hpeerdist, void* ppeerdiststatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1947,7 +1947,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatusEx(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotification(int64_t hpeerdist, void* hcompletionport, uint64_t ulcompletionkey, void* lpoverlapped, void* ppeerdiststatus) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistRegisterForStatusChangeNotification(int64_t hpeerdist, void* hcompletionport, uint64_t ulcompletionkey, void* lpoverlapped, void* ppeerdiststatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1973,7 +1973,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotificationEx(int64_t hpeerdist, void* hcompletionport, uint64_t ulcompletionkey, void* lpoverlapped, void* ppeerdiststatus) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistRegisterForStatusChangeNotificationEx(int64_t hpeerdist, void* hcompletionport, uint64_t ulcompletionkey, void* lpoverlapped, void* ppeerdiststatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1999,7 +1999,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerCancelAsyncOperation(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, void* poverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerCancelAsyncOperation(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, void* poverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2024,7 +2024,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerCancelAsyn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseContentInformation(int64_t hpeerdist, int64_t hcontentinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerCloseContentInformation(int64_t hpeerdist, int64_t hcontentinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2047,7 +2047,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseConte
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseStreamHandle(int64_t hpeerdist, int64_t hstream) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerCloseStreamHandle(int64_t hpeerdist, int64_t hstream) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2070,7 +2070,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseStrea
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformation(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, uint64_t ullcontentoffset, uint64_t cbcontentlength, void* hcompletionport, uint64_t ulcompletionkey, void* phcontentinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerOpenContentInformation(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, uint64_t ullcontentoffset, uint64_t cbcontentlength, void* hcompletionport, uint64_t ulcompletionkey, void* phcontentinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint64_t, uint64_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2099,7 +2099,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenConten
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformationEx(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, uint64_t ullcontentoffset, uint64_t cbcontentlength, void* pretrievaloptions, void* hcompletionport, uint64_t ulcompletionkey, void* phcontentinfo) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerOpenContentInformationEx(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, uint64_t ullcontentoffset, uint64_t cbcontentlength, void* pretrievaloptions, void* hcompletionport, uint64_t ulcompletionkey, void* phcontentinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint64_t, uint64_t, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2129,7 +2129,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenConten
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishAddToStream(int64_t hpeerdist, int64_t hstream, uint32_t cbnumberofbytes, void* pbuffer, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerPublishAddToStream(int64_t hpeerdist, int64_t hstream, uint32_t cbnumberofbytes, void* pbuffer, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2155,7 +2155,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishAdd
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishCompleteStream(int64_t hpeerdist, int64_t hstream, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerPublishCompleteStream(int64_t hpeerdist, int64_t hstream, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2179,7 +2179,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishCom
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishStream(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, uint64_t cbcontentlength, void* ppublishoptions, void* hcompletionport, uint64_t ulcompletionkey, void* phstream) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerPublishStream(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier, uint64_t cbcontentlength, void* ppublishoptions, void* hcompletionport, uint64_t ulcompletionkey, void* phstream) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint64_t, void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2208,7 +2208,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishStr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerRetrieveContentInformation(int64_t hpeerdist, int64_t hcontentinfo, uint32_t cbmaxnumberofbytes, void* pbuffer, void* lpoverlapped) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerRetrieveContentInformation(int64_t hpeerdist, int64_t hcontentinfo, uint32_t cbmaxnumberofbytes, void* pbuffer, void* lpoverlapped) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2234,7 +2234,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerRetrieveCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerUnpublish(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistServerUnpublish(int64_t hpeerdist, uint32_t cbcontentidentifier, void* pcontentidentifier) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2258,7 +2258,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistServerUnpublish(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistShutdown(int64_t hpeerdist) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistShutdown(int64_t hpeerdist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2280,7 +2280,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistShutdown(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistStartup(uint32_t dwversionrequested, void* phpeerdist, void* pdwsupportedversion) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistStartup(uint32_t dwversionrequested, void* phpeerdist, void* pdwsupportedversion) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2304,7 +2304,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistStartup(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistUnregisterForStatusChangeNotification(int64_t hpeerdist) {
+uint32_t windowssysWindowsWin32NetworkmanagementP2pPeerDistUnregisterForStatusChangeNotification(int64_t hpeerdist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2326,7 +2326,7 @@ uint32_t windowssys_windows_win32_networkmanagement_p2p_peerDistUnregisterForSta
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerEndEnumeration(void* hpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerEndEnumeration(void* hpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2348,7 +2348,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerEndEnumeration(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups(void* pwzidentity, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerEnumGroups(void* pwzidentity, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2371,7 +2371,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups(void* pwzi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerEnumIdentities(void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerEnumIdentities(void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2393,7 +2393,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerEnumIdentities(void* 
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_p2p_peerFreeData(void* pvdata) {
+void windowssysWindowsWin32NetworkmanagementP2pPeerFreeData(void* pvdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2414,7 +2414,7 @@ void windowssys_windows_win32_networkmanagement_p2p_peerFreeData(void* pvdata) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGetItemCount(void* hpeerenum, void* pcount) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGetItemCount(void* hpeerenum, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2437,7 +2437,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGetItemCount(void* hp
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGetNextItem(void* hpeerenum, void* pcount, void* pppvitems) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGetNextItem(void* hpeerenum, void* pcount, void* pppvitems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2461,7 +2461,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGetNextItem(void* hpe
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRecord(void* hgraph, void* precord, void* precordid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphAddRecord(void* hgraph, void* precord, void* precordid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2485,7 +2485,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRecord(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphClose(void* hgraph) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphClose(void* hgraph) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2507,7 +2507,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphClose(void* hgra
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphCloseDirectConnection(void* hgraph, uint64_t ullconnectionid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphCloseDirectConnection(void* hgraph, uint64_t ullconnectionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2530,7 +2530,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphCloseDirectConne
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphConnect(void* hgraph, void* pwzpeerid, void* paddress, void* pullconnectionid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphConnect(void* hgraph, void* pwzpeerid, void* paddress, void* pullconnectionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2555,7 +2555,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphConnect(void* hg
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphCreate(void* pgraphproperties, void* pwzdatabasename, void* psecurityinterface, void* phgraph) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphCreate(void* pgraphproperties, void* pwzdatabasename, void* psecurityinterface, void* phgraph) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2580,7 +2580,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphCreate(void* pgr
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphDelete(void* pwzgraphid, void* pwzpeerid, void* pwzdatabasename) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphDelete(void* pwzgraphid, void* pwzpeerid, void* pwzdatabasename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2604,7 +2604,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphDelete(void* pwz
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphDeleteRecord(void* hgraph, void* precordid, int32_t flocal) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphDeleteRecord(void* hgraph, void* precordid, int32_t flocal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2628,7 +2628,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphDeleteRecord(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEnumeration(void* hpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphEndEnumeration(void* hpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2650,7 +2650,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEnumeration(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumConnections(void* hgraph, uint32_t dwflags, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphEnumConnections(void* hgraph, uint32_t dwflags, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2674,7 +2674,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumConnections(
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumNodes(void* hgraph, void* pwzpeerid, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphEnumNodes(void* hgraph, void* pwzpeerid, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2698,7 +2698,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumNodes(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumRecords(void* hgraph, void* precordtype, void* pwzpeerid, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphEnumRecords(void* hgraph, void* precordtype, void* pwzpeerid, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2723,7 +2723,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumRecords(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphExportDatabase(void* hgraph, void* pwzfilepath) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphExportDatabase(void* hgraph, void* pwzfilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2746,7 +2746,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphExportDatabase(v
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeData(void* pvdata) {
+void windowssysWindowsWin32NetworkmanagementP2pPeerGraphFreeData(void* pvdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2767,7 +2767,7 @@ void windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeData(void* pvda
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEventData(void* hpeerevent, void* ppeventdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetEventData(void* hpeerevent, void* ppeventdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2790,7 +2790,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEventData(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetItemCount(void* hpeerenum, void* pcount) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetItemCount(void* hpeerenum, void* pcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2813,7 +2813,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetItemCount(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNextItem(void* hpeerenum, void* pcount, void* pppvitems) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetNextItem(void* hpeerenum, void* pcount, void* pppvitems) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2837,7 +2837,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNextItem(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNodeInfo(void* hgraph, uint64_t ullnodeid, void* ppnodeinfo) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetNodeInfo(void* hgraph, uint64_t ullnodeid, void* ppnodeinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2861,7 +2861,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNodeInfo(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetProperties(void* hgraph, void* ppgraphproperties) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetProperties(void* hgraph, void* ppgraphproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2884,7 +2884,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetProperties(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRecord(void* hgraph, void* precordid, void* pprecord) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetRecord(void* hgraph, void* precordid, void* pprecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2908,7 +2908,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRecord(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetStatus(void* hgraph, void* pdwstatus) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetStatus(void* hgraph, void* pdwstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2931,7 +2931,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphGetStatus(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphImportDatabase(void* hgraph, void* pwzfilepath) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphImportDatabase(void* hgraph, void* pwzfilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2954,7 +2954,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphImportDatabase(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphListen(void* hgraph, uint32_t dwscope, uint32_t dwscopeid, uint16_t wport) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphListen(void* hgraph, uint32_t dwscope, uint32_t dwscopeid, uint16_t wport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2979,7 +2979,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphListen(void* hgr
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen(void* pwzgraphid, void* pwzpeerid, void* pwzdatabasename, void* psecurityinterface, uint32_t crecordtypesyncprecedence, void* precordtypesyncprecedence, void* phgraph) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphOpen(void* pwzgraphid, void* pwzpeerid, void* pwzdatabasename, void* psecurityinterface, uint32_t crecordtypesyncprecedence, void* precordtypesyncprecedence, void* phgraph) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3007,7 +3007,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen(void* pwzgr
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenDirectConnection(void* hgraph, void* pwzpeerid, void* paddress, void* pullconnectionid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphOpenDirectConnection(void* hgraph, void* pwzpeerid, void* paddress, void* pullconnectionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3032,7 +3032,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenDirectConnec
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerTimeToUniversalTime(void* hgraph, void* pftpeertime, void* pftuniversaltime) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphPeerTimeToUniversalTime(void* hgraph, void* pftpeertime, void* pftuniversaltime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3056,7 +3056,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerTimeToUniver
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphRegisterEvent(void* hgraph, void* hevent, uint32_t ceventregistrations, void* peventregistrations, void* phpeerevent) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphRegisterEvent(void* hgraph, void* hevent, uint32_t ceventregistrations, void* peventregistrations, void* phpeerevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3082,7 +3082,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphRegisterEvent(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSearchRecords(void* hgraph, void* pwzcriteria, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphSearchRecords(void* hgraph, void* pwzcriteria, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3106,7 +3106,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSearchRecords(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSendData(void* hgraph, uint64_t ullconnectionid, void* ptype, uint32_t cbdata, void* pvdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphSendData(void* hgraph, uint64_t ullconnectionid, void* ptype, uint32_t cbdata, void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3132,7 +3132,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSendData(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNodeAttributes(void* hgraph, void* pwzattributes) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphSetNodeAttributes(void* hgraph, void* pwzattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3155,7 +3155,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNodeAttribute
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPresence(void* hgraph, int32_t fpresent) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphSetPresence(void* hgraph, int32_t fpresent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3178,7 +3178,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPresence(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSetProperties(void* hgraph, void* pgraphproperties) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphSetProperties(void* hgraph, void* pgraphproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3201,7 +3201,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphSetProperties(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphShutdown(void) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphShutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3222,7 +3222,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphShutdown(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphStartup(uint16_t wversionrequested, void* pversiondata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphStartup(uint16_t wversionrequested, void* pversiondata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3245,7 +3245,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphStartup(uint16_t
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphUniversalTimeToPeerTime(void* hgraph, void* pftuniversaltime, void* pftpeertime) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphUniversalTimeToPeerTime(void* hgraph, void* pftuniversaltime, void* pftpeertime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3269,7 +3269,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphUniversalTimeToP
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphUnregisterEvent(void* hpeerevent) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphUnregisterEvent(void* hpeerevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3291,7 +3291,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphUnregisterEvent(
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdateRecord(void* hgraph, void* precord) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphUpdateRecord(void* hgraph, void* precord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3314,7 +3314,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdateRecord(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphValidateDeferredRecords(void* hgraph, uint32_t crecordids, void* precordids) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGraphValidateDeferredRecords(void* hgraph, uint32_t crecordids, void* precordids) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3338,7 +3338,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGraphValidateDeferred
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRecord(void* hgroup, void* precord, void* precordid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupAddRecord(void* hgroup, void* precord, void* precordid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3362,7 +3362,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRecord(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupClose(void* hgroup) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupClose(void* hgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3384,7 +3384,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupClose(void* hgro
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCloseDirectConnection(void* hgroup, uint64_t ullconnectionid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupCloseDirectConnection(void* hgroup, uint64_t ullconnectionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3407,7 +3407,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCloseDirectConne
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupConnect(void* hgroup) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupConnect(void* hgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3429,7 +3429,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupConnect(void* hg
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupConnectByAddress(void* hgroup, uint32_t caddresses, void* paddresses) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupConnectByAddress(void* hgroup, uint32_t caddresses, void* paddresses) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3453,7 +3453,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupConnectByAddress
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCreate(void* pproperties, void* phgroup) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupCreate(void* pproperties, void* phgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3476,7 +3476,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCreate(void* ppr
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCreateInvitation(void* hgroup, void* pwzidentityinfo, void* pftexpiration, uint32_t croles, void* proles, void* ppwzinvitation) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupCreateInvitation(void* hgroup, void* pwzidentityinfo, void* pftexpiration, uint32_t croles, void* proles, void* ppwzinvitation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3503,7 +3503,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCreateInvitation
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCreatePasswordInvitation(void* hgroup, void* ppwzinvitation) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupCreatePasswordInvitation(void* hgroup, void* ppwzinvitation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3526,7 +3526,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupCreatePasswordIn
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupDelete(void* pwzidentity, void* pwzgrouppeername) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupDelete(void* pwzidentity, void* pwzgrouppeername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3549,7 +3549,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupDelete(void* pwz
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupDeleteRecord(void* hgroup, void* precordid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupDeleteRecord(void* hgroup, void* precordid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3572,7 +3572,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupDeleteRecord(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumConnections(void* hgroup, uint32_t dwflags, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupEnumConnections(void* hgroup, uint32_t dwflags, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3596,7 +3596,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumConnections(
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumMembers(void* hgroup, uint32_t dwflags, void* pwzidentity, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupEnumMembers(void* hgroup, uint32_t dwflags, void* pwzidentity, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3621,7 +3621,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumMembers(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumRecords(void* hgroup, void* precordtype, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupEnumRecords(void* hgroup, void* precordtype, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3645,7 +3645,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumRecords(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupExportConfig(void* hgroup, void* pwzpassword, void* ppwzxml) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupExportConfig(void* hgroup, void* pwzpassword, void* ppwzxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3669,7 +3669,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupExportConfig(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupExportDatabase(void* hgroup, void* pwzfilepath) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupExportDatabase(void* hgroup, void* pwzfilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3692,7 +3692,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupExportDatabase(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEventData(void* hpeerevent, void* ppeventdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetEventData(void* hpeerevent, void* ppeventdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3715,7 +3715,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEventData(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetProperties(void* hgroup, void* ppproperties) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetProperties(void* hgroup, void* ppproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3738,7 +3738,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetProperties(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRecord(void* hgroup, void* precordid, void* pprecord) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetRecord(void* hgroup, void* precordid, void* pprecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3762,7 +3762,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRecord(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetStatus(void* hgroup, void* pdwstatus) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetStatus(void* hgroup, void* pdwstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3785,7 +3785,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupGetStatus(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupImportConfig(void* pwzxml, void* pwzpassword, int32_t foverwrite, void* ppwzidentity, void* ppwzgroup) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupImportConfig(void* pwzxml, void* pwzpassword, int32_t foverwrite, void* ppwzidentity, void* ppwzgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3811,7 +3811,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupImportConfig(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupImportDatabase(void* hgroup, void* pwzfilepath) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupImportDatabase(void* hgroup, void* pwzfilepath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3834,7 +3834,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupImportDatabase(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupIssueCredentials(void* hgroup, void* pwzsubjectidentity, void* pcredentialinfo, uint32_t dwflags, void* ppwzinvitation) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupIssueCredentials(void* hgroup, void* pwzsubjectidentity, void* pcredentialinfo, uint32_t dwflags, void* ppwzinvitation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3860,7 +3860,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupIssueCredentials
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin(void* pwzidentity, void* pwzinvitation, void* pwzcloud, void* phgroup) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupJoin(void* pwzidentity, void* pwzinvitation, void* pwzcloud, void* phgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3885,7 +3885,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin(void* pwzid
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen(void* pwzidentity, void* pwzgrouppeername, void* pwzcloud, void* phgroup) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupOpen(void* pwzidentity, void* pwzgrouppeername, void* pwzcloud, void* phgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3910,7 +3910,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen(void* pwzid
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenDirectConnection(void* hgroup, void* pwzidentity, void* paddress, void* pullconnectionid) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupOpenDirectConnection(void* hgroup, void* pwzidentity, void* paddress, void* pullconnectionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3935,7 +3935,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenDirectConnec
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupParseInvitation(void* pwzinvitation, void* ppinvitationinfo) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupParseInvitation(void* pwzinvitation, void* ppinvitationinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3958,7 +3958,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupParseInvitation(
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupPasswordJoin(void* pwzidentity, void* pwzinvitation, void* pwzpassword, void* pwzcloud, void* phgroup) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupPasswordJoin(void* pwzidentity, void* pwzinvitation, void* pwzpassword, void* pwzcloud, void* phgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3984,7 +3984,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupPasswordJoin(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerTimeToUniversalTime(void* hgroup, void* pftpeertime, void* pftuniversaltime) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupPeerTimeToUniversalTime(void* hgroup, void* pftpeertime, void* pftuniversaltime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4008,7 +4008,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerTimeToUniver
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupRegisterEvent(void* hgroup, void* hevent, uint32_t ceventregistration, void* peventregistrations, void* phpeerevent) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupRegisterEvent(void* hgroup, void* hevent, uint32_t ceventregistration, void* peventregistrations, void* phpeerevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4034,7 +4034,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupRegisterEvent(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupResumePasswordAuthentication(void* hgroup, void* hpeereventhandle) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupResumePasswordAuthentication(void* hgroup, void* hpeereventhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4057,7 +4057,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupResumePasswordAu
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupSearchRecords(void* hgroup, void* pwzcriteria, void* phpeerenum) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupSearchRecords(void* hgroup, void* pwzcriteria, void* phpeerenum) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4081,7 +4081,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupSearchRecords(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupSendData(void* hgroup, uint64_t ullconnectionid, void* ptype, uint32_t cbdata, void* pvdata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupSendData(void* hgroup, uint64_t ullconnectionid, void* ptype, uint32_t cbdata, void* pvdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4107,7 +4107,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupSendData(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupSetProperties(void* hgroup, void* pproperties) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupSetProperties(void* hgroup, void* pproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4130,7 +4130,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupSetProperties(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupShutdown(void) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupShutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4151,7 +4151,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupShutdown(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupStartup(uint16_t wversionrequested, void* pversiondata) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupStartup(uint16_t wversionrequested, void* pversiondata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4174,7 +4174,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupStartup(uint16_t
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupUniversalTimeToPeerTime(void* hgroup, void* pftuniversaltime, void* pftpeertime) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupUniversalTimeToPeerTime(void* hgroup, void* pftuniversaltime, void* pftpeertime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4198,7 +4198,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupUniversalTimeToP
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupUnregisterEvent(void* hpeerevent) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupUnregisterEvent(void* hpeerevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4220,7 +4220,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupUnregisterEvent(
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdateRecord(void* hgroup, void* precord) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerGroupUpdateRecord(void* hgroup, void* precord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4243,7 +4243,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdateRecord(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerHostNameToPeerName(void* pwzhostname, void* ppwzpeername) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerHostNameToPeerName(void* pwzhostname, void* ppwzpeername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4266,7 +4266,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerHostNameToPeerName(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityCreate(void* pwzclassifier, void* pwzfriendlyname, uint64_t hcryptprov, void* ppwzidentity) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityCreate(void* pwzclassifier, void* pwzfriendlyname, uint64_t hcryptprov, void* ppwzidentity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4291,7 +4291,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityCreate(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityDelete(void* pwzidentity) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityDelete(void* pwzidentity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4313,7 +4313,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityDelete(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityExport(void* pwzidentity, void* pwzpassword, void* ppwzexportxml) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityExport(void* pwzidentity, void* pwzpassword, void* ppwzexportxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4337,7 +4337,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityExport(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetCryptKey(void* pwzidentity, void* phcryptprov) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetCryptKey(void* pwzidentity, void* phcryptprov) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4360,7 +4360,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetCryptKey(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetDefault(void* ppwzpeername) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetDefault(void* ppwzpeername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4382,7 +4382,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetDefault(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetFriendlyName(void* pwzidentity, void* ppwzfriendlyname) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetFriendlyName(void* pwzidentity, void* ppwzfriendlyname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4405,7 +4405,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetFriendlyNa
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetXML(void* pwzidentity, void* ppwzidentityxml) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetXML(void* pwzidentity, void* ppwzidentityxml) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4428,7 +4428,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetXML(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityImport(void* pwzimportxml, void* pwzpassword, void* ppwzidentity) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentityImport(void* pwzimportxml, void* pwzpassword, void* ppwzidentity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4452,7 +4452,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentityImport(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentitySetFriendlyName(void* pwzidentity, void* pwzfriendlyname) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerIdentitySetFriendlyName(void* pwzidentity, void* pwzfriendlyname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4475,7 +4475,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerIdentitySetFriendlyNa
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerNameToPeerHostName(void* pwzpeername, void* ppwzhostname) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerNameToPeerHostName(void* pwzpeername, void* ppwzhostname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4498,7 +4498,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerNameToPeerHostName(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndResolve(void* hresolve) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpEndResolve(void* hresolve) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4520,7 +4520,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndResolve(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetCloudInfo(void* pcnumclouds, void* ppcloudinfo) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpGetCloudInfo(void* pcnumclouds, void* ppcloudinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4543,7 +4543,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetCloudInfo(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEndpoint(void* hresolve, void* ppendpoint) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpGetEndpoint(void* hresolve, void* ppendpoint) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4566,7 +4566,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEndpoint(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegister(void* pcwzpeername, void* pregistrationinfo, void* phregistration) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpRegister(void* pcwzpeername, void* pregistrationinfo, void* phregistration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4590,7 +4590,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegister(void* pc
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolve(void* pcwzpeername, void* pcwzcloudname, void* pcendpoints, void* ppendpoints) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpResolve(void* pcwzpeername, void* pcwzcloudname, void* pcendpoints, void* ppendpoints) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4615,7 +4615,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolve(void* pcw
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdown(void) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpShutdown(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4636,7 +4636,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdown(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartResolve(void* pcwzpeername, void* pcwzcloudname, uint32_t cmaxendpoints, void* hevent, void* phresolve) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartResolve(void* pcwzpeername, void* pcwzcloudname, uint32_t cmaxendpoints, void* hevent, void* phresolve) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4662,7 +4662,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartResolve(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartup(uint16_t wversionrequested) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartup(uint16_t wversionrequested) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4684,7 +4684,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartup(uint16_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregister(void* hregistration) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpUnregister(void* hregistration) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4706,7 +4706,7 @@ int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregister(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_p2p_peerPnrpUpdateRegistration(void* hregistration, void* pregistrationinfo) {
+int32_t windowssysWindowsWin32NetworkmanagementP2pPeerPnrpUpdateRegistration(void* hregistration, void* pregistrationinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

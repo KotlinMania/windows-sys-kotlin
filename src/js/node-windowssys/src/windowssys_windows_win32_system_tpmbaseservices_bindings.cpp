@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_getDeviceID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesGetDeviceID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbwindowsaik = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbwindowsaik = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -82,7 +82,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_getDeviceID_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesGetDeviceIDString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszwindowsaik = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchwindowsaik = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_getDeviceIDSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiContextCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcontextparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -140,7 +140,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiContextCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiCreateWindowsKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t keyhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiGetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* info = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetDevice
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiGetOwnerAuth_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ownerauthtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poutputbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -252,7 +252,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLogEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t logtype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pboutput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -304,7 +304,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPres
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pabinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsiRevokeAttestation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -360,7 +360,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAtt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsipCancelCommands_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -385,7 +385,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsipContextClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -410,7 +410,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipContextC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t locality = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -448,20 +448,20 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCo
 }
 
 static void register_windows_win32_system_tpmbaseservices_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_getDeviceID", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_getDeviceID_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose_napi));
-    exports.Set("windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand", Napi::Function::New(env, windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesGetDeviceID", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesGetDeviceID_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesGetDeviceIDString", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesGetDeviceIDString_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiContextCreate", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiContextCreate_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiCreateWindowsKey", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiCreateWindowsKey_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiGetDeviceInfo", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiGetDeviceInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiGetOwnerAuth", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiGetOwnerAuth_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLog", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLog_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLogEx", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLogEx_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsiRevokeAttestation", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsiRevokeAttestation_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsipCancelCommands", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsipCancelCommands_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsipContextClose", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsipContextClose_napi));
+    exports.Set("windowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand", Napi::Function::New(env, windowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_tpmbaseservices_napi, nullptr };

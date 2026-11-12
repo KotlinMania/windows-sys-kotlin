@@ -2,10 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
@@ -13,471 +17,522 @@ import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
 private object WindowsWin32SystemDiagnosticsEtwJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SystemDiagnosticsEtwJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId(reghandle: Long, instinfo: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwCreateTraceInstanceId(reghandle: Long, instinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_cveEventWrite(cveid: Long, additionaldetails: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwCveEventWrite(cveid: Long, additionaldetails: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids(guidpropertiesarray: Long, propertyarraycount: Int, guidcount: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEnumerateTraceGuids(guidpropertiesarray: Long, propertyarraycount: Int, guidcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx(tracequeryinfoclass: Int, inbuffer: Long, inbuffersize: Int, outbuffer: Long, outbuffersize: Int, returnlength: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEnumerateTraceGuidsEx(tracequeryinfoclass: Int, inbuffer: Long, inbuffersize: Int, outbuffer: Long, outbuffersize: Int, returnlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventAccessControl(guid: Long, operation: Int, sid: Long, rights: Int, allowordeny: Boolean): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventAccessControl(guid: Long, operation: Int, sid: Long, rights: Int, allowordeny: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery(guid: Long, buffer: Long, buffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventAccessQuery(guid: Long, buffer: Long, buffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove(guid: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventAccessRemove(guid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl(controlcode: Int, activityid: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventActivityIdControl(controlcode: Int, activityid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventEnabled(reghandle: Long, eventdescriptor: Long): Boolean
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventEnabled(reghandle: Long, eventdescriptor: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled(reghandle: Long, level: Byte, keyword: Long): Boolean
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventProviderEnabled(reghandle: Long, level: Byte, keyword: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventRegister(providerid: Long, enablecallback: Long, callbackcontext: Long, reghandle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventRegister(providerid: Long, enablecallback: Long, callbackcontext: Long, reghandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventSetInformation(reghandle: Long, informationclass: Int, eventinformation: Long, informationlength: Int): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventSetInformation(reghandle: Long, informationclass: Int, eventinformation: Long, informationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventUnregister(reghandle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventUnregister(reghandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventWrite(reghandle: Long, eventdescriptor: Long, userdatacount: Int, userdata: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventWrite(reghandle: Long, eventdescriptor: Long, userdatacount: Int, userdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventWriteEx(reghandle: Long, eventdescriptor: Long, filter: Long, flags: Int, activityid: Long, relatedactivityid: Long, userdatacount: Int, userdata: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventWriteEx(reghandle: Long, eventdescriptor: Long, filter: Long, flags: Int, activityid: Long, relatedactivityid: Long, userdatacount: Int, userdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventWriteString(reghandle: Long, level: Byte, keyword: Long, string: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventWriteString(reghandle: Long, level: Byte, keyword: Long, string: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer(reghandle: Long, eventdescriptor: Long, activityid: Long, relatedactivityid: Long, userdatacount: Int, userdata: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwEventWriteTransfer(reghandle: Long, eventdescriptor: Long, activityid: Long, relatedactivityid: Long, userdatacount: Int, userdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags(tracehandle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwGetTraceEnableFlags(tracehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel(tracehandle: Long): Byte
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwGetTraceEnableLevel(tracehandle: Long): Byte
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle(buffer: Long): Long
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwGetTraceLoggerHandle(buffer: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream(options: Long, buffercompletioncallback: Long, buffercompletioncontext: Long): Long
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromBufferStream(options: Long, buffercompletioncallback: Long, buffercompletioncontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile(logfilename: Long, options: Long, logfileheader: Long): Long
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromFile(logfilename: Long, options: Long, logfileheader: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger(loggername: Long, options: Long, logfileheader: Long): Long
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromRealTimeLogger(loggername: Long, options: Long, logfileheader: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions(loggername: Long, options: Long, allocationsize: Long, memorypartitionhandle: Long, logfileheader: Long): Long
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromRealTimeLoggerWithAllocationOptions(loggername: Long, options: Long, allocationsize: Long, memorypartitionhandle: Long, logfileheader: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_processTrace(handlearray: Long, handlecount: Int, starttime: Long, endtime: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwProcessTrace(handlearray: Long, handlecount: Int, starttime: Long, endtime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream(tracehandle: Long, buffer: Long, buffersize: Int): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwProcessTraceAddBufferToBufferStream(tracehandle: Long, buffer: Long, buffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference(buffer: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwProcessTraceBufferDecrementReference(buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference(tracehandle: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwProcessTraceBufferIncrementReference(tracehandle: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA(propertyarray: Long, propertyarraycount: Int, loggercount: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwQueryAllTracesA(propertyarray: Long, propertyarraycount: Int, loggercount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW(propertyarray: Long, propertyarraycount: Int, loggercount: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwQueryAllTracesW(propertyarray: Long, propertyarraycount: Int, loggercount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA(requestaddress: Long, requestcontext: Long, controlguid: Long, guidcount: Int, traceguidreg: Long, mofimagepath: Long, mofresourcename: Long, registrationhandle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwRegisterTraceGuidsA(requestaddress: Long, requestcontext: Long, controlguid: Long, guidcount: Int, traceguidreg: Long, mofimagepath: Long, mofresourcename: Long, registrationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW(requestaddress: Long, requestcontext: Long, controlguid: Long, guidcount: Int, traceguidreg: Long, mofimagepath: Long, mofresourcename: Long, registrationhandle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwRegisterTraceGuidsW(requestaddress: Long, requestcontext: Long, controlguid: Long, guidcount: Int, traceguidreg: Long, mofimagepath: Long, mofresourcename: Long, registrationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback(pguid: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwRemoveTraceCallback(pguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_setTraceCallback(pguid: Long, eventcallback: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwSetTraceCallback(pguid: Long, eventcallback: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_startTraceA(tracehandle: Long, instancename: Long, properties: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwStartTraceA(tracehandle: Long, instancename: Long, properties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_startTraceW(tracehandle: Long, instancename: Long, properties: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwStartTraceW(tracehandle: Long, instancename: Long, properties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters(payloadfiltercount: Int, payloadfilterptrs: Long, eventmatchallflags: Long, eventfilterdescriptor: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhAggregatePayloadFilters(payloadfiltercount: Int, payloadfilterptrs: Long, eventmatchallflags: Long, eventfilterdescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhCloseDecodingHandle(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter(providerguid: Long, eventdescriptor: Long, eventmatchany: Boolean, payloadpredicatecount: Int, payloadpredicates: Long, payloadfilter: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhCreatePayloadFilter(providerguid: Long, eventdescriptor: Long, eventmatchany: Boolean, payloadpredicatecount: Int, payloadpredicates: Long, payloadfilter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter(payloadfilter: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhDeletePayloadFilter(payloadfilter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents(providerguid: Long, buffer: Long, buffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateManifestProviderEvents(providerguid: Long, buffer: Long, buffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation(pguid: Long, eventfieldtype: Int, pbuffer: Long, pbuffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProviderFieldInformation(pguid: Long, eventfieldtype: Int, pbuffer: Long, pbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters(guid: Long, tdhcontextcount: Int, tdhcontext: Long, filtercount: Long, buffer: Long, buffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProviderFilters(guid: Long, tdhcontextcount: Int, tdhcontext: Long, filtercount: Long, buffer: Long, buffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders(pbuffer: Long, pbuffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProviders(pbuffer: Long, pbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource(filter: Int, buffer: Long, buffersize: Int, bufferrequired: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProvidersForDecodingSource(filter: Int, buffer: Long, buffersize: Int, bufferrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty(eventinfo: Long, mapinfo: Long, pointersize: Int, propertyintype: Short, propertyouttype: Short, propertylength: Short, userdatalength: Short, userdata: Long, buffersize: Long, buffer: Long, userdataconsumed: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhFormatProperty(eventinfo: Long, mapinfo: Long, pointersize: Int, propertyintype: Short, propertyouttype: Short, propertylength: Short, userdatalength: Short, userdata: Long, buffersize: Long, buffer: Long, userdataconsumed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle: Long, tdhcontext: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetDecodingParameter(handle: Long, tdhcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation(event: Long, tdhcontextcount: Int, tdhcontext: Long, buffer: Long, buffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetEventInformation(event: Long, tdhcontextcount: Int, tdhcontext: Long, buffer: Long, buffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation(pevent: Long, pmapname: Long, pbuffer: Long, pbuffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetEventMapInformation(pevent: Long, pmapname: Long, pbuffer: Long, pbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation(providerguid: Long, eventdescriptor: Long, buffer: Long, buffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetManifestEventInformation(providerguid: Long, eventdescriptor: Long, buffer: Long, buffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty(pevent: Long, tdhcontextcount: Int, ptdhcontext: Long, propertydatacount: Int, ppropertydata: Long, buffersize: Int, pbuffer: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetProperty(pevent: Long, tdhcontextcount: Int, ptdhcontext: Long, propertydatacount: Int, ppropertydata: Long, buffersize: Int, pbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize(pevent: Long, tdhcontextcount: Int, ptdhcontext: Long, propertydatacount: Int, ppropertydata: Long, ppropertysize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetPropertySize(pevent: Long, tdhcontextcount: Int, ptdhcontext: Long, propertydatacount: Int, ppropertydata: Long, ppropertysize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle: Long, eventrecord: Long, buffersize: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetWppMessage(handle: Long, eventrecord: Long, buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle: Long, eventrecord: Long, propertyname: Long, buffersize: Long, buffer: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhGetWppProperty(handle: Long, eventrecord: Long, propertyname: Long, buffersize: Long, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest(manifest: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhLoadManifest(manifest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary(binarypath: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhLoadManifestFromBinary(binarypath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory(pdata: Long, cbdata: Int): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhLoadManifestFromMemory(pdata: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle(handle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhOpenDecodingHandle(handle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation(pguid: Long, eventfieldvalue: Long, eventfieldtype: Int, pbuffer: Long, pbuffersize: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhQueryProviderFieldInformation(pguid: Long, eventfieldvalue: Long, eventfieldtype: Int, pbuffer: Long, pbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle: Long, tdhcontext: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhSetDecodingParameter(handle: Long, tdhcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest(manifest: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhUnloadManifest(manifest: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory(pdata: Long, cbdata: Int): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTdhUnloadManifestFromMemory(pdata: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_traceEvent(tracehandle: Long, eventtrace: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTraceEvent(tracehandle: Long, eventtrace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_traceEventInstance(tracehandle: Long, eventtrace: Long, instinfo: Long, parentinstinfo: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTraceEventInstance(tracehandle: Long, eventtrace: Long, instinfo: Long, parentinstinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_traceMessage(loggerhandle: Long, messageflags: Int, messageguid: Long, messagenumber: Short, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTraceMessage(loggerhandle: Long, messageflags: Int, messageguid: Long, messagenumber: Short, kmVac: Int, kmVa0: Long, kmVa1: Long, kmVa2: Long, kmVa3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_traceMessageVa(loggerhandle: Long, messageflags: Int, messageguid: Long, messagenumber: Short, messagearglist: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwTraceMessageVa(loggerhandle: Long, messageflags: Int, messageguid: Long, messagenumber: Short, messagearglist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids(registrationhandle: Long): Int
+    external fun windowssysWindowsWin32SystemDiagnosticsEtwUnregisterTraceGuids(registrationhandle: Long): Int
 }
 
 public actual fun closeTrace(tracehandle: ProcesstraceHandle): Win32Error =
     0u
 
-public actual fun controlTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?, controlcode: EventTraceControl): Win32Error =
+public actual fun controlTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: MutPtr<EventTraceProperties>, controlcode: EventTraceControl): Win32Error =
     0u
 
-public actual fun controlTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?, controlcode: EventTraceControl): Win32Error =
+public actual fun controlTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: MutPtr<EventTraceProperties>, controlcode: EventTraceControl): Win32Error =
     0u
 
-public actual fun createTraceInstanceId(reghandle: Handle, instinfo: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId((reghandle?.value ?: 0L), (instinfo?.value ?: 0L)).toUInt()
+public actual fun createTraceInstanceId(reghandle: Handle, instinfo: MutPtr<EventInstanceInfo>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwCreateTraceInstanceId(reghandle.rawAddress, instinfo.rawAddress).toUInt()
 
 public actual fun cveEventWrite(cveid: Pcwstr, additionaldetails: Pcwstr): Int =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_cveEventWrite((cveid?.value ?: 0L), (additionaldetails?.value ?: 0L))
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwCveEventWrite(cveid.rawAddress, additionaldetails.rawAddress)
 
-public actual fun enableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: COpaquePointer?, tracehandle: ControltraceHandle): Win32Error =
+public actual fun enableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: ConstPtr<Guid>, tracehandle: ControltraceHandle): Win32Error =
     0u
 
-public actual fun enableTraceEx(providerid: COpaquePointer?, sourceid: COpaquePointer?, tracehandle: ControltraceHandle, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: COpaquePointer?): Win32Error =
+public actual fun enableTraceEx(providerid: ConstPtr<Guid>, sourceid: ConstPtr<Guid>, tracehandle: ControltraceHandle, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: ConstPtr<EventFilterDescriptor>): Win32Error =
     0u
 
-public actual fun enableTraceEx2(tracehandle: ControltraceHandle, providerid: COpaquePointer?, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: COpaquePointer?): Win32Error =
+public actual fun enableTraceEx2(tracehandle: ControltraceHandle, providerid: ConstPtr<Guid>, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: ConstPtr<EnableTraceParameters>): Win32Error =
     0u
 
-public actual fun enumerateTraceGuids(guidpropertiesarray: COpaquePointer?, propertyarraycount: UInt, guidcount: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids((guidpropertiesarray?.value ?: 0L), propertyarraycount.toInt(), (guidcount?.value ?: 0L)).toUInt()
+public actual fun enumerateTraceGuids(guidpropertiesarray: MutPtr<MutPtr<TraceGuidProperties>>, propertyarraycount: UInt, guidcount: MutPtr<UInt>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEnumerateTraceGuids(guidpropertiesarray.rawAddress, propertyarraycount.toInt(), guidcount.rawAddress).toUInt()
 
-public actual fun enumerateTraceGuidsEx(tracequeryinfoclass: TraceQueryInfoClass, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, returnlength: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx(tracequeryinfoclass, (inbuffer?.value ?: 0L), inbuffersize.toInt(), (outbuffer?.value ?: 0L), outbuffersize.toInt(), (returnlength?.value ?: 0L)).toUInt()
+public actual fun enumerateTraceGuidsEx(tracequeryinfoclass: TraceQueryInfoClass, inbuffer: ConstPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, returnlength: MutPtr<UInt>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEnumerateTraceGuidsEx(tracequeryinfoclass, inbuffer.rawAddress, inbuffersize.toInt(), outbuffer.rawAddress, outbuffersize.toInt(), returnlength.rawAddress).toUInt()
 
-public actual fun eventAccessControl(guid: COpaquePointer?, operation: UInt, sid: Psid, rights: UInt, allowordeny: Boolean): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventAccessControl((guid?.value ?: 0L), operation.toInt(), (sid?.value ?: 0L), rights.toInt(), allowordeny).toUInt()
+public actual fun eventAccessControl(guid: ConstPtr<Guid>, operation: UInt, sid: Psid, rights: UInt, allowordeny: Boolean): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventAccessControl(guid.rawAddress, operation.toInt(), sid.rawAddress, rights.toInt(), allowordeny).toUInt()
 
-public actual fun eventAccessQuery(guid: COpaquePointer?, buffer: PsecurityDescriptor, buffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery((guid?.value ?: 0L), (buffer?.value ?: 0L), (buffersize?.value ?: 0L)).toUInt()
+public actual fun eventAccessQuery(guid: ConstPtr<Guid>, buffer: PsecurityDescriptor, buffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventAccessQuery(guid.rawAddress, buffer.rawAddress, buffersize.rawAddress).toUInt()
 
-public actual fun eventAccessRemove(guid: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove((guid?.value ?: 0L)).toUInt()
+public actual fun eventAccessRemove(guid: ConstPtr<Guid>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventAccessRemove(guid.rawAddress).toUInt()
 
-public actual fun eventActivityIdControl(controlcode: UInt, activityid: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl(controlcode.toInt(), (activityid?.value ?: 0L)).toUInt()
+public actual fun eventActivityIdControl(controlcode: UInt, activityid: MutPtr<Guid>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventActivityIdControl(controlcode.toInt(), activityid.rawAddress).toUInt()
 
-public actual fun eventEnabled(reghandle: Reghandle, eventdescriptor: COpaquePointer?): Boolean =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventEnabled(reghandle, (eventdescriptor?.value ?: 0L))
+public actual fun eventEnabled(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>): Boolean =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventEnabled(reghandle, eventdescriptor.rawAddress)
 
 public actual fun eventProviderEnabled(reghandle: Reghandle, level: UByte, keyword: ULong): Boolean =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled(reghandle, level.toByte(), keyword.toLong())
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventProviderEnabled(reghandle, level.toByte(), keyword.toLong())
 
-public actual fun eventRegister(providerid: COpaquePointer?, enablecallback: Penablecallback, callbackcontext: COpaquePointer?, reghandle: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventRegister((providerid?.value ?: 0L), 0L, (callbackcontext?.value ?: 0L), (reghandle?.value ?: 0L)).toUInt()
+public actual fun eventRegister(providerid: ConstPtr<Guid>, enablecallback: Penablecallback, callbackcontext: ConstPtr<CVoid>, reghandle: MutPtr<Reghandle>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventRegister(providerid.rawAddress, 0L, callbackcontext.rawAddress, reghandle.rawAddress).toUInt()
 
-public actual fun eventSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: COpaquePointer?, informationlength: UInt): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventSetInformation(reghandle, informationclass, (eventinformation?.value ?: 0L), informationlength.toInt()).toUInt()
+public actual fun eventSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: ConstPtr<CVoid>, informationlength: UInt): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventSetInformation(reghandle, informationclass, eventinformation.rawAddress, informationlength.toInt()).toUInt()
 
 public actual fun eventUnregister(reghandle: Reghandle): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventUnregister(reghandle).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventUnregister(reghandle).toUInt()
 
-public actual fun eventWrite(reghandle: Reghandle, eventdescriptor: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventWrite(reghandle, (eventdescriptor?.value ?: 0L), userdatacount.toInt(), (userdata?.value ?: 0L)).toUInt()
+public actual fun eventWrite(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventWrite(reghandle, eventdescriptor.rawAddress, userdatacount.toInt(), userdata.rawAddress).toUInt()
 
-public actual fun eventWriteEx(reghandle: Reghandle, eventdescriptor: COpaquePointer?, filter: ULong, flags: UInt, activityid: COpaquePointer?, relatedactivityid: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventWriteEx(reghandle, (eventdescriptor?.value ?: 0L), filter.toLong(), flags.toInt(), (activityid?.value ?: 0L), (relatedactivityid?.value ?: 0L), userdatacount.toInt(), (userdata?.value ?: 0L)).toUInt()
+public actual fun eventWriteEx(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, filter: ULong, flags: UInt, activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventWriteEx(reghandle, eventdescriptor.rawAddress, filter.toLong(), flags.toInt(), activityid.rawAddress, relatedactivityid.rawAddress, userdatacount.toInt(), userdata.rawAddress).toUInt()
 
 public actual fun eventWriteString(reghandle: Reghandle, level: UByte, keyword: ULong, string: Pcwstr): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventWriteString(reghandle, level.toByte(), keyword.toLong(), (string?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventWriteString(reghandle, level.toByte(), keyword.toLong(), string.rawAddress).toUInt()
 
-public actual fun eventWriteTransfer(reghandle: Reghandle, eventdescriptor: COpaquePointer?, activityid: COpaquePointer?, relatedactivityid: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer(reghandle, (eventdescriptor?.value ?: 0L), (activityid?.value ?: 0L), (relatedactivityid?.value ?: 0L), userdatacount.toInt(), (userdata?.value ?: 0L)).toUInt()
+public actual fun eventWriteTransfer(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwEventWriteTransfer(reghandle, eventdescriptor.rawAddress, activityid.rawAddress, relatedactivityid.rawAddress, userdatacount.toInt(), userdata.rawAddress).toUInt()
 
-public actual fun flushTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+public actual fun flushTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u
 
-public actual fun flushTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+public actual fun flushTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u
 
 public actual fun getTraceEnableFlags(tracehandle: ULong): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags(tracehandle.toLong()).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwGetTraceEnableFlags(tracehandle.toLong()).toUInt()
 
 public actual fun getTraceEnableLevel(tracehandle: ULong): UByte =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel(tracehandle.toLong()).toUByte()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwGetTraceEnableLevel(tracehandle.toLong()).toUByte()
 
-public actual fun getTraceLoggerHandle(buffer: COpaquePointer?): ULong =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle((buffer?.value ?: 0L)).toULong()
+public actual fun getTraceLoggerHandle(buffer: ConstPtr<CVoid>): ULong =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwGetTraceLoggerHandle(buffer.rawAddress).toULong()
 
-public actual fun openTraceA(logfile: COpaquePointer?): ProcesstraceHandle =
+public actual fun openTraceA(logfile: MutPtr<EventTraceLogfilea>): ProcesstraceHandle =
     ProcesstraceHandle()
 
-public actual fun openTraceFromBufferStream(options: COpaquePointer?, buffercompletioncallback: PetwBufferCompletionCallback, buffercompletioncontext: COpaquePointer?): ULong =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream((options?.value ?: 0L), 0L, (buffercompletioncontext?.value ?: 0L)).toULong()
+public actual fun openTraceFromBufferStream(options: ConstPtr<EtwOpenTraceOptions>, buffercompletioncallback: PetwBufferCompletionCallback, buffercompletioncontext: ConstPtr<CVoid>): ULong =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromBufferStream(options.rawAddress, 0L, buffercompletioncontext.rawAddress).toULong()
 
-public actual fun openTraceFromFile(logfilename: Pcwstr, options: COpaquePointer?, logfileheader: COpaquePointer?): ULong =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile((logfilename?.value ?: 0L), (options?.value ?: 0L), (logfileheader?.value ?: 0L)).toULong()
+public actual fun openTraceFromFile(logfilename: Pcwstr, options: ConstPtr<EtwOpenTraceOptions>, logfileheader: MutPtr<TraceLogfileHeader>): ULong =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromFile(logfilename.rawAddress, options.rawAddress, logfileheader.rawAddress).toULong()
 
-public actual fun openTraceFromRealTimeLogger(loggername: Pcwstr, options: COpaquePointer?, logfileheader: COpaquePointer?): ULong =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger((loggername?.value ?: 0L), (options?.value ?: 0L), (logfileheader?.value ?: 0L)).toULong()
+public actual fun openTraceFromRealTimeLogger(loggername: Pcwstr, options: ConstPtr<EtwOpenTraceOptions>, logfileheader: MutPtr<TraceLogfileHeader>): ULong =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromRealTimeLogger(loggername.rawAddress, options.rawAddress, logfileheader.rawAddress).toULong()
 
-public actual fun openTraceFromRealTimeLoggerWithAllocationOptions(loggername: Pcwstr, options: COpaquePointer?, allocationsize: ULong, memorypartitionhandle: Handle, logfileheader: COpaquePointer?): ULong =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions((loggername?.value ?: 0L), (options?.value ?: 0L), allocationsize.toLong(), (memorypartitionhandle?.value ?: 0L), (logfileheader?.value ?: 0L)).toULong()
+public actual fun openTraceFromRealTimeLoggerWithAllocationOptions(loggername: Pcwstr, options: ConstPtr<EtwOpenTraceOptions>, allocationsize: ULong, memorypartitionhandle: Handle, logfileheader: MutPtr<TraceLogfileHeader>): ULong =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwOpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.rawAddress, options.rawAddress, allocationsize.toLong(), memorypartitionhandle.rawAddress, logfileheader.rawAddress).toULong()
 
-public actual fun openTraceW(logfile: COpaquePointer?): ProcesstraceHandle =
+public actual fun openTraceW(logfile: MutPtr<EventTraceLogfilew>): ProcesstraceHandle =
     ProcesstraceHandle()
 
-public actual fun processTrace(handlearray: COpaquePointer?, handlecount: UInt, starttime: COpaquePointer?, endtime: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_processTrace((handlearray?.value ?: 0L), handlecount.toInt(), (starttime?.value ?: 0L), (endtime?.value ?: 0L)).toUInt()
+public actual fun processTrace(handlearray: ConstPtr<ProcesstraceHandle>, handlecount: UInt, starttime: ConstPtr<Filetime>, endtime: ConstPtr<Filetime>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwProcessTrace(handlearray.rawAddress, handlecount.toInt(), starttime.rawAddress, endtime.rawAddress).toUInt()
 
-public actual fun processTraceAddBufferToBufferStream(tracehandle: ULong, buffer: COpaquePointer?, buffersize: UInt): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream(tracehandle.toLong(), (buffer?.value ?: 0L), buffersize.toInt()).toUInt()
+public actual fun processTraceAddBufferToBufferStream(tracehandle: ULong, buffer: ConstPtr<EtwBufferHeader>, buffersize: UInt): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwProcessTraceAddBufferToBufferStream(tracehandle.toLong(), buffer.rawAddress, buffersize.toInt()).toUInt()
 
-public actual fun processTraceBufferDecrementReference(buffer: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference((buffer?.value ?: 0L)).toUInt()
+public actual fun processTraceBufferDecrementReference(buffer: ConstPtr<EtwBufferHeader>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwProcessTraceBufferDecrementReference(buffer.rawAddress).toUInt()
 
-public actual fun processTraceBufferIncrementReference(tracehandle: ULong, buffer: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference(tracehandle.toLong(), (buffer?.value ?: 0L)).toUInt()
+public actual fun processTraceBufferIncrementReference(tracehandle: ULong, buffer: ConstPtr<EtwBufferHeader>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwProcessTraceBufferIncrementReference(tracehandle.toLong(), buffer.rawAddress).toUInt()
 
-public actual fun queryAllTracesA(propertyarray: COpaquePointer?, propertyarraycount: UInt, loggercount: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA((propertyarray?.value ?: 0L), propertyarraycount.toInt(), (loggercount?.value ?: 0L)).toUInt()
+public actual fun queryAllTracesA(propertyarray: MutPtr<MutPtr<EventTraceProperties>>, propertyarraycount: UInt, loggercount: MutPtr<UInt>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwQueryAllTracesA(propertyarray.rawAddress, propertyarraycount.toInt(), loggercount.rawAddress).toUInt()
 
-public actual fun queryAllTracesW(propertyarray: COpaquePointer?, propertyarraycount: UInt, loggercount: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW((propertyarray?.value ?: 0L), propertyarraycount.toInt(), (loggercount?.value ?: 0L)).toUInt()
+public actual fun queryAllTracesW(propertyarray: MutPtr<MutPtr<EventTraceProperties>>, propertyarraycount: UInt, loggercount: MutPtr<UInt>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwQueryAllTracesW(propertyarray.rawAddress, propertyarraycount.toInt(), loggercount.rawAddress).toUInt()
 
-public actual fun queryTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+public actual fun queryTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u
 
-public actual fun queryTraceProcessingHandle(processinghandle: ProcesstraceHandle, informationclass: EtwProcessHandleInfoType, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, returnlength: COpaquePointer?): Win32Error =
+public actual fun queryTraceProcessingHandle(processinghandle: ProcesstraceHandle, informationclass: EtwProcessHandleInfoType, inbuffer: ConstPtr<CVoid>, inbuffersize: UInt, outbuffer: MutPtr<CVoid>, outbuffersize: UInt, returnlength: MutPtr<UInt>): Win32Error =
     0u
 
-public actual fun queryTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+public actual fun queryTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u
 
-public actual fun registerTraceGuidsA(requestaddress: Wmidprequest, requestcontext: COpaquePointer?, controlguid: COpaquePointer?, guidcount: UInt, traceguidreg: COpaquePointer?, mofimagepath: Pcstr, mofresourcename: Pcstr, registrationhandle: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA(0L, (requestcontext?.value ?: 0L), (controlguid?.value ?: 0L), guidcount.toInt(), (traceguidreg?.value ?: 0L), (mofimagepath?.value ?: 0L), (mofresourcename?.value ?: 0L), (registrationhandle?.value ?: 0L)).toUInt()
+public actual fun registerTraceGuidsA(requestaddress: Wmidprequest, requestcontext: ConstPtr<CVoid>, controlguid: ConstPtr<Guid>, guidcount: UInt, traceguidreg: ConstPtr<TraceGuidRegistration>, mofimagepath: Pcstr, mofresourcename: Pcstr, registrationhandle: MutPtr<ULong>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwRegisterTraceGuidsA(0L, requestcontext.rawAddress, controlguid.rawAddress, guidcount.toInt(), traceguidreg.rawAddress, mofimagepath.rawAddress, mofresourcename.rawAddress, registrationhandle.rawAddress).toUInt()
 
-public actual fun registerTraceGuidsW(requestaddress: Wmidprequest, requestcontext: COpaquePointer?, controlguid: COpaquePointer?, guidcount: UInt, traceguidreg: COpaquePointer?, mofimagepath: Pcwstr, mofresourcename: Pcwstr, registrationhandle: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW(0L, (requestcontext?.value ?: 0L), (controlguid?.value ?: 0L), guidcount.toInt(), (traceguidreg?.value ?: 0L), (mofimagepath?.value ?: 0L), (mofresourcename?.value ?: 0L), (registrationhandle?.value ?: 0L)).toUInt()
+public actual fun registerTraceGuidsW(requestaddress: Wmidprequest, requestcontext: ConstPtr<CVoid>, controlguid: ConstPtr<Guid>, guidcount: UInt, traceguidreg: ConstPtr<TraceGuidRegistration>, mofimagepath: Pcwstr, mofresourcename: Pcwstr, registrationhandle: MutPtr<ULong>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwRegisterTraceGuidsW(0L, requestcontext.rawAddress, controlguid.rawAddress, guidcount.toInt(), traceguidreg.rawAddress, mofimagepath.rawAddress, mofresourcename.rawAddress, registrationhandle.rawAddress).toUInt()
 
-public actual fun removeTraceCallback(pguid: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback((pguid?.value ?: 0L)).toUInt()
+public actual fun removeTraceCallback(pguid: ConstPtr<Guid>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwRemoveTraceCallback(pguid.rawAddress).toUInt()
 
-public actual fun setTraceCallback(pguid: COpaquePointer?, eventcallback: PeventCallback): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_setTraceCallback((pguid?.value ?: 0L), 0L).toUInt()
+public actual fun setTraceCallback(pguid: ConstPtr<Guid>, eventcallback: PeventCallback): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwSetTraceCallback(pguid.rawAddress, 0L).toUInt()
 
-public actual fun startTraceA(tracehandle: COpaquePointer?, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_startTraceA((tracehandle?.value ?: 0L), (instancename?.value ?: 0L), (properties?.value ?: 0L)).toUInt()
+public actual fun startTraceA(tracehandle: MutPtr<ControltraceHandle>, instancename: Pcstr, properties: MutPtr<EventTraceProperties>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwStartTraceA(tracehandle.rawAddress, instancename.rawAddress, properties.rawAddress).toUInt()
 
-public actual fun startTraceW(tracehandle: COpaquePointer?, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_startTraceW((tracehandle?.value ?: 0L), (instancename?.value ?: 0L), (properties?.value ?: 0L)).toUInt()
+public actual fun startTraceW(tracehandle: MutPtr<ControltraceHandle>, instancename: Pcwstr, properties: MutPtr<EventTraceProperties>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwStartTraceW(tracehandle.rawAddress, instancename.rawAddress, properties.rawAddress).toUInt()
 
-public actual fun stopTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+public actual fun stopTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u
 
-public actual fun stopTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+public actual fun stopTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u
 
-public actual fun tdhAggregatePayloadFilters(payloadfiltercount: UInt, payloadfilterptrs: COpaquePointer?, eventmatchallflags: COpaquePointer?, eventfilterdescriptor: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters(payloadfiltercount.toInt(), (payloadfilterptrs?.value ?: 0L), (eventmatchallflags?.value ?: 0L), (eventfilterdescriptor?.value ?: 0L)).toUInt()
+public actual fun tdhAggregatePayloadFilters(payloadfiltercount: UInt, payloadfilterptrs: ConstPtr<ConstPtr<CVoid>>, eventmatchallflags: ConstPtr<Boolean>, eventfilterdescriptor: MutPtr<EventFilterDescriptor>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhAggregatePayloadFilters(payloadfiltercount.toInt(), payloadfilterptrs.rawAddress, eventmatchallflags.rawAddress, eventfilterdescriptor.rawAddress).toUInt()
 
-public actual fun tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor((eventfilterdescriptor?.value ?: 0L)).toUInt()
+public actual fun tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: MutPtr<EventFilterDescriptor>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor.rawAddress).toUInt()
 
 public actual fun tdhCloseDecodingHandle(handle: TdhHandle): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhCloseDecodingHandle(handle).toUInt()
 
-public actual fun tdhCreatePayloadFilter(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: COpaquePointer?, payloadfilter: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter((providerguid?.value ?: 0L), (eventdescriptor?.value ?: 0L), eventmatchany, payloadpredicatecount.toInt(), (payloadpredicates?.value ?: 0L), (payloadfilter?.value ?: 0L)).toUInt()
+public actual fun tdhCreatePayloadFilter(providerguid: ConstPtr<Guid>, eventdescriptor: ConstPtr<EventDescriptor>, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: ConstPtr<PayloadFilterPredicate>, payloadfilter: MutPtr<MutPtr<CVoid>>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhCreatePayloadFilter(providerguid.rawAddress, eventdescriptor.rawAddress, eventmatchany, payloadpredicatecount.toInt(), payloadpredicates.rawAddress, payloadfilter.rawAddress).toUInt()
 
-public actual fun tdhDeletePayloadFilter(payloadfilter: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter((payloadfilter?.value ?: 0L)).toUInt()
+public actual fun tdhDeletePayloadFilter(payloadfilter: MutPtr<MutPtr<CVoid>>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhDeletePayloadFilter(payloadfilter.rawAddress).toUInt()
 
-public actual fun tdhEnumerateManifestProviderEvents(providerguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents((providerguid?.value ?: 0L), (buffer?.value ?: 0L), (buffersize?.value ?: 0L)).toUInt()
+public actual fun tdhEnumerateManifestProviderEvents(providerguid: ConstPtr<Guid>, buffer: MutPtr<ProviderEventInfo>, buffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateManifestProviderEvents(providerguid.rawAddress, buffer.rawAddress, buffersize.rawAddress).toUInt()
 
-public actual fun tdhEnumerateProviderFieldInformation(pguid: COpaquePointer?, eventfieldtype: EventFieldType, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation((pguid?.value ?: 0L), eventfieldtype, (pbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L)).toUInt()
+public actual fun tdhEnumerateProviderFieldInformation(pguid: ConstPtr<Guid>, eventfieldtype: EventFieldType, pbuffer: MutPtr<ProviderFieldInfoarray>, pbuffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProviderFieldInformation(pguid.rawAddress, eventfieldtype, pbuffer.rawAddress, pbuffersize.rawAddress).toUInt()
 
-public actual fun tdhEnumerateProviderFilters(guid: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, filtercount: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters((guid?.value ?: 0L), tdhcontextcount.toInt(), (tdhcontext?.value ?: 0L), (filtercount?.value ?: 0L), (buffer?.value ?: 0L), (buffersize?.value ?: 0L)).toUInt()
+public actual fun tdhEnumerateProviderFilters(guid: ConstPtr<Guid>, tdhcontextcount: UInt, tdhcontext: ConstPtr<TdhContext>, filtercount: MutPtr<UInt>, buffer: MutPtr<MutPtr<ProviderFilterInfo>>, buffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProviderFilters(guid.rawAddress, tdhcontextcount.toInt(), tdhcontext.rawAddress, filtercount.rawAddress, buffer.rawAddress, buffersize.rawAddress).toUInt()
 
-public actual fun tdhEnumerateProviders(pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders((pbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L)).toUInt()
+public actual fun tdhEnumerateProviders(pbuffer: MutPtr<ProviderEnumerationInfo>, pbuffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProviders(pbuffer.rawAddress, pbuffersize.rawAddress).toUInt()
 
-public actual fun tdhEnumerateProvidersForDecodingSource(filter: DecodingSource, buffer: COpaquePointer?, buffersize: UInt, bufferrequired: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource(filter, (buffer?.value ?: 0L), buffersize.toInt(), (bufferrequired?.value ?: 0L)).toUInt()
+public actual fun tdhEnumerateProvidersForDecodingSource(filter: DecodingSource, buffer: MutPtr<ProviderEnumerationInfo>, buffersize: UInt, bufferrequired: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhEnumerateProvidersForDecodingSource(filter, buffer.rawAddress, buffersize.toInt(), bufferrequired.rawAddress).toUInt()
 
-public actual fun tdhFormatProperty(eventinfo: COpaquePointer?, mapinfo: COpaquePointer?, pointersize: UInt, propertyintype: UShort, propertyouttype: UShort, propertylength: UShort, userdatalength: UShort, userdata: COpaquePointer?, buffersize: COpaquePointer?, buffer: Pwstr, userdataconsumed: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty((eventinfo?.value ?: 0L), (mapinfo?.value ?: 0L), pointersize.toInt(), propertyintype.toShort(), propertyouttype.toShort(), propertylength.toShort(), userdatalength.toShort(), (userdata?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L), (userdataconsumed?.value ?: 0L)).toUInt()
+public actual fun tdhFormatProperty(eventinfo: ConstPtr<TraceEventInfo>, mapinfo: ConstPtr<EventMapInfo>, pointersize: UInt, propertyintype: UShort, propertyouttype: UShort, propertylength: UShort, userdatalength: UShort, userdata: ConstPtr<UByte>, buffersize: MutPtr<UInt>, buffer: Pwstr, userdataconsumed: MutPtr<UShort>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhFormatProperty(eventinfo.rawAddress, mapinfo.rawAddress, pointersize.toInt(), propertyintype.toShort(), propertyouttype.toShort(), propertylength.toShort(), userdatalength.toShort(), userdata.rawAddress, buffersize.rawAddress, buffer.rawAddress, userdataconsumed.rawAddress).toUInt()
 
-public actual fun tdhGetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle, (tdhcontext?.value ?: 0L)).toUInt()
+public actual fun tdhGetDecodingParameter(handle: TdhHandle, tdhcontext: MutPtr<TdhContext>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetDecodingParameter(handle, tdhcontext.rawAddress).toUInt()
 
-public actual fun tdhGetEventInformation(event: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation((event?.value ?: 0L), tdhcontextcount.toInt(), (tdhcontext?.value ?: 0L), (buffer?.value ?: 0L), (buffersize?.value ?: 0L)).toUInt()
+public actual fun tdhGetEventInformation(event: ConstPtr<EventRecord>, tdhcontextcount: UInt, tdhcontext: ConstPtr<TdhContext>, buffer: MutPtr<TraceEventInfo>, buffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetEventInformation(event.rawAddress, tdhcontextcount.toInt(), tdhcontext.rawAddress, buffer.rawAddress, buffersize.rawAddress).toUInt()
 
-public actual fun tdhGetEventMapInformation(pevent: COpaquePointer?, pmapname: Pcwstr, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation((pevent?.value ?: 0L), (pmapname?.value ?: 0L), (pbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L)).toUInt()
+public actual fun tdhGetEventMapInformation(pevent: ConstPtr<EventRecord>, pmapname: Pcwstr, pbuffer: MutPtr<EventMapInfo>, pbuffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetEventMapInformation(pevent.rawAddress, pmapname.rawAddress, pbuffer.rawAddress, pbuffersize.rawAddress).toUInt()
 
-public actual fun tdhGetManifestEventInformation(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation((providerguid?.value ?: 0L), (eventdescriptor?.value ?: 0L), (buffer?.value ?: 0L), (buffersize?.value ?: 0L)).toUInt()
+public actual fun tdhGetManifestEventInformation(providerguid: ConstPtr<Guid>, eventdescriptor: ConstPtr<EventDescriptor>, buffer: MutPtr<TraceEventInfo>, buffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetManifestEventInformation(providerguid.rawAddress, eventdescriptor.rawAddress, buffer.rawAddress, buffersize.rawAddress).toUInt()
 
-public actual fun tdhGetProperty(pevent: COpaquePointer?, tdhcontextcount: UInt, ptdhcontext: COpaquePointer?, propertydatacount: UInt, ppropertydata: COpaquePointer?, buffersize: UInt, pbuffer: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty((pevent?.value ?: 0L), tdhcontextcount.toInt(), (ptdhcontext?.value ?: 0L), propertydatacount.toInt(), (ppropertydata?.value ?: 0L), buffersize.toInt(), (pbuffer?.value ?: 0L)).toUInt()
+public actual fun tdhGetProperty(pevent: ConstPtr<EventRecord>, tdhcontextcount: UInt, ptdhcontext: ConstPtr<TdhContext>, propertydatacount: UInt, ppropertydata: ConstPtr<PropertyDataDescriptor>, buffersize: UInt, pbuffer: MutPtr<UByte>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetProperty(pevent.rawAddress, tdhcontextcount.toInt(), ptdhcontext.rawAddress, propertydatacount.toInt(), ppropertydata.rawAddress, buffersize.toInt(), pbuffer.rawAddress).toUInt()
 
-public actual fun tdhGetPropertySize(pevent: COpaquePointer?, tdhcontextcount: UInt, ptdhcontext: COpaquePointer?, propertydatacount: UInt, ppropertydata: COpaquePointer?, ppropertysize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize((pevent?.value ?: 0L), tdhcontextcount.toInt(), (ptdhcontext?.value ?: 0L), propertydatacount.toInt(), (ppropertydata?.value ?: 0L), (ppropertysize?.value ?: 0L)).toUInt()
+public actual fun tdhGetPropertySize(pevent: ConstPtr<EventRecord>, tdhcontextcount: UInt, ptdhcontext: ConstPtr<TdhContext>, propertydatacount: UInt, ppropertydata: ConstPtr<PropertyDataDescriptor>, ppropertysize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetPropertySize(pevent.rawAddress, tdhcontextcount.toInt(), ptdhcontext.rawAddress, propertydatacount.toInt(), ppropertydata.rawAddress, ppropertysize.rawAddress).toUInt()
 
-public actual fun tdhGetWppMessage(handle: TdhHandle, eventrecord: COpaquePointer?, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle, (eventrecord?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+public actual fun tdhGetWppMessage(handle: TdhHandle, eventrecord: ConstPtr<EventRecord>, buffersize: MutPtr<UInt>, buffer: MutPtr<UByte>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetWppMessage(handle, eventrecord.rawAddress, buffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun tdhGetWppProperty(handle: TdhHandle, eventrecord: COpaquePointer?, propertyname: Pcwstr, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle, (eventrecord?.value ?: 0L), (propertyname?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+public actual fun tdhGetWppProperty(handle: TdhHandle, eventrecord: ConstPtr<EventRecord>, propertyname: Pcwstr, buffersize: MutPtr<UInt>, buffer: MutPtr<UByte>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhGetWppProperty(handle, eventrecord.rawAddress, propertyname.rawAddress, buffersize.rawAddress, buffer.rawAddress).toUInt()
 
 public actual fun tdhLoadManifest(manifest: Pcwstr): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest((manifest?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhLoadManifest(manifest.rawAddress).toUInt()
 
 public actual fun tdhLoadManifestFromBinary(binarypath: Pcwstr): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary((binarypath?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhLoadManifestFromBinary(binarypath.rawAddress).toUInt()
 
-public actual fun tdhLoadManifestFromMemory(pdata: COpaquePointer?, cbdata: UInt): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory((pdata?.value ?: 0L), cbdata.toInt()).toUInt()
+public actual fun tdhLoadManifestFromMemory(pdata: ConstPtr<CVoid>, cbdata: UInt): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhLoadManifestFromMemory(pdata.rawAddress, cbdata.toInt()).toUInt()
 
-public actual fun tdhOpenDecodingHandle(handle: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle((handle?.value ?: 0L)).toUInt()
+public actual fun tdhOpenDecodingHandle(handle: MutPtr<TdhHandle>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhOpenDecodingHandle(handle.rawAddress).toUInt()
 
-public actual fun tdhQueryProviderFieldInformation(pguid: COpaquePointer?, eventfieldvalue: ULong, eventfieldtype: EventFieldType, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation((pguid?.value ?: 0L), eventfieldvalue.toLong(), eventfieldtype, (pbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L)).toUInt()
+public actual fun tdhQueryProviderFieldInformation(pguid: ConstPtr<Guid>, eventfieldvalue: ULong, eventfieldtype: EventFieldType, pbuffer: MutPtr<ProviderFieldInfoarray>, pbuffersize: MutPtr<UInt>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhQueryProviderFieldInformation(pguid.rawAddress, eventfieldvalue.toLong(), eventfieldtype, pbuffer.rawAddress, pbuffersize.rawAddress).toUInt()
 
-public actual fun tdhSetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle, (tdhcontext?.value ?: 0L)).toUInt()
+public actual fun tdhSetDecodingParameter(handle: TdhHandle, tdhcontext: ConstPtr<TdhContext>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhSetDecodingParameter(handle, tdhcontext.rawAddress).toUInt()
 
 public actual fun tdhUnloadManifest(manifest: Pcwstr): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest((manifest?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhUnloadManifest(manifest.rawAddress).toUInt()
 
-public actual fun tdhUnloadManifestFromMemory(pdata: COpaquePointer?, cbdata: UInt): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory((pdata?.value ?: 0L), cbdata.toInt()).toUInt()
+public actual fun tdhUnloadManifestFromMemory(pdata: ConstPtr<CVoid>, cbdata: UInt): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTdhUnloadManifestFromMemory(pdata.rawAddress, cbdata.toInt()).toUInt()
 
-public actual fun traceEvent(tracehandle: ULong, eventtrace: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_traceEvent(tracehandle.toLong(), (eventtrace?.value ?: 0L)).toUInt()
+public actual fun traceEvent(tracehandle: ULong, eventtrace: ConstPtr<EventTraceHeader>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTraceEvent(tracehandle.toLong(), eventtrace.rawAddress).toUInt()
 
-public actual fun traceEventInstance(tracehandle: ULong, eventtrace: COpaquePointer?, instinfo: COpaquePointer?, parentinstinfo: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_traceEventInstance(tracehandle.toLong(), (eventtrace?.value ?: 0L), (instinfo?.value ?: 0L), (parentinstinfo?.value ?: 0L)).toUInt()
+public actual fun traceEventInstance(tracehandle: ULong, eventtrace: ConstPtr<EventInstanceHeader>, instinfo: ConstPtr<EventInstanceInfo>, parentinstinfo: ConstPtr<EventInstanceInfo>): UInt =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTraceEventInstance(tracehandle.toLong(), eventtrace.rawAddress, instinfo.rawAddress, parentinstinfo.rawAddress).toUInt()
 
-public actual fun traceMessage(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: COpaquePointer?, messagenumber: UShort, vararg variadicArgs: Long): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_traceMessage(loggerhandle.toLong(), messageflags.toInt(), (messageguid?.value ?: 0L), messagenumber.toShort(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L).toUInt()
+public actual fun traceMessage(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: ConstPtr<Guid>, messagenumber: UShort, vararg variadicArgs: Long): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTraceMessage(loggerhandle.toLong(), messageflags.toInt(), messageguid.rawAddress, messagenumber.toShort(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L).toUInt()
 
-public actual fun traceMessageVa(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: COpaquePointer?, messagenumber: UShort, messagearglist: COpaquePointer?): Win32Error =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_traceMessageVa(loggerhandle.toLong(), messageflags.toInt(), (messageguid?.value ?: 0L), messagenumber.toShort(), (messagearglist?.value ?: 0L)).toUInt()
+public actual fun traceMessageVa(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: ConstPtr<Guid>, messagenumber: UShort, messagearglist: ConstPtr<Byte>): Win32Error =
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwTraceMessageVa(loggerhandle.toLong(), messageflags.toInt(), messageguid.rawAddress, messagenumber.toShort(), messagearglist.rawAddress).toUInt()
 
-public actual fun traceQueryInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: COpaquePointer?, informationlength: UInt, returnlength: COpaquePointer?): Win32Error =
+public actual fun traceQueryInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: MutPtr<CVoid>, informationlength: UInt, returnlength: MutPtr<UInt>): Win32Error =
     0u
 
-public actual fun traceSetInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: COpaquePointer?, informationlength: UInt): Win32Error =
+public actual fun traceSetInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: ConstPtr<CVoid>, informationlength: UInt): Win32Error =
     0u
 
 public actual fun unregisterTraceGuids(registrationhandle: ULong): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids(registrationhandle.toLong()).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssysWindowsWin32SystemDiagnosticsEtwUnregisterTraceGuids(registrationhandle.toLong()).toUInt()
 
-public actual fun updateTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+public actual fun updateTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u
 
-public actual fun updateTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+public actual fun updateTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: MutPtr<EventTraceProperties>): Win32Error =
     0u

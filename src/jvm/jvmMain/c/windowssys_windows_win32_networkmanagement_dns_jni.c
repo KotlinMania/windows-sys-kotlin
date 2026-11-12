@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsAcquireContextHandleA(JNIEnv* km_env, jclass km_clazz, jint credentialflags, jlong credentials, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleA(JNIEnv* km_env, jclass km_clazz, jint credentialflags, jlong credentials, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsAcquireContextHandleW(JNIEnv* km_env, jclass km_clazz, jint credentialflags, jlong credentials, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleW(JNIEnv* km_env, jclass km_clazz, jint credentialflags, jlong credentials, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsCancelQuery(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsCancelQuery(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsCancelQueryRaw(JNIEnv* km_env, jclass km_clazz, jlong cancelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsCancelQueryRaw(JNIEnv* km_env, jclass km_clazz, jlong cancelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,7 +123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionDeletePolicyEntries(JNIEnv* km_env, jclass km_clazz, jint policyentrytag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeletePolicyEntries(JNIEnv* km_env, jclass km_clazz, jint policyentrytag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -148,7 +148,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionDeleteProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jint type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeleteProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -174,7 +174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionFreeNameList(JNIEnv* km_env, jclass km_clazz, jlong pnamelist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeNameList(JNIEnv* km_env, jclass km_clazz, jlong pnamelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -195,7 +195,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionFreeProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pproxyinfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pproxyinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -216,7 +216,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionFreeProxyInfoEx(JNIEnv* km_env, jclass km_clazz, jlong pproxyinfoex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfoEx(JNIEnv* km_env, jclass km_clazz, jlong pproxyinfoex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -237,7 +237,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionFreeProxyList(JNIEnv* km_env, jclass km_clazz, jlong pproxylist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyList(JNIEnv* km_env, jclass km_clazz, jlong pproxylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -258,7 +258,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionGetNameList(JNIEnv* km_env, jclass km_clazz, jlong pnamelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetNameList(JNIEnv* km_env, jclass km_clazz, jlong pnamelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -283,7 +283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionGetProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jint type, jlong pproxyinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jint type, jlong pproxyinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -310,7 +310,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionGetProxyInfoForHostUrl(JNIEnv* km_env, jclass km_clazz, jlong pwszhosturl, jlong pselectioncontext, jint dwselectioncontextlength, jint dwexplicitinterfaceindex, jlong pproxyinfoex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrl(JNIEnv* km_env, jclass km_clazz, jlong pwszhosturl, jlong pselectioncontext, jint dwselectioncontextlength, jint dwexplicitinterfaceindex, jlong pproxyinfoex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -339,7 +339,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionGetProxyInfoForHostUrlEx(JNIEnv* km_env, jclass km_clazz, jlong pwszhosturl, jlong pselectioncontext, jint dwselectioncontextlength, jint dwexplicitinterfaceindex, jlong pwszconnectionname, jlong pproxyinfoex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrlEx(JNIEnv* km_env, jclass km_clazz, jlong pwszhosturl, jlong pselectioncontext, jint dwselectioncontextlength, jint dwexplicitinterfaceindex, jlong pwszconnectionname, jlong pproxyinfoex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -369,7 +369,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionGetProxyList(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jlong pproxylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyList(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jlong pproxylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -395,7 +395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionSetPolicyEntries(JNIEnv* km_env, jclass km_clazz, jint policyentrytag, jlong ppolicyentrylist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetPolicyEntries(JNIEnv* km_env, jclass km_clazz, jint policyentrytag, jlong ppolicyentrylist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -421,7 +421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionSetProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jint type, jlong pproxyinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetProxyInfo(JNIEnv* km_env, jclass km_clazz, jlong pwszconnectionname, jint type, jlong pproxyinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -448,7 +448,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsConnectionUpdateIfIndexTable(JNIEnv* km_env, jclass km_clazz, jlong pconnectionifindexentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsConnectionUpdateIfIndexTable(JNIEnv* km_env, jclass km_clazz, jlong pconnectionifindexentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -473,7 +473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsExtractRecordsFromMessageUtf8(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jshort wmessagelength, jlong pprecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageUtf8(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jshort wmessagelength, jlong pprecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -500,7 +500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsExtractRecordsFromMessageW(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jshort wmessagelength, jlong pprecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageW(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jshort wmessagelength, jlong pprecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -527,7 +527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsFree(JNIEnv* km_env, jclass km_clazz, jlong pdata, jint freetype) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsFree(JNIEnv* km_env, jclass km_clazz, jlong pdata, jint freetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -549,7 +549,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsFreeCustomServers(JNIEnv* km_env, jclass km_clazz, jlong pcservers, jlong ppservers) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsFreeCustomServers(JNIEnv* km_env, jclass km_clazz, jlong pcservers, jlong ppservers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -571,7 +571,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsFreeProxyName(JNIEnv* km_env, jclass km_clazz, jlong proxyname) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsFreeProxyName(JNIEnv* km_env, jclass km_clazz, jlong proxyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -592,7 +592,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsGetApplicationSettings(JNIEnv* km_env, jclass km_clazz, jlong pcservers, jlong ppdefaultservers, jlong psettings) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsGetApplicationSettings(JNIEnv* km_env, jclass km_clazz, jlong pcservers, jlong ppdefaultservers, jlong psettings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -619,7 +619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsGetProxyInformation(JNIEnv* km_env, jclass km_clazz, jlong hostname, jlong proxyinformation, jlong defaultproxyinformation, jlong completionroutine, jlong completioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsGetProxyInformation(JNIEnv* km_env, jclass km_clazz, jlong hostname, jlong proxyinformation, jlong defaultproxyinformation, jlong completionroutine, jlong completioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -648,7 +648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsModifyRecordsInSetA(JNIEnv* km_env, jclass km_clazz, jlong paddrecords, jlong pdeleterecords, jint options, jlong hcredentials, jlong pextralist, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetA(JNIEnv* km_env, jclass km_clazz, jlong paddrecords, jlong pdeleterecords, jint options, jlong hcredentials, jlong pextralist, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -678,7 +678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsModifyRecordsInSetUtf8(JNIEnv* km_env, jclass km_clazz, jlong paddrecords, jlong pdeleterecords, jint options, jlong hcredentials, jlong pextralist, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetUtf8(JNIEnv* km_env, jclass km_clazz, jlong paddrecords, jlong pdeleterecords, jint options, jlong hcredentials, jlong pextralist, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -708,7 +708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsModifyRecordsInSetW(JNIEnv* km_env, jclass km_clazz, jlong paddrecords, jlong pdeleterecords, jint options, jlong hcredentials, jlong pextralist, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetW(JNIEnv* km_env, jclass km_clazz, jlong paddrecords, jlong pdeleterecords, jint options, jlong hcredentials, jlong pextralist, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -738,7 +738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsNameCompareA(JNIEnv* km_env, jclass km_clazz, jlong pname1, jlong pname2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareA(JNIEnv* km_env, jclass km_clazz, jlong pname1, jlong pname2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -764,7 +764,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsNameCompareW(JNIEnv* km_env, jclass km_clazz, jlong pname1, jlong pname2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareW(JNIEnv* km_env, jclass km_clazz, jlong pname1, jlong pname2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -790,7 +790,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsQueryConfig(JNIEnv* km_env, jclass km_clazz, jint config, jint flag, jlong pwsadaptername, jlong preserved, jlong pbuffer, jlong pbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsQueryConfig(JNIEnv* km_env, jclass km_clazz, jint config, jint flag, jlong pwsadaptername, jlong preserved, jlong pbuffer, jlong pbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -820,7 +820,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsQueryEx(JNIEnv* km_env, jclass km_clazz, jlong pqueryrequest, jlong pqueryresults, jlong pcancelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsQueryEx(JNIEnv* km_env, jclass km_clazz, jlong pqueryrequest, jlong pqueryresults, jlong pcancelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -847,7 +847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsQueryRaw(JNIEnv* km_env, jclass km_clazz, jlong queryrequest, jlong cancelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsQueryRaw(JNIEnv* km_env, jclass km_clazz, jlong queryrequest, jlong cancelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -873,7 +873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsQueryRawResultFree(JNIEnv* km_env, jclass km_clazz, jlong queryresults) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsQueryRawResultFree(JNIEnv* km_env, jclass km_clazz, jlong queryresults) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -894,7 +894,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsQueryA(JNIEnv* km_env, jclass km_clazz, jlong pszname, jshort wtype, jint options, jlong pextra, jlong ppqueryresults, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsQueryA(JNIEnv* km_env, jclass km_clazz, jlong pszname, jshort wtype, jint options, jlong pextra, jlong ppqueryresults, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -924,7 +924,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsQueryUtf8(JNIEnv* km_env, jclass km_clazz, jlong pszname, jshort wtype, jint options, jlong pextra, jlong ppqueryresults, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsQueryUtf8(JNIEnv* km_env, jclass km_clazz, jlong pszname, jshort wtype, jint options, jlong pextra, jlong ppqueryresults, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -954,7 +954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsQueryW(JNIEnv* km_env, jclass km_clazz, jlong pszname, jshort wtype, jint options, jlong pextra, jlong ppqueryresults, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsQueryW(JNIEnv* km_env, jclass km_clazz, jlong pszname, jshort wtype, jint options, jlong pextra, jlong ppqueryresults, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -984,7 +984,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsRecordCompare(JNIEnv* km_env, jclass km_clazz, jlong precord1, jlong precord2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsRecordCompare(JNIEnv* km_env, jclass km_clazz, jlong precord1, jlong precord2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1010,7 +1010,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsRecordCopyEx(JNIEnv* km_env, jclass km_clazz, jlong precord, jint charsetin, jint charsetout) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsRecordCopyEx(JNIEnv* km_env, jclass km_clazz, jlong precord, jint charsetin, jint charsetout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1037,7 +1037,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsRecordSetCompare(JNIEnv* km_env, jclass km_clazz, jlong prr1, jlong prr2, jlong ppdiff1, jlong ppdiff2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCompare(JNIEnv* km_env, jclass km_clazz, jlong prr1, jlong prr2, jlong ppdiff1, jlong ppdiff2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1065,7 +1065,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsRecordSetCopyEx(JNIEnv* km_env, jclass km_clazz, jlong precordset, jint charsetin, jint charsetout) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCopyEx(JNIEnv* km_env, jclass km_clazz, jlong precordset, jint charsetin, jint charsetout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1092,7 +1092,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsRecordSetDetach(JNIEnv* km_env, jclass km_clazz, jlong precordlist) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetDetach(JNIEnv* km_env, jclass km_clazz, jlong precordlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1117,7 +1117,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsReleaseContextHandle(JNIEnv* km_env, jclass km_clazz, jlong hcontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsReleaseContextHandle(JNIEnv* km_env, jclass km_clazz, jlong hcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1138,7 +1138,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsReplaceRecordSetA(JNIEnv* km_env, jclass km_clazz, jlong preplaceset, jint options, jlong hcontext, jlong pextrainfo, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetA(JNIEnv* km_env, jclass km_clazz, jlong preplaceset, jint options, jlong hcontext, jlong pextrainfo, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1167,7 +1167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsReplaceRecordSetUTF8(JNIEnv* km_env, jclass km_clazz, jlong preplaceset, jint options, jlong hcontext, jlong pextrainfo, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetUTF8(JNIEnv* km_env, jclass km_clazz, jlong preplaceset, jint options, jlong hcontext, jlong pextrainfo, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1196,7 +1196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsReplaceRecordSetW(JNIEnv* km_env, jclass km_clazz, jlong preplaceset, jint options, jlong hcontext, jlong pextrainfo, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetW(JNIEnv* km_env, jclass km_clazz, jlong preplaceset, jint options, jlong hcontext, jlong pextrainfo, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1225,7 +1225,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceBrowse(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowse(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1251,7 +1251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceBrowseCancel(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowseCancel(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1276,7 +1276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceConstructInstance(JNIEnv* km_env, jclass km_clazz, jlong pservicename, jlong phostname, jlong pip4, jlong pip6, jshort wport, jshort wpriority, jshort wweight, jint dwpropertiescount, jlong keys, jlong values) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceConstructInstance(JNIEnv* km_env, jclass km_clazz, jlong pservicename, jlong phostname, jlong pip4, jlong pip6, jshort wport, jshort wpriority, jshort wweight, jint dwpropertiescount, jlong keys, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1310,7 +1310,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceCopyInstance(JNIEnv* km_env, jclass km_clazz, jlong porig) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceCopyInstance(JNIEnv* km_env, jclass km_clazz, jlong porig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1335,7 +1335,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceDeRegister(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceDeRegister(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1361,7 +1361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceFreeInstance(JNIEnv* km_env, jclass km_clazz, jlong pinstance) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceFreeInstance(JNIEnv* km_env, jclass km_clazz, jlong pinstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1382,7 +1382,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceRegister(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegister(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1408,7 +1408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceRegisterCancel(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegisterCancel(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1433,7 +1433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceResolve(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolve(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pcancel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1459,7 +1459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsServiceResolveCancel(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolveCancel(JNIEnv* km_env, jclass km_clazz, jlong pcancelhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1484,7 +1484,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsSetApplicationSettings(JNIEnv* km_env, jclass km_clazz, jint cservers, jlong pservers, jlong psettings) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsSetApplicationSettings(JNIEnv* km_env, jclass km_clazz, jint cservers, jlong pservers, jlong psettings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1511,7 +1511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsStartMulticastQuery(JNIEnv* km_env, jclass km_clazz, jlong pqueryrequest, jlong phandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsStartMulticastQuery(JNIEnv* km_env, jclass km_clazz, jlong pqueryrequest, jlong phandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1537,7 +1537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsStopMulticastQuery(JNIEnv* km_env, jclass km_clazz, jlong phandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsStopMulticastQuery(JNIEnv* km_env, jclass km_clazz, jlong phandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1562,7 +1562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsValidateNameA(JNIEnv* km_env, jclass km_clazz, jlong pszname, jint format) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameA(JNIEnv* km_env, jclass km_clazz, jlong pszname, jint format) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1588,7 +1588,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsValidateNameUtf8(JNIEnv* km_env, jclass km_clazz, jlong pszname, jint format) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameUtf8(JNIEnv* km_env, jclass km_clazz, jlong pszname, jint format) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1614,7 +1614,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsValidateNameW(JNIEnv* km_env, jclass km_clazz, jlong pszname, jint format) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameW(JNIEnv* km_env, jclass km_clazz, jlong pszname, jint format) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1640,7 +1640,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsWriteQuestionToBufferUtf8(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jlong pdwbuffersize, jlong pszname, jshort wtype, jshort xid, jint frecursiondesired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferUtf8(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jlong pdwbuffersize, jlong pszname, jshort wtype, jshort xid, jint frecursiondesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1670,7 +1670,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssys_1windows_1win32_1networkmanagement_1dns_1dnsWriteQuestionToBufferW(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jlong pdwbuffersize, jlong pszname, jshort wtype, jshort xid, jint frecursiondesired) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dns_WindowsWin32NetworkmanagementDnsJniBridge_windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW(JNIEnv* km_env, jclass km_clazz, jlong pdnsbuffer, jlong pdwbuffersize, jlong pszname, jshort wtype, jshort xid, jint frecursiondesired) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

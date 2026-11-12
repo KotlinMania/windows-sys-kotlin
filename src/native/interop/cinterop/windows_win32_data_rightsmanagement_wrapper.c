@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(uint32_t hlicensestorage, void* wszlicense, void* wszurl, void* pvcontext) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMAcquireAdvisories(uint32_t hlicensestorage, void* wszlicense, void* wszurl, void* pvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate(uint32_t hclient, uint32_t uflags, void* pvreserved, uint32_t ctemplates, void* pwsztemplateids, void* wszurl, void* pvcontext) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMAcquireIssuanceLicenseTemplate(uint32_t hclient, uint32_t uflags, void* pvreserved, uint32_t ctemplates, void* pwsztemplateids, void* wszurl, void* pvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -68,7 +68,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicense
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(uint32_t hsession, uint32_t uflags, void* wszgroupidentitycredential, void* wszrequestedrights, void* wszcustomdata, void* wszurl, void* pvcontext) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMAcquireLicense(uint32_t hsession, uint32_t uflags, void* wszgroupidentitycredential, void* wszrequestedrights, void* wszcustomdata, void* wszurl, void* pvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -96,7 +96,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMActivate(uint32_t hclient, uint32_t uflags, uint32_t ulangid, void* pactservinfo, void* pvcontext, void* hparentwnd) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMActivate(uint32_t hclient, uint32_t uflags, uint32_t ulangid, void* pactservinfo, void* pvcontext, void* hparentwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -123,7 +123,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMActivate(uint32_t hcli
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(uint32_t hlicensestorage, uint32_t uflags, void* wszlicense) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMAddLicense(uint32_t hlicensestorage, uint32_t uflags, void* wszlicense) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -147,7 +147,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(uint32_t hl
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(uint32_t hissuancelicense, uint32_t hright, uint32_t huser) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser(uint32_t hissuancelicense, uint32_t hright, uint32_t huser) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -171,7 +171,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMAttest(uint32_t henablingprincipal, void* wszdata, int32_t etype, void* pcattestedblob, void* wszattestedblob) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMAttest(uint32_t henablingprincipal, void* wszdata, int32_t etype, void* pcattestedblob, void* wszattestedblob) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMAttest(uint32_t henabl
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(uint32_t henv, uint32_t clevel) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCheckSecurity(uint32_t henv, uint32_t clevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -220,7 +220,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(uint32_t hissuancelicense) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMClearAllRights(uint32_t hissuancelicense) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -242,7 +242,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle(uint32_t henv) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle(uint32_t henv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -264,7 +264,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(uint32_t handle) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCloseHandle(uint32_t handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -286,7 +286,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(uint32_t hpub) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMClosePubHandle(uint32_t hpub) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -308,7 +308,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(uint32_t hquery) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle(uint32_t hquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -330,7 +330,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(uint32_t hsession) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCloseSession(uint32_t hsession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -352,7 +352,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain(uint32_t ccertificates, void* rgwszcertificates, void* pcchain, void* wszchain) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain(uint32_t ccertificates, void* rgwszcertificates, void* pcchain, void* wszchain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -377,7 +377,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateCh
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(uint32_t henv, void* pparams, void* wszlicensechain, void* phboundlicense, void* pherrorlog) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateBoundLicense(uint32_t henv, void* pparams, void* wszlicensechain, void* phboundlicense, void* pherrorlog) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -403,7 +403,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(void* pfncallback, uint32_t ucallbackversion, void* wszgroupidprovidertype, void* wszgroupid, void* phclient) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateClientSession(void* pfncallback, uint32_t ucallbackversion, void* wszgroupidprovidertype, void* wszgroupid, void* phclient) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -429,7 +429,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor(uint32_t hboundlicense, void* wszright, uint32_t hauxlib, void* wszauxplug, void* phdecryptor) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsDecryptor(uint32_t hboundlicense, void* wszright, uint32_t hauxlib, void* wszauxplug, void* phdecryptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -455,7 +455,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecr
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor(uint32_t hboundlicense, void* wszright, uint32_t hauxlib, void* wszauxplug, void* phencryptor) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsEncryptor(uint32_t hboundlicense, void* wszright, uint32_t hauxlib, void* wszauxplug, void* phencryptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -481,7 +481,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncr
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal(uint32_t henv, uint32_t hlibrary, void* wszobject, void* pidprincipal, void* wszcredentials, void* phenablingprincipal) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingPrincipal(uint32_t henv, uint32_t hlibrary, void* wszobject, void* pidprincipal, void* wszcredentials, void* phenablingprincipal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -508,7 +508,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipa
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense(void* psttimefrom, void* psttimeuntil, void* wszreferralinfoname, void* wszreferralinfourl, uint32_t howner, void* wszissuancelicense, uint32_t hboundlicense, void* phissuancelicense) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateIssuanceLicense(void* psttimefrom, void* psttimeuntil, void* wszreferralinfoname, void* wszreferralinfourl, uint32_t howner, void* wszissuancelicense, uint32_t hboundlicense, void* phissuancelicense) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense(
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession(uint32_t henv, uint32_t hdefaultlibrary, uint32_t hclient, uint32_t uflags, void* wszissuancelicense, void* phlicensestorage) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateLicenseStorageSession(uint32_t henv, uint32_t hdefaultlibrary, uint32_t hclient, uint32_t uflags, void* wszissuancelicense, void* phlicensestorage) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -564,7 +564,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSe
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateRight(void* wszrightname, void* pstfrom, void* pstuntil, uint32_t cextendedinfo, void* pwszextendedinfoname, void* pwszextendedinfovalue, void* phright) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateRight(void* wszrightname, void* pstfrom, void* pstuntil, uint32_t cextendedinfo, void* pwszextendedinfoname, void* pwszextendedinfovalue, void* phright) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -592,7 +592,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateRight(void* wszr
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateUser(void* wszusername, void* wszuserid, void* wszuseridtype, void* phuser) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMCreateUser(void* wszusername, void* wszuserid, void* wszuseridtype, void* phuser) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -617,7 +617,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMCreateUser(void* wszus
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDecode(void* wszalgid, void* wszencodedstring, void* pudecodeddatalen, void* pbdecodeddata) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDecode(void* wszalgid, void* wszencodedstring, void* pudecodeddatalen, void* pbdecodeddata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -642,7 +642,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDecode(void* wszalgid,
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain(void* wszchain, uint32_t iwhich, void* pccert, void* wszcert) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDeconstructCertificateChain(void* wszchain, uint32_t iwhich, void* pccert, void* wszcert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -667,7 +667,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificate
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(uint32_t hcryptoprovider, uint32_t iposition, uint32_t cnuminbytes, void* pbindata, void* pcnumoutbytes, void* pboutdata) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDecrypt(uint32_t hcryptoprovider, uint32_t iposition, uint32_t cnuminbytes, void* pbindata, void* pcnumoutbytes, void* pboutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -694,7 +694,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(uint32_t hcryp
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(uint32_t hsession, void* wszlicenseid) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDeleteLicense(uint32_t hsession, void* wszlicenseid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -717,7 +717,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle(uint32_t htocopy, void* phcopy) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDuplicateEnvironmentHandle(uint32_t htocopy, void* phcopy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -740,7 +740,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHa
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(uint32_t htocopy, void* phcopy) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDuplicateHandle(uint32_t htocopy, void* phcopy) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -763,7 +763,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(uint32_t hpubin, void* phpubout) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDuplicatePubHandle(uint32_t hpubin, void* phpubout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -786,7 +786,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(uint32_t hsessionin, void* phsessionout) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMDuplicateSession(uint32_t hsessionin, void* phsessionout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -809,7 +809,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMEncode(void* wszalgid, uint32_t udatalen, void* pbdecodeddata, void* puencodedstringlen, void* wszencodedstring) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMEncode(void* wszalgid, uint32_t udatalen, void* pbdecodeddata, void* puencodedstringlen, void* wszencodedstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -835,7 +835,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMEncode(void* wszalgid,
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(uint32_t hcryptoprovider, uint32_t iposition, uint32_t cnuminbytes, void* pbindata, void* pcnumoutbytes, void* pboutdata) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMEncrypt(uint32_t hcryptoprovider, uint32_t iposition, uint32_t cnuminbytes, void* pbindata, void* pcnumoutbytes, void* pboutdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -862,7 +862,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(uint32_t hcryp
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(uint32_t hsession, uint32_t uflags, uint32_t uindex, void* pfsharedflag, void* pucertificatedatalen, void* wszcertificatedata) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMEnumerateLicense(uint32_t hsession, uint32_t uflags, uint32_t uindex, void* pfsharedflag, void* pucertificatedatalen, void* wszcertificatedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -889,7 +889,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData(uint32_t hissuancelicense, uint32_t uindex, void* punamelength, void* wszname, void* puvaluelength, void* wszvalue) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetApplicationSpecificData(uint32_t hissuancelicense, uint32_t uindex, void* punamelength, void* wszname, void* puvaluelength, void* wszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -916,7 +916,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecific
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute(uint32_t hqueryroot, void* wszattribute, uint32_t iwhich, void* peencoding, void* pcbuffer, void* pbbuffer) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttribute(uint32_t hqueryroot, void* wszattribute, uint32_t iwhich, void* peencoding, void* pcbuffer, void* pbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -943,7 +943,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribu
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount(uint32_t hqueryroot, void* wszattribute, void* pcattributes) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttributeCount(uint32_t hqueryroot, void* wszattribute, void* pcattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -967,7 +967,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribu
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(uint32_t hqueryroot, void* wszsubobjecttype, uint32_t iwhich, void* phsubobject) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObject(uint32_t hqueryroot, void* wszsubobjecttype, uint32_t iwhich, void* phsubobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -992,7 +992,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount(uint32_t hqueryroot, void* wszsubobjecttype, void* pcsubobjects) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObjectCount(uint32_t hqueryroot, void* wszsubobjecttype, void* pcsubobjects) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1016,7 +1016,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectC
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount(void* wszchain, void* pccertcount) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetCertificateChainCount(void* wszchain, void* pccertcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1039,7 +1039,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCou
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion(void* pdrmclientversioninfo) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetClientVersion(void* pdrmclientversioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1061,7 +1061,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(uint32_t handle, void* wszattribute, void* peencoding, void* pcbuffer, void* pbbuffer) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetEnvironmentInfo(uint32_t handle, void* wszattribute, void* peencoding, void* pcbuffer, void* pbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1087,7 +1087,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(uint32_t handle, void* wszattribute, void* peencoding, void* pcbuffer, void* pbbuffer) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetInfo(uint32_t handle, void* wszattribute, void* peencoding, void* pcbuffer, void* pbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1113,7 +1113,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(uint32_t handl
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(uint32_t hissuancelicense, void* pcdays) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetIntervalTime(uint32_t hissuancelicense, void* pcdays) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1136,7 +1136,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo(uint32_t hissuancelicense, void* psttimefrom, void* psttimeuntil, uint32_t uflags, void* pudistributionpointnamelength, void* wszdistributionpointname, void* pudistributionpointurllength, void* wszdistributionpointurl, void* phowner, void* pfofficial) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseInfo(uint32_t hissuancelicense, void* psttimefrom, void* psttimeuntil, uint32_t uflags, void* pudistributionpointnamelength, void* wszdistributionpointname, void* pudistributionpointurllength, void* wszdistributionpointurl, void* phowner, void* pfofficial) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1167,7 +1167,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate(uint32_t hissuancelicense, void* puissuancelicensetemplatelength, void* wszissuancelicensetemplate) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseTemplate(uint32_t hissuancelicense, void* puissuancelicensetemplatelength, void* wszissuancelicensetemplate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1191,7 +1191,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemp
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(uint32_t hissuancelicense, void* pucontentidlength, void* wszcontentid, void* pucontentidtypelength, void* wszcontentidtype, void* puskuidlength, void* wszskuid, void* puskuidtypelength, void* wszskuidtype, void* pucontenttypelength, void* wszcontenttype, void* pucontentnamelength, void* wszcontentname) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetMetaData(uint32_t hissuancelicense, void* pucontentidlength, void* wszcontentid, void* pucontentidtypelength, void* wszcontentidtype, void* puskuidlength, void* wszskuid, void* puskuidtypelength, void* wszskuidtype, void* pucontenttypelength, void* wszcontenttype, void* pucontentnamelength, void* wszcontentname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1225,7 +1225,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(uint32_t hissuancelicense, uint32_t uindex, void* pulcid, void* punamelength, void* wszname, void* pudescriptionlength, void* wszdescription) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetNameAndDescription(uint32_t hissuancelicense, uint32_t uindex, void* pulcid, void* punamelength, void* wszname, void* pudescriptionlength, void* wszdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1253,7 +1253,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(uint32_t hissuancelicense, void* puownerlicenselength, void* wszownerlicense) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetOwnerLicense(uint32_t hissuancelicense, void* puownerlicenselength, void* wszownerlicense) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1277,7 +1277,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(uint32_t hlibrary, void* wszprocname, void* ppfnprocaddress) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetProcAddress(uint32_t hlibrary, void* wszprocname, void* ppfnprocaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1301,7 +1301,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(uint32_t hissuancelicense, void* puidlength, void* wszid, void* puidtypelength, void* wszidtype, void* puurllength, void* wszrl, void* pstfrequency, void* punamelength, void* wszname, void* pupublickeylength, void* wszpublickey) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetRevocationPoint(uint32_t hissuancelicense, void* puidlength, void* wszid, void* puidtypelength, void* wszidtype, void* puurllength, void* wszrl, void* pstfrequency, void* punamelength, void* wszname, void* pupublickeylength, void* wszpublickey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1334,7 +1334,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(uint32_t hright, uint32_t uindex, void* puextendedinfonamelength, void* wszextendedinfoname, void* puextendedinfovaluelength, void* wszextendedinfovalue) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetRightExtendedInfo(uint32_t hright, uint32_t uindex, void* puextendedinfonamelength, void* wszextendedinfoname, void* puextendedinfovaluelength, void* wszextendedinfovalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1361,7 +1361,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(u
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(uint32_t hright, void* purightnamelength, void* wszrightname, void* pstfrom, void* pstuntil) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetRightInfo(uint32_t hright, void* purightnamelength, void* wszrightname, void* pstfrom, void* pstuntil) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1387,7 +1387,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(uint32_t uflags, void* putypelen, void* wsztype, void* pupathlen, void* wszpath) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetSecurityProvider(uint32_t uflags, void* putypelen, void* wsztype, void* pupathlen, void* wszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1413,7 +1413,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(uint32_t hclient, uint32_t uservicetype, uint32_t uservicelocation, void* wszissuancelicense, void* puserviceurllength, void* wszserviceurl) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetServiceLocation(uint32_t hclient, uint32_t uservicetype, uint32_t uservicelocation, void* wszissuancelicense, void* puserviceurllength, void* wszserviceurl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1440,7 +1440,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense(uint32_t henv, uint32_t hissuancelicense, uint32_t uflags, void* pbsymkey, uint32_t cbsymkey, void* wszsymkeytype, void* wszclientlicensorcertificate, void* pfncallback, void* wszurl, void* pvcontext) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicense(uint32_t henv, uint32_t hissuancelicense, uint32_t uflags, void* pbsymkey, uint32_t cbsymkey, void* wszsymkeytype, void* wszclientlicensorcertificate, void* pfncallback, void* wszurl, void* pvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1471,7 +1471,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicen
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx(uint32_t henv, uint32_t hissuancelicense, uint32_t uflags, void* pbsymkey, uint32_t cbsymkey, void* wszsymkeytype, void* pvreserved, uint32_t henablingprincipal, uint32_t hboundlicenseclc, void* pfncallback, void* pvcontext) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicenseEx(uint32_t henv, uint32_t hissuancelicense, uint32_t uflags, void* pbsymkey, uint32_t cbsymkey, void* wszsymkeytype, void* pvreserved, uint32_t henablingprincipal, uint32_t hboundlicenseclc, void* pfncallback, void* pvcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1503,7 +1503,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicen
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetTime(uint32_t henv, int32_t etimeridtype, void* potimeobject) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetTime(uint32_t henv, int32_t etimeridtype, void* potimeobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1527,7 +1527,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetTime(uint32_t henv,
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute(uint32_t hqueryroot, void* wszattributetype, uint32_t iwhich, void* peencoding, void* pcbuffer, void* pbbuffer) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttribute(uint32_t hqueryroot, void* wszattributetype, uint32_t iwhich, void* peencoding, void* pcbuffer, void* pbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1554,7 +1554,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttri
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount(uint32_t hqueryroot, void* wszattributetype, void* pcattributes) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttributeCount(uint32_t hqueryroot, void* wszattributetype, void* pcattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1578,7 +1578,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttri
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject(uint32_t hqueryroot, void* wszsubobjecttype, uint32_t iindex, void* phsubquery) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObject(uint32_t hqueryroot, void* wszsubobjecttype, uint32_t iindex, void* phsubquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1603,7 +1603,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjec
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount(uint32_t hqueryroot, void* wszsubobjecttype, void* pcsubobjects) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObjectCount(uint32_t hqueryroot, void* wszsubobjecttype, void* pcsubobjects) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1627,7 +1627,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjec
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(uint32_t hissuancelicense, uint32_t uindex, void* peusagepolicytype, void* pfexclusion, void* punamelength, void* wszname, void* puminversionlength, void* wszminversion, void* pumaxversionlength, void* wszmaxversion, void* pupublickeylength, void* wszpublickey, void* pudigestalgorithmlength, void* wszdigestalgorithm, void* pcbdigest, void* pbdigest) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUsagePolicy(uint32_t hissuancelicense, uint32_t uindex, void* peusagepolicytype, void* pfexclusion, void* punamelength, void* wszname, void* puminversionlength, void* wszminversion, void* pumaxversionlength, void* wszmaxversion, void* pupublickeylength, void* wszpublickey, void* pudigestalgorithmlength, void* wszdigestalgorithm, void* pcbdigest, void* pbdigest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1664,7 +1664,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(uint32_t huser, void* puusernamelength, void* wszusername, void* puuseridlength, void* wszuserid, void* puuseridtypelength, void* wszuseridtype) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUserInfo(uint32_t huser, void* puusernamelength, void* wszusername, void* puuseridlength, void* wszuserid, void* puuseridtypelength, void* wszuseridtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1692,7 +1692,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(uint32_t hissuancelicense, uint32_t huser, uint32_t uindex, void* phright) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUserRights(uint32_t hissuancelicense, uint32_t huser, uint32_t uindex, void* phright) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1717,7 +1717,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(uint32_t hissuancelicense, uint32_t uindex, void* phuser) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMGetUsers(uint32_t hissuancelicense, uint32_t uindex, void* phuser) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1741,7 +1741,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(uint32_t hiss
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(int32_t esecurityprovidertype, int32_t especification, void* wszsecurityprovider, void* wszmanifestcredentials, void* wszmachinecredentials, void* phenv, void* phdefaultlibrary) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMInitEnvironment(int32_t esecurityprovidertype, int32_t especification, void* wszsecurityprovider, void* wszmanifestcredentials, void* wszmachinecredentials, void* phenv, void* phdefaultlibrary) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1769,7 +1769,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(uint32_t hclient, uint32_t uflags, void* pactservinfo) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMIsActivated(uint32_t hclient, uint32_t uflags, void* pactservinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1793,7 +1793,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected(void* hwnd, void* pfprotected) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMIsWindowProtected(void* hwnd, void* pfprotected) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1816,7 +1816,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected(void
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(uint32_t henv, int32_t especification, void* wszlibraryprovider, void* wszcredentials, void* phlibrary) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMLoadLibrary(uint32_t henv, int32_t especification, void* wszlibraryprovider, void* wszcredentials, void* phlibrary) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1842,7 +1842,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense(void* wszcertificate, void* phqueryroot) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMParseUnboundLicense(void* wszcertificate, void* phqueryroot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1865,7 +1865,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(int32_t fregister) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMRegisterContent(int32_t fregister) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1887,7 +1887,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow(uint32_t henv, void* hwnd) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow(uint32_t henv, void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1910,7 +1910,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindo
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList(uint32_t henv, void* wszrevocationlist) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMRegisterRevocationList(uint32_t henv, void* wszrevocationlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1933,7 +1933,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMRepair(void) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMRepair(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1954,7 +1954,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMRepair(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData(uint32_t hissuancelicense, int32_t fdelete, void* wszname, void* wszvalue) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData(uint32_t hissuancelicense, int32_t fdelete, void* wszname, void* wszvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1979,7 +1979,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecific
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(int32_t eglobaloptions, void* pvdata, uint32_t dwlen) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMSetGlobalOptions(int32_t eglobaloptions, void* pvdata, uint32_t dwlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2003,7 +2003,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(int32
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(uint32_t hissuancelicense, uint32_t cdays) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime(uint32_t hissuancelicense, uint32_t cdays) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2026,7 +2026,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(uint32_t hissuancelicense, void* wszcontentid, void* wszcontentidtype, void* wszskuid, void* wszskuidtype, void* wszcontenttype, void* wszcontentname) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMSetMetaData(uint32_t hissuancelicense, void* wszcontentid, void* wszcontentidtype, void* wszskuid, void* wszskuidtype, void* wszcontenttype, void* wszcontentname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2054,7 +2054,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(uint32_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(uint32_t hissuancelicense, int32_t fdelete, uint32_t lcid, void* wszname, void* wszdescription) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMSetNameAndDescription(uint32_t hissuancelicense, int32_t fdelete, uint32_t lcid, void* wszname, void* wszdescription) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2080,7 +2080,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(uint32_t hissuancelicense, int32_t fdelete, void* wszid, void* wszidtype, void* wszurl, void* pstfrequency, void* wszname, void* wszpublickey) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMSetRevocationPoint(uint32_t hissuancelicense, int32_t fdelete, void* wszid, void* wszidtype, void* wszurl, void* pstfrequency, void* wszname, void* wszpublickey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2109,7 +2109,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(uint32_t hissuancelicense, int32_t eusagepolicytype, int32_t fdelete, int32_t fexclusion, void* wszname, void* wszminversion, void* wszmaxversion, void* wszpublickey, void* wszdigestalgorithm, void* pbdigest, uint32_t cbdigest) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMSetUsagePolicy(uint32_t hissuancelicense, int32_t eusagepolicytype, int32_t fdelete, int32_t fexclusion, void* wszname, void* wszminversion, void* wszmaxversion, void* wszpublickey, void* wszdigestalgorithm, void* pbdigest, uint32_t cbdigest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2141,7 +2141,7 @@ int32_t windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_data_rightsmanagement_dRMVerify(void* wszdata, void* pcattesteddata, void* wszattesteddata, void* petype, void* pcprincipal, void* wszprincipal, void* pcmanifest, void* wszmanifest) {
+int32_t windowssysWindowsWin32DataRightsmanagementDRMVerify(void* wszdata, void* pcattesteddata, void* wszattesteddata, void* petype, void* pcprincipal, void* wszprincipal, void* pcmanifest, void* wszmanifest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

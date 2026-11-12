@@ -2,518 +2,522 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
-private external fun _initWindowsWin32DataRightsmanagementNapiAddon(): Boolean
+private external fun initWindowsWin32DataRightsmanagementNapiAddon(): Boolean
 
-private val _windowsWin32DataRightsmanagementNapiAvailable: Boolean = _initWindowsWin32DataRightsmanagementNapiAddon()
+private val windowsWin32DataRightsmanagementNapiAvailable: Boolean = initWindowsWin32DataRightsmanagementNapiAddon()
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMAcquireAdvisories(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMAcquireAdvisories(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate(p0: Int, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMAcquireIssuanceLicenseTemplate(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMAcquireIssuanceLicenseTemplate(p0: Int, p1: Int, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMAcquireLicense(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMAcquireLicense(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMActivate(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMActivate(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMActivate(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMActivate(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(p0: Int, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMAddLicense(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMAddLicense(p0: Int, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(p0: Int, p1: Int, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser(p0: Int, p1: Int, p2: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMAttest(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAttest(p0: Int, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMAttest(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMAttest(p0: Int, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(p0: Int, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCheckSecurity(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCheckSecurity(p0: Int, p1: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMClearAllRights(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMClearAllRights(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCloseHandle(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseHandle(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMClosePubHandle(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMClosePubHandle(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle(p0: Int): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCloseSession(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseSession(p0: Int): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain(p0: Int, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain(p0: Int, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateBoundLicense(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateBoundLicense(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateClientSession(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateClientSession(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor(p0: Int, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsDecryptor(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsDecryptor(p0: Int, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor(p0: Int, p1: String, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsEncryptor(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsEncryptor(p0: Int, p1: String, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateEnablingPrincipal(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateEnablingPrincipal(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateIssuanceLicense(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateIssuanceLicense(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession(p0: Int, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateLicenseStorageSession(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateLicenseStorageSession(p0: Int, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateRight(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateRight(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateRight(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateRight(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMCreateUser(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateUser(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMCreateUser(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateUser(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDecode(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDecode(p0: String, p1: String, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDecode(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDecode(p0: String, p1: String, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain(p0: String, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDeconstructCertificateChain(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDeconstructCertificateChain(p0: String, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDecrypt(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDecrypt(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDeleteLicense(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDeleteLicense(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDuplicateEnvironmentHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicateEnvironmentHandle(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDuplicateHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicateHandle(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDuplicatePubHandle(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicatePubHandle(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMDuplicateSession(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicateSession(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMEncode(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMEncode(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMEncode(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMEncode(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMEncrypt(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMEncrypt(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMEnumerateLicense(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMEnumerateLicense(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetApplicationSpecificData(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetApplicationSpecificData(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute(p0: Int, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttribute(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttribute(p0: Int, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttributeCount(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttributeCount(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObject(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObject(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObjectCount(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObjectCount(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetCertificateChainCount(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetCertificateChainCount(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion(p0: String): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetClientVersion(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetClientVersion(p0: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetEnvironmentInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetEnvironmentInfo(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetInfo(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetIntervalTime(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetIntervalTime(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo(p0: Int, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseInfo(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseInfo(p0: Int, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseTemplate(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseTemplate(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: String, p11: String, p12: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetMetaData(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetMetaData(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: String, p11: String, p12: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetNameAndDescription(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetNameAndDescription(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetOwnerLicense(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetOwnerLicense(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetProcAddress(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetProcAddress(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: String, p11: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetRevocationPoint(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetRevocationPoint(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: String, p11: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetRightExtendedInfo(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetRightExtendedInfo(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetRightInfo(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetRightInfo(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetSecurityProvider(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetSecurityProvider(p0: Int, p1: String, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetServiceLocation(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetServiceLocation(p0: Int, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense(p0: Int, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: String, p8: String, p9: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicense(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicense(p0: Int, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: String, p8: String, p9: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx(p0: Int, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: Int, p8: Int, p9: String, p10: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicenseEx(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicenseEx(p0: Int, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String, p7: Int, p8: Int, p9: String, p10: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetTime(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetTime(p0: Int, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetTime(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetTime(p0: Int, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute(p0: Int, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttribute(p0, p1, p2, p3, p4, p5)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttribute(p0: Int, p1: String, p2: Int, p3: String, p4: String, p5: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttributeCount(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttributeCount(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject(p0: Int, p1: String, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObject(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObject(p0: Int, p1: String, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount(p0: Int, p1: String, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObjectCount(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObjectCount(p0: Int, p1: String, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: String, p11: String, p12: String, p13: String, p14: String, p15: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUsagePolicy(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUsagePolicy(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: String, p11: String, p12: String, p13: String, p14: String, p15: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUserInfo(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUserInfo(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(p0: Int, p1: Int, p2: Int, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUserRights(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUserRights(p0: Int, p1: Int, p2: Int, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(p0: Int, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMGetUsers(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUsers(p0: Int, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMInitEnvironment(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMInitEnvironment(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(p0: Int, p1: Int, p2: String): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMIsActivated(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMIsActivated(p0: Int, p1: Int, p2: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMIsWindowProtected(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMIsWindowProtected(p0: String, p1: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(p0: Int, p1: Int, p2: String, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMLoadLibrary(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMLoadLibrary(p0: Int, p1: Int, p2: String, p3: String, p4: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense(p0: String, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMParseUnboundLicense(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMParseUnboundLicense(p0: String, p1: String): Int
 
-@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(p0)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(p0: Int): Int
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMRegisterContent(p0)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMRegisterContent(p0: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow(p0: Int, p1: String): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList(p0: Int, p1: String): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMRegisterRevocationList(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMRegisterRevocationList(p0: Int, p1: String): Int
 
-@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMRepair()")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRepair(): Int
+@JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMRepair()")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMRepair(): Int
 
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData(p0: Int, p1: Int, p2: String, p3: String): Int
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData(p0, p1, p2, p3)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData(p0: Int, p1: Int, p2: String, p3: String): Int
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(p0: Int, p1: String, p2: Int): Int
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMSetGlobalOptions(p0, p1, p2)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMSetGlobalOptions(p0: Int, p1: String, p2: Int): Int
 
-@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(p0: Int, p1: Int): Int
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime(p0, p1)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime(p0: Int, p1: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMSetMetaData(p0, p1, p2, p3, p4, p5, p6)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMSetMetaData(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(p0: Int, p1: Int, p2: Int, p3: String, p4: String): Int
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMSetNameAndDescription(p0, p1, p2, p3, p4)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMSetNameAndDescription(p0: Int, p1: Int, p2: Int, p3: String, p4: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMSetRevocationPoint(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMSetRevocationPoint(p0: Int, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(p0: Int, p1: Int, p2: Int, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMSetUsagePolicy(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMSetUsagePolicy(p0: Int, p1: Int, p2: Int, p3: Int, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
 
-@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_data_rightsmanagement_dRMVerify(p0, p1, p2, p3, p4, p5, p6, p7)")
-private external fun _wasm_windowssys_windows_win32_data_rightsmanagement_dRMVerify(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DataRightsmanagementDRMVerify(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun wasmWindowssysWindowsWin32DataRightsmanagementDRMVerify(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String): Int
 
-public actual fun dRMAcquireAdvisories(hlicensestorage: UInt, wszlicense: Pcwstr, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(hlicensestorage.toInt(), (wszlicense?.value ?: 0L).toString(), (wszurl?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMAcquireAdvisories(hlicensestorage: UInt, wszlicense: Pcwstr, wszurl: Pcwstr, pvcontext: MutPtr<CVoid>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMAcquireAdvisories(hlicensestorage.toInt(), wszlicense.rawAddress.toString(), wszurl.rawAddress.toString(), pvcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMAcquireIssuanceLicenseTemplate(hclient: UInt, uflags: UInt, pvreserved: COpaquePointer?, ctemplates: UInt, pwsztemplateids: COpaquePointer?, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate(hclient.toInt(), uflags.toInt(), (pvreserved?.value ?: 0L).toString(), ctemplates.toInt(), (pwsztemplateids?.value ?: 0L).toString(), (wszurl?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMAcquireIssuanceLicenseTemplate(hclient: UInt, uflags: UInt, pvreserved: MutPtr<CVoid>, ctemplates: UInt, pwsztemplateids: ConstPtr<Pcwstr>, wszurl: Pcwstr, pvcontext: MutPtr<CVoid>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMAcquireIssuanceLicenseTemplate(hclient.toInt(), uflags.toInt(), pvreserved.rawAddress.toString(), ctemplates.toInt(), pwsztemplateids.rawAddress.toString(), wszurl.rawAddress.toString(), pvcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMAcquireLicense(hsession: UInt, uflags: UInt, wszgroupidentitycredential: Pcwstr, wszrequestedrights: Pcwstr, wszcustomdata: Pcwstr, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(hsession.toInt(), uflags.toInt(), (wszgroupidentitycredential?.value ?: 0L).toString(), (wszrequestedrights?.value ?: 0L).toString(), (wszcustomdata?.value ?: 0L).toString(), (wszurl?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMAcquireLicense(hsession: UInt, uflags: UInt, wszgroupidentitycredential: Pcwstr, wszrequestedrights: Pcwstr, wszcustomdata: Pcwstr, wszurl: Pcwstr, pvcontext: MutPtr<CVoid>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMAcquireLicense(hsession.toInt(), uflags.toInt(), wszgroupidentitycredential.rawAddress.toString(), wszrequestedrights.rawAddress.toString(), wszcustomdata.rawAddress.toString(), wszurl.rawAddress.toString(), pvcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: COpaquePointer?, pvcontext: COpaquePointer?, hparentwnd: Hwnd): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMActivate(hclient.toInt(), uflags.toInt(), ulangid.toInt(), (pactservinfo?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString(), (hparentwnd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: MutPtr<DrmActservInfo>, pvcontext: MutPtr<CVoid>, hparentwnd: Hwnd): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMActivate(hclient.toInt(), uflags.toInt(), ulangid.toInt(), pactservinfo.rawAddress.toString(), pvcontext.rawAddress.toString(), hparentwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMAddLicense(hlicensestorage: UInt, uflags: UInt, wszlicense: Pcwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(hlicensestorage.toInt(), uflags.toInt(), (wszlicense?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMAddLicense(hlicensestorage.toInt(), uflags.toInt(), wszlicense.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMAddRightWithUser(hissuancelicense: UInt, hright: UInt, huser: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(hissuancelicense.toInt(), hright.toInt(), huser.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMAddRightWithUser(hissuancelicense.toInt(), hright.toInt(), huser.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMAttest(henablingprincipal: UInt, wszdata: Pcwstr, etype: Drmattesttype, pcattestedblob: COpaquePointer?, wszattestedblob: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMAttest(henablingprincipal.toInt(), (wszdata?.value ?: 0L).toString(), etype, (pcattestedblob?.value ?: 0L).toString(), (wszattestedblob?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMAttest(henablingprincipal: UInt, wszdata: Pcwstr, etype: Drmattesttype, pcattestedblob: MutPtr<UInt>, wszattestedblob: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMAttest(henablingprincipal.toInt(), wszdata.rawAddress.toString(), etype, pcattestedblob.rawAddress.toString(), wszattestedblob.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMCheckSecurity(henv: UInt, clevel: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(henv.toInt(), clevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCheckSecurity(henv.toInt(), clevel.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMClearAllRights(hissuancelicense: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(hissuancelicense.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMClearAllRights(hissuancelicense.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMCloseEnvironmentHandle(henv: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle(henv.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseEnvironmentHandle(henv.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMCloseHandle(handle: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(handle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseHandle(handle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMClosePubHandle(hpub: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(hpub.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMClosePubHandle(hpub.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMCloseQueryHandle(hquery: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(hquery.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseQueryHandle(hquery.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMCloseSession(hsession: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(hsession.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCloseSession(hsession.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMConstructCertificateChain(ccertificates: UInt, rgwszcertificates: COpaquePointer?, pcchain: COpaquePointer?, wszchain: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain(ccertificates.toInt(), (rgwszcertificates?.value ?: 0L).toString(), (pcchain?.value ?: 0L).toString(), (wszchain?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMConstructCertificateChain(ccertificates: UInt, rgwszcertificates: ConstPtr<Pcwstr>, pcchain: MutPtr<UInt>, wszchain: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMConstructCertificateChain(ccertificates.toInt(), rgwszcertificates.rawAddress.toString(), pcchain.rawAddress.toString(), wszchain.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateBoundLicense(henv: UInt, pparams: COpaquePointer?, wszlicensechain: Pcwstr, phboundlicense: COpaquePointer?, pherrorlog: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(henv.toInt(), (pparams?.value ?: 0L).toString(), (wszlicensechain?.value ?: 0L).toString(), (phboundlicense?.value ?: 0L).toString(), (pherrorlog?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateBoundLicense(henv: UInt, pparams: MutPtr<Drmboundlicenseparams>, wszlicensechain: Pcwstr, phboundlicense: MutPtr<UInt>, pherrorlog: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateBoundLicense(henv.toInt(), pparams.rawAddress.toString(), wszlicensechain.rawAddress.toString(), phboundlicense.rawAddress.toString(), pherrorlog.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateClientSession(pfncallback: Drmcallback, ucallbackversion: UInt, wszgroupidprovidertype: Pcwstr, wszgroupid: Pcwstr, phclient: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(0L.toString(), ucallbackversion.toInt(), (wszgroupidprovidertype?.value ?: 0L).toString(), (wszgroupid?.value ?: 0L).toString(), (phclient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateClientSession(pfncallback: Drmcallback, ucallbackversion: UInt, wszgroupidprovidertype: Pcwstr, wszgroupid: Pcwstr, phclient: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateClientSession(0L.toString(), ucallbackversion.toInt(), wszgroupidprovidertype.rawAddress.toString(), wszgroupid.rawAddress.toString(), phclient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateEnablingBitsDecryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phdecryptor: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor(hboundlicense.toInt(), (wszright?.value ?: 0L).toString(), hauxlib.toInt(), (wszauxplug?.value ?: 0L).toString(), (phdecryptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateEnablingBitsDecryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phdecryptor: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsDecryptor(hboundlicense.toInt(), wszright.rawAddress.toString(), hauxlib.toInt(), wszauxplug.rawAddress.toString(), phdecryptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateEnablingBitsEncryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phencryptor: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor(hboundlicense.toInt(), (wszright?.value ?: 0L).toString(), hauxlib.toInt(), (wszauxplug?.value ?: 0L).toString(), (phencryptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateEnablingBitsEncryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phencryptor: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateEnablingBitsEncryptor(hboundlicense.toInt(), wszright.rawAddress.toString(), hauxlib.toInt(), wszauxplug.rawAddress.toString(), phencryptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateEnablingPrincipal(henv: UInt, hlibrary: UInt, wszobject: Pcwstr, pidprincipal: COpaquePointer?, wszcredentials: Pcwstr, phenablingprincipal: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal(henv.toInt(), hlibrary.toInt(), (wszobject?.value ?: 0L).toString(), (pidprincipal?.value ?: 0L).toString(), (wszcredentials?.value ?: 0L).toString(), (phenablingprincipal?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateEnablingPrincipal(henv: UInt, hlibrary: UInt, wszobject: Pcwstr, pidprincipal: MutPtr<Drmid>, wszcredentials: Pcwstr, phenablingprincipal: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateEnablingPrincipal(henv.toInt(), hlibrary.toInt(), wszobject.rawAddress.toString(), pidprincipal.rawAddress.toString(), wszcredentials.rawAddress.toString(), phenablingprincipal.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateIssuanceLicense(psttimefrom: COpaquePointer?, psttimeuntil: COpaquePointer?, wszreferralinfoname: Pcwstr, wszreferralinfourl: Pcwstr, howner: UInt, wszissuancelicense: Pcwstr, hboundlicense: UInt, phissuancelicense: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense((psttimefrom?.value ?: 0L).toString(), (psttimeuntil?.value ?: 0L).toString(), (wszreferralinfoname?.value ?: 0L).toString(), (wszreferralinfourl?.value ?: 0L).toString(), howner.toInt(), (wszissuancelicense?.value ?: 0L).toString(), hboundlicense.toInt(), (phissuancelicense?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateIssuanceLicense(psttimefrom: MutPtr<Systemtime>, psttimeuntil: MutPtr<Systemtime>, wszreferralinfoname: Pcwstr, wszreferralinfourl: Pcwstr, howner: UInt, wszissuancelicense: Pcwstr, hboundlicense: UInt, phissuancelicense: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateIssuanceLicense(psttimefrom.rawAddress.toString(), psttimeuntil.rawAddress.toString(), wszreferralinfoname.rawAddress.toString(), wszreferralinfourl.rawAddress.toString(), howner.toInt(), wszissuancelicense.rawAddress.toString(), hboundlicense.toInt(), phissuancelicense.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateLicenseStorageSession(henv: UInt, hdefaultlibrary: UInt, hclient: UInt, uflags: UInt, wszissuancelicense: Pcwstr, phlicensestorage: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession(henv.toInt(), hdefaultlibrary.toInt(), hclient.toInt(), uflags.toInt(), (wszissuancelicense?.value ?: 0L).toString(), (phlicensestorage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateLicenseStorageSession(henv: UInt, hdefaultlibrary: UInt, hclient: UInt, uflags: UInt, wszissuancelicense: Pcwstr, phlicensestorage: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateLicenseStorageSession(henv.toInt(), hdefaultlibrary.toInt(), hclient.toInt(), uflags.toInt(), wszissuancelicense.rawAddress.toString(), phlicensestorage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateRight(wszrightname: Pcwstr, pstfrom: COpaquePointer?, pstuntil: COpaquePointer?, cextendedinfo: UInt, pwszextendedinfoname: COpaquePointer?, pwszextendedinfovalue: COpaquePointer?, phright: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateRight((wszrightname?.value ?: 0L).toString(), (pstfrom?.value ?: 0L).toString(), (pstuntil?.value ?: 0L).toString(), cextendedinfo.toInt(), (pwszextendedinfoname?.value ?: 0L).toString(), (pwszextendedinfovalue?.value ?: 0L).toString(), (phright?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateRight(wszrightname: Pcwstr, pstfrom: MutPtr<Systemtime>, pstuntil: MutPtr<Systemtime>, cextendedinfo: UInt, pwszextendedinfoname: ConstPtr<Pcwstr>, pwszextendedinfovalue: ConstPtr<Pcwstr>, phright: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateRight(wszrightname.rawAddress.toString(), pstfrom.rawAddress.toString(), pstuntil.rawAddress.toString(), cextendedinfo.toInt(), pwszextendedinfoname.rawAddress.toString(), pwszextendedinfovalue.rawAddress.toString(), phright.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMCreateUser(wszusername: Pcwstr, wszuserid: Pcwstr, wszuseridtype: Pcwstr, phuser: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMCreateUser((wszusername?.value ?: 0L).toString(), (wszuserid?.value ?: 0L).toString(), (wszuseridtype?.value ?: 0L).toString(), (phuser?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMCreateUser(wszusername: Pcwstr, wszuserid: Pcwstr, wszuseridtype: Pcwstr, phuser: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMCreateUser(wszusername.rawAddress.toString(), wszuserid.rawAddress.toString(), wszuseridtype.rawAddress.toString(), phuser.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMDecode(wszalgid: Pcwstr, wszencodedstring: Pcwstr, pudecodeddatalen: COpaquePointer?, pbdecodeddata: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDecode((wszalgid?.value ?: 0L).toString(), (wszencodedstring?.value ?: 0L).toString(), (pudecodeddatalen?.value ?: 0L).toString(), (pbdecodeddata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMDecode(wszalgid: Pcwstr, wszencodedstring: Pcwstr, pudecodeddatalen: MutPtr<UInt>, pbdecodeddata: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDecode(wszalgid.rawAddress.toString(), wszencodedstring.rawAddress.toString(), pudecodeddatalen.rawAddress.toString(), pbdecodeddata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMDeconstructCertificateChain(wszchain: Pcwstr, iwhich: UInt, pccert: COpaquePointer?, wszcert: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain((wszchain?.value ?: 0L).toString(), iwhich.toInt(), (pccert?.value ?: 0L).toString(), (wszcert?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMDeconstructCertificateChain(wszchain: Pcwstr, iwhich: UInt, pccert: MutPtr<UInt>, wszcert: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDeconstructCertificateChain(wszchain.rawAddress.toString(), iwhich.toInt(), pccert.rawAddress.toString(), wszcert.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMDecrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: COpaquePointer?, pcnumoutbytes: COpaquePointer?, pboutdata: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), (pbindata?.value ?: 0L).toString(), (pcnumoutbytes?.value ?: 0L).toString(), (pboutdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMDecrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: MutPtr<UByte>, pcnumoutbytes: MutPtr<UInt>, pboutdata: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDecrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), pbindata.rawAddress.toString(), pcnumoutbytes.rawAddress.toString(), pboutdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMDeleteLicense(hsession: UInt, wszlicenseid: Pcwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(hsession.toInt(), (wszlicenseid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDeleteLicense(hsession.toInt(), wszlicenseid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMDuplicateEnvironmentHandle(htocopy: UInt, phcopy: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle(htocopy.toInt(), (phcopy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMDuplicateEnvironmentHandle(htocopy: UInt, phcopy: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicateEnvironmentHandle(htocopy.toInt(), phcopy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMDuplicateHandle(htocopy: UInt, phcopy: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(htocopy.toInt(), (phcopy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMDuplicateHandle(htocopy: UInt, phcopy: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicateHandle(htocopy.toInt(), phcopy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMDuplicatePubHandle(hpubin: UInt, phpubout: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(hpubin.toInt(), (phpubout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMDuplicatePubHandle(hpubin: UInt, phpubout: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicatePubHandle(hpubin.toInt(), phpubout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMDuplicateSession(hsessionin: UInt, phsessionout: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(hsessionin.toInt(), (phsessionout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMDuplicateSession(hsessionin: UInt, phsessionout: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMDuplicateSession(hsessionin.toInt(), phsessionout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMEncode(wszalgid: Pcwstr, udatalen: UInt, pbdecodeddata: COpaquePointer?, puencodedstringlen: COpaquePointer?, wszencodedstring: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMEncode((wszalgid?.value ?: 0L).toString(), udatalen.toInt(), (pbdecodeddata?.value ?: 0L).toString(), (puencodedstringlen?.value ?: 0L).toString(), (wszencodedstring?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMEncode(wszalgid: Pcwstr, udatalen: UInt, pbdecodeddata: MutPtr<UByte>, puencodedstringlen: MutPtr<UInt>, wszencodedstring: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMEncode(wszalgid.rawAddress.toString(), udatalen.toInt(), pbdecodeddata.rawAddress.toString(), puencodedstringlen.rawAddress.toString(), wszencodedstring.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMEncrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: COpaquePointer?, pcnumoutbytes: COpaquePointer?, pboutdata: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), (pbindata?.value ?: 0L).toString(), (pcnumoutbytes?.value ?: 0L).toString(), (pboutdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMEncrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: MutPtr<UByte>, pcnumoutbytes: MutPtr<UInt>, pboutdata: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMEncrypt(hcryptoprovider.toInt(), iposition.toInt(), cnuminbytes.toInt(), pbindata.rawAddress.toString(), pcnumoutbytes.rawAddress.toString(), pboutdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMEnumerateLicense(hsession: UInt, uflags: UInt, uindex: UInt, pfsharedflag: COpaquePointer?, pucertificatedatalen: COpaquePointer?, wszcertificatedata: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(hsession.toInt(), uflags.toInt(), uindex.toInt(), (pfsharedflag?.value ?: 0L).toString(), (pucertificatedatalen?.value ?: 0L).toString(), (wszcertificatedata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMEnumerateLicense(hsession: UInt, uflags: UInt, uindex: UInt, pfsharedflag: MutPtr<Bool>, pucertificatedatalen: MutPtr<UInt>, wszcertificatedata: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMEnumerateLicense(hsession.toInt(), uflags.toInt(), uindex.toInt(), pfsharedflag.rawAddress.toString(), pucertificatedatalen.rawAddress.toString(), wszcertificatedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetApplicationSpecificData(hissuancelicense: UInt, uindex: UInt, punamelength: COpaquePointer?, wszname: Pwstr, puvaluelength: COpaquePointer?, wszvalue: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData(hissuancelicense.toInt(), uindex.toInt(), (punamelength?.value ?: 0L).toString(), (wszname?.value ?: 0L).toString(), (puvaluelength?.value ?: 0L).toString(), (wszvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetApplicationSpecificData(hissuancelicense: UInt, uindex: UInt, punamelength: MutPtr<UInt>, wszname: Pwstr, puvaluelength: MutPtr<UInt>, wszvalue: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetApplicationSpecificData(hissuancelicense.toInt(), uindex.toInt(), punamelength.rawAddress.toString(), wszname.rawAddress.toString(), puvaluelength.rawAddress.toString(), wszvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetBoundLicenseAttribute(hqueryroot: UInt, wszattribute: Pcwstr, iwhich: UInt, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute(hqueryroot.toInt(), (wszattribute?.value ?: 0L).toString(), iwhich.toInt(), (peencoding?.value ?: 0L).toString(), (pcbuffer?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetBoundLicenseAttribute(hqueryroot: UInt, wszattribute: Pcwstr, iwhich: UInt, peencoding: MutPtr<Drmencodingtype>, pcbuffer: MutPtr<UInt>, pbbuffer: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttribute(hqueryroot.toInt(), wszattribute.rawAddress.toString(), iwhich.toInt(), peencoding.rawAddress.toString(), pcbuffer.rawAddress.toString(), pbbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetBoundLicenseAttributeCount(hqueryroot: UInt, wszattribute: Pcwstr, pcattributes: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount(hqueryroot.toInt(), (wszattribute?.value ?: 0L).toString(), (pcattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetBoundLicenseAttributeCount(hqueryroot: UInt, wszattribute: Pcwstr, pcattributes: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseAttributeCount(hqueryroot.toInt(), wszattribute.rawAddress.toString(), pcattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetBoundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iwhich: UInt, phsubobject: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L).toString(), iwhich.toInt(), (phsubobject?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetBoundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iwhich: UInt, phsubobject: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObject(hqueryroot.toInt(), wszsubobjecttype.rawAddress.toString(), iwhich.toInt(), phsubobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetBoundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L).toString(), (pcsubobjects?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetBoundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetBoundLicenseObjectCount(hqueryroot.toInt(), wszsubobjecttype.rawAddress.toString(), pcsubobjects.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetCertificateChainCount(wszchain: Pcwstr, pccertcount: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount((wszchain?.value ?: 0L).toString(), (pccertcount?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetCertificateChainCount(wszchain: Pcwstr, pccertcount: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetCertificateChainCount(wszchain.rawAddress.toString(), pccertcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetClientVersion(pdrmclientversioninfo: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion((pdrmclientversioninfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetClientVersion(pdrmclientversioninfo: MutPtr<DrmClientVersionInfo>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetClientVersion(pdrmclientversioninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetEnvironmentInfo(handle: UInt, wszattribute: Pcwstr, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(handle.toInt(), (wszattribute?.value ?: 0L).toString(), (peencoding?.value ?: 0L).toString(), (pcbuffer?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetEnvironmentInfo(handle: UInt, wszattribute: Pcwstr, peencoding: MutPtr<Drmencodingtype>, pcbuffer: MutPtr<UInt>, pbbuffer: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetEnvironmentInfo(handle.toInt(), wszattribute.rawAddress.toString(), peencoding.rawAddress.toString(), pcbuffer.rawAddress.toString(), pbbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetInfo(handle: UInt, wszattribute: Pcwstr, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(handle.toInt(), (wszattribute?.value ?: 0L).toString(), (peencoding?.value ?: 0L).toString(), (pcbuffer?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetInfo(handle: UInt, wszattribute: Pcwstr, peencoding: ConstPtr<Drmencodingtype>, pcbuffer: MutPtr<UInt>, pbbuffer: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetInfo(handle.toInt(), wszattribute.rawAddress.toString(), peencoding.rawAddress.toString(), pcbuffer.rawAddress.toString(), pbbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetIntervalTime(hissuancelicense: UInt, pcdays: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(hissuancelicense.toInt(), (pcdays?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetIntervalTime(hissuancelicense: UInt, pcdays: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetIntervalTime(hissuancelicense.toInt(), pcdays.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetIssuanceLicenseInfo(hissuancelicense: UInt, psttimefrom: COpaquePointer?, psttimeuntil: COpaquePointer?, uflags: UInt, pudistributionpointnamelength: COpaquePointer?, wszdistributionpointname: Pwstr, pudistributionpointurllength: COpaquePointer?, wszdistributionpointurl: Pwstr, phowner: COpaquePointer?, pfofficial: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo(hissuancelicense.toInt(), (psttimefrom?.value ?: 0L).toString(), (psttimeuntil?.value ?: 0L).toString(), uflags.toInt(), (pudistributionpointnamelength?.value ?: 0L).toString(), (wszdistributionpointname?.value ?: 0L).toString(), (pudistributionpointurllength?.value ?: 0L).toString(), (wszdistributionpointurl?.value ?: 0L).toString(), (phowner?.value ?: 0L).toString(), (pfofficial?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetIssuanceLicenseInfo(hissuancelicense: UInt, psttimefrom: MutPtr<Systemtime>, psttimeuntil: MutPtr<Systemtime>, uflags: UInt, pudistributionpointnamelength: MutPtr<UInt>, wszdistributionpointname: Pwstr, pudistributionpointurllength: MutPtr<UInt>, wszdistributionpointurl: Pwstr, phowner: MutPtr<UInt>, pfofficial: MutPtr<Bool>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseInfo(hissuancelicense.toInt(), psttimefrom.rawAddress.toString(), psttimeuntil.rawAddress.toString(), uflags.toInt(), pudistributionpointnamelength.rawAddress.toString(), wszdistributionpointname.rawAddress.toString(), pudistributionpointurllength.rawAddress.toString(), wszdistributionpointurl.rawAddress.toString(), phowner.rawAddress.toString(), pfofficial.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetIssuanceLicenseTemplate(hissuancelicense: UInt, puissuancelicensetemplatelength: COpaquePointer?, wszissuancelicensetemplate: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate(hissuancelicense.toInt(), (puissuancelicensetemplatelength?.value ?: 0L).toString(), (wszissuancelicensetemplate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetIssuanceLicenseTemplate(hissuancelicense: UInt, puissuancelicensetemplatelength: MutPtr<UInt>, wszissuancelicensetemplate: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetIssuanceLicenseTemplate(hissuancelicense.toInt(), puissuancelicensetemplatelength.rawAddress.toString(), wszissuancelicensetemplate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetMetaData(hissuancelicense: UInt, pucontentidlength: COpaquePointer?, wszcontentid: Pwstr, pucontentidtypelength: COpaquePointer?, wszcontentidtype: Pwstr, puskuidlength: COpaquePointer?, wszskuid: Pwstr, puskuidtypelength: COpaquePointer?, wszskuidtype: Pwstr, pucontenttypelength: COpaquePointer?, wszcontenttype: Pwstr, pucontentnamelength: COpaquePointer?, wszcontentname: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(hissuancelicense.toInt(), (pucontentidlength?.value ?: 0L).toString(), (wszcontentid?.value ?: 0L).toString(), (pucontentidtypelength?.value ?: 0L).toString(), (wszcontentidtype?.value ?: 0L).toString(), (puskuidlength?.value ?: 0L).toString(), (wszskuid?.value ?: 0L).toString(), (puskuidtypelength?.value ?: 0L).toString(), (wszskuidtype?.value ?: 0L).toString(), (pucontenttypelength?.value ?: 0L).toString(), (wszcontenttype?.value ?: 0L).toString(), (pucontentnamelength?.value ?: 0L).toString(), (wszcontentname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetMetaData(hissuancelicense: UInt, pucontentidlength: MutPtr<UInt>, wszcontentid: Pwstr, pucontentidtypelength: MutPtr<UInt>, wszcontentidtype: Pwstr, puskuidlength: MutPtr<UInt>, wszskuid: Pwstr, puskuidtypelength: MutPtr<UInt>, wszskuidtype: Pwstr, pucontenttypelength: MutPtr<UInt>, wszcontenttype: Pwstr, pucontentnamelength: MutPtr<UInt>, wszcontentname: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetMetaData(hissuancelicense.toInt(), pucontentidlength.rawAddress.toString(), wszcontentid.rawAddress.toString(), pucontentidtypelength.rawAddress.toString(), wszcontentidtype.rawAddress.toString(), puskuidlength.rawAddress.toString(), wszskuid.rawAddress.toString(), puskuidtypelength.rawAddress.toString(), wszskuidtype.rawAddress.toString(), pucontenttypelength.rawAddress.toString(), wszcontenttype.rawAddress.toString(), pucontentnamelength.rawAddress.toString(), wszcontentname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetNameAndDescription(hissuancelicense: UInt, uindex: UInt, pulcid: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, pudescriptionlength: COpaquePointer?, wszdescription: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(hissuancelicense.toInt(), uindex.toInt(), (pulcid?.value ?: 0L).toString(), (punamelength?.value ?: 0L).toString(), (wszname?.value ?: 0L).toString(), (pudescriptionlength?.value ?: 0L).toString(), (wszdescription?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetNameAndDescription(hissuancelicense: UInt, uindex: UInt, pulcid: MutPtr<UInt>, punamelength: MutPtr<UInt>, wszname: Pwstr, pudescriptionlength: MutPtr<UInt>, wszdescription: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetNameAndDescription(hissuancelicense.toInt(), uindex.toInt(), pulcid.rawAddress.toString(), punamelength.rawAddress.toString(), wszname.rawAddress.toString(), pudescriptionlength.rawAddress.toString(), wszdescription.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetOwnerLicense(hissuancelicense: UInt, puownerlicenselength: COpaquePointer?, wszownerlicense: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(hissuancelicense.toInt(), (puownerlicenselength?.value ?: 0L).toString(), (wszownerlicense?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetOwnerLicense(hissuancelicense: UInt, puownerlicenselength: MutPtr<UInt>, wszownerlicense: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetOwnerLicense(hissuancelicense.toInt(), puownerlicenselength.rawAddress.toString(), wszownerlicense.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetProcAddress(hlibrary: UInt, wszprocname: Pcwstr, ppfnprocaddress: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(hlibrary.toInt(), (wszprocname?.value ?: 0L).toString(), (ppfnprocaddress?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetProcAddress(hlibrary: UInt, wszprocname: Pcwstr, ppfnprocaddress: MutPtr<Farproc>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetProcAddress(hlibrary.toInt(), wszprocname.rawAddress.toString(), ppfnprocaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetRevocationPoint(hissuancelicense: UInt, puidlength: COpaquePointer?, wszid: Pwstr, puidtypelength: COpaquePointer?, wszidtype: Pwstr, puurllength: COpaquePointer?, wszrl: Pwstr, pstfrequency: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, pupublickeylength: COpaquePointer?, wszpublickey: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(hissuancelicense.toInt(), (puidlength?.value ?: 0L).toString(), (wszid?.value ?: 0L).toString(), (puidtypelength?.value ?: 0L).toString(), (wszidtype?.value ?: 0L).toString(), (puurllength?.value ?: 0L).toString(), (wszrl?.value ?: 0L).toString(), (pstfrequency?.value ?: 0L).toString(), (punamelength?.value ?: 0L).toString(), (wszname?.value ?: 0L).toString(), (pupublickeylength?.value ?: 0L).toString(), (wszpublickey?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetRevocationPoint(hissuancelicense: UInt, puidlength: MutPtr<UInt>, wszid: Pwstr, puidtypelength: MutPtr<UInt>, wszidtype: Pwstr, puurllength: MutPtr<UInt>, wszrl: Pwstr, pstfrequency: MutPtr<Systemtime>, punamelength: MutPtr<UInt>, wszname: Pwstr, pupublickeylength: MutPtr<UInt>, wszpublickey: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetRevocationPoint(hissuancelicense.toInt(), puidlength.rawAddress.toString(), wszid.rawAddress.toString(), puidtypelength.rawAddress.toString(), wszidtype.rawAddress.toString(), puurllength.rawAddress.toString(), wszrl.rawAddress.toString(), pstfrequency.rawAddress.toString(), punamelength.rawAddress.toString(), wszname.rawAddress.toString(), pupublickeylength.rawAddress.toString(), wszpublickey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetRightExtendedInfo(hright: UInt, uindex: UInt, puextendedinfonamelength: COpaquePointer?, wszextendedinfoname: Pwstr, puextendedinfovaluelength: COpaquePointer?, wszextendedinfovalue: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(hright.toInt(), uindex.toInt(), (puextendedinfonamelength?.value ?: 0L).toString(), (wszextendedinfoname?.value ?: 0L).toString(), (puextendedinfovaluelength?.value ?: 0L).toString(), (wszextendedinfovalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetRightExtendedInfo(hright: UInt, uindex: UInt, puextendedinfonamelength: MutPtr<UInt>, wszextendedinfoname: Pwstr, puextendedinfovaluelength: MutPtr<UInt>, wszextendedinfovalue: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetRightExtendedInfo(hright.toInt(), uindex.toInt(), puextendedinfonamelength.rawAddress.toString(), wszextendedinfoname.rawAddress.toString(), puextendedinfovaluelength.rawAddress.toString(), wszextendedinfovalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetRightInfo(hright: UInt, purightnamelength: COpaquePointer?, wszrightname: Pwstr, pstfrom: COpaquePointer?, pstuntil: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(hright.toInt(), (purightnamelength?.value ?: 0L).toString(), (wszrightname?.value ?: 0L).toString(), (pstfrom?.value ?: 0L).toString(), (pstuntil?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetRightInfo(hright: UInt, purightnamelength: MutPtr<UInt>, wszrightname: Pwstr, pstfrom: MutPtr<Systemtime>, pstuntil: MutPtr<Systemtime>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetRightInfo(hright.toInt(), purightnamelength.rawAddress.toString(), wszrightname.rawAddress.toString(), pstfrom.rawAddress.toString(), pstuntil.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetSecurityProvider(uflags: UInt, putypelen: COpaquePointer?, wsztype: Pwstr, pupathlen: COpaquePointer?, wszpath: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(uflags.toInt(), (putypelen?.value ?: 0L).toString(), (wsztype?.value ?: 0L).toString(), (pupathlen?.value ?: 0L).toString(), (wszpath?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetSecurityProvider(uflags: UInt, putypelen: MutPtr<UInt>, wsztype: Pwstr, pupathlen: MutPtr<UInt>, wszpath: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetSecurityProvider(uflags.toInt(), putypelen.rawAddress.toString(), wsztype.rawAddress.toString(), pupathlen.rawAddress.toString(), wszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetServiceLocation(hclient: UInt, uservicetype: UInt, uservicelocation: UInt, wszissuancelicense: Pcwstr, puserviceurllength: COpaquePointer?, wszserviceurl: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(hclient.toInt(), uservicetype.toInt(), uservicelocation.toInt(), (wszissuancelicense?.value ?: 0L).toString(), (puserviceurllength?.value ?: 0L).toString(), (wszserviceurl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetServiceLocation(hclient: UInt, uservicetype: UInt, uservicelocation: UInt, wszissuancelicense: Pcwstr, puserviceurllength: MutPtr<UInt>, wszserviceurl: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetServiceLocation(hclient.toInt(), uservicetype.toInt(), uservicelocation.toInt(), wszissuancelicense.rawAddress.toString(), puserviceurllength.rawAddress.toString(), wszserviceurl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetSignedIssuanceLicense(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: COpaquePointer?, cbsymkey: UInt, wszsymkeytype: Pcwstr, wszclientlicensorcertificate: Pcwstr, pfncallback: Drmcallback, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), (pbsymkey?.value ?: 0L).toString(), cbsymkey.toInt(), (wszsymkeytype?.value ?: 0L).toString(), (wszclientlicensorcertificate?.value ?: 0L).toString(), 0L.toString(), (wszurl?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetSignedIssuanceLicense(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: MutPtr<UByte>, cbsymkey: UInt, wszsymkeytype: Pcwstr, wszclientlicensorcertificate: Pcwstr, pfncallback: Drmcallback, wszurl: Pcwstr, pvcontext: MutPtr<CVoid>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicense(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), pbsymkey.rawAddress.toString(), cbsymkey.toInt(), wszsymkeytype.rawAddress.toString(), wszclientlicensorcertificate.rawAddress.toString(), 0L.toString(), wszurl.rawAddress.toString(), pvcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetSignedIssuanceLicenseEx(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: COpaquePointer?, cbsymkey: UInt, wszsymkeytype: Pcwstr, pvreserved: COpaquePointer?, henablingprincipal: UInt, hboundlicenseclc: UInt, pfncallback: Drmcallback, pvcontext: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), (pbsymkey?.value ?: 0L).toString(), cbsymkey.toInt(), (wszsymkeytype?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), henablingprincipal.toInt(), hboundlicenseclc.toInt(), 0L.toString(), (pvcontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetSignedIssuanceLicenseEx(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: ConstPtr<UByte>, cbsymkey: UInt, wszsymkeytype: Pcwstr, pvreserved: ConstPtr<CVoid>, henablingprincipal: UInt, hboundlicenseclc: UInt, pfncallback: Drmcallback, pvcontext: ConstPtr<CVoid>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetSignedIssuanceLicenseEx(henv.toInt(), hissuancelicense.toInt(), uflags.toInt(), pbsymkey.rawAddress.toString(), cbsymkey.toInt(), wszsymkeytype.rawAddress.toString(), pvreserved.rawAddress.toString(), henablingprincipal.toInt(), hboundlicenseclc.toInt(), 0L.toString(), pvcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetTime(henv: UInt, etimeridtype: Drmtimetype, potimeobject: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetTime(henv.toInt(), etimeridtype, (potimeobject?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetTime(henv: UInt, etimeridtype: Drmtimetype, potimeobject: MutPtr<Systemtime>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetTime(henv.toInt(), etimeridtype, potimeobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUnboundLicenseAttribute(hqueryroot: UInt, wszattributetype: Pcwstr, iwhich: UInt, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute(hqueryroot.toInt(), (wszattributetype?.value ?: 0L).toString(), iwhich.toInt(), (peencoding?.value ?: 0L).toString(), (pcbuffer?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUnboundLicenseAttribute(hqueryroot: UInt, wszattributetype: Pcwstr, iwhich: UInt, peencoding: MutPtr<Drmencodingtype>, pcbuffer: MutPtr<UInt>, pbbuffer: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttribute(hqueryroot.toInt(), wszattributetype.rawAddress.toString(), iwhich.toInt(), peencoding.rawAddress.toString(), pcbuffer.rawAddress.toString(), pbbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUnboundLicenseAttributeCount(hqueryroot: UInt, wszattributetype: Pcwstr, pcattributes: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount(hqueryroot.toInt(), (wszattributetype?.value ?: 0L).toString(), (pcattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUnboundLicenseAttributeCount(hqueryroot: UInt, wszattributetype: Pcwstr, pcattributes: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseAttributeCount(hqueryroot.toInt(), wszattributetype.rawAddress.toString(), pcattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUnboundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iindex: UInt, phsubquery: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L).toString(), iindex.toInt(), (phsubquery?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUnboundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iindex: UInt, phsubquery: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObject(hqueryroot.toInt(), wszsubobjecttype.rawAddress.toString(), iindex.toInt(), phsubquery.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUnboundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount(hqueryroot.toInt(), (wszsubobjecttype?.value ?: 0L).toString(), (pcsubobjects?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUnboundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUnboundLicenseObjectCount(hqueryroot.toInt(), wszsubobjecttype.rawAddress.toString(), pcsubobjects.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUsagePolicy(hissuancelicense: UInt, uindex: UInt, peusagepolicytype: COpaquePointer?, pfexclusion: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, puminversionlength: COpaquePointer?, wszminversion: Pwstr, pumaxversionlength: COpaquePointer?, wszmaxversion: Pwstr, pupublickeylength: COpaquePointer?, wszpublickey: Pwstr, pudigestalgorithmlength: COpaquePointer?, wszdigestalgorithm: Pwstr, pcbdigest: COpaquePointer?, pbdigest: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(hissuancelicense.toInt(), uindex.toInt(), (peusagepolicytype?.value ?: 0L).toString(), (pfexclusion?.value ?: 0L).toString(), (punamelength?.value ?: 0L).toString(), (wszname?.value ?: 0L).toString(), (puminversionlength?.value ?: 0L).toString(), (wszminversion?.value ?: 0L).toString(), (pumaxversionlength?.value ?: 0L).toString(), (wszmaxversion?.value ?: 0L).toString(), (pupublickeylength?.value ?: 0L).toString(), (wszpublickey?.value ?: 0L).toString(), (pudigestalgorithmlength?.value ?: 0L).toString(), (wszdigestalgorithm?.value ?: 0L).toString(), (pcbdigest?.value ?: 0L).toString(), (pbdigest?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUsagePolicy(hissuancelicense: UInt, uindex: UInt, peusagepolicytype: MutPtr<DrmUsagepolicyType>, pfexclusion: MutPtr<Bool>, punamelength: MutPtr<UInt>, wszname: Pwstr, puminversionlength: MutPtr<UInt>, wszminversion: Pwstr, pumaxversionlength: MutPtr<UInt>, wszmaxversion: Pwstr, pupublickeylength: MutPtr<UInt>, wszpublickey: Pwstr, pudigestalgorithmlength: MutPtr<UInt>, wszdigestalgorithm: Pwstr, pcbdigest: MutPtr<UInt>, pbdigest: MutPtr<UByte>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUsagePolicy(hissuancelicense.toInt(), uindex.toInt(), peusagepolicytype.rawAddress.toString(), pfexclusion.rawAddress.toString(), punamelength.rawAddress.toString(), wszname.rawAddress.toString(), puminversionlength.rawAddress.toString(), wszminversion.rawAddress.toString(), pumaxversionlength.rawAddress.toString(), wszmaxversion.rawAddress.toString(), pupublickeylength.rawAddress.toString(), wszpublickey.rawAddress.toString(), pudigestalgorithmlength.rawAddress.toString(), wszdigestalgorithm.rawAddress.toString(), pcbdigest.rawAddress.toString(), pbdigest.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUserInfo(huser: UInt, puusernamelength: COpaquePointer?, wszusername: Pwstr, puuseridlength: COpaquePointer?, wszuserid: Pwstr, puuseridtypelength: COpaquePointer?, wszuseridtype: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(huser.toInt(), (puusernamelength?.value ?: 0L).toString(), (wszusername?.value ?: 0L).toString(), (puuseridlength?.value ?: 0L).toString(), (wszuserid?.value ?: 0L).toString(), (puuseridtypelength?.value ?: 0L).toString(), (wszuseridtype?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUserInfo(huser: UInt, puusernamelength: MutPtr<UInt>, wszusername: Pwstr, puuseridlength: MutPtr<UInt>, wszuserid: Pwstr, puuseridtypelength: MutPtr<UInt>, wszuseridtype: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUserInfo(huser.toInt(), puusernamelength.rawAddress.toString(), wszusername.rawAddress.toString(), puuseridlength.rawAddress.toString(), wszuserid.rawAddress.toString(), puuseridtypelength.rawAddress.toString(), wszuseridtype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUserRights(hissuancelicense: UInt, huser: UInt, uindex: UInt, phright: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(hissuancelicense.toInt(), huser.toInt(), uindex.toInt(), (phright?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUserRights(hissuancelicense: UInt, huser: UInt, uindex: UInt, phright: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUserRights(hissuancelicense.toInt(), huser.toInt(), uindex.toInt(), phright.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMGetUsers(hissuancelicense: UInt, uindex: UInt, phuser: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(hissuancelicense.toInt(), uindex.toInt(), (phuser?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMGetUsers(hissuancelicense: UInt, uindex: UInt, phuser: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMGetUsers(hissuancelicense.toInt(), uindex.toInt(), phuser.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMInitEnvironment(esecurityprovidertype: Drmsecurityprovidertype, especification: Drmspectype, wszsecurityprovider: Pcwstr, wszmanifestcredentials: Pcwstr, wszmachinecredentials: Pcwstr, phenv: COpaquePointer?, phdefaultlibrary: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(esecurityprovidertype, especification, (wszsecurityprovider?.value ?: 0L).toString(), (wszmanifestcredentials?.value ?: 0L).toString(), (wszmachinecredentials?.value ?: 0L).toString(), (phenv?.value ?: 0L).toString(), (phdefaultlibrary?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMInitEnvironment(esecurityprovidertype: Drmsecurityprovidertype, especification: Drmspectype, wszsecurityprovider: Pcwstr, wszmanifestcredentials: Pcwstr, wszmachinecredentials: Pcwstr, phenv: MutPtr<UInt>, phdefaultlibrary: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMInitEnvironment(esecurityprovidertype, especification, wszsecurityprovider.rawAddress.toString(), wszmanifestcredentials.rawAddress.toString(), wszmachinecredentials.rawAddress.toString(), phenv.rawAddress.toString(), phdefaultlibrary.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMIsActivated(hclient: UInt, uflags: UInt, pactservinfo: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(hclient.toInt(), uflags.toInt(), (pactservinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMIsActivated(hclient: UInt, uflags: UInt, pactservinfo: MutPtr<DrmActservInfo>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMIsActivated(hclient.toInt(), uflags.toInt(), pactservinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMIsWindowProtected(hwnd: Hwnd, pfprotected: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected((hwnd?.value ?: 0L).toString(), (pfprotected?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMIsWindowProtected(hwnd: Hwnd, pfprotected: MutPtr<Bool>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMIsWindowProtected(hwnd.rawAddress.toString(), pfprotected.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMLoadLibrary(henv: UInt, especification: Drmspectype, wszlibraryprovider: Pcwstr, wszcredentials: Pcwstr, phlibrary: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(henv.toInt(), especification, (wszlibraryprovider?.value ?: 0L).toString(), (wszcredentials?.value ?: 0L).toString(), (phlibrary?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMLoadLibrary(henv: UInt, especification: Drmspectype, wszlibraryprovider: Pcwstr, wszcredentials: Pcwstr, phlibrary: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMLoadLibrary(henv.toInt(), especification, wszlibraryprovider.rawAddress.toString(), wszcredentials.rawAddress.toString(), phlibrary.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMParseUnboundLicense(wszcertificate: Pcwstr, phqueryroot: COpaquePointer?): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense((wszcertificate?.value ?: 0L).toString(), (phqueryroot?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMParseUnboundLicense(wszcertificate: Pcwstr, phqueryroot: MutPtr<UInt>): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMParseUnboundLicense(wszcertificate.rawAddress.toString(), phqueryroot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMRegisterContent(fregister: Bool): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(fregister) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMRegisterContent(fregister) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMRegisterProtectedWindow(henv: UInt, hwnd: Hwnd): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow(henv.toInt(), (hwnd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMRegisterProtectedWindow(henv.toInt(), hwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMRegisterRevocationList(henv: UInt, wszrevocationlist: Pcwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList(henv.toInt(), (wszrevocationlist?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMRegisterRevocationList(henv.toInt(), wszrevocationlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMRepair(): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMRepair() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMRepair() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMSetApplicationSpecificData(hissuancelicense: UInt, fdelete: Bool, wszname: Pcwstr, wszvalue: Pcwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData(hissuancelicense.toInt(), fdelete, (wszname?.value ?: 0L).toString(), (wszvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMSetApplicationSpecificData(hissuancelicense.toInt(), fdelete, wszname.rawAddress.toString(), wszvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMSetGlobalOptions(eglobaloptions: Drmglobaloptions, pvdata: COpaquePointer?, dwlen: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(eglobaloptions, (pvdata?.value ?: 0L).toString(), dwlen.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMSetGlobalOptions(eglobaloptions: Drmglobaloptions, pvdata: MutPtr<CVoid>, dwlen: UInt): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMSetGlobalOptions(eglobaloptions, pvdata.rawAddress.toString(), dwlen.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMSetIntervalTime(hissuancelicense: UInt, cdays: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(hissuancelicense.toInt(), cdays.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMSetIntervalTime(hissuancelicense.toInt(), cdays.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMSetMetaData(hissuancelicense: UInt, wszcontentid: Pcwstr, wszcontentidtype: Pcwstr, wszskuid: Pcwstr, wszskuidtype: Pcwstr, wszcontenttype: Pcwstr, wszcontentname: Pcwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(hissuancelicense.toInt(), (wszcontentid?.value ?: 0L).toString(), (wszcontentidtype?.value ?: 0L).toString(), (wszskuid?.value ?: 0L).toString(), (wszskuidtype?.value ?: 0L).toString(), (wszcontenttype?.value ?: 0L).toString(), (wszcontentname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMSetMetaData(hissuancelicense.toInt(), wszcontentid.rawAddress.toString(), wszcontentidtype.rawAddress.toString(), wszskuid.rawAddress.toString(), wszskuidtype.rawAddress.toString(), wszcontenttype.rawAddress.toString(), wszcontentname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dRMSetNameAndDescription(hissuancelicense: UInt, fdelete: Bool, lcid: UInt, wszname: Pcwstr, wszdescription: Pcwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(hissuancelicense.toInt(), fdelete, lcid.toInt(), (wszname?.value ?: 0L).toString(), (wszdescription?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMSetNameAndDescription(hissuancelicense.toInt(), fdelete, lcid.toInt(), wszname.rawAddress.toString(), wszdescription.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMSetRevocationPoint(hissuancelicense: UInt, fdelete: Bool, wszid: Pcwstr, wszidtype: Pcwstr, wszurl: Pcwstr, pstfrequency: COpaquePointer?, wszname: Pcwstr, wszpublickey: Pcwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(hissuancelicense.toInt(), fdelete, (wszid?.value ?: 0L).toString(), (wszidtype?.value ?: 0L).toString(), (wszurl?.value ?: 0L).toString(), (pstfrequency?.value ?: 0L).toString(), (wszname?.value ?: 0L).toString(), (wszpublickey?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMSetRevocationPoint(hissuancelicense: UInt, fdelete: Bool, wszid: Pcwstr, wszidtype: Pcwstr, wszurl: Pcwstr, pstfrequency: MutPtr<Systemtime>, wszname: Pcwstr, wszpublickey: Pcwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMSetRevocationPoint(hissuancelicense.toInt(), fdelete, wszid.rawAddress.toString(), wszidtype.rawAddress.toString(), wszurl.rawAddress.toString(), pstfrequency.rawAddress.toString(), wszname.rawAddress.toString(), wszpublickey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMSetUsagePolicy(hissuancelicense: UInt, eusagepolicytype: DrmUsagepolicyType, fdelete: Bool, fexclusion: Bool, wszname: Pcwstr, wszminversion: Pcwstr, wszmaxversion: Pcwstr, wszpublickey: Pcwstr, wszdigestalgorithm: Pcwstr, pbdigest: COpaquePointer?, cbdigest: UInt): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(hissuancelicense.toInt(), eusagepolicytype, fdelete, fexclusion, (wszname?.value ?: 0L).toString(), (wszminversion?.value ?: 0L).toString(), (wszmaxversion?.value ?: 0L).toString(), (wszpublickey?.value ?: 0L).toString(), (wszdigestalgorithm?.value ?: 0L).toString(), (pbdigest?.value ?: 0L).toString(), cbdigest.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMSetUsagePolicy(hissuancelicense: UInt, eusagepolicytype: DrmUsagepolicyType, fdelete: Bool, fexclusion: Bool, wszname: Pcwstr, wszminversion: Pcwstr, wszmaxversion: Pcwstr, wszpublickey: Pcwstr, wszdigestalgorithm: Pcwstr, pbdigest: MutPtr<UByte>, cbdigest: UInt): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMSetUsagePolicy(hissuancelicense.toInt(), eusagepolicytype, fdelete, fexclusion, wszname.rawAddress.toString(), wszminversion.rawAddress.toString(), wszmaxversion.rawAddress.toString(), wszpublickey.rawAddress.toString(), wszdigestalgorithm.rawAddress.toString(), pbdigest.rawAddress.toString(), cbdigest.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dRMVerify(wszdata: Pcwstr, pcattesteddata: COpaquePointer?, wszattesteddata: Pwstr, petype: COpaquePointer?, pcprincipal: COpaquePointer?, wszprincipal: Pwstr, pcmanifest: COpaquePointer?, wszmanifest: Pwstr): Hresult =
-    if (_windowsWin32DataRightsmanagementNapiAvailable) _wasm_windowssys_windows_win32_data_rightsmanagement_dRMVerify((wszdata?.value ?: 0L).toString(), (pcattesteddata?.value ?: 0L).toString(), (wszattesteddata?.value ?: 0L).toString(), (petype?.value ?: 0L).toString(), (pcprincipal?.value ?: 0L).toString(), (wszprincipal?.value ?: 0L).toString(), (pcmanifest?.value ?: 0L).toString(), (wszmanifest?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun dRMVerify(wszdata: Pcwstr, pcattesteddata: MutPtr<UInt>, wszattesteddata: Pwstr, petype: MutPtr<Drmattesttype>, pcprincipal: MutPtr<UInt>, wszprincipal: Pwstr, pcmanifest: MutPtr<UInt>, wszmanifest: Pwstr): Hresult =
+    if (windowsWin32DataRightsmanagementNapiAvailable) wasmWindowssysWindowsWin32DataRightsmanagementDRMVerify(wszdata.rawAddress.toString(), pcattesteddata.rawAddress.toString(), wszattesteddata.rawAddress.toString(), petype.rawAddress.toString(), pcprincipal.rawAddress.toString(), wszprincipal.rawAddress.toString(), pcmanifest.rawAddress.toString(), wszmanifest.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

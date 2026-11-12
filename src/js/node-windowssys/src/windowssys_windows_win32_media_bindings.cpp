@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_media_timeBeginPeriod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaTimeBeginPeriod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uperiod = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_media_timeBeginPeriod_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_timeEndPeriod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaTimeEndPeriod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uperiod = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_media_timeEndPeriod_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_timeGetDevCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaTimeGetDevCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbtc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_media_timeGetDevCaps_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_timeGetSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaTimeGetSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmmt = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_win32_media_timeGetSystemTime_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_timeGetTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaTimeGetTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -178,7 +178,7 @@ static Napi::Value windowssys_windows_win32_media_timeGetTime_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_timeKillEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaTimeKillEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t utimerid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -203,7 +203,7 @@ static Napi::Value windowssys_windows_win32_media_timeKillEvent_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_timeSetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32MediaTimeSetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t udelay = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uresolution = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -237,13 +237,13 @@ static Napi::Value windowssys_windows_win32_media_timeSetEvent_napi(const Napi::
 }
 
 static void register_windows_win32_media_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_media_timeBeginPeriod", Napi::Function::New(env, windowssys_windows_win32_media_timeBeginPeriod_napi));
-    exports.Set("windowssys_windows_win32_media_timeEndPeriod", Napi::Function::New(env, windowssys_windows_win32_media_timeEndPeriod_napi));
-    exports.Set("windowssys_windows_win32_media_timeGetDevCaps", Napi::Function::New(env, windowssys_windows_win32_media_timeGetDevCaps_napi));
-    exports.Set("windowssys_windows_win32_media_timeGetSystemTime", Napi::Function::New(env, windowssys_windows_win32_media_timeGetSystemTime_napi));
-    exports.Set("windowssys_windows_win32_media_timeGetTime", Napi::Function::New(env, windowssys_windows_win32_media_timeGetTime_napi));
-    exports.Set("windowssys_windows_win32_media_timeKillEvent", Napi::Function::New(env, windowssys_windows_win32_media_timeKillEvent_napi));
-    exports.Set("windowssys_windows_win32_media_timeSetEvent", Napi::Function::New(env, windowssys_windows_win32_media_timeSetEvent_napi));
+    exports.Set("windowssysWindowsWin32MediaTimeBeginPeriod", Napi::Function::New(env, windowssysWindowsWin32MediaTimeBeginPeriod_napi));
+    exports.Set("windowssysWindowsWin32MediaTimeEndPeriod", Napi::Function::New(env, windowssysWindowsWin32MediaTimeEndPeriod_napi));
+    exports.Set("windowssysWindowsWin32MediaTimeGetDevCaps", Napi::Function::New(env, windowssysWindowsWin32MediaTimeGetDevCaps_napi));
+    exports.Set("windowssysWindowsWin32MediaTimeGetSystemTime", Napi::Function::New(env, windowssysWindowsWin32MediaTimeGetSystemTime_napi));
+    exports.Set("windowssysWindowsWin32MediaTimeGetTime", Napi::Function::New(env, windowssysWindowsWin32MediaTimeGetTime_napi));
+    exports.Set("windowssysWindowsWin32MediaTimeKillEvent", Napi::Function::New(env, windowssysWindowsWin32MediaTimeKillEvent_napi));
+    exports.Set("windowssysWindowsWin32MediaTimeSetEvent", Napi::Function::New(env, windowssysWindowsWin32MediaTimeSetEvent_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_media_napi, nullptr };

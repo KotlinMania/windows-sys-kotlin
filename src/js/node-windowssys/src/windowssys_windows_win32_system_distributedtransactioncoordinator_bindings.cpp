@@ -51,15 +51,15 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* i_pszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    void* i_psztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* i_riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
-    uint32_t i_dwreserved1 = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
-    uint16_t i_wcbreserved2 = static_cast<uint16_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
-    void* i_pvreserved2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
-    void* o_ppvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* iPszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* iPsztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* iRiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t iDwreserved1 = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint16_t iWcbreserved2 = static_cast<uint16_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* iPvreserved2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* oPpvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -69,34 +69,34 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject);
+        km_res = km_fn_ptr(iPszhost, iPsztmname, iRiid, iDwreserved1, iWcbreserved2, iPvreserved2, oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_dwreserved1;
-    (void)i_wcbreserved2;
-    (void)i_pvreserved2;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iDwreserved1;
+    (void)iWcbreserved2;
+    (void)iPvreserved2;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* i_pszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    void* i_psztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* i_riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
-    uint32_t i_dwreserved1 = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
-    uint16_t i_wcbreserved2 = static_cast<uint16_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
-    void* i_pvreserved2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
-    void* o_ppvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* iPszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* iPsztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* iRiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t iDwreserved1 = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint16_t iWcbreserved2 = static_cast<uint16_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* iPvreserved2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* oPpvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -106,33 +106,33 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject);
+        km_res = km_fn_ptr(iPszhost, iPsztmname, iRiid, iDwreserved1, iWcbreserved2, iPvreserved2, oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_dwreserved1;
-    (void)i_wcbreserved2;
-    (void)i_pvreserved2;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iDwreserved1;
+    (void)iWcbreserved2;
+    (void)iPvreserved2;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* i_pszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    void* i_psztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* i_riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
-    uint32_t i_grfoptions = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
-    void* i_pvconfigparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
-    void* o_ppvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* iPszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* iPsztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* iRiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t iGrfoptions = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    void* iPvconfigparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* oPpvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -142,32 +142,32 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject);
+        km_res = km_fn_ptr(iPszhost, iPsztmname, iRiid, iGrfoptions, iPvconfigparams, oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pszhost;
-    (void)i_psztmname;
-    (void)i_riid;
-    (void)i_grfoptions;
-    (void)i_pvconfigparams;
-    (void)o_ppvobject;
+    (void)iPszhost;
+    (void)iPsztmname;
+    (void)iRiid;
+    (void)iGrfoptions;
+    (void)iPvconfigparams;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* i_pwszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-    void* i_pwsztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* i_riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
-    uint32_t i_grfoptions = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
-    void* i_pvconfigparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
-    void* o_ppvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* iPwszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* iPwsztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* iRiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t iGrfoptions = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    void* iPvconfigparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* oPpvobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -177,18 +177,18 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     }
     int32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(i_pwszhost, i_pwsztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject);
+        km_res = km_fn_ptr(iPwszhost, iPwsztmname, iRiid, iGrfoptions, iPvconfigparams, oPpvobject);
     } else {
         errno = ENOSYS;
         km_res = -1;
     }
 #else
-    (void)i_pwszhost;
-    (void)i_pwsztmname;
-    (void)i_riid;
-    (void)i_grfoptions;
-    (void)i_pvconfigparams;
-    (void)o_ppvobject;
+    (void)iPwszhost;
+    (void)iPwsztmname;
+    (void)iRiid;
+    (void)iGrfoptions;
+    (void)iPvconfigparams;
+    (void)oPpvobject;
     errno = ENOSYS;
     int32_t km_res = -1;
 #endif
@@ -196,10 +196,10 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
 }
 
 static void register_windows_win32_system_distributedtransactioncoordinator_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManager", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerC", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerC_napi));
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExA", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExA_napi));
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExW", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExW_napi));
+    exports.Set("windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManager", Napi::Function::New(env, windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManager_napi));
+    exports.Set("windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerC", Napi::Function::New(env, windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerC_napi));
+    exports.Set("windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExA", Napi::Function::New(env, windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExA_napi));
+    exports.Set("windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW", Napi::Function::New(env, windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_distributedtransactioncoordinator_napi, nullptr };

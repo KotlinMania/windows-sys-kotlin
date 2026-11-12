@@ -2,712 +2,768 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DeviceObject
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Mdl
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.CmResourceList
 import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
 private object WindowsWdkNetworkmanagementNdisJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWdkNetworkmanagementNdisJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock(lock: Long, fwrite: Boolean, lockstate: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisAcquireReadWriteLock(lock: Long, fwrite: Boolean, lockstate: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag(virtualaddress: Long, length: Int, tag: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisAllocateMemoryWithTag(virtualaddress: Long, length: Int, tag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer(timer: Long, timercancelled: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCancelTimer(timer: Long, timercancelled: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty(ndisvchandle: Long, protocolpartycontext: Long, callparameters: Long, ndispartyhandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClAddParty(ndisvchandle: Long, protocolpartycontext: Long, callparameters: Long, ndispartyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily(ndisafhandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClCloseAddressFamily(ndisafhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall(ndisvchandle: Long, ndispartyhandle: Long, buffer: Long, size: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClCloseCall(ndisvchandle: Long, ndispartyhandle: Long, buffer: Long, size: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap(ndissaphandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClDeregisterSap(ndissaphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty(ndispartyhandle: Long, buffer: Long, size: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClDropParty(ndispartyhandle: Long, buffer: Long, size: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete(status: Int, ndisvchandle: Long, callparameters: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClIncomingCallComplete(status: Int, ndisvchandle: Long, callparameters: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall(ndisvchandle: Long, callparameters: Long, protocolpartycontext: Long, ndispartyhandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClMakeCall(ndisvchandle: Long, callparameters: Long, protocolpartycontext: Long, ndispartyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS(ndisvchandle: Long, callparameters: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClModifyCallQoS(ndisvchandle: Long, callparameters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap(ndisafhandle: Long, protocolsapcontext: Long, sap: Long, ndissaphandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisClRegisterSap(ndisafhandle: Long, protocolsapcontext: Long, sap: Long, ndissaphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration(configurationhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCloseConfiguration(configurationhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile(filehandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCloseFile(filehandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc(ndisvchandle: Long, callparameters: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmActivateVc(ndisvchandle: Long, callparameters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete(status: Int, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmAddPartyComplete(status: Int, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc(ndisvchandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDeactivateVc(ndisvchandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete(status: Int, ndissaphandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDeregisterSapComplete(status: Int, ndissaphandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected(ndisvchandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchCallConnected(ndisvchandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall(ndissaphandle: Long, ndisvchandle: Long, callparameters: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCall(ndissaphandle: Long, ndisvchandle: Long, callparameters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange(ndisvchandle: Long, callparameters: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCallQoSChange(ndisvchandle: Long, callparameters: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: Long, buffer: Long, size: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: Long, buffer: Long, size: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: Long, buffer: Long, size: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: Long, buffer: Long, size: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete(status: Int, ndispartyhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmDropPartyComplete(status: Int, ndispartyhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmMakeCallComplete(status: Int, ndisvchandle: Long, ndispartyhandle: Long, callmgrpartycontext: Long, callparameters: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete(status: Int, ndisvchandle: Long, callparameters: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmModifyCallQoSComplete(status: Int, ndisvchandle: Long, callparameters: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: Long, callmgrafcontext: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: Long, callmgrafcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete(status: Int, ndissaphandle: Long, callmgrsapcontext: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCmRegisterSapComplete(status: Int, ndissaphandle: Long, callmgrsapcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName(ndisvchandle: Long, baseinstancename: Long, vcinstancename: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCoAssignInstanceName(ndisvchandle: Long, baseinstancename: Long, vcinstancename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc(ndisbindinghandle: Long, ndisafhandle: Long, protocolvccontext: Long, ndisvchandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCoCreateVc(ndisbindinghandle: Long, ndisafhandle: Long, protocolvccontext: Long, ndisvchandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc(ndisvchandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCoDeleteVc(ndisvchandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId(ndisvchandle: Long, tapicallid: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCoGetTapiCallId(ndisvchandle: Long, tapicallid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: Int, length: Int, writetodevice: Boolean)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCompleteDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: Int, length: Int, writetodevice: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer(status: Long, buffer: Long, poolhandle: Long, memorydescriptor: Long, offset: Int, length: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisCopyBuffer(status: Long, buffer: Long, poolhandle: Long, memorydescriptor: Long, offset: Int, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack()
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisDeregisterTdiCallBack()
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory(virtualaddress: Long, length: Int, memoryflags: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisFreeMemory(virtualaddress: Long, length: Int, memoryflags: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId(): Byte
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisGeneratePartialCancelId(): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts(pidlecount: Long, pkernelanduser: Long, pindex: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCounts(pidlecount: Long, pkernelanduser: Long, pindex: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage(pcpuusage: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCpuUsage(pcpuusage: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress(ndisroutinename: Long): Long
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisGetRoutineAddress(ndisroutinename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment(): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisGetSharedDataAlignment(): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion(): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisGetVersion(): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport(driverhandle: Long, protocolhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisIMAssociateMiniport(driverhandle: Long, protocolhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance(driverhandle: Long, deviceinstance: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisIMCancelInitializeDeviceInstance(driverhandle: Long, deviceinstance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance(ndisminiporthandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisIMDeInitializeDeviceInstance(ndisminiporthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext(ndisbindinghandle: Long): Long
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisIMGetBindingContext(ndisbindinghandle: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx(driverhandle: Long, driverinstance: Long, devicecontext: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisIMInitializeDeviceInstanceEx(driverhandle: Long, driverinstance: Long, devicecontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent(event: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisInitializeEvent(event: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock(lock: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisInitializeReadWriteLock(lock: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString(destination: Long, source: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisInitializeString(destination: Long, source: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer(timer: Long, timerfunction: Long, functioncontext: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisInitializeTimer(timer: Long, timerfunction: Long, functioncontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory(miniportadapterhandle: Long, length: Int, cached: Boolean, virtualaddress: Long, physicaladdress: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemory(miniportadapterhandle: Long, length: Int, cached: Boolean, virtualaddress: Long, physicaladdress: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync(miniportadapterhandle: Long, length: Int, cached: Boolean, context: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemoryAsync(miniportadapterhandle: Long, length: Int, cached: Boolean, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer(timer: Long, timercancelled: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCancelTimer(timer: Long, timercancelled: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog(loghandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCloseLog(loghandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc(ndisvchandle: Long, callparameters: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCmActivateVc(ndisvchandle: Long, callparameters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc(miniportadapterhandle: Long, ndisafhandle: Long, miniportvccontext: Long, ndisvchandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCmCreateVc(miniportadapterhandle: Long, ndisafhandle: Long, miniportvccontext: Long, ndisvchandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc(ndisvchandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeactivateVc(ndisvchandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc(ndisvchandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeleteVc(ndisvchandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily(miniportadapterhandle: Long, addressfamily: Long, cmcharacteristics: Long, sizeofcmcharacteristics: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCmRegisterAddressFamily(miniportadapterhandle: Long, addressfamily: Long, cmcharacteristics: Long, sizeofcmcharacteristics: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete(status: Int, ndisvchandle: Long, callparameters: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCoActivateVcComplete(status: Int, ndisvchandle: Long, callparameters: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete(status: Int, ndisvchandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCoDeactivateVcComplete(status: Int, ndisvchandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog(miniportadapterhandle: Long, size: Int, loghandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMCreateLog(miniportadapterhandle: Long, size: Int, loghandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel(miniportdmahandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterDmaChannel(miniportdmahandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange(miniportadapterhandle: Long, initialport: Int, numberofports: Int, portoffset: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterIoPortRange(miniportadapterhandle: Long, initialport: Int, numberofports: Int, portoffset: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog(loghandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMFlushLog(loghandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory(miniportadapterhandle: Long, length: Int, cached: Boolean, virtualaddress: Long, physicaladdress: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMFreeSharedMemory(miniportadapterhandle: Long, length: Int, cached: Boolean, virtualaddress: Long, physicaladdress: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty(miniportadapterhandle: Long, physicaldeviceobject: Long, functionaldeviceobject: Long, nextdeviceobject: Long, allocatedresources: Long, allocatedresourcestranslated: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMGetDeviceProperty(miniportadapterhandle: Long, physicaldeviceobject: Long, functionaldeviceobject: Long, nextdeviceobject: Long, allocatedresources: Long, allocatedresourcestranslated: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment(miniportadapterhandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMGetDmaAlignment(miniportadapterhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer(timer: Long, miniportadapterhandle: Long, timerfunction: Long, functioncontext: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMInitializeTimer(timer: Long, miniportadapterhandle: Long, timerfunction: Long, functioncontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace(virtualaddress: Long, miniportadapterhandle: Long, physicaladdress: Long, length: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMMapIoSpace(virtualaddress: Long, miniportadapterhandle: Long, physicaladdress: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName(padapterinstancename: Long, miniporthandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMQueryAdapterInstanceName(padapterinstancename: Long, miniporthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter(miniportdmahandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMReadDmaCounter(miniportdmahandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel(miniportdmahandle: Long, miniportadapterhandle: Long, dmachannel: Int, dma32bitaddresses: Boolean, dmadescription: Long, maximumlength: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterDmaChannel(miniportdmahandle: Long, miniportadapterhandle: Long, dmachannel: Int, dma32bitaddresses: Boolean, dmadescription: Long, maximumlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange(portoffset: Long, miniportadapterhandle: Long, initialport: Int, numberofports: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterIoPortRange(portoffset: Long, miniportadapterhandle: Long, initialport: Int, numberofports: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport(miniporthandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMRemoveMiniport(miniporthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer(timer: Long, millisecondperiod: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMSetPeriodicTimer(timer: Long, millisecondperiod: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep(microsecondstosleep: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMSleep(microsecondstosleep: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace(miniportadapterhandle: Long, virtualaddress: Long, length: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMUnmapIoSpace(miniportadapterhandle: Long, virtualaddress: Long, length: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData(loghandle: Long, logbuffer: Long, logbuffersize: Int): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMWriteLogData(loghandle: Long, logbuffer: Long, logbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile(status: Long, mappedbuffer: Long, filehandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisMapFile(status: Long, mappedbuffer: Long, filehandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex(status: Long, configurationhandle: Long, index: Int, keyname: Long, keyhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByIndex(status: Long, configurationhandle: Long, index: Int, keyname: Long, keyhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName(status: Long, configurationhandle: Long, subkeyname: Long, subkeyhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByName(status: Long, configurationhandle: Long, subkeyname: Long, subkeyhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile(status: Long, filehandle: Long, filelength: Long, filename: Long, highestacceptableaddress: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisOpenFile(status: Long, filehandle: Long, filelength: Long, filename: Long, highestacceptableaddress: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName(padapterinstancename: Long, ndisbindinghandle: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisQueryAdapterInstanceName(padapterinstancename: Long, ndisbindinghandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName(padapterinstancename: Long, bindingcontext: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisQueryBindInstanceName(padapterinstancename: Long, bindingcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings(ndisprotocolhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisReEnumerateProtocolBindings(ndisprotocolhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration(status: Long, parametervalue: Long, configurationhandle: Long, keyword: Long, parametertype: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisReadConfiguration(status: Long, parametervalue: Long, configurationhandle: Long, keyword: Long, parametertype: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress(status: Long, networkaddress: Long, networkaddresslength: Long, configurationhandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisReadNetworkAddress(status: Long, networkaddress: Long, networkaddresslength: Long, configurationhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack(registercallback: Long, pnphandler: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisRegisterTdiCallBack(registercallback: Long, pnphandler: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock(lock: Long, lockstate: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisReleaseReadWriteLock(lock: Long, lockstate: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent(event: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisResetEvent(event: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent(event: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisSetEvent(event: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer(ndistimer: Long, millisecondsperiod: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisSetPeriodicTimer(ndistimer: Long, millisecondsperiod: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer(timer: Long, millisecondstodelay: Int)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisSetTimer(timer: Long, millisecondstodelay: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx(ndistimer: Long, millisecondstodelay: Int, functioncontext: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisSetTimerEx(ndistimer: Long, millisecondstodelay: Int, functioncontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: Int, length: Int, writetodevice: Boolean)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisSetupDmaTransfer(status: Long, ndisdmahandle: Long, buffer: Long, offset: Int, length: Int, writetodevice: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount(): Byte
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisSystemProcessorCount(): Byte
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile(filehandle: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisUnmapFile(filehandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory(ndisadapterhandle: Long, length: Int, virtualaddress: Long, physicaladdress: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisUpdateSharedMemory(ndisadapterhandle: Long, length: Int, virtualaddress: Long, physicaladdress: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent(event: Long, mstowait: Int): Boolean
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisWaitEvent(event: Long, mstowait: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration(status: Long, configurationhandle: Long, keyword: Long, parametervalue: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisWriteConfiguration(status: Long, configurationhandle: Long, keyword: Long, parametervalue: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry(ndisadapterhandle: Long, errorcode: Int, numberoferrorvalues: Int, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long)
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisWriteErrorLogEntry(ndisadapterhandle: Long, errorcode: Int, numberoferrorvalues: Int, kmVac: Int, kmVa0: Long, kmVa1: Long, kmVa2: Long, kmVa3: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry(loghandle: Long, eventcode: Int, uniqueeventvalue: Int, numstrings: Short, stringslist: Long, datasize: Int, data: Long): Int
+    external fun windowssysWindowsWdkNetworkmanagementNdisNdisWriteEventLogEntry(loghandle: Long, eventcode: Int, uniqueeventvalue: Int, numstrings: Short, stringslist: Long, datasize: Int, data: Long): Int
 }
 
-public actual fun ndisAcquireReadWriteLock(lock: COpaquePointer?, fwrite: Boolean, lockstate: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock((lock?.value ?: 0L), fwrite, (lockstate?.value ?: 0L))
+public actual fun ndisAcquireReadWriteLock(lock: MutPtr<NdisRwLock>, fwrite: Boolean, lockstate: MutPtr<LockState>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisAcquireReadWriteLock(lock.rawAddress, fwrite, lockstate.rawAddress)
 }
 
-public actual fun ndisAllocateMemoryWithTag(virtualaddress: COpaquePointer?, length: UInt, tag: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag((virtualaddress?.value ?: 0L), length.toInt(), tag.toInt())
+public actual fun ndisAllocateMemoryWithTag(virtualaddress: MutPtr<MutPtr<CVoid>>, length: UInt, tag: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisAllocateMemoryWithTag(virtualaddress.rawAddress, length.toInt(), tag.toInt())
 
-public actual fun ndisCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer((timer?.value ?: 0L), (timercancelled?.value ?: 0L))
+public actual fun ndisCancelTimer(timer: ConstPtr<NdisTimer>, timercancelled: MutPtr<Boolean>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCancelTimer(timer.rawAddress, timercancelled.rawAddress)
 }
 
-public actual fun ndisClAddParty(ndisvchandle: COpaquePointer?, protocolpartycontext: COpaquePointer?, callparameters: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty((ndisvchandle?.value ?: 0L), (protocolpartycontext?.value ?: 0L), (callparameters?.value ?: 0L), (ndispartyhandle?.value ?: 0L))
+public actual fun ndisClAddParty(ndisvchandle: ConstPtr<CVoid>, protocolpartycontext: ConstPtr<CVoid>, callparameters: MutPtr<CoCallParameters>, ndispartyhandle: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClAddParty(ndisvchandle.rawAddress, protocolpartycontext.rawAddress, callparameters.rawAddress, ndispartyhandle.rawAddress)
 
-public actual fun ndisClCloseAddressFamily(ndisafhandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily((ndisafhandle?.value ?: 0L))
+public actual fun ndisClCloseAddressFamily(ndisafhandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClCloseAddressFamily(ndisafhandle.rawAddress)
 
-public actual fun ndisClCloseCall(ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall((ndisvchandle?.value ?: 0L), (ndispartyhandle?.value ?: 0L), (buffer?.value ?: 0L), size.toInt())
+public actual fun ndisClCloseCall(ndisvchandle: ConstPtr<CVoid>, ndispartyhandle: ConstPtr<CVoid>, buffer: ConstPtr<CVoid>, size: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClCloseCall(ndisvchandle.rawAddress, ndispartyhandle.rawAddress, buffer.rawAddress, size.toInt())
 
-public actual fun ndisClDeregisterSap(ndissaphandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap((ndissaphandle?.value ?: 0L))
+public actual fun ndisClDeregisterSap(ndissaphandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClDeregisterSap(ndissaphandle.rawAddress)
 
-public actual fun ndisClDropParty(ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty((ndispartyhandle?.value ?: 0L), (buffer?.value ?: 0L), size.toInt())
+public actual fun ndisClDropParty(ndispartyhandle: ConstPtr<CVoid>, buffer: ConstPtr<CVoid>, size: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClDropParty(ndispartyhandle.rawAddress, buffer.rawAddress, size.toInt())
 
-public actual fun ndisClGetProtocolVcContextFromTapiCallId(tapicallid: UnicodeString, protocolvccontext: COpaquePointer?): Int =
+public actual fun ndisClGetProtocolVcContextFromTapiCallId(tapicallid: UnicodeString, protocolvccontext: MutPtr<MutPtr<CVoid>>): Int =
     0
 
-public actual fun ndisClIncomingCallComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete(status, (ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisClIncomingCallComplete(status: Int, ndisvchandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClIncomingCallComplete(status, ndisvchandle.rawAddress, callparameters.rawAddress)
 }
 
-public actual fun ndisClMakeCall(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?, protocolpartycontext: COpaquePointer?, ndispartyhandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall((ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L), (protocolpartycontext?.value ?: 0L), (ndispartyhandle?.value ?: 0L))
+public actual fun ndisClMakeCall(ndisvchandle: ConstPtr<CVoid>, callparameters: MutPtr<CoCallParameters>, protocolpartycontext: ConstPtr<CVoid>, ndispartyhandle: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClMakeCall(ndisvchandle.rawAddress, callparameters.rawAddress, protocolpartycontext.rawAddress, ndispartyhandle.rawAddress)
 
-public actual fun ndisClModifyCallQoS(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS((ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisClModifyCallQoS(ndisvchandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClModifyCallQoS(ndisvchandle.rawAddress, callparameters.rawAddress)
 
-public actual fun ndisClRegisterSap(ndisafhandle: COpaquePointer?, protocolsapcontext: COpaquePointer?, sap: COpaquePointer?, ndissaphandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap((ndisafhandle?.value ?: 0L), (protocolsapcontext?.value ?: 0L), (sap?.value ?: 0L), (ndissaphandle?.value ?: 0L))
+public actual fun ndisClRegisterSap(ndisafhandle: ConstPtr<CVoid>, protocolsapcontext: ConstPtr<CVoid>, sap: ConstPtr<CoSap>, ndissaphandle: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisClRegisterSap(ndisafhandle.rawAddress, protocolsapcontext.rawAddress, sap.rawAddress, ndissaphandle.rawAddress)
 
-public actual fun ndisCloseConfiguration(configurationhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration((configurationhandle?.value ?: 0L))
+public actual fun ndisCloseConfiguration(configurationhandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCloseConfiguration(configurationhandle.rawAddress)
 }
 
-public actual fun ndisCloseFile(filehandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile((filehandle?.value ?: 0L))
+public actual fun ndisCloseFile(filehandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCloseFile(filehandle.rawAddress)
 }
 
-public actual fun ndisCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc((ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisCmActivateVc(ndisvchandle: ConstPtr<CVoid>, callparameters: MutPtr<CoCallParameters>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmActivateVc(ndisvchandle.rawAddress, callparameters.rawAddress)
 
-public actual fun ndisCmAddPartyComplete(status: Int, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete(status, (ndispartyhandle?.value ?: 0L), (callmgrpartycontext?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisCmAddPartyComplete(status: Int, ndispartyhandle: ConstPtr<CVoid>, callmgrpartycontext: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmAddPartyComplete(status, ndispartyhandle.rawAddress, callmgrpartycontext.rawAddress, callparameters.rawAddress)
 }
 
-public actual fun ndisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete(status, (ndisafhandle?.value ?: 0L))
+public actual fun ndisCmCloseAddressFamilyComplete(status: Int, ndisafhandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseAddressFamilyComplete(status, ndisafhandle.rawAddress)
 }
 
-public actual fun ndisCmCloseCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete(status, (ndisvchandle?.value ?: 0L), (ndispartyhandle?.value ?: 0L))
+public actual fun ndisCmCloseCallComplete(status: Int, ndisvchandle: ConstPtr<CVoid>, ndispartyhandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseCallComplete(status, ndisvchandle.rawAddress, ndispartyhandle.rawAddress)
 }
 
-public actual fun ndisCmDeactivateVc(ndisvchandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc((ndisvchandle?.value ?: 0L))
+public actual fun ndisCmDeactivateVc(ndisvchandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDeactivateVc(ndisvchandle.rawAddress)
 
-public actual fun ndisCmDeregisterSapComplete(status: Int, ndissaphandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete(status, (ndissaphandle?.value ?: 0L))
+public actual fun ndisCmDeregisterSapComplete(status: Int, ndissaphandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDeregisterSapComplete(status, ndissaphandle.rawAddress)
 }
 
-public actual fun ndisCmDispatchCallConnected(ndisvchandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected((ndisvchandle?.value ?: 0L))
+public actual fun ndisCmDispatchCallConnected(ndisvchandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchCallConnected(ndisvchandle.rawAddress)
 }
 
-public actual fun ndisCmDispatchIncomingCall(ndissaphandle: COpaquePointer?, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall((ndissaphandle?.value ?: 0L), (ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisCmDispatchIncomingCall(ndissaphandle: ConstPtr<CVoid>, ndisvchandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCall(ndissaphandle.rawAddress, ndisvchandle.rawAddress, callparameters.rawAddress)
 
-public actual fun ndisCmDispatchIncomingCallQoSChange(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange((ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisCmDispatchIncomingCallQoSChange(ndisvchandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCallQoSChange(ndisvchandle.rawAddress, callparameters.rawAddress)
 }
 
-public actual fun ndisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall(closestatus, (ndisvchandle?.value ?: 0L), (buffer?.value ?: 0L), size.toInt())
+public actual fun ndisCmDispatchIncomingCloseCall(closestatus: Int, ndisvchandle: ConstPtr<CVoid>, buffer: ConstPtr<CVoid>, size: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCloseCall(closestatus, ndisvchandle.rawAddress, buffer.rawAddress, size.toInt())
 }
 
-public actual fun ndisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: COpaquePointer?, buffer: COpaquePointer?, size: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty(dropstatus, (ndispartyhandle?.value ?: 0L), (buffer?.value ?: 0L), size.toInt())
+public actual fun ndisCmDispatchIncomingDropParty(dropstatus: Int, ndispartyhandle: ConstPtr<CVoid>, buffer: ConstPtr<CVoid>, size: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingDropParty(dropstatus, ndispartyhandle.rawAddress, buffer.rawAddress, size.toInt())
 }
 
-public actual fun ndisCmDropPartyComplete(status: Int, ndispartyhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete(status, (ndispartyhandle?.value ?: 0L))
+public actual fun ndisCmDropPartyComplete(status: Int, ndispartyhandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmDropPartyComplete(status, ndispartyhandle.rawAddress)
 }
 
-public actual fun ndisCmMakeCallComplete(status: Int, ndisvchandle: COpaquePointer?, ndispartyhandle: COpaquePointer?, callmgrpartycontext: COpaquePointer?, callparameters: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete(status, (ndisvchandle?.value ?: 0L), (ndispartyhandle?.value ?: 0L), (callmgrpartycontext?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisCmMakeCallComplete(status: Int, ndisvchandle: ConstPtr<CVoid>, ndispartyhandle: ConstPtr<CVoid>, callmgrpartycontext: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmMakeCallComplete(status, ndisvchandle.rawAddress, ndispartyhandle.rawAddress, callmgrpartycontext.rawAddress, callparameters.rawAddress)
 }
 
-public actual fun ndisCmModifyCallQoSComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete(status, (ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisCmModifyCallQoSComplete(status: Int, ndisvchandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmModifyCallQoSComplete(status, ndisvchandle.rawAddress, callparameters.rawAddress)
 }
 
-public actual fun ndisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: COpaquePointer?, callmgrafcontext: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete(status, (ndisafhandle?.value ?: 0L), (callmgrafcontext?.value ?: 0L))
+public actual fun ndisCmOpenAddressFamilyComplete(status: Int, ndisafhandle: ConstPtr<CVoid>, callmgrafcontext: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmOpenAddressFamilyComplete(status, ndisafhandle.rawAddress, callmgrafcontext.rawAddress)
 }
 
-public actual fun ndisCmRegisterSapComplete(status: Int, ndissaphandle: COpaquePointer?, callmgrsapcontext: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete(status, (ndissaphandle?.value ?: 0L), (callmgrsapcontext?.value ?: 0L))
+public actual fun ndisCmRegisterSapComplete(status: Int, ndissaphandle: ConstPtr<CVoid>, callmgrsapcontext: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCmRegisterSapComplete(status, ndissaphandle.rawAddress, callmgrsapcontext.rawAddress)
 }
 
-public actual fun ndisCoAssignInstanceName(ndisvchandle: COpaquePointer?, baseinstancename: COpaquePointer?, vcinstancename: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName((ndisvchandle?.value ?: 0L), (baseinstancename?.value ?: 0L), (vcinstancename?.value ?: 0L))
+public actual fun ndisCoAssignInstanceName(ndisvchandle: ConstPtr<CVoid>, baseinstancename: ConstPtr<UnicodeString>, vcinstancename: MutPtr<UnicodeString>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCoAssignInstanceName(ndisvchandle.rawAddress, baseinstancename.rawAddress, vcinstancename.rawAddress)
 
-public actual fun ndisCoCreateVc(ndisbindinghandle: COpaquePointer?, ndisafhandle: COpaquePointer?, protocolvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc((ndisbindinghandle?.value ?: 0L), (ndisafhandle?.value ?: 0L), (protocolvccontext?.value ?: 0L), (ndisvchandle?.value ?: 0L))
+public actual fun ndisCoCreateVc(ndisbindinghandle: ConstPtr<CVoid>, ndisafhandle: ConstPtr<CVoid>, protocolvccontext: ConstPtr<CVoid>, ndisvchandle: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCoCreateVc(ndisbindinghandle.rawAddress, ndisafhandle.rawAddress, protocolvccontext.rawAddress, ndisvchandle.rawAddress)
 
-public actual fun ndisCoDeleteVc(ndisvchandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc((ndisvchandle?.value ?: 0L))
+public actual fun ndisCoDeleteVc(ndisvchandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCoDeleteVc(ndisvchandle.rawAddress)
 
-public actual fun ndisCoGetTapiCallId(ndisvchandle: COpaquePointer?, tapicallid: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId((ndisvchandle?.value ?: 0L), (tapicallid?.value ?: 0L))
+public actual fun ndisCoGetTapiCallId(ndisvchandle: ConstPtr<CVoid>, tapicallid: MutPtr<VarString>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCoGetTapiCallId(ndisvchandle.rawAddress, tapicallid.rawAddress)
 
-public actual fun ndisCompleteDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer((status?.value ?: 0L), (ndisdmahandle?.value ?: 0L), (buffer?.value ?: 0L), offset.toInt(), length.toInt(), writetodevice)
+public actual fun ndisCompleteDmaTransfer(status: MutPtr<Int>, ndisdmahandle: MutPtr<CVoid>, buffer: MutPtr<Mdl>, offset: UInt, length: UInt, writetodevice: Boolean) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCompleteDmaTransfer(status.rawAddress, ndisdmahandle.rawAddress, buffer.rawAddress, offset.toInt(), length.toInt(), writetodevice)
 }
 
-public actual fun ndisCopyBuffer(status: COpaquePointer?, buffer: COpaquePointer?, poolhandle: COpaquePointer?, memorydescriptor: COpaquePointer?, offset: UInt, length: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer((status?.value ?: 0L), (buffer?.value ?: 0L), (poolhandle?.value ?: 0L), (memorydescriptor?.value ?: 0L), offset.toInt(), length.toInt())
+public actual fun ndisCopyBuffer(status: MutPtr<Int>, buffer: MutPtr<MutPtr<Mdl>>, poolhandle: ConstPtr<CVoid>, memorydescriptor: ConstPtr<CVoid>, offset: UInt, length: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisCopyBuffer(status.rawAddress, buffer.rawAddress, poolhandle.rawAddress, memorydescriptor.rawAddress, offset.toInt(), length.toInt())
 }
 
 public actual fun ndisDeregisterTdiCallBack() {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack()
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisDeregisterTdiCallBack()
 }
 
-public actual fun ndisFreeMemory(virtualaddress: COpaquePointer?, length: UInt, memoryflags: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory((virtualaddress?.value ?: 0L), length.toInt(), memoryflags.toInt())
+public actual fun ndisFreeMemory(virtualaddress: ConstPtr<CVoid>, length: UInt, memoryflags: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisFreeMemory(virtualaddress.rawAddress, length.toInt(), memoryflags.toInt())
 }
 
 public actual fun ndisGeneratePartialCancelId(): UByte =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId().toUByte()
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisGeneratePartialCancelId().toUByte()
 
-public actual fun ndisGetCurrentProcessorCounts(pidlecount: COpaquePointer?, pkernelanduser: COpaquePointer?, pindex: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts((pidlecount?.value ?: 0L), (pkernelanduser?.value ?: 0L), (pindex?.value ?: 0L))
+public actual fun ndisGetCurrentProcessorCounts(pidlecount: MutPtr<UInt>, pkernelanduser: MutPtr<UInt>, pindex: MutPtr<UInt>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCounts(pidlecount.rawAddress, pkernelanduser.rawAddress, pindex.rawAddress)
 }
 
-public actual fun ndisGetCurrentProcessorCpuUsage(pcpuusage: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage((pcpuusage?.value ?: 0L))
+public actual fun ndisGetCurrentProcessorCpuUsage(pcpuusage: MutPtr<UInt>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCpuUsage(pcpuusage.rawAddress)
 }
 
-public actual fun ndisGetRoutineAddress(ndisroutinename: COpaquePointer?): COpaquePointer? =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress((ndisroutinename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ndisGetRoutineAddress(ndisroutinename: ConstPtr<UnicodeString>): MutPtr<CVoid> =
+    MutPtr(WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisGetRoutineAddress(ndisroutinename.rawAddress))
 
 public actual fun ndisGetSharedDataAlignment(): UInt =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment().toUInt()
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisGetSharedDataAlignment().toUInt()
 
 public actual fun ndisGetVersion(): UInt =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion().toUInt()
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisGetVersion().toUInt()
 
-public actual fun ndisIMAssociateMiniport(driverhandle: COpaquePointer?, protocolhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport((driverhandle?.value ?: 0L), (protocolhandle?.value ?: 0L))
+public actual fun ndisIMAssociateMiniport(driverhandle: ConstPtr<CVoid>, protocolhandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisIMAssociateMiniport(driverhandle.rawAddress, protocolhandle.rawAddress)
 }
 
-public actual fun ndisIMCancelInitializeDeviceInstance(driverhandle: COpaquePointer?, deviceinstance: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance((driverhandle?.value ?: 0L), (deviceinstance?.value ?: 0L))
+public actual fun ndisIMCancelInitializeDeviceInstance(driverhandle: ConstPtr<CVoid>, deviceinstance: ConstPtr<UnicodeString>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisIMCancelInitializeDeviceInstance(driverhandle.rawAddress, deviceinstance.rawAddress)
 
-public actual fun ndisIMDeInitializeDeviceInstance(ndisminiporthandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance((ndisminiporthandle?.value ?: 0L))
+public actual fun ndisIMDeInitializeDeviceInstance(ndisminiporthandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisIMDeInitializeDeviceInstance(ndisminiporthandle.rawAddress)
 
-public actual fun ndisIMGetBindingContext(ndisbindinghandle: COpaquePointer?): COpaquePointer? =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext((ndisbindinghandle?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun ndisIMGetBindingContext(ndisbindinghandle: ConstPtr<CVoid>): MutPtr<CVoid> =
+    MutPtr(WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisIMGetBindingContext(ndisbindinghandle.rawAddress))
 
-public actual fun ndisIMInitializeDeviceInstanceEx(driverhandle: COpaquePointer?, driverinstance: COpaquePointer?, devicecontext: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx((driverhandle?.value ?: 0L), (driverinstance?.value ?: 0L), (devicecontext?.value ?: 0L))
+public actual fun ndisIMInitializeDeviceInstanceEx(driverhandle: ConstPtr<CVoid>, driverinstance: ConstPtr<UnicodeString>, devicecontext: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisIMInitializeDeviceInstanceEx(driverhandle.rawAddress, driverinstance.rawAddress, devicecontext.rawAddress)
 
-public actual fun ndisInitializeEvent(event: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent((event?.value ?: 0L))
+public actual fun ndisInitializeEvent(event: MutPtr<NdisEvent>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisInitializeEvent(event.rawAddress)
 }
 
-public actual fun ndisInitializeReadWriteLock(lock: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock((lock?.value ?: 0L))
+public actual fun ndisInitializeReadWriteLock(lock: MutPtr<NdisRwLock>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisInitializeReadWriteLock(lock.rawAddress)
 }
 
-public actual fun ndisInitializeString(destination: COpaquePointer?, source: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString((destination?.value ?: 0L), (source?.value ?: 0L))
+public actual fun ndisInitializeString(destination: MutPtr<UnicodeString>, source: ConstPtr<UByte>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisInitializeString(destination.rawAddress, source.rawAddress)
 }
 
-public actual fun ndisInitializeTimer(timer: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer((timer?.value ?: 0L), 0L, (functioncontext?.value ?: 0L))
+public actual fun ndisInitializeTimer(timer: MutPtr<NdisTimer>, timerfunction: PndisTimerFunction, functioncontext: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisInitializeTimer(timer.rawAddress, 0L, functioncontext.rawAddress)
 }
 
-public actual fun ndisMAllocateSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory((miniportadapterhandle?.value ?: 0L), length.toInt(), cached, (virtualaddress?.value ?: 0L), (physicaladdress?.value ?: 0L))
+public actual fun ndisMAllocateSharedMemory(miniportadapterhandle: ConstPtr<CVoid>, length: UInt, cached: Boolean, virtualaddress: MutPtr<MutPtr<CVoid>>, physicaladdress: MutPtr<Long>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemory(miniportadapterhandle.rawAddress, length.toInt(), cached, virtualaddress.rawAddress, physicaladdress.rawAddress)
 }
 
-public actual fun ndisMAllocateSharedMemoryAsync(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, context: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync((miniportadapterhandle?.value ?: 0L), length.toInt(), cached, (context?.value ?: 0L))
+public actual fun ndisMAllocateSharedMemoryAsync(miniportadapterhandle: ConstPtr<CVoid>, length: UInt, cached: Boolean, context: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemoryAsync(miniportadapterhandle.rawAddress, length.toInt(), cached, context.rawAddress)
 
-public actual fun ndisMCancelTimer(timer: COpaquePointer?, timercancelled: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer((timer?.value ?: 0L), (timercancelled?.value ?: 0L))
+public actual fun ndisMCancelTimer(timer: ConstPtr<NdisMiniportTimer>, timercancelled: MutPtr<Boolean>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCancelTimer(timer.rawAddress, timercancelled.rawAddress)
 }
 
-public actual fun ndisMCloseLog(loghandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog((loghandle?.value ?: 0L))
+public actual fun ndisMCloseLog(loghandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCloseLog(loghandle.rawAddress)
 }
 
-public actual fun ndisMCmActivateVc(ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc((ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisMCmActivateVc(ndisvchandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCmActivateVc(ndisvchandle.rawAddress, callparameters.rawAddress)
 
-public actual fun ndisMCmCreateVc(miniportadapterhandle: COpaquePointer?, ndisafhandle: COpaquePointer?, miniportvccontext: COpaquePointer?, ndisvchandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc((miniportadapterhandle?.value ?: 0L), (ndisafhandle?.value ?: 0L), (miniportvccontext?.value ?: 0L), (ndisvchandle?.value ?: 0L))
+public actual fun ndisMCmCreateVc(miniportadapterhandle: ConstPtr<CVoid>, ndisafhandle: ConstPtr<CVoid>, miniportvccontext: ConstPtr<CVoid>, ndisvchandle: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCmCreateVc(miniportadapterhandle.rawAddress, ndisafhandle.rawAddress, miniportvccontext.rawAddress, ndisvchandle.rawAddress)
 
-public actual fun ndisMCmDeactivateVc(ndisvchandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc((ndisvchandle?.value ?: 0L))
+public actual fun ndisMCmDeactivateVc(ndisvchandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeactivateVc(ndisvchandle.rawAddress)
 
-public actual fun ndisMCmDeleteVc(ndisvchandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc((ndisvchandle?.value ?: 0L))
+public actual fun ndisMCmDeleteVc(ndisvchandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeleteVc(ndisvchandle.rawAddress)
 
-public actual fun ndisMCmRegisterAddressFamily(miniportadapterhandle: COpaquePointer?, addressfamily: COpaquePointer?, cmcharacteristics: COpaquePointer?, sizeofcmcharacteristics: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily((miniportadapterhandle?.value ?: 0L), (addressfamily?.value ?: 0L), (cmcharacteristics?.value ?: 0L), sizeofcmcharacteristics.toInt())
+public actual fun ndisMCmRegisterAddressFamily(miniportadapterhandle: MutPtr<CVoid>, addressfamily: MutPtr<CoAddressFamily>, cmcharacteristics: MutPtr<NdisCallManagerCharacteristics>, sizeofcmcharacteristics: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCmRegisterAddressFamily(miniportadapterhandle.rawAddress, addressfamily.rawAddress, cmcharacteristics.rawAddress, sizeofcmcharacteristics.toInt())
 
-public actual fun ndisMCoActivateVcComplete(status: Int, ndisvchandle: COpaquePointer?, callparameters: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete(status, (ndisvchandle?.value ?: 0L), (callparameters?.value ?: 0L))
+public actual fun ndisMCoActivateVcComplete(status: Int, ndisvchandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCoActivateVcComplete(status, ndisvchandle.rawAddress, callparameters.rawAddress)
 }
 
-public actual fun ndisMCoDeactivateVcComplete(status: Int, ndisvchandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete(status, (ndisvchandle?.value ?: 0L))
+public actual fun ndisMCoDeactivateVcComplete(status: Int, ndisvchandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCoDeactivateVcComplete(status, ndisvchandle.rawAddress)
 }
 
-public actual fun ndisMCreateLog(miniportadapterhandle: COpaquePointer?, size: UInt, loghandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog((miniportadapterhandle?.value ?: 0L), size.toInt(), (loghandle?.value ?: 0L))
+public actual fun ndisMCreateLog(miniportadapterhandle: ConstPtr<CVoid>, size: UInt, loghandle: MutPtr<MutPtr<CVoid>>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMCreateLog(miniportadapterhandle.rawAddress, size.toInt(), loghandle.rawAddress)
 
-public actual fun ndisMDeregisterDmaChannel(miniportdmahandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel((miniportdmahandle?.value ?: 0L))
+public actual fun ndisMDeregisterDmaChannel(miniportdmahandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterDmaChannel(miniportdmahandle.rawAddress)
 }
 
-public actual fun ndisMDeregisterIoPortRange(miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt, portoffset: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange((miniportadapterhandle?.value ?: 0L), initialport.toInt(), numberofports.toInt(), (portoffset?.value ?: 0L))
+public actual fun ndisMDeregisterIoPortRange(miniportadapterhandle: ConstPtr<CVoid>, initialport: UInt, numberofports: UInt, portoffset: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterIoPortRange(miniportadapterhandle.rawAddress, initialport.toInt(), numberofports.toInt(), portoffset.rawAddress)
 }
 
-public actual fun ndisMFlushLog(loghandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog((loghandle?.value ?: 0L))
+public actual fun ndisMFlushLog(loghandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMFlushLog(loghandle.rawAddress)
 }
 
-public actual fun ndisMFreeSharedMemory(miniportadapterhandle: COpaquePointer?, length: UInt, cached: Boolean, virtualaddress: COpaquePointer?, physicaladdress: Long) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory((miniportadapterhandle?.value ?: 0L), length.toInt(), cached, (virtualaddress?.value ?: 0L), physicaladdress)
+public actual fun ndisMFreeSharedMemory(miniportadapterhandle: ConstPtr<CVoid>, length: UInt, cached: Boolean, virtualaddress: ConstPtr<CVoid>, physicaladdress: Long) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMFreeSharedMemory(miniportadapterhandle.rawAddress, length.toInt(), cached, virtualaddress.rawAddress, physicaladdress)
 }
 
-public actual fun ndisMGetDeviceProperty(miniportadapterhandle: COpaquePointer?, physicaldeviceobject: COpaquePointer?, functionaldeviceobject: COpaquePointer?, nextdeviceobject: COpaquePointer?, allocatedresources: COpaquePointer?, allocatedresourcestranslated: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty((miniportadapterhandle?.value ?: 0L), (physicaldeviceobject?.value ?: 0L), (functionaldeviceobject?.value ?: 0L), (nextdeviceobject?.value ?: 0L), (allocatedresources?.value ?: 0L), (allocatedresourcestranslated?.value ?: 0L))
+public actual fun ndisMGetDeviceProperty(miniportadapterhandle: ConstPtr<CVoid>, physicaldeviceobject: MutPtr<MutPtr<DeviceObject>>, functionaldeviceobject: MutPtr<MutPtr<DeviceObject>>, nextdeviceobject: MutPtr<MutPtr<DeviceObject>>, allocatedresources: MutPtr<MutPtr<CmResourceList>>, allocatedresourcestranslated: MutPtr<MutPtr<CmResourceList>>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMGetDeviceProperty(miniportadapterhandle.rawAddress, physicaldeviceobject.rawAddress, functionaldeviceobject.rawAddress, nextdeviceobject.rawAddress, allocatedresources.rawAddress, allocatedresourcestranslated.rawAddress)
 }
 
-public actual fun ndisMGetDmaAlignment(miniportadapterhandle: COpaquePointer?): UInt =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment((miniportadapterhandle?.value ?: 0L)).toUInt()
+public actual fun ndisMGetDmaAlignment(miniportadapterhandle: ConstPtr<CVoid>): UInt =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMGetDmaAlignment(miniportadapterhandle.rawAddress).toUInt()
 
-public actual fun ndisMInitializeTimer(timer: COpaquePointer?, miniportadapterhandle: COpaquePointer?, timerfunction: PndisTimerFunction, functioncontext: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer((timer?.value ?: 0L), (miniportadapterhandle?.value ?: 0L), 0L, (functioncontext?.value ?: 0L))
+public actual fun ndisMInitializeTimer(timer: ConstPtr<NdisMiniportTimer>, miniportadapterhandle: ConstPtr<CVoid>, timerfunction: PndisTimerFunction, functioncontext: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMInitializeTimer(timer.rawAddress, miniportadapterhandle.rawAddress, 0L, functioncontext.rawAddress)
 }
 
-public actual fun ndisMMapIoSpace(virtualaddress: COpaquePointer?, miniportadapterhandle: COpaquePointer?, physicaladdress: Long, length: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace((virtualaddress?.value ?: 0L), (miniportadapterhandle?.value ?: 0L), physicaladdress, length.toInt())
+public actual fun ndisMMapIoSpace(virtualaddress: MutPtr<MutPtr<CVoid>>, miniportadapterhandle: ConstPtr<CVoid>, physicaladdress: Long, length: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMMapIoSpace(virtualaddress.rawAddress, miniportadapterhandle.rawAddress, physicaladdress, length.toInt())
 
-public actual fun ndisMQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, miniporthandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName((padapterinstancename?.value ?: 0L), (miniporthandle?.value ?: 0L))
+public actual fun ndisMQueryAdapterInstanceName(padapterinstancename: MutPtr<UnicodeString>, miniporthandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMQueryAdapterInstanceName(padapterinstancename.rawAddress, miniporthandle.rawAddress)
 
-public actual fun ndisMReadDmaCounter(miniportdmahandle: COpaquePointer?): UInt =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter((miniportdmahandle?.value ?: 0L)).toUInt()
+public actual fun ndisMReadDmaCounter(miniportdmahandle: ConstPtr<CVoid>): UInt =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMReadDmaCounter(miniportdmahandle.rawAddress).toUInt()
 
-public actual fun ndisMRegisterDmaChannel(miniportdmahandle: COpaquePointer?, miniportadapterhandle: COpaquePointer?, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: COpaquePointer?, maximumlength: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel((miniportdmahandle?.value ?: 0L), (miniportadapterhandle?.value ?: 0L), dmachannel.toInt(), dma32bitaddresses, (dmadescription?.value ?: 0L), maximumlength.toInt())
+public actual fun ndisMRegisterDmaChannel(miniportdmahandle: MutPtr<MutPtr<CVoid>>, miniportadapterhandle: ConstPtr<CVoid>, dmachannel: UInt, dma32bitaddresses: Boolean, dmadescription: ConstPtr<NdisDmaDescription>, maximumlength: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterDmaChannel(miniportdmahandle.rawAddress, miniportadapterhandle.rawAddress, dmachannel.toInt(), dma32bitaddresses, dmadescription.rawAddress, maximumlength.toInt())
 
-public actual fun ndisMRegisterIoPortRange(portoffset: COpaquePointer?, miniportadapterhandle: COpaquePointer?, initialport: UInt, numberofports: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange((portoffset?.value ?: 0L), (miniportadapterhandle?.value ?: 0L), initialport.toInt(), numberofports.toInt())
+public actual fun ndisMRegisterIoPortRange(portoffset: MutPtr<MutPtr<CVoid>>, miniportadapterhandle: ConstPtr<CVoid>, initialport: UInt, numberofports: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterIoPortRange(portoffset.rawAddress, miniportadapterhandle.rawAddress, initialport.toInt(), numberofports.toInt())
 
-public actual fun ndisMRemoveMiniport(miniporthandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport((miniporthandle?.value ?: 0L))
+public actual fun ndisMRemoveMiniport(miniporthandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMRemoveMiniport(miniporthandle.rawAddress)
 
-public actual fun ndisMSetPeriodicTimer(timer: COpaquePointer?, millisecondperiod: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer((timer?.value ?: 0L), millisecondperiod.toInt())
+public actual fun ndisMSetPeriodicTimer(timer: ConstPtr<NdisMiniportTimer>, millisecondperiod: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMSetPeriodicTimer(timer.rawAddress, millisecondperiod.toInt())
 }
 
 public actual fun ndisMSleep(microsecondstosleep: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep(microsecondstosleep.toInt())
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMSleep(microsecondstosleep.toInt())
 }
 
-public actual fun ndisMUnmapIoSpace(miniportadapterhandle: COpaquePointer?, virtualaddress: COpaquePointer?, length: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace((miniportadapterhandle?.value ?: 0L), (virtualaddress?.value ?: 0L), length.toInt())
+public actual fun ndisMUnmapIoSpace(miniportadapterhandle: ConstPtr<CVoid>, virtualaddress: ConstPtr<CVoid>, length: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMUnmapIoSpace(miniportadapterhandle.rawAddress, virtualaddress.rawAddress, length.toInt())
 }
 
-public actual fun ndisMWriteLogData(loghandle: COpaquePointer?, logbuffer: COpaquePointer?, logbuffersize: UInt): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData((loghandle?.value ?: 0L), (logbuffer?.value ?: 0L), logbuffersize.toInt())
+public actual fun ndisMWriteLogData(loghandle: ConstPtr<CVoid>, logbuffer: ConstPtr<CVoid>, logbuffersize: UInt): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMWriteLogData(loghandle.rawAddress, logbuffer.rawAddress, logbuffersize.toInt())
 
-public actual fun ndisMapFile(status: COpaquePointer?, mappedbuffer: COpaquePointer?, filehandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile((status?.value ?: 0L), (mappedbuffer?.value ?: 0L), (filehandle?.value ?: 0L))
+public actual fun ndisMapFile(status: MutPtr<Int>, mappedbuffer: MutPtr<MutPtr<CVoid>>, filehandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisMapFile(status.rawAddress, mappedbuffer.rawAddress, filehandle.rawAddress)
 }
 
-public actual fun ndisOpenConfigurationKeyByIndex(status: COpaquePointer?, configurationhandle: COpaquePointer?, index: UInt, keyname: COpaquePointer?, keyhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex((status?.value ?: 0L), (configurationhandle?.value ?: 0L), index.toInt(), (keyname?.value ?: 0L), (keyhandle?.value ?: 0L))
+public actual fun ndisOpenConfigurationKeyByIndex(status: MutPtr<Int>, configurationhandle: ConstPtr<CVoid>, index: UInt, keyname: MutPtr<UnicodeString>, keyhandle: MutPtr<MutPtr<CVoid>>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByIndex(status.rawAddress, configurationhandle.rawAddress, index.toInt(), keyname.rawAddress, keyhandle.rawAddress)
 }
 
-public actual fun ndisOpenConfigurationKeyByName(status: COpaquePointer?, configurationhandle: COpaquePointer?, subkeyname: COpaquePointer?, subkeyhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName((status?.value ?: 0L), (configurationhandle?.value ?: 0L), (subkeyname?.value ?: 0L), (subkeyhandle?.value ?: 0L))
+public actual fun ndisOpenConfigurationKeyByName(status: MutPtr<Int>, configurationhandle: ConstPtr<CVoid>, subkeyname: ConstPtr<UnicodeString>, subkeyhandle: MutPtr<MutPtr<CVoid>>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByName(status.rawAddress, configurationhandle.rawAddress, subkeyname.rawAddress, subkeyhandle.rawAddress)
 }
 
-public actual fun ndisOpenFile(status: COpaquePointer?, filehandle: COpaquePointer?, filelength: COpaquePointer?, filename: COpaquePointer?, highestacceptableaddress: Long) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile((status?.value ?: 0L), (filehandle?.value ?: 0L), (filelength?.value ?: 0L), (filename?.value ?: 0L), highestacceptableaddress)
+public actual fun ndisOpenFile(status: MutPtr<Int>, filehandle: MutPtr<MutPtr<CVoid>>, filelength: MutPtr<UInt>, filename: ConstPtr<UnicodeString>, highestacceptableaddress: Long) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisOpenFile(status.rawAddress, filehandle.rawAddress, filelength.rawAddress, filename.rawAddress, highestacceptableaddress)
 }
 
-public actual fun ndisQueryAdapterInstanceName(padapterinstancename: COpaquePointer?, ndisbindinghandle: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName((padapterinstancename?.value ?: 0L), (ndisbindinghandle?.value ?: 0L))
+public actual fun ndisQueryAdapterInstanceName(padapterinstancename: MutPtr<UnicodeString>, ndisbindinghandle: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisQueryAdapterInstanceName(padapterinstancename.rawAddress, ndisbindinghandle.rawAddress)
 
-public actual fun ndisQueryBindInstanceName(padapterinstancename: COpaquePointer?, bindingcontext: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName((padapterinstancename?.value ?: 0L), (bindingcontext?.value ?: 0L))
+public actual fun ndisQueryBindInstanceName(padapterinstancename: MutPtr<UnicodeString>, bindingcontext: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisQueryBindInstanceName(padapterinstancename.rawAddress, bindingcontext.rawAddress)
 
-public actual fun ndisReEnumerateProtocolBindings(ndisprotocolhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings((ndisprotocolhandle?.value ?: 0L))
+public actual fun ndisReEnumerateProtocolBindings(ndisprotocolhandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisReEnumerateProtocolBindings(ndisprotocolhandle.rawAddress)
 }
 
-public actual fun ndisReadConfiguration(status: COpaquePointer?, parametervalue: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametertype: NdisParameterType) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration((status?.value ?: 0L), (parametervalue?.value ?: 0L), (configurationhandle?.value ?: 0L), (keyword?.value ?: 0L), parametertype)
+public actual fun ndisReadConfiguration(status: MutPtr<Int>, parametervalue: MutPtr<MutPtr<NdisConfigurationParameter>>, configurationhandle: ConstPtr<CVoid>, keyword: ConstPtr<UnicodeString>, parametertype: NdisParameterType) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisReadConfiguration(status.rawAddress, parametervalue.rawAddress, configurationhandle.rawAddress, keyword.rawAddress, parametertype)
 }
 
-public actual fun ndisReadNetworkAddress(status: COpaquePointer?, networkaddress: COpaquePointer?, networkaddresslength: COpaquePointer?, configurationhandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress((status?.value ?: 0L), (networkaddress?.value ?: 0L), (networkaddresslength?.value ?: 0L), (configurationhandle?.value ?: 0L))
+public actual fun ndisReadNetworkAddress(status: MutPtr<Int>, networkaddress: MutPtr<MutPtr<CVoid>>, networkaddresslength: MutPtr<UInt>, configurationhandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisReadNetworkAddress(status.rawAddress, networkaddress.rawAddress, networkaddresslength.rawAddress, configurationhandle.rawAddress)
 }
 
 public actual fun ndisRegisterTdiCallBack(registercallback: TdiRegisterCallback, pnphandler: TdiPnpHandler) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack(0L, 0L)
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisRegisterTdiCallBack(0L, 0L)
 }
 
-public actual fun ndisReleaseReadWriteLock(lock: COpaquePointer?, lockstate: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock((lock?.value ?: 0L), (lockstate?.value ?: 0L))
+public actual fun ndisReleaseReadWriteLock(lock: MutPtr<NdisRwLock>, lockstate: ConstPtr<LockState>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisReleaseReadWriteLock(lock.rawAddress, lockstate.rawAddress)
 }
 
-public actual fun ndisResetEvent(event: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent((event?.value ?: 0L))
+public actual fun ndisResetEvent(event: ConstPtr<NdisEvent>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisResetEvent(event.rawAddress)
 }
 
-public actual fun ndisSetEvent(event: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent((event?.value ?: 0L))
+public actual fun ndisSetEvent(event: ConstPtr<NdisEvent>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisSetEvent(event.rawAddress)
 }
 
-public actual fun ndisSetPeriodicTimer(ndistimer: COpaquePointer?, millisecondsperiod: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer((ndistimer?.value ?: 0L), millisecondsperiod.toInt())
+public actual fun ndisSetPeriodicTimer(ndistimer: ConstPtr<NdisTimer>, millisecondsperiod: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisSetPeriodicTimer(ndistimer.rawAddress, millisecondsperiod.toInt())
 }
 
-public actual fun ndisSetTimer(timer: COpaquePointer?, millisecondstodelay: UInt) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer((timer?.value ?: 0L), millisecondstodelay.toInt())
+public actual fun ndisSetTimer(timer: ConstPtr<NdisTimer>, millisecondstodelay: UInt) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisSetTimer(timer.rawAddress, millisecondstodelay.toInt())
 }
 
-public actual fun ndisSetTimerEx(ndistimer: COpaquePointer?, millisecondstodelay: UInt, functioncontext: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx((ndistimer?.value ?: 0L), millisecondstodelay.toInt(), (functioncontext?.value ?: 0L))
+public actual fun ndisSetTimerEx(ndistimer: ConstPtr<NdisTimer>, millisecondstodelay: UInt, functioncontext: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisSetTimerEx(ndistimer.rawAddress, millisecondstodelay.toInt(), functioncontext.rawAddress)
 }
 
-public actual fun ndisSetupDmaTransfer(status: COpaquePointer?, ndisdmahandle: COpaquePointer?, buffer: COpaquePointer?, offset: UInt, length: UInt, writetodevice: Boolean) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer((status?.value ?: 0L), (ndisdmahandle?.value ?: 0L), (buffer?.value ?: 0L), offset.toInt(), length.toInt(), writetodevice)
+public actual fun ndisSetupDmaTransfer(status: MutPtr<Int>, ndisdmahandle: MutPtr<CVoid>, buffer: MutPtr<Mdl>, offset: UInt, length: UInt, writetodevice: Boolean) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisSetupDmaTransfer(status.rawAddress, ndisdmahandle.rawAddress, buffer.rawAddress, offset.toInt(), length.toInt(), writetodevice)
 }
 
 public actual fun ndisSystemProcessorCount(): Byte =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount()
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisSystemProcessorCount()
 
-public actual fun ndisUnmapFile(filehandle: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile((filehandle?.value ?: 0L))
+public actual fun ndisUnmapFile(filehandle: ConstPtr<CVoid>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisUnmapFile(filehandle.rawAddress)
 }
 
-public actual fun ndisUpdateSharedMemory(ndisadapterhandle: COpaquePointer?, length: UInt, virtualaddress: COpaquePointer?, physicaladdress: Long) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory((ndisadapterhandle?.value ?: 0L), length.toInt(), (virtualaddress?.value ?: 0L), physicaladdress)
+public actual fun ndisUpdateSharedMemory(ndisadapterhandle: MutPtr<CVoid>, length: UInt, virtualaddress: MutPtr<CVoid>, physicaladdress: Long) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisUpdateSharedMemory(ndisadapterhandle.rawAddress, length.toInt(), virtualaddress.rawAddress, physicaladdress)
 }
 
-public actual fun ndisWaitEvent(event: COpaquePointer?, mstowait: UInt): Boolean =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent((event?.value ?: 0L), mstowait.toInt())
+public actual fun ndisWaitEvent(event: ConstPtr<NdisEvent>, mstowait: UInt): Boolean =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisWaitEvent(event.rawAddress, mstowait.toInt())
 
-public actual fun ndisWriteConfiguration(status: COpaquePointer?, configurationhandle: COpaquePointer?, keyword: COpaquePointer?, parametervalue: COpaquePointer?) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration((status?.value ?: 0L), (configurationhandle?.value ?: 0L), (keyword?.value ?: 0L), (parametervalue?.value ?: 0L))
+public actual fun ndisWriteConfiguration(status: MutPtr<Int>, configurationhandle: ConstPtr<CVoid>, keyword: ConstPtr<UnicodeString>, parametervalue: ConstPtr<NdisConfigurationParameter>) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisWriteConfiguration(status.rawAddress, configurationhandle.rawAddress, keyword.rawAddress, parametervalue.rawAddress)
 }
 
-public actual fun ndisWriteErrorLogEntry(ndisadapterhandle: COpaquePointer?, errorcode: UInt, numberoferrorvalues: UInt, vararg variadicArgs: Long) {
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry((ndisadapterhandle?.value ?: 0L), errorcode.toInt(), numberoferrorvalues.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+public actual fun ndisWriteErrorLogEntry(ndisadapterhandle: ConstPtr<CVoid>, errorcode: UInt, numberoferrorvalues: UInt, vararg variadicArgs: Long) {
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisWriteErrorLogEntry(ndisadapterhandle.rawAddress, errorcode.toInt(), numberoferrorvalues.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun ndisWriteEventLogEntry(loghandle: COpaquePointer?, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: COpaquePointer?, datasize: UInt, data: COpaquePointer?): Int =
-    WindowsWdkNetworkmanagementNdisJniBridge.windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry((loghandle?.value ?: 0L), eventcode, uniqueeventvalue.toInt(), numstrings.toShort(), (stringslist?.value ?: 0L), datasize.toInt(), (data?.value ?: 0L))
+public actual fun ndisWriteEventLogEntry(loghandle: ConstPtr<CVoid>, eventcode: Int, uniqueeventvalue: UInt, numstrings: UShort, stringslist: ConstPtr<CVoid>, datasize: UInt, data: ConstPtr<CVoid>): Int =
+    WindowsWdkNetworkmanagementNdisJniBridge.windowssysWindowsWdkNetworkmanagementNdisNdisWriteEventLogEntry(loghandle.rawAddress, eventcode, uniqueeventvalue.toInt(), numstrings.toShort(), stringslist.rawAddress, datasize.toInt(), data.rawAddress)

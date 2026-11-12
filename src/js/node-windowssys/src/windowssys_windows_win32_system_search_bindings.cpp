@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_search_oDBCGetTryWaitValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchODBCGetTryWaitValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -74,7 +74,7 @@ static Napi::Value windowssys_windows_win32_system_search_oDBCGetTryWaitValue_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_oDBCSetTryWaitValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchODBCSetTryWaitValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwvalue = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -99,7 +99,7 @@ static Napi::Value windowssys_windows_win32_system_search_oDBCSetTryWaitValue_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLAllocConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLAllocConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -126,7 +126,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocConnect_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLAllocEnv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLAllocEnv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocEnv_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLAllocHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLAllocHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t handletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* inputhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -180,7 +180,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocHandle_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLAllocHandleStd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLAllocHandleStd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t fhandletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hinput = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocHandleStd_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLAllocStmt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLAllocStmt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -236,14 +236,14 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocStmt_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLBindCol_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLBindCol_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t columnnumber = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     int16_t targettype = static_cast<int16_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* targetvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
     int64_t bufferlength = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
-    void* strlen_or_ind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* strlenOrInd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindCol_napi(const 
     }
     int16_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_ind);
+        km_res = km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -264,14 +264,14 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindCol_napi(const 
     (void)targettype;
     (void)targetvalue;
     (void)bufferlength;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLBindParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLBindParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t parameternumber = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -280,7 +280,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParam_napi(cons
     uint64_t lengthprecision = km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0;
     int16_t parameterscale = static_cast<int16_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
     void* parametervalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
-    void* strlen_or_ind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    void* strlenOrInd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, int16_t, uint64_t, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -290,7 +290,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParam_napi(cons
     }
     int16_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind);
+        km_res = km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -303,14 +303,14 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParam_napi(cons
     (void)lengthprecision;
     (void)parameterscale;
     (void)parametervalue;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLBindParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLBindParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t ipar = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -353,7 +353,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParameter_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLBrowseConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szconnstrin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -388,7 +388,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnect_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLBrowseConnectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szconnstrin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -423,7 +423,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLBrowseConnectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szconnstrin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -458,7 +458,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLBulkOperations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLBulkOperations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t operation = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBulkOperations_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -510,7 +510,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCancel_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLCancelHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLCancelHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t handletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* inputhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -537,7 +537,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCancelHandle_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLCloseCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLCloseCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -562,7 +562,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCloseCursor_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLCloseEnumServers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLCloseEnumServers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCloseEnumServers_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t columnnumber = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -624,7 +624,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttribute_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColAttributeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t icol = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -661,7 +661,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColAttributeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t icol = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -698,7 +698,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t icol = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -735,7 +735,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributes_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColAttributesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t icol = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -772,7 +772,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColAttributesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t icol = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -809,7 +809,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivileges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColumnPrivileges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -850,7 +850,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivileges_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColumnPrivilegesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -891,7 +891,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColumnPrivilegesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -932,7 +932,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* catalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -973,7 +973,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumns_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColumnsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColumnsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1014,7 +1014,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnsA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLColumnsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLColumnsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1055,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnsW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLCompleteAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLCompleteAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t handletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1084,7 +1084,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCompleteAsync_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1121,7 +1121,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnect_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLConnectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLConnectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szdsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1158,7 +1158,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnectA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLConnectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLConnectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szdsn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1195,7 +1195,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnectW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLCopyDesc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLCopyDesc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sourcedeschandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetdeschandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1222,7 +1222,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCopyDesc_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDataSources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDataSources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t direction = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1261,7 +1261,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSources_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDataSourcesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fdirection = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1300,7 +1300,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDataSourcesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fdirection = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1339,7 +1339,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDescribeCol_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDescribeCol_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t columnnumber = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1380,7 +1380,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeCol_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDescribeColA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t icol = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1421,7 +1421,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDescribeColW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t icol = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1462,7 +1462,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDescribeParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDescribeParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t ipar = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1497,7 +1497,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeParam_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDisconnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDisconnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1522,7 +1522,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDisconnect_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDriverConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hwnd = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1561,7 +1561,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnect_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDriverConnectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hwnd = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1600,7 +1600,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDriverConnectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t hwnd = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1639,7 +1639,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDrivers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDrivers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fdirection = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1678,7 +1678,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDrivers_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDriversA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDriversA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fdirection = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1717,7 +1717,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriversA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLDriversW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLDriversW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fdirection = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1756,7 +1756,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriversW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLEndTran_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLEndTran_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t handletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1785,7 +1785,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLEndTran_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1824,7 +1824,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLError_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLErrorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLErrorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1863,7 +1863,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLErrorA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLErrorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLErrorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1902,7 +1902,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLErrorW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLExecDirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLExecDirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* statementtext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1931,7 +1931,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecDirect_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLExecDirectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLExecDirectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsqlstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1960,7 +1960,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecDirectA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLExecDirectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLExecDirectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsqlstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1989,7 +1989,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecDirectW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLExecute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLExecute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2014,7 +2014,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecute_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLExtendedFetch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLExtendedFetch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t ffetchtype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2047,7 +2047,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExtendedFetch_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLFetch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLFetch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2072,7 +2072,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFetch_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLFetchScroll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLFetchScroll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t fetchorientation = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2101,7 +2101,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFetchScroll_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLForeignKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szpkcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2150,7 +2150,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeys_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLForeignKeysA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szpkcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2199,7 +2199,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLForeignKeysW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szpkcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2248,7 +2248,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLFreeConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLFreeConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2273,7 +2273,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeConnect_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLFreeEnv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLFreeEnv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2298,7 +2298,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeEnv_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLFreeHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLFreeHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t handletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2325,7 +2325,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeHandle_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLFreeStmt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLFreeStmt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t option = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2352,7 +2352,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeStmt_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetConnectAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t attribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2385,7 +2385,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttr_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetConnectAttrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2418,7 +2418,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttrA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetConnectAttrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2451,7 +2451,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttrW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetConnectOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t option = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2480,7 +2480,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOption_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOptionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetConnectOptionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t foption = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2509,7 +2509,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOptionA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetConnectOptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t foption = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2538,7 +2538,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOptionW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetCursorName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cursorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2569,7 +2569,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorName_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetCursorNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2600,7 +2600,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorNameA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetCursorNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2631,14 +2631,14 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorNameW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t columnnumber = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
     int16_t targettype = static_cast<int16_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* targetvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
     int64_t bufferlength = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
-    void* strlen_or_indptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* strlenOrIndptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -2648,7 +2648,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetData_napi(const 
     }
     int16_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_indptr);
+        km_res = km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlenOrIndptr);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -2659,14 +2659,14 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetData_napi(const 
     (void)targettype;
     (void)targetvalue;
     (void)bufferlength;
-    (void)strlen_or_indptr;
+    (void)strlenOrIndptr;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDescField_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDescField_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* descriptorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t recnumber = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2701,7 +2701,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescField_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDescFieldA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t irecord = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2736,7 +2736,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDescFieldW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t irecord = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2771,7 +2771,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDescRec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* descriptorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t recnumber = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2816,7 +2816,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRec_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDescRecA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t irecord = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2861,7 +2861,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDescRecW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t irecord = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2906,7 +2906,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagField_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDiagField_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t handletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2943,7 +2943,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagField_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDiagFieldA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t fhandletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2980,7 +2980,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDiagFieldW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t fhandletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3017,7 +3017,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDiagRec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t handletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3056,7 +3056,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRec_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDiagRecA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t fhandletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3095,7 +3095,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetDiagRecW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t fhandletype = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3134,7 +3134,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetEnvAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetEnvAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t attribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3167,7 +3167,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetEnvAttr_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetFunctions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetFunctions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t functionid = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3196,7 +3196,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetFunctions_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t infotype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3229,7 +3229,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetInfo_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t finfotype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3262,7 +3262,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetInfoA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t finfotype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3295,7 +3295,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetInfoW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetNextEnumeration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetNextEnumeration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prgenumdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3324,7 +3324,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetNextEnumeration_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetStmtAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t attribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3357,7 +3357,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttr_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetStmtAttrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3390,7 +3390,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttrA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetStmtAttrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3423,7 +3423,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttrW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetStmtOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t option = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3452,7 +3452,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtOption_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetTypeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t datatype = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3479,7 +3479,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfo_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetTypeInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t datatype = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3506,7 +3506,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfoA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLGetTypeInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t datatype = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3533,7 +3533,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfoW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLInitEnumServers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLInitEnumServers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwchservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwchinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3560,7 +3560,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLInitEnumServers_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLLinkedCatalogsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLLinkedCatalogsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3589,7 +3589,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLLinkedCatalogsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLLinkedCatalogsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLLinkedCatalogsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3618,7 +3618,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLLinkedCatalogsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLLinkedServers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLLinkedServers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3643,7 +3643,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLLinkedServers_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLMoreResults_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLMoreResults_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3668,7 +3668,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLMoreResults_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLNativeSql_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLNativeSql_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsqlstrin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3703,7 +3703,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSql_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLNativeSqlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsqlstrin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3738,7 +3738,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLNativeSqlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsqlstrin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3773,7 +3773,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLNumParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLNumParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcpar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3800,7 +3800,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNumParams_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLNumResultCols_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLNumResultCols_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* columncount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3827,7 +3827,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNumResultCols_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLParamData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLParamData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3854,7 +3854,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLParamData_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLParamOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLParamOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t crow = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3883,7 +3883,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLParamOptions_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLPrepare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLPrepare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* statementtext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3912,7 +3912,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrepare_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLPrepareA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLPrepareA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsqlstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3941,7 +3941,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrepareA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLPrepareW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLPrepareW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsqlstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3970,7 +3970,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrepareW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLPrimaryKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4007,7 +4007,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeys_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLPrimaryKeysA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4044,7 +4044,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLPrimaryKeysW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4081,7 +4081,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLProcedureColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4122,7 +4122,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumns_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLProcedureColumnsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4163,7 +4163,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLProcedureColumnsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4204,7 +4204,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLProcedures_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLProcedures_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4241,7 +4241,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedures_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLProceduresA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLProceduresA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4278,7 +4278,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProceduresA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLProceduresW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLProceduresW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4315,11 +4315,11 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProceduresW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLPutData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLPutData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* data = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    int64_t strlen_or_ind = km_info.Length() > 2 ? km_napi_arg_i64(km_info[2]) : 0;
+    int64_t strlenOrInd = km_info.Length() > 2 ? km_napi_arg_i64(km_info[2]) : 0;
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = nullptr;
@@ -4329,7 +4329,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPutData_napi(const 
     }
     int16_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(statementhandle, data, strlen_or_ind);
+        km_res = km_fn_ptr(statementhandle, data, strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -4337,14 +4337,14 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPutData_napi(const 
 #else
     (void)statementhandle;
     (void)data;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLRowCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLRowCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rowcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4371,7 +4371,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLRowCount_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetConnectAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t attribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4402,7 +4402,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttr_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetConnectAttrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4433,7 +4433,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttrA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetConnectAttrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4464,7 +4464,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttrW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetConnectOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t option = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4493,7 +4493,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOption_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOptionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetConnectOptionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t foption = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4522,7 +4522,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOptionA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOptionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetConnectOptionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t foption = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4551,7 +4551,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOptionW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetCursorName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cursorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4580,7 +4580,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorName_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetCursorNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4609,7 +4609,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorNameA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetCursorNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcursor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4638,7 +4638,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorNameW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetDescField_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetDescField_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* descriptorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t recnumber = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4671,7 +4671,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetDescField_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetDescFieldW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetDescFieldW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* descriptorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t recnumber = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4704,7 +4704,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetDescFieldW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetDescRec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetDescRec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* descriptorhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int16_t recnumber = static_cast<int16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4747,7 +4747,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetDescRec_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetEnvAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetEnvAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t attribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4778,7 +4778,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetEnvAttr_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t parameternumber = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4787,7 +4787,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetParam_napi(const
     uint64_t lengthprecision = km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0;
     int16_t parameterscale = static_cast<int16_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
     void* parametervalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
-    void* strlen_or_ind = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    void* strlenOrInd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, uint16_t, int16_t, int16_t, uint64_t, int16_t, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
@@ -4797,7 +4797,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetParam_napi(const
     }
     int16_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind);
+        km_res = km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlenOrInd);
     } else {
         errno = ENOSYS;
         km_res = -1;
@@ -4810,14 +4810,14 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetParam_napi(const
     (void)lengthprecision;
     (void)parameterscale;
     (void)parametervalue;
-    (void)strlen_or_ind;
+    (void)strlenOrInd;
     errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetPos_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetPos_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t irow = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4848,7 +4848,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetPos_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetScrollOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetScrollOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fconcurrency = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4879,7 +4879,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetScrollOptions_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetStmtAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t attribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4910,7 +4910,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtAttr_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtAttrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetStmtAttrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fattribute = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4941,7 +4941,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtAttrW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSetStmtOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t option = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4970,7 +4970,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtOption_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSpecialColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t identifiertype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5013,7 +5013,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumns_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSpecialColumnsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fcoltype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5056,7 +5056,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLSpecialColumnsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t fcoltype = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5099,7 +5099,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLStatistics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLStatistics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* catalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5140,7 +5140,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatistics_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLStatisticsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5181,7 +5181,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLStatisticsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5222,7 +5222,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivileges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLTablePrivileges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5259,7 +5259,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivileges_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLTablePrivilegesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5296,7 +5296,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLTablePrivilegesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5333,7 +5333,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLTables_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLTables_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* statementhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* catalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5374,7 +5374,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTables_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLTablesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLTablesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5415,7 +5415,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablesA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLTablesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLTablesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcatalogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5456,7 +5456,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablesW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_sQLTransact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchSQLTransact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* environmenthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5485,7 +5485,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTransact_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpBatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpBatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5510,7 +5510,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpBatch_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpBind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpBind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5549,7 +5549,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpBind_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpColfmt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpColfmt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5588,7 +5588,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpColfmt_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpCollen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpCollen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5617,7 +5617,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpCollen_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpColptr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpColptr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5646,7 +5646,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpColptr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5673,7 +5673,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpColumns_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5702,7 +5702,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpControl_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpDone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpDone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5727,7 +5727,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpDone_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpExec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpExec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5754,7 +5754,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpExec_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpGetcolfmt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpGetcolfmt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5789,7 +5789,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpGetcolfmt_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpInitA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpInitA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5822,7 +5822,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpInitA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpInitW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpInitW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5855,7 +5855,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpInitW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpMoretext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpMoretext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5884,7 +5884,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpMoretext_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpReadfmtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpReadfmtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5911,7 +5911,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpReadfmtA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpReadfmtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpReadfmtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5938,7 +5938,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpReadfmtW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpSendrow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpSendrow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5963,7 +5963,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpSendrow_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpSetcolfmt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpSetcolfmt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t param1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5996,7 +5996,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpSetcolfmt_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpWritefmtA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpWritefmtA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6023,7 +6023,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpWritefmtA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_bcpWritefmtW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchBcpWritefmtW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6050,7 +6050,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpWritefmtW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_dbprtypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchDbprtypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t param0 = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6075,7 +6075,7 @@ static Napi::Value windowssys_windows_win32_system_search_dbprtypeA_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_search_dbprtypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemSearchDbprtypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t param0 = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6101,187 +6101,187 @@ static Napi::Value windowssys_windows_win32_system_search_dbprtypeW_napi(const N
 }
 
 static void register_windows_win32_system_search_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_search_oDBCGetTryWaitValue", Napi::Function::New(env, windowssys_windows_win32_system_search_oDBCGetTryWaitValue_napi));
-    exports.Set("windowssys_windows_win32_system_search_oDBCSetTryWaitValue", Napi::Function::New(env, windowssys_windows_win32_system_search_oDBCSetTryWaitValue_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLAllocConnect", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLAllocConnect_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLAllocEnv", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLAllocEnv_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLAllocHandle", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLAllocHandle_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLAllocHandleStd", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLAllocHandleStd_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLAllocStmt", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLAllocStmt_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLBindCol", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLBindCol_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLBindParam", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLBindParam_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLBindParameter", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLBindParameter_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLBrowseConnect", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLBrowseConnect_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLBrowseConnectA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLBrowseConnectA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLBrowseConnectW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLBrowseConnectW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLBulkOperations", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLBulkOperations_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLCancel", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLCancel_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLCancelHandle", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLCancelHandle_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLCloseCursor", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLCloseCursor_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLCloseEnumServers", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLCloseEnumServers_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColAttribute", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColAttribute_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColAttributeA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColAttributeA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColAttributeW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColAttributeW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColAttributes", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColAttributes_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColAttributesA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColAttributesA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColAttributesW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColAttributesW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColumnPrivileges", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColumnPrivileges_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColumnPrivilegesA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColumnPrivilegesA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColumnPrivilegesW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColumnPrivilegesW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColumns", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColumns_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColumnsA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColumnsA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLColumnsW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLColumnsW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLCompleteAsync", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLCompleteAsync_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLConnect", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLConnect_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLConnectA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLConnectA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLConnectW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLConnectW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLCopyDesc", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLCopyDesc_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDataSources", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDataSources_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDataSourcesA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDataSourcesA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDataSourcesW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDataSourcesW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDescribeCol", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDescribeCol_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDescribeColA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDescribeColA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDescribeColW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDescribeColW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDescribeParam", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDescribeParam_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDisconnect", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDisconnect_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDriverConnect", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDriverConnect_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDriverConnectA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDriverConnectA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDriverConnectW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDriverConnectW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDrivers", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDrivers_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDriversA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDriversA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLDriversW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLDriversW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLEndTran", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLEndTran_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLError", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLError_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLErrorA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLErrorA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLErrorW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLErrorW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLExecDirect", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLExecDirect_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLExecDirectA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLExecDirectA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLExecDirectW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLExecDirectW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLExecute", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLExecute_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLExtendedFetch", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLExtendedFetch_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLFetch", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLFetch_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLFetchScroll", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLFetchScroll_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLForeignKeys", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLForeignKeys_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLForeignKeysA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLForeignKeysA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLForeignKeysW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLForeignKeysW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLFreeConnect", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLFreeConnect_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLFreeEnv", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLFreeEnv_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLFreeHandle", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLFreeHandle_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLFreeStmt", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLFreeStmt_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetConnectAttr", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetConnectAttr_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetConnectAttrA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetConnectAttrA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetConnectAttrW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetConnectAttrW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetConnectOption", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetConnectOption_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetConnectOptionA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetConnectOptionA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetConnectOptionW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetConnectOptionW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetCursorName", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetCursorName_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetCursorNameA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetCursorNameA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetCursorNameW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetCursorNameW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetData", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetData_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDescField", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDescField_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDescFieldA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDescFieldA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDescFieldW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDescFieldW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDescRec", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDescRec_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDescRecA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDescRecA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDescRecW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDescRecW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDiagField", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDiagField_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDiagFieldA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDiagFieldA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDiagFieldW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDiagFieldW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDiagRec", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDiagRec_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDiagRecA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDiagRecA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetDiagRecW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetDiagRecW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetEnvAttr", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetEnvAttr_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetFunctions", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetFunctions_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetInfo", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetInfo_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetInfoA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetInfoW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetNextEnumeration", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetNextEnumeration_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetStmtAttr", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetStmtAttr_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetStmtAttrA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetStmtAttrA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetStmtAttrW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetStmtAttrW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetStmtOption", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetStmtOption_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetTypeInfo", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetTypeInfo_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetTypeInfoA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetTypeInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLGetTypeInfoW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLGetTypeInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLInitEnumServers", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLInitEnumServers_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLLinkedCatalogsA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLLinkedCatalogsA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLLinkedCatalogsW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLLinkedCatalogsW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLLinkedServers", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLLinkedServers_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLMoreResults", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLMoreResults_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLNativeSql", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLNativeSql_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLNativeSqlA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLNativeSqlA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLNativeSqlW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLNativeSqlW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLNumParams", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLNumParams_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLNumResultCols", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLNumResultCols_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLParamData", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLParamData_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLParamOptions", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLParamOptions_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLPrepare", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLPrepare_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLPrepareA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLPrepareA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLPrepareW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLPrepareW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLPrimaryKeys", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLPrimaryKeys_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLPrimaryKeysA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLPrimaryKeysA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLPrimaryKeysW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLPrimaryKeysW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLProcedureColumns", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLProcedureColumns_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLProcedureColumnsA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLProcedureColumnsA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLProcedureColumnsW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLProcedureColumnsW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLProcedures", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLProcedures_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLProceduresA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLProceduresA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLProceduresW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLProceduresW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLPutData", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLPutData_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLRowCount", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLRowCount_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetConnectAttr", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetConnectAttr_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetConnectAttrA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetConnectAttrA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetConnectAttrW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetConnectAttrW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetConnectOption", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetConnectOption_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetConnectOptionA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetConnectOptionA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetConnectOptionW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetConnectOptionW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetCursorName", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetCursorName_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetCursorNameA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetCursorNameA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetCursorNameW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetCursorNameW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetDescField", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetDescField_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetDescFieldW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetDescFieldW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetDescRec", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetDescRec_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetEnvAttr", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetEnvAttr_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetParam", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetParam_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetPos", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetPos_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetScrollOptions", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetScrollOptions_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetStmtAttr", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetStmtAttr_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetStmtAttrW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetStmtAttrW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSetStmtOption", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSetStmtOption_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSpecialColumns", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSpecialColumns_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSpecialColumnsA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSpecialColumnsA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLSpecialColumnsW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLSpecialColumnsW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLStatistics", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLStatistics_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLStatisticsA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLStatisticsA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLStatisticsW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLStatisticsW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLTablePrivileges", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLTablePrivileges_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLTablePrivilegesA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLTablePrivilegesA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLTablePrivilegesW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLTablePrivilegesW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLTables", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLTables_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLTablesA", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLTablesA_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLTablesW", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLTablesW_napi));
-    exports.Set("windowssys_windows_win32_system_search_sQLTransact", Napi::Function::New(env, windowssys_windows_win32_system_search_sQLTransact_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpBatch", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpBatch_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpBind", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpBind_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpColfmt", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpColfmt_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpCollen", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpCollen_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpColptr", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpColptr_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpColumns", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpColumns_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpControl", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpControl_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpDone", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpDone_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpExec", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpExec_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpGetcolfmt", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpGetcolfmt_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpInitA", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpInitA_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpInitW", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpInitW_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpMoretext", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpMoretext_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpReadfmtA", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpReadfmtA_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpReadfmtW", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpReadfmtW_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpSendrow", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpSendrow_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpSetcolfmt", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpSetcolfmt_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpWritefmtA", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpWritefmtA_napi));
-    exports.Set("windowssys_windows_win32_system_search_bcpWritefmtW", Napi::Function::New(env, windowssys_windows_win32_system_search_bcpWritefmtW_napi));
-    exports.Set("windowssys_windows_win32_system_search_dbprtypeA", Napi::Function::New(env, windowssys_windows_win32_system_search_dbprtypeA_napi));
-    exports.Set("windowssys_windows_win32_system_search_dbprtypeW", Napi::Function::New(env, windowssys_windows_win32_system_search_dbprtypeW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchODBCGetTryWaitValue", Napi::Function::New(env, windowssysWindowsWin32SystemSearchODBCGetTryWaitValue_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchODBCSetTryWaitValue", Napi::Function::New(env, windowssysWindowsWin32SystemSearchODBCSetTryWaitValue_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLAllocConnect", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLAllocConnect_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLAllocEnv", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLAllocEnv_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLAllocHandle", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLAllocHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLAllocHandleStd", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLAllocHandleStd_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLAllocStmt", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLAllocStmt_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLBindCol", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLBindCol_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLBindParam", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLBindParam_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLBindParameter", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLBindParameter_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLBrowseConnect", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLBrowseConnect_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLBrowseConnectA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLBrowseConnectA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLBrowseConnectW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLBrowseConnectW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLBulkOperations", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLBulkOperations_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLCancel", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLCancel_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLCancelHandle", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLCancelHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLCloseCursor", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLCloseCursor_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLCloseEnumServers", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLCloseEnumServers_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColAttribute", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColAttribute_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColAttributeA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColAttributeA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColAttributeW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColAttributeW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColAttributes", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColAttributes_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColAttributesA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColAttributesA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColAttributesW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColAttributesW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColumnPrivileges", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColumnPrivileges_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColumnPrivilegesA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColumnPrivilegesA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColumnPrivilegesW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColumnPrivilegesW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColumns", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColumns_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColumnsA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColumnsA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLColumnsW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLColumnsW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLCompleteAsync", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLCompleteAsync_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLConnect", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLConnect_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLConnectA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLConnectA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLConnectW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLConnectW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLCopyDesc", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLCopyDesc_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDataSources", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDataSources_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDataSourcesA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDataSourcesA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDataSourcesW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDataSourcesW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDescribeCol", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDescribeCol_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDescribeColA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDescribeColA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDescribeColW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDescribeColW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDescribeParam", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDescribeParam_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDisconnect", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDisconnect_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDriverConnect", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDriverConnect_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDriverConnectA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDriverConnectA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDriverConnectW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDriverConnectW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDrivers", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDrivers_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDriversA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDriversA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLDriversW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLDriversW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLEndTran", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLEndTran_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLError", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLError_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLErrorA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLErrorA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLErrorW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLErrorW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLExecDirect", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLExecDirect_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLExecDirectA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLExecDirectA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLExecDirectW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLExecDirectW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLExecute", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLExecute_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLExtendedFetch", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLExtendedFetch_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLFetch", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLFetch_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLFetchScroll", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLFetchScroll_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLForeignKeys", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLForeignKeys_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLForeignKeysA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLForeignKeysA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLForeignKeysW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLForeignKeysW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLFreeConnect", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLFreeConnect_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLFreeEnv", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLFreeEnv_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLFreeHandle", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLFreeHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLFreeStmt", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLFreeStmt_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetConnectAttr", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetConnectAttr_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetConnectAttrA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetConnectAttrA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetConnectAttrW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetConnectAttrW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetConnectOption", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetConnectOption_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetConnectOptionA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetConnectOptionA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetConnectOptionW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetConnectOptionW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetCursorName", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetCursorName_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetCursorNameA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetCursorNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetCursorNameW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetCursorNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetData", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetData_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDescField", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDescField_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDescFieldA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDescFieldA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDescFieldW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDescFieldW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDescRec", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDescRec_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDescRecA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDescRecA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDescRecW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDescRecW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDiagField", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDiagField_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDiagFieldA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDiagFieldA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDiagFieldW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDiagFieldW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDiagRec", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDiagRec_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDiagRecA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDiagRecA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetDiagRecW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetDiagRecW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetEnvAttr", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetEnvAttr_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetFunctions", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetFunctions_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetInfo", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetInfoA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetInfoA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetInfoW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetInfoW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetNextEnumeration", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetNextEnumeration_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetStmtAttr", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetStmtAttr_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetStmtAttrA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetStmtAttrA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetStmtAttrW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetStmtAttrW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetStmtOption", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetStmtOption_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetTypeInfo", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetTypeInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetTypeInfoA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetTypeInfoA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLGetTypeInfoW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLGetTypeInfoW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLInitEnumServers", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLInitEnumServers_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLLinkedCatalogsA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLLinkedCatalogsA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLLinkedCatalogsW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLLinkedCatalogsW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLLinkedServers", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLLinkedServers_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLMoreResults", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLMoreResults_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLNativeSql", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLNativeSql_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLNativeSqlA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLNativeSqlA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLNativeSqlW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLNativeSqlW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLNumParams", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLNumParams_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLNumResultCols", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLNumResultCols_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLParamData", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLParamData_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLParamOptions", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLParamOptions_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLPrepare", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLPrepare_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLPrepareA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLPrepareA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLPrepareW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLPrepareW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLPrimaryKeys", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLPrimaryKeys_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLPrimaryKeysA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLPrimaryKeysA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLPrimaryKeysW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLPrimaryKeysW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLProcedureColumns", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLProcedureColumns_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLProcedureColumnsA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLProcedureColumnsA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLProcedureColumnsW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLProcedureColumnsW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLProcedures", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLProcedures_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLProceduresA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLProceduresA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLProceduresW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLProceduresW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLPutData", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLPutData_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLRowCount", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLRowCount_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetConnectAttr", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetConnectAttr_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetConnectAttrA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetConnectAttrA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetConnectAttrW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetConnectAttrW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetConnectOption", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetConnectOption_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetConnectOptionA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetConnectOptionA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetConnectOptionW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetConnectOptionW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetCursorName", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetCursorName_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetCursorNameA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetCursorNameA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetCursorNameW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetCursorNameW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetDescField", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetDescField_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetDescFieldW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetDescFieldW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetDescRec", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetDescRec_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetEnvAttr", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetEnvAttr_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetParam", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetParam_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetPos", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetPos_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetScrollOptions", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetScrollOptions_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetStmtAttr", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetStmtAttr_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetStmtAttrW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetStmtAttrW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSetStmtOption", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSetStmtOption_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSpecialColumns", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSpecialColumns_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSpecialColumnsA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSpecialColumnsA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLSpecialColumnsW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLSpecialColumnsW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLStatistics", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLStatistics_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLStatisticsA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLStatisticsA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLStatisticsW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLStatisticsW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLTablePrivileges", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLTablePrivileges_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLTablePrivilegesA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLTablePrivilegesA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLTablePrivilegesW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLTablePrivilegesW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLTables", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLTables_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLTablesA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLTablesA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLTablesW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLTablesW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchSQLTransact", Napi::Function::New(env, windowssysWindowsWin32SystemSearchSQLTransact_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpBatch", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpBatch_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpBind", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpBind_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpColfmt", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpColfmt_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpCollen", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpCollen_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpColptr", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpColptr_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpColumns", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpColumns_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpControl", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpControl_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpDone", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpDone_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpExec", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpExec_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpGetcolfmt", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpGetcolfmt_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpInitA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpInitA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpInitW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpInitW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpMoretext", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpMoretext_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpReadfmtA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpReadfmtA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpReadfmtW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpReadfmtW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpSendrow", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpSendrow_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpSetcolfmt", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpSetcolfmt_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpWritefmtA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpWritefmtA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchBcpWritefmtW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchBcpWritefmtW_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchDbprtypeA", Napi::Function::New(env, windowssysWindowsWin32SystemSearchDbprtypeA_napi));
+    exports.Set("windowssysWindowsWin32SystemSearchDbprtypeW", Napi::Function::New(env, windowssysWindowsWin32SystemSearchDbprtypeW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_search_napi, nullptr };

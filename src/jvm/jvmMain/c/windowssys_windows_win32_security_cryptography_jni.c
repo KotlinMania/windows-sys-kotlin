@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptAddContextFunction(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jint dwposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptAddContextFunction(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jint dwposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptAddContextFunctionProvider(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszprovider, jint dwposition) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptAddContextFunctionProvider(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszprovider, jint dwposition) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptCloseAlgorithmProvider(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptCloseAlgorithmProvider(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -104,7 +104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptConfigureContext(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jlong pconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptConfigureContext(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jlong pconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptConfigureContextFunction(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptConfigureContextFunction(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -160,7 +160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptCreateContext(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jlong pconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptCreateContext(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jlong pconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -187,7 +187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptCreateHash(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phhash, jlong pbhashobject, jint cbhashobject, jlong pbsecret, jint cbsecret, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptCreateHash(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phhash, jlong pbhashobject, jint cbhashobject, jlong pbsecret, jint cbsecret, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -218,7 +218,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptCreateMultiHash(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phhash, jint nhashes, jlong pbhashobject, jint cbhashobject, jlong pbsecret, jint cbsecret, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptCreateMultiHash(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phhash, jint nhashes, jlong pbhashobject, jint cbhashobject, jlong pbsecret, jint cbsecret, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -250,7 +250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pbiv, jint cbiv, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pbiv, jint cbiv, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -284,7 +284,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDeleteContext(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDeleteContext(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -310,7 +310,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDeriveKey(JNIEnv* km_env, jclass km_clazz, jlong hsharedsecret, jlong pwszkdf, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDeriveKey(JNIEnv* km_env, jclass km_clazz, jlong hsharedsecret, jlong pwszkdf, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -341,7 +341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDeriveKeyCapi(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong htargetalg, jlong pbderivedkey, jint cbderivedkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyCapi(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong htargetalg, jlong pbderivedkey, jint cbderivedkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -370,7 +370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDeriveKeyPBKDF2(JNIEnv* km_env, jclass km_clazz, jlong hprf, jlong pbpassword, jint cbpassword, jlong pbsalt, jint cbsalt, jlong citerations, jlong pbderivedkey, jint cbderivedkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyPBKDF2(JNIEnv* km_env, jclass km_clazz, jlong hprf, jlong pbpassword, jint cbpassword, jlong pbsalt, jint cbsalt, jlong citerations, jlong pbderivedkey, jint cbderivedkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -403,7 +403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDestroyHash(JNIEnv* km_env, jclass km_clazz, jlong hhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDestroyHash(JNIEnv* km_env, jclass km_clazz, jlong hhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -428,7 +428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDestroyKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDestroyKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -453,7 +453,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDestroySecret(JNIEnv* km_env, jclass km_clazz, jlong hsecret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDestroySecret(JNIEnv* km_env, jclass km_clazz, jlong hsecret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -478,7 +478,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDuplicateHash(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong phnewhash, jlong pbhashobject, jint cbhashobject, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDuplicateHash(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong phnewhash, jlong pbhashobject, jint cbhashobject, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -507,7 +507,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptDuplicateKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phnewkey, jlong pbkeyobject, jint cbkeyobject, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptDuplicateKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong phnewkey, jlong pbkeyobject, jint cbkeyobject, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -536,7 +536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pbiv, jint cbiv, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pbiv, jint cbiv, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -570,7 +570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptEnumAlgorithms(JNIEnv* km_env, jclass km_clazz, jint dwalgoperations, jlong palgcount, jlong ppalglist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptEnumAlgorithms(JNIEnv* km_env, jclass km_clazz, jint dwalgoperations, jlong palgcount, jlong ppalglist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -598,7 +598,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptEnumContextFunctionProviders(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctionProviders(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -628,7 +628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptEnumContextFunctions(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctions(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -657,7 +657,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptEnumContexts(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptEnumContexts(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -684,7 +684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptEnumProviders(JNIEnv* km_env, jclass km_clazz, jlong pszalgid, jlong pimplcount, jlong ppimpllist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptEnumProviders(JNIEnv* km_env, jclass km_clazz, jlong pszalgid, jlong pimplcount, jlong ppimpllist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -712,7 +712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptEnumRegisteredProviders(JNIEnv* km_env, jclass km_clazz, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptEnumRegisteredProviders(JNIEnv* km_env, jclass km_clazz, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -738,7 +738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptExportKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hexportkey, jlong pszblobtype, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptExportKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hexportkey, jlong pszblobtype, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -769,7 +769,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptFinalizeKeyPair(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptFinalizeKeyPair(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -795,7 +795,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptFinishHash(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pboutput, jint cboutput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptFinishHash(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pboutput, jint cboutput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -823,7 +823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pvbuffer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pvbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -844,7 +844,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptGenRandom(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong pbbuffer, jint cbbuffer, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptGenRandom(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong pbbuffer, jint cbbuffer, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -872,7 +872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptGenerateKeyPair(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phkey, jint dwlength, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptGenerateKeyPair(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phkey, jint dwlength, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -900,7 +900,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptGenerateSymmetricKey(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phkey, jlong pbkeyobject, jint cbkeyobject, jlong pbsecret, jint cbsecret, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptGenerateSymmetricKey(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong phkey, jlong pbkeyobject, jint cbkeyobject, jlong pbsecret, jint cbsecret, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -931,7 +931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptGetFipsAlgorithmMode(JNIEnv* km_env, jclass km_clazz, jlong pfenabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptGetFipsAlgorithmMode(JNIEnv* km_env, jclass km_clazz, jlong pfenabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -956,7 +956,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptGetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptGetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -986,7 +986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptHash(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong pbsecret, jint cbsecret, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptHash(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong pbsecret, jint cbsecret, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1017,7 +1017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptHashData(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbinput, jint cbinput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptHashData(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbinput, jint cbinput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1045,7 +1045,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptImportKey(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong himportkey, jlong pszblobtype, jlong phkey, jlong pbkeyobject, jint cbkeyobject, jlong pbinput, jint cbinput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptImportKey(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong himportkey, jlong pszblobtype, jlong phkey, jlong pbkeyobject, jint cbkeyobject, jlong pbinput, jint cbinput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1078,7 +1078,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptImportKeyPair(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong himportkey, jlong pszblobtype, jlong phkey, jlong pbinput, jint cbinput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptImportKeyPair(JNIEnv* km_env, jclass km_clazz, jlong halgorithm, jlong himportkey, jlong pszblobtype, jlong phkey, jlong pbinput, jint cbinput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1109,7 +1109,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptKeyDerivation(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptKeyDerivation(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1139,7 +1139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptOpenAlgorithmProvider(JNIEnv* km_env, jclass km_clazz, jlong phalgorithm, jlong pszalgid, jlong pszimplementation, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptOpenAlgorithmProvider(JNIEnv* km_env, jclass km_clazz, jlong phalgorithm, jlong pszalgid, jlong pszimplementation, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1167,7 +1167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptProcessMultiOperations(JNIEnv* km_env, jclass km_clazz, jlong hobject, jint operationtype, jlong poperations, jint cboperations, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptProcessMultiOperations(JNIEnv* km_env, jclass km_clazz, jlong hobject, jint operationtype, jlong poperations, jint cboperations, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1196,7 +1196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptQueryContextConfiguration(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptQueryContextConfiguration(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1224,7 +1224,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptQueryContextFunctionConfiguration(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionConfiguration(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1254,7 +1254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptQueryContextFunctionProperty(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszproperty, jlong pcbvalue, jlong ppbvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionProperty(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszproperty, jlong pcbvalue, jlong ppbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1285,7 +1285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptQueryProviderRegistration(JNIEnv* km_env, jclass km_clazz, jlong pszprovider, jint dwmode, jint dwinterface, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptQueryProviderRegistration(JNIEnv* km_env, jclass km_clazz, jlong pszprovider, jint dwmode, jint dwinterface, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1314,7 +1314,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptRegisterConfigChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong phevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptRegisterConfigChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong phevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1339,7 +1339,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptRegisterProvider(JNIEnv* km_env, jclass km_clazz, jlong pszprovider, jint dwflags, jlong preg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptRegisterProvider(JNIEnv* km_env, jclass km_clazz, jlong pszprovider, jint dwflags, jlong preg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1366,7 +1366,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptRemoveContextFunction(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunction(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1394,7 +1394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptRemoveContextFunctionProvider(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunctionProvider(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1423,7 +1423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptResolveProviders(JNIEnv* km_env, jclass km_clazz, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszprovider, jint dwmode, jint dwflags, jlong pcbbuffer, jlong ppbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptResolveProviders(JNIEnv* km_env, jclass km_clazz, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszprovider, jint dwmode, jint dwflags, jlong pcbbuffer, jlong ppbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1455,7 +1455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptSecretAgreement(JNIEnv* km_env, jclass km_clazz, jlong hprivkey, jlong hpubkey, jlong phagreedsecret, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptSecretAgreement(JNIEnv* km_env, jclass km_clazz, jlong hprivkey, jlong hpubkey, jlong phagreedsecret, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1483,7 +1483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptSetContextFunctionProperty(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszproperty, jint cbvalue, jlong pbvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptSetContextFunctionProperty(JNIEnv* km_env, jclass km_clazz, jint dwtable, jlong pszcontext, jint dwinterface, jlong pszfunction, jlong pszproperty, jint cbvalue, jlong pbvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1514,7 +1514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptSetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pbinput, jint cbinput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptSetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pbinput, jint cbinput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1543,7 +1543,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptSignHash(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptSignHash(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1575,7 +1575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptUnregisterConfigChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptUnregisterConfigChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1600,7 +1600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptUnregisterProvider(JNIEnv* km_env, jclass km_clazz, jlong pszprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptUnregisterProvider(JNIEnv* km_env, jclass km_clazz, jlong pszprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1625,7 +1625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1bCryptVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbhash, jint cbhash, jlong pbsignature, jint cbsignature, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyBCryptVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbhash, jint cbhash, jlong pbsignature, jint cbsignature, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1656,7 +1656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddCRLContextToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcrlcontext, jint dwadddisposition, jlong ppstorecontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddCRLContextToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcrlcontext, jint dwadddisposition, jlong ppstorecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1684,7 +1684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddCRLLinkToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcrlcontext, jint dwadddisposition, jlong ppstorecontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddCRLLinkToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcrlcontext, jint dwadddisposition, jlong ppstorecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1712,7 +1712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddCTLContextToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pctlcontext, jint dwadddisposition, jlong ppstorecontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddCTLContextToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pctlcontext, jint dwadddisposition, jlong ppstorecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1740,7 +1740,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddCTLLinkToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pctlcontext, jint dwadddisposition, jlong ppstorecontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddCTLLinkToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pctlcontext, jint dwadddisposition, jlong ppstorecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1768,7 +1768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddCertificateContextToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcertcontext, jint dwadddisposition, jlong ppstorecontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddCertificateContextToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcertcontext, jint dwadddisposition, jlong ppstorecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1796,7 +1796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddCertificateLinkToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcertcontext, jint dwadddisposition, jlong ppstorecontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddCertificateLinkToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pcertcontext, jint dwadddisposition, jlong ppstorecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1824,7 +1824,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddEncodedCRLToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jlong pbcrlencoded, jint cbcrlencoded, jint dwadddisposition, jlong ppcrlcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddEncodedCRLToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jlong pbcrlencoded, jint cbcrlencoded, jint dwadddisposition, jlong ppcrlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1854,7 +1854,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddEncodedCTLToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwmsgandcertencodingtype, jlong pbctlencoded, jint cbctlencoded, jint dwadddisposition, jlong ppctlcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddEncodedCTLToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwmsgandcertencodingtype, jlong pbctlencoded, jint cbctlencoded, jint dwadddisposition, jlong ppctlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1884,7 +1884,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddEncodedCertificateToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jlong pbcertencoded, jint cbcertencoded, jint dwadddisposition, jlong ppcertcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jlong pbcertencoded, jint cbcertencoded, jint dwadddisposition, jlong ppcertcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1914,7 +1914,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddEncodedCertificateToSystemStoreA(JNIEnv* km_env, jclass km_clazz, jlong szcertstorename, jlong pbcertencoded, jint cbcertencoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreA(JNIEnv* km_env, jclass km_clazz, jlong szcertstorename, jlong pbcertencoded, jint cbcertencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1941,7 +1941,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddEncodedCertificateToSystemStoreW(JNIEnv* km_env, jclass km_clazz, jlong szcertstorename, jlong pbcertencoded, jint cbcertencoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreW(JNIEnv* km_env, jclass km_clazz, jlong szcertstorename, jlong pbcertencoded, jint cbcertencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1968,7 +1968,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddEnhancedKeyUsageIdentifier(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pszusageidentifier) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddEnhancedKeyUsageIdentifier(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pszusageidentifier) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1994,7 +1994,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddRefServerOcspResponse(JNIEnv* km_env, jclass km_clazz, jlong hserverocspresponse) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponse(JNIEnv* km_env, jclass km_clazz, jlong hserverocspresponse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2015,7 +2015,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddRefServerOcspResponseContext(JNIEnv* km_env, jclass km_clazz, jlong pserverocspresponsecontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponseContext(JNIEnv* km_env, jclass km_clazz, jlong pserverocspresponsecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2036,7 +2036,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddSerializedElementToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pbelement, jint cbelement, jint dwadddisposition, jint dwflags, jint dwcontexttypeflags, jlong pdwcontexttype, jlong ppvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddSerializedElementToStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pbelement, jint cbelement, jint dwadddisposition, jint dwflags, jint dwcontexttypeflags, jlong pdwcontexttype, jlong ppvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2068,7 +2068,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAddStoreToCollection(JNIEnv* km_env, jclass km_clazz, jlong hcollectionstore, jlong hsiblingstore, jint dwupdateflags, jint dwpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAddStoreToCollection(JNIEnv* km_env, jclass km_clazz, jlong hcollectionstore, jlong hsiblingstore, jint dwupdateflags, jint dwpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2096,7 +2096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certAlgIdToOID(JNIEnv* km_env, jclass km_clazz, jint dwalgid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertAlgIdToOID(JNIEnv* km_env, jclass km_clazz, jint dwalgid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2121,7 +2121,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCloseServerOcspResponse(JNIEnv* km_env, jclass km_clazz, jlong hserverocspresponse, jint dwflags) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCloseServerOcspResponse(JNIEnv* km_env, jclass km_clazz, jlong hserverocspresponse, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2143,7 +2143,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCloseStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCloseStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2169,7 +2169,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCompareCertificate(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertid1, jlong pcertid2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCompareCertificate(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertid1, jlong pcertid2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2196,7 +2196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCompareCertificateName(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertname1, jlong pcertname2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCompareCertificateName(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertname1, jlong pcertname2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2223,7 +2223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCompareIntegerBlob(JNIEnv* km_env, jclass km_clazz, jlong pint1, jlong pint2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCompareIntegerBlob(JNIEnv* km_env, jclass km_clazz, jlong pint1, jlong pint2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2249,7 +2249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certComparePublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong ppublickey1, jlong ppublickey2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertComparePublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong ppublickey1, jlong ppublickey2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2276,7 +2276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certControlStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwflags, jint dwctrltype, jlong pvctrlpara) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertControlStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwflags, jint dwctrltype, jlong pvctrlpara) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2304,7 +2304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCreateCRLContext(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pbcrlencoded, jint cbcrlencoded) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCreateCRLContext(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pbcrlencoded, jint cbcrlencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2331,7 +2331,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCreateCTLContext(JNIEnv* km_env, jclass km_clazz, jint dwmsgandcertencodingtype, jlong pbctlencoded, jint cbctlencoded) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCreateCTLContext(JNIEnv* km_env, jclass km_clazz, jint dwmsgandcertencodingtype, jlong pbctlencoded, jint cbctlencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2358,7 +2358,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCreateCTLEntryFromCertificateContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint coptattr, jlong rgoptattr, jint dwflags, jlong pvreserved, jlong pctlentry, jlong pcbctlentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCreateCTLEntryFromCertificateContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint coptattr, jlong rgoptattr, jint dwflags, jlong pvreserved, jlong pctlentry, jlong pcbctlentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2389,7 +2389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCreateCertificateChainEngine(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jlong phchainengine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCreateCertificateChainEngine(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jlong phchainengine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2415,7 +2415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCreateCertificateContext(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pbcertencoded, jint cbcertencoded) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCreateCertificateContext(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pbcertencoded, jint cbcertencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2442,7 +2442,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCreateContext(JNIEnv* km_env, jclass km_clazz, jint dwcontexttype, jint dwencodingtype, jlong pbencoded, jint cbencoded, jint dwflags, jlong pcreatepara) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCreateContext(JNIEnv* km_env, jclass km_clazz, jint dwcontexttype, jint dwencodingtype, jlong pbencoded, jint cbencoded, jint dwflags, jlong pcreatepara) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2472,7 +2472,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certCreateSelfSignCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jlong psubjectissuerblob, jint dwflags, jlong pkeyprovinfo, jlong psignaturealgorithm, jlong pstarttime, jlong pendtime, jlong pextensions) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertCreateSelfSignCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jlong psubjectissuerblob, jint dwflags, jlong pkeyprovinfo, jlong psignaturealgorithm, jlong pstarttime, jlong pendtime, jlong pextensions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2504,7 +2504,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDeleteCRLFromStore(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDeleteCRLFromStore(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2529,7 +2529,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDeleteCTLFromStore(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDeleteCTLFromStore(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2554,7 +2554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDeleteCertificateFromStore(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDeleteCertificateFromStore(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2579,7 +2579,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDuplicateCRLContext(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDuplicateCRLContext(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2604,7 +2604,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDuplicateCTLContext(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDuplicateCTLContext(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2629,7 +2629,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDuplicateCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong pchaincontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong pchaincontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2654,7 +2654,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDuplicateCertificateContext(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateContext(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2679,7 +2679,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certDuplicateStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertDuplicateStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2704,7 +2704,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumCRLContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwpropid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumCRLContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwpropid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2730,7 +2730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumCRLsInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pprevcrlcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumCRLsInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pprevcrlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2756,7 +2756,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumCTLContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwpropid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumCTLContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwpropid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2782,7 +2782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumCTLsInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pprevctlcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumCTLsInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pprevctlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2808,7 +2808,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumCertificateContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwpropid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumCertificateContextProperties(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwpropid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2834,7 +2834,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumCertificatesInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pprevcertcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumCertificatesInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pprevcertcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2860,7 +2860,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumPhysicalStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pvarg, jlong pfnenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumPhysicalStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pvarg, jlong pfnenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2888,7 +2888,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumSubjectInSortedCTL(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jlong ppvnextsubject, jlong psubjectidentifier, jlong pencodedattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumSubjectInSortedCTL(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jlong ppvnextsubject, jlong psubjectidentifier, jlong pencodedattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2916,7 +2916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumSystemStore(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pvsystemstorelocationpara, jlong pvarg, jlong pfnenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumSystemStore(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pvsystemstorelocationpara, jlong pvarg, jlong pfnenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2944,7 +2944,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certEnumSystemStoreLocation(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pvarg, jlong pfnenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertEnumSystemStoreLocation(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pvarg, jlong pfnenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2971,7 +2971,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindAttribute(JNIEnv* km_env, jclass km_clazz, jlong pszobjid, jint cattr, jlong rgattr) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindAttribute(JNIEnv* km_env, jclass km_clazz, jlong pszobjid, jint cattr, jlong rgattr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2998,7 +2998,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindCRLInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevcrlcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindCRLInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevcrlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3028,7 +3028,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindCTLInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwmsgandcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevctlcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindCTLInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwmsgandcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevctlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3058,7 +3058,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindCertificateInCRL(JNIEnv* km_env, jclass km_clazz, jlong pcert, jlong pcrlcontext, jint dwflags, jlong pvreserved, jlong ppcrlentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindCertificateInCRL(JNIEnv* km_env, jclass km_clazz, jlong pcert, jlong pcrlcontext, jint dwflags, jlong pvreserved, jlong ppcrlentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3087,7 +3087,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindCertificateInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevcertcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindCertificateInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevcertcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3117,7 +3117,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindChainInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevchaincontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindChainInStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jint dwfindflags, jint dwfindtype, jlong pvfindpara, jlong pprevchaincontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3147,7 +3147,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindExtension(JNIEnv* km_env, jclass km_clazz, jlong pszobjid, jint cextensions, jlong rgextensions) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindExtension(JNIEnv* km_env, jclass km_clazz, jlong pszobjid, jint cextensions, jlong rgextensions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3174,7 +3174,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindRDNAttr(JNIEnv* km_env, jclass km_clazz, jlong pszobjid, jlong pname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindRDNAttr(JNIEnv* km_env, jclass km_clazz, jlong pszobjid, jlong pname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3200,7 +3200,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindSubjectInCTL(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jint dwsubjecttype, jlong pvsubject, jlong pctlcontext, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindSubjectInCTL(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jint dwsubjecttype, jlong pvsubject, jlong pctlcontext, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3229,7 +3229,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFindSubjectInSortedCTL(JNIEnv* km_env, jclass km_clazz, jlong psubjectidentifier, jlong pctlcontext, jint dwflags, jlong pvreserved, jlong pencodedattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFindSubjectInSortedCTL(JNIEnv* km_env, jclass km_clazz, jlong psubjectidentifier, jlong pctlcontext, jint dwflags, jlong pvreserved, jlong pencodedattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3258,7 +3258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFreeCRLContext(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFreeCRLContext(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3283,7 +3283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFreeCTLContext(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFreeCTLContext(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3308,7 +3308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFreeCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong pchaincontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong pchaincontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3329,7 +3329,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFreeCertificateChainEngine(JNIEnv* km_env, jclass km_clazz, jlong hchainengine) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainEngine(JNIEnv* km_env, jclass km_clazz, jlong hchainengine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3350,7 +3350,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFreeCertificateChainList(JNIEnv* km_env, jclass km_clazz, jlong prgpselection) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainList(JNIEnv* km_env, jclass km_clazz, jlong prgpselection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3371,7 +3371,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFreeCertificateContext(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFreeCertificateContext(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3396,7 +3396,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certFreeServerOcspResponseContext(JNIEnv* km_env, jclass km_clazz, jlong pserverocspresponsecontext) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertFreeServerOcspResponseContext(JNIEnv* km_env, jclass km_clazz, jlong pserverocspresponsecontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3417,7 +3417,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetCRLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwpropid, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetCRLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwpropid, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3445,7 +3445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetCRLFromStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pissuercontext, jlong pprevcrlcontext, jlong pdwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetCRLFromStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong pissuercontext, jlong pprevcrlcontext, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3473,7 +3473,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetCTLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwpropid, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetCTLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwpropid, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3501,7 +3501,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong hchainengine, jlong pcertcontext, jlong ptime, jlong hadditionalstore, jlong pchainpara, jint dwflags, jlong pvreserved, jlong ppchaincontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetCertificateChain(JNIEnv* km_env, jclass km_clazz, jlong hchainengine, jlong pcertcontext, jlong ptime, jlong hadditionalstore, jlong pchainpara, jint dwflags, jlong pvreserved, jlong ppchaincontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3533,7 +3533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetCertificateContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwpropid, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetCertificateContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwpropid, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3561,7 +3561,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetEnhancedKeyUsage(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwflags, jlong pusage, jlong pcbusage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetEnhancedKeyUsage(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwflags, jlong pusage, jlong pcbusage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3589,7 +3589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetIntendedKeyUsage(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertinfo, jlong pbkeyusage, jint cbkeyusage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetIntendedKeyUsage(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertinfo, jlong pbkeyusage, jint cbkeyusage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3617,7 +3617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetIssuerCertificateFromStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong psubjectcontext, jlong pprevissuercontext, jlong pdwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetIssuerCertificateFromStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jlong psubjectcontext, jlong pprevissuercontext, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3645,7 +3645,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetNameStringA(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwtype, jint dwflags, jlong pvtypepara, jlong psznamestring, jint cchnamestring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetNameStringA(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwtype, jint dwflags, jlong pvtypepara, jlong psznamestring, jint cchnamestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3675,7 +3675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetNameStringW(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwtype, jint dwflags, jlong pvtypepara, jlong psznamestring, jint cchnamestring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetNameStringW(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwtype, jint dwflags, jlong pvtypepara, jlong psznamestring, jint cchnamestring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3705,7 +3705,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetPublicKeyLength(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong ppublickey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetPublicKeyLength(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong ppublickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3731,7 +3731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetServerOcspResponseContext(JNIEnv* km_env, jclass km_clazz, jlong hserverocspresponse, jint dwflags, jlong pvreserved) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetServerOcspResponseContext(JNIEnv* km_env, jclass km_clazz, jlong hserverocspresponse, jint dwflags, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3758,7 +3758,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetStoreProperty(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwpropid, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetStoreProperty(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwpropid, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3786,7 +3786,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetSubjectCertificateFromStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jlong pcertid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetSubjectCertificateFromStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwcertencodingtype, jlong pcertid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3813,7 +3813,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certGetValidUsages(JNIEnv* km_env, jclass km_clazz, jint ccerts, jlong rghcerts, jlong cnumoids, jlong rghoids, jlong pcboids) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertGetValidUsages(JNIEnv* km_env, jclass km_clazz, jint ccerts, jlong rghcerts, jlong cnumoids, jlong rghoids, jlong pcboids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3842,7 +3842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certIsRDNAttrsInCertificateName(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jint dwflags, jlong pcertname, jlong prdn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertIsRDNAttrsInCertificateName(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jint dwflags, jlong pcertname, jlong prdn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3870,7 +3870,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certIsStrongHashToSign(JNIEnv* km_env, jclass km_clazz, jlong pstrongsignpara, jlong pwszcnghashalgid, jlong psigningcert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertIsStrongHashToSign(JNIEnv* km_env, jclass km_clazz, jlong pstrongsignpara, jlong pwszcnghashalgid, jlong psigningcert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3897,7 +3897,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certIsValidCRLForCertificate(JNIEnv* km_env, jclass km_clazz, jlong pcert, jlong pcrl, jint dwflags, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertIsValidCRLForCertificate(JNIEnv* km_env, jclass km_clazz, jlong pcert, jlong pcrl, jint dwflags, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3925,7 +3925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certIsWeakHash(JNIEnv* km_env, jclass km_clazz, jint dwhashusetype, jlong pwszcnghashalgid, jint dwchainflags, jlong psignerchaincontext, jlong ptimestamp, jlong pwszfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertIsWeakHash(JNIEnv* km_env, jclass km_clazz, jint dwhashusetype, jlong pwszcnghashalgid, jint dwchainflags, jlong psignerchaincontext, jlong ptimestamp, jlong pwszfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3955,7 +3955,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certNameToStrA(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pname, jint dwstrtype, jlong psz, jint csz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertNameToStrA(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pname, jint dwstrtype, jlong psz, jint csz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3984,7 +3984,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certNameToStrW(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pname, jint dwstrtype, jlong psz, jint csz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertNameToStrW(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pname, jint dwstrtype, jlong psz, jint csz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4013,7 +4013,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certOIDToAlgId(JNIEnv* km_env, jclass km_clazz, jlong pszobjid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertOIDToAlgId(JNIEnv* km_env, jclass km_clazz, jlong pszobjid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4038,7 +4038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certOpenServerOcspResponse(JNIEnv* km_env, jclass km_clazz, jlong pchaincontext, jint dwflags, jlong popenpara) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertOpenServerOcspResponse(JNIEnv* km_env, jclass km_clazz, jlong pchaincontext, jint dwflags, jlong popenpara) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4065,7 +4065,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certOpenStore(JNIEnv* km_env, jclass km_clazz, jlong lpszstoreprovider, jint dwencodingtype, jlong hcryptprov, jint dwflags, jlong pvpara) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertOpenStore(JNIEnv* km_env, jclass km_clazz, jlong lpszstoreprovider, jint dwencodingtype, jlong hcryptprov, jint dwflags, jlong pvpara) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4094,7 +4094,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certOpenSystemStoreA(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong szsubsystemprotocol) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreA(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong szsubsystemprotocol) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4120,7 +4120,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certOpenSystemStoreW(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong szsubsystemprotocol) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreW(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong szsubsystemprotocol) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4146,7 +4146,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certRDNValueToStrA(JNIEnv* km_env, jclass km_clazz, jint dwvaluetype, jlong pvalue, jlong psz, jint csz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrA(JNIEnv* km_env, jclass km_clazz, jint dwvaluetype, jlong pvalue, jlong psz, jint csz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4174,7 +4174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certRDNValueToStrW(JNIEnv* km_env, jclass km_clazz, jint dwvaluetype, jlong pvalue, jlong psz, jint csz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrW(JNIEnv* km_env, jclass km_clazz, jint dwvaluetype, jlong pvalue, jlong psz, jint csz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4202,7 +4202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certRegisterPhysicalStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pwszstorename, jlong pstoreinfo, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertRegisterPhysicalStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pwszstorename, jlong pstoreinfo, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4231,7 +4231,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certRegisterSystemStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pstoreinfo, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertRegisterSystemStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pstoreinfo, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4259,7 +4259,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certRemoveEnhancedKeyUsageIdentifier(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pszusageidentifier) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertRemoveEnhancedKeyUsageIdentifier(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pszusageidentifier) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4285,7 +4285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certRemoveStoreFromCollection(JNIEnv* km_env, jclass km_clazz, jlong hcollectionstore, jlong hsiblingstore) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertRemoveStoreFromCollection(JNIEnv* km_env, jclass km_clazz, jlong hcollectionstore, jlong hsiblingstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4307,7 +4307,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certResyncCertificateChainEngine(JNIEnv* km_env, jclass km_clazz, jlong hchainengine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertResyncCertificateChainEngine(JNIEnv* km_env, jclass km_clazz, jlong hchainengine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4332,7 +4332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certRetrieveLogoOrBiometricInfo(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong lpszlogoorbiometrictype, jint dwretrievalflags, jint dwtimeout, jint dwflags, jlong pvreserved, jlong ppbdata, jlong pcbdata, jlong ppwszmimetype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertRetrieveLogoOrBiometricInfo(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong lpszlogoorbiometrictype, jint dwretrievalflags, jint dwtimeout, jint dwflags, jlong pvreserved, jlong ppbdata, jlong pcbdata, jlong ppwszmimetype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4365,7 +4365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSaveStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwencodingtype, jint dwsaveas, jint dwsaveto, jlong pvsavetopara, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSaveStore(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwencodingtype, jint dwsaveas, jint dwsaveto, jlong pvsavetopara, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4395,7 +4395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSelectCertificateChains(JNIEnv* km_env, jclass km_clazz, jlong pselectioncontext, jint dwflags, jlong pchainparameters, jint ccriteria, jlong rgpcriteria, jlong hstore, jlong pcselection, jlong pprgpselection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSelectCertificateChains(JNIEnv* km_env, jclass km_clazz, jlong pselectioncontext, jint dwflags, jlong pchainparameters, jint ccriteria, jlong rgpcriteria, jlong hstore, jlong pcselection, jlong pprgpselection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4427,7 +4427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSerializeCRLStoreElement(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwflags, jlong pbelement, jlong pcbelement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSerializeCRLStoreElement(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwflags, jlong pbelement, jlong pcbelement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4455,7 +4455,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSerializeCTLStoreElement(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwflags, jlong pbelement, jlong pcbelement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSerializeCTLStoreElement(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwflags, jlong pbelement, jlong pcbelement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4483,7 +4483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSerializeCertificateStoreElement(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwflags, jlong pbelement, jlong pcbelement) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSerializeCertificateStoreElement(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwflags, jlong pbelement, jlong pcbelement) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4511,7 +4511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSetCRLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwpropid, jint dwflags, jlong pvdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSetCRLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcrlcontext, jint dwpropid, jint dwflags, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4539,7 +4539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSetCTLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwpropid, jint dwflags, jlong pvdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSetCTLContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pctlcontext, jint dwpropid, jint dwflags, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4567,7 +4567,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSetCertificateContextPropertiesFromCTLEntry(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pctlentry, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextPropertiesFromCTLEntry(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pctlentry, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4594,7 +4594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSetCertificateContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwpropid, jint dwflags, jlong pvdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextProperty(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jint dwpropid, jint dwflags, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4622,7 +4622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSetEnhancedKeyUsage(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pusage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSetEnhancedKeyUsage(JNIEnv* km_env, jclass km_clazz, jlong pcertcontext, jlong pusage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4648,7 +4648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certSetStoreProperty(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwpropid, jint dwflags, jlong pvdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertSetStoreProperty(JNIEnv* km_env, jclass km_clazz, jlong hcertstore, jint dwpropid, jint dwflags, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4676,7 +4676,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certStrToNameA(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pszx500, jint dwstrtype, jlong pvreserved, jlong pbencoded, jlong pcbencoded, jlong ppszerror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertStrToNameA(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pszx500, jint dwstrtype, jlong pvreserved, jlong pbencoded, jlong pcbencoded, jlong ppszerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4707,7 +4707,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certStrToNameW(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pszx500, jint dwstrtype, jlong pvreserved, jlong pbencoded, jlong pcbencoded, jlong ppszerror) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertStrToNameW(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pszx500, jint dwstrtype, jlong pvreserved, jlong pbencoded, jlong pcbencoded, jlong ppszerror) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4738,7 +4738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certUnregisterPhysicalStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pwszstorename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertUnregisterPhysicalStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags, jlong pwszstorename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4765,7 +4765,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certUnregisterSystemStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertUnregisterSystemStore(JNIEnv* km_env, jclass km_clazz, jlong pvsystemstore, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4791,7 +4791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifyCRLRevocation(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertid, jint ccrlinfo, jlong rgpcrlinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifyCRLRevocation(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pcertid, jint ccrlinfo, jlong rgpcrlinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4819,7 +4819,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifyCRLTimeValidity(JNIEnv* km_env, jclass km_clazz, jlong ptimetoverify, jlong pcrlinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifyCRLTimeValidity(JNIEnv* km_env, jclass km_clazz, jlong ptimetoverify, jlong pcrlinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4845,7 +4845,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifyCTLUsage(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jint dwsubjecttype, jlong pvsubject, jlong psubjectusage, jint dwflags, jlong pverifyusagepara, jlong pverifyusagestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifyCTLUsage(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jint dwsubjecttype, jlong pvsubject, jlong psubjectusage, jint dwflags, jlong pverifyusagepara, jlong pverifyusagestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4876,7 +4876,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifyCertificateChainPolicy(JNIEnv* km_env, jclass km_clazz, jlong pszpolicyoid, jlong pchaincontext, jlong ppolicypara, jlong ppolicystatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifyCertificateChainPolicy(JNIEnv* km_env, jclass km_clazz, jlong pszpolicyoid, jlong pchaincontext, jlong ppolicypara, jlong ppolicystatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4904,7 +4904,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifyRevocation(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jint dwrevtype, jint ccontext, jlong rgpvcontext, jint dwflags, jlong prevpara, jlong prevstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifyRevocation(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jint dwrevtype, jint ccontext, jlong rgpvcontext, jint dwflags, jlong prevpara, jlong prevstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4935,7 +4935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifySubjectCertificateContext(JNIEnv* km_env, jclass km_clazz, jlong psubject, jlong pissuer, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifySubjectCertificateContext(JNIEnv* km_env, jclass km_clazz, jlong psubject, jlong pissuer, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4962,7 +4962,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifyTimeValidity(JNIEnv* km_env, jclass km_clazz, jlong ptimetoverify, jlong pcertinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifyTimeValidity(JNIEnv* km_env, jclass km_clazz, jlong ptimetoverify, jlong pcertinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4988,7 +4988,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1certVerifyValidityNesting(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pissuerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCertVerifyValidityNesting(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pissuerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5014,7 +5014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1closeCryptoHandle(JNIEnv* km_env, jclass km_clazz, jlong hcrypto) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCloseCryptoHandle(JNIEnv* km_env, jclass km_clazz, jlong hcrypto) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5039,7 +5039,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptAcquireCertificatePrivateKey(JNIEnv* km_env, jclass km_clazz, jlong pcert, jint dwflags, jlong pvparameters, jlong phcryptprovorncryptkey, jlong pdwkeyspec, jlong pfcallerfreeprovorncryptkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptAcquireCertificatePrivateKey(JNIEnv* km_env, jclass km_clazz, jlong pcert, jint dwflags, jlong pvparameters, jlong phcryptprovorncryptkey, jlong pdwkeyspec, jlong pfcallerfreeprovorncryptkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5069,7 +5069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptAcquireContextA(JNIEnv* km_env, jclass km_clazz, jlong phprov, jlong szcontainer, jlong szprovider, jint dwprovtype, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptAcquireContextA(JNIEnv* km_env, jclass km_clazz, jlong phprov, jlong szcontainer, jlong szprovider, jint dwprovtype, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5098,7 +5098,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptAcquireContextW(JNIEnv* km_env, jclass km_clazz, jlong phprov, jlong szcontainer, jlong szprovider, jint dwprovtype, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptAcquireContextW(JNIEnv* km_env, jclass km_clazz, jlong phprov, jlong szcontainer, jlong szprovider, jint dwprovtype, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5127,7 +5127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptBinaryToStringA(JNIEnv* km_env, jclass km_clazz, jlong pbbinary, jint cbbinary, jint dwflags, jlong pszstring, jlong pcchstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringA(JNIEnv* km_env, jclass km_clazz, jlong pbbinary, jint cbbinary, jint dwflags, jlong pszstring, jlong pcchstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5156,7 +5156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptBinaryToStringW(JNIEnv* km_env, jclass km_clazz, jlong pbbinary, jint cbbinary, jint dwflags, jlong pszstring, jlong pcchstring) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringW(JNIEnv* km_env, jclass km_clazz, jlong pbbinary, jint cbbinary, jint dwflags, jlong pszstring, jlong pcchstring) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5185,7 +5185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptCloseAsyncHandle(JNIEnv* km_env, jclass km_clazz, jlong hasync) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(JNIEnv* km_env, jclass km_clazz, jlong hasync) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5210,7 +5210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptContextAddRef(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong pdwreserved, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptContextAddRef(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong pdwreserved, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5237,7 +5237,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptCreateAsyncHandle(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong phasync) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptCreateAsyncHandle(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong phasync) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5263,7 +5263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptCreateHash(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint algid, jlong hkey, jint dwflags, jlong phhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptCreateHash(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint algid, jlong hkey, jint dwflags, jlong phhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5292,7 +5292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptCreateKeyIdentifierFromCSP(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pszpubkeyoid, jlong ppubkeystruc, jint cbpubkeystruc, jint dwflags, jlong pvreserved, jlong pbhash, jlong pcbhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptCreateKeyIdentifierFromCSP(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pszpubkeyoid, jlong ppubkeystruc, jint cbpubkeystruc, jint dwflags, jlong pvreserved, jlong pbhash, jlong pcbhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5324,7 +5324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDecodeMessage(JNIEnv* km_env, jclass km_clazz, jint dwmsgtypeflags, jlong pdecryptpara, jlong pverifypara, jint dwsignerindex, jlong pbencodedblob, jint cbencodedblob, jint dwprevinnercontenttype, jlong pdwmsgtype, jlong pdwinnercontenttype, jlong pbdecoded, jlong pcbdecoded, jlong ppxchgcert, jlong ppsignercert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDecodeMessage(JNIEnv* km_env, jclass km_clazz, jint dwmsgtypeflags, jlong pdecryptpara, jlong pverifypara, jint dwsignerindex, jlong pbencodedblob, jint cbencodedblob, jint dwprevinnercontenttype, jlong pdwmsgtype, jlong pdwinnercontenttype, jlong pbdecoded, jlong pcbdecoded, jlong ppxchgcert, jlong ppsignercert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5361,7 +5361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDecodeObject(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pbencoded, jint cbencoded, jint dwflags, jlong pvstructinfo, jlong pcbstructinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDecodeObject(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pbencoded, jint cbencoded, jint dwflags, jlong pvstructinfo, jlong pcbstructinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5392,7 +5392,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDecodeObjectEx(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pbencoded, jint cbencoded, jint dwflags, jlong pdecodepara, jlong pvstructinfo, jlong pcbstructinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDecodeObjectEx(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pbencoded, jint cbencoded, jint dwflags, jlong pdecodepara, jlong pvstructinfo, jlong pcbstructinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5424,7 +5424,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hhash, jint final, jint dwflags, jlong pbdata, jlong pdwdatalen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hhash, jint final, jint dwflags, jlong pbdata, jlong pdwdatalen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5454,7 +5454,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDecryptAndVerifyMessageSignature(JNIEnv* km_env, jclass km_clazz, jlong pdecryptpara, jlong pverifypara, jint dwsignerindex, jlong pbencryptedblob, jint cbencryptedblob, jlong pbdecrypted, jlong pcbdecrypted, jlong ppxchgcert, jlong ppsignercert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDecryptAndVerifyMessageSignature(JNIEnv* km_env, jclass km_clazz, jlong pdecryptpara, jlong pverifypara, jint dwsignerindex, jlong pbencryptedblob, jint cbencryptedblob, jlong pbdecrypted, jlong pcbdecrypted, jlong ppxchgcert, jlong ppsignercert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5487,7 +5487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDecryptMessage(JNIEnv* km_env, jclass km_clazz, jlong pdecryptpara, jlong pbencryptedblob, jint cbencryptedblob, jlong pbdecrypted, jlong pcbdecrypted, jlong ppxchgcert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDecryptMessage(JNIEnv* km_env, jclass km_clazz, jlong pdecryptpara, jlong pbencryptedblob, jint cbencryptedblob, jlong pbdecrypted, jlong pcbdecrypted, jlong ppxchgcert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5517,7 +5517,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDeriveKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint algid, jlong hbasedata, jint dwflags, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDeriveKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint algid, jlong hbasedata, jint dwflags, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5546,7 +5546,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDestroyHash(JNIEnv* km_env, jclass km_clazz, jlong hhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDestroyHash(JNIEnv* km_env, jclass km_clazz, jlong hhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5571,7 +5571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDestroyKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDestroyKey(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5596,7 +5596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDuplicateHash(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pdwreserved, jint dwflags, jlong phhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDuplicateHash(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pdwreserved, jint dwflags, jlong phhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5624,7 +5624,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptDuplicateKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pdwreserved, jint dwflags, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptDuplicateKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pdwreserved, jint dwflags, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5652,7 +5652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEncodeObject(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pvstructinfo, jlong pbencoded, jlong pcbencoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEncodeObject(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pvstructinfo, jlong pbencoded, jlong pcbencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5681,7 +5681,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEncodeObjectEx(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pvstructinfo, jint dwflags, jlong pencodepara, jlong pvencoded, jlong pcbencoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEncodeObjectEx(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong lpszstructtype, jlong pvstructinfo, jint dwflags, jlong pencodepara, jlong pvencoded, jlong pcbencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5712,7 +5712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hhash, jint final, jint dwflags, jlong pbdata, jlong pdwdatalen, jint dwbuflen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hhash, jint final, jint dwflags, jlong pbdata, jlong pdwdatalen, jint dwbuflen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5743,7 +5743,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEncryptMessage(JNIEnv* km_env, jclass km_clazz, jlong pencryptpara, jint crecipientcert, jlong rgprecipientcert, jlong pbtobeencrypted, jint cbtobeencrypted, jlong pbencryptedblob, jlong pcbencryptedblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEncryptMessage(JNIEnv* km_env, jclass km_clazz, jlong pencryptpara, jint crecipientcert, jlong rgprecipientcert, jlong pbtobeencrypted, jint cbtobeencrypted, jlong pbencryptedblob, jlong pcbencryptedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5774,7 +5774,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEnumKeyIdentifierProperties(JNIEnv* km_env, jclass km_clazz, jlong pkeyidentifier, jint dwpropid, jint dwflags, jlong pwszcomputername, jlong pvreserved, jlong pvarg, jlong pfnenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEnumKeyIdentifierProperties(JNIEnv* km_env, jclass km_clazz, jlong pkeyidentifier, jint dwpropid, jint dwflags, jlong pwszcomputername, jlong pvreserved, jlong pvarg, jlong pfnenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5805,7 +5805,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEnumOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jint dwflags, jlong pvarg, jlong pfnenumoidfunc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEnumOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jint dwflags, jlong pvarg, jlong pfnenumoidfunc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5835,7 +5835,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEnumOIDInfo(JNIEnv* km_env, jclass km_clazz, jint dwgroupid, jint dwflags, jlong pvarg, jlong pfnenumoidinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEnumOIDInfo(JNIEnv* km_env, jclass km_clazz, jint dwgroupid, jint dwflags, jlong pvarg, jlong pfnenumoidinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5863,7 +5863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEnumProviderTypesA(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong sztypename, jlong pcbtypename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesA(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong sztypename, jlong pcbtypename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5893,7 +5893,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEnumProviderTypesW(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong sztypename, jlong pcbtypename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesW(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong sztypename, jlong pcbtypename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5923,7 +5923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEnumProvidersA(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong szprovname, jlong pcbprovname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersA(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong szprovname, jlong pcbprovname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5953,7 +5953,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptEnumProvidersW(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong szprovname, jlong pcbprovname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersW(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong pdwreserved, jint dwflags, jlong pdwprovtype, jlong szprovname, jlong pcbprovname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5983,7 +5983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptExportKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hexpkey, jint dwblobtype, jint dwflags, jlong pbdata, jlong pdwdatalen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptExportKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hexpkey, jint dwblobtype, jint dwflags, jlong pbdata, jlong pdwdatalen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6013,7 +6013,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptExportPKCS8(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwkeyspec, jlong pszprivatekeyobjid, jint dwflags, jlong pvauxinfo, jlong pbprivatekeyblob, jlong pcbprivatekeyblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptExportPKCS8(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwkeyspec, jlong pszprivatekeyobjid, jint dwflags, jlong pvauxinfo, jlong pbprivatekeyblob, jlong pcbprivatekeyblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6044,7 +6044,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptExportPublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong pinfo, jlong pcbinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong pinfo, jlong pcbinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6073,7 +6073,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptExportPublicKeyInfoEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong pszpublickeyobjid, jint dwflags, jlong pvauxinfo, jlong pinfo, jlong pcbinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong pszpublickeyobjid, jint dwflags, jlong pvauxinfo, jlong pinfo, jlong pcbinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6105,7 +6105,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptExportPublicKeyInfoFromBCryptKeyHandle(JNIEnv* km_env, jclass km_clazz, jlong hbcryptkey, jint dwcertencodingtype, jlong pszpublickeyobjid, jint dwflags, jlong pvauxinfo, jlong pinfo, jlong pcbinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoFromBCryptKeyHandle(JNIEnv* km_env, jclass km_clazz, jlong hbcryptkey, jint dwcertencodingtype, jlong pszpublickeyobjid, jint dwflags, jlong pvauxinfo, jlong pinfo, jlong pcbinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6136,7 +6136,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptFindCertificateKeyProvInfo(JNIEnv* km_env, jclass km_clazz, jlong pcert, jint dwflags, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptFindCertificateKeyProvInfo(JNIEnv* km_env, jclass km_clazz, jlong pcert, jint dwflags, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6163,7 +6163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptFindLocalizedName(JNIEnv* km_env, jclass km_clazz, jlong pwszcryptname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptFindLocalizedName(JNIEnv* km_env, jclass km_clazz, jlong pwszcryptname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6188,7 +6188,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptFindOIDInfo(JNIEnv* km_env, jclass km_clazz, jint dwkeytype, jlong pvkey, jint dwgroupid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptFindOIDInfo(JNIEnv* km_env, jclass km_clazz, jint dwkeytype, jlong pvkey, jint dwgroupid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6215,7 +6215,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptFormatObject(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jint dwformattype, jint dwformatstrtype, jlong pformatstruct, jlong lpszstructtype, jlong pbencoded, jint cbencoded, jlong pbformat, jlong pcbformat) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptFormatObject(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jint dwformattype, jint dwformatstrtype, jlong pformatstruct, jlong lpszstructtype, jlong pbencoded, jint cbencoded, jlong pbformat, jlong pcbformat) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6248,7 +6248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptFreeOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hfuncaddr, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptFreeOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hfuncaddr, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6274,7 +6274,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGenKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint algid, jint dwflags, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGenKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint algid, jint dwflags, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6302,7 +6302,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGenRandom(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwlen, jlong pbbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGenRandom(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwlen, jlong pbbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6329,7 +6329,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetAsyncParam(JNIEnv* km_env, jclass km_clazz, jlong hasync, jlong pszparamoid, jlong ppvparam, jlong ppfnfree) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetAsyncParam(JNIEnv* km_env, jclass km_clazz, jlong hasync, jlong pszparamoid, jlong ppvparam, jlong ppfnfree) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6357,7 +6357,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetDefaultOIDDllList(JNIEnv* km_env, jclass km_clazz, jlong hfuncset, jint dwencodingtype, jlong pwszdlllist, jlong pcchdlllist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDDllList(JNIEnv* km_env, jclass km_clazz, jlong hfuncset, jint dwencodingtype, jlong pwszdlllist, jlong pcchdlllist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6385,7 +6385,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetDefaultOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hfuncset, jint dwencodingtype, jlong pwszdll, jint dwflags, jlong ppvfuncaddr, jlong phfuncaddr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hfuncset, jint dwencodingtype, jlong pwszdll, jint dwflags, jlong ppvfuncaddr, jlong phfuncaddr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6415,7 +6415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetDefaultProviderA(JNIEnv* km_env, jclass km_clazz, jint dwprovtype, jlong pdwreserved, jint dwflags, jlong pszprovname, jlong pcbprovname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderA(JNIEnv* km_env, jclass km_clazz, jint dwprovtype, jlong pdwreserved, jint dwflags, jlong pszprovname, jlong pcbprovname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6444,7 +6444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetDefaultProviderW(JNIEnv* km_env, jclass km_clazz, jint dwprovtype, jlong pdwreserved, jint dwflags, jlong pszprovname, jlong pcbprovname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderW(JNIEnv* km_env, jclass km_clazz, jint dwprovtype, jlong pdwreserved, jint dwflags, jlong pszprovname, jlong pcbprovname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6473,7 +6473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetHashParam(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwparam, jlong pbdata, jlong pdwdatalen, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetHashParam(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwparam, jlong pbdata, jlong pdwdatalen, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6502,7 +6502,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetKeyIdentifierProperty(JNIEnv* km_env, jclass km_clazz, jlong pkeyidentifier, jint dwpropid, jint dwflags, jlong pwszcomputername, jlong pvreserved, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetKeyIdentifierProperty(JNIEnv* km_env, jclass km_clazz, jlong pkeyidentifier, jint dwpropid, jint dwflags, jlong pwszcomputername, jlong pvreserved, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6533,7 +6533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetKeyParam(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwparam, jlong pbdata, jlong pdwdatalen, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetKeyParam(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwparam, jlong pbdata, jlong pdwdatalen, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6562,7 +6562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetMessageCertificates(JNIEnv* km_env, jclass km_clazz, jint dwmsgandcertencodingtype, jlong hcryptprov, jint dwflags, jlong pbsignedblob, jint cbsignedblob) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetMessageCertificates(JNIEnv* km_env, jclass km_clazz, jint dwmsgandcertencodingtype, jlong hcryptprov, jint dwflags, jlong pbsignedblob, jint cbsignedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6591,7 +6591,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetMessageSignerCount(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jlong pbsignedblob, jint cbsignedblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetMessageSignerCount(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jlong pbsignedblob, jint cbsignedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6618,7 +6618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hfuncset, jint dwencodingtype, jlong pszoid, jint dwflags, jlong ppvfuncaddr, jlong phfuncaddr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hfuncset, jint dwencodingtype, jlong pszoid, jint dwflags, jlong ppvfuncaddr, jlong phfuncaddr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6648,7 +6648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetOIDFunctionValue(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jlong pwszvaluename, jlong pdwvaluetype, jlong pbvaluedata, jlong pcbvaluedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionValue(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jlong pwszvaluename, jlong pdwvaluetype, jlong pbvaluedata, jlong pcbvaluedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6679,7 +6679,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetObjectUrl(JNIEnv* km_env, jclass km_clazz, jlong pszurloid, jlong pvpara, jint dwflags, jlong purlarray, jlong pcburlarray, jlong purlinfo, jlong pcburlinfo, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetObjectUrl(JNIEnv* km_env, jclass km_clazz, jlong pszurloid, jlong pvpara, jint dwflags, jlong purlarray, jlong pcburlarray, jlong purlinfo, jlong pcburlinfo, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6711,7 +6711,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetProvParam(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwparam, jlong pbdata, jlong pdwdatalen, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetProvParam(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwparam, jlong pbdata, jlong pdwdatalen, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6740,7 +6740,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptGetUserKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwkeyspec, jlong phuserkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptGetUserKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwkeyspec, jlong phuserkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6767,7 +6767,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptHashCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint algid, jint dwflags, jlong pbencoded, jint cbencoded, jlong pbcomputedhash, jlong pcbcomputedhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptHashCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint algid, jint dwflags, jlong pbencoded, jint cbencoded, jlong pbcomputedhash, jlong pcbcomputedhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6798,7 +6798,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptHashCertificate2(JNIEnv* km_env, jclass km_clazz, jlong pwszcnghashalgid, jint dwflags, jlong pvreserved, jlong pbencoded, jint cbencoded, jlong pbcomputedhash, jlong pcbcomputedhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptHashCertificate2(JNIEnv* km_env, jclass km_clazz, jlong pwszcnghashalgid, jint dwflags, jlong pvreserved, jlong pbencoded, jint cbencoded, jlong pbcomputedhash, jlong pcbcomputedhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6829,7 +6829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptHashData(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbdata, jint dwdatalen, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptHashData(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbdata, jint dwdatalen, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6857,7 +6857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptHashMessage(JNIEnv* km_env, jclass km_clazz, jlong phashpara, jint fdetachedhash, jint ctobehashed, jlong rgpbtobehashed, jlong rgcbtobehashed, jlong pbhashedblob, jlong pcbhashedblob, jlong pbcomputedhash, jlong pcbcomputedhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptHashMessage(JNIEnv* km_env, jclass km_clazz, jlong phashpara, jint fdetachedhash, jint ctobehashed, jlong rgpbtobehashed, jlong rgcbtobehashed, jlong pbhashedblob, jlong pcbhashedblob, jlong pbcomputedhash, jlong pcbcomputedhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6890,7 +6890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptHashPublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint algid, jint dwflags, jint dwcertencodingtype, jlong pinfo, jlong pbcomputedhash, jlong pcbcomputedhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptHashPublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint algid, jint dwflags, jint dwcertencodingtype, jlong pinfo, jlong pbcomputedhash, jlong pcbcomputedhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6921,7 +6921,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptHashSessionKey(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong hkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong hkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6948,7 +6948,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptHashToBeSigned(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pbencoded, jint cbencoded, jlong pbcomputedhash, jlong pcbcomputedhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptHashToBeSigned(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pbencoded, jint cbencoded, jlong pbcomputedhash, jlong pcbcomputedhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6978,7 +6978,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptImportKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong pbdata, jint dwdatalen, jlong hpubkey, jint dwflags, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptImportKey(JNIEnv* km_env, jclass km_clazz, jlong hprov, jlong pbdata, jint dwdatalen, jlong hpubkey, jint dwflags, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7008,7 +7008,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptImportPublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pinfo, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfo(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pinfo, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7036,7 +7036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptImportPublicKeyInfoEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pinfo, jint aikeyalg, jint dwflags, jlong pvauxinfo, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pinfo, jint aikeyalg, jint dwflags, jlong pvauxinfo, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7067,7 +7067,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptImportPublicKeyInfoEx2(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pinfo, jint dwflags, jlong pvauxinfo, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx2(JNIEnv* km_env, jclass km_clazz, jint dwcertencodingtype, jlong pinfo, jint dwflags, jlong pvauxinfo, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7096,7 +7096,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptInitOIDFunctionSet(JNIEnv* km_env, jclass km_clazz, jlong pszfuncname, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptInitOIDFunctionSet(JNIEnv* km_env, jclass km_clazz, jlong pszfuncname, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7122,7 +7122,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptInstallCancelRetrieval(JNIEnv* km_env, jclass km_clazz, jlong pfncancel, jlong pvarg, jint dwflags, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptInstallCancelRetrieval(JNIEnv* km_env, jclass km_clazz, jlong pfncancel, jlong pvarg, jint dwflags, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7150,7 +7150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptInstallDefaultContext(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwdefaulttype, jlong pvdefaultpara, jint dwflags, jlong pvreserved, jlong phdefaultcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptInstallDefaultContext(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwdefaulttype, jlong pvdefaultpara, jint dwflags, jlong pvreserved, jlong phdefaultcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7180,7 +7180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptInstallOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jint dwencodingtype, jlong pszfuncname, jint cfuncentry, jlong rgfuncentry, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptInstallOIDFunctionAddress(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jint dwencodingtype, jlong pszfuncname, jint cfuncentry, jlong rgfuncentry, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7210,7 +7210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMemAlloc(JNIEnv* km_env, jclass km_clazz, jint cbsize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMemAlloc(JNIEnv* km_env, jclass km_clazz, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7235,7 +7235,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMemFree(JNIEnv* km_env, jclass km_clazz, jlong pv) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMemFree(JNIEnv* km_env, jclass km_clazz, jlong pv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7256,7 +7256,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMemRealloc(JNIEnv* km_env, jclass km_clazz, jlong pv, jint cbsize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMemRealloc(JNIEnv* km_env, jclass km_clazz, jlong pv, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7282,7 +7282,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgCalculateEncodedLength(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jint dwflags, jint dwmsgtype, jlong pvmsgencodeinfo, jlong pszinnercontentobjid, jint cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgCalculateEncodedLength(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jint dwflags, jint dwmsgtype, jlong pvmsgencodeinfo, jlong pszinnercontentobjid, jint cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7312,7 +7312,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgClose(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgClose(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7337,7 +7337,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgControl(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint dwflags, jint dwctrltype, jlong pvctrlpara) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgControl(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint dwflags, jint dwctrltype, jlong pvctrlpara) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7365,7 +7365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgCountersign(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint dwindex, jint ccountersigners, jlong rgcountersigners) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgCountersign(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint dwindex, jint ccountersigners, jlong rgcountersigners) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7393,7 +7393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgCountersignEncoded(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pbsignerinfo, jint cbsignerinfo, jint ccountersigners, jlong rgcountersigners, jlong pbcountersignature, jlong pcbcountersignature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgCountersignEncoded(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pbsignerinfo, jint cbsignerinfo, jint ccountersigners, jlong rgcountersigners, jlong pbcountersignature, jlong pcbcountersignature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7424,7 +7424,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgDuplicate(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgDuplicate(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7449,7 +7449,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgEncodeAndSignCTL(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jlong pctlinfo, jlong psigninfo, jint dwflags, jlong pbencoded, jlong pcbencoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgEncodeAndSignCTL(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jlong pctlinfo, jlong psigninfo, jint dwflags, jlong pbencoded, jlong pcbencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7479,7 +7479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgGetAndVerifySigner(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint csignerstore, jlong rghsignerstore, jint dwflags, jlong ppsigner, jlong pdwsignerindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgGetAndVerifySigner(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint csignerstore, jlong rghsignerstore, jint dwflags, jlong ppsigner, jlong pdwsignerindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7509,7 +7509,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgGetParam(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint dwparamtype, jint dwindex, jlong pvdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgGetParam(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jint dwparamtype, jint dwindex, jlong pvdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7538,7 +7538,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgOpenToDecode(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jint dwflags, jint dwmsgtype, jlong hcryptprov, jlong precipientinfo, jlong pstreaminfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToDecode(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jint dwflags, jint dwmsgtype, jlong hcryptprov, jlong precipientinfo, jlong pstreaminfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7568,7 +7568,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgOpenToEncode(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jint dwflags, jint dwmsgtype, jlong pvmsgencodeinfo, jlong pszinnercontentobjid, jlong pstreaminfo) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToEncode(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jint dwflags, jint dwmsgtype, jlong pvmsgencodeinfo, jlong pszinnercontentobjid, jlong pstreaminfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7598,7 +7598,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgSignCTL(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jlong pbctlcontent, jint cbctlcontent, jlong psigninfo, jint dwflags, jlong pbencoded, jlong pcbencoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgSignCTL(JNIEnv* km_env, jclass km_clazz, jint dwmsgencodingtype, jlong pbctlcontent, jint cbctlcontent, jlong psigninfo, jint dwflags, jlong pbencoded, jlong pcbencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7629,7 +7629,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgUpdate(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jlong pbdata, jint cbdata, jint ffinal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgUpdate(JNIEnv* km_env, jclass km_clazz, jlong hcryptmsg, jlong pbdata, jint cbdata, jint ffinal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7657,7 +7657,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgVerifyCountersignatureEncoded(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwencodingtype, jlong pbsignerinfo, jint cbsignerinfo, jlong pbsignerinfocountersignature, jint cbsignerinfocountersignature, jlong pcicountersigner) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncoded(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwencodingtype, jlong pbsignerinfo, jint cbsignerinfo, jlong pbsignerinfocountersignature, jint cbsignerinfocountersignature, jlong pcicountersigner) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7688,7 +7688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptMsgVerifyCountersignatureEncodedEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwencodingtype, jlong pbsignerinfo, jint cbsignerinfo, jlong pbsignerinfocountersignature, jint cbsignerinfocountersignature, jint dwsignertype, jlong pvsigner, jint dwflags, jlong pvextra) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncodedEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwencodingtype, jlong pbsignerinfo, jint cbsignerinfo, jlong pbsignerinfocountersignature, jint cbsignerinfocountersignature, jint dwsignertype, jlong pvsigner, jint dwflags, jlong pvextra) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7722,7 +7722,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptProtectData(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jlong szdatadescr, jlong poptionalentropy, jlong pvreserved, jlong ppromptstruct, jint dwflags, jlong pdataout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptProtectData(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jlong szdatadescr, jlong poptionalentropy, jlong pvreserved, jlong ppromptstruct, jint dwflags, jlong pdataout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7753,7 +7753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptProtectMemory(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jint cbdatain, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptProtectMemory(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jint cbdatain, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7780,7 +7780,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptQueryObject(JNIEnv* km_env, jclass km_clazz, jint dwobjecttype, jlong pvobject, jint dwexpectedcontenttypeflags, jint dwexpectedformattypeflags, jint dwflags, jlong pdwmsgandcertencodingtype, jlong pdwcontenttype, jlong pdwformattype, jlong phcertstore, jlong phmsg, jlong ppvcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptQueryObject(JNIEnv* km_env, jclass km_clazz, jint dwobjecttype, jlong pvobject, jint dwexpectedcontenttypeflags, jint dwexpectedformattypeflags, jint dwflags, jlong pdwmsgandcertencodingtype, jlong pdwcontenttype, jlong pdwformattype, jlong phcertstore, jlong phmsg, jlong ppvcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7815,7 +7815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptRegisterDefaultOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jint dwindex, jlong pwszdll) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptRegisterDefaultOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jint dwindex, jlong pwszdll) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7843,7 +7843,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptRegisterOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jlong pwszdll, jlong pszoverridefuncname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jlong pwszdll, jlong pszoverridefuncname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7872,7 +7872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptRegisterOIDInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7898,7 +7898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptReleaseContext(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptReleaseContext(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7924,7 +7924,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptRetrieveObjectByUrlA(JNIEnv* km_env, jclass km_clazz, jlong pszurl, jlong pszobjectoid, jint dwretrievalflags, jint dwtimeout, jlong ppvobject, jlong hasyncretrieve, jlong pcredentials, jlong pvverify, jlong pauxinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlA(JNIEnv* km_env, jclass km_clazz, jlong pszurl, jlong pszobjectoid, jint dwretrievalflags, jint dwtimeout, jlong ppvobject, jlong hasyncretrieve, jlong pcredentials, jlong pvverify, jlong pauxinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7957,7 +7957,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptRetrieveObjectByUrlW(JNIEnv* km_env, jclass km_clazz, jlong pszurl, jlong pszobjectoid, jint dwretrievalflags, jint dwtimeout, jlong ppvobject, jlong hasyncretrieve, jlong pcredentials, jlong pvverify, jlong pauxinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlW(JNIEnv* km_env, jclass km_clazz, jlong pszurl, jlong pszobjectoid, jint dwretrievalflags, jint dwtimeout, jlong ppvobject, jlong hasyncretrieve, jlong pcredentials, jlong pvverify, jlong pauxinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7990,7 +7990,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptRetrieveTimeStamp(JNIEnv* km_env, jclass km_clazz, jlong wszurl, jint dwretrievalflags, jint dwtimeout, jlong pszhashid, jlong ppara, jlong pbdata, jint cbdata, jlong pptscontext, jlong pptssigner, jlong phstore) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptRetrieveTimeStamp(JNIEnv* km_env, jclass km_clazz, jlong wszurl, jint dwretrievalflags, jint dwtimeout, jlong pszhashid, jlong ppara, jlong pbdata, jint cbdata, jlong pptscontext, jlong pptssigner, jlong phstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8024,7 +8024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetAsyncParam(JNIEnv* km_env, jclass km_clazz, jlong hasync, jlong pszparamoid, jlong pvparam, jlong pfnfree) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetAsyncParam(JNIEnv* km_env, jclass km_clazz, jlong hasync, jlong pszparamoid, jlong pvparam, jlong pfnfree) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8052,7 +8052,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetHashParam(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwparam, jlong pbdata, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetHashParam(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwparam, jlong pbdata, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8080,7 +8080,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetKeyIdentifierProperty(JNIEnv* km_env, jclass km_clazz, jlong pkeyidentifier, jint dwpropid, jint dwflags, jlong pwszcomputername, jlong pvreserved, jlong pvdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetKeyIdentifierProperty(JNIEnv* km_env, jclass km_clazz, jlong pkeyidentifier, jint dwpropid, jint dwflags, jlong pwszcomputername, jlong pvreserved, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8110,7 +8110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetKeyParam(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwparam, jlong pbdata, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetKeyParam(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwparam, jlong pbdata, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8138,7 +8138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetOIDFunctionValue(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jlong pwszvaluename, jint dwvaluetype, jlong pbvaluedata, jint cbvaluedata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetOIDFunctionValue(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid, jlong pwszvaluename, jint dwvaluetype, jlong pbvaluedata, jint cbvaluedata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8169,7 +8169,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetProvParam(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwparam, jlong pbdata, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetProvParam(JNIEnv* km_env, jclass km_clazz, jlong hprov, jint dwparam, jlong pbdata, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8197,7 +8197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetProviderA(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetProviderA(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8223,7 +8223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetProviderExA(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype, jlong pdwreserved, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetProviderExA(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype, jlong pdwreserved, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8251,7 +8251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetProviderExW(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype, jlong pdwreserved, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetProviderExW(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype, jlong pdwreserved, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8279,7 +8279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSetProviderW(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSetProviderW(JNIEnv* km_env, jclass km_clazz, jlong pszprovname, jint dwprovtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8305,7 +8305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSignAndEncodeCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong lpszstructtype, jlong pvstructinfo, jlong psignaturealgorithm, jlong pvhashauxinfo, jlong pbencoded, jlong pcbencoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSignAndEncodeCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong lpszstructtype, jlong pvstructinfo, jlong psignaturealgorithm, jlong pvhashauxinfo, jlong pbencoded, jlong pcbencoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8338,7 +8338,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSignAndEncryptMessage(JNIEnv* km_env, jclass km_clazz, jlong psignpara, jlong pencryptpara, jint crecipientcert, jlong rgprecipientcert, jlong pbtobesignedandencrypted, jint cbtobesignedandencrypted, jlong pbsignedandencryptedblob, jlong pcbsignedandencryptedblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSignAndEncryptMessage(JNIEnv* km_env, jclass km_clazz, jlong psignpara, jlong pencryptpara, jint crecipientcert, jlong rgprecipientcert, jlong pbtobesignedandencrypted, jint cbtobesignedandencrypted, jlong pbsignedandencryptedblob, jlong pcbsignedandencryptedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8370,7 +8370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSignCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong pbencodedtobesigned, jint cbencodedtobesigned, jlong psignaturealgorithm, jlong pvhashauxinfo, jlong pbsignature, jlong pcbsignature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSignCertificate(JNIEnv* km_env, jclass km_clazz, jlong hcryptprovorncryptkey, jint dwkeyspec, jint dwcertencodingtype, jlong pbencodedtobesigned, jint cbencodedtobesigned, jlong psignaturealgorithm, jlong pvhashauxinfo, jlong pbsignature, jlong pcbsignature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8403,7 +8403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSignHashA(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwkeyspec, jlong szdescription, jint dwflags, jlong pbsignature, jlong pdwsiglen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSignHashA(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwkeyspec, jlong szdescription, jint dwflags, jlong pbsignature, jlong pdwsiglen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8433,7 +8433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSignHashW(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwkeyspec, jlong szdescription, jint dwflags, jlong pbsignature, jlong pdwsiglen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSignHashW(JNIEnv* km_env, jclass km_clazz, jlong hhash, jint dwkeyspec, jlong szdescription, jint dwflags, jlong pbsignature, jlong pdwsiglen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8463,7 +8463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSignMessage(JNIEnv* km_env, jclass km_clazz, jlong psignpara, jint fdetachedsignature, jint ctobesigned, jlong rgpbtobesigned, jlong rgcbtobesigned, jlong pbsignedblob, jlong pcbsignedblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSignMessage(JNIEnv* km_env, jclass km_clazz, jlong psignpara, jint fdetachedsignature, jint ctobesigned, jlong rgpbtobesigned, jlong rgcbtobesigned, jlong pbsignedblob, jlong pcbsignedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8494,7 +8494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptSignMessageWithKey(JNIEnv* km_env, jclass km_clazz, jlong psignpara, jlong pbtobesigned, jint cbtobesigned, jlong pbsignedblob, jlong pcbsignedblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptSignMessageWithKey(JNIEnv* km_env, jclass km_clazz, jlong psignpara, jlong pbtobesigned, jint cbtobesigned, jlong pbsignedblob, jlong pcbsignedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8523,7 +8523,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptStringToBinaryA(JNIEnv* km_env, jclass km_clazz, jlong pszstring, jint cchstring, jint dwflags, jlong pbbinary, jlong pcbbinary, jlong pdwskip, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryA(JNIEnv* km_env, jclass km_clazz, jlong pszstring, jint cchstring, jint dwflags, jlong pbbinary, jlong pcbbinary, jlong pdwskip, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8554,7 +8554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptStringToBinaryW(JNIEnv* km_env, jclass km_clazz, jlong pszstring, jint cchstring, jint dwflags, jlong pbbinary, jlong pcbbinary, jlong pdwskip, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryW(JNIEnv* km_env, jclass km_clazz, jlong pszstring, jint cchstring, jint dwflags, jlong pbbinary, jlong pcbbinary, jlong pdwskip, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8585,7 +8585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUninstallCancelRetrieval(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUninstallCancelRetrieval(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8611,7 +8611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUninstallDefaultContext(JNIEnv* km_env, jclass km_clazz, jlong hdefaultcontext, jint dwflags, jlong pvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUninstallDefaultContext(JNIEnv* km_env, jclass km_clazz, jlong hdefaultcontext, jint dwflags, jlong pvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8638,7 +8638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUnprotectData(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jlong ppszdatadescr, jlong poptionalentropy, jlong pvreserved, jlong ppromptstruct, jint dwflags, jlong pdataout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUnprotectData(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jlong ppszdatadescr, jlong poptionalentropy, jlong pvreserved, jlong ppromptstruct, jint dwflags, jlong pdataout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8669,7 +8669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUnprotectMemory(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jint cbdatain, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUnprotectMemory(JNIEnv* km_env, jclass km_clazz, jlong pdatain, jint cbdatain, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8696,7 +8696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUnregisterDefaultOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pwszdll) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUnregisterDefaultOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pwszdll) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8723,7 +8723,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUnregisterOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDFunction(JNIEnv* km_env, jclass km_clazz, jint dwencodingtype, jlong pszfuncname, jlong pszoid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8750,7 +8750,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUnregisterOIDInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDInfo(JNIEnv* km_env, jclass km_clazz, jlong pinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8775,7 +8775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptUpdateProtectedState(JNIEnv* km_env, jclass km_clazz, jlong poldsid, jlong pwszoldpassword, jint dwflags, jlong pdwsuccesscount, jlong pdwfailurecount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptUpdateProtectedState(JNIEnv* km_env, jclass km_clazz, jlong poldsid, jlong pwszoldpassword, jint dwflags, jlong pdwsuccesscount, jlong pdwfailurecount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8804,7 +8804,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyCertificateSignature(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pbencoded, jint cbencoded, jlong ppublickey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignature(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jlong pbencoded, jint cbencoded, jlong ppublickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8833,7 +8833,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyCertificateSignatureEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jint dwsubjecttype, jlong pvsubject, jint dwissuertype, jlong pvissuer, jint dwflags, jlong pvextra) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignatureEx(JNIEnv* km_env, jclass km_clazz, jlong hcryptprov, jint dwcertencodingtype, jint dwsubjecttype, jlong pvsubject, jint dwissuertype, jlong pvissuer, jint dwflags, jlong pvextra) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8865,7 +8865,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyDetachedMessageHash(JNIEnv* km_env, jclass km_clazz, jlong phashpara, jlong pbdetachedhashblob, jint cbdetachedhashblob, jint ctobehashed, jlong rgpbtobehashed, jlong rgcbtobehashed, jlong pbcomputedhash, jlong pcbcomputedhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageHash(JNIEnv* km_env, jclass km_clazz, jlong phashpara, jlong pbdetachedhashblob, jint cbdetachedhashblob, jint ctobehashed, jlong rgpbtobehashed, jlong rgcbtobehashed, jlong pbcomputedhash, jlong pcbcomputedhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8897,7 +8897,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyDetachedMessageSignature(JNIEnv* km_env, jclass km_clazz, jlong pverifypara, jint dwsignerindex, jlong pbdetachedsignblob, jint cbdetachedsignblob, jint ctobesigned, jlong rgpbtobesigned, jlong rgcbtobesigned, jlong ppsignercert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageSignature(JNIEnv* km_env, jclass km_clazz, jlong pverifypara, jint dwsignerindex, jlong pbdetachedsignblob, jint cbdetachedsignblob, jint ctobesigned, jlong rgpbtobesigned, jlong rgcbtobesigned, jlong ppsignercert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8929,7 +8929,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyMessageHash(JNIEnv* km_env, jclass km_clazz, jlong phashpara, jlong pbhashedblob, jint cbhashedblob, jlong pbtobehashed, jlong pcbtobehashed, jlong pbcomputedhash, jlong pcbcomputedhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageHash(JNIEnv* km_env, jclass km_clazz, jlong phashpara, jlong pbhashedblob, jint cbhashedblob, jlong pbtobehashed, jlong pcbtobehashed, jlong pbcomputedhash, jlong pcbcomputedhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8960,7 +8960,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyMessageSignature(JNIEnv* km_env, jclass km_clazz, jlong pverifypara, jint dwsignerindex, jlong pbsignedblob, jint cbsignedblob, jlong pbdecoded, jlong pcbdecoded, jlong ppsignercert) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignature(JNIEnv* km_env, jclass km_clazz, jlong pverifypara, jint dwsignerindex, jlong pbsignedblob, jint cbsignedblob, jlong pbdecoded, jlong pcbdecoded, jlong ppsignercert) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8991,7 +8991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyMessageSignatureWithKey(JNIEnv* km_env, jclass km_clazz, jlong pverifypara, jlong ppublickeyinfo, jlong pbsignedblob, jint cbsignedblob, jlong pbdecoded, jlong pcbdecoded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignatureWithKey(JNIEnv* km_env, jclass km_clazz, jlong pverifypara, jlong ppublickeyinfo, jlong pbsignedblob, jint cbsignedblob, jlong pbdecoded, jlong pcbdecoded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9021,7 +9021,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifySignatureA(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbsignature, jint dwsiglen, jlong hpubkey, jlong szdescription, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureA(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbsignature, jint dwsiglen, jlong hpubkey, jlong szdescription, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9051,7 +9051,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifySignatureW(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbsignature, jint dwsiglen, jlong hpubkey, jlong szdescription, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureW(JNIEnv* km_env, jclass km_clazz, jlong hhash, jlong pbsignature, jint dwsiglen, jlong hpubkey, jlong szdescription, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9081,7 +9081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptVerifyTimeStampSignature(JNIEnv* km_env, jclass km_clazz, jlong pbtscontentinfo, jint cbtscontentinfo, jlong pbdata, jint cbdata, jlong hadditionalstore, jlong pptscontext, jlong pptssigner, jlong phstore) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptVerifyTimeStampSignature(JNIEnv* km_env, jclass km_clazz, jlong pbtscontentinfo, jint cbtscontentinfo, jlong pbdata, jint cbdata, jlong hadditionalstore, jlong pptscontext, jlong pptssigner, jlong phstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9113,7 +9113,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlAddObject(JNIEnv* km_env, jclass km_clazz, jlong hsignatureorobject, jint dwflags, jlong rgproperty, jint cproperty, jlong pencoded, jlong ppobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlAddObject(JNIEnv* km_env, jclass km_clazz, jlong hsignatureorobject, jint dwflags, jlong rgproperty, jint cproperty, jlong pencoded, jlong ppobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9143,7 +9143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlClose(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlClose(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9168,7 +9168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlCreateReference(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jint dwflags, jlong wszid, jlong wszuri, jlong wsztype, jlong pdigestmethod, jint ctransform, jlong rgtransform, jlong phreference) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlCreateReference(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jint dwflags, jlong wszid, jlong wszuri, jlong wsztype, jlong pdigestmethod, jint ctransform, jlong rgtransform, jlong phreference) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9201,7 +9201,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlDigestReference(JNIEnv* km_env, jclass km_clazz, jlong hreference, jint dwflags, jlong pdataproviderin) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlDigestReference(JNIEnv* km_env, jclass km_clazz, jlong hreference, jint dwflags, jlong pdataproviderin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9228,7 +9228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlEncode(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jint dwcharset, jlong rgproperty, jint cproperty, jlong pvcallbackstate, jlong pfnwrite) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlEncode(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jint dwcharset, jlong rgproperty, jint cproperty, jlong pvcallbackstate, jlong pfnwrite) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9258,7 +9258,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlEnumAlgorithmInfo(JNIEnv* km_env, jclass km_clazz, jint dwgroupid, jint dwflags, jlong pvarg, jlong pfnenumalginfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlEnumAlgorithmInfo(JNIEnv* km_env, jclass km_clazz, jint dwgroupid, jint dwflags, jlong pvarg, jlong pfnenumalginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9286,7 +9286,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlFindAlgorithmInfo(JNIEnv* km_env, jclass km_clazz, jint dwfindbytype, jlong pvfindby, jint dwgroupid, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlFindAlgorithmInfo(JNIEnv* km_env, jclass km_clazz, jint dwfindbytype, jlong pvfindby, jint dwgroupid, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9314,7 +9314,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlGetAlgorithmInfo(JNIEnv* km_env, jclass km_clazz, jlong pxmlalgorithm, jint dwflags, jlong ppalginfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlGetAlgorithmInfo(JNIEnv* km_env, jclass km_clazz, jlong pxmlalgorithm, jint dwflags, jlong ppalginfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9341,7 +9341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlGetDocContext(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong ppstruct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlGetDocContext(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong ppstruct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9367,7 +9367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlGetReference(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong ppstruct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlGetReference(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong ppstruct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9393,7 +9393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlGetSignature(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong ppstruct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlGetSignature(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong ppstruct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9419,7 +9419,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong pstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hcryptxml, jlong pstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9445,7 +9445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlGetTransforms(JNIEnv* km_env, jclass km_clazz, jlong ppconfig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlGetTransforms(JNIEnv* km_env, jclass km_clazz, jlong ppconfig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9470,7 +9470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlImportPublicKey(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pkeyvalue, jlong phkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlImportPublicKey(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pkeyvalue, jlong phkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9497,7 +9497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlOpenToDecode(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jint dwflags, jlong rgproperty, jint cproperty, jlong pencoded, jlong phcryptxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToDecode(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jint dwflags, jlong rgproperty, jint cproperty, jlong pencoded, jlong phcryptxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9527,7 +9527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlOpenToEncode(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jint dwflags, jlong wszid, jlong rgproperty, jint cproperty, jlong pencoded, jlong phsignature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToEncode(JNIEnv* km_env, jclass km_clazz, jlong pconfig, jint dwflags, jlong wszid, jlong rgproperty, jint cproperty, jlong pencoded, jlong phsignature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9558,7 +9558,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlSetHMACSecret(JNIEnv* km_env, jclass km_clazz, jlong hsignature, jlong pbsecret, jint cbsecret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlSetHMACSecret(JNIEnv* km_env, jclass km_clazz, jlong hsignature, jlong pbsecret, jint cbsecret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9585,7 +9585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlSign(JNIEnv* km_env, jclass km_clazz, jlong hsignature, jlong hkey, jint dwkeyspec, jint dwflags, jint dwkeyinfospec, jlong pvkeyinfospec, jlong psignaturemethod, jlong pcanonicalization) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlSign(JNIEnv* km_env, jclass km_clazz, jlong hsignature, jlong hkey, jint dwkeyspec, jint dwflags, jint dwkeyinfospec, jlong pvkeyinfospec, jlong psignaturemethod, jlong pcanonicalization) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9617,7 +9617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1cryptXmlVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hsignature, jlong hkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyCryptXmlVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hsignature, jlong hkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9644,7 +9644,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1decrypt(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint foaep, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint foaep, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9674,7 +9674,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1encrypt(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint foaep, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint foaep, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9704,7 +9704,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1findCertsByIssuer(JNIEnv* km_env, jclass km_clazz, jlong pcertchains, jlong pcbcertchains, jlong pccertchains, jlong pbencodedissuername, jint cbencodedissuername, jlong pwszpurpose, jint dwkeyspec) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyFindCertsByIssuer(JNIEnv* km_env, jclass km_clazz, jlong pcertchains, jlong pcbcertchains, jlong pccertchains, jlong pbencodedissuername, jint cbencodedissuername, jlong pwszpurpose, jint dwkeyspec) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9735,7 +9735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1freeToken(JNIEnv* km_env, jclass km_clazz, jlong pallocmemory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyFreeToken(JNIEnv* km_env, jclass km_clazz, jlong pallocmemory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9760,7 +9760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1generateDerivedKey(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cblabel, jlong plabel, jint cbnonce, jlong pnonce, jint derivedkeylength, jint offset, jlong algid, jlong pcbkey, jlong ppkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGenerateDerivedKey(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cblabel, jlong plabel, jint cbnonce, jlong pnonce, jint derivedkeylength, jint offset, jlong algid, jlong pcbkey, jlong ppkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9794,7 +9794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getAsymmetricEncryptionInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetAsymmetricEncryptionInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9822,7 +9822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getBrowserToken(JNIEnv* km_env, jclass km_clazz, jint dwparamtype, jlong pparam, jlong pcbtoken, jlong pptoken) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetBrowserToken(JNIEnv* km_env, jclass km_clazz, jint dwparamtype, jlong pparam, jlong pcbtoken, jlong pptoken) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9850,7 +9850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getCipherInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetCipherInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9878,7 +9878,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getHashInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetHashInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9906,7 +9906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getKeyDerivationInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetKeyDerivationInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9934,7 +9934,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getKeyStorageInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetKeyStorageInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9961,7 +9961,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getKeyedHash(JNIEnv* km_env, jclass km_clazz, jlong hsymmetriccrypto, jlong pphhash) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetKeyedHash(JNIEnv* km_env, jclass km_clazz, jlong hsymmetriccrypto, jlong pphhash) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9987,7 +9987,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getRngInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetRngInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10014,7 +10014,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getSChannelInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetSChannelInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10041,7 +10041,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getSecretAgreementInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetSecretAgreementInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10069,7 +10069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getSignatureInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetSignatureInterface(JNIEnv* km_env, jclass km_clazz, jlong pszprovidername, jlong pszalgid, jlong ppfunctiontable, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10097,7 +10097,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1getToken(JNIEnv* km_env, jclass km_clazz, jint cpolicychain, jlong ppolicychain, jlong securitytoken, jlong phprooftokencrypto) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyGetToken(JNIEnv* km_env, jclass km_clazz, jint cpolicychain, jlong ppolicychain, jlong securitytoken, jlong phprooftokencrypto) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10125,7 +10125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1hashCore(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyHashCore(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10152,7 +10152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1hashFinal(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyHashFinal(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10181,7 +10181,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1importInformationCard(JNIEnv* km_env, jclass km_clazz, jlong filename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyImportInformationCard(JNIEnv* km_env, jclass km_clazz, jlong filename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10206,7 +10206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1manageCardSpace(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyManageCardSpace(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10230,7 +10230,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptCloseProtectionDescriptor(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptCloseProtectionDescriptor(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10255,7 +10255,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptCreateClaim(JNIEnv* km_env, jclass km_clazz, jlong hsubjectkey, jlong hauthoritykey, jint dwclaimtype, jlong pparameterlist, jlong pbclaimblob, jint cbclaimblob, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptCreateClaim(JNIEnv* km_env, jclass km_clazz, jlong hsubjectkey, jlong hauthoritykey, jint dwclaimtype, jlong pparameterlist, jlong pbclaimblob, jint cbclaimblob, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10287,7 +10287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptCreatePersistedKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong phkey, jlong pszalgid, jlong pszkeyname, jint dwlegacykeyspec, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptCreatePersistedKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong phkey, jlong pszalgid, jlong pszkeyname, jint dwlegacykeyspec, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10317,7 +10317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptCreateProtectionDescriptor(JNIEnv* km_env, jclass km_clazz, jlong pwszdescriptorstring, jint dwflags, jlong phdescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptCreateProtectionDescriptor(JNIEnv* km_env, jclass km_clazz, jlong pwszdescriptorstring, jint dwflags, jlong phdescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10344,7 +10344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptDecrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10376,7 +10376,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10402,7 +10402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptDeriveKey(JNIEnv* km_env, jclass km_clazz, jlong hsharedsecret, jlong pwszkdf, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptDeriveKey(JNIEnv* km_env, jclass km_clazz, jlong hsharedsecret, jlong pwszkdf, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10433,7 +10433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptEncrypt(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pbinput, jint cbinput, jlong ppaddinginfo, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10465,7 +10465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptEnumAlgorithms(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jint dwalgoperations, jlong pdwalgcount, jlong ppalglist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptEnumAlgorithms(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jint dwalgoperations, jlong pdwalgcount, jlong ppalglist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10494,7 +10494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptEnumKeys(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong pszscope, jlong ppkeyname, jlong ppenumstate, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptEnumKeys(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong pszscope, jlong ppkeyname, jlong ppenumstate, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10523,7 +10523,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptEnumStorageProviders(JNIEnv* km_env, jclass km_clazz, jlong pdwprovidercount, jlong ppproviderlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptEnumStorageProviders(JNIEnv* km_env, jclass km_clazz, jlong pdwprovidercount, jlong ppproviderlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10550,7 +10550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptExportKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hexportkey, jlong pszblobtype, jlong pparameterlist, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptExportKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong hexportkey, jlong pszblobtype, jlong pparameterlist, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10582,7 +10582,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptFinalizeKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(JNIEnv* km_env, jclass km_clazz, jlong hkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10608,7 +10608,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pvinput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pvinput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10633,7 +10633,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptFreeObject(JNIEnv* km_env, jclass km_clazz, jlong hobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptFreeObject(JNIEnv* km_env, jclass km_clazz, jlong hobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10658,7 +10658,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptGetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptGetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10688,7 +10688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptGetProtectionDescriptorInfo(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor, jlong pmempara, jint dwinfotype, jlong ppvinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptGetProtectionDescriptorInfo(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor, jlong pmempara, jint dwinfotype, jlong ppvinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10716,7 +10716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptImportKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong himportkey, jlong pszblobtype, jlong pparameterlist, jlong phkey, jlong pbdata, jint cbdata, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptImportKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong himportkey, jlong pszblobtype, jlong pparameterlist, jlong phkey, jlong pbdata, jint cbdata, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10748,7 +10748,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptIsAlgSupported(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong pszalgid, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptIsAlgSupported(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong pszalgid, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10775,7 +10775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptIsKeyHandle(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(JNIEnv* km_env, jclass km_clazz, jlong hkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10800,7 +10800,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptKeyDerivation(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptKeyDerivation(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pparameterlist, jlong pbderivedkey, jint cbderivedkey, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10830,7 +10830,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptNotifyChangeKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong phevent, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptNotifyChangeKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong phevent, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10857,7 +10857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptOpenKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong phkey, jlong pszkeyname, jint dwlegacykeyspec, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptOpenKey(JNIEnv* km_env, jclass km_clazz, jlong hprovider, jlong phkey, jlong pszkeyname, jint dwlegacykeyspec, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10886,7 +10886,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptOpenStorageProvider(JNIEnv* km_env, jclass km_clazz, jlong phprovider, jlong pszprovidername, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptOpenStorageProvider(JNIEnv* km_env, jclass km_clazz, jlong phprovider, jlong pszprovidername, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10913,7 +10913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptProtectSecret(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor, jint dwflags, jlong pbdata, jint cbdata, jlong pmempara, jlong hwnd, jlong ppbprotectedblob, jlong pcbprotectedblob) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptProtectSecret(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor, jint dwflags, jlong pbdata, jint cbdata, jlong pmempara, jlong hwnd, jlong ppbprotectedblob, jlong pcbprotectedblob) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10945,7 +10945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptQueryProtectionDescriptorName(JNIEnv* km_env, jclass km_clazz, jlong pwszname, jlong pwszdescriptorstring, jlong pcdescriptorstring, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptQueryProtectionDescriptorName(JNIEnv* km_env, jclass km_clazz, jlong pwszname, jlong pwszdescriptorstring, jlong pcdescriptorstring, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -10973,7 +10973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptRegisterProtectionDescriptorName(JNIEnv* km_env, jclass km_clazz, jlong pwszname, jlong pwszdescriptorstring, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptRegisterProtectionDescriptorName(JNIEnv* km_env, jclass km_clazz, jlong pwszname, jlong pwszdescriptorstring, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11000,7 +11000,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptSecretAgreement(JNIEnv* km_env, jclass km_clazz, jlong hprivkey, jlong hpubkey, jlong phagreedsecret, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptSecretAgreement(JNIEnv* km_env, jclass km_clazz, jlong hprivkey, jlong hpubkey, jlong phagreedsecret, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11028,7 +11028,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptSetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pbinput, jint cbinput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptSetProperty(JNIEnv* km_env, jclass km_clazz, jlong hobject, jlong pszproperty, jlong pbinput, jint cbinput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11057,7 +11057,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptSignHash(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptSignHash(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11089,7 +11089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptStreamClose(JNIEnv* km_env, jclass km_clazz, jlong hstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptStreamClose(JNIEnv* km_env, jclass km_clazz, jlong hstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11114,7 +11114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptStreamOpenToProtect(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor, jint dwflags, jlong hwnd, jlong pstreaminfo, jlong phstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToProtect(JNIEnv* km_env, jclass km_clazz, jlong hdescriptor, jint dwflags, jlong hwnd, jlong pstreaminfo, jlong phstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11143,7 +11143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptStreamOpenToUnprotect(JNIEnv* km_env, jclass km_clazz, jlong pstreaminfo, jint dwflags, jlong hwnd, jlong phstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotect(JNIEnv* km_env, jclass km_clazz, jlong pstreaminfo, jint dwflags, jlong hwnd, jlong phstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11171,7 +11171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptStreamOpenToUnprotectEx(JNIEnv* km_env, jclass km_clazz, jlong pstreaminfo, jint dwflags, jlong hwnd, jlong phstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotectEx(JNIEnv* km_env, jclass km_clazz, jlong pstreaminfo, jint dwflags, jlong hwnd, jlong phstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11199,7 +11199,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptStreamUpdate(JNIEnv* km_env, jclass km_clazz, jlong hstream, jlong pbdata, jlong cbdata, jint ffinal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptStreamUpdate(JNIEnv* km_env, jclass km_clazz, jlong hstream, jlong pbdata, jlong cbdata, jint ffinal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11227,7 +11227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptTranslateHandle(JNIEnv* km_env, jclass km_clazz, jlong phprovider, jlong phkey, jlong hlegacyprov, jlong hlegacykey, jint dwlegacykeyspec, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptTranslateHandle(JNIEnv* km_env, jclass km_clazz, jlong phprovider, jlong phkey, jlong hlegacyprov, jlong hlegacykey, jint dwlegacykeyspec, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11257,7 +11257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptUnprotectSecret(JNIEnv* km_env, jclass km_clazz, jlong phdescriptor, jint dwflags, jlong pbprotectedblob, jint cbprotectedblob, jlong pmempara, jlong hwnd, jlong ppbdata, jlong pcbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptUnprotectSecret(JNIEnv* km_env, jclass km_clazz, jlong phdescriptor, jint dwflags, jlong pbprotectedblob, jint cbprotectedblob, jlong pmempara, jlong hwnd, jlong ppbdata, jlong pcbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11289,7 +11289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptVerifyClaim(JNIEnv* km_env, jclass km_clazz, jlong hsubjectkey, jlong hauthoritykey, jint dwclaimtype, jlong pparameterlist, jlong pbclaimblob, jint cbclaimblob, jlong poutput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptVerifyClaim(JNIEnv* km_env, jclass km_clazz, jlong hsubjectkey, jlong hauthoritykey, jint dwclaimtype, jlong pparameterlist, jlong pbclaimblob, jint cbclaimblob, jlong poutput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11321,7 +11321,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1nCryptVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyNCryptVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong ppaddinginfo, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11352,7 +11352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1pFXExportCertStore(JNIEnv* km_env, jclass km_clazz, jlong hstore, jlong ppfx, jlong szpassword, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyPFXExportCertStore(JNIEnv* km_env, jclass km_clazz, jlong hstore, jlong ppfx, jlong szpassword, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11380,7 +11380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1pFXExportCertStoreEx(JNIEnv* km_env, jclass km_clazz, jlong hstore, jlong ppfx, jlong szpassword, jlong pvpara, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyPFXExportCertStoreEx(JNIEnv* km_env, jclass km_clazz, jlong hstore, jlong ppfx, jlong szpassword, jlong pvpara, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11409,7 +11409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1pFXImportCertStore(JNIEnv* km_env, jclass km_clazz, jlong ppfx, jlong szpassword, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyPFXImportCertStore(JNIEnv* km_env, jclass km_clazz, jlong ppfx, jlong szpassword, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11436,7 +11436,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1pFXIsPFXBlob(JNIEnv* km_env, jclass km_clazz, jlong ppfx) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyPFXIsPFXBlob(JNIEnv* km_env, jclass km_clazz, jlong ppfx) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11461,7 +11461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1pFXVerifyPassword(JNIEnv* km_env, jclass km_clazz, jlong ppfx, jlong szpassword, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyPFXVerifyPassword(JNIEnv* km_env, jclass km_clazz, jlong ppfx, jlong szpassword, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11488,7 +11488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1processPrng(JNIEnv* km_env, jclass km_clazz, jlong pbdata, jlong cbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyProcessPrng(JNIEnv* km_env, jclass km_clazz, jlong pbdata, jlong cbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11514,7 +11514,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signError(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignError(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11538,7 +11538,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signHash(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbhash, jlong phash, jlong hashalgoid, jlong pcbsig, jlong ppsig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignHash(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbhash, jlong phash, jlong hashalgoid, jlong pcbsig, jlong ppsig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11568,7 +11568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerFreeSignerContext(JNIEnv* km_env, jclass km_clazz, jlong psignercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerFreeSignerContext(JNIEnv* km_env, jclass km_clazz, jlong psignercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11593,7 +11593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerSign(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerSign(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11624,7 +11624,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerSignEx(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerSignEx(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11657,7 +11657,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerSignEx2(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jint dwtimestampflags, jlong psztimestampalgorithmoid, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext, jlong pcryptopolicy, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerSignEx2(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jint dwtimestampflags, jlong psztimestampalgorithmoid, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext, jlong pcryptopolicy, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11694,7 +11694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerSignEx3(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jint dwtimestampflags, jlong psztimestampalgorithmoid, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext, jlong pcryptopolicy, jlong pdigestsigninfo, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerSignEx3(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong psignercert, jlong psignatureinfo, jlong pproviderinfo, jint dwtimestampflags, jlong psztimestampalgorithmoid, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext, jlong pcryptopolicy, jlong pdigestsigninfo, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11732,7 +11732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerTimeStamp(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerTimeStamp(JNIEnv* km_env, jclass km_clazz, jlong psubjectinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11760,7 +11760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerTimeStampEx(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerTimeStampEx(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong pwszhttptimestamp, jlong psrequest, jlong psipdata, jlong ppsignercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11790,7 +11790,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerTimeStampEx2(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong pwszhttptimestamp, jint dwalgid, jlong psrequest, jlong psipdata, jlong ppsignercontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerTimeStampEx2(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong psubjectinfo, jlong pwszhttptimestamp, jint dwalgid, jlong psrequest, jlong psipdata, jlong ppsignercontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11821,7 +11821,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1signerTimeStampEx3(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint dwindex, jlong psubjectinfo, jlong pwszhttptimestamp, jlong pszalgorithmoid, jlong psrequest, jlong psipdata, jlong ppsignercontext, jlong pcryptopolicy, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySignerTimeStampEx3(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint dwindex, jlong psubjectinfo, jlong pwszhttptimestamp, jlong pszalgorithmoid, jlong psrequest, jlong psipdata, jlong ppsignercontext, jlong pcryptopolicy, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11855,7 +11855,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong hevent, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslChangeNotify(JNIEnv* km_env, jclass km_clazz, jlong hevent, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11881,7 +11881,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslComputeClientAuthHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong hhandshakehash, jlong pszalgid, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslComputeClientAuthHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong hhandshakehash, jlong pszalgid, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11913,7 +11913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslComputeEapKeyBlock(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong pbrandoms, jint cbrandoms, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslComputeEapKeyBlock(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong pbrandoms, jint cbrandoms, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11945,7 +11945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslComputeFinishedHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong hhandshakehash, jlong pboutput, jint cboutput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslComputeFinishedHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong hhandshakehash, jlong pboutput, jint cboutput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -11975,7 +11975,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslComputeSessionHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hhandshakehash, jint dwprotocol, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslComputeSessionHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hhandshakehash, jint dwprotocol, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12006,7 +12006,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslCreateClientAuthHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phhandshakehash, jint dwprotocol, jint dwciphersuite, jlong pszhashalgid, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslCreateClientAuthHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phhandshakehash, jint dwprotocol, jint dwciphersuite, jlong pszhashalgid, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12036,7 +12036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslCreateEphemeralKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phephemeralkey, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jint dwkeybitlen, jlong pbparams, jint cbparams, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslCreateEphemeralKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phephemeralkey, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jint dwkeybitlen, jlong pbparams, jint cbparams, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12069,7 +12069,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslCreateHandshakeHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phhandshakehash, jint dwprotocol, jint dwciphersuite, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslCreateHandshakeHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phhandshakehash, jint dwprotocol, jint dwciphersuite, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12098,7 +12098,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslDecrementProviderReferenceCount(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12123,7 +12123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslDecryptPacket(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hkey, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput, jlong pcbresult, jlong sequencenumber, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslDecryptPacket(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hkey, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput, jlong pcbresult, jlong sequencenumber, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12156,7 +12156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslDuplicateTranscriptHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong htranscripthash, jlong phtranscripthash, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslDuplicateTranscriptHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong htranscripthash, jlong phtranscripthash, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12184,7 +12184,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslEncryptPacket(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hkey, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput, jlong pcbresult, jlong sequencenumber, jint dwcontenttype, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslEncryptPacket(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hkey, jlong pbinput, jint cbinput, jlong pboutput, jint cboutput, jlong pcbresult, jlong sequencenumber, jint dwcontenttype, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12218,7 +12218,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslEnumCipherSuites(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong ppciphersuite, jlong ppenumstate, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslEnumCipherSuites(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong ppciphersuite, jlong ppenumstate, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12247,7 +12247,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslEnumCipherSuitesEx(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong ppciphersuite, jlong ppenumstate, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslEnumCipherSuitesEx(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong ppciphersuite, jlong ppenumstate, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12276,7 +12276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslEnumEccCurves(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong pecccurvecount, jlong ppecccurve, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslEnumEccCurves(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong pecccurvecount, jlong ppecccurve, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12304,7 +12304,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslEnumProtocolProviders(JNIEnv* km_env, jclass km_clazz, jlong pdwprovidercount, jlong ppproviderlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslEnumProtocolProviders(JNIEnv* km_env, jclass km_clazz, jlong pdwprovidercount, jlong ppproviderlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12331,7 +12331,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExpandBinderKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hearlykey, jlong phbinderkey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExpandBinderKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hearlykey, jlong phbinderkey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12360,7 +12360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExpandExporterMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hbasekey, jlong hhashvalue, jlong phexportermasterkey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExpandExporterMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hbasekey, jlong hhashvalue, jlong phexportermasterkey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12390,7 +12390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExpandPreSharedKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hresumptionmasterkey, jlong pbticketnonce, jint cbticketnonce, jlong phpresharedkey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExpandPreSharedKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hresumptionmasterkey, jlong pbticketnonce, jint cbticketnonce, jlong phpresharedkey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12421,7 +12421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExpandResumptionMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong hhashvalue, jlong phresumptionmasterkey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExpandResumptionMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong hhashvalue, jlong phresumptionmasterkey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12451,7 +12451,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExpandTrafficKeys(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hbasekey, jlong hhashvalue, jlong phclienttraffickey, jlong phservertraffickey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExpandTrafficKeys(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hbasekey, jlong hhashvalue, jlong phclienttraffickey, jlong phservertraffickey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12482,7 +12482,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExpandWriteKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hbasetraffickey, jlong phwritekey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExpandWriteKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hbasetraffickey, jlong phwritekey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12511,7 +12511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExportKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hkey, jlong pszblobtype, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExportKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hkey, jlong pszblobtype, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12542,7 +12542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExportKeyingMaterial(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong slabel, jlong pbrandoms, jint cbrandoms, jlong pbcontextvalue, jshort cbcontextvalue, jlong pboutput, jint cboutput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExportKeyingMaterial(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong slabel, jlong pbrandoms, jint cbrandoms, jlong pbcontextvalue, jshort cbcontextvalue, jlong pboutput, jint cboutput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12576,7 +12576,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExtractEarlyKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hpresharedkey, jlong phearlykey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExtractEarlyKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hpresharedkey, jlong phearlykey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12607,7 +12607,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExtractHandshakeKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong hpublickey, jlong hearlykey, jlong phhandshakekey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExtractHandshakeKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong hpublickey, jlong hearlykey, jlong phhandshakekey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12638,7 +12638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslExtractMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hhandshakekey, jlong phmasterkey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslExtractMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hhandshakekey, jlong phmasterkey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12667,7 +12667,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pvinput) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslFreeBuffer(JNIEnv* km_env, jclass km_clazz, jlong pvinput) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12692,7 +12692,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslFreeObject(JNIEnv* km_env, jclass km_clazz, jlong hobject, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslFreeObject(JNIEnv* km_env, jclass km_clazz, jlong hobject, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12718,7 +12718,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslGenerateMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong hpublickey, jlong phmasterkey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslGenerateMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong hpublickey, jlong phmasterkey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12753,7 +12753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslGeneratePreMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hpublickey, jlong phpremasterkey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslGeneratePreMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hpublickey, jlong phpremasterkey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jlong pboutput, jint cboutput, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12787,7 +12787,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslGenerateSessionKeys(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong phreadkey, jlong phwritekey, jlong pparameterlist, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslGenerateSessionKeys(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hmasterkey, jlong phreadkey, jlong phwritekey, jlong pparameterlist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12817,7 +12817,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslGetCipherSuitePRFHashAlgorithm(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jlong szprfhash, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslGetCipherSuitePRFHashAlgorithm(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jlong szprfhash, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12847,7 +12847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslGetKeyProperty(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pszproperty, jlong ppboutput, jlong pcboutput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslGetKeyProperty(JNIEnv* km_env, jclass km_clazz, jlong hkey, jlong pszproperty, jlong ppboutput, jlong pcboutput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12876,7 +12876,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslGetProviderProperty(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong pszproperty, jlong ppboutput, jlong pcboutput, jlong ppenumstate, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslGetProviderProperty(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong pszproperty, jlong ppboutput, jlong pcboutput, jlong ppenumstate, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12906,7 +12906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslHashHandshake(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hhandshakehash, jlong pbinput, jint cbinput, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslHashHandshake(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hhandshakehash, jlong pbinput, jint cbinput, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12935,7 +12935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslImportKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phkey, jlong pszblobtype, jlong pbkeyblob, jint cbkeyblob, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslImportKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phkey, jlong pszblobtype, jlong pbkeyblob, jint cbkeyblob, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12965,7 +12965,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslImportMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong phmasterkey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jlong pbencryptedkey, jint cbencryptedkey, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslImportMasterKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong phmasterkey, jint dwprotocol, jint dwciphersuite, jlong pparameterlist, jlong pbencryptedkey, jint cbencryptedkey, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -12998,7 +12998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslIncrementProviderReferenceCount(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13023,7 +13023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslLookupCipherLengths(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jlong pcipherlengths, jint cbcipherlengths, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslLookupCipherLengths(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jlong pcipherlengths, jint cbcipherlengths, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13054,7 +13054,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslLookupCipherSuiteInfo(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jlong pciphersuite, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslLookupCipherSuiteInfo(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jint dwprotocol, jint dwciphersuite, jint dwkeytype, jlong pciphersuite, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13084,7 +13084,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslOpenPrivateKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phprivatekey, jlong pcertcontext, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslOpenPrivateKey(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong phprivatekey, jlong pcertcontext, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13112,7 +13112,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslOpenProvider(JNIEnv* km_env, jclass km_clazz, jlong phsslprovider, jlong pszprovidername, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslOpenProvider(JNIEnv* km_env, jclass km_clazz, jlong phsslprovider, jlong pszprovidername, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13139,7 +13139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslSignHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jlong pcbresult, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslSignHash(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hprivatekey, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jlong pcbresult, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13171,7 +13171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1sslVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hpublickey, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySslVerifySignature(JNIEnv* km_env, jclass km_clazz, jlong hsslprovider, jlong hpublickey, jlong pbhashvalue, jint cbhashvalue, jlong pbsignature, jint cbsignature, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13202,7 +13202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1systemPrng(JNIEnv* km_env, jclass km_clazz, jlong pbrandomdata, jlong cbrandomdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographySystemPrng(JNIEnv* km_env, jclass km_clazz, jlong pbrandomdata, jlong cbrandomdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13228,7 +13228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1transformBlock(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyTransformBlock(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13257,7 +13257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1transformFinalBlock(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyTransformFinalBlock(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbindata, jlong pindata, jlong pcboutdata, jlong ppoutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -13286,7 +13286,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssys_1windows_1win32_1security_1cryptography_1verifyHash(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbhash, jlong phash, jlong hashalgoid, jint cbsig, jlong psig, jlong pfverified) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_cryptography_WindowsWin32SecurityCryptographyJniBridge_windowssysWindowsWin32SecurityCryptographyVerifyHash(JNIEnv* km_env, jclass km_clazz, jlong hcrypto, jint cbhash, jlong phash, jlong hashalgoid, jint cbsig, jlong psig, jlong pfverified) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

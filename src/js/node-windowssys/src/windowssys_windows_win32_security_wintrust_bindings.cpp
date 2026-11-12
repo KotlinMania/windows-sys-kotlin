@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -76,7 +76,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_openPersonalTrustD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialogEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_openPersonalTrustD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWTHelperCertCheckValidSignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -130,7 +130,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperCertCheckV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWTHelperCertIsSelfSigned_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwencoding = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperCertIsSelf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWTHelperGetProvCertFromChain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psgnr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t idxcert = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -184,7 +184,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvCer
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromChain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWTHelperGetProvPrivateDataFromChain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgproviderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvPri
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWTHelperGetProvSignerFromChain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t idxsigner = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -242,7 +242,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvSig
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWTHelperProvDataFromStateData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstatedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -267,7 +267,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperProvDataFr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_winVerifyTrust_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWinVerifyTrust_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -296,7 +296,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_winVerifyTrust_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_winVerifyTrustEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWinVerifyTrustEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -325,7 +325,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_winVerifyTrustEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustAddActionID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustAddActionID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -354,7 +354,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustAddActionI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustAddDefaultForUsage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszusageoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psdefusage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -381,7 +381,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustAddDefault
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustGetDefaultForUsage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwaction = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszusageoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -410,7 +410,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustGetDefault
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustGetRegPolicyFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwpolicyflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -432,7 +432,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustGetRegPoli
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustLoadFunctionPointers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppfns = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustLoadFuncti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustRemoveActionID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustRemoveActionID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgactionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -484,7 +484,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustRemoveActi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageHashes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustSetDefaultIncludePEPageHashes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fincludepepagehashes = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -506,7 +506,7 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustSetDefault
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_wintrust_wintrustSetRegPolicyFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwpolicyflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -532,24 +532,24 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustSetRegPoli
 }
 
 static void register_windows_win32_security_wintrust_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialog_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_openPersonalTrustDBDialogEx_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignature", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wTHelperCertCheckValidSignature_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wTHelperCertIsSelfSigned_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wTHelperGetProvCertFromChain_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromChain", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wTHelperGetProvPrivateDataFromChain_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wTHelperGetProvSignerFromChain_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wTHelperProvDataFromStateData_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_winVerifyTrust", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_winVerifyTrust_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_winVerifyTrustEx", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_winVerifyTrustEx_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustAddActionID", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustAddActionID_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustAddDefaultForUsage_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustGetDefaultForUsage_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustGetRegPolicyFlags_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustLoadFunctionPointers_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustRemoveActionID", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustRemoveActionID_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageHashes", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustSetDefaultIncludePEPageHashes_napi));
-    exports.Set("windowssys_windows_win32_security_wintrust_wintrustSetRegPolicyFlags", Napi::Function::New(env, windowssys_windows_win32_security_wintrust_wintrustSetRegPolicyFlags_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialog", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialog_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialogEx", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustOpenPersonalTrustDBDialogEx_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWTHelperCertCheckValidSignature", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWTHelperCertCheckValidSignature_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWTHelperCertIsSelfSigned", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWTHelperCertIsSelfSigned_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWTHelperGetProvCertFromChain", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWTHelperGetProvCertFromChain_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWTHelperGetProvPrivateDataFromChain", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWTHelperGetProvPrivateDataFromChain_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWTHelperGetProvSignerFromChain", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWTHelperGetProvSignerFromChain_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWTHelperProvDataFromStateData", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWTHelperProvDataFromStateData_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWinVerifyTrust", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWinVerifyTrust_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWinVerifyTrustEx", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWinVerifyTrustEx_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustAddActionID", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustAddActionID_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustAddDefaultForUsage", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustAddDefaultForUsage_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustGetDefaultForUsage", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustGetDefaultForUsage_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustGetRegPolicyFlags", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustGetRegPolicyFlags_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustLoadFunctionPointers", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustLoadFunctionPointers_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustRemoveActionID", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustRemoveActionID_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustSetDefaultIncludePEPageHashes", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustSetDefaultIncludePEPageHashes_napi));
+    exports.Set("windowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags", Napi::Function::New(env, windowssysWindowsWin32SecurityWintrustWintrustSetRegPolicyFlags_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_wintrust_napi, nullptr };

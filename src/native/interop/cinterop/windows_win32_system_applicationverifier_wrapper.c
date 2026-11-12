@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_applicationverifier_verifierEnumerateResource(void* process, uint32_t flags, uint32_t resourcetype, void* resourcecallback, void* enumerationcontext) {
+uint32_t windowssysWindowsWin32SystemApplicationverifierVerifierEnumerateResource(void* process, uint32_t flags, uint32_t resourcetype, void* resourcecallback, void* enumerationcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsnetworkvirtualization_1wnvOpen(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge_windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -43,7 +43,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsnetworkvirtualization_1wnvRequestNotification(JNIEnv* km_env, jclass km_clazz, jlong wnvhandle, jlong notificationparam, jlong overlapped, jlong bytestransferred) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsnetworkvirtualization_WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge_windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(JNIEnv* km_env, jclass km_clazz, jlong wnvhandle, jlong notificationparam, jlong overlapped, jlong bytestransferred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManCloseCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t commandhandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -77,7 +77,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseCo
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManCloseOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t operationhandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -104,7 +104,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManCloseSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseShell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManCloseShell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shellhandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseSh
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnectShell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManConnectShell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnect
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnectShellCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManConnectShellCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnect
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManCreateSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t apihandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* connection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -262,7 +262,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateShell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManCreateShell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -298,7 +298,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManCreateShellEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -336,7 +336,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManDeinitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManDeinitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t apihandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManDeiniti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManDisconnectShell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -391,7 +391,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManDisconn
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManGetErrorMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t apihandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -428,7 +428,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetErro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsDword_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -490,7 +490,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* apihandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -517,7 +517,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManInitial
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzOperationComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzOperationComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* senderdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -550,7 +550,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzQueryQuotaComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzQueryQuotaComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* senderdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -583,7 +583,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzUserComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzUserComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* senderdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -620,7 +620,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginFreeRequestDetails_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginFreeRequestDetails_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -645,7 +645,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginGetConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginGetConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plugincontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -674,7 +674,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginGetOperationParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginGetOperationParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginOperationComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginOperationComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -734,7 +734,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginReceiveResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginReceiveResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -769,7 +769,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginReportCompletion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginReportCompletion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plugincontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -796,7 +796,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginReportContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManPluginReportContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -825,7 +825,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReceiveShellOutput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManReceiveShellOutput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t command = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -857,7 +857,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReceive
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReconnectShell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManReconnectShell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReconne
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReconnectShellCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManReconnectShellCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t commandhandle = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -909,7 +909,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReconne
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShellCommand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -943,7 +943,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShel
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShellCommandEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommandEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -979,7 +979,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShel
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSendShellInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManSendShellInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t command = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1015,7 +1015,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSendShe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManSetSessionOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t option = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1044,7 +1044,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSetSess
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSignalShell_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemRemotemanagementWSManSignalShell_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t shell = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t command = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1077,39 +1077,39 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSignalS
 }
 
 static void register_windows_win32_system_remotemanagement_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManCloseCommand", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManCloseCommand_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManCloseOperation", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManCloseOperation_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManCloseSession", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManCloseSession_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManCloseShell", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManCloseShell_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManConnectShell", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManConnectShell_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManConnectShellCommand", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManConnectShellCommand_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManCreateSession", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManCreateSession_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManCreateShell", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManCreateShell_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManDeinitialize", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManDeinitialize_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManInitialize", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzOperationComplete", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzOperationComplete_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzQueryQuotaComplete", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzQueryQuotaComplete_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzUserComplete", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzUserComplete_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginFreeRequestDetails", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginFreeRequestDetails_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginGetConfiguration", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginGetConfiguration_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginGetOperationParameters", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginGetOperationParameters_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginOperationComplete", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginOperationComplete_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginReceiveResult", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginReceiveResult_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginReportCompletion", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginReportCompletion_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManPluginReportContext", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManPluginReportContext_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManReceiveShellOutput", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManReceiveShellOutput_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManReconnectShell", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManReconnectShell_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManReconnectShellCommand", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManReconnectShellCommand_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManRunShellCommand", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManRunShellCommand_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManRunShellCommandEx", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManRunShellCommandEx_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManSendShellInput", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManSendShellInput_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption_napi));
-    exports.Set("windowssys_windows_win32_system_remotemanagement_wSManSignalShell", Napi::Function::New(env, windowssys_windows_win32_system_remotemanagement_wSManSignalShell_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManCloseCommand", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManCloseCommand_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManCloseOperation", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManCloseOperation_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManCloseSession", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManCloseSession_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManCloseShell", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManCloseShell_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManConnectShell", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManConnectShell_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManConnectShellCommand", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManConnectShellCommand_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManCreateSession", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManCreateSession_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManCreateShell", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManCreateShell_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManCreateShellEx", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManCreateShellEx_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManDeinitialize", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManDeinitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManDisconnectShell", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManDisconnectShell_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManGetErrorMessage", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManGetErrorMessage_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsDword", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsDword_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsString", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsString_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManInitialize", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManInitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzOperationComplete", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzOperationComplete_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzQueryQuotaComplete", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzQueryQuotaComplete_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzUserComplete", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzUserComplete_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginFreeRequestDetails", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginFreeRequestDetails_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginGetConfiguration", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginGetConfiguration_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginGetOperationParameters", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginGetOperationParameters_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginOperationComplete", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginOperationComplete_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginReceiveResult", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginReceiveResult_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginReportCompletion", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginReportCompletion_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManPluginReportContext", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManPluginReportContext_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManReceiveShellOutput", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManReceiveShellOutput_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManReconnectShell", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManReconnectShell_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManReconnectShellCommand", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManReconnectShellCommand_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommand", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommand_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommandEx", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommandEx_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManSendShellInput", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManSendShellInput_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManSetSessionOption", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManSetSessionOption_napi));
+    exports.Set("windowssysWindowsWin32SystemRemotemanagementWSManSignalShell", Napi::Function::New(env, windowssysWindowsWin32SystemRemotemanagementWSManSignalShell_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_remotemanagement_napi, nullptr };

@@ -2,7 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -16,299 +18,350 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hrsrc
 
 private object WindowsWin32SystemLibraryloaderJniBridge {
     init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWin32SystemLibraryloaderJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_addDllDirectory(newdirectory: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderAddDllDirectory(newdirectory: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_beginUpdateResourceA(pfilename: Long, bdeleteexistingresources: Int): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderBeginUpdateResourceA(pfilename: Long, bdeleteexistingresources: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_beginUpdateResourceW(pfilename: Long, bdeleteexistingresources: Int): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderBeginUpdateResourceW(pfilename: Long, bdeleteexistingresources: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls(hlibmodule: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderDisableThreadLibraryCalls(hlibmodule: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_endUpdateResourceA(hupdate: Long, fdiscard: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEndUpdateResourceA(hupdate: Long, fdiscard: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_endUpdateResourceW(hupdate: Long, fdiscard: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEndUpdateResourceW(hupdate: Long, fdiscard: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesA(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesExA(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesExW(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesW(hmodule: Long, lptype: Long, lpname: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceNamesA(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesA(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceNamesExA(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesExA(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceNamesExW(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesExW(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceNamesW(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesW(hmodule: Long, lptype: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceTypesA(hmodule: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesA(hmodule: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceTypesExA(hmodule: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesExA(hmodule: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceTypesExW(hmodule: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesExW(hmodule: Long, lpenumfunc: Long, lparam: Long, dwflags: Int, langid: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_enumResourceTypesW(hmodule: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesW(hmodule: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_findResourceA(hmodule: Long, lpname: Long, lptype: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderFindResourceA(hmodule: Long, lpname: Long, lptype: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_findResourceExA(hmodule: Long, lptype: Long, lpname: Long, wlanguage: Short): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderFindResourceExA(hmodule: Long, lptype: Long, lpname: Long, wlanguage: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_findResourceExW(hmodule: Long, lptype: Long, lpname: Long, wlanguage: Short): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderFindResourceExW(hmodule: Long, lptype: Long, lpname: Long, wlanguage: Short): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_findResourceW(hmodule: Long, lpname: Long, lptype: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderFindResourceW(hmodule: Long, lpname: Long, lptype: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread(hlibmodule: Long, dwexitcode: Int)
+    external fun windowssysWindowsWin32SystemLibraryloaderFreeLibraryAndExitThread(hlibmodule: Long, dwexitcode: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_freeResource(hresdata: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderFreeResource(hresdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getDllDirectoryA(nbufferlength: Int, lpbuffer: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderGetDllDirectoryA(nbufferlength: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getDllDirectoryW(nbufferlength: Int, lpbuffer: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderGetDllDirectoryW(nbufferlength: Int, lpbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getModuleFileNameA(hmodule: Long, lpfilename: Long, nsize: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderGetModuleFileNameA(hmodule: Long, lpfilename: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getModuleFileNameW(hmodule: Long, lpfilename: Long, nsize: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderGetModuleFileNameW(hmodule: Long, lpfilename: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getModuleHandleA(lpmodulename: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderGetModuleHandleA(lpmodulename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getModuleHandleExA(dwflags: Int, lpmodulename: Long, phmodule: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExA(dwflags: Int, lpmodulename: Long, phmodule: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getModuleHandleExW(dwflags: Int, lpmodulename: Long, phmodule: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExW(dwflags: Int, lpmodulename: Long, phmodule: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_getModuleHandleW(lpmodulename: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderGetModuleHandleW(lpmodulename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_loadLibraryA(lplibfilename: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderLoadLibraryA(lplibfilename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_loadLibraryExA(lplibfilename: Long, hfile: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderLoadLibraryExA(lplibfilename: Long, hfile: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_loadLibraryExW(lplibfilename: Long, hfile: Long, dwflags: Int): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderLoadLibraryExW(lplibfilename: Long, hfile: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_loadLibraryW(lplibfilename: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderLoadLibraryW(lplibfilename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_loadModule(lpmodulename: Long, lpparameterblock: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderLoadModule(lpmodulename: Long, lpparameterblock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_loadPackagedLibrary(lpwlibfilename: Long, reserved: Int): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderLoadPackagedLibrary(lpwlibfilename: Long, reserved: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_loadResource(hmodule: Long, hresinfo: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderLoadResource(hmodule: Long, hresinfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_lockResource(hresdata: Long): Long
+    external fun windowssysWindowsWin32SystemLibraryloaderLockResource(hresdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI(hparentmodule: Long, lpdllname: Long, lpprocname: Long, reserved: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderQueryOptionalDelayLoadedAPI(hparentmodule: Long, lpdllname: Long, lpprocname: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_removeDllDirectory(cookie: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderRemoveDllDirectory(cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories(directoryflags: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderSetDefaultDllDirectories(directoryflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_setDllDirectoryA(lppathname: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderSetDllDirectoryA(lppathname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_setDllDirectoryW(lppathname: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderSetDllDirectoryW(lppathname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_sizeofResource(hmodule: Long, hresinfo: Long): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderSizeofResource(hmodule: Long, hresinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_updateResourceA(hupdate: Long, lptype: Long, lpname: Long, wlanguage: Short, lpdata: Long, cb: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderUpdateResourceA(hupdate: Long, lptype: Long, lpname: Long, wlanguage: Short, lpdata: Long, cb: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_libraryloader_updateResourceW(hupdate: Long, lptype: Long, lpname: Long, wlanguage: Short, lpdata: Long, cb: Int): Int
+    external fun windowssysWindowsWin32SystemLibraryloaderUpdateResourceW(hupdate: Long, lptype: Long, lpname: Long, wlanguage: Short, lpdata: Long, cb: Int): Int
 }
 
-public actual fun addDllDirectory(newdirectory: Pcwstr): COpaquePointer? =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_addDllDirectory((newdirectory?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderAddDllDirectory(newdirectory.rawAddress))
 
 public actual fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_beginUpdateResourceA((pfilename?.value ?: 0L), bdeleteexistingresources).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderBeginUpdateResourceA(pfilename.rawAddress, bdeleteexistingresources))
 
 public actual fun beginUpdateResourceW(pfilename: Pcwstr, bdeleteexistingresources: Bool): Handle =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_beginUpdateResourceW((pfilename?.value ?: 0L), bdeleteexistingresources).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderBeginUpdateResourceW(pfilename.rawAddress, bdeleteexistingresources))
 
 public actual fun disableThreadLibraryCalls(hlibmodule: Hmodule): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls((hlibmodule?.value ?: 0L))
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderDisableThreadLibraryCalls(hlibmodule.rawAddress)
 
 public actual fun endUpdateResourceA(hupdate: Handle, fdiscard: Bool): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_endUpdateResourceA((hupdate?.value ?: 0L), fdiscard)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEndUpdateResourceA(hupdate.rawAddress, fdiscard)
 
 public actual fun endUpdateResourceW(hupdate: Handle, fdiscard: Bool): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_endUpdateResourceW((hupdate?.value ?: 0L), fdiscard)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEndUpdateResourceW(hupdate.rawAddress, fdiscard)
 
 public actual fun enumResourceLanguagesA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA((hmodule?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), 0L, lparam)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesA(hmodule.rawAddress, lptype.rawAddress, lpname.rawAddress, 0L, lparam)
 
 public actual fun enumResourceLanguagesExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA((hmodule?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), 0L, lparam, dwflags.toInt(), langid.toShort())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesExA(hmodule.rawAddress, lptype.rawAddress, lpname.rawAddress, 0L, lparam, dwflags.toInt(), langid.toShort())
 
 public actual fun enumResourceLanguagesExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW((hmodule?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), 0L, lparam, dwflags.toInt(), langid.toShort())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesExW(hmodule.rawAddress, lptype.rawAddress, lpname.rawAddress, 0L, lparam, dwflags.toInt(), langid.toShort())
 
 public actual fun enumResourceLanguagesW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW((hmodule?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), 0L, lparam)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceLanguagesW(hmodule.rawAddress, lptype.rawAddress, lpname.rawAddress, 0L, lparam)
 
 public actual fun enumResourceNamesA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceNamesA((hmodule?.value ?: 0L), (lptype?.value ?: 0L), 0L, lparam)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesA(hmodule.rawAddress, lptype.rawAddress, 0L, lparam)
 
 public actual fun enumResourceNamesExA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceNamesExA((hmodule?.value ?: 0L), (lptype?.value ?: 0L), 0L, lparam, dwflags.toInt(), langid.toShort())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesExA(hmodule.rawAddress, lptype.rawAddress, 0L, lparam, dwflags.toInt(), langid.toShort())
 
 public actual fun enumResourceNamesExW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceNamesExW((hmodule?.value ?: 0L), (lptype?.value ?: 0L), 0L, lparam, dwflags.toInt(), langid.toShort())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesExW(hmodule.rawAddress, lptype.rawAddress, 0L, lparam, dwflags.toInt(), langid.toShort())
 
 public actual fun enumResourceNamesW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceNamesW((hmodule?.value ?: 0L), (lptype?.value ?: 0L), 0L, lparam)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceNamesW(hmodule.rawAddress, lptype.rawAddress, 0L, lparam)
 
 public actual fun enumResourceTypesA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceTypesA((hmodule?.value ?: 0L), 0L, lparam)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesA(hmodule.rawAddress, 0L, lparam)
 
 public actual fun enumResourceTypesExA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceTypesExA((hmodule?.value ?: 0L), 0L, lparam, dwflags.toInt(), langid.toShort())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesExA(hmodule.rawAddress, 0L, lparam, dwflags.toInt(), langid.toShort())
 
 public actual fun enumResourceTypesExW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceTypesExW((hmodule?.value ?: 0L), 0L, lparam, dwflags.toInt(), langid.toShort())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesExW(hmodule.rawAddress, 0L, lparam, dwflags.toInt(), langid.toShort())
 
 public actual fun enumResourceTypesW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_enumResourceTypesW((hmodule?.value ?: 0L), 0L, lparam)
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderEnumResourceTypesW(hmodule.rawAddress, 0L, lparam)
 
 public actual fun findResourceA(hmodule: Hmodule, lpname: Pcstr, lptype: Pcstr): Hrsrc =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_findResourceA((hmodule?.value ?: 0L), (lpname?.value ?: 0L), (lptype?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderFindResourceA(hmodule.rawAddress, lpname.rawAddress, lptype.rawAddress))
 
 public actual fun findResourceExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort): Hrsrc =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_findResourceExA((hmodule?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), wlanguage.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderFindResourceExA(hmodule.rawAddress, lptype.rawAddress, lpname.rawAddress, wlanguage.toShort()))
 
 public actual fun findResourceExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort): Hrsrc =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_findResourceExW((hmodule?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), wlanguage.toShort()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderFindResourceExW(hmodule.rawAddress, lptype.rawAddress, lpname.rawAddress, wlanguage.toShort()))
 
 public actual fun findResourceW(hmodule: Hmodule, lpname: Pcwstr, lptype: Pcwstr): Hrsrc =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_findResourceW((hmodule?.value ?: 0L), (lpname?.value ?: 0L), (lptype?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderFindResourceW(hmodule.rawAddress, lpname.rawAddress, lptype.rawAddress))
 
 public actual fun freeLibraryAndExitThread(hlibmodule: Hmodule, dwexitcode: UInt): Nothing {
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread((hlibmodule?.value ?: 0L), dwexitcode.toInt())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderFreeLibraryAndExitThread(hlibmodule.rawAddress, dwexitcode.toInt())
     error("Unreachable noreturn C function freeLibraryAndExitThread")
 }
 
 public actual fun freeResource(hresdata: Hglobal): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_freeResource((hresdata?.value ?: 0L))
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderFreeResource(hresdata.rawAddress)
 
 public actual fun getDllDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getDllDirectoryA(nbufferlength.toInt(), (lpbuffer?.value ?: 0L)).toUInt()
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetDllDirectoryA(nbufferlength.toInt(), lpbuffer.rawAddress).toUInt()
 
 public actual fun getDllDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getDllDirectoryW(nbufferlength.toInt(), (lpbuffer?.value ?: 0L)).toUInt()
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetDllDirectoryW(nbufferlength.toInt(), lpbuffer.rawAddress).toUInt()
 
 public actual fun getModuleFileNameA(hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getModuleFileNameA((hmodule?.value ?: 0L), (lpfilename?.value ?: 0L), nsize.toInt()).toUInt()
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleFileNameA(hmodule.rawAddress, lpfilename.rawAddress, nsize.toInt()).toUInt()
 
 public actual fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getModuleFileNameW((hmodule?.value ?: 0L), (lpfilename?.value ?: 0L), nsize.toInt()).toUInt()
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleFileNameW(hmodule.rawAddress, lpfilename.rawAddress, nsize.toInt()).toUInt()
 
 public actual fun getModuleHandleA(lpmodulename: Pcstr): Hmodule =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getModuleHandleA((lpmodulename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleHandleA(lpmodulename.rawAddress))
 
-public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: COpaquePointer?): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getModuleHandleExA(dwflags.toInt(), (lpmodulename?.value ?: 0L), (phmodule?.value ?: 0L))
+public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool =
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExA(dwflags.toInt(), lpmodulename.rawAddress, phmodule.rawAddress)
 
-public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: COpaquePointer?): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getModuleHandleExW(dwflags.toInt(), (lpmodulename?.value ?: 0L), (phmodule?.value ?: 0L))
+public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool =
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExW(dwflags.toInt(), lpmodulename.rawAddress, phmodule.rawAddress)
 
 public actual fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_getModuleHandleW((lpmodulename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleHandleW(lpmodulename.rawAddress))
 
 public actual fun getProcAddress(hmodule: Hmodule, lpprocname: Pcstr): Farproc =
     null
 
 public actual fun loadLibraryA(lplibfilename: Pcstr): Hmodule =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_loadLibraryA((lplibfilename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadLibraryA(lplibfilename.rawAddress))
 
 public actual fun loadLibraryExA(lplibfilename: Pcstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_loadLibraryExA((lplibfilename?.value ?: 0L), (hfile?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadLibraryExA(lplibfilename.rawAddress, hfile.rawAddress, dwflags.toInt()))
 
 public actual fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_loadLibraryExW((lplibfilename?.value ?: 0L), (hfile?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadLibraryExW(lplibfilename.rawAddress, hfile.rawAddress, dwflags.toInt()))
 
 public actual fun loadLibraryW(lplibfilename: Pcwstr): Hmodule =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_loadLibraryW((lplibfilename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadLibraryW(lplibfilename.rawAddress))
 
-public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: COpaquePointer?): UInt =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_loadModule((lpmodulename?.value ?: 0L), (lpparameterblock?.value ?: 0L)).toUInt()
+public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr<CVoid>): UInt =
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadModule(lpmodulename.rawAddress, lpparameterblock.rawAddress).toUInt()
 
 public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_loadPackagedLibrary((lpwlibfilename?.value ?: 0L), reserved.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadPackagedLibrary(lpwlibfilename.rawAddress, reserved.toInt()))
 
 public actual fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_loadResource((hmodule?.value ?: 0L), (hresinfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadResource(hmodule.rawAddress, hresinfo.rawAddress))
 
-public actual fun lockResource(hresdata: Hglobal): COpaquePointer? =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_lockResource((hresdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun lockResource(hresdata: Hglobal): MutPtr<CVoid> =
+    MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLockResource(hresdata.rawAddress))
 
 public actual fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI((hparentmodule?.value ?: 0L), (lpdllname?.value ?: 0L), (lpprocname?.value ?: 0L), reserved.toInt())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderQueryOptionalDelayLoadedAPI(hparentmodule.rawAddress, lpdllname.rawAddress, lpprocname.rawAddress, reserved.toInt())
 
-public actual fun removeDllDirectory(cookie: COpaquePointer?): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_removeDllDirectory((cookie?.value ?: 0L))
+public actual fun removeDllDirectory(cookie: ConstPtr<CVoid>): Bool =
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderRemoveDllDirectory(cookie.rawAddress)
 
 public actual fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories(directoryflags.toInt())
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderSetDefaultDllDirectories(directoryflags.toInt())
 
 public actual fun setDllDirectoryA(lppathname: Pcstr): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_setDllDirectoryA((lppathname?.value ?: 0L))
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderSetDllDirectoryA(lppathname.rawAddress)
 
 public actual fun setDllDirectoryW(lppathname: Pcwstr): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_setDllDirectoryW((lppathname?.value ?: 0L))
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderSetDllDirectoryW(lppathname.rawAddress)
 
 public actual fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_sizeofResource((hmodule?.value ?: 0L), (hresinfo?.value ?: 0L)).toUInt()
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderSizeofResource(hmodule.rawAddress, hresinfo.rawAddress).toUInt()
 
-public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_updateResourceA((hupdate?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), wlanguage.toShort(), (lpdata?.value ?: 0L), cb.toInt())
+public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderUpdateResourceA(hupdate.rawAddress, lptype.rawAddress, lpname.rawAddress, wlanguage.toShort(), lpdata.rawAddress, cb.toInt())
 
-public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool =
-    WindowsWin32SystemLibraryloaderJniBridge.windowssys_windows_win32_system_libraryloader_updateResourceW((hupdate?.value ?: 0L), (lptype?.value ?: 0L), (lpname?.value ?: 0L), wlanguage.toShort(), (lpdata?.value ?: 0L), cb.toInt())
+public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+    WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderUpdateResourceW(hupdate.rawAddress, lptype.rawAddress, lpname.rawAddress, wlanguage.toShort(), lpdata.rawAddress, cb.toInt())

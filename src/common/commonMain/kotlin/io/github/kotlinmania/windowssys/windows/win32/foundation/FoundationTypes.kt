@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias Colorref = UInt
 
@@ -14,31 +15,31 @@ public typealias Farproc = FarprocFn?
 
 public typealias GenericAccessRights = UInt
 
-public typealias Handle = COpaquePointer?
+public typealias Handle = MutPtr<CVoid>
 
 public typealias HandleFlags = UInt
 
 public typealias HandlePtr = Int
 
-public typealias Hglobal = COpaquePointer?
+public typealias Hglobal = MutPtr<CVoid>
 
-public typealias Hinstance = COpaquePointer?
+public typealias Hinstance = MutPtr<CVoid>
 
-public typealias Hlocal = COpaquePointer?
+public typealias Hlocal = MutPtr<CVoid>
 
-public typealias Hlsurf = COpaquePointer?
+public typealias Hlsurf = MutPtr<CVoid>
 
-public typealias Hmodule = COpaquePointer?
+public typealias Hmodule = MutPtr<CVoid>
 
-public typealias Hrsrc = COpaquePointer?
+public typealias Hrsrc = MutPtr<CVoid>
 
-public typealias Hsprite = COpaquePointer?
+public typealias Hsprite = MutPtr<CVoid>
 
-public typealias Hstr = COpaquePointer?
+public typealias Hstr = MutPtr<CVoid>
 
-public typealias Humpd = COpaquePointer?
+public typealias Humpd = MutPtr<CVoid>
 
-public typealias Hwnd = COpaquePointer?
+public typealias Hwnd = MutPtr<CVoid>
 
 public typealias Lparam = Long
 

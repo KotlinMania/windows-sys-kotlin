@@ -1,10 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
-public typealias Hpss = COpaquePointer?
+public typealias Hpss = MutPtr<CVoid>
 
-public typealias Hpsswalk = COpaquePointer?
+public typealias Hpsswalk = MutPtr<CVoid>
 
 public typealias PssCaptureFlags = UInt
 

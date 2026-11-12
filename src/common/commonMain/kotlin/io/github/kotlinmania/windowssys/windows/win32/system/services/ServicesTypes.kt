@@ -1,6 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 public typealias EnumServiceState = UInt
 
@@ -13,7 +17,7 @@ public fun interface HandlerFunctionFn {
 public typealias HandlerFunction = HandlerFunctionFn?
 
 public fun interface HandlerFunctionExFn {
-    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: COpaquePointer?, lpcontext: COpaquePointer?): UInt
+    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: MutPtr<CVoid>, lpcontext: MutPtr<CVoid>): UInt
 }
 
 public typealias HandlerFunctionEx = HandlerFunctionExFn?
@@ -25,31 +29,31 @@ public fun interface LphandlerFunctionFn {
 public typealias LphandlerFunction = LphandlerFunctionFn?
 
 public fun interface LphandlerFunctionExFn {
-    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: COpaquePointer?, lpcontext: COpaquePointer?): UInt
+    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: MutPtr<CVoid>, lpcontext: MutPtr<CVoid>): UInt
 }
 
 public typealias LphandlerFunctionEx = LphandlerFunctionExFn?
 
 public fun interface LpserviceMainFunctionaFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: MutPtr<Pstr>)
 }
 
 public typealias LpserviceMainFunctiona = LpserviceMainFunctionaFn?
 
 public fun interface LpserviceMainFunctionwFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: MutPtr<Pwstr>)
 }
 
 public typealias LpserviceMainFunctionw = LpserviceMainFunctionwFn?
 
 public fun interface PfnScNotifyCallbackFn {
-    public operator fun invoke(pparameter: COpaquePointer?)
+    public operator fun invoke(pparameter: ConstPtr<CVoid>)
 }
 
 public typealias PfnScNotifyCallback = PfnScNotifyCallbackFn?
 
 public fun interface PscNotificationCallbackFn {
-    public operator fun invoke(dwnotify: UInt, pcallbackcontext: COpaquePointer?)
+    public operator fun invoke(dwnotify: UInt, pcallbackcontext: ConstPtr<CVoid>)
 }
 
 public typealias PscNotificationCallback = PscNotificationCallbackFn?
@@ -62,7 +66,7 @@ public typealias ScEnumType = Int
 
 public typealias ScEventType = Int
 
-public typealias ScHandle = COpaquePointer?
+public typealias ScHandle = MutPtr<CVoid>
 
 public typealias ScStatusType = Int
 
@@ -73,13 +77,13 @@ public typealias ServiceDirectoryType = Int
 public typealias ServiceError = UInt
 
 public fun interface ServiceMainFunctionaFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: MutPtr<MutPtr<Byte>>)
 }
 
 public typealias ServiceMainFunctiona = ServiceMainFunctionaFn?
 
 public fun interface ServiceMainFunctionwFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: MutPtr<Pwstr>)
 }
 
 public typealias ServiceMainFunctionw = ServiceMainFunctionwFn?
@@ -98,7 +102,7 @@ public typealias ServiceStartType = UInt
 
 public typealias ServiceStatusCurrentState = UInt
 
-public typealias ServiceStatusHandle = COpaquePointer?
+public typealias ServiceStatusHandle = MutPtr<CVoid>
 
 public typealias ServiceTriggerAction = UInt
 

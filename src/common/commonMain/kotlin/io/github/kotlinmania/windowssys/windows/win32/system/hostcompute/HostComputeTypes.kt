@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcompute
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
-public typealias HcsCallback = COpaquePointer?
+public typealias HcsCallback = MutPtr<CVoid>

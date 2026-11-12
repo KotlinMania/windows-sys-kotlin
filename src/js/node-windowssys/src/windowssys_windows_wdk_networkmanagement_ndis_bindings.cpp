@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisAcquireReadWriteLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool fwrite = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -77,7 +77,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireRead
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisAllocateMemoryWithTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -106,7 +106,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCancelTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timercancelled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -130,7 +130,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClAddParty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* protocolpartycontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClCloseAddressFamily_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisafhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClCloseCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ndispartyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClDeregisterSap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndissaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -242,7 +242,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregiste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClDropParty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndispartyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -271,7 +271,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClIncomingCallComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClMakeCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callparameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -328,7 +328,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClModifyCallQoS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callparameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisClRegisterSap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisafhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* protocolsapcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -386,7 +386,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCloseConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* configurationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -408,7 +408,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfig
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCloseFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmActivateVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callparameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmAddPartyComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndispartyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseAddressFamilyComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisafhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -509,7 +509,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseCallComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -535,7 +535,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCall
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDeactivateVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -560,7 +560,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDeregisterSapComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndissaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -584,7 +584,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregiste
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchCallConnected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -606,7 +606,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndissaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -635,7 +635,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCallQoSChange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callparameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -659,7 +659,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCloseCall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t closestatus = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingDropParty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t dropstatus = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndispartyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -715,7 +715,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmDropPartyComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndispartyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -739,7 +739,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropParty
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmMakeCallComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -769,7 +769,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmModifyCallQoSComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -795,7 +795,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCal
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmOpenAddressFamilyComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisafhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -821,7 +821,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddre
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCmRegisterSapComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndissaphandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -847,7 +847,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCoAssignInstanceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* baseinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -876,7 +876,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCoCreateVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisbindinghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ndisafhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -907,7 +907,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCoDeleteVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -932,7 +932,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCoGetTapiCallId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* tapicallid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -959,7 +959,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCompleteDmaTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ndisdmahandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDma
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisCopyBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1023,7 +1023,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisDeregisterTdiCallBack_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -1043,7 +1043,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterT
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1069,7 +1069,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisGeneratePartialCancelId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void);
@@ -1092,7 +1092,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCounts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkernelanduser = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1118,7 +1118,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentP
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCpuUsage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcpuusage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1140,7 +1140,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentP
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisGetRoutineAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisroutinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1165,7 +1165,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisGetSharedDataAlignment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1188,7 +1188,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisGetVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1211,7 +1211,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisIMAssociateMiniport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* protocolhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1235,7 +1235,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociate
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisIMCancelInitializeDeviceInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* deviceinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1262,7 +1262,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelIni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisIMDeInitializeDeviceInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisminiporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1287,7 +1287,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitial
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisIMGetBindingContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisbindinghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1312,7 +1312,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindin
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisIMInitializeDeviceInstanceEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* driverhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* driverinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1341,7 +1341,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisInitializeEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1363,7 +1363,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeE
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisInitializeReadWriteLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1385,7 +1385,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeR
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisInitializeString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* destination = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* source = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1409,7 +1409,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisInitializeTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timerfunction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1435,7 +1435,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeT
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1465,7 +1465,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSh
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemoryAsync_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1496,7 +1496,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCancelTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timercancelled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1520,7 +1520,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTime
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCloseLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1542,7 +1542,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCmActivateVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callparameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1569,7 +1569,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCmCreateVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ndisafhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1600,7 +1600,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeactivateVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1625,7 +1625,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactiva
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeleteVc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1650,7 +1650,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCmRegisterAddressFamily_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* addressfamily = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1681,7 +1681,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCoActivateVcComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1707,7 +1707,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivate
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCoDeactivateVcComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ndisvchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1731,7 +1731,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactiva
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMCreateLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1760,7 +1760,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterDmaChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportdmahandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1782,7 +1782,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregister
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterIoPortRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initialport = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1810,7 +1810,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregister
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMFlushLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1832,7 +1832,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMFreeSharedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1862,7 +1862,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeShared
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMGetDeviceProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* physicaldeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1894,7 +1894,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceP
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMGetDmaAlignment_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1919,7 +1919,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlig
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMInitializeTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1947,7 +1947,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMInitialize
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMMapIoSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1978,7 +1978,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMQueryAdapterInstanceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* padapterinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* miniporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2005,7 +2005,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMReadDmaCounter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportdmahandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2030,7 +2030,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterDmaChannel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportdmahandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2065,7 +2065,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterIoPortRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* portoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2096,7 +2096,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMRemoveMiniport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniporthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2121,7 +2121,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMini
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMSetPeriodicTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t millisecondperiod = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2145,7 +2145,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMSleep_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t microsecondstosleep = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2167,7 +2167,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMUnmapIoSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* miniportadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* virtualaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2193,7 +2193,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMWriteLogData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* logbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2222,7 +2222,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogDa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisMapFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mappedbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2248,11 +2248,11 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configurationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     void* keyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
 #ifdef _WIN32
@@ -2263,14 +2263,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigu
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisOpenConfigurationKeyByIndex")));
     }
     if (km_fn_ptr != nullptr) {
-        km_fn_ptr(status, configurationhandle, arg_2_index, keyname, keyhandle);
+        km_fn_ptr(status, configurationhandle, arg2Index, keyname, keyhandle);
     } else {
         errno = ENOSYS;
     }
 #else
     (void)status;
     (void)configurationhandle;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)keyname;
     (void)keyhandle;
     errno = ENOSYS;
@@ -2278,7 +2278,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configurationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2306,7 +2306,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisOpenFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2336,7 +2336,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisQueryAdapterInstanceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* padapterinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ndisbindinghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2363,7 +2363,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisQueryBindInstanceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* padapterinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bindingcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2390,7 +2390,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisReEnumerateProtocolBindings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisprotocolhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2412,7 +2412,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerate
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisReadConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* parametervalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2442,7 +2442,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfigu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisReadNetworkAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* networkaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2470,7 +2470,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetwork
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisRegisterTdiCallBack_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* registercallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnphandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2494,7 +2494,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisReleaseReadWriteLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lockstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2518,7 +2518,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseRead
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisResetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2540,7 +2540,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisSetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2562,7 +2562,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisSetPeriodicTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndistimer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t millisecondsperiod = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2586,7 +2586,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodic
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisSetTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t millisecondstodelay = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2610,7 +2610,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisSetTimerEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndistimer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t millisecondstodelay = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2636,7 +2636,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisSetupDmaTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ndisdmahandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2668,7 +2668,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTra
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisSystemProcessorCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void);
@@ -2691,7 +2691,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisUnmapFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2713,7 +2713,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisUpdateSharedMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2741,7 +2741,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateShare
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisWaitEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t mstowait = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2768,7 +2768,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent_n
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisWriteConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* status = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configurationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2796,7 +2796,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfig
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisWriteErrorLogEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ndisadapterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t errorcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2834,7 +2834,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorL
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWdkNetworkmanagementNdisNdisWriteEventLogEntry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loghandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eventcode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2872,112 +2872,112 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventL
 }
 
 static void register_windows_wdk_networkmanagement_ndis_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireReadWriteLock_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMemoryWithTag_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddressFamily_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregisterSap_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingCallComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCallQoS_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterSap_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfiguration_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddressFamilyComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCallComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivateVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregisterSapComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchCallConnected_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCall_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCallQoSChange_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingCloseCall_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchIncomingDropParty_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropPartyComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCallQoSComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddressFamilyComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterSapComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignInstanceName_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCallId_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDmaTransfer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterTdiCallBack_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePartialCancelId_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCounts_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentProcessorCpuUsage_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineAddress_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDataAlignment_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociateMiniport_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelInitializeDeviceInstance_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitializeDeviceInstance_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindingContext_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializeDeviceInstanceEx_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeEvent_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeReadWriteLock_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeString_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeTimer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemory_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSharedMemoryAsync_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTimer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivateVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactivateVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegisterAddressFamily_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivateVcComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactivateVcComplete_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterDmaChannel_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregisterIoPortRange_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeSharedMemory_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceProperty_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlignment_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMInitializeTimer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapterInstanceName_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCounter_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDmaChannel_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIoPortRange_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMiniport_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodicTimer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpace_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogData_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByIndex_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigurationKeyByName_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapterInstanceName_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindInstanceName_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerateProtocolBindings_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfiguration_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetworkAddress_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdiCallBack_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseReadWriteLock_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodicTimer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTransfer_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProcessorCount_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateSharedMemory_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfiguration_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorLogEntry_napi));
-    exports.Set("windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry", Napi::Function::New(env, windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventLogEntry_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisAcquireReadWriteLock", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisAcquireReadWriteLock_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisAllocateMemoryWithTag", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisAllocateMemoryWithTag_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCancelTimer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCancelTimer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClAddParty", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClAddParty_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClCloseAddressFamily", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClCloseAddressFamily_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClCloseCall", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClCloseCall_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClDeregisterSap", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClDeregisterSap_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClDropParty", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClDropParty_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClIncomingCallComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClIncomingCallComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClMakeCall", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClMakeCall_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClModifyCallQoS", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClModifyCallQoS_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisClRegisterSap", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisClRegisterSap_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCloseConfiguration", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCloseConfiguration_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCloseFile", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCloseFile_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmActivateVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmActivateVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmAddPartyComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmAddPartyComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseAddressFamilyComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseAddressFamilyComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseCallComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmCloseCallComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDeactivateVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDeactivateVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDeregisterSapComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDeregisterSapComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchCallConnected", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchCallConnected_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCall", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCall_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCallQoSChange", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCallQoSChange_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCloseCall", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingCloseCall_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingDropParty", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDispatchIncomingDropParty_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmDropPartyComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmDropPartyComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmMakeCallComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmMakeCallComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmModifyCallQoSComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmModifyCallQoSComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmOpenAddressFamilyComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmOpenAddressFamilyComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCmRegisterSapComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCmRegisterSapComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCoAssignInstanceName", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCoAssignInstanceName_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCoCreateVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCoCreateVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCoDeleteVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCoDeleteVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCoGetTapiCallId", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCoGetTapiCallId_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCompleteDmaTransfer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCompleteDmaTransfer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisCopyBuffer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisCopyBuffer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisDeregisterTdiCallBack", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisDeregisterTdiCallBack_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisFreeMemory", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisFreeMemory_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisGeneratePartialCancelId", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisGeneratePartialCancelId_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCounts", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCounts_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCpuUsage", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisGetCurrentProcessorCpuUsage_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisGetRoutineAddress", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisGetRoutineAddress_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisGetSharedDataAlignment", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisGetSharedDataAlignment_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisGetVersion", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisGetVersion_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisIMAssociateMiniport", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisIMAssociateMiniport_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisIMCancelInitializeDeviceInstance", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisIMCancelInitializeDeviceInstance_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisIMDeInitializeDeviceInstance", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisIMDeInitializeDeviceInstance_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisIMGetBindingContext", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisIMGetBindingContext_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisIMInitializeDeviceInstanceEx", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisIMInitializeDeviceInstanceEx_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisInitializeEvent", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisInitializeEvent_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisInitializeReadWriteLock", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisInitializeReadWriteLock_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisInitializeString", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisInitializeString_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisInitializeTimer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisInitializeTimer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemory", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemory_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemoryAsync", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMAllocateSharedMemoryAsync_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCancelTimer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCancelTimer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCloseLog", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCloseLog_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCmActivateVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCmActivateVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCmCreateVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCmCreateVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeactivateVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeactivateVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeleteVc", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCmDeleteVc_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCmRegisterAddressFamily", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCmRegisterAddressFamily_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCoActivateVcComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCoActivateVcComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCoDeactivateVcComplete", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCoDeactivateVcComplete_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMCreateLog", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMCreateLog_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterDmaChannel", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterDmaChannel_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterIoPortRange", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMDeregisterIoPortRange_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMFlushLog", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMFlushLog_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMFreeSharedMemory", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMFreeSharedMemory_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMGetDeviceProperty", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMGetDeviceProperty_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMGetDmaAlignment", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMGetDmaAlignment_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMInitializeTimer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMInitializeTimer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMMapIoSpace", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMMapIoSpace_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMQueryAdapterInstanceName", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMQueryAdapterInstanceName_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMReadDmaCounter", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMReadDmaCounter_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterDmaChannel", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterDmaChannel_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterIoPortRange", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMRegisterIoPortRange_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMRemoveMiniport", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMRemoveMiniport_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMSetPeriodicTimer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMSetPeriodicTimer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMSleep", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMSleep_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMUnmapIoSpace", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMUnmapIoSpace_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMWriteLogData", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMWriteLogData_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisMapFile", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisMapFile_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByIndex", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByIndex_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByName", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisOpenConfigurationKeyByName_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisOpenFile", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisOpenFile_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisQueryAdapterInstanceName", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisQueryAdapterInstanceName_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisQueryBindInstanceName", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisQueryBindInstanceName_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisReEnumerateProtocolBindings", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisReEnumerateProtocolBindings_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisReadConfiguration", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisReadConfiguration_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisReadNetworkAddress", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisReadNetworkAddress_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisRegisterTdiCallBack", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisRegisterTdiCallBack_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisReleaseReadWriteLock", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisReleaseReadWriteLock_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisResetEvent", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisResetEvent_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisSetEvent", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisSetEvent_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisSetPeriodicTimer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisSetPeriodicTimer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisSetTimer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisSetTimer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisSetTimerEx", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisSetTimerEx_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisSetupDmaTransfer", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisSetupDmaTransfer_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisSystemProcessorCount", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisSystemProcessorCount_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisUnmapFile", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisUnmapFile_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisUpdateSharedMemory", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisUpdateSharedMemory_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisWaitEvent", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisWaitEvent_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisWriteConfiguration", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisWriteConfiguration_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisWriteErrorLogEntry", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisWriteErrorLogEntry_napi));
+    exports.Set("windowssysWindowsWdkNetworkmanagementNdisNdisWriteEventLogEntry", Napi::Function::New(env, windowssysWindowsWdkNetworkmanagementNdisNdisWriteEventLogEntry_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_networkmanagement_ndis_napi, nullptr };

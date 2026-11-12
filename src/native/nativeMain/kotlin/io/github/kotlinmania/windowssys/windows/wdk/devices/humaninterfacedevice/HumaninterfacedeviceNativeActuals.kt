@@ -2,28 +2,30 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.COpaquePointer
-import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete
-import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate
-import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete
-import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit
-import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssysWindowsWdkDevicesHumaninterfacedeviceVhfAsyncOperationComplete
+import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssysWindowsWdkDevicesHumaninterfacedeviceVhfCreate
+import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssysWindowsWdkDevicesHumaninterfacedeviceVhfDelete
+import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssysWindowsWdkDevicesHumaninterfacedeviceVhfReadReportSubmit
+import io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop.windowssysWindowsWdkDevicesHumaninterfacedeviceVhfStart
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun vhfAsyncOperationComplete(vhfoperationhandle: COpaquePointer?, completionstatus: Ntstatus): Ntstatus =
-    windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete(vhfoperationhandle?.value?.toCPointer<ByteVar>(), completionstatus)
+public actual fun vhfAsyncOperationComplete(vhfoperationhandle: ConstPtr<CVoid>, completionstatus: Ntstatus): Ntstatus =
+    windowssysWindowsWdkDevicesHumaninterfacedeviceVhfAsyncOperationComplete(vhfoperationhandle.rawAddress.toCPointer<ByteVar>(), completionstatus)
 
-public actual fun vhfCreate(vhfconfig: COpaquePointer?, vhfhandle: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate(vhfconfig?.value?.toCPointer<ByteVar>(), vhfhandle?.value?.toCPointer<ByteVar>())
+public actual fun vhfCreate(vhfconfig: ConstPtr<VhfConfig>, vhfhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+    windowssysWindowsWdkDevicesHumaninterfacedeviceVhfCreate(vhfconfig.rawAddress.toCPointer<ByteVar>(), vhfhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun vhfDelete(vhfhandle: COpaquePointer?, wait: Boolean) {
-    windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete(vhfhandle?.value?.toCPointer<ByteVar>(), wait)
+public actual fun vhfDelete(vhfhandle: ConstPtr<CVoid>, wait: Boolean) {
+    windowssysWindowsWdkDevicesHumaninterfacedeviceVhfDelete(vhfhandle.rawAddress.toCPointer<ByteVar>(), wait)
 }
 
-public actual fun vhfReadReportSubmit(vhfhandle: COpaquePointer?, hidtransferpacket: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit(vhfhandle?.value?.toCPointer<ByteVar>(), hidtransferpacket?.value?.toCPointer<ByteVar>())
+public actual fun vhfReadReportSubmit(vhfhandle: ConstPtr<CVoid>, hidtransferpacket: ConstPtr<HidXferPacket>): Ntstatus =
+    windowssysWindowsWdkDevicesHumaninterfacedeviceVhfReadReportSubmit(vhfhandle.rawAddress.toCPointer<ByteVar>(), hidtransferpacket.rawAddress.toCPointer<ByteVar>())
 
-public actual fun vhfStart(vhfhandle: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart(vhfhandle?.value?.toCPointer<ByteVar>())
+public actual fun vhfStart(vhfhandle: ConstPtr<CVoid>): Ntstatus =
+    windowssysWindowsWdkDevicesHumaninterfacedeviceVhfStart(vhfhandle.rawAddress.toCPointer<ByteVar>())

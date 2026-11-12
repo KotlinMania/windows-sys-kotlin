@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcatadmin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgsubsystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -80,7 +80,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phcatadmin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgsubsystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddCatalog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAddCatalog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatadmin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pwszcatalogfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -144,7 +144,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcbhash = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatadmin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -208,7 +208,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnumCatalogFromHash_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminEnumCatalogFromHash_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatadmin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pbhash = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPauseServiceForBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t fresume = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -268,7 +268,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseCatalogContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatadmin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcatinfo = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatadmin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemoveCatalog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminRemoveCatalog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatadmin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pwszcatalogfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -353,7 +353,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminResolveCatalogPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminResolveCatalogPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatadmin = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pwszcatalogfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -384,7 +384,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSortedMemberInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAllocSortedMemberInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszreferencetag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -411,7 +411,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -436,7 +436,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmember = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -467,7 +467,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributesWithCDFTag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributesWithCDFTag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszmembertag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -500,7 +500,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumCatAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprevattr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -529,7 +529,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprevmember = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -558,7 +558,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembersByCDFTagEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembersByCDFTagEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcdf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszprevcdftag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnparseerror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -620,7 +620,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogInfoFromContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCatalogInfoFromContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hcatinfo = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pscatinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -649,7 +649,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -674,7 +674,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcatmember = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCatAttr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateCatAttr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprevattr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -730,7 +730,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMember_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateMember_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprevmember = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -757,7 +757,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMemberInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATFreeSortedMemberInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcatmember = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetAttrInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcatmember = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -810,7 +810,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetCatAttrInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszreferencetag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -837,7 +837,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetMemberInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszreferencetag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -864,7 +864,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATHandleFromStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcatstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -889,7 +889,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fdwopenflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -922,7 +922,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPersistStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -947,7 +947,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutAttrInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcatmember = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -982,7 +982,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutCatAttrInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszreferencetag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1015,7 +1015,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutMemberInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1052,7 +1052,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogCryptCATStoreFromHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcatalog = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1077,7 +1077,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_catalog_isCatalogFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SecurityCryptographyCatalogIsCatalogFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1105,42 +1105,42 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_isCata
 }
 
 static void register_windows_win32_security_cryptography_catalog_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext2", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext2_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddCatalog", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddCatalog_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle2", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle2_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnumCatalogFromHash", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnumCatalogFromHash_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPauseServiceForBackup", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPauseServiceForBackup_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseCatalogContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseCatalogContext_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseContext_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemoveCatalog", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemoveCatalog_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminResolveCatalogPath", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminResolveCatalogPath_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSortedMemberInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSortedMemberInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributes", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributes_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributesWithCDFTag", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributesWithCDFTag_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatAttributes", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatAttributes_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembers", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembers_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembersByCDFTagEx", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembersByCDFTagEx_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogInfoFromContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogInfoFromContext_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATClose", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATClose_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAttr", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAttr_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCatAttr", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCatAttr_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMember", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMember_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMemberInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMemberInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromStore", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromStore_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistStore", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistStore_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberInfo", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberInfo_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHandle", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHandle_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_catalog_isCatalogFile", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_catalog_isCatalogFile_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext2", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext2_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAddCatalog", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAddCatalog_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle2", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle2_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminEnumCatalogFromHash", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminEnumCatalogFromHash_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminPauseServiceForBackup_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseCatalogContext_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminReleaseContext_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminRemoveCatalog", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminRemoveCatalog_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminResolveCatalogPath", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminResolveCatalogPath_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAllocSortedMemberInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATAllocSortedMemberInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFClose", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFClose_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributes", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributes_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributesWithCDFTag", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributesWithCDFTag_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumCatAttributes", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumCatAttributes_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembers", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembers_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembersByCDFTagEx", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembersByCDFTagEx_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFOpen", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFOpen_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCatalogInfoFromContext", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATCatalogInfoFromContext_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATClose", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATClose_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateAttr", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateAttr_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateCatAttr", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateCatAttr_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateMember", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateMember_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATFreeSortedMemberInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATFreeSortedMemberInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetAttrInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetAttrInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetCatAttrInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetCatAttrInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetMemberInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetMemberInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATHandleFromStore", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATHandleFromStore_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATOpen", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATOpen_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPersistStore", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPersistStore_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutAttrInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutAttrInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutCatAttrInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutCatAttrInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutMemberInfo", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutMemberInfo_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogCryptCATStoreFromHandle", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogCryptCATStoreFromHandle_napi));
+    exports.Set("windowssysWindowsWin32SecurityCryptographyCatalogIsCatalogFile", Napi::Function::New(env, windowssysWindowsWin32SecurityCryptographyCatalogIsCatalogFile_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_cryptography_catalog_napi, nullptr };

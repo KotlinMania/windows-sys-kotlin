@@ -1,6 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfirewall
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ffi.CVoid
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -60,13 +62,13 @@ public typealias NetFwScope = Int
 public typealias NetFwServiceType = Int
 
 public fun interface PacChangesCallbackFnFn {
-    public operator fun invoke(context: COpaquePointer?, pchange: COpaquePointer?)
+    public operator fun invoke(context: ConstPtr<CVoid>, pchange: ConstPtr<InetFirewallAcChange>)
 }
 
 public typealias PacChangesCallbackFn = PacChangesCallbackFnFn?
 
 public fun interface PfnFwadddynamickeywordaddress0Fn {
-    public operator fun invoke(dynamickeywordaddress: COpaquePointer?): UInt
+    public operator fun invoke(dynamickeywordaddress: ConstPtr<FwDynamicKeywordAddress0>): UInt
 }
 
 public typealias PfnFwadddynamickeywordaddress0 = PfnFwadddynamickeywordaddress0Fn?
@@ -78,19 +80,19 @@ public fun interface PfnFwdeletedynamickeywordaddress0Fn {
 public typealias PfnFwdeletedynamickeywordaddress0 = PfnFwdeletedynamickeywordaddress0Fn?
 
 public fun interface PfnFwenumdynamickeywordaddressbyid0Fn {
-    public operator fun invoke(dynamickeywordaddressid: Guid, dynamickeywordaddressdata: COpaquePointer?): UInt
+    public operator fun invoke(dynamickeywordaddressid: Guid, dynamickeywordaddressdata: MutPtr<MutPtr<FwDynamicKeywordAddressData0>>): UInt
 }
 
 public typealias PfnFwenumdynamickeywordaddressbyid0 = PfnFwenumdynamickeywordaddressbyid0Fn?
 
 public fun interface PfnFwenumdynamickeywordaddressesbytype0Fn {
-    public operator fun invoke(flags: UInt, dynamickeywordaddressdata: COpaquePointer?): UInt
+    public operator fun invoke(flags: UInt, dynamickeywordaddressdata: MutPtr<MutPtr<FwDynamicKeywordAddressData0>>): UInt
 }
 
 public typealias PfnFwenumdynamickeywordaddressesbytype0 = PfnFwenumdynamickeywordaddressesbytype0Fn?
 
 public fun interface PfnFwfreedynamickeywordaddressdata0Fn {
-    public operator fun invoke(dynamickeywordaddressdata: COpaquePointer?): UInt
+    public operator fun invoke(dynamickeywordaddressdata: ConstPtr<FwDynamicKeywordAddressData0>): UInt
 }
 
 public typealias PfnFwfreedynamickeywordaddressdata0 = PfnFwfreedynamickeywordaddressdata0Fn?
@@ -102,7 +104,7 @@ public fun interface PfnFwupdatedynamickeywordaddress0Fn {
 public typealias PfnFwupdatedynamickeywordaddress0 = PfnFwupdatedynamickeywordaddress0Fn?
 
 public fun interface PnetisoEdpIdCallbackFnFn {
-    public operator fun invoke(context: COpaquePointer?, wszenterpriseid: Pcwstr, dwerr: UInt)
+    public operator fun invoke(context: MutPtr<CVoid>, wszenterpriseid: Pcwstr, dwerr: UInt)
 }
 
 public typealias PnetisoEdpIdCallbackFn = PnetisoEdpIdCallbackFnFn?

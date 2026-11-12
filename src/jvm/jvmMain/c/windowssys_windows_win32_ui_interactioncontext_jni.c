@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1addPointerInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint pointerid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextAddPointerInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint pointerid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1bufferPointerPacketsInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint entriescount, jlong pointerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextBufferPointerPacketsInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint entriescount, jlong pointerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1createInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextCreateInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -97,7 +97,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1destroyInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextDestroyInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -122,7 +122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getCrossSlideParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint threshold, jlong distance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetCrossSlideParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint threshold, jlong distance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getHoldParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetHoldParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -176,7 +176,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getInertiaParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint inertiaparameter, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetInertiaParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint inertiaparameter, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -203,7 +203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getInteractionConfigurationInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint configurationcount, jlong configuration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetInteractionConfigurationInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint configurationcount, jlong configuration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -230,7 +230,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getMouseWheelParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetMouseWheelParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -257,7 +257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getPropertyInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint contextproperty, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetPropertyInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint contextproperty, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -284,7 +284,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getStateInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jlong pointerinfo, jlong state) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetStateInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jlong pointerinfo, jlong state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -311,7 +311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getTapParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetTapParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -338,7 +338,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1getTranslationParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextGetTranslationParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -365,7 +365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1processBufferedPacketsInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextProcessBufferedPacketsInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -390,7 +390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1processInertiaInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextProcessInertiaInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -415,7 +415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1processPointerFramesInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint entriescount, jint pointercount, jlong pointerinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextProcessPointerFramesInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint entriescount, jint pointercount, jlong pointerinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -443,7 +443,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1registerOutputCallbackInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jlong outputcallback, jlong clientdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jlong outputcallback, jlong clientdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -470,7 +470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1registerOutputCallbackInteractionContext2(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jlong outputcallback, jlong clientdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext2(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jlong outputcallback, jlong clientdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -497,7 +497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1removePointerInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint pointerid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextRemovePointerInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint pointerid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -523,7 +523,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1resetInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextResetInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -548,7 +548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setCrossSlideParametersInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parametercount, jlong crossslideparameters) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetCrossSlideParametersInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parametercount, jlong crossslideparameters) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -575,7 +575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setHoldParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetHoldParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -602,7 +602,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setInertiaParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint inertiaparameter, jfloat value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetInertiaParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint inertiaparameter, jfloat value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -629,7 +629,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setInteractionConfigurationInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint configurationcount, jlong configuration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetInteractionConfigurationInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint configurationcount, jlong configuration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -656,7 +656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setMouseWheelParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetMouseWheelParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -683,7 +683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setPivotInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jfloat x, jfloat y, jfloat radius) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetPivotInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jfloat x, jfloat y, jfloat radius) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -711,7 +711,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setPropertyInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint contextproperty, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetPropertyInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint contextproperty, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -738,7 +738,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setTapParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetTapParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -765,7 +765,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1setTranslationParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextSetTranslationParameterInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext, jint parameter, jfloat value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -792,7 +792,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssys_1windows_1win32_1ui_1interactioncontext_1stopInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_interactioncontext_WindowsWin32UiInteractioncontextJniBridge_windowssysWindowsWin32UiInteractioncontextStopInteractionContext(JNIEnv* km_env, jclass km_clazz, jlong interactioncontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

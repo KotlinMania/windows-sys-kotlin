@@ -12,20 +12,20 @@ private object WindowsWin32UiTextservicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_textservices_doMsCtfMonitor(dwflags: Int, heventforservicestop: Long): Int
+    external fun windowssysWindowsWin32UiTextservicesDoMsCtfMonitor(dwflags: Int, heventforservicestop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor(dwflags: Int): Int
+    external fun windowssysWindowsWin32UiTextservicesInitLocalMsCtfMonitor(dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor(): Int
+    external fun windowssysWindowsWin32UiTextservicesUninitLocalMsCtfMonitor(): Int
 }
 
 public actual fun doMsCtfMonitor(dwflags: UInt, heventforservicestop: Handle): Bool =
-    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_doMsCtfMonitor(dwflags.toInt(), (heventforservicestop?.value ?: 0L))
+    WindowsWin32UiTextservicesJniBridge.windowssysWindowsWin32UiTextservicesDoMsCtfMonitor(dwflags.toInt(), heventforservicestop.rawAddress)
 
 public actual fun initLocalMsCtfMonitor(dwflags: UInt): Hresult =
-    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor(dwflags.toInt())
+    WindowsWin32UiTextservicesJniBridge.windowssysWindowsWin32UiTextservicesInitLocalMsCtfMonitor(dwflags.toInt())
 
 public actual fun uninitLocalMsCtfMonitor(): Hresult =
-    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor()
+    WindowsWin32UiTextservicesJniBridge.windowssysWindowsWin32UiTextservicesUninitLocalMsCtfMonitor()

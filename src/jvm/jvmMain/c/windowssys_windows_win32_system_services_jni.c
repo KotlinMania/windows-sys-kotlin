@@ -19,7 +19,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1changeServiceConfig2A(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesChangeServiceConfig2A(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -46,7 +46,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1changeServiceConfig2W(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesChangeServiceConfig2W(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1changeServiceConfigA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword, jlong lpdisplayname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesChangeServiceConfigA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword, jlong lpdisplayname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1changeServiceConfigW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword, jlong lpdisplayname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesChangeServiceConfigW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword, jlong lpdisplayname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1closeServiceHandle(JNIEnv* km_env, jclass km_clazz, jlong hscobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesCloseServiceHandle(JNIEnv* km_env, jclass km_clazz, jlong hscobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -168,7 +168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1controlService(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwcontrol, jlong lpservicestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesControlService(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwcontrol, jlong lpservicestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -195,7 +195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1controlServiceExA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwcontrol, jint dwinfolevel, jlong pcontrolparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesControlServiceExA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwcontrol, jint dwinfolevel, jlong pcontrolparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1controlServiceExW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwcontrol, jint dwinfolevel, jlong pcontrolparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesControlServiceExW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwcontrol, jint dwinfolevel, jlong pcontrolparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -251,7 +251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1createServiceA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jint dwdesiredaccess, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesCreateServiceA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jint dwdesiredaccess, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -288,7 +288,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1createServiceW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jint dwdesiredaccess, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesCreateServiceW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jint dwdesiredaccess, jint dwservicetype, jint dwstarttype, jint dwerrorcontrol, jlong lpbinarypathname, jlong lploadordergroup, jlong lpdwtagid, jlong lpdependencies, jlong lpservicestartname, jlong lppassword) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -325,7 +325,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1deleteService(JNIEnv* km_env, jclass km_clazz, jlong hservice) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesDeleteService(JNIEnv* km_env, jclass km_clazz, jlong hservice) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -350,7 +350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1enumDependentServicesA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesEnumDependentServicesA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1enumDependentServicesW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesEnumDependentServicesW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -410,7 +410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1enumServicesStatusA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesEnumServicesStatusA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -442,7 +442,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1enumServicesStatusExA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint infolevel, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle, jlong pszgroupname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesEnumServicesStatusExA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint infolevel, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle, jlong pszgroupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -476,7 +476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1enumServicesStatusExW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint infolevel, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle, jlong pszgroupname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesEnumServicesStatusExW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint infolevel, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle, jlong pszgroupname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -510,7 +510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1enumServicesStatusW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesEnumServicesStatusW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jint dwservicetype, jint dwservicestate, jlong lpservices, jint cbbufsize, jlong pcbbytesneeded, jlong lpservicesreturned, jlong lpresumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -542,7 +542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getServiceDirectory(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jint edirectorytype, jlong lppathbuffer, jint cchpathbufferlength, jlong lpcchrequiredbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetServiceDirectory(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jint edirectorytype, jlong lppathbuffer, jint cchpathbufferlength, jlong lpcchrequiredbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -571,7 +571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getServiceDisplayNameA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jlong lpcchbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetServiceDisplayNameA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jlong lpcchbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -599,7 +599,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getServiceDisplayNameW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jlong lpcchbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetServiceDisplayNameW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jlong lpdisplayname, jlong lpcchbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -627,7 +627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getServiceKeyNameA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpdisplayname, jlong lpservicename, jlong lpcchbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetServiceKeyNameA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpdisplayname, jlong lpservicename, jlong lpcchbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -655,7 +655,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getServiceKeyNameW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpdisplayname, jlong lpservicename, jlong lpcchbuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetServiceKeyNameW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpdisplayname, jlong lpservicename, jlong lpcchbuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -683,7 +683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getServiceRegistryStateKey(JNIEnv* km_env, jclass km_clazz, jlong servicestatushandle, jint statetype, jint accessmask, jlong servicestatekey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey(JNIEnv* km_env, jclass km_clazz, jlong servicestatushandle, jint statetype, jint accessmask, jlong servicestatekey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -711,7 +711,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getSharedServiceDirectory(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint directorytype, jlong pathbuffer, jint pathbufferlength, jlong requiredbufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetSharedServiceDirectory(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint directorytype, jlong pathbuffer, jint pathbufferlength, jlong requiredbufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -740,7 +740,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1getSharedServiceRegistryStateKey(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint statetype, jint accessmask, jlong servicestatekey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey(JNIEnv* km_env, jclass km_clazz, jlong servicehandle, jint statetype, jint accessmask, jlong servicestatekey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -768,7 +768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1lockServiceDatabase(JNIEnv* km_env, jclass km_clazz, jlong hscmanager) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesLockServiceDatabase(JNIEnv* km_env, jclass km_clazz, jlong hscmanager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -793,7 +793,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1notifyBootConfigStatus(JNIEnv* km_env, jclass km_clazz, jint bootacceptable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesNotifyBootConfigStatus(JNIEnv* km_env, jclass km_clazz, jint bootacceptable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -818,7 +818,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1notifyServiceStatusChangeA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnotifymask, jlong pnotifybuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnotifymask, jlong pnotifybuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -845,7 +845,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1notifyServiceStatusChangeW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnotifymask, jlong pnotifybuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnotifymask, jlong pnotifybuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -872,7 +872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1openSCManagerA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpdatabasename, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesOpenSCManagerA(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpdatabasename, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -899,7 +899,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1openSCManagerW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpdatabasename, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesOpenSCManagerW(JNIEnv* km_env, jclass km_clazz, jlong lpmachinename, jlong lpdatabasename, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -926,7 +926,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1openServiceA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesOpenServiceA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -953,7 +953,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1openServiceW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jint dwdesiredaccess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesOpenServiceW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lpservicename, jint dwdesiredaccess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -980,7 +980,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceConfig2A(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceConfig2A(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1009,7 +1009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceConfig2W(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceConfig2W(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwinfolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1038,7 +1038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceConfigA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jlong lpserviceconfig, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceConfigA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jlong lpserviceconfig, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1066,7 +1066,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceConfigW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jlong lpserviceconfig, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceConfigW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jlong lpserviceconfig, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1094,7 +1094,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceDynamicInformation(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jint dwinfolevel, jlong ppdynamicinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jint dwinfolevel, jlong ppdynamicinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1121,7 +1121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceLockStatusA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lplockstatus, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceLockStatusA(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lplockstatus, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1149,7 +1149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceLockStatusW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lplockstatus, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceLockStatusW(JNIEnv* km_env, jclass km_clazz, jlong hscmanager, jlong lplockstatus, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1177,7 +1177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwsecurityinformation, jlong lpsecuritydescriptor, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwsecurityinformation, jlong lpsecuritydescriptor, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1206,7 +1206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceStatus(JNIEnv* km_env, jclass km_clazz, jlong hservice, jlong lpservicestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceStatus(JNIEnv* km_env, jclass km_clazz, jlong hservice, jlong lpservicestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1232,7 +1232,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1queryServiceStatusEx(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint infolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesQueryServiceStatusEx(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint infolevel, jlong lpbuffer, jint cbbufsize, jlong pcbbytesneeded) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1261,7 +1261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1registerServiceCtrlHandlerA(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1287,7 +1287,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1registerServiceCtrlHandlerExA(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc, jlong lpcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc, jlong lpcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1314,7 +1314,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1registerServiceCtrlHandlerExW(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc, jlong lpcontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc, jlong lpcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1341,7 +1341,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1registerServiceCtrlHandlerW(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerW(JNIEnv* km_env, jclass km_clazz, jlong lpservicename, jlong lphandlerproc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1367,7 +1367,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1setServiceBits(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jint dwservicebits, jint bsetbitson, jint bupdateimmediately) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesSetServiceBits(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jint dwservicebits, jint bsetbitson, jint bupdateimmediately) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1395,7 +1395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1setServiceObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwsecurityinformation, jlong lpsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesSetServiceObjectSecurity(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwsecurityinformation, jlong lpsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1422,7 +1422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1setServiceStatus(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jlong lpservicestatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesSetServiceStatus(JNIEnv* km_env, jclass km_clazz, jlong hservicestatus, jlong lpservicestatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1448,7 +1448,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1startServiceA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnumserviceargs, jlong lpserviceargvectors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesStartServiceA(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnumserviceargs, jlong lpserviceargvectors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1475,7 +1475,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1startServiceCtrlDispatcherA(JNIEnv* km_env, jclass km_clazz, jlong lpservicestarttable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA(JNIEnv* km_env, jclass km_clazz, jlong lpservicestarttable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1500,7 +1500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1startServiceCtrlDispatcherW(JNIEnv* km_env, jclass km_clazz, jlong lpservicestarttable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW(JNIEnv* km_env, jclass km_clazz, jlong lpservicestarttable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1525,7 +1525,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1startServiceW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnumserviceargs, jlong lpserviceargvectors) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesStartServiceW(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnumserviceargs, jlong lpserviceargvectors) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1552,7 +1552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1subscribeServiceChangeNotifications(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint eeventtype, jlong pcallback, jlong pcallbackcontext, jlong psubscription) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint eeventtype, jlong pcallback, jlong pcallbackcontext, jlong psubscription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1581,7 +1581,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1unlockServiceDatabase(JNIEnv* km_env, jclass km_clazz, jlong sclock) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesUnlockServiceDatabase(JNIEnv* km_env, jclass km_clazz, jlong sclock) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1606,7 +1606,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1unsubscribeServiceChangeNotifications(JNIEnv* km_env, jclass km_clazz, jlong psubscription) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesUnsubscribeServiceChangeNotifications(JNIEnv* km_env, jclass km_clazz, jlong psubscription) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1627,7 +1627,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssys_1windows_1win32_1system_1services_1waitServiceState(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnotify, jint dwtimeout, jlong hcancelevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_services_WindowsWin32SystemServicesJniBridge_windowssysWindowsWin32SystemServicesWaitServiceState(JNIEnv* km_env, jclass km_clazz, jlong hservice, jint dwnotify, jint dwtimeout, jlong hcancelevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

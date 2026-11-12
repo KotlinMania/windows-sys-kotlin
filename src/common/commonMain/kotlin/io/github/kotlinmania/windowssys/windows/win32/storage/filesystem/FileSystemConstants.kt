@@ -1879,15 +1879,15 @@ public val VOS_UNKNOWN: VsFixedfileinfoFileOs = 0u
 
 public val VOS_WINCE: VsFixedfileinfoFileOs = 327680u
 
-public val VOS__BASE: VsFixedfileinfoFileOs = 0u
+public val VOS_BASE: VsFixedfileinfoFileOs = 0u
 
-public val VOS__PM16: VsFixedfileinfoFileOs = 2u
+public val VOS_PM16: VsFixedfileinfoFileOs = 2u
 
-public val VOS__PM32: VsFixedfileinfoFileOs = 3u
+public val VOS_PM32: VsFixedfileinfoFileOs = 3u
 
-public val VOS__WINDOWS16: VsFixedfileinfoFileOs = 1u
+public val VOS_WINDOWS16: VsFixedfileinfoFileOs = 1u
 
-public val VOS__WINDOWS32: VsFixedfileinfoFileOs = 4u
+public val VOS_WINDOWS32: VsFixedfileinfoFileOs = 4u
 
 public val VS_FFI_FILEFLAGSMASK: Int = 63
 

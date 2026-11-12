@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection(void* pconnectionid, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerClearConnection(void* pconnectionid, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession(uint32_t sessionhandle, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerEndSession(uint32_t sessionhandle, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError(void* peaperror) {
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeEapError(void* peaperror) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostP
 #endif
 }
 
-void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory(void* peaperror) {
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeErrorMemory(void* peaperror) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -103,7 +103,7 @@ void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostP
 #endif
 }
 
-void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory(void* pdata) {
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeMemory(void* pdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -124,7 +124,7 @@ void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostP
 #endif
 }
 
-void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory(void* pdata) {
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeRuntimeMemory(void* pdata) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -145,7 +145,7 @@ void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostP
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus(uint32_t sessionhandle, int32_t authparam, void* pcbauthdata, void* ppauthdata, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetAuthStatus(uint32_t sessionhandle, int32_t authparam, void* pcbauthdata, void* ppauthdata, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -171,7 +171,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials(void* pconnectionidthatlastsavedcreds, void* phcredentialimpersonationtoken, uint32_t sessionhandle, void* ppeaperror, void* fsavetocredman) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetDataToUnplumbCredentials(void* pconnectionidthatlastsavedcreds, void* phcredentialimpersonationtoken, uint32_t sessionhandle, void* ppeaperror, void* fsavetocredman) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword(uint32_t dwsizeofpassword, void* szpassword, void* ppszencpassword) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetEncryptedPassword(uint32_t dwsizeofpassword, void* szpassword, void* ppszencpassword) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -221,7 +221,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods(void* peapmethodinfoarray, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetMethods(void* peapmethodinfoarray, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -244,7 +244,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes(uint32_t sessionhandle, void* pattribs, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetResponseAttributes(uint32_t sessionhandle, void* pattribs, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult(uint32_t sessionhandle, int32_t reason, void* ppresult, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetResult(uint32_t sessionhandle, int32_t reason, void* ppresult, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -293,7 +293,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket(uint32_t sessionhandle, void* pcbsendpacket, void* ppsendpacket, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetSendPacket(uint32_t sessionhandle, void* pcbsendpacket, void* ppsendpacket, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -318,7 +318,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext(uint32_t sessionhandle, void* pdwsizeofuicontextdata, void* ppuicontextdata, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetUIContext(uint32_t sessionhandle, void* pdwsizeofuicontextdata, void* ppuicontextdata, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -343,7 +343,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize(void) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerInitialize(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -364,7 +364,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI(void* hwndparent, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* pdwsizeofdatafrominteractiveui, void* ppdatafrominteractiveui, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerInvokeInteractiveUI(void* hwndparent, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* pdwsizeofdatafrominteractiveui, void* ppdatafrominteractiveui, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +391,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket(uint32_t sessionhandle, uint32_t cbreceivepacket, void* preceivepacket, void* peapoutput, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerProcessReceivedPacket(uint32_t sessionhandle, uint32_t cbreceivepacket, void* preceivepacket, void* peapoutput, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -417,7 +417,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields(uint32_t dwversion, uint32_t dwflags, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapinteractiveuidata, void* ppeaperror, void* ppvreserved) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerQueryInteractiveUIInputFields(uint32_t dwversion, uint32_t dwflags, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapinteractiveuidata, void* ppeaperror, void* ppvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +445,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields(uint32_t dwversion, uint32_t dwflags, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapinteractiveuidata, void* pdwsizeofdatafrominteractiveui, void* ppdatafrominteractiveui, void* ppeaperror, void* ppvreserved) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerQueryUIBlobFromInteractiveUIInputFields(uint32_t dwversion, uint32_t dwflags, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapinteractiveuidata, void* pdwsizeofdatafrominteractiveui, void* ppdatafrominteractiveui, void* ppeaperror, void* ppvreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes(uint32_t sessionhandle, void* pattribs, void* peapoutput, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerSetResponseAttributes(uint32_t sessionhandle, void* pattribs, void* peapoutput, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -500,7 +500,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext(uint32_t sessionhandle, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapoutput, void* ppeaperror) {
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerSetUIContext(uint32_t sessionhandle, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapoutput, void* ppeaperror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -526,7 +526,7 @@ uint32_t windowssys_windows_win32_security_extensibleauthenticationprotocol_eapH
 #endif
 }
 
-void windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize(void) {
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerUninitialize(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

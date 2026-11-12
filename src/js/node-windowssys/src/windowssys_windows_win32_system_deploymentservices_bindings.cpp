@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeAsyncRecvDone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeAsyncRecvDone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclientrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t action = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -78,7 +78,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeAsyncRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpAppendOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preplypacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umaxreplypacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpApp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOptionRaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpAppendOptionRaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preplypacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umaxreplypacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -146,7 +146,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpApp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGetOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpGetOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -181,7 +181,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGetVendorOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpGetVendorOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -216,7 +216,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* precvpacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t urecvpacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpIni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpIsValid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpIsValid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -280,7 +280,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpIsV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6AppendOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preply = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbreply = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -315,7 +315,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6A
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOptionRaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6AppendOptionRaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* preply = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbreply = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -348,7 +348,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6A
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6CreateRelayRepl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6CreateRelayRepl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prelaymessages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nrelaymessages = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -385,7 +385,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6GetOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -420,7 +420,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6G
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetVendorOptionValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6GetVendorOptionValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -457,7 +457,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6G
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6Initialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6Initialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbrequest = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -490,7 +490,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6I
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6IsValid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6IsValid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -521,7 +521,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6I
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6ParseRelayForw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6ParseRelayForw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prelayforwpacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t urelayforwpacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -558,7 +558,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6P
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeGetServerInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeGetServerInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uinfotype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeGetServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeGetServerInfoEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeGetServerInfoEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uinfotype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -618,7 +618,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeGetServ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxePacketAllocate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxePacketAllocate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hclientrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -647,7 +647,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxePacketA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxePacketFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxePacketFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hclientrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -676,7 +676,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxePacketF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderEnumClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -701,7 +701,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderEnumFirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumFirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -726,7 +726,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderEnumNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -753,7 +753,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderFreeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderFreeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -778,7 +778,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderQueryIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderQueryIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprovidername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -805,11 +805,11 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprovidername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszmodulepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    uint32_t arg_2_index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg2Index = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     int32_t biscritical = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     void* phproviderkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
 #ifdef _WIN32
@@ -821,7 +821,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     }
     uint32_t km_res;
     if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(pszprovidername, pszmodulepath, arg_2_index, biscritical, phproviderkey);
+        km_res = km_fn_ptr(pszprovidername, pszmodulepath, arg2Index, biscritical, phproviderkey);
     } else {
         errno = ENOSYS;
         km_res = 0;
@@ -829,7 +829,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
 #else
     (void)pszprovidername;
     (void)pszmodulepath;
-    (void)arg_2_index;
+    (void)arg2Index;
     (void)biscritical;
     (void)phproviderkey;
     errno = ENOSYS;
@@ -838,7 +838,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderSetAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderSetAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t attribute = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -869,7 +869,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProviderUnRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeProviderUnRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprovidername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -894,7 +894,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t callbacktype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -925,7 +925,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeRegiste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeSendReply_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeSendReply_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hclientrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -956,7 +956,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeSendRep
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t severity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -996,7 +996,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeTrace_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeTraceV_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesPxeTraceV_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t severity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1027,7 +1027,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeTraceV_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpAddOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsBpAddOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1058,7 +1058,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpAddOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsBpCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1083,7 +1083,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpClose
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpGetOptionBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsBpGetOptionBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ubufferlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1114,7 +1114,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpGetOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsBpInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bpackettype = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1141,7 +1141,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpIniti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpParseInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsBpParseInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1172,7 +1172,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpParse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpParseInitializev6_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsBpParseInitializev6_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t upacketlen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1203,7 +1203,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpParse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpQueryOption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsBpQueryOption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uoption = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1236,7 +1236,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpQuery
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliAuthorizeSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliAuthorizeSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcred = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1263,7 +1263,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliAuth
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliCancelTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliCancelTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htransfer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1288,7 +1288,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliCanc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1313,7 +1313,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliCreateSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliCreateSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcred = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1342,7 +1342,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFindFirstImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliFindFirstImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phfindhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1369,7 +1369,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFindNextImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliFindNextImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1394,7 +1394,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFreeStringArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliFreeStringArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppwszarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1421,7 +1421,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFree
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetDriverQueryXml_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetDriverQueryXml_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszwindirpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszdriverquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1448,7 +1448,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetEnumerationFlags_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetEnumerationFlags_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1475,7 +1475,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageArchitecture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageArchitecture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1502,7 +1502,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1529,7 +1529,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pppwszfiles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1558,7 +1558,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1585,7 +1585,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHalName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHalName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1612,7 +1612,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromFindHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHandleFromFindHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* findhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phimagehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1639,7 +1639,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromTransferHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHandleFromTransferHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htransfer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phimagehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1666,7 +1666,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1693,7 +1693,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1720,7 +1720,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLanguages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pppszvalues = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1749,7 +1749,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLastModifiedTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLastModifiedTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsystimevalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1776,7 +1776,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1803,7 +1803,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1830,7 +1830,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t paramtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1861,7 +1861,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImagePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImagePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1888,7 +1888,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pullvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1915,7 +1915,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pimagetype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1942,7 +1942,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetImageVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1969,7 +1969,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetTransferSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliGetTransferSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hifh = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pullvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1996,7 +1996,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliInitializeLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliInitializeLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulclientarchitecture = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2027,7 +2027,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliInit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulloglevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2067,7 +2067,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliLog_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliObtainDriverPackages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* himage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwszservername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2098,7 +2098,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliObta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackagesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliObtainDriverPackagesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsession = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszmachineinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2131,7 +2131,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliObta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliRegisterTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliRegisterTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2156,7 +2156,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliRegi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliSetTransferBufferSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliSetTransferBufferSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulsizeinbytes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2178,7 +2178,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliSetT
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTransferFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliTransferFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwsznamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2219,7 +2219,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTransferImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliTransferImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* himage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszlocalpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2256,7 +2256,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliWaitForTransfer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsCliWaitForTransfer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htransfer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2281,7 +2281,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliWait
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientAddRefBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientAddRefBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2306,7 +2306,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCancelSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2331,7 +2331,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSessionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCancelSessionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwerrorcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2358,7 +2358,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientCloseSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCloseSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2383,7 +2383,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientCompleteReceive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCompleteReceive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2412,7 +2412,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2435,7 +2435,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitializeSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientInitializeSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psessionrequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcallerdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2464,7 +2464,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientQueryStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientQueryStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pustatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2493,7 +2493,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t callbackid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2522,7 +2522,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientReleaseBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientReleaseBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2547,7 +2547,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2570,7 +2570,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientStartSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientStartSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2595,7 +2595,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportClientWaitForCompletion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientWaitForCompletion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t utimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2622,7 +2622,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportServerAllocateBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerAllocateBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulbuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2649,7 +2649,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportServerCompleteRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerCompleteRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulbytesread = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2680,7 +2680,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportServerFreeBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerFreeBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2707,7 +2707,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportServerRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t callbackid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2736,7 +2736,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportServerTrace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerTrace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t severity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2776,7 +2776,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTransportServerTraceV_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerTraceV_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t severity = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2808,100 +2808,100 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
 }
 
 static void register_windows_win32_system_deploymentservices_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeAsyncRecvDone", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeAsyncRecvDone_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOption", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOption_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOptionRaw", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpAppendOptionRaw_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpGetOptionValue", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpGetOptionValue_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpGetVendorOptionValue", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpGetVendorOptionValue_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpInitialize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpIsValid", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpIsValid_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOption", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOption_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOptionRaw", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6AppendOptionRaw_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6CreateRelayRepl", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6CreateRelayRepl_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetOptionValue", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetOptionValue_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetVendorOptionValue", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6GetVendorOptionValue_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6Initialize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6Initialize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6IsValid", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6IsValid_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeDhcpv6ParseRelayForw", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeDhcpv6ParseRelayForw_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeGetServerInfo", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeGetServerInfo_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeGetServerInfoEx", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeGetServerInfoEx_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxePacketAllocate", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxePacketAllocate_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxePacketFree", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxePacketFree_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderEnumClose", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderEnumClose_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderEnumFirst", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderEnumFirst_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderEnumNext", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderEnumNext_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderFreeInfo", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderFreeInfo_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderQueryIndex", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderQueryIndex_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderRegister", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderRegister_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderSetAttribute", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderSetAttribute_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeProviderUnRegister", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeProviderUnRegister_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeRegisterCallback", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeRegisterCallback_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeSendReply", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeSendReply_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeTrace", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeTrace_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_pxeTraceV", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_pxeTraceV_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsBpAddOption", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsBpAddOption_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsBpCloseHandle", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsBpCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsBpGetOptionBuffer", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsBpGetOptionBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsBpInitialize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsBpInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsBpParseInitialize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsBpParseInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsBpParseInitializev6", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsBpParseInitializev6_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsBpQueryOption", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsBpQueryOption_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliAuthorizeSession", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliAuthorizeSession_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliCancelTransfer", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliCancelTransfer_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliClose", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliClose_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliCreateSession", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliCreateSession_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliFindFirstImage", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliFindFirstImage_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliFindNextImage", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliFindNextImage_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliFreeStringArray", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliFreeStringArray_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetDriverQueryXml", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetDriverQueryXml_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetEnumerationFlags", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetEnumerationFlags_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageArchitecture", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageArchitecture_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageDescription", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageDescription_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageFiles", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageFiles_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageGroup", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageGroup_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHalName", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHalName_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromFindHandle", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromFindHandle_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromTransferHandle", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageHandleFromTransferHandle_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageIndex", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageIndex_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguage", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguage_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguages", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLanguages_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLastModifiedTime", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageLastModifiedTime_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageName", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageName_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageNamespace", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageParameter", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageParameter_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImagePath", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImagePath_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageSize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageSize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageType", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageType_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetImageVersion", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetImageVersion_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliGetTransferSize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliGetTransferSize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliInitializeLog", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliInitializeLog_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliLog", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliLog_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackages", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackages_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackagesEx", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliObtainDriverPackagesEx_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliRegisterTrace", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliRegisterTrace_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliSetTransferBufferSize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliSetTransferBufferSize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliTransferFile", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliTransferFile_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliTransferImage", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliTransferImage_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsCliWaitForTransfer", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsCliWaitForTransfer_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientAddRefBuffer", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientAddRefBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSession", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSession_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSessionEx", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientCancelSessionEx_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientCloseSession", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientCloseSession_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientCompleteReceive", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientCompleteReceive_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitialize", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitializeSession", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientInitializeSession_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientQueryStatus", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientQueryStatus_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientRegisterCallback", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientRegisterCallback_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientReleaseBuffer", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientReleaseBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientShutdown", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientShutdown_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientStartSession", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientStartSession_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportClientWaitForCompletion", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportClientWaitForCompletion_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportServerAllocateBuffer", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportServerAllocateBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportServerCompleteRead", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportServerCompleteRead_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportServerFreeBuffer", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportServerFreeBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportServerRegisterCallback", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportServerRegisterCallback_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportServerTrace", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportServerTrace_napi));
-    exports.Set("windowssys_windows_win32_system_deploymentservices_wdsTransportServerTraceV", Napi::Function::New(env, windowssys_windows_win32_system_deploymentservices_wdsTransportServerTraceV_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeAsyncRecvDone", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeAsyncRecvDone_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpAppendOption", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpAppendOption_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpAppendOptionRaw", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpAppendOptionRaw_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpGetOptionValue", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpGetOptionValue_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpGetVendorOptionValue", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpGetVendorOptionValue_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpInitialize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpInitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpIsValid", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpIsValid_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6AppendOption", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6AppendOption_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6AppendOptionRaw", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6AppendOptionRaw_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6CreateRelayRepl", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6CreateRelayRepl_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6GetOptionValue", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6GetOptionValue_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6GetVendorOptionValue", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6GetVendorOptionValue_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6Initialize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6Initialize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6IsValid", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6IsValid_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6ParseRelayForw", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeDhcpv6ParseRelayForw_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeGetServerInfo", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeGetServerInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeGetServerInfoEx", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeGetServerInfoEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxePacketAllocate", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxePacketAllocate_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxePacketFree", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxePacketFree_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumClose", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumClose_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumFirst", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumFirst_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumNext", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderEnumNext_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderFreeInfo", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderFreeInfo_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderQueryIndex", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderQueryIndex_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderRegister", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderRegister_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderSetAttribute", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderSetAttribute_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeProviderUnRegister", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeProviderUnRegister_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeRegisterCallback", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeRegisterCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeSendReply", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeSendReply_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeTrace", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeTrace_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesPxeTraceV", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesPxeTraceV_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsBpAddOption", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsBpAddOption_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsBpCloseHandle", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsBpCloseHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsBpGetOptionBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsBpGetOptionBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsBpInitialize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsBpInitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsBpParseInitialize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsBpParseInitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsBpParseInitializev6", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsBpParseInitializev6_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsBpQueryOption", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsBpQueryOption_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliAuthorizeSession", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliAuthorizeSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliCancelTransfer", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliCancelTransfer_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliClose", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliClose_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliCreateSession", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliCreateSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliFindFirstImage", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliFindFirstImage_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliFindNextImage", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliFindNextImage_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliFreeStringArray", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliFreeStringArray_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetDriverQueryXml", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetDriverQueryXml_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetEnumerationFlags", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetEnumerationFlags_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageArchitecture", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageArchitecture_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageDescription", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageDescription_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageFiles", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageFiles_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageGroup", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageGroup_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHalName", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHalName_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHandleFromFindHandle", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHandleFromFindHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHandleFromTransferHandle", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageHandleFromTransferHandle_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageIndex", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageIndex_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLanguage", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLanguage_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLanguages", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLanguages_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLastModifiedTime", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageLastModifiedTime_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageName", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageName_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageNamespace", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageNamespace_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageParameter", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageParameter_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImagePath", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImagePath_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageSize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageSize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageType", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageType_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageVersion", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetImageVersion_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliGetTransferSize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliGetTransferSize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliInitializeLog", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliInitializeLog_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliLog", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliLog_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliObtainDriverPackages", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliObtainDriverPackages_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliObtainDriverPackagesEx", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliObtainDriverPackagesEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliRegisterTrace", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliRegisterTrace_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliSetTransferBufferSize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliSetTransferBufferSize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliTransferFile", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliTransferFile_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliTransferImage", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliTransferImage_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsCliWaitForTransfer", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsCliWaitForTransfer_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientAddRefBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientAddRefBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCancelSession", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCancelSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCancelSessionEx", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCancelSessionEx_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCloseSession", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCloseSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCompleteReceive", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientCompleteReceive_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientInitialize", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientInitialize_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientInitializeSession", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientInitializeSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientQueryStatus", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientQueryStatus_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientRegisterCallback", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientRegisterCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientReleaseBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientReleaseBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientShutdown", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientShutdown_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientStartSession", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientStartSession_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientWaitForCompletion", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportClientWaitForCompletion_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerAllocateBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerAllocateBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerCompleteRead", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerCompleteRead_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerFreeBuffer", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerFreeBuffer_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerRegisterCallback", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerRegisterCallback_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerTrace", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerTrace_napi));
+    exports.Set("windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerTraceV", Napi::Function::New(env, windowssysWindowsWin32SystemDeploymentservicesWdsTransportServerTraceV_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_deploymentservices_napi, nullptr };

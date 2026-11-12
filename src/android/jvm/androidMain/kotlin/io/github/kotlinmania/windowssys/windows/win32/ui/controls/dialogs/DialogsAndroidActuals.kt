@@ -2,7 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs
 
-import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -17,128 +17,128 @@ private object WindowsWin32UiControlsDialogsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_chooseColorA(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsChooseColorA(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_chooseColorW(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsChooseColorW(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_chooseFontA(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsChooseFontA(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_chooseFontW(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsChooseFontW(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError(): Int
+    external fun windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_findTextA(param0: Long): Long
+    external fun windowssysWindowsWin32UiControlsDialogsFindTextA(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_findTextW(param0: Long): Long
+    external fun windowssysWindowsWin32UiControlsDialogsFindTextW(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_getFileTitleA(param0: Long, buf: Long, cchsize: Short): Short
+    external fun windowssysWindowsWin32UiControlsDialogsGetFileTitleA(param0: Long, buf: Long, cchsize: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_getFileTitleW(param0: Long, buf: Long, cchsize: Short): Short
+    external fun windowssysWindowsWin32UiControlsDialogsGetFileTitleW(param0: Long, buf: Long, cchsize: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsPageSetupDlgA(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW(param0: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsPageSetupDlgW(param0: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_printDlgA(ppd: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsPrintDlgA(ppd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_printDlgExA(ppd: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsPrintDlgExA(ppd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_printDlgExW(ppd: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsPrintDlgExW(ppd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_printDlgW(ppd: Long): Int
+    external fun windowssysWindowsWin32UiControlsDialogsPrintDlgW(ppd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_replaceTextA(param0: Long): Long
+    external fun windowssysWindowsWin32UiControlsDialogsReplaceTextA(param0: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dialogs_replaceTextW(param0: Long): Long
+    external fun windowssysWindowsWin32UiControlsDialogsReplaceTextW(param0: Long): Long
 }
 
-public actual fun chooseColorA(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_chooseColorA((param0?.value ?: 0L))
+public actual fun chooseColorA(param0: MutPtr<Choosecolora>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseColorA(param0.rawAddress)
 
-public actual fun chooseColorW(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_chooseColorW((param0?.value ?: 0L))
+public actual fun chooseColorW(param0: MutPtr<Choosecolorw>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseColorW(param0.rawAddress)
 
-public actual fun chooseFontA(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_chooseFontA((param0?.value ?: 0L))
+public actual fun chooseFontA(param0: MutPtr<Choosefonta>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseFontA(param0.rawAddress)
 
-public actual fun chooseFontW(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_chooseFontW((param0?.value ?: 0L))
+public actual fun chooseFontW(param0: MutPtr<Choosefontw>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseFontW(param0.rawAddress)
 
 public actual fun commDlgExtendedError(): CommonDlgErrors =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_commDlgExtendedError().toUInt()
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError().toUInt()
 
-public actual fun findTextA(param0: COpaquePointer?): Hwnd =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_findTextA((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun findTextA(param0: MutPtr<Findreplacea>): Hwnd =
+    MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsFindTextA(param0.rawAddress))
 
-public actual fun findTextW(param0: COpaquePointer?): Hwnd =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_findTextW((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun findTextW(param0: MutPtr<Findreplacew>): Hwnd =
+    MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsFindTextW(param0.rawAddress))
 
 public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Short =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_getFileTitleA((param0?.value ?: 0L), (buf?.value ?: 0L), cchsize.toShort())
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetFileTitleA(param0.rawAddress, buf.rawAddress, cchsize.toShort())
 
 public actual fun getFileTitleW(param0: Pcwstr, buf: Pwstr, cchsize: UShort): Short =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_getFileTitleW((param0?.value ?: 0L), (buf?.value ?: 0L), cchsize.toShort())
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetFileTitleW(param0.rawAddress, buf.rawAddress, cchsize.toShort())
 
-public actual fun getOpenFileNameA(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameA((param0?.value ?: 0L))
+public actual fun getOpenFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA(param0.rawAddress)
 
-public actual fun getOpenFileNameW(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_getOpenFileNameW((param0?.value ?: 0L))
+public actual fun getOpenFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW(param0.rawAddress)
 
-public actual fun getSaveFileNameA(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameA((param0?.value ?: 0L))
+public actual fun getSaveFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA(param0.rawAddress)
 
-public actual fun getSaveFileNameW(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_getSaveFileNameW((param0?.value ?: 0L))
+public actual fun getSaveFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW(param0.rawAddress)
 
-public actual fun pageSetupDlgA(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgA((param0?.value ?: 0L))
+public actual fun pageSetupDlgA(param0: MutPtr<Pagesetupdlga>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPageSetupDlgA(param0.rawAddress)
 
-public actual fun pageSetupDlgW(param0: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_pageSetupDlgW((param0?.value ?: 0L))
+public actual fun pageSetupDlgW(param0: MutPtr<Pagesetupdlgw>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPageSetupDlgW(param0.rawAddress)
 
-public actual fun printDlgA(ppd: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_printDlgA((ppd?.value ?: 0L))
+public actual fun printDlgA(ppd: MutPtr<Printdlga>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgA(ppd.rawAddress)
 
-public actual fun printDlgExA(ppd: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_printDlgExA((ppd?.value ?: 0L))
+public actual fun printDlgExA(ppd: MutPtr<Printdlgexa>): Hresult =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgExA(ppd.rawAddress)
 
-public actual fun printDlgExW(ppd: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_printDlgExW((ppd?.value ?: 0L))
+public actual fun printDlgExW(ppd: MutPtr<Printdlgexw>): Hresult =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgExW(ppd.rawAddress)
 
-public actual fun printDlgW(ppd: COpaquePointer?): Bool =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_printDlgW((ppd?.value ?: 0L))
+public actual fun printDlgW(ppd: MutPtr<Printdlgw>): Bool =
+    WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgW(ppd.rawAddress)
 
-public actual fun replaceTextA(param0: COpaquePointer?): Hwnd =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_replaceTextA((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun replaceTextA(param0: MutPtr<Findreplacea>): Hwnd =
+    MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsReplaceTextA(param0.rawAddress))
 
-public actual fun replaceTextW(param0: COpaquePointer?): Hwnd =
-    WindowsWin32UiControlsDialogsJniBridge.windowssys_windows_win32_ui_controls_dialogs_replaceTextW((param0?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+public actual fun replaceTextW(param0: MutPtr<Findreplacew>): Hwnd =
+    MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsReplaceTextW(param0.rawAddress))

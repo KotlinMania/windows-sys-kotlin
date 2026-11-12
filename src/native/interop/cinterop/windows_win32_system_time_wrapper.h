@@ -9,21 +9,21 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation(uint32_t dwindex, void* lptimezoneinformation);
-int32_t windowssys_windows_win32_system_time_fileTimeToSystemTime(void* lpfiletime, void* lpsystemtime);
-uint32_t windowssys_windows_win32_system_time_getDynamicTimeZoneInformation(void* ptimezoneinformation);
-uint32_t windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears(void* lptimezoneinformation, void* firstyear, void* lastyear);
-uint32_t windowssys_windows_win32_system_time_getTimeZoneInformation(void* lptimezoneinformation);
-int32_t windowssys_windows_win32_system_time_getTimeZoneInformationForYear(uint16_t wyear, void* pdtzi, void* ptzi);
-int32_t windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime(void* timezoneinformation, void* localfiletime, void* localsystemtime);
-int32_t windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime(void* timezoneinformation, void* localsystemtime, void* localfiletime);
-int32_t windowssys_windows_win32_system_time_setDynamicTimeZoneInformation(void* lptimezoneinformation);
-int32_t windowssys_windows_win32_system_time_setTimeZoneInformation(void* lptimezoneinformation);
-int32_t windowssys_windows_win32_system_time_systemTimeToFileTime(void* lpsystemtime, void* lpfiletime);
-int32_t windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime);
-int32_t windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime);
-int32_t windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime);
-int32_t windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime);
+uint32_t windowssysWindowsWin32SystemTimeEnumDynamicTimeZoneInformation(uint32_t dwindex, void* lptimezoneinformation);
+int32_t windowssysWindowsWin32SystemTimeFileTimeToSystemTime(void* lpfiletime, void* lpsystemtime);
+uint32_t windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformation(void* ptimezoneinformation);
+uint32_t windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformationEffectiveYears(void* lptimezoneinformation, void* firstyear, void* lastyear);
+uint32_t windowssysWindowsWin32SystemTimeGetTimeZoneInformation(void* lptimezoneinformation);
+int32_t windowssysWindowsWin32SystemTimeGetTimeZoneInformationForYear(uint16_t wyear, void* pdtzi, void* ptzi);
+int32_t windowssysWindowsWin32SystemTimeLocalFileTimeToLocalSystemTime(void* timezoneinformation, void* localfiletime, void* localsystemtime);
+int32_t windowssysWindowsWin32SystemTimeLocalSystemTimeToLocalFileTime(void* timezoneinformation, void* localsystemtime, void* localfiletime);
+int32_t windowssysWindowsWin32SystemTimeSetDynamicTimeZoneInformation(void* lptimezoneinformation);
+int32_t windowssysWindowsWin32SystemTimeSetTimeZoneInformation(void* lptimezoneinformation);
+int32_t windowssysWindowsWin32SystemTimeSystemTimeToFileTime(void* lpsystemtime, void* lpfiletime);
+int32_t windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTime(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime);
+int32_t windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTimeEx(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime);
+int32_t windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTime(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime);
+int32_t windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTimeEx(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime);
 
 #ifdef __cplusplus
 }
