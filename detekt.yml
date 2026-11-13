@@ -82,7 +82,6 @@ naming:
   FunctionNaming: { active: false }
   ClassNaming: { active: false }
   EnumNaming: { active: false }
-  EnumEntryNaming: { active: false }
   VariableNaming: { active: false }
   ConstructorParameterNaming: { active: false }
   FunctionParameterNaming: { active: false }
