@@ -1,8 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.webservicesondevices
 
-import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.w
-
 public val DIRECTED_DISCOVERY: DeviceDiscoveryMechanism = 1
 
 public val MULTICAST_DISCOVERY: DeviceDiscoveryMechanism = 0
