@@ -17,7 +17,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
 private val windowsWin32UiAccessibilityNapiAddon: dynamic =
@@ -88,7 +88,7 @@ public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
 public actual fun isWinEventHookInstalled(event: UInt): Bool =
     if (windowsWin32UiAccessibilityNapiAddon != null) (windowsWin32UiAccessibilityNapiAddon.windowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr): Hresult =
+public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant, pfound: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult =
@@ -192,7 +192,7 @@ public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextP
 public actual fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult =
     if (windowsWin32UiAccessibilityNapiAddon != null) (windowsWin32UiAccessibilityNapiAddon.windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit(hobj.rawAddress.toString(), unit) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr): Hresult =
+public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant, backward: Bool, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr): Hresult =
@@ -345,7 +345,7 @@ public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr, asyncconten
 public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr, id: UiaEventId): Hresult =
     if (windowsWin32UiAccessibilityNapiAddon != null) (windowsWin32UiAccessibilityNapiAddon.windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent(pprovider.rawAddress.toString(), id) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
+public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant, newvalue: Variant): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun uiaRaiseChangesEvent(pprovider: MutPtr, eventidcount: Int, puiachanges: MutPtr): Hresult =

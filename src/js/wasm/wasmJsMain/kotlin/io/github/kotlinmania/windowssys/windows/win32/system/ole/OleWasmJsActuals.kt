@@ -21,6 +21,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Syskind
 import io.github.kotlinmania.windowssys.windows.win32.system.memory.GlobalAllocFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
@@ -1321,13 +1322,13 @@ public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPt
 public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleCreateTypeLib2(syskind, szfile.rawAddress.toString(), ppctlib.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Variant.Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
+public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleDispCallFunc(pvinstance.rawAddress.toString(), ovft.toString(), cc, vtreturn.toInt(), cactuals.toInt(), prgvt.rawAddress.toString(), prgpvarg.rawAddress.toString(), pvargresult.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dispGetIDsOfNames(ptinfo: MutPtr, rgsznames: ConstPtr, cnames: UInt, rgdispid: MutPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleDispGetIDsOfNames(ptinfo.rawAddress.toString(), rgsznames.rawAddress.toString(), cnames.toInt(), rgdispid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Variant.Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
+public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleDispGetParam(pdispparams.rawAddress.toString(), position.toInt(), vttarg.toInt(), pvarresult.rawAddress.toString(), puargerr.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dispInvoke(thisRef: MutPtr, ptinfo: MutPtr, dispidmember: Int, wflags: UShort, pparams: MutPtr, pvarresult: MutPtr, pexcepinfo: MutPtr, puargerr: MutPtr): Hresult =
@@ -1534,10 +1535,10 @@ public actual fun oleLoadPicture(lpstream: MutPtr, lsize: Int, frunmode: Bool, r
 public actual fun oleLoadPictureEx(lpstream: MutPtr, lsize: Int, frunmode: Bool, riid: ConstPtr, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: MutPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleOleLoadPictureEx(lpstream.rawAddress.toString(), lsize, frunmode, riid.rawAddress.toString(), xsizedesired.toInt(), ysizedesired.toInt(), dwflags.toInt(), lplpvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadPictureFile(varfilename: Variant.Variant, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleLoadPictureFileEx(varfilename: Variant.Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: MutPtr, dwreserved: UInt, clrreserved: UInt, riid: ConstPtr, ppvret: MutPtr): Hresult =
@@ -1718,7 +1719,7 @@ public actual fun safeArrayAllocData(psa: ConstPtr): Hresult =
 public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: MutPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleSafeArrayAllocDescriptor(cdims.toInt(), ppsaout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayAllocDescriptorEx(vt: Variant.Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
+public actual fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx(vt.toInt(), cdims.toInt(), ppsaout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
@@ -1727,16 +1728,16 @@ public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
 public actual fun safeArrayCopyData(psasource: ConstPtr, psatarget: ConstPtr): Hresult =
     if (windowsWin32SystemOleNapiAvailable) wasmWindowssysWindowsWin32SystemOleSafeArrayCopyData(psasource.rawAddress.toString(), psatarget.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreate(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
+public actual fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
     if (windowsWin32SystemOleNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemOleSafeArrayCreate(vt.toInt(), cdims.toInt(), rgsabound.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreateEx(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
     if (windowsWin32SystemOleNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemOleSafeArrayCreateEx(vt.toInt(), cdims.toInt(), rgsabound.rawAddress.toString(), pvextra.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreateVector(vt: Variant.Varenum, llbound: Int, celements: UInt): MutPtr =
+public actual fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): MutPtr =
     if (windowsWin32SystemOleNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemOleSafeArrayCreateVector(vt.toInt(), llbound, celements.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeArrayCreateVectorEx(vt: Variant.Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
     if (windowsWin32SystemOleNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemOleSafeArrayCreateVectorEx(vt.toInt(), llbound, celements.toInt(), pvextra.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun safeArrayDestroy(psa: ConstPtr): Hresult =

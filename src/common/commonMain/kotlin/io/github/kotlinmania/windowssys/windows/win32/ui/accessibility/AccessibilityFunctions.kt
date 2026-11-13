@@ -15,7 +15,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
 public expect fun accNotifyTouchInteraction(hwndapp: Hwnd, hwndtarget: Hwnd, pttarget: Point): Hresult
@@ -58,7 +58,7 @@ public expect fun invokePatternInvoke(hobj: Huiapatternobject): Hresult
 
 public expect fun isWinEventHookInstalled(event: UInt): Bool
 
-public expect fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr): Hresult
+public expect fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant, pfound: MutPtr): Hresult
 
 public expect fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult
 
@@ -124,7 +124,7 @@ public expect fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextP
 
 public expect fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult
 
-public expect fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr): Hresult
+public expect fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant, backward: Bool, pretval: MutPtr): Hresult
 
 public expect fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr): Hresult
 
@@ -226,7 +226,7 @@ public expect fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr, asyncconten
 
 public expect fun uiaRaiseAutomationEvent(pprovider: MutPtr, id: UiaEventId): Hresult
 
-public expect fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult
+public expect fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant, newvalue: Variant): Hresult
 
 public expect fun uiaRaiseChangesEvent(pprovider: MutPtr, eventidcount: Int, puiachanges: MutPtr): Hresult
 

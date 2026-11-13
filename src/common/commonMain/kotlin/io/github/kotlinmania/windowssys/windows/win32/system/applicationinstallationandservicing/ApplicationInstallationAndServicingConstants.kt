@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -1386,17 +1386,17 @@ public val MSIDBERROR_STRINGOVERFLOW: Msidberror = 28
 
 public val MSIDBERROR_UNDERFLOW: Msidberror = 5
 
-public val MSIDBOPEN_CREATE: Pcwstr = MutPtr(3.toLong())
+public val MSIDBOPEN_CREATE: Pcwstr = ConstPtr(3.toLong())
 
-public val MSIDBOPEN_CREATEDIRECT: Pcwstr = MutPtr(4.toLong())
+public val MSIDBOPEN_CREATEDIRECT: Pcwstr = ConstPtr(4.toLong())
 
-public val MSIDBOPEN_DIRECT: Pcwstr = MutPtr(2.toLong())
+public val MSIDBOPEN_DIRECT: Pcwstr = ConstPtr(2.toLong())
 
 public val MSIDBOPEN_PATCHFILE: Int = 16
 
-public val MSIDBOPEN_READONLY: Pcwstr = MutPtr(0L)
+public val MSIDBOPEN_READONLY: Pcwstr = ConstPtr(0L)
 
-public val MSIDBOPEN_TRANSACT: Pcwstr = MutPtr(1.toLong())
+public val MSIDBOPEN_TRANSACT: Pcwstr = ConstPtr(1.toLong())
 
 public val MSIDBSTATE_ERROR: Msidbstate = -1
 

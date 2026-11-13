@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -1325,15 +1326,15 @@ public val CERT_CHAIN_POLICY_ALLOW_TESTROOT_FLAG: CertChainPolicyFlags = 32768u
 
 public val CERT_CHAIN_POLICY_ALLOW_UNKNOWN_CA_FLAG: CertChainPolicyFlags = 16u
 
-public val CERT_CHAIN_POLICY_AUTHENTICODE: Pcstr = MutPtr(2.toLong())
+public val CERT_CHAIN_POLICY_AUTHENTICODE: Pcstr = ConstPtr(2.toLong())
 
-public val CERT_CHAIN_POLICY_AUTHENTICODE_TS: Pcstr = MutPtr(3.toLong())
+public val CERT_CHAIN_POLICY_AUTHENTICODE_TS: Pcstr = ConstPtr(3.toLong())
 
-public val CERT_CHAIN_POLICY_BASE: Pcstr = MutPtr(1.toLong())
+public val CERT_CHAIN_POLICY_BASE: Pcstr = ConstPtr(1.toLong())
 
-public val CERT_CHAIN_POLICY_BASIC_CONSTRAINTS: Pcstr = MutPtr(5.toLong())
+public val CERT_CHAIN_POLICY_BASIC_CONSTRAINTS: Pcstr = ConstPtr(5.toLong())
 
-public val CERT_CHAIN_POLICY_EV: Pcstr = MutPtr(8.toLong())
+public val CERT_CHAIN_POLICY_EV: Pcstr = ConstPtr(8.toLong())
 
 public val CERT_CHAIN_POLICY_IGNORE_ALL_NOT_TIME_VALID_FLAGS: CertChainPolicyFlags = 7u
 
@@ -1367,13 +1368,13 @@ public val CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: CertChainPolicyFlags = 
 
 public val CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: CertChainPolicyFlags = 32u
 
-public val CERT_CHAIN_POLICY_MICROSOFT_ROOT: Pcstr = MutPtr(7.toLong())
+public val CERT_CHAIN_POLICY_MICROSOFT_ROOT: Pcstr = ConstPtr(7.toLong())
 
-public val CERT_CHAIN_POLICY_NT_AUTH: Pcstr = MutPtr(6.toLong())
+public val CERT_CHAIN_POLICY_NT_AUTH: Pcstr = ConstPtr(6.toLong())
 
-public val CERT_CHAIN_POLICY_SSL: Pcstr = MutPtr(4.toLong())
+public val CERT_CHAIN_POLICY_SSL: Pcstr = ConstPtr(4.toLong())
 
-public val CERT_CHAIN_POLICY_SSL_F12: Pcstr = MutPtr(9.toLong())
+public val CERT_CHAIN_POLICY_SSL_F12: Pcstr = ConstPtr(9.toLong())
 
 public val CERT_CHAIN_POLICY_SSL_F12_ERROR_LEVEL: UInt = 2u
 
@@ -1387,9 +1388,9 @@ public val CERT_CHAIN_POLICY_SSL_F12_WARNING_LEVEL: UInt = 1u
 
 public val CERT_CHAIN_POLICY_SSL_F12_WEAK_CRYPTO_CATEGORY: UInt = 1u
 
-public val CERT_CHAIN_POLICY_SSL_HPKP_HEADER: Pcstr = MutPtr(10.toLong())
+public val CERT_CHAIN_POLICY_SSL_HPKP_HEADER: Pcstr = ConstPtr(10.toLong())
 
-public val CERT_CHAIN_POLICY_SSL_KEY_PIN: Pcstr = MutPtr(12.toLong())
+public val CERT_CHAIN_POLICY_SSL_KEY_PIN: Pcstr = ConstPtr(12.toLong())
 
 public val CERT_CHAIN_POLICY_SSL_KEY_PIN_MISMATCH_ERROR: Int = -2
 
@@ -1401,7 +1402,7 @@ public val CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING: UInt = 1u
 
 public val CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS: UInt = 0u
 
-public val CERT_CHAIN_POLICY_THIRD_PARTY_ROOT: Pcstr = MutPtr(11.toLong())
+public val CERT_CHAIN_POLICY_THIRD_PARTY_ROOT: Pcstr = ConstPtr(11.toLong())
 
 public val CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG: CertChainPolicyFlags = 16384u
 
@@ -2105,13 +2106,13 @@ public val CERT_REQUEST_ORIGINATOR_PROP_ID: UInt = 71u
 
 public val CERT_REQUEST_V1: UInt = 0u
 
-public val CERT_RETRIEVE_BIOMETRIC_PREDEFINED_BASE_TYPE: Pcstr = MutPtr(1000.toLong())
+public val CERT_RETRIEVE_BIOMETRIC_PREDEFINED_BASE_TYPE: Pcstr = ConstPtr(1000.toLong())
 
-public val CERT_RETRIEVE_COMMUNITY_LOGO: Pcstr = MutPtr(3.toLong())
+public val CERT_RETRIEVE_COMMUNITY_LOGO: Pcstr = ConstPtr(3.toLong())
 
-public val CERT_RETRIEVE_ISSUER_LOGO: Pcstr = MutPtr(1.toLong())
+public val CERT_RETRIEVE_ISSUER_LOGO: Pcstr = ConstPtr(1.toLong())
 
-public val CERT_RETRIEVE_SUBJECT_LOGO: Pcstr = MutPtr(2.toLong())
+public val CERT_RETRIEVE_SUBJECT_LOGO: Pcstr = ConstPtr(2.toLong())
 
 public val CERT_RETR_BEHAVIOR_FILE_VALUE_NAME: Pcwstr = w("AllowFileUrlScheme")
 
@@ -2333,7 +2334,7 @@ public val CERT_STORE_OPEN_EXISTING_FLAG: CertOpenStoreFlags = 16384u
 
 public val CERT_STORE_PROV_CLOSE_FUNC: UInt = 0u
 
-public val CERT_STORE_PROV_COLLECTION: Pcstr = MutPtr(11.toLong())
+public val CERT_STORE_PROV_COLLECTION: Pcstr = ConstPtr(11.toLong())
 
 public val CERT_STORE_PROV_CONTROL_FUNC: UInt = 13u
 
@@ -2347,13 +2348,13 @@ public val CERT_STORE_PROV_DELETE_CTL_FUNC: UInt = 11u
 
 public val CERT_STORE_PROV_EXTERNAL_FLAG: CertStoreProvFlags = 1u
 
-public val CERT_STORE_PROV_FILE: Pcstr = MutPtr(3.toLong())
+public val CERT_STORE_PROV_FILE: Pcstr = ConstPtr(3.toLong())
 
 public val CERT_STORE_PROV_FILENAME: Int = 8
 
-public val CERT_STORE_PROV_FILENAME_A: Pcstr = MutPtr(7.toLong())
+public val CERT_STORE_PROV_FILENAME_A: Pcstr = ConstPtr(7.toLong())
 
-public val CERT_STORE_PROV_FILENAME_W: Pcstr = MutPtr(8.toLong())
+public val CERT_STORE_PROV_FILENAME_W: Pcstr = ConstPtr(8.toLong())
 
 public val CERT_STORE_PROV_FIND_CERT_FUNC: UInt = 14u
 
@@ -2377,23 +2378,23 @@ public val CERT_STORE_PROV_GP_SYSTEM_STORE_FLAG: UInt = 32u
 
 public val CERT_STORE_PROV_LDAP: Int = 16
 
-public val CERT_STORE_PROV_LDAP_W: Pcstr = MutPtr(16.toLong())
+public val CERT_STORE_PROV_LDAP_W: Pcstr = ConstPtr(16.toLong())
 
 public val CERT_STORE_PROV_LM_SYSTEM_STORE_FLAG: CertStoreProvFlags = 16u
 
-public val CERT_STORE_PROV_MEMORY: Pcstr = MutPtr(2.toLong())
+public val CERT_STORE_PROV_MEMORY: Pcstr = ConstPtr(2.toLong())
 
-public val CERT_STORE_PROV_MSG: Pcstr = MutPtr(1.toLong())
+public val CERT_STORE_PROV_MSG: Pcstr = ConstPtr(1.toLong())
 
 public val CERT_STORE_PROV_NO_PERSIST_FLAG: CertStoreProvFlags = 4u
 
 public val CERT_STORE_PROV_PHYSICAL: Int = 14
 
-public val CERT_STORE_PROV_PHYSICAL_W: Pcstr = MutPtr(14.toLong())
+public val CERT_STORE_PROV_PHYSICAL_W: Pcstr = ConstPtr(14.toLong())
 
-public val CERT_STORE_PROV_PKCS12: Pcstr = MutPtr(17.toLong())
+public val CERT_STORE_PROV_PKCS12: Pcstr = ConstPtr(17.toLong())
 
-public val CERT_STORE_PROV_PKCS7: Pcstr = MutPtr(5.toLong())
+public val CERT_STORE_PROV_PKCS7: Pcstr = ConstPtr(5.toLong())
 
 public val CERT_STORE_PROV_READ_CERT_FUNC: UInt = 1u
 
@@ -2401,9 +2402,9 @@ public val CERT_STORE_PROV_READ_CRL_FUNC: UInt = 5u
 
 public val CERT_STORE_PROV_READ_CTL_FUNC: UInt = 9u
 
-public val CERT_STORE_PROV_REG: Pcstr = MutPtr(4.toLong())
+public val CERT_STORE_PROV_REG: Pcstr = ConstPtr(4.toLong())
 
-public val CERT_STORE_PROV_SERIALIZED: Pcstr = MutPtr(6.toLong())
+public val CERT_STORE_PROV_SERIALIZED: Pcstr = ConstPtr(6.toLong())
 
 public val CERT_STORE_PROV_SET_CERT_PROPERTY_FUNC: UInt = 4u
 
@@ -2415,21 +2416,21 @@ public val CERT_STORE_PROV_SHARED_USER_FLAG: UInt = 64u
 
 public val CERT_STORE_PROV_SMART_CARD: Int = 15
 
-public val CERT_STORE_PROV_SMART_CARD_W: Pcstr = MutPtr(15.toLong())
+public val CERT_STORE_PROV_SMART_CARD_W: Pcstr = ConstPtr(15.toLong())
 
 public val CERT_STORE_PROV_SYSTEM: Int = 10
 
-public val CERT_STORE_PROV_SYSTEM_A: Pcstr = MutPtr(9.toLong())
+public val CERT_STORE_PROV_SYSTEM_A: Pcstr = ConstPtr(9.toLong())
 
 public val CERT_STORE_PROV_SYSTEM_REGISTRY: Int = 13
 
-public val CERT_STORE_PROV_SYSTEM_REGISTRY_A: Pcstr = MutPtr(12.toLong())
+public val CERT_STORE_PROV_SYSTEM_REGISTRY_A: Pcstr = ConstPtr(12.toLong())
 
-public val CERT_STORE_PROV_SYSTEM_REGISTRY_W: Pcstr = MutPtr(13.toLong())
+public val CERT_STORE_PROV_SYSTEM_REGISTRY_W: Pcstr = ConstPtr(13.toLong())
 
 public val CERT_STORE_PROV_SYSTEM_STORE_FLAG: CertStoreProvFlags = 8u
 
-public val CERT_STORE_PROV_SYSTEM_W: Pcstr = MutPtr(10.toLong())
+public val CERT_STORE_PROV_SYSTEM_W: Pcstr = ConstPtr(10.toLong())
 
 public val CERT_STORE_PROV_WRITE_ADD_FLAG: UInt = 1u
 
@@ -2733,11 +2734,11 @@ public val CLMD_PIV_GENERATE_ASYMMETRIC_KEY_CURRENT_VERSION: UInt = 0u
 
 public val CLMD_PIV_PUBLIC_KEY_DATA_CURRENT_VERSION: UInt = 0u
 
-public val CMC_ADD_ATTRIBUTES: Pcstr = MutPtr(63.toLong())
+public val CMC_ADD_ATTRIBUTES: Pcstr = ConstPtr(63.toLong())
 
-public val CMC_ADD_EXTENSIONS: Pcstr = MutPtr(62.toLong())
+public val CMC_ADD_EXTENSIONS: Pcstr = ConstPtr(62.toLong())
 
-public val CMC_DATA: Pcstr = MutPtr(59.toLong())
+public val CMC_DATA: Pcstr = ConstPtr(59.toLong())
 
 public val CMC_FAIL_BAD_ALG: UInt = 0u
 
@@ -2771,9 +2772,9 @@ public val CMC_OTHER_INFO_NO_CHOICE: UInt = 0u
 
 public val CMC_OTHER_INFO_PEND_CHOICE: UInt = 2u
 
-public val CMC_RESPONSE: Pcstr = MutPtr(60.toLong())
+public val CMC_RESPONSE: Pcstr = ConstPtr(60.toLong())
 
-public val CMC_STATUS: Pcstr = MutPtr(61.toLong())
+public val CMC_STATUS: Pcstr = ConstPtr(61.toLong())
 
 public val CMC_STATUS_CONFIRM_REQUIRED: UInt = 5u
 
@@ -2875,7 +2876,7 @@ public val CMSG_CTRL_VERIFY_SIGNATURE_EX: UInt = 19u
 
 public val CMSG_DATA: CryptMsgType = 1u
 
-public val CMSG_DEFAULT_INSTALLABLE_FUNC_OID: Pcstr = MutPtr(1.toLong())
+public val CMSG_DEFAULT_INSTALLABLE_FUNC_OID: Pcstr = ConstPtr(1.toLong())
 
 public val CMSG_DETACHED_FLAG: UInt = 4u
 

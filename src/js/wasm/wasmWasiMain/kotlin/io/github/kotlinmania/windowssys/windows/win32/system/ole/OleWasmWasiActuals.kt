@@ -21,6 +21,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Syskind
 import io.github.kotlinmania.windowssys.windows.win32.system.memory.GlobalAllocFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
@@ -51,13 +52,13 @@ public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPt
 public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleCreateTypeLib2")
 
-public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Variant.Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
+public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleDispCallFunc")
 
 public actual fun dispGetIDsOfNames(ptinfo: MutPtr, rgsznames: ConstPtr, cnames: UInt, rgdispid: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleDispGetIDsOfNames")
 
-public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Variant.Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
+public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleDispGetParam")
 
 public actual fun dispInvoke(thisRef: MutPtr, ptinfo: MutPtr, dispidmember: Int, wflags: UShort, pparams: MutPtr, pvarresult: MutPtr, pexcepinfo: MutPtr, puargerr: MutPtr): Hresult =
@@ -262,10 +263,10 @@ public actual fun oleLoadPicture(lpstream: MutPtr, lsize: Int, frunmode: Bool, r
 public actual fun oleLoadPictureEx(lpstream: MutPtr, lsize: Int, frunmode: Bool, riid: ConstPtr, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleOleLoadPictureEx")
 
-public actual fun oleLoadPictureFile(varfilename: Variant.Variant, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleOleLoadPictureFile")
 
-public actual fun oleLoadPictureFileEx(varfilename: Variant.Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleOleLoadPictureFileEx")
 
 public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: MutPtr, dwreserved: UInt, clrreserved: UInt, riid: ConstPtr, ppvret: MutPtr): Hresult =
@@ -438,7 +439,7 @@ public actual fun safeArrayAllocData(psa: ConstPtr): Hresult =
 public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleSafeArrayAllocDescriptor")
 
-public actual fun safeArrayAllocDescriptorEx(vt: Variant.Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
+public actual fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx")
 
 public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
@@ -447,16 +448,16 @@ public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
 public actual fun safeArrayCopyData(psasource: ConstPtr, psatarget: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleSafeArrayCopyData")
 
-public actual fun safeArrayCreate(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
+public actual fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleSafeArrayCreate")
 
-public actual fun safeArrayCreateEx(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleSafeArrayCreateEx")
 
-public actual fun safeArrayCreateVector(vt: Variant.Varenum, llbound: Int, celements: UInt): MutPtr =
+public actual fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleSafeArrayCreateVector")
 
-public actual fun safeArrayCreateVectorEx(vt: Variant.Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemOleSafeArrayCreateVectorEx")
 
 public actual fun safeArrayDestroy(psa: ConstPtr): Hresult =

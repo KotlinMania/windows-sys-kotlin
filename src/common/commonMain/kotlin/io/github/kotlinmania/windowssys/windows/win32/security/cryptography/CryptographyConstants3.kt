@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -78,31 +78,31 @@ public val TLS_RSA_WITH_RC4_128_SHA: UInt = 5u
 
 public val TPM_RSA_SRK_SEAL_KEY: Pcwstr = w("MICROSOFT_PCP_KSP_RSA_SEAL_KEY_3BD1C4BF-004E-4E2F-8A4D-0BF633DCB074")
 
-public val URL_OID_CERTIFICATE_CRL_DIST_POINT: Pcstr = MutPtr(2.toLong())
+public val URL_OID_CERTIFICATE_CRL_DIST_POINT: Pcstr = ConstPtr(2.toLong())
 
-public val URL_OID_CERTIFICATE_CRL_DIST_POINT_AND_OCSP: Pcstr = MutPtr(11.toLong())
+public val URL_OID_CERTIFICATE_CRL_DIST_POINT_AND_OCSP: Pcstr = ConstPtr(11.toLong())
 
-public val URL_OID_CERTIFICATE_FRESHEST_CRL: Pcstr = MutPtr(6.toLong())
+public val URL_OID_CERTIFICATE_FRESHEST_CRL: Pcstr = ConstPtr(6.toLong())
 
-public val URL_OID_CERTIFICATE_ISSUER: Pcstr = MutPtr(1.toLong())
+public val URL_OID_CERTIFICATE_ISSUER: Pcstr = ConstPtr(1.toLong())
 
-public val URL_OID_CERTIFICATE_OCSP: Pcstr = MutPtr(9.toLong())
+public val URL_OID_CERTIFICATE_OCSP: Pcstr = ConstPtr(9.toLong())
 
-public val URL_OID_CERTIFICATE_OCSP_AND_CRL_DIST_POINT: Pcstr = MutPtr(10.toLong())
+public val URL_OID_CERTIFICATE_OCSP_AND_CRL_DIST_POINT: Pcstr = ConstPtr(10.toLong())
 
-public val URL_OID_CERTIFICATE_ONLY_OCSP: Pcstr = MutPtr(13.toLong())
+public val URL_OID_CERTIFICATE_ONLY_OCSP: Pcstr = ConstPtr(13.toLong())
 
-public val URL_OID_CRL_FRESHEST_CRL: Pcstr = MutPtr(7.toLong())
+public val URL_OID_CRL_FRESHEST_CRL: Pcstr = ConstPtr(7.toLong())
 
-public val URL_OID_CRL_ISSUER: Pcstr = MutPtr(5.toLong())
+public val URL_OID_CRL_ISSUER: Pcstr = ConstPtr(5.toLong())
 
-public val URL_OID_CROSS_CERT_DIST_POINT: Pcstr = MutPtr(8.toLong())
+public val URL_OID_CROSS_CERT_DIST_POINT: Pcstr = ConstPtr(8.toLong())
 
-public val URL_OID_CROSS_CERT_SUBJECT_INFO_ACCESS: Pcstr = MutPtr(12.toLong())
+public val URL_OID_CROSS_CERT_SUBJECT_INFO_ACCESS: Pcstr = ConstPtr(12.toLong())
 
-public val URL_OID_CTL_ISSUER: Pcstr = MutPtr(3.toLong())
+public val URL_OID_CTL_ISSUER: Pcstr = ConstPtr(3.toLong())
 
-public val URL_OID_CTL_NEXT_UPDATE: Pcstr = MutPtr(4.toLong())
+public val URL_OID_CTL_NEXT_UPDATE: Pcstr = ConstPtr(4.toLong())
 
 public val URL_OID_GET_OBJECT_URL_FUNC: Pcstr = s("UrlDllGetObjectUrl")
 
@@ -120,131 +120,131 @@ public val USER_READ_WRITE_AC: CardFileAccessCondition = 5
 
 public val USER_WRITE_EXECUTE_AC: CardFileAccessCondition = 2
 
-public val X509_ALGORITHM_IDENTIFIER: Pcstr = MutPtr(74.toLong())
+public val X509_ALGORITHM_IDENTIFIER: Pcstr = ConstPtr(74.toLong())
 
-public val X509_ALTERNATE_NAME: Pcstr = MutPtr(12.toLong())
+public val X509_ALTERNATE_NAME: Pcstr = ConstPtr(12.toLong())
 
 public val X509_ANY_STRING: Int = 6
 
 public val X509_ASN_ENCODING: CertQueryEncodingType = 1u
 
-public val X509_AUTHORITY_INFO_ACCESS: Pcstr = MutPtr(32.toLong())
+public val X509_AUTHORITY_INFO_ACCESS: Pcstr = ConstPtr(32.toLong())
 
-public val X509_AUTHORITY_KEY_ID: Pcstr = MutPtr(9.toLong())
+public val X509_AUTHORITY_KEY_ID: Pcstr = ConstPtr(9.toLong())
 
-public val X509_AUTHORITY_KEY_ID2: Pcstr = MutPtr(31.toLong())
+public val X509_AUTHORITY_KEY_ID2: Pcstr = ConstPtr(31.toLong())
 
-public val X509_BASIC_CONSTRAINTS: Pcstr = MutPtr(13.toLong())
+public val X509_BASIC_CONSTRAINTS: Pcstr = ConstPtr(13.toLong())
 
-public val X509_BASIC_CONSTRAINTS2: Pcstr = MutPtr(15.toLong())
+public val X509_BASIC_CONSTRAINTS2: Pcstr = ConstPtr(15.toLong())
 
-public val X509_BIOMETRIC_EXT: Pcstr = MutPtr(71.toLong())
+public val X509_BIOMETRIC_EXT: Pcstr = ConstPtr(71.toLong())
 
-public val X509_BITS: Pcstr = MutPtr(26.toLong())
+public val X509_BITS: Pcstr = ConstPtr(26.toLong())
 
-public val X509_BITS_WITHOUT_TRAILING_ZEROES: Pcstr = MutPtr(51.toLong())
+public val X509_BITS_WITHOUT_TRAILING_ZEROES: Pcstr = ConstPtr(51.toLong())
 
-public val X509_CERT: Pcstr = MutPtr(1.toLong())
+public val X509_CERT: Pcstr = ConstPtr(1.toLong())
 
-public val X509_CERTIFICATE_TEMPLATE: Pcstr = MutPtr(64.toLong())
+public val X509_CERTIFICATE_TEMPLATE: Pcstr = ConstPtr(64.toLong())
 
-public val X509_CERT_BUNDLE: Pcstr = MutPtr(81.toLong())
+public val X509_CERT_BUNDLE: Pcstr = ConstPtr(81.toLong())
 
-public val X509_CERT_CRL_TO_BE_SIGNED: Pcstr = MutPtr(3.toLong())
+public val X509_CERT_CRL_TO_BE_SIGNED: Pcstr = ConstPtr(3.toLong())
 
-public val X509_CERT_PAIR: Pcstr = MutPtr(53.toLong())
+public val X509_CERT_PAIR: Pcstr = ConstPtr(53.toLong())
 
-public val X509_CERT_POLICIES: Pcstr = MutPtr(16.toLong())
+public val X509_CERT_POLICIES: Pcstr = ConstPtr(16.toLong())
 
-public val X509_CERT_REQUEST_TO_BE_SIGNED: Pcstr = MutPtr(4.toLong())
+public val X509_CERT_REQUEST_TO_BE_SIGNED: Pcstr = ConstPtr(4.toLong())
 
-public val X509_CERT_TO_BE_SIGNED: Pcstr = MutPtr(2.toLong())
+public val X509_CERT_TO_BE_SIGNED: Pcstr = ConstPtr(2.toLong())
 
-public val X509_CHOICE_OF_TIME: Pcstr = MutPtr(30.toLong())
+public val X509_CHOICE_OF_TIME: Pcstr = ConstPtr(30.toLong())
 
-public val X509_CRL_DIST_POINTS: Pcstr = MutPtr(35.toLong())
+public val X509_CRL_DIST_POINTS: Pcstr = ConstPtr(35.toLong())
 
 public val X509_CRL_REASON_CODE: Int = 29
 
-public val X509_CROSS_CERT_DIST_POINTS: Pcstr = MutPtr(58.toLong())
+public val X509_CROSS_CERT_DIST_POINTS: Pcstr = ConstPtr(58.toLong())
 
-public val X509_DH_PARAMETERS: Pcstr = MutPtr(47.toLong())
+public val X509_DH_PARAMETERS: Pcstr = ConstPtr(47.toLong())
 
 public val X509_DH_PUBLICKEY: Int = 38
 
-public val X509_DSS_PARAMETERS: Pcstr = MutPtr(39.toLong())
+public val X509_DSS_PARAMETERS: Pcstr = ConstPtr(39.toLong())
 
 public val X509_DSS_PUBLICKEY: Int = 38
 
-public val X509_DSS_SIGNATURE: Pcstr = MutPtr(40.toLong())
+public val X509_DSS_SIGNATURE: Pcstr = ConstPtr(40.toLong())
 
-public val X509_ECC_PARAMETERS: Pcstr = MutPtr(85.toLong())
+public val X509_ECC_PARAMETERS: Pcstr = ConstPtr(85.toLong())
 
-public val X509_ECC_PRIVATE_KEY: Pcstr = MutPtr(82.toLong())
+public val X509_ECC_PRIVATE_KEY: Pcstr = ConstPtr(82.toLong())
 
-public val X509_ECC_SIGNATURE: Pcstr = MutPtr(47.toLong())
+public val X509_ECC_SIGNATURE: Pcstr = ConstPtr(47.toLong())
 
-public val X509_ENHANCED_KEY_USAGE: Pcstr = MutPtr(36.toLong())
+public val X509_ENHANCED_KEY_USAGE: Pcstr = ConstPtr(36.toLong())
 
-public val X509_ENUMERATED: Pcstr = MutPtr(29.toLong())
+public val X509_ENUMERATED: Pcstr = ConstPtr(29.toLong())
 
-public val X509_EXTENSIONS: Pcstr = MutPtr(5.toLong())
+public val X509_EXTENSIONS: Pcstr = ConstPtr(5.toLong())
 
-public val X509_INTEGER: Pcstr = MutPtr(27.toLong())
+public val X509_INTEGER: Pcstr = ConstPtr(27.toLong())
 
-public val X509_ISSUING_DIST_POINT: Pcstr = MutPtr(54.toLong())
+public val X509_ISSUING_DIST_POINT: Pcstr = ConstPtr(54.toLong())
 
-public val X509_KEYGEN_REQUEST_TO_BE_SIGNED: Pcstr = MutPtr(21.toLong())
+public val X509_KEYGEN_REQUEST_TO_BE_SIGNED: Pcstr = ConstPtr(21.toLong())
 
-public val X509_KEY_ATTRIBUTES: Pcstr = MutPtr(10.toLong())
+public val X509_KEY_ATTRIBUTES: Pcstr = ConstPtr(10.toLong())
 
-public val X509_KEY_USAGE: Pcstr = MutPtr(14.toLong())
+public val X509_KEY_USAGE: Pcstr = ConstPtr(14.toLong())
 
-public val X509_KEY_USAGE_RESTRICTION: Pcstr = MutPtr(11.toLong())
+public val X509_KEY_USAGE_RESTRICTION: Pcstr = ConstPtr(11.toLong())
 
-public val X509_LOGOTYPE_EXT: Pcstr = MutPtr(70.toLong())
+public val X509_LOGOTYPE_EXT: Pcstr = ConstPtr(70.toLong())
 
-public val X509_MULTI_BYTE_INTEGER: Pcstr = MutPtr(28.toLong())
+public val X509_MULTI_BYTE_INTEGER: Pcstr = ConstPtr(28.toLong())
 
-public val X509_MULTI_BYTE_UINT: Pcstr = MutPtr(38.toLong())
+public val X509_MULTI_BYTE_UINT: Pcstr = ConstPtr(38.toLong())
 
-public val X509_NAME: Pcstr = MutPtr(7.toLong())
+public val X509_NAME: Pcstr = ConstPtr(7.toLong())
 
-public val X509_NAME_CONSTRAINTS: Pcstr = MutPtr(55.toLong())
+public val X509_NAME_CONSTRAINTS: Pcstr = ConstPtr(55.toLong())
 
-public val X509_NAME_VALUE: Pcstr = MutPtr(6.toLong())
+public val X509_NAME_VALUE: Pcstr = ConstPtr(6.toLong())
 
 public val X509_NDR_ENCODING: UInt = 2u
 
-public val X509_OBJECT_IDENTIFIER: Pcstr = MutPtr(73.toLong())
+public val X509_OBJECT_IDENTIFIER: Pcstr = ConstPtr(73.toLong())
 
-public val X509_OCTET_STRING: Pcstr = MutPtr(25.toLong())
+public val X509_OCTET_STRING: Pcstr = ConstPtr(25.toLong())
 
-public val X509_PKIX_POLICY_QUALIFIER_USERNOTICE: Pcstr = MutPtr(46.toLong())
+public val X509_PKIX_POLICY_QUALIFIER_USERNOTICE: Pcstr = ConstPtr(46.toLong())
 
-public val X509_POLICY_CONSTRAINTS: Pcstr = MutPtr(57.toLong())
+public val X509_POLICY_CONSTRAINTS: Pcstr = ConstPtr(57.toLong())
 
-public val X509_POLICY_MAPPINGS: Pcstr = MutPtr(56.toLong())
+public val X509_POLICY_MAPPINGS: Pcstr = ConstPtr(56.toLong())
 
-public val X509_PUBLIC_KEY_INFO: Pcstr = MutPtr(8.toLong())
+public val X509_PUBLIC_KEY_INFO: Pcstr = ConstPtr(8.toLong())
 
-public val X509_QC_STATEMENTS_EXT: Pcstr = MutPtr(42.toLong())
+public val X509_QC_STATEMENTS_EXT: Pcstr = ConstPtr(42.toLong())
 
-public val X509_SEQUENCE_OF_ANY: Pcstr = MutPtr(34.toLong())
+public val X509_SEQUENCE_OF_ANY: Pcstr = ConstPtr(34.toLong())
 
-public val X509_SUBJECT_DIR_ATTRS: Pcstr = MutPtr(84.toLong())
+public val X509_SUBJECT_DIR_ATTRS: Pcstr = ConstPtr(84.toLong())
 
 public val X509_SUBJECT_INFO_ACCESS: Int = 32
 
 public val X509_UNICODE_ANY_STRING: Int = 24
 
-public val X509_UNICODE_NAME: Pcstr = MutPtr(20.toLong())
+public val X509_UNICODE_NAME: Pcstr = ConstPtr(20.toLong())
 
-public val X509_UNICODE_NAME_VALUE: Pcstr = MutPtr(24.toLong())
+public val X509_UNICODE_NAME_VALUE: Pcstr = ConstPtr(24.toLong())
 
-public val X942_DH_PARAMETERS: Pcstr = MutPtr(50.toLong())
+public val X942_DH_PARAMETERS: Pcstr = ConstPtr(50.toLong())
 
-public val X942_OTHER_INFO: Pcstr = MutPtr(52.toLong())
+public val X942_OTHER_INFO: Pcstr = ConstPtr(52.toLong())
 
 public val ZERO_PADDING: UInt = 3u
 

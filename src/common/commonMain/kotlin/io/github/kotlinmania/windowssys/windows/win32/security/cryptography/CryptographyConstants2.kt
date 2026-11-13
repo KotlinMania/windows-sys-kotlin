@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -95,11 +95,11 @@ public val CMSG_VERIFY_SIGNER_PUBKEY: UInt = 1u
 
 public val CMSG_VERSION_PARAM: UInt = 30u
 
-public val CMS_SIGNER_INFO: Pcstr = MutPtr(501.toLong())
+public val CMS_SIGNER_INFO: Pcstr = ConstPtr(501.toLong())
 
-public val CNG_RSA_PRIVATE_KEY_BLOB: Pcstr = MutPtr(83.toLong())
+public val CNG_RSA_PRIVATE_KEY_BLOB: Pcstr = ConstPtr(83.toLong())
 
-public val CNG_RSA_PUBLIC_KEY_BLOB: Pcstr = MutPtr(72.toLong())
+public val CNG_RSA_PUBLIC_KEY_BLOB: Pcstr = ConstPtr(72.toLong())
 
 public val CONTAINER_INFO_CURRENT_VERSION: UInt = 1u
 
@@ -107,19 +107,19 @@ public val CONTAINER_MAP_DEFAULT_CONTAINER: UInt = 2u
 
 public val CONTAINER_MAP_VALID_CONTAINER: UInt = 1u
 
-public val CONTEXT_OID_CAPI2_ANY: Pcstr = MutPtr(5.toLong())
+public val CONTEXT_OID_CAPI2_ANY: Pcstr = ConstPtr(5.toLong())
 
-public val CONTEXT_OID_CERTIFICATE: Pcstr = MutPtr(1.toLong())
+public val CONTEXT_OID_CERTIFICATE: Pcstr = ConstPtr(1.toLong())
 
 public val CONTEXT_OID_CREATE_OBJECT_CONTEXT_FUNC: Pcstr = s("ContextDllCreateObjectContext")
 
-public val CONTEXT_OID_CRL: Pcstr = MutPtr(2.toLong())
+public val CONTEXT_OID_CRL: Pcstr = ConstPtr(2.toLong())
 
-public val CONTEXT_OID_CTL: Pcstr = MutPtr(3.toLong())
+public val CONTEXT_OID_CTL: Pcstr = ConstPtr(3.toLong())
 
-public val CONTEXT_OID_OCSP_RESP: Pcstr = MutPtr(6.toLong())
+public val CONTEXT_OID_OCSP_RESP: Pcstr = ConstPtr(6.toLong())
 
-public val CONTEXT_OID_PKCS7: Pcstr = MutPtr(4.toLong())
+public val CONTEXT_OID_PKCS7: Pcstr = ConstPtr(4.toLong())
 
 public val CP_CACHE_MODE_GLOBAL_CACHE: UInt = 1u
 
@@ -193,9 +193,9 @@ public val CP_SUPPORTS_WIN_X509_ENROLLMENT: Pcwstr = w("Supports Windows x.509 E
 
 public val CREDENTIAL_OID_PASSWORD_CREDENTIALS: Int = 2
 
-public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: Pcstr = MutPtr(1.toLong())
+public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: Pcstr = ConstPtr(1.toLong())
 
-public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: Pcstr = MutPtr(2.toLong())
+public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: Pcstr = ConstPtr(2.toLong())
 
 public val CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: Int = -2147483648.toInt()
 
@@ -881,9 +881,9 @@ public val CRYPT_OVERWRITE: UInt = 1u
 
 public val CRYPT_OWF_REPL_LM_HASH: UInt = 1u
 
-public val CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: Pcstr = MutPtr(1.toLong())
+public val CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: Pcstr = ConstPtr(1.toLong())
 
-public val CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: Pcstr = MutPtr(2.toLong())
+public val CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: Pcstr = ConstPtr(2.toLong())
 
 public val CRYPT_POLICY_OID_GROUP_ID: UInt = 8u
 
@@ -1309,7 +1309,7 @@ public val DIRECTION_DECRYPT: Direction = 2
 
 public val DIRECTION_ENCRYPT: Direction = 1
 
-public val ECC_CMS_SHARED_INFO: Pcstr = MutPtr(77.toLong())
+public val ECC_CMS_SHARED_INFO: Pcstr = ConstPtr(77.toLong())
 
 public val ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = 0
 
@@ -2457,13 +2457,13 @@ public val OCSP_BASIC_BY_NAME_RESPONDER_ID: UInt = 1u
 
 public val OCSP_BASIC_GOOD_CERT_STATUS: UInt = 0u
 
-public val OCSP_BASIC_RESPONSE: Pcstr = MutPtr(69.toLong())
+public val OCSP_BASIC_RESPONSE: Pcstr = ConstPtr(69.toLong())
 
 public val OCSP_BASIC_RESPONSE_V1: UInt = 0u
 
 public val OCSP_BASIC_REVOKED_CERT_STATUS: UInt = 1u
 
-public val OCSP_BASIC_SIGNED_RESPONSE: Pcstr = MutPtr(68.toLong())
+public val OCSP_BASIC_SIGNED_RESPONSE: Pcstr = ConstPtr(68.toLong())
 
 public val OCSP_BASIC_UNKNOWN_CERT_STATUS: UInt = 2u
 
@@ -2471,13 +2471,13 @@ public val OCSP_INTERNAL_ERROR_RESPONSE: UInt = 2u
 
 public val OCSP_MALFORMED_REQUEST_RESPONSE: UInt = 1u
 
-public val OCSP_REQUEST: Pcstr = MutPtr(66.toLong())
+public val OCSP_REQUEST: Pcstr = ConstPtr(66.toLong())
 
 public val OCSP_REQUEST_V1: UInt = 0u
 
-public val OCSP_RESPONSE: Pcstr = MutPtr(67.toLong())
+public val OCSP_RESPONSE: Pcstr = ConstPtr(67.toLong())
 
-public val OCSP_SIGNED_REQUEST: Pcstr = MutPtr(65.toLong())
+public val OCSP_SIGNED_REQUEST: Pcstr = ConstPtr(65.toLong())
 
 public val OCSP_SIG_REQUIRED_RESPONSE: UInt = 5u
 
@@ -2561,43 +2561,43 @@ public val PKCS12_VIRTUAL_ISOLATION_KEY: UInt = 65536u
 
 public val PKCS5_PADDING: UInt = 1u
 
-public val PKCS7_SIGNER_INFO: Pcstr = MutPtr(500.toLong())
+public val PKCS7_SIGNER_INFO: Pcstr = ConstPtr(500.toLong())
 
 public val PKCS_7_ASN_ENCODING: CertQueryEncodingType = 65536u
 
 public val PKCS_7_NDR_ENCODING: UInt = 131072u
 
-public val PKCS_ATTRIBUTE: Pcstr = MutPtr(22.toLong())
+public val PKCS_ATTRIBUTE: Pcstr = ConstPtr(22.toLong())
 
-public val PKCS_ATTRIBUTES: Pcstr = MutPtr(48.toLong())
+public val PKCS_ATTRIBUTES: Pcstr = ConstPtr(48.toLong())
 
-public val PKCS_CONTENT_INFO: Pcstr = MutPtr(33.toLong())
+public val PKCS_CONTENT_INFO: Pcstr = ConstPtr(33.toLong())
 
-public val PKCS_CONTENT_INFO_SEQUENCE_OF_ANY: Pcstr = MutPtr(23.toLong())
+public val PKCS_CONTENT_INFO_SEQUENCE_OF_ANY: Pcstr = ConstPtr(23.toLong())
 
-public val PKCS_CTL: Pcstr = MutPtr(37.toLong())
+public val PKCS_CTL: Pcstr = ConstPtr(37.toLong())
 
-public val PKCS_ENCRYPTED_PRIVATE_KEY_INFO: Pcstr = MutPtr(45.toLong())
+public val PKCS_ENCRYPTED_PRIVATE_KEY_INFO: Pcstr = ConstPtr(45.toLong())
 
-public val PKCS_PRIVATE_KEY_INFO: Pcstr = MutPtr(44.toLong())
+public val PKCS_PRIVATE_KEY_INFO: Pcstr = ConstPtr(44.toLong())
 
-public val PKCS_RC2_CBC_PARAMETERS: Pcstr = MutPtr(41.toLong())
+public val PKCS_RC2_CBC_PARAMETERS: Pcstr = ConstPtr(41.toLong())
 
-public val PKCS_RSAES_OAEP_PARAMETERS: Pcstr = MutPtr(76.toLong())
+public val PKCS_RSAES_OAEP_PARAMETERS: Pcstr = ConstPtr(76.toLong())
 
-public val PKCS_RSA_PRIVATE_KEY: Pcstr = MutPtr(43.toLong())
+public val PKCS_RSA_PRIVATE_KEY: Pcstr = ConstPtr(43.toLong())
 
-public val PKCS_RSA_SSA_PSS_PARAMETERS: Pcstr = MutPtr(75.toLong())
+public val PKCS_RSA_SSA_PSS_PARAMETERS: Pcstr = ConstPtr(75.toLong())
 
 public val PKCS_RSA_SSA_PSS_TRAILER_FIELD_BC: UInt = 1u
 
-public val PKCS_SMIME_CAPABILITIES: Pcstr = MutPtr(42.toLong())
+public val PKCS_SMIME_CAPABILITIES: Pcstr = ConstPtr(42.toLong())
 
-public val PKCS_SORTED_CTL: Pcstr = MutPtr(49.toLong())
+public val PKCS_SORTED_CTL: Pcstr = ConstPtr(49.toLong())
 
-public val PKCS_TIME_REQUEST: Pcstr = MutPtr(18.toLong())
+public val PKCS_TIME_REQUEST: Pcstr = ConstPtr(18.toLong())
 
-public val PKCS_UTC_TIME: Pcstr = MutPtr(17.toLong())
+public val PKCS_UTC_TIME: Pcstr = ConstPtr(17.toLong())
 
 public val PLAINTEXTKEYBLOB: UInt = 8u
 
@@ -2773,7 +2773,7 @@ public val REPORT_NOT_ABLE_TO_EXPORT_PRIVATE_KEY: UInt = 2u
 
 public val REPORT_NO_PRIVATE_KEY: UInt = 1u
 
-public val REVOCATION_OID_CRL_REVOCATION: Pcstr = MutPtr(1.toLong())
+public val REVOCATION_OID_CRL_REVOCATION: Pcstr = ConstPtr(1.toLong())
 
 public val ROLE_ADMIN: UInt = 2u
 
@@ -2787,7 +2787,7 @@ public val ROLE_USER: UInt = 1u
 
 public val RSA1024BIT_KEY: UInt = 67108864u
 
-public val RSA_CSP_PUBLICKEYBLOB: Pcstr = MutPtr(19.toLong())
+public val RSA_CSP_PUBLICKEYBLOB: Pcstr = ConstPtr(19.toLong())
 
 public val SCARD_PROVIDER_CARD_MODULE: UInt = 2147483649u
 
@@ -2911,13 +2911,13 @@ public val TIMESTAMP_FAILURE_SYSTEM_FAILURE: UInt = 25u
 
 public val TIMESTAMP_FAILURE_TIME_NOT_AVAILABLE: UInt = 14u
 
-public val TIMESTAMP_INFO: Pcstr = MutPtr(80.toLong())
+public val TIMESTAMP_INFO: Pcstr = ConstPtr(80.toLong())
 
 public val TIMESTAMP_NO_AUTH_RETRIEVAL: UInt = 131072u
 
-public val TIMESTAMP_REQUEST: Pcstr = MutPtr(78.toLong())
+public val TIMESTAMP_REQUEST: Pcstr = ConstPtr(78.toLong())
 
-public val TIMESTAMP_RESPONSE: Pcstr = MutPtr(79.toLong())
+public val TIMESTAMP_RESPONSE: Pcstr = ConstPtr(79.toLong())
 
 public val TIMESTAMP_STATUS_GRANTED: CryptTimestampResponseStatus = 0u
 
@@ -2935,27 +2935,27 @@ public val TIMESTAMP_VERIFY_CONTEXT_SIGNATURE: UInt = 32u
 
 public val TIMESTAMP_VERSION: CryptTimestampVersion = 1u
 
-public val TIME_VALID_OID_FLUSH_CRL: Pcstr = MutPtr(2.toLong())
+public val TIME_VALID_OID_FLUSH_CRL: Pcstr = ConstPtr(2.toLong())
 
-public val TIME_VALID_OID_FLUSH_CRL_FROM_CERT: Pcstr = MutPtr(3.toLong())
+public val TIME_VALID_OID_FLUSH_CRL_FROM_CERT: Pcstr = ConstPtr(3.toLong())
 
-public val TIME_VALID_OID_FLUSH_CTL: Pcstr = MutPtr(1.toLong())
+public val TIME_VALID_OID_FLUSH_CTL: Pcstr = ConstPtr(1.toLong())
 
-public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CERT: Pcstr = MutPtr(4.toLong())
+public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CERT: Pcstr = ConstPtr(4.toLong())
 
-public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CRL: Pcstr = MutPtr(5.toLong())
+public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CRL: Pcstr = ConstPtr(5.toLong())
 
 public val TIME_VALID_OID_FLUSH_OBJECT_FUNC: Pcstr = s("TimeValidDllFlushObject")
 
-public val TIME_VALID_OID_GET_CRL: Pcstr = MutPtr(2.toLong())
+public val TIME_VALID_OID_GET_CRL: Pcstr = ConstPtr(2.toLong())
 
-public val TIME_VALID_OID_GET_CRL_FROM_CERT: Pcstr = MutPtr(3.toLong())
+public val TIME_VALID_OID_GET_CRL_FROM_CERT: Pcstr = ConstPtr(3.toLong())
 
-public val TIME_VALID_OID_GET_CTL: Pcstr = MutPtr(1.toLong())
+public val TIME_VALID_OID_GET_CTL: Pcstr = ConstPtr(1.toLong())
 
-public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CERT: Pcstr = MutPtr(4.toLong())
+public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CERT: Pcstr = ConstPtr(4.toLong())
 
-public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CRL: Pcstr = MutPtr(5.toLong())
+public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CRL: Pcstr = ConstPtr(5.toLong())
 
 public val TIME_VALID_OID_GET_OBJECT_FUNC: Pcstr = s("TimeValidDllGetObject")
 

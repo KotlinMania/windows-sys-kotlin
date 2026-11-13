@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.CREATE_
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ATTRIBUTE_DIRECTORY
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ATTRIBUTE_NORMAL
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ATTRIBUTE_READONLY
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ATTRIBUTE_REPARSE_POINT
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_BEGIN
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_CURRENT
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_END
@@ -17,6 +18,7 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TY
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_PIPE
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_REMOTE
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_UNKNOWN
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.INVALID_FILE_ATTRIBUTES
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.OPEN_ALWAYS
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.OPEN_EXISTING
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.TRUNCATE_EXISTING
@@ -51,6 +53,8 @@ class FileSystemTest {
         assertEquals(1u, FILE_ATTRIBUTE_READONLY)
         assertEquals(16u, FILE_ATTRIBUTE_DIRECTORY)
         assertEquals(128u, FILE_ATTRIBUTE_NORMAL)
+        assertEquals(1024u, FILE_ATTRIBUTE_REPARSE_POINT)
+        assertEquals(0xFFFF_FFFFu, INVALID_FILE_ATTRIBUTES)
     }
 
     @Test

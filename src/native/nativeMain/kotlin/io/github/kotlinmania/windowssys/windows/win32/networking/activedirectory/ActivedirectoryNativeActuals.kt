@@ -170,7 +170,7 @@ import io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 import io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssysWindowsWin32NetworkingActivedirectoryReallocADsMem
 import io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
@@ -662,5 +662,5 @@ public actual fun reallocADsMem(poldmem: MutPtr, cbold: UInt, cbnew: UInt): MutP
 public actual fun reallocADsStr(ppstr: MutPtr, pstr: Pcwstr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr(ppstr.rawAddress.toCPointer<ByteVar>(), pstr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant.Variant, ppsecuritydescriptor: MutPtr, pdwsdlength: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant, ppsecuritydescriptor: MutPtr, pdwsdlength: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
     0

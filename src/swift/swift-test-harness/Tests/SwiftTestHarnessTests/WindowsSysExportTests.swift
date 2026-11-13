@@ -9,12 +9,17 @@ struct WindowsSysExportTests {
     @Test("Exported Win32 constants and GUID values match upstream ABI")
     func testExportedConstantsAndGuids() throws {
         typealias FoundationPkg = ExportedKotlinPackages.io.github.kotlinmania.windowssys.windows.win32.foundation
+        typealias FileSystemPkg = ExportedKotlinPackages.io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
+        typealias CryptographyPkg = ExportedKotlinPackages.io.github.kotlinmania.windowssys.windows.win32.security.cryptography
         typealias ThreadingPkg = ExportedKotlinPackages.io.github.kotlinmania.windowssys.windows.win32.system.threading
         typealias ShellPkg = ExportedKotlinPackages.io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
         #expect(FoundationPkg.ERROR_SUCCESS == 0)
         #expect(FoundationPkg.ERROR_FILE_NOT_FOUND == 2)
         #expect(FoundationPkg.INVALID_HANDLE_VALUE.rawAddress == -1)
+        #expect(FileSystemPkg.FILE_ATTRIBUTE_REPARSE_POINT == 1024)
+        #expect(FileSystemPkg.INVALID_FILE_ATTRIBUTES == 0xFFFF_FFFF)
+        #expect(CryptographyPkg.CERT_CHAIN_POLICY_BASE.rawAddress == 1)
         #expect(ThreadingPkg.INFINITE == 0xFFFF_FFFF)
         #expect(ShellPkg.FOLDERID_DESKTOP.data1 == 0xB4BFCC3A)
         #expect(ShellPkg.FOLDERID_PROFILE.data1 == 0x5E6C858F)

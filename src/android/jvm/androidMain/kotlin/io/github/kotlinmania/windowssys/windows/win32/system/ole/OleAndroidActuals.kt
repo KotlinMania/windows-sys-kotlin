@@ -21,6 +21,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Syskind
 import io.github.kotlinmania.windowssys.windows.win32.system.memory.GlobalAllocFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
@@ -1318,13 +1319,13 @@ public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPt
 public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleCreateTypeLib2(syskind, szfile.rawAddress, ppctlib.rawAddress)
 
-public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Variant.Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
+public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleDispCallFunc(pvinstance.rawAddress, ovft.toLong(), cc, vtreturn.toShort(), cactuals.toInt(), prgvt.rawAddress, prgpvarg.rawAddress, pvargresult.rawAddress)
 
 public actual fun dispGetIDsOfNames(ptinfo: MutPtr, rgsznames: ConstPtr, cnames: UInt, rgdispid: MutPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleDispGetIDsOfNames(ptinfo.rawAddress, rgsznames.rawAddress, cnames.toInt(), rgdispid.rawAddress)
 
-public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Variant.Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
+public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleDispGetParam(pdispparams.rawAddress, position.toInt(), vttarg.toShort(), pvarresult.rawAddress, puargerr.rawAddress)
 
 public actual fun dispInvoke(thisRef: MutPtr, ptinfo: MutPtr, dispidmember: Int, wflags: UShort, pparams: MutPtr, pvarresult: MutPtr, pexcepinfo: MutPtr, puargerr: MutPtr): Hresult =
@@ -1519,10 +1520,10 @@ public actual fun oleLoadPicture(lpstream: MutPtr, lsize: Int, frunmode: Bool, r
 public actual fun oleLoadPictureEx(lpstream: MutPtr, lsize: Int, frunmode: Bool, riid: ConstPtr, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: MutPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleOleLoadPictureEx(lpstream.rawAddress, lsize, frunmode, riid.rawAddress, xsizedesired.toInt(), ysizedesired.toInt(), dwflags.toInt(), lplpvobj.rawAddress)
 
-public actual fun oleLoadPictureFile(varfilename: Variant.Variant, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: MutPtr): Hresult =
     0
 
-public actual fun oleLoadPictureFileEx(varfilename: Variant.Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
     0
 
 public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: MutPtr, dwreserved: UInt, clrreserved: UInt, riid: ConstPtr, ppvret: MutPtr): Hresult =
@@ -1695,7 +1696,7 @@ public actual fun safeArrayAllocData(psa: ConstPtr): Hresult =
 public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: MutPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleSafeArrayAllocDescriptor(cdims.toInt(), ppsaout.rawAddress)
 
-public actual fun safeArrayAllocDescriptorEx(vt: Variant.Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
+public actual fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx(vt.toShort(), cdims.toInt(), ppsaout.rawAddress)
 
 public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
@@ -1704,16 +1705,16 @@ public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
 public actual fun safeArrayCopyData(psasource: ConstPtr, psatarget: ConstPtr): Hresult =
     WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleSafeArrayCopyData(psasource.rawAddress, psatarget.rawAddress)
 
-public actual fun safeArrayCreate(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
+public actual fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleSafeArrayCreate(vt.toShort(), cdims.toInt(), rgsabound.rawAddress))
 
-public actual fun safeArrayCreateEx(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleSafeArrayCreateEx(vt.toShort(), cdims.toInt(), rgsabound.rawAddress, pvextra.rawAddress))
 
-public actual fun safeArrayCreateVector(vt: Variant.Varenum, llbound: Int, celements: UInt): MutPtr =
+public actual fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): MutPtr =
     MutPtr(WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleSafeArrayCreateVector(vt.toShort(), llbound, celements.toInt()))
 
-public actual fun safeArrayCreateVectorEx(vt: Variant.Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemOleJniBridge.windowssysWindowsWin32SystemOleSafeArrayCreateVectorEx(vt.toShort(), llbound, celements.toInt(), pvextra.rawAddress))
 
 public actual fun safeArrayDestroy(psa: ConstPtr): Hresult =

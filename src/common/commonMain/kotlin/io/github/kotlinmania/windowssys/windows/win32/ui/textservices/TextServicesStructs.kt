@@ -10,7 +10,8 @@ import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.Hkl
 
 public data class TfDaColor(
     public var type: TfDaColortype = 0,
@@ -112,15 +113,15 @@ public class TfInputprocessorprofile internal constructor(
     public var clsid: Guid,
     public var guidProfile: Guid,
     public var catid: Guid,
-    hklSubstituteCtorArg: Input.KeyboardAndMouse.Hkl,
+    hklSubstituteCtorArg: Hkl,
     public var dwCaps: UInt,
-    hklCtorArg: Input.KeyboardAndMouse.Hkl,
+    hklCtorArg: Hkl,
     public var dwFlags: UInt,
 ) {
-    public var hklSubstitute: Input.KeyboardAndMouse.Hkl = hklSubstituteCtorArg
+    public var hklSubstitute: Hkl = hklSubstituteCtorArg
         internal set
 
-    public var hkl: Input.KeyboardAndMouse.Hkl = hklCtorArg
+    public var hkl: Hkl = hklCtorArg
         internal set
 
     public constructor() : this(
@@ -145,15 +146,15 @@ public class TfInputprocessorprofile internal constructor(
 
     public operator fun component5(): Guid = this.catid
 
-    public operator fun component6(): Input.KeyboardAndMouse.Hkl = this.hklSubstitute
+    public operator fun component6(): Hkl = this.hklSubstitute
 
     public operator fun component7(): UInt = this.dwCaps
 
-    public operator fun component8(): Input.KeyboardAndMouse.Hkl = this.hkl
+    public operator fun component8(): Hkl = this.hkl
 
     public operator fun component9(): UInt = this.dwFlags
 
-    public fun copy(dwProfileType: UInt = this.dwProfileType, langid: UShort = this.langid, clsid: Guid = this.clsid, guidProfile: Guid = this.guidProfile, catid: Guid = this.catid, hklSubstitute: Input.KeyboardAndMouse.Hkl = this.hklSubstitute, dwCaps: UInt = this.dwCaps, hkl: Input.KeyboardAndMouse.Hkl = this.hkl, dwFlags: UInt = this.dwFlags): TfInputprocessorprofile = TfInputprocessorprofile(dwProfileType = dwProfileType, langid = langid, clsid = clsid, guidProfile = guidProfile, catid = catid, hklSubstituteCtorArg = hklSubstitute, dwCaps = dwCaps, hklCtorArg = hkl, dwFlags = dwFlags)
+    public fun copy(dwProfileType: UInt = this.dwProfileType, langid: UShort = this.langid, clsid: Guid = this.clsid, guidProfile: Guid = this.guidProfile, catid: Guid = this.catid, hklSubstitute: Hkl = this.hklSubstitute, dwCaps: UInt = this.dwCaps, hkl: Hkl = this.hkl, dwFlags: UInt = this.dwFlags): TfInputprocessorprofile = TfInputprocessorprofile(dwProfileType = dwProfileType, langid = langid, clsid = clsid, guidProfile = guidProfile, catid = catid, hklSubstituteCtorArg = hklSubstitute, dwCaps = dwCaps, hklCtorArg = hkl, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -190,9 +191,9 @@ public class TfInputprocessorprofile internal constructor(
             clsid: Guid = Guid(),
             guidProfile: Guid = Guid(),
             catid: Guid = Guid(),
-            hklSubstitute: Input.KeyboardAndMouse.Hkl = MutPtr(0L),
+            hklSubstitute: Hkl = MutPtr(0L),
             dwCaps: UInt = 0u,
-            hkl: Input.KeyboardAndMouse.Hkl = MutPtr(0L),
+            hkl: Hkl = MutPtr(0L),
             dwFlags: UInt = 0u,
         ): TfInputprocessorprofile =
             TfInputprocessorprofile(
@@ -394,7 +395,7 @@ public data class TfPreservedkey(
 
 public data class TfPropertyval(
     public var guidId: Guid = Guid(),
-    public var varValue: Variant.Variant = Variant.Variant(),
+    public var varValue: Variant = Variant(),
 )
 
 public class TfSelection internal constructor(
@@ -487,7 +488,7 @@ public data class TfSelectionstyle(
 public data class TsAttrval(
     public var idAttr: Guid = Guid(),
     public var dwOverlapId: UInt = 0u,
-    public var varValue: Variant.Variant = Variant.Variant(),
+    public var varValue: Variant = Variant(),
 )
 
 public data class TsRuninfo(

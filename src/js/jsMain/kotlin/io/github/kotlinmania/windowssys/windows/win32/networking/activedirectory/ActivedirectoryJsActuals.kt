@@ -13,7 +13,7 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 private val windowsWin32NetworkingActivedirectoryNapiAddon: dynamic =
@@ -565,5 +565,5 @@ public actual fun reallocADsMem(poldmem: MutPtr, cbold: UInt, cbnew: UInt): MutP
 public actual fun reallocADsStr(ppstr: MutPtr, pstr: Pcwstr): Bool =
     if (windowsWin32NetworkingActivedirectoryNapiAddon != null) (windowsWin32NetworkingActivedirectoryNapiAddon.windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr(ppstr.rawAddress.toString(), pstr.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant.Variant, ppsecuritydescriptor: MutPtr, pdwsdlength: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant, ppsecuritydescriptor: MutPtr, pdwsdlength: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")

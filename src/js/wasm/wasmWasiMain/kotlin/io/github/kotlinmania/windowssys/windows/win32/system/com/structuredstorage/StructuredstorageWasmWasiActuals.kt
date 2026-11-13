@@ -13,7 +13,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Clsctx
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgm
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.PstimeFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
 // The host must provide the C companion wrapper exports in import module windowssys.
 public actual fun clearPropVariantArray(rgpropvar: MutPtr, cvars: UInt): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComStructuredstorageClearPropVariantArray")
@@ -117,7 +118,7 @@ public actual fun oleConvertOLESTREAMToIStorageEx(polestm: ConstPtr, pstg: MutPt
 public actual fun propStgNameToFmtId(oszname: Pcwstr, pfmtid: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComStructuredstoragePropStgNameToFmtId")
 
-public actual fun propVariantChangeType(ppropvardest: MutPtr, propvarsrc: ConstPtr, flags: PropvarChangeFlags, vt: Variant.Varenum): Hresult =
+public actual fun propVariantChangeType(ppropvardest: MutPtr, propvarsrc: ConstPtr, flags: PropvarChangeFlags, vt: Varenum): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComStructuredstoragePropVariantChangeType")
 
 public actual fun propVariantClear(pvar: MutPtr): Hresult =
@@ -192,7 +193,7 @@ public actual fun propVariantToDoubleVectorAlloc(propvar: ConstPtr, pprgn: MutPt
 public actual fun propVariantToDoubleWithDefault(propvarin: ConstPtr, dbldefault: Double): Double =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleWithDefault")
 
-public actual fun propVariantToFileTime(propvar: ConstPtr, pstfout: Variant.PstimeFlags, pftout: MutPtr): Hresult =
+public actual fun propVariantToFileTime(propvar: ConstPtr, pstfout: PstimeFlags, pftout: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTime")
 
 public actual fun propVariantToFileTimeVector(propvar: ConstPtr, prgft: MutPtr, crgft: UInt, pcelem: MutPtr): Hresult =

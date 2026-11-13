@@ -1689,7 +1689,7 @@ public class ExtendedDebugPropertyInfo internal constructor(
     pDebugPropCtorArg: MutPtr,
     public var nDISPID: UInt,
     public var nType: UInt,
-    public var varValue: Variant.Variant,
+    public var varValue: Variant,
     plbValueCtorArg: MutPtr,
     pDebugExtPropCtorArg: MutPtr,
 ) {
@@ -1724,7 +1724,7 @@ public class ExtendedDebugPropertyInfo internal constructor(
         pDebugPropCtorArg = MutPtr(0L),
         nDISPID = 0u,
         nType = 0u,
-        varValue = Variant.Variant(),
+        varValue = Variant(),
         plbValueCtorArg = MutPtr(0L),
         pDebugExtPropCtorArg = MutPtr(0L),
     )
@@ -1747,13 +1747,13 @@ public class ExtendedDebugPropertyInfo internal constructor(
 
     public operator fun component9(): UInt = this.nType
 
-    public operator fun component10(): Variant.Variant = this.varValue
+    public operator fun component10(): Variant = this.varValue
 
     public operator fun component11(): MutPtr = this.plbValue
 
     public operator fun component12(): MutPtr = this.pDebugExtProp
 
-    public fun copy(dwValidFields: UInt = this.dwValidFields, pszName: Pwstr = this.pszName, pszType: Pwstr = this.pszType, pszValue: Pwstr = this.pszValue, pszFullName: Pwstr = this.pszFullName, dwAttrib: UInt = this.dwAttrib, pDebugProp: MutPtr = this.pDebugProp, nDISPID: UInt = this.nDISPID, nType: UInt = this.nType, varValue: Variant.Variant = this.varValue, plbValue: MutPtr = this.plbValue, pDebugExtProp: MutPtr = this.pDebugExtProp): ExtendedDebugPropertyInfo = ExtendedDebugPropertyInfo(dwValidFields = dwValidFields, pszNameCtorArg = pszName, pszTypeCtorArg = pszType, pszValueCtorArg = pszValue, pszFullNameCtorArg = pszFullName, dwAttrib = dwAttrib, pDebugPropCtorArg = pDebugProp, nDISPID = nDISPID, nType = nType, varValue = varValue, plbValueCtorArg = plbValue, pDebugExtPropCtorArg = pDebugExtProp)
+    public fun copy(dwValidFields: UInt = this.dwValidFields, pszName: Pwstr = this.pszName, pszType: Pwstr = this.pszType, pszValue: Pwstr = this.pszValue, pszFullName: Pwstr = this.pszFullName, dwAttrib: UInt = this.dwAttrib, pDebugProp: MutPtr = this.pDebugProp, nDISPID: UInt = this.nDISPID, nType: UInt = this.nType, varValue: Variant = this.varValue, plbValue: MutPtr = this.plbValue, pDebugExtProp: MutPtr = this.pDebugExtProp): ExtendedDebugPropertyInfo = ExtendedDebugPropertyInfo(dwValidFields = dwValidFields, pszNameCtorArg = pszName, pszTypeCtorArg = pszType, pszValueCtorArg = pszValue, pszFullNameCtorArg = pszFullName, dwAttrib = dwAttrib, pDebugPropCtorArg = pDebugProp, nDISPID = nDISPID, nType = nType, varValue = varValue, plbValueCtorArg = plbValue, pDebugExtPropCtorArg = pDebugExtProp)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1800,7 +1800,7 @@ public class ExtendedDebugPropertyInfo internal constructor(
             pDebugProp: MutPtr = MutPtr(0L),
             nDISPID: UInt = 0u,
             nType: UInt = 0u,
-            varValue: Variant.Variant = Variant.Variant(),
+            varValue: Variant = Variant(),
             plbValue: MutPtr = MutPtr(0L),
             pDebugExtProp: MutPtr = MutPtr(0L),
         ): ExtendedDebugPropertyInfo =

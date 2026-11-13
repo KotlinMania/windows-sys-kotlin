@@ -28,6 +28,8 @@ import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpen
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.PointerPenInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.PointerTouchInfo
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
@@ -7133,8 +7135,8 @@ public data class PointerTypeInfo(
 )
 
 public data class PointerTypeInfo0(
-    public var touchInfo: Input.Pointer.PointerTouchInfo = Input.Pointer.PointerTouchInfo(),
-    public var penInfo: Input.Pointer.PointerPenInfo = Input.Pointer.PointerPenInfo(),
+    public var touchInfo: PointerTouchInfo = PointerTouchInfo(),
+    public var penInfo: PointerPenInfo = PointerPenInfo(),
 )
 
 public class PropsheetheaderaV1 internal constructor(

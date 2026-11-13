@@ -17,7 +17,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState
 import io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssysWindowsWin32UiAccessibilityAccessibleChildren
 import io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent
@@ -201,7 +201,7 @@ public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
 public actual fun isWinEventHookInstalled(event: UInt): Bool =
     windowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event)
 
-public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr): Hresult =
+public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant, pfound: MutPtr): Hresult =
     0
 
 public actual fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult =
@@ -301,7 +301,7 @@ public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextP
 public actual fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit(hobj.rawAddress.toCPointer<ByteVar>(), unit)
 
-public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr): Hresult =
+public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant, backward: Bool, pretval: MutPtr): Hresult =
     0
 
 public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr): Hresult =
@@ -454,7 +454,7 @@ public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr, asyncconten
 public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr, id: UiaEventId): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent(pprovider.rawAddress.toCPointer<ByteVar>(), id)
 
-public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
+public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant, newvalue: Variant): Hresult =
     0
 
 public actual fun uiaRaiseChangesEvent(pprovider: MutPtr, eventidcount: Int, puiachanges: MutPtr): Hresult =

@@ -10,7 +10,7 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Nmhdr
 
 public data class CharacterRange(
@@ -167,7 +167,7 @@ public class IecGestureinfo internal constructor(
     public var nmhdr: Nmhdr,
     cursorCtorArg: MutPtr,
     strokesCtorArg: MutPtr,
-    public var gestures: Variant.Variant,
+    public var gestures: Variant,
 ) {
     public var cursor: MutPtr = cursorCtorArg
         internal set
@@ -179,7 +179,7 @@ public class IecGestureinfo internal constructor(
         nmhdr = Nmhdr(),
         cursorCtorArg = MutPtr(0L),
         strokesCtorArg = MutPtr(0L),
-        gestures = Variant.Variant(),
+        gestures = Variant(),
     )
 
     public operator fun component1(): Nmhdr = this.nmhdr
@@ -188,9 +188,9 @@ public class IecGestureinfo internal constructor(
 
     public operator fun component3(): MutPtr = this.strokes
 
-    public operator fun component4(): Variant.Variant = this.gestures
+    public operator fun component4(): Variant = this.gestures
 
-    public fun copy(nmhdr: Nmhdr = this.nmhdr, cursor: MutPtr = this.cursor, strokes: MutPtr = this.strokes, gestures: Variant.Variant = this.gestures): IecGestureinfo = IecGestureinfo(nmhdr = nmhdr, cursorCtorArg = cursor, strokesCtorArg = strokes, gestures = gestures)
+    public fun copy(nmhdr: Nmhdr = this.nmhdr, cursor: MutPtr = this.cursor, strokes: MutPtr = this.strokes, gestures: Variant = this.gestures): IecGestureinfo = IecGestureinfo(nmhdr = nmhdr, cursorCtorArg = cursor, strokesCtorArg = strokes, gestures = gestures)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -215,7 +215,7 @@ public class IecGestureinfo internal constructor(
             nmhdr: Nmhdr = Nmhdr(),
             cursor: MutPtr = MutPtr(0L),
             strokes: MutPtr = MutPtr(0L),
-            gestures: Variant.Variant = Variant.Variant(),
+            gestures: Variant = Variant(),
         ): IecGestureinfo =
             IecGestureinfo(
                 nmhdr = nmhdr,

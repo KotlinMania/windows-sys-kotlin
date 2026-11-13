@@ -19,6 +19,7 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.Dbid
 import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.Fullpropspec
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 
 public class AuthenticationInfo internal constructor(
@@ -1726,7 +1727,7 @@ public data class Dbprop(
     public var dwOptions: UInt = 0u,
     public var dwStatus: UInt = 0u,
     public var colid: Dbid = Dbid(),
-    public var vValue: Variant.Variant = Variant.Variant(),
+    public var vValue: Variant = Variant(),
 )
 
 public class Dbpropidset internal constructor(
@@ -1785,8 +1786,8 @@ public class Dbpropinfo internal constructor(
     pwszDescriptionCtorArg: Pwstr,
     public var dwPropertyID: UInt,
     public var dwFlags: UInt,
-    public var vtType: Variant.Varenum,
-    public var vValues: Variant.Variant,
+    public var vtType: Varenum,
+    public var vValues: Variant,
 ) {
     public var pwszDescription: Pwstr = pwszDescriptionCtorArg
         internal set
@@ -1796,7 +1797,7 @@ public class Dbpropinfo internal constructor(
         dwPropertyID = 0u,
         dwFlags = 0u,
         vtType = 0u,
-        vValues = Variant.Variant(),
+        vValues = Variant(),
     )
 
     public operator fun component1(): Pwstr = this.pwszDescription
@@ -1805,11 +1806,11 @@ public class Dbpropinfo internal constructor(
 
     public operator fun component3(): UInt = this.dwFlags
 
-    public operator fun component4(): Variant.Varenum = this.vtType
+    public operator fun component4(): Varenum = this.vtType
 
-    public operator fun component5(): Variant.Variant = this.vValues
+    public operator fun component5(): Variant = this.vValues
 
-    public fun copy(pwszDescription: Pwstr = this.pwszDescription, dwPropertyID: UInt = this.dwPropertyID, dwFlags: UInt = this.dwFlags, vtType: Variant.Varenum = this.vtType, vValues: Variant.Variant = this.vValues): Dbpropinfo = Dbpropinfo(pwszDescriptionCtorArg = pwszDescription, dwPropertyID = dwPropertyID, dwFlags = dwFlags, vtType = vtType, vValues = vValues)
+    public fun copy(pwszDescription: Pwstr = this.pwszDescription, dwPropertyID: UInt = this.dwPropertyID, dwFlags: UInt = this.dwFlags, vtType: Varenum = this.vtType, vValues: Variant = this.vValues): Dbpropinfo = Dbpropinfo(pwszDescriptionCtorArg = pwszDescription, dwPropertyID = dwPropertyID, dwFlags = dwFlags, vtType = vtType, vValues = vValues)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1836,8 +1837,8 @@ public class Dbpropinfo internal constructor(
             pwszDescription: Pwstr = MutPtr(0L),
             dwPropertyID: UInt = 0u,
             dwFlags: UInt = 0u,
-            vtType: Variant.Varenum = 0u,
-            vValues: Variant.Variant = Variant.Variant(),
+            vtType: Varenum = 0u,
+            vValues: Variant = Variant(),
         ): Dbpropinfo =
             Dbpropinfo(
                 pwszDescriptionCtorArg = pwszDescription,
@@ -2298,7 +2299,7 @@ public data class DbVarnumeric(
 
 public data class Dcinfo(
     public var eInfoType: UInt = 0u,
-    public var vData: Variant.Variant = Variant.Variant(),
+    public var vData: Variant = Variant(),
 )
 
 public data class Errorinfo(
@@ -2406,22 +2407,22 @@ public data class IncrementalAccessInfo(
 )
 
 public class Itemprop internal constructor(
-    public var variantValue: Variant.Variant,
+    public var variantValue: Variant,
     pwszNameCtorArg: Pwstr,
 ) {
     public var pwszName: Pwstr = pwszNameCtorArg
         internal set
 
     public constructor() : this(
-        variantValue = Variant.Variant(),
+        variantValue = Variant(),
         pwszNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): Variant.Variant = this.variantValue
+    public operator fun component1(): Variant = this.variantValue
 
     public operator fun component2(): Pwstr = this.pwszName
 
-    public fun copy(variantValue: Variant.Variant = this.variantValue, pwszName: Pwstr = this.pwszName): Itemprop = Itemprop(variantValue = variantValue, pwszNameCtorArg = pwszName)
+    public fun copy(variantValue: Variant = this.variantValue, pwszName: Pwstr = this.pwszName): Itemprop = Itemprop(variantValue = variantValue, pwszNameCtorArg = pwszName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2439,7 +2440,7 @@ public class Itemprop internal constructor(
 
     public companion object {
         public operator fun invoke(
-            variantValue: Variant.Variant = Variant.Variant(),
+            variantValue: Variant = Variant(),
             pwszName: Pwstr = MutPtr(0L),
         ): Itemprop =
             Itemprop(
@@ -2528,13 +2529,13 @@ public class ItemInfo internal constructor(
 
 public data class Kaggetdiag(
     public var ulSize: UInt = 0u,
-    public var vDiagInfo: Variant.Variant = Variant.Variant(),
+    public var vDiagInfo: Variant = Variant(),
     public var sDiagField: Short = 0,
 )
 
 public data class Kagreqdiag(
     public var ulDiagFlags: UInt = 0u,
-    public var vt: Variant.Varenum = 0u,
+    public var vt: Varenum = 0u,
     public var sDiagField: Short = 0,
 ) {
     public companion object {

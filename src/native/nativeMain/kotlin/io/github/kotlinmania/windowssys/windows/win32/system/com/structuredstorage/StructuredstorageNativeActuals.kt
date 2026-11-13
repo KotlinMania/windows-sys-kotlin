@@ -137,7 +137,8 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstora
 import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssysWindowsWin32SystemComStructuredstorageWriteClassStg
 import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssysWindowsWin32SystemComStructuredstorageWriteClassStm
 import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.cinterop.windowssysWindowsWin32SystemComStructuredstorageWriteFmtUserTypeStg
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.PstimeFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
@@ -245,7 +246,7 @@ public actual fun oleConvertOLESTREAMToIStorageEx(polestm: ConstPtr, pstg: MutPt
 public actual fun propStgNameToFmtId(oszname: Pcwstr, pfmtid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComStructuredstoragePropStgNameToFmtId(oszname.rawAddress.toCPointer<ByteVar>(), pfmtid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propVariantChangeType(ppropvardest: MutPtr, propvarsrc: ConstPtr, flags: PropvarChangeFlags, vt: Variant.Varenum): Hresult =
+public actual fun propVariantChangeType(ppropvardest: MutPtr, propvarsrc: ConstPtr, flags: PropvarChangeFlags, vt: Varenum): Hresult =
     windowssysWindowsWin32SystemComStructuredstoragePropVariantChangeType(ppropvardest.rawAddress.toCPointer<ByteVar>(), propvarsrc.rawAddress.toCPointer<ByteVar>(), flags, vt)
 
 public actual fun propVariantClear(pvar: MutPtr): Hresult =
@@ -320,7 +321,7 @@ public actual fun propVariantToDoubleVectorAlloc(propvar: ConstPtr, pprgn: MutPt
 public actual fun propVariantToDoubleWithDefault(propvarin: ConstPtr, dbldefault: Double): Double =
     windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleWithDefault(propvarin.rawAddress.toCPointer<ByteVar>(), dbldefault)
 
-public actual fun propVariantToFileTime(propvar: ConstPtr, pstfout: Variant.PstimeFlags, pftout: MutPtr): Hresult =
+public actual fun propVariantToFileTime(propvar: ConstPtr, pstfout: PstimeFlags, pftout: MutPtr): Hresult =
     windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTime(propvar.rawAddress.toCPointer<ByteVar>(), pstfout, pftout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun propVariantToFileTimeVector(propvar: ConstPtr, prgft: MutPtr, crgft: UInt, pcelem: MutPtr): Hresult =

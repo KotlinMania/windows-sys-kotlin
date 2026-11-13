@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
@@ -1233,43 +1234,43 @@ public val IDCLOSE: MessageboxResult = 8
 
 public val IDCONTINUE: MessageboxResult = 11
 
-public val IDC_APPSTARTING: Pcwstr = MutPtr((32650u.toUShort()).toLong())
+public val IDC_APPSTARTING: Pcwstr = ConstPtr((32650u.toUShort()).toLong())
 
-public val IDC_ARROW: Pcwstr = MutPtr((32512u.toUShort()).toLong())
+public val IDC_ARROW: Pcwstr = ConstPtr((32512u.toUShort()).toLong())
 
-public val IDC_CROSS: Pcwstr = MutPtr((32515u.toUShort()).toLong())
+public val IDC_CROSS: Pcwstr = ConstPtr((32515u.toUShort()).toLong())
 
-public val IDC_HAND: Pcwstr = MutPtr((32649u.toUShort()).toLong())
+public val IDC_HAND: Pcwstr = ConstPtr((32649u.toUShort()).toLong())
 
-public val IDC_HELP: Pcwstr = MutPtr((32651u.toUShort()).toLong())
+public val IDC_HELP: Pcwstr = ConstPtr((32651u.toUShort()).toLong())
 
-public val IDC_IBEAM: Pcwstr = MutPtr((32513u.toUShort()).toLong())
+public val IDC_IBEAM: Pcwstr = ConstPtr((32513u.toUShort()).toLong())
 
-public val IDC_ICON: Pcwstr = MutPtr((32641u.toUShort()).toLong())
+public val IDC_ICON: Pcwstr = ConstPtr((32641u.toUShort()).toLong())
 
-public val IDC_NO: Pcwstr = MutPtr((32648u.toUShort()).toLong())
+public val IDC_NO: Pcwstr = ConstPtr((32648u.toUShort()).toLong())
 
-public val IDC_PERSON: Pcwstr = MutPtr((32672u.toUShort()).toLong())
+public val IDC_PERSON: Pcwstr = ConstPtr((32672u.toUShort()).toLong())
 
-public val IDC_PIN: Pcwstr = MutPtr((32671u.toUShort()).toLong())
+public val IDC_PIN: Pcwstr = ConstPtr((32671u.toUShort()).toLong())
 
-public val IDC_SIZE: Pcwstr = MutPtr((32640u.toUShort()).toLong())
+public val IDC_SIZE: Pcwstr = ConstPtr((32640u.toUShort()).toLong())
 
-public val IDC_SIZEALL: Pcwstr = MutPtr((32646u.toUShort()).toLong())
+public val IDC_SIZEALL: Pcwstr = ConstPtr((32646u.toUShort()).toLong())
 
-public val IDC_SIZENESW: Pcwstr = MutPtr((32643u.toUShort()).toLong())
+public val IDC_SIZENESW: Pcwstr = ConstPtr((32643u.toUShort()).toLong())
 
-public val IDC_SIZENS: Pcwstr = MutPtr((32645u.toUShort()).toLong())
+public val IDC_SIZENS: Pcwstr = ConstPtr((32645u.toUShort()).toLong())
 
-public val IDC_SIZENWSE: Pcwstr = MutPtr((32642u.toUShort()).toLong())
+public val IDC_SIZENWSE: Pcwstr = ConstPtr((32642u.toUShort()).toLong())
 
-public val IDC_SIZEWE: Pcwstr = MutPtr((32644u.toUShort()).toLong())
+public val IDC_SIZEWE: Pcwstr = ConstPtr((32644u.toUShort()).toLong())
 
 public val IDC_STATIC: Int = -1
 
-public val IDC_UPARROW: Pcwstr = MutPtr((32516u.toUShort()).toLong())
+public val IDC_UPARROW: Pcwstr = ConstPtr((32516u.toUShort()).toLong())
 
-public val IDC_WAIT: Pcwstr = MutPtr((32514u.toUShort()).toLong())
+public val IDC_WAIT: Pcwstr = ConstPtr((32514u.toUShort()).toLong())
 
 public val IDHELP: MessageboxResult = 9
 
@@ -1291,25 +1292,25 @@ public val IDH_OK: UInt = 28443u
 
 public val IDIGNORE: MessageboxResult = 5
 
-public val IDI_APPLICATION: Pcwstr = MutPtr(32512u.toLong())
+public val IDI_APPLICATION: Pcwstr = ConstPtr(32512u.toLong())
 
-public val IDI_ASTERISK: Pcwstr = MutPtr(32516u.toLong())
+public val IDI_ASTERISK: Pcwstr = ConstPtr(32516u.toLong())
 
-public val IDI_ERROR: Pcwstr = MutPtr(32513u.toLong())
+public val IDI_ERROR: Pcwstr = ConstPtr(32513u.toLong())
 
-public val IDI_EXCLAMATION: Pcwstr = MutPtr(32515u.toLong())
+public val IDI_EXCLAMATION: Pcwstr = ConstPtr(32515u.toLong())
 
-public val IDI_HAND: Pcwstr = MutPtr(32513u.toLong())
+public val IDI_HAND: Pcwstr = ConstPtr(32513u.toLong())
 
-public val IDI_INFORMATION: Pcwstr = MutPtr(32516u.toLong())
+public val IDI_INFORMATION: Pcwstr = ConstPtr(32516u.toLong())
 
-public val IDI_QUESTION: Pcwstr = MutPtr(32514u.toLong())
+public val IDI_QUESTION: Pcwstr = ConstPtr(32514u.toLong())
 
-public val IDI_SHIELD: Pcwstr = MutPtr(32518u.toLong())
+public val IDI_SHIELD: Pcwstr = ConstPtr(32518u.toLong())
 
-public val IDI_WARNING: Pcwstr = MutPtr(32515u.toLong())
+public val IDI_WARNING: Pcwstr = ConstPtr(32515u.toLong())
 
-public val IDI_WINLOGO: Pcwstr = MutPtr(32517u.toLong())
+public val IDI_WINLOGO: Pcwstr = ConstPtr(32517u.toLong())
 
 public val IDNO: MessageboxResult = 7
 
@@ -2389,43 +2390,43 @@ public val RI_MOUSE_RIGHT_BUTTON_UP: UInt = 8u
 
 public val RI_MOUSE_WHEEL: UInt = 1024u
 
-public val RT_ACCELERATOR: Pcwstr = MutPtr((9u.toUShort()).toLong())
+public val RT_ACCELERATOR: Pcwstr = ConstPtr((9u.toUShort()).toLong())
 
-public val RT_ANICURSOR: Pcwstr = MutPtr((21u.toUShort()).toLong())
+public val RT_ANICURSOR: Pcwstr = ConstPtr((21u.toUShort()).toLong())
 
-public val RT_ANIICON: Pcwstr = MutPtr((22u.toUShort()).toLong())
+public val RT_ANIICON: Pcwstr = ConstPtr((22u.toUShort()).toLong())
 
-public val RT_BITMAP: Pcwstr = MutPtr((2u.toUShort()).toLong())
+public val RT_BITMAP: Pcwstr = ConstPtr((2u.toUShort()).toLong())
 
-public val RT_CURSOR: Pcwstr = MutPtr((1u.toUShort()).toLong())
+public val RT_CURSOR: Pcwstr = ConstPtr((1u.toUShort()).toLong())
 
-public val RT_DIALOG: Pcwstr = MutPtr((5u.toUShort()).toLong())
+public val RT_DIALOG: Pcwstr = ConstPtr((5u.toUShort()).toLong())
 
-public val RT_DLGINCLUDE: Pcwstr = MutPtr((17u.toUShort()).toLong())
+public val RT_DLGINCLUDE: Pcwstr = ConstPtr((17u.toUShort()).toLong())
 
-public val RT_FONT: Pcwstr = MutPtr((8u.toUShort()).toLong())
+public val RT_FONT: Pcwstr = ConstPtr((8u.toUShort()).toLong())
 
-public val RT_FONTDIR: Pcwstr = MutPtr((7u.toUShort()).toLong())
+public val RT_FONTDIR: Pcwstr = ConstPtr((7u.toUShort()).toLong())
 
-public val RT_GROUP_CURSOR: Pcwstr = MutPtr((12u.toUShort()).toLong())
+public val RT_GROUP_CURSOR: Pcwstr = ConstPtr((12u.toUShort()).toLong())
 
-public val RT_GROUP_ICON: Pcwstr = MutPtr((14u.toUShort()).toLong())
+public val RT_GROUP_ICON: Pcwstr = ConstPtr((14u.toUShort()).toLong())
 
-public val RT_HTML: Pcwstr = MutPtr((23u.toUShort()).toLong())
+public val RT_HTML: Pcwstr = ConstPtr((23u.toUShort()).toLong())
 
-public val RT_ICON: Pcwstr = MutPtr((3u.toUShort()).toLong())
+public val RT_ICON: Pcwstr = ConstPtr((3u.toUShort()).toLong())
 
-public val RT_MANIFEST: Pcwstr = MutPtr((24u.toUShort()).toLong())
+public val RT_MANIFEST: Pcwstr = ConstPtr((24u.toUShort()).toLong())
 
-public val RT_MENU: Pcwstr = MutPtr((4u.toUShort()).toLong())
+public val RT_MENU: Pcwstr = ConstPtr((4u.toUShort()).toLong())
 
-public val RT_MESSAGETABLE: Pcwstr = MutPtr((11u.toUShort()).toLong())
+public val RT_MESSAGETABLE: Pcwstr = ConstPtr((11u.toUShort()).toLong())
 
-public val RT_PLUGPLAY: Pcwstr = MutPtr((19u.toUShort()).toLong())
+public val RT_PLUGPLAY: Pcwstr = ConstPtr((19u.toUShort()).toLong())
 
-public val RT_VERSION: Pcwstr = MutPtr((16u.toUShort()).toLong())
+public val RT_VERSION: Pcwstr = ConstPtr((16u.toUShort()).toLong())
 
-public val RT_VXD: Pcwstr = MutPtr((20u.toUShort()).toLong())
+public val RT_VXD: Pcwstr = ConstPtr((20u.toUShort()).toLong())
 
 public val SBM_ENABLE_ARROWS: UInt = 228u
 

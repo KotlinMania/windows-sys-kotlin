@@ -36,6 +36,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.HyperSizedarr
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearraybound
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Typedesc
 import io.github.kotlinmania.windowssys.windows.win32.system.com.WordSizedarr
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
@@ -604,7 +605,7 @@ public class Methoddata internal constructor(
     public var cc: Callconv,
     public var cArgs: UInt,
     public var wFlags: UShort,
-    public var vtReturn: Variant.Varenum,
+    public var vtReturn: Varenum,
 ) {
     public var szName: Pwstr = szNameCtorArg
         internal set
@@ -637,9 +638,9 @@ public class Methoddata internal constructor(
 
     public operator fun component7(): UShort = this.wFlags
 
-    public operator fun component8(): Variant.Varenum = this.vtReturn
+    public operator fun component8(): Varenum = this.vtReturn
 
-    public fun copy(szName: Pwstr = this.szName, ppdata: MutPtr = this.ppdata, dispid: Int = this.dispid, iMeth: UInt = this.iMeth, cc: Callconv = this.cc, cArgs: UInt = this.cArgs, wFlags: UShort = this.wFlags, vtReturn: Variant.Varenum = this.vtReturn): Methoddata = Methoddata(szNameCtorArg = szName, ppdataCtorArg = ppdata, dispid = dispid, iMeth = iMeth, cc = cc, cArgs = cArgs, wFlags = wFlags, vtReturn = vtReturn)
+    public fun copy(szName: Pwstr = this.szName, ppdata: MutPtr = this.ppdata, dispid: Int = this.dispid, iMeth: UInt = this.iMeth, cc: Callconv = this.cc, cArgs: UInt = this.cArgs, wFlags: UShort = this.wFlags, vtReturn: Varenum = this.vtReturn): Methoddata = Methoddata(szNameCtorArg = szName, ppdataCtorArg = ppdata, dispid = dispid, iMeth = iMeth, cc = cc, cArgs = cArgs, wFlags = wFlags, vtReturn = vtReturn)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -676,7 +677,7 @@ public class Methoddata internal constructor(
             cc: Callconv = 0,
             cArgs: UInt = 0u,
             wFlags: UShort = 0u,
-            vtReturn: Variant.Varenum = 0u,
+            vtReturn: Varenum = 0u,
         ): Methoddata =
             Methoddata(
                 szNameCtorArg = szName,
@@ -4025,7 +4026,7 @@ public data class Pageset(
 
 public class Paramdata internal constructor(
     szNameCtorArg: Pwstr,
-    public var vt: Variant.Varenum,
+    public var vt: Varenum,
 ) {
     public var szName: Pwstr = szNameCtorArg
         internal set
@@ -4037,9 +4038,9 @@ public class Paramdata internal constructor(
 
     public operator fun component1(): Pwstr = this.szName
 
-    public operator fun component2(): Variant.Varenum = this.vt
+    public operator fun component2(): Varenum = this.vt
 
-    public fun copy(szName: Pwstr = this.szName, vt: Variant.Varenum = this.vt): Paramdata = Paramdata(szNameCtorArg = szName, vt = vt)
+    public fun copy(szName: Pwstr = this.szName, vt: Varenum = this.vt): Paramdata = Paramdata(szNameCtorArg = szName, vt = vt)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4058,7 +4059,7 @@ public class Paramdata internal constructor(
     public companion object {
         public operator fun invoke(
             szName: Pwstr = MutPtr(0L),
-            vt: Variant.Varenum = 0u,
+            vt: Varenum = 0u,
         ): Paramdata =
             Paramdata(
                 szNameCtorArg = szName,
@@ -4134,7 +4135,7 @@ public class Paramdesc internal constructor(
 
 public data class Paramdescex(
     public var cBytes: UInt = 0u,
-    public var varDefaultValue: Variant.Variant = Variant.Variant(),
+    public var varDefaultValue: Variant = Variant(),
 )
 
 public data class Pictdesc(

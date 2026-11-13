@@ -19,6 +19,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Syskind
 import io.github.kotlinmania.windowssys.windows.win32.system.memory.GlobalAllocFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
@@ -41,11 +42,11 @@ public expect fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPt
 
 public expect fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr): Hresult
 
-public expect fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Variant.Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult
+public expect fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult
 
 public expect fun dispGetIDsOfNames(ptinfo: MutPtr, rgsznames: ConstPtr, cnames: UInt, rgdispid: MutPtr): Hresult
 
-public expect fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Variant.Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult
+public expect fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult
 
 public expect fun dispInvoke(thisRef: MutPtr, ptinfo: MutPtr, dispidmember: Int, wflags: UShort, pparams: MutPtr, pvarresult: MutPtr, pexcepinfo: MutPtr, puargerr: MutPtr): Hresult
 
@@ -173,9 +174,9 @@ public expect fun oleLoadPicture(lpstream: MutPtr, lsize: Int, frunmode: Bool, r
 
 public expect fun oleLoadPictureEx(lpstream: MutPtr, lsize: Int, frunmode: Bool, riid: ConstPtr, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: MutPtr): Hresult
 
-public expect fun oleLoadPictureFile(varfilename: Variant.Variant, lplpdisppicture: MutPtr): Hresult
+public expect fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: MutPtr): Hresult
 
-public expect fun oleLoadPictureFileEx(varfilename: Variant.Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult
+public expect fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult
 
 public expect fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: MutPtr, dwreserved: UInt, clrreserved: UInt, riid: ConstPtr, ppvret: MutPtr): Hresult
 
@@ -289,19 +290,19 @@ public expect fun safeArrayAllocData(psa: ConstPtr): Hresult
 
 public expect fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: MutPtr): Hresult
 
-public expect fun safeArrayAllocDescriptorEx(vt: Variant.Varenum, cdims: UInt, ppsaout: MutPtr): Hresult
+public expect fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: MutPtr): Hresult
 
 public expect fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult
 
 public expect fun safeArrayCopyData(psasource: ConstPtr, psatarget: ConstPtr): Hresult
 
-public expect fun safeArrayCreate(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr
+public expect fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr
 
-public expect fun safeArrayCreateEx(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr
+public expect fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr
 
-public expect fun safeArrayCreateVector(vt: Variant.Varenum, llbound: Int, celements: UInt): MutPtr
+public expect fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): MutPtr
 
-public expect fun safeArrayCreateVectorEx(vt: Variant.Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr
+public expect fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr
 
 public expect fun safeArrayDestroy(psa: ConstPtr): Hresult
 

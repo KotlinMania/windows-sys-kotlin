@@ -728,7 +728,7 @@ public actual fun gdipFlattenPath(path: MutPtr, matrix: MutPtr, flatness: Float)
 public actual fun gdipFlush(graphics: MutPtr, intention: FlushIntention): Status =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsGdiplusGdipFlush")
 
-public actual fun gdipFree(ptr: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsGdiplusGdipFree")
+public actual fun gdipFree(ptr: MutPtr): kotlin.Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsGdiplusGdipFree")
 
 public actual fun gdipGetAdjustableArrowCapFillState(cap: MutPtr, fillstate: MutPtr): Status =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapFillState")
@@ -1895,15 +1895,15 @@ public actual fun gdiplusNotificationHook(token: MutPtr): Status =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32GraphicsGdiplusGdiplusNotificationHook")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GraphicsGdiplusGdiplusNotificationUnhook")
-private external fun wasiWindowssysWindowsWin32GraphicsGdiplusGdiplusNotificationUnhook(token: Long): Unit
+private external fun wasiWindowssysWindowsWin32GraphicsGdiplusGdiplusNotificationUnhook(token: Long): kotlin.Unit
 
-public actual fun gdiplusNotificationUnhook(token: ULong): Unit =
+public actual fun gdiplusNotificationUnhook(token: ULong): kotlin.Unit =
     wasiWindowssysWindowsWin32GraphicsGdiplusGdiplusNotificationUnhook(token.toLong())
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32GraphicsGdiplusGdiplusShutdown")
-private external fun wasiWindowssysWindowsWin32GraphicsGdiplusGdiplusShutdown(token: Long): Unit
+private external fun wasiWindowssysWindowsWin32GraphicsGdiplusGdiplusShutdown(token: Long): kotlin.Unit
 
-public actual fun gdiplusShutdown(token: ULong): Unit =
+public actual fun gdiplusShutdown(token: ULong): kotlin.Unit =
     wasiWindowssysWindowsWin32GraphicsGdiplusGdiplusShutdown(token.toLong())
 
 public actual fun gdiplusStartup(token: MutPtr, input: ConstPtr, output: MutPtr): Status =

@@ -13,7 +13,7 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 private object WindowsWin32NetworkingActivedirectoryJniBridge {
@@ -979,5 +979,5 @@ public actual fun reallocADsMem(poldmem: MutPtr, cbold: UInt, cbnew: UInt): MutP
 public actual fun reallocADsStr(ppstr: MutPtr, pstr: Pcwstr): Bool =
     WindowsWin32NetworkingActivedirectoryJniBridge.windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr(ppstr.rawAddress, pstr.rawAddress)
 
-public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant.Variant, ppsecuritydescriptor: MutPtr, pdwsdlength: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant, ppsecuritydescriptor: MutPtr, pdwsdlength: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
     0

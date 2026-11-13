@@ -14,7 +14,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Nmhdr
 
 public data class Columnstatus(
@@ -635,7 +635,7 @@ public class HhFtsQuery internal constructor(
 
 public data class HhGlobalProperty(
     public var id: HhGpropid = 0,
-    public var variable: Variant.Variant = Variant.Variant(),
+    public var variable: Variant = Variant(),
 )
 
 public class HhPopup internal constructor(

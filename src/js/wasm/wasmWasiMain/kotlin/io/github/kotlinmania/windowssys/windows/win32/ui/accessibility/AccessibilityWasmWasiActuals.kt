@@ -17,7 +17,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
 // The host must provide the C companion wrapper exports in import module windowssys.
@@ -83,7 +83,7 @@ private external fun wasiWindowssysWindowsWin32UiAccessibilityIsWinEventHookInst
 public actual fun isWinEventHookInstalled(event: UInt): Bool =
     wasiWindowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event.toInt())
 
-public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr): Hresult =
+public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant, pfound: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityItemContainerPatternFindItemByProperty")
 
 public actual fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult =
@@ -181,7 +181,7 @@ public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextP
 public actual fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit")
 
-public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr): Hresult =
+public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant, backward: Bool, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeFindAttribute")
 
 public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr): Hresult =
@@ -340,7 +340,7 @@ public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr, asyncconten
 public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr, id: UiaEventId): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent")
 
-public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
+public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant, newvalue: Variant): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationPropertyChangedEvent")
 
 public actual fun uiaRaiseChangesEvent(pprovider: MutPtr, eventidcount: Int, puiachanges: MutPtr): Hresult =

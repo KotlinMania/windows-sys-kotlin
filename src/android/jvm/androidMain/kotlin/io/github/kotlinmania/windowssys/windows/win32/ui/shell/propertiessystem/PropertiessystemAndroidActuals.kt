@@ -12,7 +12,7 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
 private object WindowsWin32UiShellPropertiessystemJniBridge {
     init {
@@ -371,7 +371,7 @@ public actual fun pspropertyBagReadStrAlloc(propbag: MutPtr, propname: Pcwstr, v
 public actual fun pspropertyBagReadStream(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     WindowsWin32UiShellPropertiessystemJniBridge.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream(propbag.rawAddress, propname.rawAddress, value.rawAddress)
 
-public actual fun pspropertyBagReadType(propbag: MutPtr, propname: Pcwstr, variable: MutPtr, type: Variant.Varenum): Hresult =
+public actual fun pspropertyBagReadType(propbag: MutPtr, propname: Pcwstr, variable: MutPtr, type: Varenum): Hresult =
     WindowsWin32UiShellPropertiessystemJniBridge.windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType(propbag.rawAddress, propname.rawAddress, variable.rawAddress, type.toShort())
 
 public actual fun pspropertyBagReadUlonglong(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =

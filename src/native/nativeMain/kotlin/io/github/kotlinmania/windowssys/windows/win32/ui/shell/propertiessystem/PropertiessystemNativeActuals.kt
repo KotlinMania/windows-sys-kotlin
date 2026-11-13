@@ -12,7 +12,7 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore
@@ -216,7 +216,7 @@ public actual fun pspropertyBagReadStrAlloc(propbag: MutPtr, propname: Pcwstr, v
 public actual fun pspropertyBagReadStream(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadType(propbag: MutPtr, propname: Pcwstr, variable: MutPtr, type: Variant.Varenum): Hresult =
+public actual fun pspropertyBagReadType(propbag: MutPtr, propname: Pcwstr, variable: MutPtr, type: Varenum): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), variable.rawAddress.toCPointer<ByteVar>(), type)
 
 public actual fun pspropertyBagReadUlonglong(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =

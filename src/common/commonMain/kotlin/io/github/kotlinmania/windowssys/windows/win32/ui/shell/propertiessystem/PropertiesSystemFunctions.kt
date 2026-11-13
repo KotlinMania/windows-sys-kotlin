@@ -10,7 +10,7 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
 public expect fun pSCoerceToCanonicalValue(key: ConstPtr, ppropvar: MutPtr): Hresult
 
@@ -94,7 +94,7 @@ public expect fun pspropertyBagReadStrAlloc(propbag: MutPtr, propname: Pcwstr, v
 
 public expect fun pspropertyBagReadStream(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult
 
-public expect fun pspropertyBagReadType(propbag: MutPtr, propname: Pcwstr, variable: MutPtr, type: Variant.Varenum): Hresult
+public expect fun pspropertyBagReadType(propbag: MutPtr, propname: Pcwstr, variable: MutPtr, type: Varenum): Hresult
 
 public expect fun pspropertyBagReadUlonglong(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult
 

@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
-import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -2812,9 +2812,9 @@ public val PIPE_ALLOCATOR_MIDDLE_PIN: PipeAllocatorPlace = 3
 
 public val PIPE_ALLOCATOR_NONE: PipeAllocatorPlace = 0
 
-public val RT_RCDATA: Pcwstr = MutPtr((10u.toUShort()).toLong())
+public val RT_RCDATA: Pcwstr = ConstPtr((10u.toUShort()).toLong())
 
-public val RT_STRING: Pcwstr = MutPtr((6u.toUShort()).toLong())
+public val RT_STRING: Pcwstr = ConstPtr((6u.toUShort()).toLong())
 
 public val SHORT_COEFF: Ksds3dHrtfCoeffFormat = 1
 

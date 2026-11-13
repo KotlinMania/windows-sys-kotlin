@@ -16,7 +16,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
 public class Bstrblob internal constructor(
     public var cbSize: UInt,
@@ -1643,7 +1643,7 @@ public data class Olestreamvtbl(
 
 public class Propbag2 internal constructor(
     public var dwType: UInt,
-    public var vt: Variant.Varenum,
+    public var vt: Varenum,
     public var cfType: UShort,
     public var dwHint: UInt,
     pstrNameCtorArg: Pwstr,
@@ -1663,7 +1663,7 @@ public class Propbag2 internal constructor(
 
     public operator fun component1(): UInt = this.dwType
 
-    public operator fun component2(): Variant.Varenum = this.vt
+    public operator fun component2(): Varenum = this.vt
 
     public operator fun component3(): UShort = this.cfType
 
@@ -1673,7 +1673,7 @@ public class Propbag2 internal constructor(
 
     public operator fun component6(): Guid = this.clsid
 
-    public fun copy(dwType: UInt = this.dwType, vt: Variant.Varenum = this.vt, cfType: UShort = this.cfType, dwHint: UInt = this.dwHint, pstrName: Pwstr = this.pstrName, clsid: Guid = this.clsid): Propbag2 = Propbag2(dwType = dwType, vt = vt, cfType = cfType, dwHint = dwHint, pstrNameCtorArg = pstrName, clsid = clsid)
+    public fun copy(dwType: UInt = this.dwType, vt: Varenum = this.vt, cfType: UShort = this.cfType, dwHint: UInt = this.dwHint, pstrName: Pwstr = this.pstrName, clsid: Guid = this.clsid): Propbag2 = Propbag2(dwType = dwType, vt = vt, cfType = cfType, dwHint = dwHint, pstrNameCtorArg = pstrName, clsid = clsid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1700,7 +1700,7 @@ public class Propbag2 internal constructor(
     public companion object {
         public operator fun invoke(
             dwType: UInt = 0u,
-            vt: Variant.Varenum = 0u,
+            vt: Varenum = 0u,
             cfType: UShort = 0u,
             dwHint: UInt = 0u,
             pstrName: Pwstr = MutPtr(0L),
@@ -1776,7 +1776,7 @@ public data class Propvariant0(
 )
 
 public data class Propvariant00(
-    public var vt: Variant.Varenum = 0u,
+    public var vt: Varenum = 0u,
     public var wReserved1: UShort = 0u,
     public var wReserved2: UShort = 0u,
     public var wReserved3: UShort = 0u,
@@ -2064,7 +2064,7 @@ public data class Statpropsetstg(
 public class Statpropstg internal constructor(
     lpwstrNameCtorArg: Pwstr,
     public var propid: UInt,
-    public var vt: Variant.Varenum,
+    public var vt: Varenum,
 ) {
     public var lpwstrName: Pwstr = lpwstrNameCtorArg
         internal set
@@ -2079,9 +2079,9 @@ public class Statpropstg internal constructor(
 
     public operator fun component2(): UInt = this.propid
 
-    public operator fun component3(): Variant.Varenum = this.vt
+    public operator fun component3(): Varenum = this.vt
 
-    public fun copy(lpwstrName: Pwstr = this.lpwstrName, propid: UInt = this.propid, vt: Variant.Varenum = this.vt): Statpropstg = Statpropstg(lpwstrNameCtorArg = lpwstrName, propid = propid, vt = vt)
+    public fun copy(lpwstrName: Pwstr = this.lpwstrName, propid: UInt = this.propid, vt: Varenum = this.vt): Statpropstg = Statpropstg(lpwstrNameCtorArg = lpwstrName, propid = propid, vt = vt)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2103,7 +2103,7 @@ public class Statpropstg internal constructor(
         public operator fun invoke(
             lpwstrName: Pwstr = MutPtr(0L),
             propid: UInt = 0u,
-            vt: Variant.Varenum = 0u,
+            vt: Varenum = 0u,
         ): Statpropstg =
             Statpropstg(
                 lpwstrNameCtorArg = lpwstrName,

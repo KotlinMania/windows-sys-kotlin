@@ -441,6 +441,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.window
 import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarWeekdayName
 import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarXor
 import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVectorFromBstr
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
@@ -475,13 +476,13 @@ public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPt
 public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr): Hresult =
     windowssysWindowsWin32SystemOleCreateTypeLib2(syskind, szfile.rawAddress.toCPointer<ByteVar>(), ppctlib.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Variant.Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
+public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
     windowssysWindowsWin32SystemOleDispCallFunc(pvinstance.rawAddress.toCPointer<ByteVar>(), ovft, cc, vtreturn, cactuals, prgvt.rawAddress.toCPointer<ByteVar>(), prgpvarg.rawAddress.toCPointer<ByteVar>(), pvargresult.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dispGetIDsOfNames(ptinfo: MutPtr, rgsznames: ConstPtr, cnames: UInt, rgdispid: MutPtr): Hresult =
     windowssysWindowsWin32SystemOleDispGetIDsOfNames(ptinfo.rawAddress.toCPointer<ByteVar>(), rgsznames.rawAddress.toCPointer<ByteVar>(), cnames, rgdispid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Variant.Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
+public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
     windowssysWindowsWin32SystemOleDispGetParam(pdispparams.rawAddress.toCPointer<ByteVar>(), position, vttarg, pvarresult.rawAddress.toCPointer<ByteVar>(), puargerr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dispInvoke(thisRef: MutPtr, ptinfo: MutPtr, dispidmember: Int, wflags: UShort, pparams: MutPtr, pvarresult: MutPtr, pexcepinfo: MutPtr, puargerr: MutPtr): Hresult =
@@ -676,10 +677,10 @@ public actual fun oleLoadPicture(lpstream: MutPtr, lsize: Int, frunmode: Bool, r
 public actual fun oleLoadPictureEx(lpstream: MutPtr, lsize: Int, frunmode: Bool, riid: ConstPtr, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: MutPtr): Hresult =
     windowssysWindowsWin32SystemOleOleLoadPictureEx(lpstream.rawAddress.toCPointer<ByteVar>(), lsize, frunmode, riid.rawAddress.toCPointer<ByteVar>(), xsizedesired, ysizedesired, dwflags, lplpvobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oleLoadPictureFile(varfilename: Variant.Variant, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: MutPtr): Hresult =
     0
 
-public actual fun oleLoadPictureFileEx(varfilename: Variant.Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
+public actual fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
     0
 
 public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: MutPtr, dwreserved: UInt, clrreserved: UInt, riid: ConstPtr, ppvret: MutPtr): Hresult =
@@ -852,7 +853,7 @@ public actual fun safeArrayAllocData(psa: ConstPtr): Hresult =
 public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: MutPtr): Hresult =
     windowssysWindowsWin32SystemOleSafeArrayAllocDescriptor(cdims, ppsaout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun safeArrayAllocDescriptorEx(vt: Variant.Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
+public actual fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
     windowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx(vt, cdims, ppsaout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
@@ -861,16 +862,16 @@ public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
 public actual fun safeArrayCopyData(psasource: ConstPtr, psatarget: ConstPtr): Hresult =
     windowssysWindowsWin32SystemOleSafeArrayCopyData(psasource.rawAddress.toCPointer<ByteVar>(), psatarget.rawAddress.toCPointer<ByteVar>())
 
-public actual fun safeArrayCreate(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
+public actual fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreate(vt, cdims, rgsabound.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun safeArrayCreateEx(vt: Variant.Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreateEx(vt, cdims, rgsabound.rawAddress.toCPointer<ByteVar>(), pvextra.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun safeArrayCreateVector(vt: Variant.Varenum, llbound: Int, celements: UInt): MutPtr =
+public actual fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreateVector(vt, llbound, celements)?.toLong() ?: 0L)
 
-public actual fun safeArrayCreateVectorEx(vt: Variant.Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
+public actual fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreateVectorEx(vt, llbound, celements, pvextra.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun safeArrayDestroy(psa: ConstPtr): Hresult =

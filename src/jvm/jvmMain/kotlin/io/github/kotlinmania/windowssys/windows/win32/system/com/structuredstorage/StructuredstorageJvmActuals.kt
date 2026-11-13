@@ -13,7 +13,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Clsctx
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgm
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.PstimeFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
 private object WindowsWin32SystemComStructuredstorageJniBridge {
     init {
@@ -547,7 +548,7 @@ public actual fun oleConvertOLESTREAMToIStorageEx(polestm: ConstPtr, pstg: MutPt
 public actual fun propStgNameToFmtId(oszname: Pcwstr, pfmtid: MutPtr): Hresult =
     WindowsWin32SystemComStructuredstorageJniBridge.windowssysWindowsWin32SystemComStructuredstoragePropStgNameToFmtId(oszname.rawAddress, pfmtid.rawAddress)
 
-public actual fun propVariantChangeType(ppropvardest: MutPtr, propvarsrc: ConstPtr, flags: PropvarChangeFlags, vt: Variant.Varenum): Hresult =
+public actual fun propVariantChangeType(ppropvardest: MutPtr, propvarsrc: ConstPtr, flags: PropvarChangeFlags, vt: Varenum): Hresult =
     WindowsWin32SystemComStructuredstorageJniBridge.windowssysWindowsWin32SystemComStructuredstoragePropVariantChangeType(ppropvardest.rawAddress, propvarsrc.rawAddress, flags, vt.toShort())
 
 public actual fun propVariantClear(pvar: MutPtr): Hresult =
@@ -622,7 +623,7 @@ public actual fun propVariantToDoubleVectorAlloc(propvar: ConstPtr, pprgn: MutPt
 public actual fun propVariantToDoubleWithDefault(propvarin: ConstPtr, dbldefault: Double): Double =
     WindowsWin32SystemComStructuredstorageJniBridge.windowssysWindowsWin32SystemComStructuredstoragePropVariantToDoubleWithDefault(propvarin.rawAddress, dbldefault)
 
-public actual fun propVariantToFileTime(propvar: ConstPtr, pstfout: Variant.PstimeFlags, pftout: MutPtr): Hresult =
+public actual fun propVariantToFileTime(propvar: ConstPtr, pstfout: PstimeFlags, pftout: MutPtr): Hresult =
     WindowsWin32SystemComStructuredstorageJniBridge.windowssysWindowsWin32SystemComStructuredstoragePropVariantToFileTime(propvar.rawAddress, pstfout, pftout.rawAddress)
 
 public actual fun propVariantToFileTimeVector(propvar: ConstPtr, prgft: MutPtr, crgft: UInt, pcelem: MutPtr): Hresult =

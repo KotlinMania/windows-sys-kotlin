@@ -27,9 +27,9 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet.Netresourcea
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
 import io.github.kotlinmania.windowssys.windows.win32.system.console.Coord
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Strret
@@ -6175,7 +6175,7 @@ public class Shcolumndata internal constructor(
 
 public data class Shcolumninfo(
     public var scid: Propertykey = Propertykey(),
-    public var vt: Variant.Varenum = 0u,
+    public var vt: Varenum = 0u,
     public var fmt: UInt = 0u,
     public var cChars: UInt = 0u,
     public var csFlags: UInt = 0u,

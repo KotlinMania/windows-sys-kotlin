@@ -17,6 +17,7 @@ import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
 import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.system.ole.Paramdesc
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 
 public data class Authenticateinfo(
@@ -1049,7 +1050,7 @@ public class Custdata internal constructor(
 
 public data class Custdataitem(
     public var guid: Guid = Guid(),
-    public var varValue: Variant.Variant = Variant.Variant(),
+    public var varValue: Variant = Variant(),
 )
 
 public data class CY(
@@ -3353,7 +3354,7 @@ public class Typeattr internal constructor(
 
 public data class Typedesc(
     public var anonymous: Typedesc0 = Typedesc0(),
-    public var vt: Variant.Varenum = 0u,
+    public var vt: Varenum = 0u,
 )
 
 public class Typedesc0 internal constructor(
