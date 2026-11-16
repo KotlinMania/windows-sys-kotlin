@@ -16,11 +16,11 @@ For every Rust crate this repo owns (under `tmp/`), this file lists every **cros
 
 | package | module | inbound use sites | distinct caller crates | distinct caller repos | codex sites |
 |---|---|---:|---:|---:|---:|
-| `windows-sys` | `windows_sys` | 682 | 12 | 9 | 432 |
+| `windows-sys` | `windows_sys` | 693 | 15 | 12 | 432 |
 
 ## `windows-sys`
 
-### Inbound symbols (463 distinct, 682 total `use` sites)
+### Inbound symbols (468 distinct, 693 total `use` sites)
 
 Sorted by codex demand, then total demand. The first symbols are the priority queue for porting `windows-sys`.
 
@@ -1022,4 +1022,4 @@ Sorted by codex demand, then total demand. The first symbols are the priority qu
 
 - ✅ `codex-kotlin/codex-windows-sandbox` `src/winutil.rs:16` — `use windows_sys::Win32::System::Diagnostics::Debug::FORMAT_MESSAGE_IGNORE_INSERTS`
 
-_… 263 more symbols. Full list in `workspace_dep_graph.json`._
+_… 268 more symbols. Full list in `workspace_dep_graph.json`._
