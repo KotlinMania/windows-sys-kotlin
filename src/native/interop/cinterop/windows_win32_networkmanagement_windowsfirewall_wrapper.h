@@ -1,0 +1,30 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSFIREWALL_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSFIREWALL_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSFIREWALL_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSFIREWALL_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void windowssysWindowsWin32NetworkmanagementWindowsfirewallNcFreeNetconProperties(void* pprops);
+int32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNcIsValidConnectionName(void* pszwname);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationDiagnoseConnectFailureAndGetInfo(void* wszservername, void* netisoerror);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationEnumAppContainers(uint32_t flags, void* pdwnumpublicappcs, void* pppublicappcs);
+int32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationEnumerateAppContainerRules(void* newenum);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationFreeAppContainers(void* ppublicappcs);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetAppContainerConfig(void* pdwnumpublicappcs, void* appcontainersids);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetEnterpriseIdAsync(void* wszservername, uint32_t dwflags, void* context, void* callback, void* hoperation);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetEnterpriseIdClose(void* hoperation, int32_t bwaitforoperation);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationRegisterForAppContainerChanges(uint32_t flags, void* callback, void* context, void* registrationobject);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationSetAppContainerConfig(uint32_t dwnumpublicappcs, void* appcontainersids);
+int32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationSetupAppContainerBinaries(void* applicationcontainersid, void* packagefullname, void* packagefolder, void* displayname, int32_t bbinariesfullycomputed, void* binaries, uint32_t binariescount);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationUnregisterForAppContainerChanges(void* registrationobject);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSFIREWALL_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSFIREWALL_WRAPPER_H */

@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop
+headers = windows_wdk_storage_filesystem_wrapper.h
+headerFilter = windows_wdk_storage_filesystem_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_wdk_storage_filesystem_wrapper.a

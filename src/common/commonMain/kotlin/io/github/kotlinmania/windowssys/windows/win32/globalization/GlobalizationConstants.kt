@@ -1,0 +1,3006 @@
+package io.github.kotlinmania.windowssys.windows.win32.globalization
+
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.s
+import io.github.kotlinmania.windowssys.core.w
+
+public val ALL_SERVICES: UInt = 0u
+
+public val ALL_SERVICE_TYPES: UInt = 0u
+
+public val C1_ALPHA: UInt = 256u
+
+public val C1_BLANK: UInt = 64u
+
+public val C1_CNTRL: UInt = 32u
+
+public val C1_DEFINED: UInt = 512u
+
+public val C1_DIGIT: UInt = 4u
+
+public val C1_LOWER: UInt = 2u
+
+public val C1_PUNCT: UInt = 16u
+
+public val C1_SPACE: UInt = 8u
+
+public val C1_UPPER: UInt = 1u
+
+public val C1_XDIGIT: UInt = 128u
+
+public val C2_ARABICNUMBER: UInt = 6u
+
+public val C2_BLOCKSEPARATOR: UInt = 8u
+
+public val C2_COMMONSEPARATOR: UInt = 7u
+
+public val C2_EUROPENUMBER: UInt = 3u
+
+public val C2_EUROPESEPARATOR: UInt = 4u
+
+public val C2_EUROPETERMINATOR: UInt = 5u
+
+public val C2_LEFTTORIGHT: UInt = 1u
+
+public val C2_NOTAPPLICABLE: UInt = 0u
+
+public val C2_OTHERNEUTRAL: UInt = 11u
+
+public val C2_RIGHTTOLEFT: UInt = 2u
+
+public val C2_SEGMENTSEPARATOR: UInt = 9u
+
+public val C2_WHITESPACE: UInt = 10u
+
+public val C3_ALPHA: UInt = 32768u
+
+public val C3_DIACRITIC: UInt = 2u
+
+public val C3_FULLWIDTH: UInt = 128u
+
+public val C3_HALFWIDTH: UInt = 64u
+
+public val C3_HIGHSURROGATE: UInt = 2048u
+
+public val C3_HIRAGANA: UInt = 32u
+
+public val C3_IDEOGRAPH: UInt = 256u
+
+public val C3_KASHIDA: UInt = 512u
+
+public val C3_KATAKANA: UInt = 16u
+
+public val C3_LEXICAL: UInt = 1024u
+
+public val C3_LOWSURROGATE: UInt = 4096u
+
+public val C3_NONSPACING: UInt = 1u
+
+public val C3_NOTAPPLICABLE: UInt = 0u
+
+public val C3_SYMBOL: UInt = 8u
+
+public val C3_VOWELMARK: UInt = 4u
+
+public val CAL_GREGORIAN: UInt = 1u
+
+public val CAL_GREGORIAN_ARABIC: UInt = 10u
+
+public val CAL_GREGORIAN_ME_FRENCH: UInt = 9u
+
+public val CAL_GREGORIAN_US: UInt = 2u
+
+public val CAL_GREGORIAN_XLIT_ENGLISH: UInt = 11u
+
+public val CAL_GREGORIAN_XLIT_FRENCH: UInt = 12u
+
+public val CAL_HEBREW: UInt = 8u
+
+public val CAL_HIJRI: UInt = 6u
+
+public val CAL_ICALINTVALUE: UInt = 1u
+
+public val CAL_ITWODIGITYEARMAX: UInt = 48u
+
+public val CAL_IYEAROFFSETRANGE: UInt = 3u
+
+public val CAL_JAPAN: UInt = 3u
+
+public val CAL_KOREA: UInt = 5u
+
+public val CAL_NOUSEROVERRIDE: UInt = 2147483648u
+
+public val CAL_PERSIAN: UInt = 22u
+
+public val CAL_RETURN_GENITIVE_NAMES: UInt = 268435456u
+
+public val CAL_RETURN_NUMBER: UInt = 536870912u
+
+public val CAL_SABBREVDAYNAME1: UInt = 14u
+
+public val CAL_SABBREVDAYNAME2: UInt = 15u
+
+public val CAL_SABBREVDAYNAME3: UInt = 16u
+
+public val CAL_SABBREVDAYNAME4: UInt = 17u
+
+public val CAL_SABBREVDAYNAME5: UInt = 18u
+
+public val CAL_SABBREVDAYNAME6: UInt = 19u
+
+public val CAL_SABBREVDAYNAME7: UInt = 20u
+
+public val CAL_SABBREVERASTRING: UInt = 57u
+
+public val CAL_SABBREVMONTHNAME1: UInt = 34u
+
+public val CAL_SABBREVMONTHNAME10: UInt = 43u
+
+public val CAL_SABBREVMONTHNAME11: UInt = 44u
+
+public val CAL_SABBREVMONTHNAME12: UInt = 45u
+
+public val CAL_SABBREVMONTHNAME13: UInt = 46u
+
+public val CAL_SABBREVMONTHNAME2: UInt = 35u
+
+public val CAL_SABBREVMONTHNAME3: UInt = 36u
+
+public val CAL_SABBREVMONTHNAME4: UInt = 37u
+
+public val CAL_SABBREVMONTHNAME5: UInt = 38u
+
+public val CAL_SABBREVMONTHNAME6: UInt = 39u
+
+public val CAL_SABBREVMONTHNAME7: UInt = 40u
+
+public val CAL_SABBREVMONTHNAME8: UInt = 41u
+
+public val CAL_SABBREVMONTHNAME9: UInt = 42u
+
+public val CAL_SCALNAME: UInt = 2u
+
+public val CAL_SDAYNAME1: UInt = 7u
+
+public val CAL_SDAYNAME2: UInt = 8u
+
+public val CAL_SDAYNAME3: UInt = 9u
+
+public val CAL_SDAYNAME4: UInt = 10u
+
+public val CAL_SDAYNAME5: UInt = 11u
+
+public val CAL_SDAYNAME6: UInt = 12u
+
+public val CAL_SDAYNAME7: UInt = 13u
+
+public val CAL_SENGLISHABBREVERANAME: UInt = 60u
+
+public val CAL_SENGLISHERANAME: UInt = 59u
+
+public val CAL_SERASTRING: UInt = 4u
+
+public val CAL_SJAPANESEERAFIRSTYEAR: UInt = 61u
+
+public val CAL_SLONGDATE: UInt = 6u
+
+public val CAL_SMONTHDAY: UInt = 56u
+
+public val CAL_SMONTHNAME1: UInt = 21u
+
+public val CAL_SMONTHNAME10: UInt = 30u
+
+public val CAL_SMONTHNAME11: UInt = 31u
+
+public val CAL_SMONTHNAME12: UInt = 32u
+
+public val CAL_SMONTHNAME13: UInt = 33u
+
+public val CAL_SMONTHNAME2: UInt = 22u
+
+public val CAL_SMONTHNAME3: UInt = 23u
+
+public val CAL_SMONTHNAME4: UInt = 24u
+
+public val CAL_SMONTHNAME5: UInt = 25u
+
+public val CAL_SMONTHNAME6: UInt = 26u
+
+public val CAL_SMONTHNAME7: UInt = 27u
+
+public val CAL_SMONTHNAME8: UInt = 28u
+
+public val CAL_SMONTHNAME9: UInt = 29u
+
+public val CAL_SRELATIVELONGDATE: UInt = 58u
+
+public val CAL_SSHORTDATE: UInt = 5u
+
+public val CAL_SSHORTESTDAYNAME1: UInt = 49u
+
+public val CAL_SSHORTESTDAYNAME2: UInt = 50u
+
+public val CAL_SSHORTESTDAYNAME3: UInt = 51u
+
+public val CAL_SSHORTESTDAYNAME4: UInt = 52u
+
+public val CAL_SSHORTESTDAYNAME5: UInt = 53u
+
+public val CAL_SSHORTESTDAYNAME6: UInt = 54u
+
+public val CAL_SSHORTESTDAYNAME7: UInt = 55u
+
+public val CAL_SYEARMONTH: UInt = 47u
+
+public val CAL_TAIWAN: UInt = 4u
+
+public val CAL_THAI: UInt = 7u
+
+public val CAL_UMALQURA: UInt = 23u
+
+public val CAL_USE_CP_ACP: UInt = 1073741824u
+
+public val CANITER_SKIP_ZEROES: UInt = 1u
+
+public val COMPARE_STRING: SysnlsFunction = 1
+
+public val CORRECTIVE_ACTION_DELETE: CorrectiveAction = 3
+
+public val CORRECTIVE_ACTION_GET_SUGGESTIONS: CorrectiveAction = 1
+
+public val CORRECTIVE_ACTION_NONE: CorrectiveAction = 0
+
+public val CORRECTIVE_ACTION_REPLACE: CorrectiveAction = 2
+
+public val CPIOD_FORCE_PROMPT: Int = -2147483648.toInt()
+
+public val CPIOD_PEEK: Int = 1073741824
+
+public val CP_ACP: UInt = 0u
+
+public val CP_INSTALLED: EnumSystemCodePagesFlags = 1u
+
+public val CP_MACCP: UInt = 2u
+
+public val CP_OEMCP: UInt = 1u
+
+public val CP_SUPPORTED: EnumSystemCodePagesFlags = 2u
+
+public val CP_SYMBOL: UInt = 42u
+
+public val CP_THREAD_ACP: UInt = 3u
+
+public val CP_UTF7: UInt = 65000u
+
+public val CP_UTF8: UInt = 65001u
+
+public val CSTR_EQUAL: ComparestringResult = 2
+
+public val CSTR_GREATER_THAN: ComparestringResult = 3
+
+public val CSTR_LESS_THAN: ComparestringResult = 1
+
+public val CTRY_ALBANIA: UInt = 355u
+
+public val CTRY_ALGERIA: UInt = 213u
+
+public val CTRY_ARGENTINA: UInt = 54u
+
+public val CTRY_ARMENIA: UInt = 374u
+
+public val CTRY_AUSTRALIA: UInt = 61u
+
+public val CTRY_AUSTRIA: UInt = 43u
+
+public val CTRY_AZERBAIJAN: UInt = 994u
+
+public val CTRY_BAHRAIN: UInt = 973u
+
+public val CTRY_BELARUS: UInt = 375u
+
+public val CTRY_BELGIUM: UInt = 32u
+
+public val CTRY_BELIZE: UInt = 501u
+
+public val CTRY_BOLIVIA: UInt = 591u
+
+public val CTRY_BRAZIL: UInt = 55u
+
+public val CTRY_BRUNEI_DARUSSALAM: UInt = 673u
+
+public val CTRY_BULGARIA: UInt = 359u
+
+public val CTRY_CANADA: UInt = 2u
+
+public val CTRY_CARIBBEAN: UInt = 1u
+
+public val CTRY_CHILE: UInt = 56u
+
+public val CTRY_COLOMBIA: UInt = 57u
+
+public val CTRY_COSTA_RICA: UInt = 506u
+
+public val CTRY_CROATIA: UInt = 385u
+
+public val CTRY_CZECH: UInt = 420u
+
+public val CTRY_DEFAULT: UInt = 0u
+
+public val CTRY_DENMARK: UInt = 45u
+
+public val CTRY_DOMINICAN_REPUBLIC: UInt = 1u
+
+public val CTRY_ECUADOR: UInt = 593u
+
+public val CTRY_EGYPT: UInt = 20u
+
+public val CTRY_EL_SALVADOR: UInt = 503u
+
+public val CTRY_ESTONIA: UInt = 372u
+
+public val CTRY_FAEROE_ISLANDS: UInt = 298u
+
+public val CTRY_FINLAND: UInt = 358u
+
+public val CTRY_FRANCE: UInt = 33u
+
+public val CTRY_GEORGIA: UInt = 995u
+
+public val CTRY_GERMANY: UInt = 49u
+
+public val CTRY_GREECE: UInt = 30u
+
+public val CTRY_GUATEMALA: UInt = 502u
+
+public val CTRY_HONDURAS: UInt = 504u
+
+public val CTRY_HONG_KONG: UInt = 852u
+
+public val CTRY_HUNGARY: UInt = 36u
+
+public val CTRY_ICELAND: UInt = 354u
+
+public val CTRY_INDIA: UInt = 91u
+
+public val CTRY_INDONESIA: UInt = 62u
+
+public val CTRY_IRAN: UInt = 981u
+
+public val CTRY_IRAQ: UInt = 964u
+
+public val CTRY_IRELAND: UInt = 353u
+
+public val CTRY_ISRAEL: UInt = 972u
+
+public val CTRY_ITALY: UInt = 39u
+
+public val CTRY_JAMAICA: UInt = 1u
+
+public val CTRY_JAPAN: UInt = 81u
+
+public val CTRY_JORDAN: UInt = 962u
+
+public val CTRY_KAZAKSTAN: UInt = 7u
+
+public val CTRY_KENYA: UInt = 254u
+
+public val CTRY_KUWAIT: UInt = 965u
+
+public val CTRY_KYRGYZSTAN: UInt = 996u
+
+public val CTRY_LATVIA: UInt = 371u
+
+public val CTRY_LEBANON: UInt = 961u
+
+public val CTRY_LIBYA: UInt = 218u
+
+public val CTRY_LIECHTENSTEIN: UInt = 41u
+
+public val CTRY_LITHUANIA: UInt = 370u
+
+public val CTRY_LUXEMBOURG: UInt = 352u
+
+public val CTRY_MACAU: UInt = 853u
+
+public val CTRY_MACEDONIA: UInt = 389u
+
+public val CTRY_MALAYSIA: UInt = 60u
+
+public val CTRY_MALDIVES: UInt = 960u
+
+public val CTRY_MEXICO: UInt = 52u
+
+public val CTRY_MONACO: UInt = 33u
+
+public val CTRY_MONGOLIA: UInt = 976u
+
+public val CTRY_MOROCCO: UInt = 212u
+
+public val CTRY_NETHERLANDS: UInt = 31u
+
+public val CTRY_NEW_ZEALAND: UInt = 64u
+
+public val CTRY_NICARAGUA: UInt = 505u
+
+public val CTRY_NORWAY: UInt = 47u
+
+public val CTRY_OMAN: UInt = 968u
+
+public val CTRY_PAKISTAN: UInt = 92u
+
+public val CTRY_PANAMA: UInt = 507u
+
+public val CTRY_PARAGUAY: UInt = 595u
+
+public val CTRY_PERU: UInt = 51u
+
+public val CTRY_PHILIPPINES: UInt = 63u
+
+public val CTRY_POLAND: UInt = 48u
+
+public val CTRY_PORTUGAL: UInt = 351u
+
+public val CTRY_PRCHINA: UInt = 86u
+
+public val CTRY_PUERTO_RICO: UInt = 1u
+
+public val CTRY_QATAR: UInt = 974u
+
+public val CTRY_ROMANIA: UInt = 40u
+
+public val CTRY_RUSSIA: UInt = 7u
+
+public val CTRY_SAUDI_ARABIA: UInt = 966u
+
+public val CTRY_SERBIA: UInt = 381u
+
+public val CTRY_SINGAPORE: UInt = 65u
+
+public val CTRY_SLOVAK: UInt = 421u
+
+public val CTRY_SLOVENIA: UInt = 386u
+
+public val CTRY_SOUTH_AFRICA: UInt = 27u
+
+public val CTRY_SOUTH_KOREA: UInt = 82u
+
+public val CTRY_SPAIN: UInt = 34u
+
+public val CTRY_SWEDEN: UInt = 46u
+
+public val CTRY_SWITZERLAND: UInt = 41u
+
+public val CTRY_SYRIA: UInt = 963u
+
+public val CTRY_TAIWAN: UInt = 886u
+
+public val CTRY_TATARSTAN: UInt = 7u
+
+public val CTRY_THAILAND: UInt = 66u
+
+public val CTRY_TRINIDAD_Y_TOBAGO: UInt = 1u
+
+public val CTRY_TUNISIA: UInt = 216u
+
+public val CTRY_TURKEY: UInt = 90u
+
+public val CTRY_UAE: UInt = 971u
+
+public val CTRY_UKRAINE: UInt = 380u
+
+public val CTRY_UNITED_KINGDOM: UInt = 44u
+
+public val CTRY_UNITED_STATES: UInt = 1u
+
+public val CTRY_URUGUAY: UInt = 598u
+
+public val CTRY_UZBEKISTAN: UInt = 7u
+
+public val CTRY_VENEZUELA: UInt = 58u
+
+public val CTRY_VIET_NAM: UInt = 84u
+
+public val CTRY_YEMEN: UInt = 967u
+
+public val CTRY_ZIMBABWE: UInt = 263u
+
+public val CT_CTYPE1: UInt = 1u
+
+public val CT_CTYPE2: UInt = 2u
+
+public val CT_CTYPE3: UInt = 4u
+
+public val DATE_AUTOLAYOUT: EnumDateFormatsFlags = 64u
+
+public val DATE_LONGDATE: EnumDateFormatsFlags = 2u
+
+public val DATE_LTRREADING: EnumDateFormatsFlags = 16u
+
+public val DATE_MONTHDAY: EnumDateFormatsFlags = 128u
+
+public val DATE_RTLREADING: EnumDateFormatsFlags = 32u
+
+public val DATE_SHORTDATE: EnumDateFormatsFlags = 1u
+
+public val DATE_USE_ALT_CALENDAR: EnumDateFormatsFlags = 4u
+
+public val DATE_YEARMONTH: EnumDateFormatsFlags = 8u
+
+public val DAY_UNIT: CaldatetimeDateunit = 4
+
+public val ENUM_ALL_CALENDARS: UInt = 4294967295u
+
+public val ERA_UNIT: CaldatetimeDateunit = 0
+
+public val FIND_ENDSWITH: UInt = 2097152u
+
+public val FIND_FROMEND: UInt = 8388608u
+
+public val FIND_FROMSTART: UInt = 4194304u
+
+public val FIND_STARTSWITH: UInt = 1048576u
+
+public val GEOCLASS_ALL: Sysgeoclass = 0
+
+public val GEOCLASS_NATION: Sysgeoclass = 16
+
+public val GEOCLASS_REGION: Sysgeoclass = 14
+
+public val GEOID_NOT_AVAILABLE: Int = -1
+
+public val GEO_CURRENCYCODE: Sysgeotype = 15
+
+public val GEO_CURRENCYSYMBOL: Sysgeotype = 16
+
+public val GEO_DIALINGCODE: Sysgeotype = 14
+
+public val GEO_FRIENDLYNAME: Sysgeotype = 8
+
+public val GEO_ID: Sysgeotype = 18
+
+public val GEO_ISO2: Sysgeotype = 4
+
+public val GEO_ISO3: Sysgeotype = 5
+
+public val GEO_ISO_UN_NUMBER: Sysgeotype = 12
+
+public val GEO_LATITUDE: Sysgeotype = 2
+
+public val GEO_LCID: Sysgeotype = 7
+
+public val GEO_LONGITUDE: Sysgeotype = 3
+
+public val GEO_NAME: Sysgeotype = 17
+
+public val GEO_NATION: Sysgeotype = 1
+
+public val GEO_OFFICIALLANGUAGES: Sysgeotype = 11
+
+public val GEO_OFFICIALNAME: Sysgeotype = 9
+
+public val GEO_PARENT: Sysgeotype = 13
+
+public val GEO_RFC1766: Sysgeotype = 6
+
+public val GEO_TIMEZONES: Sysgeotype = 10
+
+public val GSS_ALLOW_INHERITED_COMMON: UInt = 1u
+
+public val HIGHLEVEL_SERVICE_TYPES: UInt = 1u
+
+public val HIGH_SURROGATE_END: UInt = 56319u
+
+public val HIGH_SURROGATE_START: UInt = 55296u
+
+public val HOUR_UNIT: CaldatetimeDateunit = 5
+
+public val IDN_ALLOW_UNASSIGNED: UInt = 1u
+
+public val IDN_EMAIL_ADDRESS: UInt = 4u
+
+public val IDN_RAW_PUNYCODE: UInt = 8u
+
+public val IDN_USE_STD3_ASCII_RULES: UInt = 2u
+
+public val IS_TEXT_UNICODE_ASCII16: IsTextUnicodeResult = 1u
+
+public val IS_TEXT_UNICODE_CONTROLS: IsTextUnicodeResult = 4u
+
+public val IS_TEXT_UNICODE_ILLEGAL_CHARS: IsTextUnicodeResult = 256u
+
+public val IS_TEXT_UNICODE_NOT_ASCII_MASK: IsTextUnicodeResult = 61440u
+
+public val IS_TEXT_UNICODE_NOT_UNICODE_MASK: IsTextUnicodeResult = 3840u
+
+public val IS_TEXT_UNICODE_NULL_BYTES: IsTextUnicodeResult = 4096u
+
+public val IS_TEXT_UNICODE_ODD_LENGTH: IsTextUnicodeResult = 512u
+
+public val IS_TEXT_UNICODE_REVERSE_ASCII16: IsTextUnicodeResult = 16u
+
+public val IS_TEXT_UNICODE_REVERSE_CONTROLS: IsTextUnicodeResult = 64u
+
+public val IS_TEXT_UNICODE_REVERSE_MASK: IsTextUnicodeResult = 240u
+
+public val IS_TEXT_UNICODE_REVERSE_SIGNATURE: IsTextUnicodeResult = 128u
+
+public val IS_TEXT_UNICODE_REVERSE_STATISTICS: IsTextUnicodeResult = 32u
+
+public val IS_TEXT_UNICODE_SIGNATURE: IsTextUnicodeResult = 8u
+
+public val IS_TEXT_UNICODE_STATISTICS: IsTextUnicodeResult = 2u
+
+public val IS_TEXT_UNICODE_UNICODE_MASK: IsTextUnicodeResult = 15u
+
+public val LANG_SYSTEM_DEFAULT: Int = 2048
+
+public val LANG_USER_DEFAULT: Int = 1024
+
+public val LCID_ALTERNATE_SORTS: UInt = 4u
+
+public val LCID_INSTALLED: IsValidLocaleFlags = 1u
+
+public val LCID_SUPPORTED: IsValidLocaleFlags = 2u
+
+public val LCMAP_BYTEREV: UInt = 2048u
+
+public val LCMAP_FULLWIDTH: UInt = 8388608u
+
+public val LCMAP_HALFWIDTH: UInt = 4194304u
+
+public val LCMAP_HASH: UInt = 262144u
+
+public val LCMAP_HIRAGANA: UInt = 1048576u
+
+public val LCMAP_KATAKANA: UInt = 2097152u
+
+public val LCMAP_LINGUISTIC_CASING: UInt = 16777216u
+
+public val LCMAP_LOWERCASE: UInt = 256u
+
+public val LCMAP_SIMPLIFIED_CHINESE: UInt = 33554432u
+
+public val LCMAP_SORTHANDLE: UInt = 536870912u
+
+public val LCMAP_SORTKEY: UInt = 1024u
+
+public val LCMAP_TITLECASE: UInt = 768u
+
+public val LCMAP_TRADITIONAL_CHINESE: UInt = 67108864u
+
+public val LCMAP_UPPERCASE: UInt = 512u
+
+public val LGRPID_ARABIC: UInt = 13u
+
+public val LGRPID_ARMENIAN: UInt = 17u
+
+public val LGRPID_BALTIC: UInt = 3u
+
+public val LGRPID_CENTRAL_EUROPE: UInt = 2u
+
+public val LGRPID_CYRILLIC: UInt = 5u
+
+public val LGRPID_GEORGIAN: UInt = 16u
+
+public val LGRPID_GREEK: UInt = 4u
+
+public val LGRPID_HEBREW: UInt = 12u
+
+public val LGRPID_INDIC: UInt = 15u
+
+public val LGRPID_INSTALLED: EnumSystemLanguageGroupsFlags = 1u
+
+public val LGRPID_JAPANESE: UInt = 7u
+
+public val LGRPID_KOREAN: UInt = 8u
+
+public val LGRPID_SIMPLIFIED_CHINESE: UInt = 10u
+
+public val LGRPID_SUPPORTED: EnumSystemLanguageGroupsFlags = 2u
+
+public val LGRPID_THAI: UInt = 11u
+
+public val LGRPID_TRADITIONAL_CHINESE: UInt = 9u
+
+public val LGRPID_TURKIC: UInt = 6u
+
+public val LGRPID_TURKISH: UInt = 6u
+
+public val LGRPID_VIETNAMESE: UInt = 14u
+
+public val LGRPID_WESTERN_EUROPE: UInt = 1u
+
+public val LINGUISTIC_IGNORECASE: CompareStringFlags = 16u
+
+public val LINGUISTIC_IGNOREDIACRITIC: CompareStringFlags = 32u
+
+public val LOCALE_ALL: UInt = 0u
+
+public val LOCALE_ALLOW_NEUTRAL_NAMES: UInt = 134217728u
+
+public val LOCALE_ALTERNATE_SORTS: UInt = 4u
+
+public val LOCALE_FONTSIGNATURE: UInt = 88u
+
+public val LOCALE_ICALENDARTYPE: UInt = 4105u
+
+public val LOCALE_ICENTURY: UInt = 36u
+
+public val LOCALE_ICONSTRUCTEDLOCALE: UInt = 125u
+
+public val LOCALE_ICOUNTRY: UInt = 5u
+
+public val LOCALE_ICURRDIGITS: UInt = 25u
+
+public val LOCALE_ICURRENCY: UInt = 27u
+
+public val LOCALE_IDATE: UInt = 33u
+
+public val LOCALE_IDAYLZERO: UInt = 38u
+
+public val LOCALE_IDEFAULTANSICODEPAGE: UInt = 4100u
+
+public val LOCALE_IDEFAULTCODEPAGE: UInt = 11u
+
+public val LOCALE_IDEFAULTCOUNTRY: UInt = 10u
+
+public val LOCALE_IDEFAULTEBCDICCODEPAGE: UInt = 4114u
+
+public val LOCALE_IDEFAULTLANGUAGE: UInt = 9u
+
+public val LOCALE_IDEFAULTMACCODEPAGE: UInt = 4113u
+
+public val LOCALE_IDIALINGCODE: UInt = 5u
+
+public val LOCALE_IDIGITS: UInt = 17u
+
+public val LOCALE_IDIGITSUBSTITUTION: UInt = 4116u
+
+public val LOCALE_IFIRSTDAYOFWEEK: UInt = 4108u
+
+public val LOCALE_IFIRSTWEEKOFYEAR: UInt = 4109u
+
+public val LOCALE_IGEOID: UInt = 91u
+
+public val LOCALE_IINTLCURRDIGITS: UInt = 26u
+
+public val LOCALE_ILANGUAGE: UInt = 1u
+
+public val LOCALE_ILDATE: UInt = 34u
+
+public val LOCALE_ILZERO: UInt = 18u
+
+public val LOCALE_IMEASURE: UInt = 13u
+
+public val LOCALE_IMONLZERO: UInt = 39u
+
+public val LOCALE_INEGATIVEPERCENT: UInt = 116u
+
+public val LOCALE_INEGCURR: UInt = 28u
+
+public val LOCALE_INEGNUMBER: UInt = 4112u
+
+public val LOCALE_INEGSEPBYSPACE: UInt = 87u
+
+public val LOCALE_INEGSIGNPOSN: UInt = 83u
+
+public val LOCALE_INEGSYMPRECEDES: UInt = 86u
+
+public val LOCALE_INEUTRAL: UInt = 113u
+
+public val LOCALE_IOPTIONALCALENDAR: UInt = 4107u
+
+public val LOCALE_IPAPERSIZE: UInt = 4106u
+
+public val LOCALE_IPOSITIVEPERCENT: UInt = 117u
+
+public val LOCALE_IPOSSEPBYSPACE: UInt = 85u
+
+public val LOCALE_IPOSSIGNPOSN: UInt = 82u
+
+public val LOCALE_IPOSSYMPRECEDES: UInt = 84u
+
+public val LOCALE_IREADINGLAYOUT: UInt = 112u
+
+public val LOCALE_ITIME: UInt = 35u
+
+public val LOCALE_ITIMEMARKPOSN: UInt = 4101u
+
+public val LOCALE_ITLZERO: UInt = 37u
+
+public val LOCALE_IUSEUTF8LEGACYACP: UInt = 1638u
+
+public val LOCALE_IUSEUTF8LEGACYOEMCP: UInt = 2457u
+
+public val LOCALE_NAME_INVARIANT: Pcwstr = w("")
+
+public val LOCALE_NAME_SYSTEM_DEFAULT: Pcwstr = w("!x-sys-default-locale")
+
+public val LOCALE_NEUTRALDATA: UInt = 16u
+
+public val LOCALE_NOUSEROVERRIDE: UInt = 2147483648u
+
+public val LOCALE_REPLACEMENT: UInt = 8u
+
+public val LOCALE_RETURN_GENITIVE_NAMES: UInt = 268435456u
+
+public val LOCALE_RETURN_NUMBER: UInt = 536870912u
+
+public val LOCALE_S1159: UInt = 40u
+
+public val LOCALE_S2359: UInt = 41u
+
+public val LOCALE_SABBREVCTRYNAME: UInt = 7u
+
+public val LOCALE_SABBREVDAYNAME1: UInt = 49u
+
+public val LOCALE_SABBREVDAYNAME2: UInt = 50u
+
+public val LOCALE_SABBREVDAYNAME3: UInt = 51u
+
+public val LOCALE_SABBREVDAYNAME4: UInt = 52u
+
+public val LOCALE_SABBREVDAYNAME5: UInt = 53u
+
+public val LOCALE_SABBREVDAYNAME6: UInt = 54u
+
+public val LOCALE_SABBREVDAYNAME7: UInt = 55u
+
+public val LOCALE_SABBREVLANGNAME: UInt = 3u
+
+public val LOCALE_SABBREVMONTHNAME1: UInt = 68u
+
+public val LOCALE_SABBREVMONTHNAME10: UInt = 77u
+
+public val LOCALE_SABBREVMONTHNAME11: UInt = 78u
+
+public val LOCALE_SABBREVMONTHNAME12: UInt = 79u
+
+public val LOCALE_SABBREVMONTHNAME13: UInt = 4111u
+
+public val LOCALE_SABBREVMONTHNAME2: UInt = 69u
+
+public val LOCALE_SABBREVMONTHNAME3: UInt = 70u
+
+public val LOCALE_SABBREVMONTHNAME4: UInt = 71u
+
+public val LOCALE_SABBREVMONTHNAME5: UInt = 72u
+
+public val LOCALE_SABBREVMONTHNAME6: UInt = 73u
+
+public val LOCALE_SABBREVMONTHNAME7: UInt = 74u
+
+public val LOCALE_SABBREVMONTHNAME8: UInt = 75u
+
+public val LOCALE_SABBREVMONTHNAME9: UInt = 76u
+
+public val LOCALE_SAM: UInt = 40u
+
+public val LOCALE_SCONSOLEFALLBACKNAME: UInt = 110u
+
+public val LOCALE_SCOUNTRY: UInt = 6u
+
+public val LOCALE_SCURRENCY: UInt = 20u
+
+public val LOCALE_SDATE: UInt = 29u
+
+public val LOCALE_SDAYNAME1: UInt = 42u
+
+public val LOCALE_SDAYNAME2: UInt = 43u
+
+public val LOCALE_SDAYNAME3: UInt = 44u
+
+public val LOCALE_SDAYNAME4: UInt = 45u
+
+public val LOCALE_SDAYNAME5: UInt = 46u
+
+public val LOCALE_SDAYNAME6: UInt = 47u
+
+public val LOCALE_SDAYNAME7: UInt = 48u
+
+public val LOCALE_SDECIMAL: UInt = 14u
+
+public val LOCALE_SDURATION: UInt = 93u
+
+public val LOCALE_SENGCOUNTRY: UInt = 4098u
+
+public val LOCALE_SENGCURRNAME: UInt = 4103u
+
+public val LOCALE_SENGLANGUAGE: UInt = 4097u
+
+public val LOCALE_SENGLISHCOUNTRYNAME: UInt = 4098u
+
+public val LOCALE_SENGLISHDISPLAYNAME: UInt = 114u
+
+public val LOCALE_SENGLISHLANGUAGENAME: UInt = 4097u
+
+public val LOCALE_SGROUPING: UInt = 16u
+
+public val LOCALE_SINTLSYMBOL: UInt = 21u
+
+public val LOCALE_SISO3166CTRYNAME: UInt = 90u
+
+public val LOCALE_SISO3166CTRYNAME2: UInt = 104u
+
+public val LOCALE_SISO639LANGNAME: UInt = 89u
+
+public val LOCALE_SISO639LANGNAME2: UInt = 103u
+
+public val LOCALE_SKEYBOARDSTOINSTALL: UInt = 94u
+
+public val LOCALE_SLANGDISPLAYNAME: UInt = 111u
+
+public val LOCALE_SLANGUAGE: UInt = 2u
+
+public val LOCALE_SLIST: UInt = 12u
+
+public val LOCALE_SLOCALIZEDCOUNTRYNAME: UInt = 6u
+
+public val LOCALE_SLOCALIZEDDISPLAYNAME: UInt = 2u
+
+public val LOCALE_SLOCALIZEDLANGUAGENAME: UInt = 111u
+
+public val LOCALE_SLONGDATE: UInt = 32u
+
+public val LOCALE_SMONDECIMALSEP: UInt = 22u
+
+public val LOCALE_SMONGROUPING: UInt = 24u
+
+public val LOCALE_SMONTHDAY: UInt = 120u
+
+public val LOCALE_SMONTHNAME1: UInt = 56u
+
+public val LOCALE_SMONTHNAME10: UInt = 65u
+
+public val LOCALE_SMONTHNAME11: UInt = 66u
+
+public val LOCALE_SMONTHNAME12: UInt = 67u
+
+public val LOCALE_SMONTHNAME13: UInt = 4110u
+
+public val LOCALE_SMONTHNAME2: UInt = 57u
+
+public val LOCALE_SMONTHNAME3: UInt = 58u
+
+public val LOCALE_SMONTHNAME4: UInt = 59u
+
+public val LOCALE_SMONTHNAME5: UInt = 60u
+
+public val LOCALE_SMONTHNAME6: UInt = 61u
+
+public val LOCALE_SMONTHNAME7: UInt = 62u
+
+public val LOCALE_SMONTHNAME8: UInt = 63u
+
+public val LOCALE_SMONTHNAME9: UInt = 64u
+
+public val LOCALE_SMONTHOUSANDSEP: UInt = 23u
+
+public val LOCALE_SNAME: UInt = 92u
+
+public val LOCALE_SNAN: UInt = 105u
+
+public val LOCALE_SNATIVECOUNTRYNAME: UInt = 8u
+
+public val LOCALE_SNATIVECTRYNAME: UInt = 8u
+
+public val LOCALE_SNATIVECURRNAME: UInt = 4104u
+
+public val LOCALE_SNATIVEDIGITS: UInt = 19u
+
+public val LOCALE_SNATIVEDISPLAYNAME: UInt = 115u
+
+public val LOCALE_SNATIVELANGNAME: UInt = 4u
+
+public val LOCALE_SNATIVELANGUAGENAME: UInt = 4u
+
+public val LOCALE_SNEGATIVESIGN: UInt = 81u
+
+public val LOCALE_SNEGINFINITY: UInt = 107u
+
+public val LOCALE_SOPENTYPELANGUAGETAG: UInt = 122u
+
+public val LOCALE_SPARENT: UInt = 109u
+
+public val LOCALE_SPECIFICDATA: UInt = 32u
+
+public val LOCALE_SPERCENT: UInt = 118u
+
+public val LOCALE_SPERMILLE: UInt = 119u
+
+public val LOCALE_SPM: UInt = 41u
+
+public val LOCALE_SPOSINFINITY: UInt = 106u
+
+public val LOCALE_SPOSITIVESIGN: UInt = 80u
+
+public val LOCALE_SRELATIVELONGDATE: UInt = 124u
+
+public val LOCALE_SSCRIPTS: UInt = 108u
+
+public val LOCALE_SSHORTDATE: UInt = 31u
+
+public val LOCALE_SSHORTESTAM: UInt = 126u
+
+public val LOCALE_SSHORTESTDAYNAME1: UInt = 96u
+
+public val LOCALE_SSHORTESTDAYNAME2: UInt = 97u
+
+public val LOCALE_SSHORTESTDAYNAME3: UInt = 98u
+
+public val LOCALE_SSHORTESTDAYNAME4: UInt = 99u
+
+public val LOCALE_SSHORTESTDAYNAME5: UInt = 100u
+
+public val LOCALE_SSHORTESTDAYNAME6: UInt = 101u
+
+public val LOCALE_SSHORTESTDAYNAME7: UInt = 102u
+
+public val LOCALE_SSHORTESTPM: UInt = 127u
+
+public val LOCALE_SSHORTTIME: UInt = 121u
+
+public val LOCALE_SSORTLOCALE: UInt = 123u
+
+public val LOCALE_SSORTNAME: UInt = 4115u
+
+public val LOCALE_STHOUSAND: UInt = 15u
+
+public val LOCALE_STIME: UInt = 30u
+
+public val LOCALE_STIMEFORMAT: UInt = 4099u
+
+public val LOCALE_SUPPLEMENTAL: UInt = 2u
+
+public val LOCALE_SYEARMONTH: UInt = 4102u
+
+public val LOCALE_SYSTEM_DEFAULT: UInt = 2048u
+
+public val LOCALE_USER_DEFAULT: UInt = 1024u
+
+public val LOCALE_USE_CP_ACP: UInt = 1073741824u
+
+public val LOCALE_WINDOWS: UInt = 1u
+
+public val LOWLEVEL_SERVICE_TYPES: UInt = 2u
+
+public val LOW_SURROGATE_END: UInt = 57343u
+
+public val LOW_SURROGATE_START: UInt = 56320u
+
+public val MAP_COMPOSITE: FoldStringMapFlags = 64u
+
+public val MAP_EXPAND_LIGATURES: FoldStringMapFlags = 8192u
+
+public val MAP_FOLDCZONE: FoldStringMapFlags = 16u
+
+public val MAP_FOLDDIGITS: FoldStringMapFlags = 128u
+
+public val MAP_PRECOMPOSED: FoldStringMapFlags = 32u
+
+public val MAX_DEFAULTCHAR: UInt = 2u
+
+public val MAX_LEADBYTES: UInt = 12u
+
+public val MAX_LOCALE_NAME: UInt = 32u
+
+public val MAX_MIMECP_NAME: UInt = 64u
+
+public val MAX_MIMECSET_NAME: UInt = 50u
+
+public val MAX_MIMEFACE_NAME: UInt = 32u
+
+public val MAX_RFC1766_NAME: UInt = 6u
+
+public val MAX_SCRIPT_NAME: UInt = 48u
+
+public val MB_COMPOSITE: MultiByteToWideCharFlags = 2u
+
+public val MB_ERR_INVALID_CHARS: MultiByteToWideCharFlags = 8u
+
+public val MB_PRECOMPOSED: MultiByteToWideCharFlags = 1u
+
+public val MB_USEGLYPHCHARS: MultiByteToWideCharFlags = 4u
+
+public val MIMECONTF_BROWSER: Mimecontf = 2
+
+public val MIMECONTF_EXPORT: Mimecontf = 1024
+
+public val MIMECONTF_IMPORT: Mimecontf = 8
+
+public val MIMECONTF_MAILNEWS: Mimecontf = 1
+
+public val MIMECONTF_MIME_IE4: Mimecontf = 268435456
+
+public val MIMECONTF_MIME_LATEST: Mimecontf = 536870912
+
+public val MIMECONTF_MIME_REGISTRY: Mimecontf = 1073741824
+
+public val MIMECONTF_MINIMAL: Mimecontf = 4
+
+public val MIMECONTF_PRIVCONVERTER: Mimecontf = 65536
+
+public val MIMECONTF_SAVABLE_BROWSER: Mimecontf = 512
+
+public val MIMECONTF_SAVABLE_MAILNEWS: Mimecontf = 256
+
+public val MIMECONTF_VALID: Mimecontf = 131072
+
+public val MIMECONTF_VALID_NLS: Mimecontf = 262144
+
+public val MIN_SPELLING_NTDDI: UInt = 100794368u
+
+public val MLCONVCHARF_AUTODETECT: Mlconvchar = 1
+
+public val MLCONVCHARF_DETECTJPN: Mlconvchar = 32
+
+public val MLCONVCHARF_ENTITIZE: Mlconvchar = 2
+
+public val MLCONVCHARF_NAME_ENTITIZE: Mlconvchar = 4
+
+public val MLCONVCHARF_NCR_ENTITIZE: Mlconvchar = 2
+
+public val MLCONVCHARF_NOBESTFITCHARS: Mlconvchar = 16
+
+public val MLCONVCHARF_USEDEFCHAR: Mlconvchar = 8
+
+public val MLDETECTCP_7BIT: Mldetectcp = 1
+
+public val MLDETECTCP_8BIT: Mldetectcp = 2
+
+public val MLDETECTCP_DBCS: Mldetectcp = 4
+
+public val MLDETECTCP_HTML: Mldetectcp = 8
+
+public val MLDETECTCP_NONE: Mldetectcp = 0
+
+public val MLDETECTCP_NUMBER: Mldetectcp = 16
+
+public val MLDETECTF_BROWSER: Mlcp = 2
+
+public val MLDETECTF_EURO_UTF8: Mlcp = 128
+
+public val MLDETECTF_FILTER_SPECIALCHAR: Mlcp = 64
+
+public val MLDETECTF_MAILNEWS: Mlcp = 1
+
+public val MLDETECTF_PREFERRED_ONLY: Mlcp = 32
+
+public val MLDETECTF_PRESERVE_ORDER: Mlcp = 16
+
+public val MLDETECTF_VALID: Mlcp = 4
+
+public val MLDETECTF_VALID_NLS: Mlcp = 8
+
+public val MLSTR_READ: MlstrFlags = 1
+
+public val MLSTR_WRITE: MlstrFlags = 2
+
+public val MUI_COMPLEX_SCRIPT_FILTER: UInt = 512u
+
+public val MUI_CONSOLE_FILTER: UInt = 256u
+
+public val MUI_FILEINFO_VERSION: UInt = 1u
+
+public val MUI_FILETYPE_LANGUAGE_NEUTRAL_MAIN: UInt = 2u
+
+public val MUI_FILETYPE_LANGUAGE_NEUTRAL_MUI: UInt = 4u
+
+public val MUI_FILETYPE_NOT_LANGUAGE_NEUTRAL: UInt = 1u
+
+public val MUI_FORMAT_INF_COMPAT: UInt = 2u
+
+public val MUI_FORMAT_REG_COMPAT: UInt = 1u
+
+public val MUI_FULL_LANGUAGE: UInt = 1u
+
+public val MUI_IMMUTABLE_LOOKUP: UInt = 16u
+
+public val MUI_LANGUAGE_EXACT: UInt = 16u
+
+public val MUI_LANGUAGE_ID: UInt = 4u
+
+public val MUI_LANGUAGE_INSTALLED: UInt = 32u
+
+public val MUI_LANGUAGE_LICENSED: UInt = 64u
+
+public val MUI_LANGUAGE_NAME: UInt = 8u
+
+public val MUI_LANG_NEUTRAL_PE_FILE: UInt = 256u
+
+public val MUI_LIP_LANGUAGE: UInt = 4u
+
+public val MUI_MACHINE_LANGUAGE_SETTINGS: UInt = 1024u
+
+public val MUI_MERGE_SYSTEM_FALLBACK: UInt = 16u
+
+public val MUI_MERGE_USER_FALLBACK: UInt = 32u
+
+public val MUI_NON_LANG_NEUTRAL_FILE: UInt = 512u
+
+public val MUI_PARTIAL_LANGUAGE: UInt = 2u
+
+public val MUI_QUERY_CHECKSUM: UInt = 2u
+
+public val MUI_QUERY_LANGUAGE_NAME: UInt = 4u
+
+public val MUI_QUERY_RESOURCE_TYPES: UInt = 8u
+
+public val MUI_QUERY_TYPE: UInt = 1u
+
+public val MUI_RESET_FILTERS: UInt = 1u
+
+public val MUI_SKIP_STRING_CACHE: UInt = 8u
+
+public val MUI_THREAD_LANGUAGES: UInt = 64u
+
+public val MUI_USER_PREFERRED_UI_LANGUAGES: UInt = 16u
+
+public val MUI_USE_INSTALLED_LANGUAGES: UInt = 32u
+
+public val MUI_USE_SEARCH_ALL_LANGUAGES: UInt = 64u
+
+public val MUI_VERIFY_FILE_EXISTS: UInt = 4u
+
+public val MINUTE_UNIT: CaldatetimeDateunit = 6
+
+public val MONTH_UNIT: CaldatetimeDateunit = 2
+
+public val NLS_CP_CPINFO: UInt = 268435456u
+
+public val NLS_CP_MBTOWC: UInt = 1073741824u
+
+public val NLS_CP_WCTOMB: UInt = 2147483648u
+
+public val NORM_IGNORECASE: CompareStringFlags = 1u
+
+public val NORM_IGNOREKANATYPE: CompareStringFlags = 65536u
+
+public val NORM_IGNORENONSPACE: CompareStringFlags = 2u
+
+public val NORM_IGNORESYMBOLS: CompareStringFlags = 4u
+
+public val NORM_IGNOREWIDTH: CompareStringFlags = 131072u
+
+public val NORM_LINGUISTIC_CASING: CompareStringFlags = 134217728u
+
+public val NUMSYS_NAME_CAPACITY: UInt = 8u
+
+public val NORMALIZATION_C: NormForm = 1
+
+public val NORMALIZATION_D: NormForm = 2
+
+public val NORMALIZATION_KC: NormForm = 5
+
+public val NORMALIZATION_KD: NormForm = 6
+
+public val NORMALIZATION_OTHER: NormForm = 0
+
+public val OFFLINE_SERVICES: UInt = 2u
+
+public val ONLINE_SERVICES: UInt = 1u
+
+public val SCRIPTCONTF_FIXED_FONT: Scriptfontcontf = 1
+
+public val SCRIPTCONTF_PROPORTIONAL_FONT: Scriptfontcontf = 2
+
+public val SCRIPTCONTF_SCRIPT_HIDE: Scriptfontcontf = 131072
+
+public val SCRIPTCONTF_SCRIPT_SYSTEM: Scriptfontcontf = 262144
+
+public val SCRIPTCONTF_SCRIPT_USER: Scriptfontcontf = 65536
+
+public val SCRIPT_DIGITSUBSTITUTE_CONTEXT: UInt = 0u
+
+public val SCRIPT_DIGITSUBSTITUTE_NATIONAL: UInt = 2u
+
+public val SCRIPT_DIGITSUBSTITUTE_NONE: UInt = 1u
+
+public val SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: UInt = 3u
+
+public val SCRIPT_JUSTIFY_ARABIC_ALEF: ScriptJustify = 9
+
+public val SCRIPT_JUSTIFY_ARABIC_BA: ScriptJustify = 12
+
+public val SCRIPT_JUSTIFY_ARABIC_BARA: ScriptJustify = 13
+
+public val SCRIPT_JUSTIFY_ARABIC_BLANK: ScriptJustify = 1
+
+public val SCRIPT_JUSTIFY_ARABIC_HA: ScriptJustify = 10
+
+public val SCRIPT_JUSTIFY_ARABIC_KASHIDA: ScriptJustify = 8
+
+public val SCRIPT_JUSTIFY_ARABIC_NORMAL: ScriptJustify = 7
+
+public val SCRIPT_JUSTIFY_ARABIC_RA: ScriptJustify = 11
+
+public val SCRIPT_JUSTIFY_ARABIC_SEEN: ScriptJustify = 14
+
+public val SCRIPT_JUSTIFY_ARABIC_SEEN_M: ScriptJustify = 15
+
+public val SCRIPT_JUSTIFY_BLANK: ScriptJustify = 4
+
+public val SCRIPT_JUSTIFY_CHARACTER: ScriptJustify = 2
+
+public val SCRIPT_JUSTIFY_NONE: ScriptJustify = 0
+
+public val SCRIPT_JUSTIFY_RESERVED1: ScriptJustify = 3
+
+public val SCRIPT_JUSTIFY_RESERVED2: ScriptJustify = 5
+
+public val SCRIPT_JUSTIFY_RESERVED3: ScriptJustify = 6
+
+public val SCRIPT_TAG_UNKNOWN: UInt = 0u
+
+public val SCRIPT_UNDEFINED: UInt = 0u
+
+public val SGCM_RTL: UInt = 1u
+
+public val SIC_ASCIIDIGIT: ScriptIsComplexFlags = 2u
+
+public val SIC_COMPLEX: ScriptIsComplexFlags = 1u
+
+public val SIC_NEUTRAL: ScriptIsComplexFlags = 4u
+
+public val SORTING_PARADIGM_ICU: UInt = 16777216u
+
+public val SORTING_PARADIGM_NLS: UInt = 0u
+
+public val SORT_DIGITSASNUMBERS: CompareStringFlags = 8u
+
+public val SORT_STRINGSORT: CompareStringFlags = 4096u
+
+public val SSA_BREAK: UInt = 64u
+
+public val SSA_CLIP: UInt = 4u
+
+public val SSA_DONTGLYPH: UInt = 1073741824u
+
+public val SSA_DZWG: UInt = 16u
+
+public val SSA_FALLBACK: UInt = 32u
+
+public val SSA_FIT: UInt = 8u
+
+public val SSA_FULLMEASURE: UInt = 67108864u
+
+public val SSA_GCP: UInt = 512u
+
+public val SSA_GLYPHS: UInt = 128u
+
+public val SSA_HIDEHOTKEY: UInt = 8192u
+
+public val SSA_HOTKEY: UInt = 1024u
+
+public val SSA_HOTKEYONLY: UInt = 9216u
+
+public val SSA_LAYOUTRTL: UInt = 536870912u
+
+public val SSA_LINK: UInt = 4096u
+
+public val SSA_LPKANSIFALLBACK: UInt = 134217728u
+
+public val SSA_METAFILE: UInt = 2048u
+
+public val SSA_NOKASHIDA: UInt = 2147483648u
+
+public val SSA_PASSWORD: UInt = 1u
+
+public val SSA_PIDX: UInt = 268435456u
+
+public val SSA_RTL: UInt = 256u
+
+public val SSA_TAB: UInt = 2u
+
+public val SECOND_UNIT: CaldatetimeDateunit = 7
+
+public val TCI_SRCCHARSET: TranslateCharsetInfoFlags = 1u
+
+public val TCI_SRCCODEPAGE: TranslateCharsetInfoFlags = 2u
+
+public val TCI_SRCFONTSIG: TranslateCharsetInfoFlags = 3u
+
+public val TCI_SRCLOCALE: TranslateCharsetInfoFlags = 4096u
+
+public val TIME_FORCE24HOURFORMAT: TimeFormatFlags = 8u
+
+public val TIME_NOMINUTESORSECONDS: TimeFormatFlags = 1u
+
+public val TIME_NOSECONDS: TimeFormatFlags = 2u
+
+public val TIME_NOTIMEMARKER: TimeFormatFlags = 4u
+
+public val TICK_UNIT: CaldatetimeDateunit = 8
+
+public val U16_MAX_LENGTH: UInt = 2u
+
+public val U8_LEAD3_T1_BITS: Pcstr = s(" 000000000000\u001000")
+
+public val U8_LEAD4_T1_BITS: Pcstr = s("\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001e\u000f\u000f\u000f\u0000\u0000\u0000\u0000")
+
+public val U8_MAX_LENGTH: UInt = 4u
+
+public val UBIDI_DEFAULT_LTR: UInt = 254u
+
+public val UBIDI_DEFAULT_RTL: UInt = 255u
+
+public val UBIDI_DO_MIRRORING: UInt = 2u
+
+public val UBIDI_INSERT_LRM_FOR_NUMERIC: UInt = 4u
+
+public val UBIDI_KEEP_BASE_COMBINING: UInt = 1u
+
+public val UBIDI_LEVEL_OVERRIDE: UInt = 128u
+
+public val UBIDI_LOGICAL: UBiDiOrder = 0
+
+public val UBIDI_LTR: UBiDiDirection = 0
+
+public val UBIDI_MAP_NOWHERE: Int = -1
+
+public val UBIDI_MAX_EXPLICIT_LEVEL: UInt = 125u
+
+public val UBIDI_MIRRORING_OFF: UBiDiMirroring = 0
+
+public val UBIDI_MIRRORING_ON: UBiDiMirroring = 1
+
+public val UBIDI_MIXED: UBiDiDirection = 2
+
+public val UBIDI_NEUTRAL: UBiDiDirection = 3
+
+public val UBIDI_OPTION_DEFAULT: UBiDiReorderingOption = 0
+
+public val UBIDI_OPTION_INSERT_MARKS: UBiDiReorderingOption = 1
+
+public val UBIDI_OPTION_REMOVE_CONTROLS: UBiDiReorderingOption = 2
+
+public val UBIDI_OPTION_STREAMING: UBiDiReorderingOption = 4
+
+public val UBIDI_OUTPUT_REVERSE: UInt = 16u
+
+public val UBIDI_REMOVE_BIDI_CONTROLS: UInt = 8u
+
+public val UBIDI_REORDER_DEFAULT: UBiDiReorderingMode = 0
+
+public val UBIDI_REORDER_GROUP_NUMBERS_WITH_R: UBiDiReorderingMode = 2
+
+public val UBIDI_REORDER_INVERSE_FOR_NUMBERS_SPECIAL: UBiDiReorderingMode = 6
+
+public val UBIDI_REORDER_INVERSE_LIKE_DIRECT: UBiDiReorderingMode = 5
+
+public val UBIDI_REORDER_INVERSE_NUMBERS_AS_L: UBiDiReorderingMode = 4
+
+public val UBIDI_REORDER_NUMBERS_SPECIAL: UBiDiReorderingMode = 1
+
+public val UBIDI_REORDER_RUNS_ONLY: UBiDiReorderingMode = 3
+
+public val UBIDI_RTL: UBiDiDirection = 1
+
+public val UBIDI_VISUAL: UBiDiOrder = 1
+
+public val UBLOCK_ADLAM: UBlockCode = 263
+
+public val UBLOCK_AEGEAN_NUMBERS: UBlockCode = 119
+
+public val UBLOCK_AHOM: UBlockCode = 253
+
+public val UBLOCK_ALCHEMICAL_SYMBOLS: UBlockCode = 208
+
+public val UBLOCK_ALPHABETIC_PRESENTATION_FORMS: UBlockCode = 80
+
+public val UBLOCK_ANATOLIAN_HIEROGLYPHS: UBlockCode = 254
+
+public val UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION: UBlockCode = 126
+
+public val UBLOCK_ANCIENT_GREEK_NUMBERS: UBlockCode = 127
+
+public val UBLOCK_ANCIENT_SYMBOLS: UBlockCode = 165
+
+public val UBLOCK_ARABIC: UBlockCode = 12
+
+public val UBLOCK_ARABIC_EXTENDED_A: UBlockCode = 210
+
+public val UBLOCK_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS: UBlockCode = 211
+
+public val UBLOCK_ARABIC_PRESENTATION_FORMS_A: UBlockCode = 81
+
+public val UBLOCK_ARABIC_PRESENTATION_FORMS_B: UBlockCode = 85
+
+public val UBLOCK_ARABIC_SUPPLEMENT: UBlockCode = 128
+
+public val UBLOCK_ARMENIAN: UBlockCode = 10
+
+public val UBLOCK_ARROWS: UBlockCode = 46
+
+public val UBLOCK_AVESTAN: UBlockCode = 188
+
+public val UBLOCK_BALINESE: UBlockCode = 147
+
+public val UBLOCK_BAMUM: UBlockCode = 177
+
+public val UBLOCK_BAMUM_SUPPLEMENT: UBlockCode = 202
+
+public val UBLOCK_BASIC_LATIN: UBlockCode = 1
+
+public val UBLOCK_BASSA_VAH: UBlockCode = 221
+
+public val UBLOCK_BATAK: UBlockCode = 199
+
+public val UBLOCK_BENGALI: UBlockCode = 16
+
+public val UBLOCK_BHAIKSUKI: UBlockCode = 264
+
+public val UBLOCK_BLOCK_ELEMENTS: UBlockCode = 53
+
+public val UBLOCK_BOPOMOFO: UBlockCode = 64
+
+public val UBLOCK_BOPOMOFO_EXTENDED: UBlockCode = 67
+
+public val UBLOCK_BOX_DRAWING: UBlockCode = 52
+
+public val UBLOCK_BRAHMI: UBlockCode = 201
+
+public val UBLOCK_BRAILLE_PATTERNS: UBlockCode = 57
+
+public val UBLOCK_BUGINESE: UBlockCode = 129
+
+public val UBLOCK_BUHID: UBlockCode = 100
+
+public val UBLOCK_BYZANTINE_MUSICAL_SYMBOLS: UBlockCode = 91
+
+public val UBLOCK_CARIAN: UBlockCode = 168
+
+public val UBLOCK_CAUCASIAN_ALBANIAN: UBlockCode = 222
+
+public val UBLOCK_CHAKMA: UBlockCode = 212
+
+public val UBLOCK_CHAM: UBlockCode = 164
+
+public val UBLOCK_CHEROKEE: UBlockCode = 32
+
+public val UBLOCK_CHEROKEE_SUPPLEMENT: UBlockCode = 255
+
+public val UBLOCK_CHESS_SYMBOLS: UBlockCode = 281
+
+public val UBLOCK_CHORASMIAN: UBlockCode = 301
+
+public val UBLOCK_CJK_COMPATIBILITY: UBlockCode = 69
+
+public val UBLOCK_CJK_COMPATIBILITY_FORMS: UBlockCode = 83
+
+public val UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS: UBlockCode = 79
+
+public val UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT: UBlockCode = 95
+
+public val UBLOCK_CJK_RADICALS_SUPPLEMENT: UBlockCode = 58
+
+public val UBLOCK_CJK_STROKES: UBlockCode = 130
+
+public val UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION: UBlockCode = 61
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS: UBlockCode = 71
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A: UBlockCode = 70
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B: UBlockCode = 94
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C: UBlockCode = 197
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D: UBlockCode = 209
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_E: UBlockCode = 256
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_F: UBlockCode = 274
+
+public val UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_G: UBlockCode = 302
+
+public val UBLOCK_COMBINING_DIACRITICAL_MARKS: UBlockCode = 7
+
+public val UBLOCK_COMBINING_DIACRITICAL_MARKS_EXTENDED: UBlockCode = 224
+
+public val UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT: UBlockCode = 131
+
+public val UBLOCK_COMBINING_HALF_MARKS: UBlockCode = 82
+
+public val UBLOCK_COMBINING_MARKS_FOR_SYMBOLS: UBlockCode = 43
+
+public val UBLOCK_COMMON_INDIC_NUMBER_FORMS: UBlockCode = 178
+
+public val UBLOCK_CONTROL_PICTURES: UBlockCode = 49
+
+public val UBLOCK_COPTIC: UBlockCode = 132
+
+public val UBLOCK_COPTIC_EPACT_NUMBERS: UBlockCode = 223
+
+public val UBLOCK_COUNTING_ROD_NUMERALS: UBlockCode = 154
+
+public val UBLOCK_CUNEIFORM: UBlockCode = 152
+
+public val UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION: UBlockCode = 153
+
+public val UBLOCK_CURRENCY_SYMBOLS: UBlockCode = 42
+
+public val UBLOCK_CYPRIOT_SYLLABARY: UBlockCode = 123
+
+public val UBLOCK_CYRILLIC: UBlockCode = 9
+
+public val UBLOCK_CYRILLIC_EXTENDED_A: UBlockCode = 158
+
+public val UBLOCK_CYRILLIC_EXTENDED_B: UBlockCode = 160
+
+public val UBLOCK_CYRILLIC_EXTENDED_C: UBlockCode = 265
+
+public val UBLOCK_CYRILLIC_SUPPLEMENT: UBlockCode = 97
+
+public val UBLOCK_CYRILLIC_SUPPLEMENTARY: UBlockCode = 97
+
+public val UBLOCK_DESERET: UBlockCode = 90
+
+public val UBLOCK_DEVANAGARI: UBlockCode = 15
+
+public val UBLOCK_DEVANAGARI_EXTENDED: UBlockCode = 179
+
+public val UBLOCK_DINGBATS: UBlockCode = 56
+
+public val UBLOCK_DIVES_AKURU: UBlockCode = 303
+
+public val UBLOCK_DOGRA: UBlockCode = 282
+
+public val UBLOCK_DOMINO_TILES: UBlockCode = 171
+
+public val UBLOCK_DUPLOYAN: UBlockCode = 225
+
+public val UBLOCK_EARLY_DYNASTIC_CUNEIFORM: UBlockCode = 257
+
+public val UBLOCK_EGYPTIAN_HIEROGLYPHS: UBlockCode = 194
+
+public val UBLOCK_EGYPTIAN_HIEROGLYPH_FORMAT_CONTROLS: UBlockCode = 292
+
+public val UBLOCK_ELBASAN: UBlockCode = 226
+
+public val UBLOCK_ELYMAIC: UBlockCode = 293
+
+public val UBLOCK_EMOTICONS: UBlockCode = 206
+
+public val UBLOCK_ENCLOSED_ALPHANUMERICS: UBlockCode = 51
+
+public val UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT: UBlockCode = 195
+
+public val UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS: UBlockCode = 68
+
+public val UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT: UBlockCode = 196
+
+public val UBLOCK_ETHIOPIC: UBlockCode = 31
+
+public val UBLOCK_ETHIOPIC_EXTENDED: UBlockCode = 133
+
+public val UBLOCK_ETHIOPIC_EXTENDED_A: UBlockCode = 200
+
+public val UBLOCK_ETHIOPIC_SUPPLEMENT: UBlockCode = 134
+
+public val UBLOCK_GENERAL_PUNCTUATION: UBlockCode = 40
+
+public val UBLOCK_GEOMETRIC_SHAPES: UBlockCode = 54
+
+public val UBLOCK_GEOMETRIC_SHAPES_EXTENDED: UBlockCode = 227
+
+public val UBLOCK_GEORGIAN: UBlockCode = 29
+
+public val UBLOCK_GEORGIAN_EXTENDED: UBlockCode = 283
+
+public val UBLOCK_GEORGIAN_SUPPLEMENT: UBlockCode = 135
+
+public val UBLOCK_GLAGOLITIC: UBlockCode = 136
+
+public val UBLOCK_GLAGOLITIC_SUPPLEMENT: UBlockCode = 266
+
+public val UBLOCK_GOTHIC: UBlockCode = 89
+
+public val UBLOCK_GRANTHA: UBlockCode = 228
+
+public val UBLOCK_GREEK: UBlockCode = 8
+
+public val UBLOCK_GREEK_EXTENDED: UBlockCode = 39
+
+public val UBLOCK_GUJARATI: UBlockCode = 18
+
+public val UBLOCK_GUNJALA_GONDI: UBlockCode = 284
+
+public val UBLOCK_GURMUKHI: UBlockCode = 17
+
+public val UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS: UBlockCode = 87
+
+public val UBLOCK_HANGUL_COMPATIBILITY_JAMO: UBlockCode = 65
+
+public val UBLOCK_HANGUL_JAMO: UBlockCode = 30
+
+public val UBLOCK_HANGUL_JAMO_EXTENDED_A: UBlockCode = 180
+
+public val UBLOCK_HANGUL_JAMO_EXTENDED_B: UBlockCode = 185
+
+public val UBLOCK_HANGUL_SYLLABLES: UBlockCode = 74
+
+public val UBLOCK_HANIFI_ROHINGYA: UBlockCode = 285
+
+public val UBLOCK_HANUNOO: UBlockCode = 99
+
+public val UBLOCK_HATRAN: UBlockCode = 258
+
+public val UBLOCK_HEBREW: UBlockCode = 11
+
+public val UBLOCK_HIGH_PRIVATE_USE_SURROGATES: UBlockCode = 76
+
+public val UBLOCK_HIGH_SURROGATES: UBlockCode = 75
+
+public val UBLOCK_HIRAGANA: UBlockCode = 62
+
+public val UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS: UBlockCode = 60
+
+public val UBLOCK_IDEOGRAPHIC_SYMBOLS_AND_PUNCTUATION: UBlockCode = 267
+
+public val UBLOCK_IMPERIAL_ARAMAIC: UBlockCode = 186
+
+public val UBLOCK_INDIC_SIYAQ_NUMBERS: UBlockCode = 286
+
+public val UBLOCK_INSCRIPTIONAL_PAHLAVI: UBlockCode = 190
+
+public val UBLOCK_INSCRIPTIONAL_PARTHIAN: UBlockCode = 189
+
+public val UBLOCK_INVALID_CODE: UBlockCode = -1
+
+public val UBLOCK_IPA_EXTENSIONS: UBlockCode = 5
+
+public val UBLOCK_JAVANESE: UBlockCode = 181
+
+public val UBLOCK_KAITHI: UBlockCode = 193
+
+public val UBLOCK_KANA_EXTENDED_A: UBlockCode = 275
+
+public val UBLOCK_KANA_SUPPLEMENT: UBlockCode = 203
+
+public val UBLOCK_KANBUN: UBlockCode = 66
+
+public val UBLOCK_KANGXI_RADICALS: UBlockCode = 59
+
+public val UBLOCK_KANNADA: UBlockCode = 22
+
+public val UBLOCK_KATAKANA: UBlockCode = 63
+
+public val UBLOCK_KATAKANA_PHONETIC_EXTENSIONS: UBlockCode = 107
+
+public val UBLOCK_KAYAH_LI: UBlockCode = 162
+
+public val UBLOCK_KHAROSHTHI: UBlockCode = 137
+
+public val UBLOCK_KHITAN_SMALL_SCRIPT: UBlockCode = 304
+
+public val UBLOCK_KHMER: UBlockCode = 36
+
+public val UBLOCK_KHMER_SYMBOLS: UBlockCode = 113
+
+public val UBLOCK_KHOJKI: UBlockCode = 229
+
+public val UBLOCK_KHUDAWADI: UBlockCode = 230
+
+public val UBLOCK_LAO: UBlockCode = 26
+
+public val UBLOCK_LATIN_1_SUPPLEMENT: UBlockCode = 2
+
+public val UBLOCK_LATIN_EXTENDED_A: UBlockCode = 3
+
+public val UBLOCK_LATIN_EXTENDED_ADDITIONAL: UBlockCode = 38
+
+public val UBLOCK_LATIN_EXTENDED_B: UBlockCode = 4
+
+public val UBLOCK_LATIN_EXTENDED_C: UBlockCode = 148
+
+public val UBLOCK_LATIN_EXTENDED_D: UBlockCode = 149
+
+public val UBLOCK_LATIN_EXTENDED_E: UBlockCode = 231
+
+public val UBLOCK_LEPCHA: UBlockCode = 156
+
+public val UBLOCK_LETTERLIKE_SYMBOLS: UBlockCode = 44
+
+public val UBLOCK_LIMBU: UBlockCode = 111
+
+public val UBLOCK_LINEAR_A: UBlockCode = 232
+
+public val UBLOCK_LINEAR_B_IDEOGRAMS: UBlockCode = 118
+
+public val UBLOCK_LINEAR_B_SYLLABARY: UBlockCode = 117
+
+public val UBLOCK_LISU: UBlockCode = 176
+
+public val UBLOCK_LISU_SUPPLEMENT: UBlockCode = 305
+
+public val UBLOCK_LOW_SURROGATES: UBlockCode = 77
+
+public val UBLOCK_LYCIAN: UBlockCode = 167
+
+public val UBLOCK_LYDIAN: UBlockCode = 169
+
+public val UBLOCK_MAHAJANI: UBlockCode = 233
+
+public val UBLOCK_MAHJONG_TILES: UBlockCode = 170
+
+public val UBLOCK_MAKASAR: UBlockCode = 287
+
+public val UBLOCK_MALAYALAM: UBlockCode = 23
+
+public val UBLOCK_MANDAIC: UBlockCode = 198
+
+public val UBLOCK_MANICHAEAN: UBlockCode = 234
+
+public val UBLOCK_MARCHEN: UBlockCode = 268
+
+public val UBLOCK_MASARAM_GONDI: UBlockCode = 276
+
+public val UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS: UBlockCode = 93
+
+public val UBLOCK_MATHEMATICAL_OPERATORS: UBlockCode = 47
+
+public val UBLOCK_MAYAN_NUMERALS: UBlockCode = 288
+
+public val UBLOCK_MEDEFAIDRIN: UBlockCode = 289
+
+public val UBLOCK_MEETEI_MAYEK: UBlockCode = 184
+
+public val UBLOCK_MEETEI_MAYEK_EXTENSIONS: UBlockCode = 213
+
+public val UBLOCK_MENDE_KIKAKUI: UBlockCode = 235
+
+public val UBLOCK_MEROITIC_CURSIVE: UBlockCode = 214
+
+public val UBLOCK_MEROITIC_HIEROGLYPHS: UBlockCode = 215
+
+public val UBLOCK_MIAO: UBlockCode = 216
+
+public val UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A: UBlockCode = 102
+
+public val UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B: UBlockCode = 105
+
+public val UBLOCK_MISCELLANEOUS_SYMBOLS: UBlockCode = 55
+
+public val UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS: UBlockCode = 115
+
+public val UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS: UBlockCode = 205
+
+public val UBLOCK_MISCELLANEOUS_TECHNICAL: UBlockCode = 48
+
+public val UBLOCK_MODI: UBlockCode = 236
+
+public val UBLOCK_MODIFIER_TONE_LETTERS: UBlockCode = 138
+
+public val UBLOCK_MONGOLIAN: UBlockCode = 37
+
+public val UBLOCK_MONGOLIAN_SUPPLEMENT: UBlockCode = 269
+
+public val UBLOCK_MRO: UBlockCode = 237
+
+public val UBLOCK_MULTANI: UBlockCode = 259
+
+public val UBLOCK_MUSICAL_SYMBOLS: UBlockCode = 92
+
+public val UBLOCK_MYANMAR: UBlockCode = 28
+
+public val UBLOCK_MYANMAR_EXTENDED_A: UBlockCode = 182
+
+public val UBLOCK_MYANMAR_EXTENDED_B: UBlockCode = 238
+
+public val UBLOCK_NABATAEAN: UBlockCode = 239
+
+public val UBLOCK_NANDINAGARI: UBlockCode = 294
+
+public val UBLOCK_NEWA: UBlockCode = 270
+
+public val UBLOCK_NEW_TAI_LUE: UBlockCode = 139
+
+public val UBLOCK_NKO: UBlockCode = 146
+
+public val UBLOCK_NO_BLOCK: UBlockCode = 0
+
+public val UBLOCK_NUMBER_FORMS: UBlockCode = 45
+
+public val UBLOCK_NUSHU: UBlockCode = 277
+
+public val UBLOCK_NYIAKENG_PUACHUE_HMONG: UBlockCode = 295
+
+public val UBLOCK_OGHAM: UBlockCode = 34
+
+public val UBLOCK_OLD_HUNGARIAN: UBlockCode = 260
+
+public val UBLOCK_OLD_ITALIC: UBlockCode = 88
+
+public val UBLOCK_OLD_NORTH_ARABIAN: UBlockCode = 240
+
+public val UBLOCK_OLD_PERMIC: UBlockCode = 241
+
+public val UBLOCK_OLD_PERSIAN: UBlockCode = 140
+
+public val UBLOCK_OLD_SOGDIAN: UBlockCode = 290
+
+public val UBLOCK_OLD_SOUTH_ARABIAN: UBlockCode = 187
+
+public val UBLOCK_OLD_TURKIC: UBlockCode = 191
+
+public val UBLOCK_OL_CHIKI: UBlockCode = 157
+
+public val UBLOCK_OPTICAL_CHARACTER_RECOGNITION: UBlockCode = 50
+
+public val UBLOCK_ORIYA: UBlockCode = 19
+
+public val UBLOCK_ORNAMENTAL_DINGBATS: UBlockCode = 242
+
+public val UBLOCK_OSAGE: UBlockCode = 271
+
+public val UBLOCK_OSMANYA: UBlockCode = 122
+
+public val UBLOCK_OTTOMAN_SIYAQ_NUMBERS: UBlockCode = 296
+
+public val UBLOCK_PAHAWH_HMONG: UBlockCode = 243
+
+public val UBLOCK_PALMYRENE: UBlockCode = 244
+
+public val UBLOCK_PAU_CIN_HAU: UBlockCode = 245
+
+public val UBLOCK_PHAGS_PA: UBlockCode = 150
+
+public val UBLOCK_PHAISTOS_DISC: UBlockCode = 166
+
+public val UBLOCK_PHOENICIAN: UBlockCode = 151
+
+public val UBLOCK_PHONETIC_EXTENSIONS: UBlockCode = 114
+
+public val UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT: UBlockCode = 141
+
+public val UBLOCK_PLAYING_CARDS: UBlockCode = 204
+
+public val UBLOCK_PRIVATE_USE: UBlockCode = 78
+
+public val UBLOCK_PRIVATE_USE_AREA: UBlockCode = 78
+
+public val UBLOCK_PSALTER_PAHLAVI: UBlockCode = 246
+
+public val UBLOCK_REJANG: UBlockCode = 163
+
+public val UBLOCK_RUMI_NUMERAL_SYMBOLS: UBlockCode = 192
+
+public val UBLOCK_RUNIC: UBlockCode = 35
+
+public val UBLOCK_SAMARITAN: UBlockCode = 172
+
+public val UBLOCK_SAURASHTRA: UBlockCode = 161
+
+public val UBLOCK_SHARADA: UBlockCode = 217
+
+public val UBLOCK_SHAVIAN: UBlockCode = 121
+
+public val UBLOCK_SHORTHAND_FORMAT_CONTROLS: UBlockCode = 247
+
+public val UBLOCK_SIDDHAM: UBlockCode = 248
+
+public val UBLOCK_SINHALA: UBlockCode = 24
+
+public val UBLOCK_SINHALA_ARCHAIC_NUMBERS: UBlockCode = 249
+
+public val UBLOCK_SMALL_FORM_VARIANTS: UBlockCode = 84
+
+public val UBLOCK_SMALL_KANA_EXTENSION: UBlockCode = 297
+
+public val UBLOCK_SOGDIAN: UBlockCode = 291
+
+public val UBLOCK_SORA_SOMPENG: UBlockCode = 218
+
+public val UBLOCK_SOYOMBO: UBlockCode = 278
+
+public val UBLOCK_SPACING_MODIFIER_LETTERS: UBlockCode = 6
+
+public val UBLOCK_SPECIALS: UBlockCode = 86
+
+public val UBLOCK_SUNDANESE: UBlockCode = 155
+
+public val UBLOCK_SUNDANESE_SUPPLEMENT: UBlockCode = 219
+
+public val UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS: UBlockCode = 41
+
+public val UBLOCK_SUPPLEMENTAL_ARROWS_A: UBlockCode = 103
+
+public val UBLOCK_SUPPLEMENTAL_ARROWS_B: UBlockCode = 104
+
+public val UBLOCK_SUPPLEMENTAL_ARROWS_C: UBlockCode = 250
+
+public val UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS: UBlockCode = 106
+
+public val UBLOCK_SUPPLEMENTAL_PUNCTUATION: UBlockCode = 142
+
+public val UBLOCK_SUPPLEMENTAL_SYMBOLS_AND_PICTOGRAPHS: UBlockCode = 261
+
+public val UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A: UBlockCode = 109
+
+public val UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B: UBlockCode = 110
+
+public val UBLOCK_SUTTON_SIGNWRITING: UBlockCode = 262
+
+public val UBLOCK_SYLOTI_NAGRI: UBlockCode = 143
+
+public val UBLOCK_SYMBOLS_AND_PICTOGRAPHS_EXTENDED_A: UBlockCode = 298
+
+public val UBLOCK_SYMBOLS_FOR_LEGACY_COMPUTING: UBlockCode = 306
+
+public val UBLOCK_SYRIAC: UBlockCode = 13
+
+public val UBLOCK_SYRIAC_SUPPLEMENT: UBlockCode = 279
+
+public val UBLOCK_TAGALOG: UBlockCode = 98
+
+public val UBLOCK_TAGBANWA: UBlockCode = 101
+
+public val UBLOCK_TAGS: UBlockCode = 96
+
+public val UBLOCK_TAI_LE: UBlockCode = 112
+
+public val UBLOCK_TAI_THAM: UBlockCode = 174
+
+public val UBLOCK_TAI_VIET: UBlockCode = 183
+
+public val UBLOCK_TAI_XUAN_JING_SYMBOLS: UBlockCode = 124
+
+public val UBLOCK_TAKRI: UBlockCode = 220
+
+public val UBLOCK_TAMIL: UBlockCode = 20
+
+public val UBLOCK_TAMIL_SUPPLEMENT: UBlockCode = 299
+
+public val UBLOCK_TANGUT: UBlockCode = 272
+
+public val UBLOCK_TANGUT_COMPONENTS: UBlockCode = 273
+
+public val UBLOCK_TANGUT_SUPPLEMENT: UBlockCode = 307
+
+public val UBLOCK_TELUGU: UBlockCode = 21
+
+public val UBLOCK_THAANA: UBlockCode = 14
+
+public val UBLOCK_THAI: UBlockCode = 25
+
+public val UBLOCK_TIBETAN: UBlockCode = 27
+
+public val UBLOCK_TIFINAGH: UBlockCode = 144
+
+public val UBLOCK_TIRHUTA: UBlockCode = 251
+
+public val UBLOCK_TRANSPORT_AND_MAP_SYMBOLS: UBlockCode = 207
+
+public val UBLOCK_UGARITIC: UBlockCode = 120
+
+public val UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS: UBlockCode = 33
+
+public val UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED: UBlockCode = 173
+
+public val UBLOCK_VAI: UBlockCode = 159
+
+public val UBLOCK_VARIATION_SELECTORS: UBlockCode = 108
+
+public val UBLOCK_VARIATION_SELECTORS_SUPPLEMENT: UBlockCode = 125
+
+public val UBLOCK_VEDIC_EXTENSIONS: UBlockCode = 175
+
+public val UBLOCK_VERTICAL_FORMS: UBlockCode = 145
+
+public val UBLOCK_WANCHO: UBlockCode = 300
+
+public val UBLOCK_WARANG_CITI: UBlockCode = 252
+
+public val UBLOCK_YEZIDI: UBlockCode = 308
+
+public val UBLOCK_YIJING_HEXAGRAM_SYMBOLS: UBlockCode = 116
+
+public val UBLOCK_YI_RADICALS: UBlockCode = 73
+
+public val UBLOCK_YI_SYLLABLES: UBlockCode = 72
+
+public val UBLOCK_ZANABAZAR_SQUARE: UBlockCode = 280
+
+public val UBRK_CHARACTER: UBreakIteratorType = 0
+
+public val UBRK_LINE: UBreakIteratorType = 2
+
+public val UBRK_LINE_HARD: ULineBreakTag = 100
+
+public val UBRK_LINE_HARD_LIMIT: ULineBreakTag = 200
+
+public val UBRK_LINE_SOFT: ULineBreakTag = 0
+
+public val UBRK_LINE_SOFT_LIMIT: ULineBreakTag = 100
+
+public val UBRK_SENTENCE: UBreakIteratorType = 3
+
+public val UBRK_SENTENCE_SEP: USentenceBreakTag = 100
+
+public val UBRK_SENTENCE_SEP_LIMIT: USentenceBreakTag = 200
+
+public val UBRK_SENTENCE_TERM: USentenceBreakTag = 0
+
+public val UBRK_SENTENCE_TERM_LIMIT: USentenceBreakTag = 100
+
+public val UBRK_WORD: UBreakIteratorType = 1
+
+public val UBRK_WORD_IDEO: UWordBreak = 400
+
+public val UBRK_WORD_IDEO_LIMIT: UWordBreak = 500
+
+public val UBRK_WORD_KANA: UWordBreak = 300
+
+public val UBRK_WORD_KANA_LIMIT: UWordBreak = 400
+
+public val UBRK_WORD_LETTER: UWordBreak = 200
+
+public val UBRK_WORD_LETTER_LIMIT: UWordBreak = 300
+
+public val UBRK_WORD_NONE: UWordBreak = 0
+
+public val UBRK_WORD_NONE_LIMIT: UWordBreak = 100
+
+public val UBRK_WORD_NUMBER: UWordBreak = 100
+
+public val UBRK_WORD_NUMBER_LIMIT: UWordBreak = 200
+
+public val UCAL_ACTUAL_MAXIMUM: UCalendarLimitType = 5
+
+public val UCAL_ACTUAL_MINIMUM: UCalendarLimitType = 4
+
+public val UCAL_AM: UCalendarAMPMs = 0
+
+public val UCAL_AM_PM: UCalendarDateFields = 9
+
+public val UCAL_APRIL: UCalendarMonths = 3
+
+public val UCAL_AUGUST: UCalendarMonths = 7
+
+public val UCAL_DATE: UCalendarDateFields = 5
+
+public val UCAL_DAY_OF_MONTH: UCalendarDateFields = 5
+
+public val UCAL_DAY_OF_WEEK: UCalendarDateFields = 7
+
+public val UCAL_DAY_OF_WEEK_IN_MONTH: UCalendarDateFields = 8
+
+public val UCAL_DAY_OF_YEAR: UCalendarDateFields = 6
+
+public val UCAL_DECEMBER: UCalendarMonths = 11
+
+public val UCAL_DEFAULT: UCalendarType = 0
+
+public val UCAL_DOW_LOCAL: UCalendarDateFields = 18
+
+public val UCAL_DST: UCalendarDisplayNameType = 2
+
+public val UCAL_DST_OFFSET: UCalendarDateFields = 16
+
+public val UCAL_ERA: UCalendarDateFields = 0
+
+public val UCAL_EXTENDED_YEAR: UCalendarDateFields = 19
+
+public val UCAL_FEBRUARY: UCalendarMonths = 1
+
+public val UCAL_FIELD_COUNT: UCalendarDateFields = 23
+
+public val UCAL_FIRST_DAY_OF_WEEK: UCalendarAttribute = 1
+
+public val UCAL_FRIDAY: UCalendarDaysOfWeek = 6
+
+public val UCAL_GREATEST_MINIMUM: UCalendarLimitType = 2
+
+public val UCAL_GREGORIAN: UCalendarType = 1
+
+public val UCAL_HOUR: UCalendarDateFields = 10
+
+public val UCAL_HOUR_OF_DAY: UCalendarDateFields = 11
+
+public val UCAL_IS_LEAP_MONTH: UCalendarDateFields = 22
+
+public val UCAL_JANUARY: UCalendarMonths = 0
+
+public val UCAL_JULIAN_DAY: UCalendarDateFields = 20
+
+public val UCAL_JULY: UCalendarMonths = 6
+
+public val UCAL_JUNE: UCalendarMonths = 5
+
+public val UCAL_LEAST_MAXIMUM: UCalendarLimitType = 3
+
+public val UCAL_LENIENT: UCalendarAttribute = 0
+
+public val UCAL_MARCH: UCalendarMonths = 2
+
+public val UCAL_MAXIMUM: UCalendarLimitType = 1
+
+public val UCAL_MAY: UCalendarMonths = 4
+
+public val UCAL_MILLISECOND: UCalendarDateFields = 14
+
+public val UCAL_MILLISECONDS_IN_DAY: UCalendarDateFields = 21
+
+public val UCAL_MINIMAL_DAYS_IN_FIRST_WEEK: UCalendarAttribute = 2
+
+public val UCAL_MINIMUM: UCalendarLimitType = 0
+
+public val UCAL_MINUTE: UCalendarDateFields = 12
+
+public val UCAL_MONDAY: UCalendarDaysOfWeek = 2
+
+public val UCAL_MONTH: UCalendarDateFields = 2
+
+public val UCAL_NOVEMBER: UCalendarMonths = 10
+
+public val UCAL_OCTOBER: UCalendarMonths = 9
+
+public val UCAL_PM: UCalendarAMPMs = 1
+
+public val UCAL_REPEATED_WALL_TIME: UCalendarAttribute = 3
+
+public val UCAL_SATURDAY: UCalendarDaysOfWeek = 7
+
+public val UCAL_SECOND: UCalendarDateFields = 13
+
+public val UCAL_SEPTEMBER: UCalendarMonths = 8
+
+public val UCAL_SHORT_DST: UCalendarDisplayNameType = 3
+
+public val UCAL_SHORT_STANDARD: UCalendarDisplayNameType = 1
+
+public val UCAL_SKIPPED_WALL_TIME: UCalendarAttribute = 4
+
+public val UCAL_STANDARD: UCalendarDisplayNameType = 0
+
+public val UCAL_SUNDAY: UCalendarDaysOfWeek = 1
+
+public val UCAL_THURSDAY: UCalendarDaysOfWeek = 5
+
+public val UCAL_TRADITIONAL: UCalendarType = 0
+
+public val UCAL_TUESDAY: UCalendarDaysOfWeek = 3
+
+public val UCAL_TZ_TRANSITION_NEXT: UTimeZoneTransitionType = 0
+
+public val UCAL_TZ_TRANSITION_NEXT_INCLUSIVE: UTimeZoneTransitionType = 1
+
+public val UCAL_TZ_TRANSITION_PREVIOUS: UTimeZoneTransitionType = 2
+
+public val UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE: UTimeZoneTransitionType = 3
+
+public val UCAL_UNDECIMBER: UCalendarMonths = 12
+
+public val UCAL_UNKNOWN_ZONE_ID: Pcstr = s("Etc/Unknown")
+
+public val UCAL_WALLTIME_FIRST: UCalendarWallTimeOption = 1
+
+public val UCAL_WALLTIME_LAST: UCalendarWallTimeOption = 0
+
+public val UCAL_WALLTIME_NEXT_VALID: UCalendarWallTimeOption = 2
+
+public val UCAL_WEDNESDAY: UCalendarDaysOfWeek = 4
+
+public val UCAL_WEEKDAY: UCalendarWeekdayType = 0
+
+public val UCAL_WEEKEND: UCalendarWeekdayType = 1
+
+public val UCAL_WEEKEND_CEASE: UCalendarWeekdayType = 3
+
+public val UCAL_WEEKEND_ONSET: UCalendarWeekdayType = 2
+
+public val UCAL_WEEK_OF_MONTH: UCalendarDateFields = 4
+
+public val UCAL_WEEK_OF_YEAR: UCalendarDateFields = 3
+
+public val UCAL_YEAR: UCalendarDateFields = 1
+
+public val UCAL_YEAR_WOY: UCalendarDateFields = 17
+
+public val UCAL_ZONE_OFFSET: UCalendarDateFields = 15
+
+public val UCAL_ZONE_TYPE_ANY: USystemTimeZoneType = 0
+
+public val UCAL_ZONE_TYPE_CANONICAL: USystemTimeZoneType = 1
+
+public val UCAL_ZONE_TYPE_CANONICAL_LOCATION: USystemTimeZoneType = 2
+
+public val UCHAR_AGE: UProperty = 16384
+
+public val UCHAR_ALPHABETIC: UProperty = 0
+
+public val UCHAR_ASCII_HEX_DIGIT: UProperty = 1
+
+public val UCHAR_BIDI_CLASS: UProperty = 4096
+
+public val UCHAR_BIDI_CONTROL: UProperty = 2
+
+public val UCHAR_BIDI_MIRRORED: UProperty = 3
+
+public val UCHAR_BIDI_MIRRORING_GLYPH: UProperty = 16385
+
+public val UCHAR_BIDI_PAIRED_BRACKET: UProperty = 16397
+
+public val UCHAR_BIDI_PAIRED_BRACKET_TYPE: UProperty = 4117
+
+public val UCHAR_BINARY_START: UProperty = 0
+
+public val UCHAR_BLOCK: UProperty = 4097
+
+public val UCHAR_CANONICAL_COMBINING_CLASS: UProperty = 4098
+
+public val UCHAR_CASED: UProperty = 49
+
+public val UCHAR_CASE_FOLDING: UProperty = 16386
+
+public val UCHAR_CASE_IGNORABLE: UProperty = 50
+
+public val UCHAR_CASE_SENSITIVE: UProperty = 34
+
+public val UCHAR_CHANGES_WHEN_CASEFOLDED: UProperty = 54
+
+public val UCHAR_CHANGES_WHEN_CASEMAPPED: UProperty = 55
+
+public val UCHAR_CHANGES_WHEN_LOWERCASED: UProperty = 51
+
+public val UCHAR_CHANGES_WHEN_NFKC_CASEFOLDED: UProperty = 56
+
+public val UCHAR_CHANGES_WHEN_TITLECASED: UProperty = 53
+
+public val UCHAR_CHANGES_WHEN_UPPERCASED: UProperty = 52
+
+public val UCHAR_DASH: UProperty = 4
+
+public val UCHAR_DECOMPOSITION_TYPE: UProperty = 4099
+
+public val UCHAR_DEFAULT_IGNORABLE_CODE_POINT: UProperty = 5
+
+public val UCHAR_DEPRECATED: UProperty = 6
+
+public val UCHAR_DIACRITIC: UProperty = 7
+
+public val UCHAR_DOUBLE_START: UProperty = 12288
+
+public val UCHAR_EAST_ASIAN_WIDTH: UProperty = 4100
+
+public val UCHAR_EMOJI: UProperty = 57
+
+public val UCHAR_EMOJI_COMPONENT: UProperty = 61
+
+public val UCHAR_EMOJI_MODIFIER: UProperty = 59
+
+public val UCHAR_EMOJI_MODIFIER_BASE: UProperty = 60
+
+public val UCHAR_EMOJI_PRESENTATION: UProperty = 58
+
+public val UCHAR_EXTENDED_PICTOGRAPHIC: UProperty = 64
+
+public val UCHAR_EXTENDER: UProperty = 8
+
+public val UCHAR_FULL_COMPOSITION_EXCLUSION: UProperty = 9
+
+public val UCHAR_GENERAL_CATEGORY: UProperty = 4101
+
+public val UCHAR_GENERAL_CATEGORY_MASK: UProperty = 8192
+
+public val UCHAR_GRAPHEME_BASE: UProperty = 10
+
+public val UCHAR_GRAPHEME_CLUSTER_BREAK: UProperty = 4114
+
+public val UCHAR_GRAPHEME_EXTEND: UProperty = 11
+
+public val UCHAR_GRAPHEME_LINK: UProperty = 12
+
+public val UCHAR_HANGUL_SYLLABLE_TYPE: UProperty = 4107
+
+public val UCHAR_HEX_DIGIT: UProperty = 13
+
+public val UCHAR_HYPHEN: UProperty = 14
+
+public val UCHAR_IDEOGRAPHIC: UProperty = 17
+
+public val UCHAR_IDS_BINARY_OPERATOR: UProperty = 18
+
+public val UCHAR_IDS_TRINARY_OPERATOR: UProperty = 19
+
+public val UCHAR_ID_CONTINUE: UProperty = 15
+
+public val UCHAR_ID_START: UProperty = 16
+
+public val UCHAR_INDIC_POSITIONAL_CATEGORY: UProperty = 4118
+
+public val UCHAR_INDIC_SYLLABIC_CATEGORY: UProperty = 4119
+
+public val UCHAR_INT_START: UProperty = 4096
+
+public val UCHAR_INVALID_CODE: UProperty = -1
+
+public val UCHAR_JOINING_GROUP: UProperty = 4102
+
+public val UCHAR_JOINING_TYPE: UProperty = 4103
+
+public val UCHAR_JOIN_CONTROL: UProperty = 20
+
+public val UCHAR_LEAD_CANONICAL_COMBINING_CLASS: UProperty = 4112
+
+public val UCHAR_LINE_BREAK: UProperty = 4104
+
+public val UCHAR_LOGICAL_ORDER_EXCEPTION: UProperty = 21
+
+public val UCHAR_LOWERCASE: UProperty = 22
+
+public val UCHAR_LOWERCASE_MAPPING: UProperty = 16388
+
+public val UCHAR_MASK_START: UProperty = 8192
+
+public val UCHAR_MATH: UProperty = 23
+
+public val UCHAR_MAX_VALUE: UInt = 1114111u
+
+public val UCHAR_MIN_VALUE: UInt = 0u
+
+public val UCHAR_NAME: UProperty = 16389
+
+public val UCHAR_NFC_INERT: UProperty = 39
+
+public val UCHAR_NFC_QUICK_CHECK: UProperty = 4110
+
+public val UCHAR_NFD_INERT: UProperty = 37
+
+public val UCHAR_NFD_QUICK_CHECK: UProperty = 4108
+
+public val UCHAR_NFKC_INERT: UProperty = 40
+
+public val UCHAR_NFKC_QUICK_CHECK: UProperty = 4111
+
+public val UCHAR_NFKD_INERT: UProperty = 38
+
+public val UCHAR_NFKD_QUICK_CHECK: UProperty = 4109
+
+public val UCHAR_NONCHARACTER_CODE_POINT: UProperty = 24
+
+public val UCHAR_NUMERIC_TYPE: UProperty = 4105
+
+public val UCHAR_NUMERIC_VALUE: UProperty = 12288
+
+public val UCHAR_OTHER_PROPERTY_START: UProperty = 28672
+
+public val UCHAR_PATTERN_SYNTAX: UProperty = 42
+
+public val UCHAR_PATTERN_WHITE_SPACE: UProperty = 43
+
+public val UCHAR_POSIX_ALNUM: UProperty = 44
+
+public val UCHAR_POSIX_BLANK: UProperty = 45
+
+public val UCHAR_POSIX_GRAPH: UProperty = 46
+
+public val UCHAR_POSIX_PRINT: UProperty = 47
+
+public val UCHAR_POSIX_XDIGIT: UProperty = 48
+
+public val UCHAR_PREPENDED_CONCATENATION_MARK: UProperty = 63
+
+public val UCHAR_QUOTATION_MARK: UProperty = 25
+
+public val UCHAR_RADICAL: UProperty = 26
+
+public val UCHAR_REGIONAL_INDICATOR: UProperty = 62
+
+public val UCHAR_SCRIPT: UProperty = 4106
+
+public val UCHAR_SCRIPT_EXTENSIONS: UProperty = 28672
+
+public val UCHAR_SEGMENT_STARTER: UProperty = 41
+
+public val UCHAR_SENTENCE_BREAK: UProperty = 4115
+
+public val UCHAR_SIMPLE_CASE_FOLDING: UProperty = 16390
+
+public val UCHAR_SIMPLE_LOWERCASE_MAPPING: UProperty = 16391
+
+public val UCHAR_SIMPLE_TITLECASE_MAPPING: UProperty = 16392
+
+public val UCHAR_SIMPLE_UPPERCASE_MAPPING: UProperty = 16393
+
+public val UCHAR_SOFT_DOTTED: UProperty = 27
+
+public val UCHAR_STRING_START: UProperty = 16384
+
+public val UCHAR_S_TERM: UProperty = 35
+
+public val UCHAR_TERMINAL_PUNCTUATION: UProperty = 28
+
+public val UCHAR_TITLECASE_MAPPING: UProperty = 16394
+
+public val UCHAR_TRAIL_CANONICAL_COMBINING_CLASS: UProperty = 4113
+
+public val UCHAR_UNIFIED_IDEOGRAPH: UProperty = 29
+
+public val UCHAR_UPPERCASE: UProperty = 30
+
+public val UCHAR_UPPERCASE_MAPPING: UProperty = 16396
+
+public val UCHAR_VARIATION_SELECTOR: UProperty = 36
+
+public val UCHAR_VERTICAL_ORIENTATION: UProperty = 4120
+
+public val UCHAR_WHITE_SPACE: UProperty = 31
+
+public val UCHAR_WORD_BREAK: UProperty = 4116
+
+public val UCHAR_XID_CONTINUE: UProperty = 32
+
+public val UCHAR_XID_START: UProperty = 33
+
+public val UCLN_NO_AUTO_CLEANUP: UInt = 1u
+
+public val UCNV_BOCU1: UConverterType = 28
+
+public val UCNV_CESU8: UConverterType = 31
+
+public val UCNV_CLONE: UConverterCallbackReason = 5
+
+public val UCNV_CLOSE: UConverterCallbackReason = 4
+
+public val UCNV_COMPOUND_TEXT: UConverterType = 33
+
+public val UCNV_DBCS: UConverterType = 1
+
+public val UCNV_EBCDIC_STATEFUL: UConverterType = 9
+
+public val UCNV_ESCAPE_C: Pcstr = s("C")
+
+public val UCNV_ESCAPE_CSS2: Pcstr = s("S")
+
+public val UCNV_ESCAPE_JAVA: Pcstr = s("J")
+
+public val UCNV_ESCAPE_UNICODE: Pcstr = s("U")
+
+public val UCNV_ESCAPE_XML_DEC: Pcstr = s("D")
+
+public val UCNV_ESCAPE_XML_HEX: Pcstr = s("X")
+
+public val UCNV_HZ: UConverterType = 23
+
+public val UCNV_IBM: UConverterPlatform = 0
+
+public val UCNV_ILLEGAL: UConverterCallbackReason = 1
+
+public val UCNV_IMAP_MAILBOX: UConverterType = 32
+
+public val UCNV_IRREGULAR: UConverterCallbackReason = 2
+
+public val UCNV_ISCII: UConverterType = 25
+
+public val UCNV_ISO_2022: UConverterType = 10
+
+public val UCNV_LATIN_1: UConverterType = 3
+
+public val UCNV_LMBCS_1: UConverterType = 11
+
+public val UCNV_LMBCS_11: UConverterType = 18
+
+public val UCNV_LMBCS_16: UConverterType = 19
+
+public val UCNV_LMBCS_17: UConverterType = 20
+
+public val UCNV_LMBCS_18: UConverterType = 21
+
+public val UCNV_LMBCS_19: UConverterType = 22
+
+public val UCNV_LMBCS_2: UConverterType = 12
+
+public val UCNV_LMBCS_3: UConverterType = 13
+
+public val UCNV_LMBCS_4: UConverterType = 14
+
+public val UCNV_LMBCS_5: UConverterType = 15
+
+public val UCNV_LMBCS_6: UConverterType = 16
+
+public val UCNV_LMBCS_8: UConverterType = 17
+
+public val UCNV_LMBCS_LAST: UConverterType = 22
+
+public val UCNV_LOCALE_OPTION_STRING: Pcstr = s(",locale=")
+
+public val UCNV_MAX_CONVERTER_NAME_LENGTH: UInt = 60u
+
+public val UCNV_MBCS: UConverterType = 2
+
+public val UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: UConverterType = 34
+
+public val UCNV_OPTION_SEP_STRING: Pcstr = s(",")
+
+public val UCNV_RESET: UConverterCallbackReason = 3
+
+public val UCNV_ROUNDTRIP_AND_FALLBACK_SET: UConverterUnicodeSet = 1
+
+public val UCNV_ROUNDTRIP_SET: UConverterUnicodeSet = 0
+
+public val UCNV_SBCS: UConverterType = 0
+
+public val UCNV_SCSU: UConverterType = 24
+
+public val UCNV_SI: UInt = 15u
+
+public val UCNV_SKIP_STOP_ON_ILLEGAL: Pcstr = s("i")
+
+public val UCNV_SO: UInt = 14u
+
+public val UCNV_SUB_STOP_ON_ILLEGAL: Pcstr = s("i")
+
+public val UCNV_SWAP_LFNL_OPTION_STRING: Pcstr = s(",swaplfnl")
+
+public val UCNV_UNASSIGNED: UConverterCallbackReason = 0
+
+public val UCNV_UNKNOWN: UConverterPlatform = -1
+
+public val UCNV_UNSUPPORTED_CONVERTER: UConverterType = -1
+
+public val UCNV_US_ASCII: UConverterType = 26
+
+public val UCNV_UTF16: UConverterType = 29
+
+public val UCNV_UTF16_BIG_ENDIAN: UConverterType = 5
+
+public val UCNV_UTF16_LITTLE_ENDIAN: UConverterType = 6
+
+public val UCNV_UTF32: UConverterType = 30
+
+public val UCNV_UTF32_BIG_ENDIAN: UConverterType = 7
+
+public val UCNV_UTF32_LITTLE_ENDIAN: UConverterType = 8
+
+public val UCNV_UTF7: UConverterType = 27
+
+public val UCNV_UTF8: UConverterType = 4
+
+public val UCNV_VALUE_SEP_STRING: Pcstr = s("=")
+
+public val UCNV_VERSION_OPTION_STRING: Pcstr = s(",version=")
+
+public val UCOL_ALTERNATE_HANDLING: UColAttribute = 1
+
+public val UCOL_ATTRIBUTE_COUNT: UColAttribute = 8
+
+public val UCOL_BOUND_LOWER: UColBoundMode = 0
+
+public val UCOL_BOUND_UPPER: UColBoundMode = 1
+
+public val UCOL_BOUND_UPPER_LONG: UColBoundMode = 2
+
+public val UCOL_CASE_FIRST: UColAttribute = 2
+
+public val UCOL_CASE_LEVEL: UColAttribute = 3
+
+public val UCOL_CE_STRENGTH_LIMIT: UColAttributeValue = 3
+
+public val UCOL_DECOMPOSITION_MODE: UColAttribute = 4
+
+public val UCOL_DEFAULT: UColAttributeValue = -1
+
+public val UCOL_DEFAULT_STRENGTH: UColAttributeValue = 2
+
+public val UCOL_EQUAL: UCollationResult = 0
+
+public val UCOL_FRENCH_COLLATION: UColAttribute = 0
+
+public val UCOL_FULL_RULES: UColRuleOption = 1
+
+public val UCOL_GREATER: UCollationResult = 1
+
+public val UCOL_IDENTICAL: UColAttributeValue = 15
+
+public val UCOL_LESS: UCollationResult = -1
+
+public val UCOL_LOWER_FIRST: UColAttributeValue = 24
+
+public val UCOL_NON_IGNORABLE: UColAttributeValue = 21
+
+public val UCOL_NORMALIZATION_MODE: UColAttribute = 4
+
+public val UCOL_NUMERIC_COLLATION: UColAttribute = 7
+
+public val UCOL_OFF: UColAttributeValue = 16
+
+public val UCOL_ON: UColAttributeValue = 17
+
+public val UCOL_PRIMARY: UColAttributeValue = 0
+
+public val UCOL_QUATERNARY: UColAttributeValue = 3
+
+public val UCOL_REORDER_CODE_CURRENCY: UColReorderCode = 4099
+
+public val UCOL_REORDER_CODE_DEFAULT: UColReorderCode = -1
+
+public val UCOL_REORDER_CODE_DIGIT: UColReorderCode = 4100
+
+public val UCOL_REORDER_CODE_FIRST: UColReorderCode = 4096
+
+public val UCOL_REORDER_CODE_NONE: UColReorderCode = 103
+
+public val UCOL_REORDER_CODE_OTHERS: UColReorderCode = 103
+
+public val UCOL_REORDER_CODE_PUNCTUATION: UColReorderCode = 4097
+
+public val UCOL_REORDER_CODE_SPACE: UColReorderCode = 4096
+
+public val UCOL_REORDER_CODE_SYMBOL: UColReorderCode = 4098
+
+public val UCOL_SECONDARY: UColAttributeValue = 1
+
+public val UCOL_SHIFTED: UColAttributeValue = 20
+
+public val UCOL_STRENGTH: UColAttribute = 5
+
+public val UCOL_STRENGTH_LIMIT: UColAttributeValue = 16
+
+public val UCOL_TAILORING_ONLY: UColRuleOption = 0
+
+public val UCOL_TERTIARY: UColAttributeValue = 2
+
+public val UCOL_UPPER_FIRST: UColAttributeValue = 25
+
+public val UCONFIG_ENABLE_PLUGINS: UInt = 0u
+
+public val UCONFIG_FORMAT_FASTPATHS_49: UInt = 1u
+
+public val UCONFIG_HAVE_PARSEALLINPUT: UInt = 1u
+
+public val UCONFIG_NO_BREAK_ITERATION: UInt = 1u
+
+public val UCONFIG_NO_COLLATION: UInt = 1u
+
+public val UCONFIG_NO_CONVERSION: UInt = 0u
+
+public val UCONFIG_NO_FILE_IO: UInt = 0u
+
+public val UCONFIG_NO_FILTERED_BREAK_ITERATION: UInt = 0u
+
+public val UCONFIG_NO_FORMATTING: UInt = 1u
+
+public val UCONFIG_NO_IDNA: UInt = 1u
+
+public val UCONFIG_NO_LEGACY_CONVERSION: UInt = 1u
+
+public val UCONFIG_NO_NORMALIZATION: UInt = 0u
+
+public val UCONFIG_NO_REGULAR_EXPRESSIONS: UInt = 1u
+
+public val UCONFIG_NO_SERVICE: UInt = 0u
+
+public val UCONFIG_NO_TRANSLITERATION: UInt = 1u
+
+public val UCONFIG_ONLY_COLLATION: UInt = 0u
+
+public val UCONFIG_ONLY_HTML_CONVERSION: UInt = 0u
+
+public val UCPMAP_RANGE_FIXED_ALL_SURROGATES: UCPMapRangeOption = 2
+
+public val UCPMAP_RANGE_FIXED_LEAD_SURROGATES: UCPMapRangeOption = 1
+
+public val UCPMAP_RANGE_NORMAL: UCPMapRangeOption = 0
+
+public val UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: Int = 1
+
+public val UCPTRIE_FAST_DATA_BLOCK_LENGTH: Int = 64
+
+public val UCPTRIE_FAST_DATA_MASK: Int = 63
+
+public val UCPTRIE_FAST_SHIFT: Int = 6
+
+public val UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET: Int = 2
+
+public val UCPTRIE_SMALL_MAX: Int = 4095
+
+public val UCPTRIE_TYPE_ANY: UCPTrieType = -1
+
+public val UCPTRIE_TYPE_FAST: UCPTrieType = 0
+
+public val UCPTRIE_TYPE_SMALL: UCPTrieType = 1
+
+public val UCPTRIE_VALUE_BITS_16: UCPTrieValueWidth = 0
+
+public val UCPTRIE_VALUE_BITS_32: UCPTrieValueWidth = 1
+
+public val UCPTRIE_VALUE_BITS_8: UCPTrieValueWidth = 2
+
+public val UCPTRIE_VALUE_BITS_ANY: UCPTrieValueWidth = -1
+
+public val UCURR_ALL: UCurrCurrencyType = 2147483647
+
+public val UCURR_COMMON: UCurrCurrencyType = 1
+
+public val UCURR_DEPRECATED: UCurrCurrencyType = 4
+
+public val UCURR_LONG_NAME: UCurrNameStyle = 1
+
+public val UCURR_NARROW_SYMBOL_NAME: UCurrNameStyle = 2
+
+public val UCURR_NON_DEPRECATED: UCurrCurrencyType = 8
+
+public val UCURR_SYMBOL_NAME: UCurrNameStyle = 0
+
+public val UCURR_UNCOMMON: UCurrCurrencyType = 2
+
+public val UCURR_USAGE_CASH: UCurrencyUsage = 1
+
+public val UCURR_USAGE_STANDARD: UCurrencyUsage = 0
+
+public val UDATPG_ABBREVIATED: UDateTimePGDisplayWidth = 1
+
+public val UDATPG_BASE_CONFLICT: UDateTimePatternConflict = 1
+
+public val UDATPG_CONFLICT: UDateTimePatternConflict = 2
+
+public val UDATPG_DAYPERIOD_FIELD: UDateTimePatternField = 10
+
+public val UDATPG_DAY_FIELD: UDateTimePatternField = 9
+
+public val UDATPG_DAY_OF_WEEK_IN_MONTH_FIELD: UDateTimePatternField = 8
+
+public val UDATPG_DAY_OF_YEAR_FIELD: UDateTimePatternField = 7
+
+public val UDATPG_ERA_FIELD: UDateTimePatternField = 0
+
+public val UDATPG_FIELD_COUNT: UDateTimePatternField = 16
+
+public val UDATPG_FRACTIONAL_SECOND_FIELD: UDateTimePatternField = 14
+
+public val UDATPG_HOUR_FIELD: UDateTimePatternField = 11
+
+public val UDATPG_MATCH_ALL_FIELDS_LENGTH: UDateTimePatternMatchOptions = 65535
+
+public val UDATPG_MATCH_HOUR_FIELD_LENGTH: UDateTimePatternMatchOptions = 2048
+
+public val UDATPG_MATCH_NO_OPTIONS: UDateTimePatternMatchOptions = 0
+
+public val UDATPG_MINUTE_FIELD: UDateTimePatternField = 12
+
+public val UDATPG_MONTH_FIELD: UDateTimePatternField = 3
+
+public val UDATPG_NARROW: UDateTimePGDisplayWidth = 2
+
+public val UDATPG_NO_CONFLICT: UDateTimePatternConflict = 0
+
+public val UDATPG_QUARTER_FIELD: UDateTimePatternField = 2
+
+public val UDATPG_SECOND_FIELD: UDateTimePatternField = 13
+
+public val UDATPG_WEEKDAY_FIELD: UDateTimePatternField = 6
+
+public val UDATPG_WEEK_OF_MONTH_FIELD: UDateTimePatternField = 5
+
+public val UDATPG_WEEK_OF_YEAR_FIELD: UDateTimePatternField = 4
+
+public val UDATPG_WIDE: UDateTimePGDisplayWidth = 0
+
+public val UDATPG_YEAR_FIELD: UDateTimePatternField = 1
+
+public val UDATPG_ZONE_FIELD: UDateTimePatternField = 15
+
+public val UDAT_ABBR_GENERIC_TZ: Pcstr = s("v")
+
+public val UDAT_ABBR_MONTH: Pcstr = s("MMM")
+
+public val UDAT_ABBR_MONTH_DAY: Pcstr = s("MMMd")
+
+public val UDAT_ABBR_MONTH_WEEKDAY_DAY: Pcstr = s("MMMEd")
+
+public val UDAT_ABBR_QUARTER: Pcstr = s("QQQ")
+
+public val UDAT_ABBR_SPECIFIC_TZ: Pcstr = s("z")
+
+public val UDAT_ABBR_UTC_TZ: Pcstr = s("ZZZZ")
+
+public val UDAT_ABBR_WEEKDAY: Pcstr = s("E")
+
+public val UDAT_ABSOLUTE_DAY: UDateAbsoluteUnit = 7
+
+public val UDAT_ABSOLUTE_FRIDAY: UDateAbsoluteUnit = 5
+
+public val UDAT_ABSOLUTE_MONDAY: UDateAbsoluteUnit = 1
+
+public val UDAT_ABSOLUTE_MONTH: UDateAbsoluteUnit = 9
+
+public val UDAT_ABSOLUTE_NOW: UDateAbsoluteUnit = 11
+
+public val UDAT_ABSOLUTE_SATURDAY: UDateAbsoluteUnit = 6
+
+public val UDAT_ABSOLUTE_SUNDAY: UDateAbsoluteUnit = 0
+
+public val UDAT_ABSOLUTE_THURSDAY: UDateAbsoluteUnit = 4
+
+public val UDAT_ABSOLUTE_TUESDAY: UDateAbsoluteUnit = 2
+
+public val UDAT_ABSOLUTE_UNIT_COUNT: UDateAbsoluteUnit = 12
+
+public val UDAT_ABSOLUTE_WEDNESDAY: UDateAbsoluteUnit = 3
+
+public val UDAT_ABSOLUTE_WEEK: UDateAbsoluteUnit = 8
+
+public val UDAT_ABSOLUTE_YEAR: UDateAbsoluteUnit = 10
+
+public val UDAT_AM_PMS: UDateFormatSymbolType = 5
+
+public val UDAT_AM_PM_FIELD: UDateFormatField = 14
+
+public val UDAT_AM_PM_MIDNIGHT_NOON_FIELD: UDateFormatField = 35
+
+public val UDAT_BOOLEAN_ATTRIBUTE_COUNT: UDateFormatBooleanAttribute = 4
+
+public val UDAT_CYCLIC_YEARS_ABBREVIATED: UDateFormatSymbolType = 23
+
+public val UDAT_CYCLIC_YEARS_NARROW: UDateFormatSymbolType = 24
+
+public val UDAT_CYCLIC_YEARS_WIDE: UDateFormatSymbolType = 22
+
+public val UDAT_DATE_FIELD: UDateFormatField = 3
+
+public val UDAT_DAY: Pcstr = s("d")
+
+public val UDAT_DAY_OF_WEEK_FIELD: UDateFormatField = 9
+
+public val UDAT_DAY_OF_WEEK_IN_MONTH_FIELD: UDateFormatField = 11
+
+public val UDAT_DAY_OF_YEAR_FIELD: UDateFormatField = 10
+
+public val UDAT_DEFAULT: UDateFormatStyle = 2
+
+public val UDAT_DIRECTION_COUNT: UDateDirection = 6
+
+public val UDAT_DIRECTION_LAST: UDateDirection = 1
+
+public val UDAT_DIRECTION_LAST_2: UDateDirection = 0
+
+public val UDAT_DIRECTION_NEXT: UDateDirection = 3
+
+public val UDAT_DIRECTION_NEXT_2: UDateDirection = 4
+
+public val UDAT_DIRECTION_PLAIN: UDateDirection = 5
+
+public val UDAT_DIRECTION_THIS: UDateDirection = 2
+
+public val UDAT_DOW_LOCAL_FIELD: UDateFormatField = 19
+
+public val UDAT_ERAS: UDateFormatSymbolType = 0
+
+public val UDAT_ERA_FIELD: UDateFormatField = 0
+
+public val UDAT_ERA_NAMES: UDateFormatSymbolType = 7
+
+public val UDAT_EXTENDED_YEAR_FIELD: UDateFormatField = 20
+
+public val UDAT_FLEXIBLE_DAY_PERIOD_FIELD: UDateFormatField = 36
+
+public val UDAT_FRACTIONAL_SECOND_FIELD: UDateFormatField = 8
+
+public val UDAT_FULL: UDateFormatStyle = 0
+
+public val UDAT_FULL_RELATIVE: UDateFormatStyle = 128
+
+public val UDAT_GENERIC_TZ: Pcstr = s("vvvv")
+
+public val UDAT_HOUR: Pcstr = s("j")
+
+public val UDAT_HOUR0_FIELD: UDateFormatField = 16
+
+public val UDAT_HOUR1_FIELD: UDateFormatField = 15
+
+public val UDAT_HOUR24: Pcstr = s("H")
+
+public val UDAT_HOUR24_MINUTE: Pcstr = s("Hm")
+
+public val UDAT_HOUR24_MINUTE_SECOND: Pcstr = s("Hms")
+
+public val UDAT_HOUR_MINUTE: Pcstr = s("jm")
+
+public val UDAT_HOUR_MINUTE_SECOND: Pcstr = s("jms")
+
+public val UDAT_HOUR_OF_DAY0_FIELD: UDateFormatField = 5
+
+public val UDAT_HOUR_OF_DAY1_FIELD: UDateFormatField = 4

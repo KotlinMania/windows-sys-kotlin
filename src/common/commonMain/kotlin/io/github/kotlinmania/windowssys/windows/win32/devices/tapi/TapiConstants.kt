@@ -1,0 +1,3005 @@
+package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
+
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.s
+
+public val ACDGE_GROUP_REMOVED: AcdgroupEvent = 1
+
+public val ACDGE_NEW_GROUP: AcdgroupEvent = 0
+
+public val ACDQE_NEW_QUEUE: AcdqueueEvent = 0
+
+public val ACDQE_QUEUE_REMOVED: AcdqueueEvent = 1
+
+public val ACS_ADDRESSDEVICESPECIFIC: AddressCapabilityString = 1
+
+public val ACS_LINEDEVICESPECIFIC: AddressCapabilityString = 2
+
+public val ACS_PERMANENTDEVICEGUID: AddressCapabilityString = 5
+
+public val ACS_PROTOCOL: AddressCapabilityString = 0
+
+public val ACS_PROVIDERSPECIFIC: AddressCapabilityString = 3
+
+public val ACS_SWITCHSPECIFIC: AddressCapabilityString = 4
+
+public val AC_ADDRESSCAPFLAGS: AddressCapability = 23
+
+public val AC_ADDRESSFEATURES: AddressCapability = 29
+
+public val AC_ADDRESSID: AddressCapability = 33
+
+public val AC_ADDRESSTYPES: AddressCapability = 0
+
+public val AC_ANSWERMODES: AddressCapability = 14
+
+public val AC_BEARERMODES: AddressCapability = 1
+
+public val AC_CALLCOMPLETIONCONDITIONS: AddressCapability = 40
+
+public val AC_CALLCOMPLETIONMODES: AddressCapability = 41
+
+public val AC_CALLEDIDSUPPORT: AddressCapability = 19
+
+public val AC_CALLERIDSUPPORT: AddressCapability = 18
+
+public val AC_CALLFEATURES1: AddressCapability = 24
+
+public val AC_CALLFEATURES2: AddressCapability = 25
+
+public val AC_CONNECTEDIDSUPPORT: AddressCapability = 20
+
+public val AC_DEVCAPFLAGS: AddressCapability = 13
+
+public val AC_FORWARDMODES: AddressCapability = 34
+
+public val AC_GATHERDIGITSMAXTIMEOUT: AddressCapability = 44
+
+public val AC_GATHERDIGITSMINTIMEOUT: AddressCapability = 43
+
+public val AC_GENERATEDIGITDEFAULTDURATION: AddressCapability = 47
+
+public val AC_GENERATEDIGITMAXDURATION: AddressCapability = 46
+
+public val AC_GENERATEDIGITMINDURATION: AddressCapability = 45
+
+public val AC_GENERATEDIGITSUPPORT: AddressCapability = 8
+
+public val AC_GENERATETONEMAXNUMFREQ: AddressCapability = 10
+
+public val AC_GENERATETONEMODES: AddressCapability = 9
+
+public val AC_LINEFEATURES: AddressCapability = 15
+
+public val AC_LINEID: AddressCapability = 32
+
+public val AC_MAXACTIVECALLS: AddressCapability = 2
+
+public val AC_MAXCALLCOMPLETIONS: AddressCapability = 39
+
+public val AC_MAXCALLDATASIZE: AddressCapability = 31
+
+public val AC_MAXFORWARDENTRIES: AddressCapability = 35
+
+public val AC_MAXFWDNUMRINGS: AddressCapability = 38
+
+public val AC_MAXNUMCONFERENCE: AddressCapability = 5
+
+public val AC_MAXNUMTRANSCONF: AddressCapability = 6
+
+public val AC_MAXONHOLDCALLS: AddressCapability = 3
+
+public val AC_MAXONHOLDPENDINGCALLS: AddressCapability = 4
+
+public val AC_MAXSPECIFICENTRIES: AddressCapability = 36
+
+public val AC_MINFWDNUMRINGS: AddressCapability = 37
+
+public val AC_MONITORDIGITSUPPORT: AddressCapability = 7
+
+public val AC_MONITORTONEMAXNUMENTRIES: AddressCapability = 12
+
+public val AC_MONITORTONEMAXNUMFREQ: AddressCapability = 11
+
+public val AC_PARKSUPPORT: AddressCapability = 17
+
+public val AC_PERMANENTDEVICEID: AddressCapability = 42
+
+public val AC_PREDICTIVEAUTOTRANSFERSTATES: AddressCapability = 30
+
+public val AC_REDIRECTINGIDSUPPORT: AddressCapability = 22
+
+public val AC_REDIRECTIONIDSUPPORT: AddressCapability = 21
+
+public val AC_REMOVEFROMCONFCAPS: AddressCapability = 26
+
+public val AC_REMOVEFROMCONFSTATE: AddressCapability = 27
+
+public val AC_SETTABLEDEVSTATUS: AddressCapability = 16
+
+public val AC_TRANSFERMODES: AddressCapability = 28
+
+public val ADDRESS_TERMINAL_AVAILABLE: MspAddressEvent = 0
+
+public val ADDRESS_TERMINAL_UNAVAILABLE: MspAddressEvent = 1
+
+public val AE_BUSY_ACD: AgentEvent = 2
+
+public val AE_BUSY_INCOMING: AgentEvent = 3
+
+public val AE_BUSY_OUTGOING: AgentEvent = 4
+
+public val AE_CAPSCHANGE: AddressEvent = 1
+
+public val AE_CONFIGCHANGE: AddressEvent = 3
+
+public val AE_FORWARD: AddressEvent = 4
+
+public val AE_LASTITEM: AddressEvent = 8
+
+public val AE_MSGWAITOFF: AddressEvent = 8
+
+public val AE_MSGWAITON: AddressEvent = 7
+
+public val AE_NEWTERMINAL: AddressEvent = 5
+
+public val AE_NOT_READY: AgentEvent = 0
+
+public val AE_READY: AgentEvent = 1
+
+public val AE_REMOVETERMINAL: AddressEvent = 6
+
+public val AE_RINGING: AddressEvent = 2
+
+public val AE_STATE: AddressEvent = 0
+
+public val AE_UNKNOWN: AgentEvent = 5
+
+public val AHE_AGENTHANDLER_REMOVED: AgenthandlerEvent = 1
+
+public val AHE_NEW_AGENTHANDLER: AgenthandlerEvent = 0
+
+public val ASE_BUSY: AgentSessionEvent = 3
+
+public val ASE_END: AgentSessionEvent = 5
+
+public val ASE_NEW_SESSION: AgentSessionEvent = 0
+
+public val ASE_NOT_READY: AgentSessionEvent = 1
+
+public val ASE_READY: AgentSessionEvent = 2
+
+public val ASE_WRAPUP: AgentSessionEvent = 4
+
+public val ASST_BUSY_ON_CALL: AgentSessionState = 2
+
+public val ASST_BUSY_WRAPUP: AgentSessionState = 3
+
+public val ASST_NOT_READY: AgentSessionState = 0
+
+public val ASST_READY: AgentSessionState = 1
+
+public val ASST_SESSION_ENDED: AgentSessionState = 4
+
+public val AS_BUSY_ACD: AgentState = 2
+
+public val AS_BUSY_INCOMING: AgentState = 3
+
+public val AS_BUSY_OUTGOING: AgentState = 4
+
+public val AS_INSERVICE: AddressState = 0
+
+public val AS_NOT_READY: AgentState = 0
+
+public val AS_OUTOFSERVICE: AddressState = 1
+
+public val AS_READY: AgentState = 1
+
+public val AS_UNKNOWN: AgentState = 5
+
+public val CALL_CAUSE_BAD_DEVICE: MspCallEventCause = 1
+
+public val CALL_CAUSE_CONNECT_FAIL: MspCallEventCause = 2
+
+public val CALL_CAUSE_LOCAL_REQUEST: MspCallEventCause = 3
+
+public val CALL_CAUSE_MEDIA_RECOVERED: MspCallEventCause = 6
+
+public val CALL_CAUSE_MEDIA_TIMEOUT: MspCallEventCause = 5
+
+public val CALL_CAUSE_QUALITY_OF_SERVICE: MspCallEventCause = 7
+
+public val CALL_CAUSE_REMOTE_REQUEST: MspCallEventCause = 4
+
+public val CALL_CAUSE_UNKNOWN: MspCallEventCause = 0
+
+public val CALL_NEW_STREAM: MspCallEvent = 0
+
+public val CALL_STREAM_ACTIVE: MspCallEvent = 4
+
+public val CALL_STREAM_FAIL: MspCallEvent = 1
+
+public val CALL_STREAM_INACTIVE: MspCallEvent = 5
+
+public val CALL_STREAM_NOT_USED: MspCallEvent = 3
+
+public val CALL_TERMINAL_FAIL: MspCallEvent = 2
+
+public val CEC_DISCONNECT_BADADDRESS: CallStateEventCause = 3
+
+public val CEC_DISCONNECT_BLOCKED: CallStateEventCause = 8
+
+public val CEC_DISCONNECT_BUSY: CallStateEventCause = 2
+
+public val CEC_DISCONNECT_CANCELLED: CallStateEventCause = 5
+
+public val CEC_DISCONNECT_FAILED: CallStateEventCause = 7
+
+public val CEC_DISCONNECT_NOANSWER: CallStateEventCause = 4
+
+public val CEC_DISCONNECT_NORMAL: CallStateEventCause = 1
+
+public val CEC_DISCONNECT_REJECTED: CallStateEventCause = 6
+
+public val CEC_NONE: CallStateEventCause = 0
+
+public val CHE_CALLHUBIDLE: CallhubEvent = 3
+
+public val CHE_CALLHUBNEW: CallhubEvent = 2
+
+public val CHE_CALLJOIN: CallhubEvent = 0
+
+public val CHE_CALLLEAVE: CallhubEvent = 1
+
+public val CHE_LASTITEM: CallhubEvent = 3
+
+public val CHS_ACTIVE: CallhubState = 0
+
+public val CHS_IDLE: CallhubState = 1
+
+public val CIB_CALLDATABUFFER: CallinfoBuffer = 2
+
+public val CIB_CHARGINGINFOBUFFER: CallinfoBuffer = 3
+
+public val CIB_DEVSPECIFICBUFFER: CallinfoBuffer = 1
+
+public val CIB_HIGHLEVELCOMPATIBILITYBUFFER: CallinfoBuffer = 4
+
+public val CIB_LOWLEVELCOMPATIBILITYBUFFER: CallinfoBuffer = 5
+
+public val CIB_USERUSERINFO: CallinfoBuffer = 0
+
+public val CIC_APPSPECIFIC: CallinfochangeCause = 4
+
+public val CIC_BEARERMODE: CallinfochangeCause = 2
+
+public val CIC_CALLDATA: CallinfochangeCause = 24
+
+public val CIC_CALLEDID: CallinfochangeCause = 15
+
+public val CIC_CALLERID: CallinfochangeCause = 14
+
+public val CIC_CALLID: CallinfochangeCause = 5
+
+public val CIC_CHARGINGINFO: CallinfochangeCause = 22
+
+public val CIC_COMPLETIONID: CallinfochangeCause = 9
+
+public val CIC_CONNECTEDID: CallinfochangeCause = 16
+
+public val CIC_DEVSPECIFIC: CallinfochangeCause = 1
+
+public val CIC_HIGHLEVELCOMP: CallinfochangeCause = 20
+
+public val CIC_LASTITEM: CallinfochangeCause = 26
+
+public val CIC_LOWLEVELCOMP: CallinfochangeCause = 21
+
+public val CIC_MEDIATYPE: CallinfochangeCause = 26
+
+public val CIC_NUMMONITORS: CallinfochangeCause = 12
+
+public val CIC_NUMOWNERDECR: CallinfochangeCause = 11
+
+public val CIC_NUMOWNERINCR: CallinfochangeCause = 10
+
+public val CIC_ORIGIN: CallinfochangeCause = 7
+
+public val CIC_OTHER: CallinfochangeCause = 0
+
+public val CIC_PRIVILEGE: CallinfochangeCause = 25
+
+public val CIC_RATE: CallinfochangeCause = 3
+
+public val CIC_REASON: CallinfochangeCause = 8
+
+public val CIC_REDIRECTINGID: CallinfochangeCause = 18
+
+public val CIC_REDIRECTIONID: CallinfochangeCause = 17
+
+public val CIC_RELATEDCALLID: CallinfochangeCause = 6
+
+public val CIC_TREATMENT: CallinfochangeCause = 23
+
+public val CIC_TRUNK: CallinfochangeCause = 13
+
+public val CIC_USERUSERINFO: CallinfochangeCause = 19
+
+public val CIL_APPSPECIFIC: CallinfoLong = 9
+
+public val CIL_BEARERMODE: CallinfoLong = 1
+
+public val CIL_CALLEDIDADDRESSTYPE: CallinfoLong = 3
+
+public val CIL_CALLERIDADDRESSTYPE: CallinfoLong = 2
+
+public val CIL_CALLID: CallinfoLong = 15
+
+public val CIL_CALLPARAMSFLAGS: CallinfoLong = 10
+
+public val CIL_CALLTREATMENT: CallinfoLong = 11
+
+public val CIL_COMPLETIONID: CallinfoLong = 17
+
+public val CIL_CONNECTEDIDADDRESSTYPE: CallinfoLong = 4
+
+public val CIL_COUNTRYCODE: CallinfoLong = 14
+
+public val CIL_GENERATEDIGITDURATION: CallinfoLong = 22
+
+public val CIL_MAXRATE: CallinfoLong = 13
+
+public val CIL_MEDIATYPESAVAILABLE: CallinfoLong = 0
+
+public val CIL_MINRATE: CallinfoLong = 12
+
+public val CIL_MONITORDIGITMODES: CallinfoLong = 23
+
+public val CIL_MONITORMEDIAMODES: CallinfoLong = 24
+
+public val CIL_NUMBEROFMONITORS: CallinfoLong = 19
+
+public val CIL_NUMBEROFOWNERS: CallinfoLong = 18
+
+public val CIL_ORIGIN: CallinfoLong = 7
+
+public val CIL_RATE: CallinfoLong = 21
+
+public val CIL_REASON: CallinfoLong = 8
+
+public val CIL_REDIRECTINGIDADDRESSTYPE: CallinfoLong = 6
+
+public val CIL_REDIRECTIONIDADDRESSTYPE: CallinfoLong = 5
+
+public val CIL_RELATEDCALLID: CallinfoLong = 16
+
+public val CIL_TRUNK: CallinfoLong = 20
+
+public val CIS_CALLEDIDNAME: CallinfoString = 2
+
+public val CIS_CALLEDIDNUMBER: CallinfoString = 3
+
+public val CIS_CALLEDPARTYFRIENDLYNAME: CallinfoString = 10
+
+public val CIS_CALLERIDNAME: CallinfoString = 0
+
+public val CIS_CALLERIDNUMBER: CallinfoString = 1
+
+public val CIS_CALLINGPARTYID: CallinfoString = 13
+
+public val CIS_COMMENT: CallinfoString = 11
+
+public val CIS_CONNECTEDIDNAME: CallinfoString = 4
+
+public val CIS_CONNECTEDIDNUMBER: CallinfoString = 5
+
+public val CIS_DISPLAYABLEADDRESS: CallinfoString = 12
+
+public val CIS_REDIRECTINGIDNAME: CallinfoString = 8
+
+public val CIS_REDIRECTINGIDNUMBER: CallinfoString = 9
+
+public val CIS_REDIRECTIONIDNAME: CallinfoString = 6
+
+public val CIS_REDIRECTIONIDNUMBER: CallinfoString = 7
+
+public val CMC_BAD_DEVICE: CallMediaEventCause = 1
+
+public val CMC_CONNECT_FAIL: CallMediaEventCause = 2
+
+public val CMC_LOCAL_REQUEST: CallMediaEventCause = 3
+
+public val CMC_MEDIA_RECOVERED: CallMediaEventCause = 6
+
+public val CMC_MEDIA_TIMEOUT: CallMediaEventCause = 5
+
+public val CMC_QUALITY_OF_SERVICE: CallMediaEventCause = 7
+
+public val CMC_REMOTE_REQUEST: CallMediaEventCause = 4
+
+public val CMC_UNKNOWN: CallMediaEventCause = 0
+
+public val CME_LASTITEM: CallMediaEvent = 5
+
+public val CME_NEW_STREAM: CallMediaEvent = 0
+
+public val CME_STREAM_ACTIVE: CallMediaEvent = 4
+
+public val CME_STREAM_FAIL: CallMediaEvent = 1
+
+public val CME_STREAM_INACTIVE: CallMediaEvent = 5
+
+public val CME_STREAM_NOT_USED: CallMediaEvent = 3
+
+public val CME_TERMINAL_FAIL: CallMediaEvent = 2
+
+public val CNE_LASTITEM: CallNotificationEvent = 1
+
+public val CNE_MONITOR: CallNotificationEvent = 1
+
+public val CNE_OWNER: CallNotificationEvent = 0
+
+public val CP_MONITOR: CallPrivilege = 1
+
+public val CP_OWNER: CallPrivilege = 0
+
+public val CS_CONNECTED: CallState = 2
+
+public val CS_DISCONNECTED: CallState = 3
+
+public val CS_HOLD: CallState = 5
+
+public val CS_IDLE: CallState = 0
+
+public val CS_INPROGRESS: CallState = 1
+
+public val CS_LASTITEM: CallState = 6
+
+public val CS_OFFERING: CallState = 4
+
+public val CS_QUEUED: CallState = 6
+
+public val DC_NOANSWER: DisconnectCode = 1
+
+public val DC_NORMAL: DisconnectCode = 0
+
+public val DC_REJECTED: DisconnectCode = 2
+
+public val DISPIDMASK: UInt = 65535u
+
+public val DT_ILS: DirectoryType = 2
+
+public val DT_NTDS: DirectoryType = 1
+
+public val FDS_NOTSUPPORTED: FullduplexSupport = 1
+
+public val FDS_SUPPORTED: FullduplexSupport = 0
+
+public val FDS_UNKNOWN: FullduplexSupport = 2
+
+public val FM_ASCONFERENCE: FinishMode = 1
+
+public val FM_ASTRANSFER: FinishMode = 0
+
+public val FTEC_END_OF_FILE: FtStateEventCause = 1
+
+public val FTEC_NORMAL: FtStateEventCause = 0
+
+public val FTEC_READ_ERROR: FtStateEventCause = 2
+
+public val FTEC_WRITE_ERROR: FtStateEventCause = 3
+
+public val GETTNEFSTREAMCODEPAGE: Pcstr = s("GetTnefStreamCodePage")
+
+public val IDISPADDRESS: UInt = 65536u
+
+public val IDISPADDRESSCAPABILITIES: UInt = 131072u
+
+public val IDISPADDRESSTRANSLATION: UInt = 262144u
+
+public val IDISPAGGREGATEDMSPADDRESSOBJ: UInt = 393216u
+
+public val IDISPAGGREGATEDMSPCALLOBJ: UInt = 262144u
+
+public val IDISPAPC: UInt = 131072u
+
+public val IDISPBASICCALLCONTROL: UInt = 131072u
+
+public val IDISPCALLINFO: UInt = 65536u
+
+public val IDISPDIRECTORY: UInt = 65536u
+
+public val IDISPDIROBJCONFERENCE: UInt = 131072u
+
+public val IDISPDIROBJECT: UInt = 65536u
+
+public val IDISPDIROBJUSER: UInt = 196608u
+
+public val IDISPFILETRACK: UInt = 65536u
+
+public val IDISPILSCONFIG: UInt = 131072u
+
+public val IDISPLEGACYADDRESSMEDIACONTROL: UInt = 327680u
+
+public val IDISPLEGACYCALLMEDIACONTROL: UInt = 196608u
+
+public val IDISPMEDIACONTROL: UInt = 131072u
+
+public val IDISPMEDIAPLAYBACK: UInt = 262144u
+
+public val IDISPMEDIARECORD: UInt = 196608u
+
+public val IDISPMEDIASUPPORT: UInt = 196608u
+
+public val IDISPMULTITRACK: UInt = 65536u
+
+public val IDISPPHONE: UInt = 65536u
+
+public val IDISPTAPI: UInt = 65536u
+
+public val IDISPTAPICALLCENTER: UInt = 131072u
+
+public val INITIALIZE_NEGOTIATION: UInt = 4294967295u
+
+public val INTERFACEMASK: UInt = 16711680u
+
+public val LAST_LINEMEDIAMODE: UInt = 32768u
+
+public val LAST_LINEREQUESTMODE: UInt = 2u
+
+public val LINEADDRCAPFLAGS_ACCEPTTOALERT: UInt = 1048576u
+
+public val LINEADDRCAPFLAGS_ACDGROUP: UInt = 1073741824u
+
+public val LINEADDRCAPFLAGS_AUTORECONNECT: UInt = 1024u
+
+public val LINEADDRCAPFLAGS_BLOCKIDDEFAULT: UInt = 8u
+
+public val LINEADDRCAPFLAGS_BLOCKIDOVERRIDE: UInt = 16u
+
+public val LINEADDRCAPFLAGS_COMPLETIONID: UInt = 2048u
+
+public val LINEADDRCAPFLAGS_CONFDROP: UInt = 2097152u
+
+public val LINEADDRCAPFLAGS_CONFERENCEHELD: UInt = 16384u
+
+public val LINEADDRCAPFLAGS_CONFERENCEMAKE: UInt = 32768u
+
+public val LINEADDRCAPFLAGS_DESTOFFHOOK: UInt = 128u
+
+public val LINEADDRCAPFLAGS_DIALED: UInt = 32u
+
+public val LINEADDRCAPFLAGS_FWDBUSYNAADDR: UInt = 524288u
+
+public val LINEADDRCAPFLAGS_FWDCONSULT: UInt = 256u
+
+public val LINEADDRCAPFLAGS_FWDINTEXTADDR: UInt = 262144u
+
+public val LINEADDRCAPFLAGS_FWDNUMRINGS: UInt = 1u
+
+public val LINEADDRCAPFLAGS_FWDSTATUSVALID: UInt = 131072u
+
+public val LINEADDRCAPFLAGS_HOLDMAKESNEW: UInt = 67108864u
+
+public val LINEADDRCAPFLAGS_NOEXTERNALCALLS: UInt = 268435456u
+
+public val LINEADDRCAPFLAGS_NOINTERNALCALLS: UInt = 134217728u
+
+public val LINEADDRCAPFLAGS_NOPSTNADDRESSTRANSLATION: UInt = 2147483648u
+
+public val LINEADDRCAPFLAGS_ORIGOFFHOOK: UInt = 64u
+
+public val LINEADDRCAPFLAGS_PARTIALDIAL: UInt = 65536u
+
+public val LINEADDRCAPFLAGS_PICKUPCALLWAIT: UInt = 4194304u
+
+public val LINEADDRCAPFLAGS_PICKUPGROUPID: UInt = 2u
+
+public val LINEADDRCAPFLAGS_PREDICTIVEDIALER: UInt = 8388608u
+
+public val LINEADDRCAPFLAGS_QUEUE: UInt = 16777216u
+
+public val LINEADDRCAPFLAGS_ROUTEPOINT: UInt = 33554432u
+
+public val LINEADDRCAPFLAGS_SECURE: UInt = 4u
+
+public val LINEADDRCAPFLAGS_SETCALLINGID: UInt = 536870912u
+
+public val LINEADDRCAPFLAGS_SETUPCONFNULL: UInt = 512u
+
+public val LINEADDRCAPFLAGS_TRANSFERHELD: UInt = 4096u
+
+public val LINEADDRCAPFLAGS_TRANSFERMAKE: UInt = 8192u
+
+public val LINEADDRESSMODE_ADDRESSID: UInt = 1u
+
+public val LINEADDRESSMODE_DIALABLEADDR: UInt = 2u
+
+public val LINEADDRESSSHARING_BRIDGEDEXCL: UInt = 2u
+
+public val LINEADDRESSSHARING_BRIDGEDNEW: UInt = 4u
+
+public val LINEADDRESSSHARING_BRIDGEDSHARED: UInt = 8u
+
+public val LINEADDRESSSHARING_MONITORED: UInt = 16u
+
+public val LINEADDRESSSHARING_PRIVATE: UInt = 1u
+
+public val LINEADDRESSSTATE_CAPSCHANGE: UInt = 256u
+
+public val LINEADDRESSSTATE_DEVSPECIFIC: UInt = 2u
+
+public val LINEADDRESSSTATE_FORWARD: UInt = 64u
+
+public val LINEADDRESSSTATE_INUSEMANY: UInt = 16u
+
+public val LINEADDRESSSTATE_INUSEONE: UInt = 8u
+
+public val LINEADDRESSSTATE_INUSEZERO: UInt = 4u
+
+public val LINEADDRESSSTATE_NUMCALLS: UInt = 32u
+
+public val LINEADDRESSSTATE_OTHER: UInt = 1u
+
+public val LINEADDRESSSTATE_TERMINALS: UInt = 128u
+
+public val LINEADDRESSTYPE_DOMAINNAME: UInt = 8u
+
+public val LINEADDRESSTYPE_EMAILNAME: UInt = 4u
+
+public val LINEADDRESSTYPE_IPADDRESS: UInt = 16u
+
+public val LINEADDRESSTYPE_PHONENUMBER: UInt = 1u
+
+public val LINEADDRESSTYPE_SDP: UInt = 2u
+
+public val LINEADDRFEATURE_FORWARD: UInt = 1u
+
+public val LINEADDRFEATURE_FORWARDDND: UInt = 8192u
+
+public val LINEADDRFEATURE_FORWARDFWD: UInt = 4096u
+
+public val LINEADDRFEATURE_MAKECALL: UInt = 2u
+
+public val LINEADDRFEATURE_PICKUP: UInt = 4u
+
+public val LINEADDRFEATURE_PICKUPDIRECT: UInt = 1024u
+
+public val LINEADDRFEATURE_PICKUPGROUP: UInt = 512u
+
+public val LINEADDRFEATURE_PICKUPHELD: UInt = 256u
+
+public val LINEADDRFEATURE_PICKUPWAITING: UInt = 2048u
+
+public val LINEADDRFEATURE_SETMEDIACONTROL: UInt = 8u
+
+public val LINEADDRFEATURE_SETTERMINAL: UInt = 16u
+
+public val LINEADDRFEATURE_SETUPCONF: UInt = 32u
+
+public val LINEADDRFEATURE_UNCOMPLETECALL: UInt = 64u
+
+public val LINEADDRFEATURE_UNPARK: UInt = 128u
+
+public val LINEAGENTFEATURE_AGENTSPECIFIC: UInt = 8u
+
+public val LINEAGENTFEATURE_GETAGENTACTIVITYLIST: UInt = 16u
+
+public val LINEAGENTFEATURE_GETAGENTGROUP: UInt = 32u
+
+public val LINEAGENTFEATURE_SETAGENTACTIVITY: UInt = 4u
+
+public val LINEAGENTFEATURE_SETAGENTGROUP: UInt = 1u
+
+public val LINEAGENTFEATURE_SETAGENTSTATE: UInt = 2u
+
+public val LINEAGENTSESSIONSTATE_BUSYONCALL: UInt = 4u
+
+public val LINEAGENTSESSIONSTATE_BUSYWRAPUP: UInt = 8u
+
+public val LINEAGENTSESSIONSTATE_ENDED: UInt = 16u
+
+public val LINEAGENTSESSIONSTATE_NOTREADY: UInt = 1u
+
+public val LINEAGENTSESSIONSTATE_READY: UInt = 2u
+
+public val LINEAGENTSESSIONSTATE_RELEASED: UInt = 32u
+
+public val LINEAGENTSESSIONSTATUS_NEWSESSION: UInt = 1u
+
+public val LINEAGENTSESSIONSTATUS_STATE: UInt = 2u
+
+public val LINEAGENTSESSIONSTATUS_UPDATEINFO: UInt = 4u
+
+public val LINEAGENTSTATEEX_BUSYACD: UInt = 4u
+
+public val LINEAGENTSTATEEX_BUSYINCOMING: UInt = 8u
+
+public val LINEAGENTSTATEEX_BUSYOUTGOING: UInt = 16u
+
+public val LINEAGENTSTATEEX_NOTREADY: UInt = 1u
+
+public val LINEAGENTSTATEEX_READY: UInt = 2u
+
+public val LINEAGENTSTATEEX_RELEASED: UInt = 64u
+
+public val LINEAGENTSTATEEX_UNKNOWN: UInt = 32u
+
+public val LINEAGENTSTATE_BUSYACD: UInt = 8u
+
+public val LINEAGENTSTATE_BUSYINCOMING: UInt = 16u
+
+public val LINEAGENTSTATE_BUSYOTHER: UInt = 64u
+
+public val LINEAGENTSTATE_BUSYOUTBOUND: UInt = 32u
+
+public val LINEAGENTSTATE_LOGGEDOFF: UInt = 1u
+
+public val LINEAGENTSTATE_NOTREADY: UInt = 2u
+
+public val LINEAGENTSTATE_READY: UInt = 4u
+
+public val LINEAGENTSTATE_UNAVAIL: UInt = 512u
+
+public val LINEAGENTSTATE_UNKNOWN: UInt = 256u
+
+public val LINEAGENTSTATE_WORKINGAFTERCALL: UInt = 128u
+
+public val LINEAGENTSTATUSEX_NEWAGENT: UInt = 1u
+
+public val LINEAGENTSTATUSEX_STATE: UInt = 2u
+
+public val LINEAGENTSTATUSEX_UPDATEINFO: UInt = 4u
+
+public val LINEAGENTSTATUS_ACTIVITY: UInt = 8u
+
+public val LINEAGENTSTATUS_ACTIVITYLIST: UInt = 16u
+
+public val LINEAGENTSTATUS_CAPSCHANGE: UInt = 64u
+
+public val LINEAGENTSTATUS_GROUP: UInt = 1u
+
+public val LINEAGENTSTATUS_GROUPLIST: UInt = 32u
+
+public val LINEAGENTSTATUS_NEXTSTATE: UInt = 4u
+
+public val LINEAGENTSTATUS_STATE: UInt = 2u
+
+public val LINEAGENTSTATUS_VALIDNEXTSTATES: UInt = 256u
+
+public val LINEAGENTSTATUS_VALIDSTATES: UInt = 128u
+
+public val LINEANSWERMODE_DROP: UInt = 2u
+
+public val LINEANSWERMODE_HOLD: UInt = 4u
+
+public val LINEANSWERMODE_NONE: UInt = 1u
+
+public val LINEBEARERMODE_ALTSPEECHDATA: UInt = 16u
+
+public val LINEBEARERMODE_DATA: UInt = 8u
+
+public val LINEBEARERMODE_MULTIUSE: UInt = 4u
+
+public val LINEBEARERMODE_NONCALLSIGNALING: UInt = 32u
+
+public val LINEBEARERMODE_PASSTHROUGH: UInt = 64u
+
+public val LINEBEARERMODE_RESTRICTEDDATA: UInt = 128u
+
+public val LINEBEARERMODE_SPEECH: UInt = 2u
+
+public val LINEBEARERMODE_VOICE: UInt = 1u
+
+public val LINEBUSYMODE_STATION: UInt = 1u
+
+public val LINEBUSYMODE_TRUNK: UInt = 2u
+
+public val LINEBUSYMODE_UNAVAIL: UInt = 8u
+
+public val LINEBUSYMODE_UNKNOWN: UInt = 4u
+
+public val LINECALLCOMPLCOND_BUSY: UInt = 1u
+
+public val LINECALLCOMPLCOND_NOANSWER: UInt = 2u
+
+public val LINECALLCOMPLMODE_CALLBACK: UInt = 2u
+
+public val LINECALLCOMPLMODE_CAMPON: UInt = 1u
+
+public val LINECALLCOMPLMODE_INTRUDE: UInt = 4u
+
+public val LINECALLCOMPLMODE_MESSAGE: UInt = 8u
+
+public val LINECALLFEATURE2_COMPLCALLBACK: UInt = 8u
+
+public val LINECALLFEATURE2_COMPLCAMPON: UInt = 4u
+
+public val LINECALLFEATURE2_COMPLINTRUDE: UInt = 16u
+
+public val LINECALLFEATURE2_COMPLMESSAGE: UInt = 32u
+
+public val LINECALLFEATURE2_NOHOLDCONFERENCE: UInt = 1u
+
+public val LINECALLFEATURE2_ONESTEPTRANSFER: UInt = 2u
+
+public val LINECALLFEATURE2_PARKDIRECT: UInt = 256u
+
+public val LINECALLFEATURE2_PARKNONDIRECT: UInt = 512u
+
+public val LINECALLFEATURE2_TRANSFERCONF: UInt = 128u
+
+public val LINECALLFEATURE2_TRANSFERNORM: UInt = 64u
+
+public val LINECALLFEATURE_ACCEPT: UInt = 1u
+
+public val LINECALLFEATURE_ADDTOCONF: UInt = 2u
+
+public val LINECALLFEATURE_ANSWER: UInt = 4u
+
+public val LINECALLFEATURE_BLINDTRANSFER: UInt = 8u
+
+public val LINECALLFEATURE_COMPLETECALL: UInt = 16u
+
+public val LINECALLFEATURE_COMPLETETRANSF: UInt = 32u
+
+public val LINECALLFEATURE_DIAL: UInt = 64u
+
+public val LINECALLFEATURE_DROP: UInt = 128u
+
+public val LINECALLFEATURE_GATHERDIGITS: UInt = 256u
+
+public val LINECALLFEATURE_GENERATEDIGITS: UInt = 512u
+
+public val LINECALLFEATURE_GENERATETONE: UInt = 1024u
+
+public val LINECALLFEATURE_HOLD: UInt = 2048u
+
+public val LINECALLFEATURE_MONITORDIGITS: UInt = 4096u
+
+public val LINECALLFEATURE_MONITORMEDIA: UInt = 8192u
+
+public val LINECALLFEATURE_MONITORTONES: UInt = 16384u
+
+public val LINECALLFEATURE_PARK: UInt = 32768u
+
+public val LINECALLFEATURE_PREPAREADDCONF: UInt = 65536u
+
+public val LINECALLFEATURE_REDIRECT: UInt = 131072u
+
+public val LINECALLFEATURE_RELEASEUSERUSERINFO: UInt = 268435456u
+
+public val LINECALLFEATURE_REMOVEFROMCONF: UInt = 262144u
+
+public val LINECALLFEATURE_SECURECALL: UInt = 524288u
+
+public val LINECALLFEATURE_SENDUSERUSER: UInt = 1048576u
+
+public val LINECALLFEATURE_SETCALLDATA: UInt = 2147483648u
+
+public val LINECALLFEATURE_SETCALLPARAMS: UInt = 2097152u
+
+public val LINECALLFEATURE_SETMEDIACONTROL: UInt = 4194304u
+
+public val LINECALLFEATURE_SETQOS: UInt = 1073741824u
+
+public val LINECALLFEATURE_SETTERMINAL: UInt = 8388608u
+
+public val LINECALLFEATURE_SETTREATMENT: UInt = 536870912u
+
+public val LINECALLFEATURE_SETUPCONF: UInt = 16777216u
+
+public val LINECALLFEATURE_SETUPTRANSFER: UInt = 33554432u
+
+public val LINECALLFEATURE_SWAPHOLD: UInt = 67108864u
+
+public val LINECALLFEATURE_UNHOLD: UInt = 134217728u
+
+public val LINECALLHUBTRACKING_ALLCALLS: UInt = 2u
+
+public val LINECALLHUBTRACKING_NONE: UInt = 0u
+
+public val LINECALLHUBTRACKING_PROVIDERLEVEL: UInt = 1u
+
+public val LINECALLINFOSTATE_APPSPECIFIC: UInt = 32u
+
+public val LINECALLINFOSTATE_BEARERMODE: UInt = 4u
+
+public val LINECALLINFOSTATE_CALLDATA: UInt = 1073741824u
+
+public val LINECALLINFOSTATE_CALLEDID: UInt = 65536u
+
+public val LINECALLINFOSTATE_CALLERID: UInt = 32768u
+
+public val LINECALLINFOSTATE_CALLID: UInt = 64u
+
+public val LINECALLINFOSTATE_CHARGINGINFO: UInt = 16777216u
+
+public val LINECALLINFOSTATE_COMPLETIONID: UInt = 1024u
+
+public val LINECALLINFOSTATE_CONNECTEDID: UInt = 131072u
+
+public val LINECALLINFOSTATE_DEVSPECIFIC: UInt = 2u
+
+public val LINECALLINFOSTATE_DIALPARAMS: UInt = 67108864u
+
+public val LINECALLINFOSTATE_DISPLAY: UInt = 1048576u
+
+public val LINECALLINFOSTATE_HIGHLEVELCOMP: UInt = 4194304u
+
+public val LINECALLINFOSTATE_LOWLEVELCOMP: UInt = 8388608u
+
+public val LINECALLINFOSTATE_MEDIAMODE: UInt = 16u
+
+public val LINECALLINFOSTATE_MONITORMODES: UInt = 134217728u
+
+public val LINECALLINFOSTATE_NUMMONITORS: UInt = 8192u
+
+public val LINECALLINFOSTATE_NUMOWNERDECR: UInt = 4096u
+
+public val LINECALLINFOSTATE_NUMOWNERINCR: UInt = 2048u
+
+public val LINECALLINFOSTATE_ORIGIN: UInt = 256u
+
+public val LINECALLINFOSTATE_OTHER: UInt = 1u
+
+public val LINECALLINFOSTATE_QOS: UInt = 536870912u
+
+public val LINECALLINFOSTATE_RATE: UInt = 8u
+
+public val LINECALLINFOSTATE_REASON: UInt = 512u
+
+public val LINECALLINFOSTATE_REDIRECTINGID: UInt = 524288u
+
+public val LINECALLINFOSTATE_REDIRECTIONID: UInt = 262144u
+
+public val LINECALLINFOSTATE_RELATEDCALLID: UInt = 128u
+
+public val LINECALLINFOSTATE_TERMINAL: UInt = 33554432u
+
+public val LINECALLINFOSTATE_TREATMENT: UInt = 268435456u
+
+public val LINECALLINFOSTATE_TRUNK: UInt = 16384u
+
+public val LINECALLINFOSTATE_USERUSERINFO: UInt = 2097152u
+
+public val LINECALLORIGIN_CONFERENCE: UInt = 64u
+
+public val LINECALLORIGIN_EXTERNAL: UInt = 4u
+
+public val LINECALLORIGIN_INBOUND: UInt = 128u
+
+public val LINECALLORIGIN_INTERNAL: UInt = 2u
+
+public val LINECALLORIGIN_OUTBOUND: UInt = 1u
+
+public val LINECALLORIGIN_UNAVAIL: UInt = 32u
+
+public val LINECALLORIGIN_UNKNOWN: UInt = 16u
+
+public val LINECALLPARAMFLAGS_BLOCKID: UInt = 4u
+
+public val LINECALLPARAMFLAGS_DESTOFFHOOK: UInt = 16u
+
+public val LINECALLPARAMFLAGS_IDLE: UInt = 2u
+
+public val LINECALLPARAMFLAGS_NOHOLDCONFERENCE: UInt = 32u
+
+public val LINECALLPARAMFLAGS_ONESTEPTRANSFER: UInt = 128u
+
+public val LINECALLPARAMFLAGS_ORIGOFFHOOK: UInt = 8u
+
+public val LINECALLPARAMFLAGS_PREDICTIVEDIAL: UInt = 64u
+
+public val LINECALLPARAMFLAGS_SECURE: UInt = 1u
+
+public val LINECALLPARTYID_ADDRESS: UInt = 8u
+
+public val LINECALLPARTYID_BLOCKED: UInt = 1u
+
+public val LINECALLPARTYID_NAME: UInt = 4u
+
+public val LINECALLPARTYID_OUTOFAREA: UInt = 2u
+
+public val LINECALLPARTYID_PARTIAL: UInt = 16u
+
+public val LINECALLPARTYID_UNAVAIL: UInt = 64u
+
+public val LINECALLPARTYID_UNKNOWN: UInt = 32u
+
+public val LINECALLPRIVILEGE_MONITOR: UInt = 2u
+
+public val LINECALLPRIVILEGE_NONE: UInt = 1u
+
+public val LINECALLPRIVILEGE_OWNER: UInt = 4u
+
+public val LINECALLREASON_CALLCOMPLETION: UInt = 128u
+
+public val LINECALLREASON_CAMPEDON: UInt = 16384u
+
+public val LINECALLREASON_DIRECT: UInt = 1u
+
+public val LINECALLREASON_FWDBUSY: UInt = 2u
+
+public val LINECALLREASON_FWDNOANSWER: UInt = 4u
+
+public val LINECALLREASON_FWDUNCOND: UInt = 8u
+
+public val LINECALLREASON_INTRUDE: UInt = 4096u
+
+public val LINECALLREASON_PARKED: UInt = 8192u
+
+public val LINECALLREASON_PICKUP: UInt = 16u
+
+public val LINECALLREASON_REDIRECT: UInt = 64u
+
+public val LINECALLREASON_REMINDER: UInt = 512u
+
+public val LINECALLREASON_ROUTEREQUEST: UInt = 32768u
+
+public val LINECALLREASON_TRANSFER: UInt = 256u
+
+public val LINECALLREASON_UNAVAIL: UInt = 2048u
+
+public val LINECALLREASON_UNKNOWN: UInt = 1024u
+
+public val LINECALLREASON_UNPARK: UInt = 32u
+
+public val LINECALLSELECT_ADDRESS: UInt = 2u
+
+public val LINECALLSELECT_CALL: UInt = 4u
+
+public val LINECALLSELECT_CALLID: UInt = 16u
+
+public val LINECALLSELECT_DEVICEID: UInt = 8u
+
+public val LINECALLSELECT_LINE: UInt = 1u
+
+public val LINECALLSTATE_ACCEPTED: UInt = 4u
+
+public val LINECALLSTATE_BUSY: UInt = 64u
+
+public val LINECALLSTATE_CONFERENCED: UInt = 2048u
+
+public val LINECALLSTATE_CONNECTED: UInt = 256u
+
+public val LINECALLSTATE_DIALING: UInt = 16u
+
+public val LINECALLSTATE_DIALTONE: UInt = 8u
+
+public val LINECALLSTATE_DISCONNECTED: UInt = 16384u
+
+public val LINECALLSTATE_IDLE: UInt = 1u
+
+public val LINECALLSTATE_OFFERING: UInt = 2u
+
+public val LINECALLSTATE_ONHOLD: UInt = 1024u
+
+public val LINECALLSTATE_ONHOLDPENDCONF: UInt = 4096u
+
+public val LINECALLSTATE_ONHOLDPENDTRANSFER: UInt = 8192u
+
+public val LINECALLSTATE_PROCEEDING: UInt = 512u
+
+public val LINECALLSTATE_RINGBACK: UInt = 32u
+
+public val LINECALLSTATE_SPECIALINFO: UInt = 128u
+
+public val LINECALLSTATE_UNKNOWN: UInt = 32768u
+
+public val LINECALLTREATMENT_BUSY: UInt = 3u
+
+public val LINECALLTREATMENT_MUSIC: UInt = 4u
+
+public val LINECALLTREATMENT_RINGBACK: UInt = 2u
+
+public val LINECALLTREATMENT_SILENCE: UInt = 1u
+
+public val LINECARDOPTION_HIDDEN: UInt = 2u
+
+public val LINECARDOPTION_PREDEFINED: UInt = 1u
+
+public val LINECONNECTEDMODE_ACTIVE: UInt = 1u
+
+public val LINECONNECTEDMODE_ACTIVEHELD: UInt = 4u
+
+public val LINECONNECTEDMODE_CONFIRMED: UInt = 16u
+
+public val LINECONNECTEDMODE_INACTIVE: UInt = 2u
+
+public val LINECONNECTEDMODE_INACTIVEHELD: UInt = 8u
+
+public val LINEDEVCAPFLAGS_CALLHUB: UInt = 1024u
+
+public val LINEDEVCAPFLAGS_CALLHUBTRACKING: UInt = 2048u
+
+public val LINEDEVCAPFLAGS_CLOSEDROP: UInt = 32u
+
+public val LINEDEVCAPFLAGS_CROSSADDRCONF: UInt = 1u
+
+public val LINEDEVCAPFLAGS_DIALBILLING: UInt = 64u
+
+public val LINEDEVCAPFLAGS_DIALDIALTONE: UInt = 256u
+
+public val LINEDEVCAPFLAGS_DIALQUIET: UInt = 128u
+
+public val LINEDEVCAPFLAGS_HIGHLEVCOMP: UInt = 2u
+
+public val LINEDEVCAPFLAGS_LOCAL: UInt = 8192u
+
+public val LINEDEVCAPFLAGS_LOWLEVCOMP: UInt = 4u
+
+public val LINEDEVCAPFLAGS_MEDIACONTROL: UInt = 8u
+
+public val LINEDEVCAPFLAGS_MSP: UInt = 512u
+
+public val LINEDEVCAPFLAGS_MULTIPLEADDR: UInt = 16u
+
+public val LINEDEVCAPFLAGS_PRIVATEOBJECTS: UInt = 4096u
+
+public val LINEDEVSTATE_BATTERY: UInt = 32768u
+
+public val LINEDEVSTATE_CAPSCHANGE: UInt = 1048576u
+
+public val LINEDEVSTATE_CLOSE: UInt = 1024u
+
+public val LINEDEVSTATE_COMPLCANCEL: UInt = 8388608u
+
+public val LINEDEVSTATE_CONFIGCHANGE: UInt = 2097152u
+
+public val LINEDEVSTATE_CONNECTED: UInt = 4u
+
+public val LINEDEVSTATE_DEVSPECIFIC: UInt = 131072u
+
+public val LINEDEVSTATE_DISCONNECTED: UInt = 8u
+
+public val LINEDEVSTATE_INSERVICE: UInt = 64u
+
+public val LINEDEVSTATE_LOCK: UInt = 524288u
+
+public val LINEDEVSTATE_MAINTENANCE: UInt = 256u
+
+public val LINEDEVSTATE_MSGWAITOFF: UInt = 32u
+
+public val LINEDEVSTATE_MSGWAITON: UInt = 16u
+
+public val LINEDEVSTATE_NUMCALLS: UInt = 2048u
+
+public val LINEDEVSTATE_NUMCOMPLETIONS: UInt = 4096u
+
+public val LINEDEVSTATE_OPEN: UInt = 512u
+
+public val LINEDEVSTATE_OTHER: UInt = 1u
+
+public val LINEDEVSTATE_OUTOFSERVICE: UInt = 128u
+
+public val LINEDEVSTATE_REINIT: UInt = 262144u
+
+public val LINEDEVSTATE_REMOVED: UInt = 16777216u
+
+public val LINEDEVSTATE_RINGING: UInt = 2u
+
+public val LINEDEVSTATE_ROAMMODE: UInt = 16384u
+
+public val LINEDEVSTATE_SIGNAL: UInt = 65536u
+
+public val LINEDEVSTATE_TERMINALS: UInt = 8192u
+
+public val LINEDEVSTATE_TRANSLATECHANGE: UInt = 4194304u
+
+public val LINEDEVSTATUSFLAGS_CONNECTED: UInt = 1u
+
+public val LINEDEVSTATUSFLAGS_INSERVICE: UInt = 4u
+
+public val LINEDEVSTATUSFLAGS_LOCKED: UInt = 8u
+
+public val LINEDEVSTATUSFLAGS_MSGWAIT: UInt = 2u
+
+public val LINEDIALTONEMODE_EXTERNAL: UInt = 8u
+
+public val LINEDIALTONEMODE_INTERNAL: UInt = 4u
+
+public val LINEDIALTONEMODE_NORMAL: UInt = 1u
+
+public val LINEDIALTONEMODE_SPECIAL: UInt = 2u
+
+public val LINEDIALTONEMODE_UNAVAIL: UInt = 32u
+
+public val LINEDIALTONEMODE_UNKNOWN: UInt = 16u
+
+public val LINEDIGITMODE_DTMF: UInt = 2u
+
+public val LINEDIGITMODE_DTMFEND: UInt = 4u
+
+public val LINEDIGITMODE_PULSE: UInt = 1u
+
+public val LINEDISCONNECTMODE_BADADDRESS: UInt = 128u
+
+public val LINEDISCONNECTMODE_BLOCKED: UInt = 131072u
+
+public val LINEDISCONNECTMODE_BUSY: UInt = 32u
+
+public val LINEDISCONNECTMODE_CANCELLED: UInt = 524288u
+
+public val LINEDISCONNECTMODE_CONGESTION: UInt = 512u
+
+public val LINEDISCONNECTMODE_DESTINATIONBARRED: UInt = 1048576u
+
+public val LINEDISCONNECTMODE_DONOTDISTURB: UInt = 262144u
+
+public val LINEDISCONNECTMODE_FDNRESTRICT: UInt = 2097152u
+
+public val LINEDISCONNECTMODE_FORWARDED: UInt = 16u
+
+public val LINEDISCONNECTMODE_INCOMPATIBLE: UInt = 1024u
+
+public val LINEDISCONNECTMODE_NOANSWER: UInt = 64u
+
+public val LINEDISCONNECTMODE_NODIALTONE: UInt = 4096u
+
+public val LINEDISCONNECTMODE_NORMAL: UInt = 1u
+
+public val LINEDISCONNECTMODE_NUMBERCHANGED: UInt = 8192u
+
+public val LINEDISCONNECTMODE_OUTOFORDER: UInt = 16384u
+
+public val LINEDISCONNECTMODE_PICKUP: UInt = 8u
+
+public val LINEDISCONNECTMODE_QOSUNAVAIL: UInt = 65536u
+
+public val LINEDISCONNECTMODE_REJECT: UInt = 4u
+
+public val LINEDISCONNECTMODE_TEMPFAILURE: UInt = 32768u
+
+public val LINEDISCONNECTMODE_UNAVAIL: UInt = 2048u
+
+public val LINEDISCONNECTMODE_UNKNOWN: UInt = 2u
+
+public val LINEDISCONNECTMODE_UNREACHABLE: UInt = 256u
+
+public val LINEEQOSINFO_ADMISSIONFAILURE: UInt = 2u
+
+public val LINEEQOSINFO_GENERICERROR: UInt = 4u
+
+public val LINEEQOSINFO_NOQOS: UInt = 1u
+
+public val LINEEQOSINFO_POLICYFAILURE: UInt = 3u
+
+public val LINEERR_ADDRESSBLOCKED: UInt = 2147483731u
+
+public val LINEERR_ALLOCATED: UInt = 2147483649u
+
+public val LINEERR_BADDEVICEID: UInt = 2147483650u
+
+public val LINEERR_BEARERMODEUNAVAIL: UInt = 2147483651u
+
+public val LINEERR_BILLINGREJECTED: UInt = 2147483732u
+
+public val LINEERR_CALLUNAVAIL: UInt = 2147483653u
+
+public val LINEERR_COMPLETIONOVERRUN: UInt = 2147483654u
+
+public val LINEERR_CONFERENCEFULL: UInt = 2147483655u
+
+public val LINEERR_DIALBILLING: UInt = 2147483656u
+
+public val LINEERR_DIALDIALTONE: UInt = 2147483657u
+
+public val LINEERR_DIALPROMPT: UInt = 2147483658u
+
+public val LINEERR_DIALQUIET: UInt = 2147483659u
+
+public val LINEERR_DIALVOICEDETECT: UInt = 2147483740u
+
+public val LINEERR_DISCONNECTED: UInt = 2147483744u
+
+public val LINEERR_INCOMPATIBLEAPIVERSION: UInt = 2147483660u
+
+public val LINEERR_INCOMPATIBLEEXTVERSION: UInt = 2147483661u
+
+public val LINEERR_INIFILECORRUPT: UInt = 2147483662u
+
+public val LINEERR_INUSE: UInt = 2147483663u
+
+public val LINEERR_INVALADDRESS: UInt = 2147483664u
+
+public val LINEERR_INVALADDRESSID: UInt = 2147483665u
+
+public val LINEERR_INVALADDRESSMODE: UInt = 2147483666u
+
+public val LINEERR_INVALADDRESSSTATE: UInt = 2147483667u
+
+public val LINEERR_INVALADDRESSTYPE: UInt = 2147483742u
+
+public val LINEERR_INVALAGENTACTIVITY: UInt = 2147483739u
+
+public val LINEERR_INVALAGENTGROUP: UInt = 2147483736u
+
+public val LINEERR_INVALAGENTID: UInt = 2147483735u
+
+public val LINEERR_INVALAGENTSESSIONSTATE: UInt = 2147483743u
+
+public val LINEERR_INVALAGENTSTATE: UInt = 2147483738u
+
+public val LINEERR_INVALAPPHANDLE: UInt = 2147483668u
+
+public val LINEERR_INVALAPPNAME: UInt = 2147483669u
+
+public val LINEERR_INVALBEARERMODE: UInt = 2147483670u
+
+public val LINEERR_INVALCALLCOMPLMODE: UInt = 2147483671u
+
+public val LINEERR_INVALCALLHANDLE: UInt = 2147483672u
+
+public val LINEERR_INVALCALLPARAMS: UInt = 2147483673u
+
+public val LINEERR_INVALCALLPRIVILEGE: UInt = 2147483674u
+
+public val LINEERR_INVALCALLSELECT: UInt = 2147483675u
+
+public val LINEERR_INVALCALLSTATE: UInt = 2147483676u
+
+public val LINEERR_INVALCALLSTATELIST: UInt = 2147483677u
+
+public val LINEERR_INVALCARD: UInt = 2147483678u
+
+public val LINEERR_INVALCOMPLETIONID: UInt = 2147483679u
+
+public val LINEERR_INVALCONFCALLHANDLE: UInt = 2147483680u
+
+public val LINEERR_INVALCONSULTCALLHANDLE: UInt = 2147483681u
+
+public val LINEERR_INVALCOUNTRYCODE: UInt = 2147483682u
+
+public val LINEERR_INVALDEVICECLASS: UInt = 2147483683u
+
+public val LINEERR_INVALDEVICEHANDLE: UInt = 2147483684u
+
+public val LINEERR_INVALDIALPARAMS: UInt = 2147483685u
+
+public val LINEERR_INVALDIGITLIST: UInt = 2147483686u
+
+public val LINEERR_INVALDIGITMODE: UInt = 2147483687u
+
+public val LINEERR_INVALDIGITS: UInt = 2147483688u
+
+public val LINEERR_INVALEXTVERSION: UInt = 2147483689u
+
+public val LINEERR_INVALFEATURE: UInt = 2147483733u
+
+public val LINEERR_INVALGROUPID: UInt = 2147483690u
+
+public val LINEERR_INVALLINEHANDLE: UInt = 2147483691u
+
+public val LINEERR_INVALLINESTATE: UInt = 2147483692u
+
+public val LINEERR_INVALLOCATION: UInt = 2147483693u
+
+public val LINEERR_INVALMEDIALIST: UInt = 2147483694u
+
+public val LINEERR_INVALMEDIAMODE: UInt = 2147483695u
+
+public val LINEERR_INVALMESSAGEID: UInt = 2147483696u
+
+public val LINEERR_INVALPARAM: UInt = 2147483698u
+
+public val LINEERR_INVALPARKID: UInt = 2147483699u
+
+public val LINEERR_INVALPARKMODE: UInt = 2147483700u
+
+public val LINEERR_INVALPASSWORD: UInt = 2147483737u
+
+public val LINEERR_INVALPOINTER: UInt = 2147483701u
+
+public val LINEERR_INVALPRIVSELECT: UInt = 2147483702u
+
+public val LINEERR_INVALRATE: UInt = 2147483703u
+
+public val LINEERR_INVALREQUESTMODE: UInt = 2147483704u
+
+public val LINEERR_INVALTERMINALID: UInt = 2147483705u
+
+public val LINEERR_INVALTERMINALMODE: UInt = 2147483706u
+
+public val LINEERR_INVALTIMEOUT: UInt = 2147483707u
+
+public val LINEERR_INVALTONE: UInt = 2147483708u
+
+public val LINEERR_INVALTONELIST: UInt = 2147483709u
+
+public val LINEERR_INVALTONEMODE: UInt = 2147483710u
+
+public val LINEERR_INVALTRANSFERMODE: UInt = 2147483711u
+
+public val LINEERR_LINEMAPPERFAILED: UInt = 2147483712u
+
+public val LINEERR_NOCONFERENCE: UInt = 2147483713u
+
+public val LINEERR_NODEVICE: UInt = 2147483714u
+
+public val LINEERR_NODRIVER: UInt = 2147483715u
+
+public val LINEERR_NOMEM: UInt = 2147483716u
+
+public val LINEERR_NOMULTIPLEINSTANCE: UInt = 2147483734u
+
+public val LINEERR_NOREQUEST: UInt = 2147483717u
+
+public val LINEERR_NOTOWNER: UInt = 2147483718u
+
+public val LINEERR_NOTREGISTERED: UInt = 2147483719u
+
+public val LINEERR_OPERATIONFAILED: UInt = 2147483720u
+
+public val LINEERR_OPERATIONUNAVAIL: UInt = 2147483721u
+
+public val LINEERR_RATEUNAVAIL: UInt = 2147483722u
+
+public val LINEERR_REINIT: UInt = 2147483730u
+
+public val LINEERR_REQUESTOVERRUN: UInt = 2147483724u
+
+public val LINEERR_RESOURCEUNAVAIL: UInt = 2147483723u
+
+public val LINEERR_SERVICE_NOT_RUNNING: UInt = 2147483745u
+
+public val LINEERR_STRUCTURETOOSMALL: UInt = 2147483725u
+
+public val LINEERR_TARGETNOTFOUND: UInt = 2147483726u
+
+public val LINEERR_TARGETSELF: UInt = 2147483727u
+
+public val LINEERR_UNINITIALIZED: UInt = 2147483728u
+
+public val LINEERR_USERCANCELLED: UInt = 2147483741u
+
+public val LINEERR_USERUSERINFOTOOBIG: UInt = 2147483729u
+
+public val LINEFEATURE_DEVSPECIFIC: UInt = 1u
+
+public val LINEFEATURE_DEVSPECIFICFEAT: UInt = 2u
+
+public val LINEFEATURE_FORWARD: UInt = 4u
+
+public val LINEFEATURE_FORWARDDND: UInt = 256u
+
+public val LINEFEATURE_FORWARDFWD: UInt = 128u
+
+public val LINEFEATURE_MAKECALL: UInt = 8u
+
+public val LINEFEATURE_SETDEVSTATUS: UInt = 64u
+
+public val LINEFEATURE_SETMEDIACONTROL: UInt = 16u
+
+public val LINEFEATURE_SETTERMINAL: UInt = 32u
+
+public val LINEFORWARDMODE_BUSY: UInt = 16u
+
+public val LINEFORWARDMODE_BUSYEXTERNAL: UInt = 64u
+
+public val LINEFORWARDMODE_BUSYINTERNAL: UInt = 32u
+
+public val LINEFORWARDMODE_BUSYNA: UInt = 4096u
+
+public val LINEFORWARDMODE_BUSYNAEXTERNAL: UInt = 16384u
+
+public val LINEFORWARDMODE_BUSYNAINTERNAL: UInt = 8192u
+
+public val LINEFORWARDMODE_BUSYNASPECIFIC: UInt = 32768u
+
+public val LINEFORWARDMODE_BUSYSPECIFIC: UInt = 128u
+
+public val LINEFORWARDMODE_NOANSW: UInt = 256u
+
+public val LINEFORWARDMODE_NOANSWEXTERNAL: UInt = 1024u
+
+public val LINEFORWARDMODE_NOANSWINTERNAL: UInt = 512u
+
+public val LINEFORWARDMODE_NOANSWSPECIFIC: UInt = 2048u
+
+public val LINEFORWARDMODE_UNAVAIL: UInt = 131072u
+
+public val LINEFORWARDMODE_UNCOND: UInt = 1u
+
+public val LINEFORWARDMODE_UNCONDEXTERNAL: UInt = 4u
+
+public val LINEFORWARDMODE_UNCONDINTERNAL: UInt = 2u
+
+public val LINEFORWARDMODE_UNCONDSPECIFIC: UInt = 8u
+
+public val LINEFORWARDMODE_UNKNOWN: UInt = 65536u
+
+public val LINEGATHERTERM_BUFFERFULL: UInt = 1u
+
+public val LINEGATHERTERM_CANCEL: UInt = 16u
+
+public val LINEGATHERTERM_FIRSTTIMEOUT: UInt = 4u
+
+public val LINEGATHERTERM_INTERTIMEOUT: UInt = 8u
+
+public val LINEGATHERTERM_TERMDIGIT: UInt = 2u
+
+public val LINEGENERATETERM_CANCEL: UInt = 2u
+
+public val LINEGENERATETERM_DONE: UInt = 1u
+
+public val LINEGROUPSTATUS_GROUPREMOVED: UInt = 2u
+
+public val LINEGROUPSTATUS_NEWGROUP: UInt = 1u
+
+public val LINEINITIALIZEEXOPTION_CALLHUBTRACKING: UInt = 2147483648u
+
+public val LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: UInt = 3u
+
+public val LINEINITIALIZEEXOPTION_USEEVENT: UInt = 2u
+
+public val LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: UInt = 1u
+
+public val LINELOCATIONOPTION_PULSEDIAL: UInt = 1u
+
+public val LINEMAPPER: UInt = 4294967295u
+
+public val LINEMEDIACONTROL_NONE: UInt = 1u
+
+public val LINEMEDIACONTROL_PAUSE: UInt = 8u
+
+public val LINEMEDIACONTROL_RATEDOWN: UInt = 64u
+
+public val LINEMEDIACONTROL_RATENORMAL: UInt = 128u
+
+public val LINEMEDIACONTROL_RATEUP: UInt = 32u
+
+public val LINEMEDIACONTROL_RESET: UInt = 4u
+
+public val LINEMEDIACONTROL_RESUME: UInt = 16u
+
+public val LINEMEDIACONTROL_START: UInt = 2u
+
+public val LINEMEDIACONTROL_VOLUMEDOWN: UInt = 512u
+
+public val LINEMEDIACONTROL_VOLUMENORMAL: UInt = 1024u
+
+public val LINEMEDIACONTROL_VOLUMEUP: UInt = 256u
+
+public val LINEMEDIAMODE_ADSI: UInt = 8192u
+
+public val LINEMEDIAMODE_AUTOMATEDVOICE: UInt = 8u
+
+public val LINEMEDIAMODE_DATAMODEM: UInt = 16u
+
+public val LINEMEDIAMODE_DIGITALDATA: UInt = 256u
+
+public val LINEMEDIAMODE_G3FAX: UInt = 32u
+
+public val LINEMEDIAMODE_G4FAX: UInt = 128u
+
+public val LINEMEDIAMODE_INTERACTIVEVOICE: UInt = 4u
+
+public val LINEMEDIAMODE_MIXED: UInt = 4096u
+
+public val LINEMEDIAMODE_TDD: UInt = 64u
+
+public val LINEMEDIAMODE_TELETEX: UInt = 512u
+
+public val LINEMEDIAMODE_TELEX: UInt = 2048u
+
+public val LINEMEDIAMODE_UNKNOWN: UInt = 2u
+
+public val LINEMEDIAMODE_VIDEO: UInt = 32768u
+
+public val LINEMEDIAMODE_VIDEOTEX: UInt = 1024u
+
+public val LINEMEDIAMODE_VOICEVIEW: UInt = 16384u
+
+public val LINEOFFERINGMODE_ACTIVE: UInt = 1u
+
+public val LINEOFFERINGMODE_INACTIVE: UInt = 2u
+
+public val LINEOPENOPTION_PROXY: UInt = 1073741824u
+
+public val LINEOPENOPTION_SINGLEADDRESS: UInt = 2147483648u
+
+public val LINEPARKMODE_DIRECTED: UInt = 1u
+
+public val LINEPARKMODE_NONDIRECTED: UInt = 2u
+
+public val LINEPROXYREQUEST_AGENTSPECIFIC: UInt = 6u
+
+public val LINEPROXYREQUEST_CREATEAGENT: UInt = 9u
+
+public val LINEPROXYREQUEST_CREATEAGENTSESSION: UInt = 12u
+
+public val LINEPROXYREQUEST_GETAGENTACTIVITYLIST: UInt = 7u
+
+public val LINEPROXYREQUEST_GETAGENTCAPS: UInt = 4u
+
+public val LINEPROXYREQUEST_GETAGENTGROUPLIST: UInt = 8u
+
+public val LINEPROXYREQUEST_GETAGENTINFO: UInt = 11u
+
+public val LINEPROXYREQUEST_GETAGENTSESSIONINFO: UInt = 15u
+
+public val LINEPROXYREQUEST_GETAGENTSESSIONLIST: UInt = 13u
+
+public val LINEPROXYREQUEST_GETAGENTSTATUS: UInt = 5u
+
+public val LINEPROXYREQUEST_GETGROUPLIST: UInt = 19u
+
+public val LINEPROXYREQUEST_GETQUEUEINFO: UInt = 18u
+
+public val LINEPROXYREQUEST_GETQUEUELIST: UInt = 16u
+
+public val LINEPROXYREQUEST_SETAGENTACTIVITY: UInt = 3u
+
+public val LINEPROXYREQUEST_SETAGENTGROUP: UInt = 1u
+
+public val LINEPROXYREQUEST_SETAGENTMEASUREMENTPERIOD: UInt = 10u
+
+public val LINEPROXYREQUEST_SETAGENTSESSIONSTATE: UInt = 14u
+
+public val LINEPROXYREQUEST_SETAGENTSTATE: UInt = 2u
+
+public val LINEPROXYREQUEST_SETAGENTSTATEEX: UInt = 20u
+
+public val LINEPROXYREQUEST_SETQUEUEMEASUREMENTPERIOD: UInt = 17u
+
+public val LINEPROXYSTATUS_ALLOPENFORACD: UInt = 4u
+
+public val LINEPROXYSTATUS_CLOSE: UInt = 2u
+
+public val LINEPROXYSTATUS_OPEN: UInt = 1u
+
+public val LINEQOSREQUESTTYPE_SERVICELEVEL: UInt = 1u
+
+public val LINEQOSSERVICELEVEL_BESTEFFORT: UInt = 3u
+
+public val LINEQOSSERVICELEVEL_IFAVAILABLE: UInt = 2u
+
+public val LINEQOSSERVICELEVEL_NEEDED: UInt = 1u
+
+public val LINEQUEUESTATUS_NEWQUEUE: UInt = 2u
+
+public val LINEQUEUESTATUS_QUEUEREMOVED: UInt = 4u
+
+public val LINEQUEUESTATUS_UPDATEINFO: UInt = 1u
+
+public val LINEREMOVEFROMCONF_ANY: UInt = 3u
+
+public val LINEREMOVEFROMCONF_LAST: UInt = 2u
+
+public val LINEREMOVEFROMCONF_NONE: UInt = 1u
+
+public val LINEREQUESTMODE_DROP: UInt = 4u
+
+public val LINEREQUESTMODE_MAKECALL: UInt = 1u
+
+public val LINEREQUESTMODE_MEDIACALL: UInt = 2u
+
+public val LINEROAMMODE_HOME: UInt = 4u
+
+public val LINEROAMMODE_ROAMA: UInt = 8u
+
+public val LINEROAMMODE_ROAMB: UInt = 16u
+
+public val LINEROAMMODE_UNAVAIL: UInt = 2u
+
+public val LINEROAMMODE_UNKNOWN: UInt = 1u
+
+public val LINESPECIALINFO_CUSTIRREG: UInt = 2u
+
+public val LINESPECIALINFO_NOCIRCUIT: UInt = 1u
+
+public val LINESPECIALINFO_REORDER: UInt = 4u
+
+public val LINESPECIALINFO_UNAVAIL: UInt = 16u
+
+public val LINESPECIALINFO_UNKNOWN: UInt = 8u
+
+public val LINETERMDEV_HEADSET: UInt = 2u
+
+public val LINETERMDEV_PHONE: UInt = 1u
+
+public val LINETERMDEV_SPEAKER: UInt = 4u
+
+public val LINETERMMODE_BUTTONS: UInt = 1u
+
+public val LINETERMMODE_DISPLAY: UInt = 4u
+
+public val LINETERMMODE_HOOKSWITCH: UInt = 16u
+
+public val LINETERMMODE_LAMPS: UInt = 2u
+
+public val LINETERMMODE_MEDIABIDIRECT: UInt = 128u
+
+public val LINETERMMODE_MEDIAFROMLINE: UInt = 64u
+
+public val LINETERMMODE_MEDIATOLINE: UInt = 32u
+
+public val LINETERMMODE_RINGER: UInt = 8u
+
+public val LINETERMSHARING_PRIVATE: UInt = 1u
+
+public val LINETERMSHARING_SHAREDCONF: UInt = 4u
+
+public val LINETERMSHARING_SHAREDEXCL: UInt = 2u
+
+public val LINETOLLLISTOPTION_ADD: UInt = 1u
+
+public val LINETOLLLISTOPTION_REMOVE: UInt = 2u
+
+public val LINETONEMODE_BEEP: UInt = 8u
+
+public val LINETONEMODE_BILLING: UInt = 16u
+
+public val LINETONEMODE_BUSY: UInt = 4u
+
+public val LINETONEMODE_CUSTOM: UInt = 1u
+
+public val LINETONEMODE_RINGBACK: UInt = 2u
+
+public val LINETRANSFERMODE_CONFERENCE: UInt = 2u
+
+public val LINETRANSFERMODE_TRANSFER: UInt = 1u
+
+public val LINETRANSLATEOPTION_CANCELCALLWAITING: UInt = 2u
+
+public val LINETRANSLATEOPTION_CARDOVERRIDE: UInt = 1u
+
+public val LINETRANSLATEOPTION_FORCELD: UInt = 8u
+
+public val LINETRANSLATEOPTION_FORCELOCAL: UInt = 4u
+
+public val LINETRANSLATERESULT_CANONICAL: UInt = 1u
+
+public val LINETRANSLATERESULT_DIALBILLING: UInt = 64u
+
+public val LINETRANSLATERESULT_DIALDIALTONE: UInt = 256u
+
+public val LINETRANSLATERESULT_DIALPROMPT: UInt = 512u
+
+public val LINETRANSLATERESULT_DIALQUIET: UInt = 128u
+
+public val LINETRANSLATERESULT_INTERNATIONAL: UInt = 2u
+
+public val LINETRANSLATERESULT_INTOLLLIST: UInt = 16u
+
+public val LINETRANSLATERESULT_LOCAL: UInt = 8u
+
+public val LINETRANSLATERESULT_LONGDISTANCE: UInt = 4u
+
+public val LINETRANSLATERESULT_NOTINTOLLLIST: UInt = 32u
+
+public val LINETRANSLATERESULT_NOTRANSLATION: UInt = 2048u
+
+public val LINETRANSLATERESULT_VOICEDETECT: UInt = 1024u
+
+public val LINETSPIOPTION_NONREENTRANT: UInt = 1u
+
+public val LINE_ADDRESSSTATE: Int = 0
+
+public val LINE_AGENTSESSIONSTATUS: Int = 27
+
+public val LINE_AGENTSPECIFIC: Int = 21
+
+public val LINE_AGENTSTATUS: Int = 22
+
+public val LINE_AGENTSTATUSEX: Int = 29
+
+public val LINE_APPNEWCALL: Int = 23
+
+public val LINE_APPNEWCALLHUB: Int = 32
+
+public val LINE_CALLHUBCLOSE: Int = 33
+
+public val LINE_CALLINFO: Int = 1
+
+public val LINE_CALLSTATE: Int = 2
+
+public val LINE_CLOSE: Int = 3
+
+public val LINE_CREATE: Int = 19
+
+public val LINE_DEVSPECIFIC: Int = 4
+
+public val LINE_DEVSPECIFICEX: Int = 34
+
+public val LINE_DEVSPECIFICFEATURE: Int = 5
+
+public val LINE_GATHERDIGITS: Int = 6
+
+public val LINE_GENERATE: Int = 7
+
+public val LINE_GROUPSTATUS: Int = 30
+
+public val LINE_LINEDEVSTATE: Int = 8
+
+public val LINE_MONITORDIGITS: Int = 9
+
+public val LINE_MONITORMEDIA: Int = 10
+
+public val LINE_MONITORTONE: Int = 11
+
+public val LINE_PROXYREQUEST: Int = 24
+
+public val LINE_PROXYSTATUS: Int = 31
+
+public val LINE_QUEUESTATUS: Int = 28
+
+public val LINE_REMOVE: Int = 25
+
+public val LINE_REPLY: Int = 12
+
+public val LINE_REQUEST: Int = 13
+
+public val LM_BROKENFLUTTER: PhoneLampMode = 64
+
+public val LM_DUMMY: PhoneLampMode = 1
+
+public val LM_FLASH: PhoneLampMode = 16
+
+public val LM_FLUTTER: PhoneLampMode = 32
+
+public val LM_OFF: PhoneLampMode = 2
+
+public val LM_STEADY: PhoneLampMode = 4
+
+public val LM_UNKNOWN: PhoneLampMode = 128
+
+public val LM_WINK: PhoneLampMode = 8
+
+public val ME_ADDRESS_EVENT: MspEvent = 0
+
+public val ME_ASR_TERMINAL_EVENT: MspEvent = 4
+
+public val ME_CALL_EVENT: MspEvent = 1
+
+public val ME_FILE_TERMINAL_EVENT: MspEvent = 6
+
+public val ME_PRIVATE_EVENT: MspEvent = 3
+
+public val ME_TONE_TERMINAL_EVENT: MspEvent = 7
+
+public val ME_TSP_DATA: MspEvent = 2
+
+public val ME_TTS_TERMINAL_EVENT: MspEvent = 5
+
+public val OPENTNEFSTREAM: Pcstr = s("OpenTnefStream")
+
+public val OPENTNEFSTREAMEX: Pcstr = s("OpenTnefStreamEx")
+
+public val OT_CONFERENCE: DirectoryObjectType = 1
+
+public val OT_USER: DirectoryObjectType = 2
+
+public val PBF_ABBREVDIAL: PhoneButtonFunction = 11
+
+public val PBF_BRIDGEDAPP: PhoneButtonFunction = 28
+
+public val PBF_BUSY: PhoneButtonFunction = 29
+
+public val PBF_CALLAPP: PhoneButtonFunction = 30
+
+public val PBF_CALLID: PhoneButtonFunction = 34
+
+public val PBF_CAMPON: PhoneButtonFunction = 43
+
+public val PBF_CONFERENCE: PhoneButtonFunction = 1
+
+public val PBF_CONNECT: PhoneButtonFunction = 7
+
+public val PBF_COVER: PhoneButtonFunction = 33
+
+public val PBF_DATAOFF: PhoneButtonFunction = 25
+
+public val PBF_DATAON: PhoneButtonFunction = 24
+
+public val PBF_DATETIME: PhoneButtonFunction = 31
+
+public val PBF_DIRECTORY: PhoneButtonFunction = 32
+
+public val PBF_DISCONNECT: PhoneButtonFunction = 6
+
+public val PBF_DONOTDISTURB: PhoneButtonFunction = 26
+
+public val PBF_DROP: PhoneButtonFunction = 3
+
+public val PBF_FLASH: PhoneButtonFunction = 23
+
+public val PBF_FORWARD: PhoneButtonFunction = 12
+
+public val PBF_HOLD: PhoneButtonFunction = 4
+
+public val PBF_INTERCOM: PhoneButtonFunction = 27
+
+public val PBF_LASTNUM: PhoneButtonFunction = 35
+
+public val PBF_MSGINDICATOR: PhoneButtonFunction = 38
+
+public val PBF_MSGWAITOFF: PhoneButtonFunction = 9
+
+public val PBF_MSGWAITON: PhoneButtonFunction = 8
+
+public val PBF_MUTE: PhoneButtonFunction = 18
+
+public val PBF_NIGHTSRV: PhoneButtonFunction = 36
+
+public val PBF_NONE: PhoneButtonFunction = 46
+
+public val PBF_PARK: PhoneButtonFunction = 15
+
+public val PBF_PICKUP: PhoneButtonFunction = 13
+
+public val PBF_QUEUECALL: PhoneButtonFunction = 45
+
+public val PBF_RECALL: PhoneButtonFunction = 5
+
+public val PBF_REDIRECT: PhoneButtonFunction = 17
+
+public val PBF_REJECT: PhoneButtonFunction = 16
+
+public val PBF_REPDIAL: PhoneButtonFunction = 39
+
+public val PBF_RINGAGAIN: PhoneButtonFunction = 14
+
+public val PBF_SAVEREPEAT: PhoneButtonFunction = 44
+
+public val PBF_SELECTRING: PhoneButtonFunction = 10
+
+public val PBF_SEND: PhoneButtonFunction = 47
+
+public val PBF_SENDCALLS: PhoneButtonFunction = 37
+
+public val PBF_SETREPDIAL: PhoneButtonFunction = 40
+
+public val PBF_SPEAKEROFF: PhoneButtonFunction = 22
+
+public val PBF_SPEAKERON: PhoneButtonFunction = 21
+
+public val PBF_STATIONSPEED: PhoneButtonFunction = 42
+
+public val PBF_SYSTEMSPEED: PhoneButtonFunction = 41
+
+public val PBF_TRANSFER: PhoneButtonFunction = 2
+
+public val PBF_UNKNOWN: PhoneButtonFunction = 0
+
+public val PBF_VOLUMEDOWN: PhoneButtonFunction = 20
+
+public val PBF_VOLUMEUP: PhoneButtonFunction = 19
+
+public val PBM_CALL: PhoneButtonMode = 1
+
+public val PBM_DISPLAY: PhoneButtonMode = 5
+
+public val PBM_DUMMY: PhoneButtonMode = 0
+
+public val PBM_FEATURE: PhoneButtonMode = 2
+
+public val PBM_KEYPAD: PhoneButtonMode = 3
+
+public val PBM_LOCAL: PhoneButtonMode = 4
+
+public val PBS_DOWN: PhoneButtonState = 2
+
+public val PBS_UNAVAIL: PhoneButtonState = 8
+
+public val PBS_UNKNOWN: PhoneButtonState = 4
+
+public val PBS_UP: PhoneButtonState = 1
+
+public val PCB_DEVSPECIFICBUFFER: PhonecapsBuffer = 0
+
+public val PCL_DISPLAYNUMCOLUMNS: PhonecapsLong = 5
+
+public val PCL_DISPLAYNUMROWS: PhonecapsLong = 4
+
+public val PCL_GENERICPHONE: PhonecapsLong = 8
+
+public val PCL_HANDSETHOOKSWITCHMODES: PhonecapsLong = 1
+
+public val PCL_HEADSETHOOKSWITCHMODES: PhonecapsLong = 2
+
+public val PCL_HOOKSWITCHES: PhonecapsLong = 0
+
+public val PCL_NUMBUTTONLAMPS: PhonecapsLong = 7
+
+public val PCL_NUMRINGMODES: PhonecapsLong = 6
+
+public val PCL_SPEAKERPHONEHOOKSWITCHMODES: PhonecapsLong = 3
+
+public val PCS_PHONEINFO: PhonecapsString = 1
+
+public val PCS_PHONENAME: PhonecapsString = 0
+
+public val PCS_PROVIDERINFO: PhonecapsString = 2
+
+public val PE_ANSWER: PhoneEvent = 10
+
+public val PE_BUTTON: PhoneEvent = 6
+
+public val PE_CAPSCHANGE: PhoneEvent = 5
+
+public val PE_CLOSE: PhoneEvent = 7
+
+public val PE_DIALING: PhoneEvent = 9
+
+public val PE_DISCONNECT: PhoneEvent = 11
+
+public val PE_DISPLAY: PhoneEvent = 0
+
+public val PE_HOOKSWITCH: PhoneEvent = 4
+
+public val PE_LAMPMODE: PhoneEvent = 1
+
+public val PE_LASTITEM: PhoneEvent = 11
+
+public val PE_NUMBERGATHERED: PhoneEvent = 8
+
+public val PE_RINGMODE: PhoneEvent = 2
+
+public val PE_RINGVOLUME: PhoneEvent = 3
+
+public val PHONEBUTTONFUNCTION_ABBREVDIAL: UInt = 11u
+
+public val PHONEBUTTONFUNCTION_BRIDGEDAPP: UInt = 28u
+
+public val PHONEBUTTONFUNCTION_BUSY: UInt = 29u
+
+public val PHONEBUTTONFUNCTION_CALLAPP: UInt = 30u
+
+public val PHONEBUTTONFUNCTION_CALLID: UInt = 34u
+
+public val PHONEBUTTONFUNCTION_CAMPON: UInt = 43u
+
+public val PHONEBUTTONFUNCTION_CONFERENCE: UInt = 1u
+
+public val PHONEBUTTONFUNCTION_CONNECT: UInt = 7u
+
+public val PHONEBUTTONFUNCTION_COVER: UInt = 33u
+
+public val PHONEBUTTONFUNCTION_DATAOFF: UInt = 25u
+
+public val PHONEBUTTONFUNCTION_DATAON: UInt = 24u
+
+public val PHONEBUTTONFUNCTION_DATETIME: UInt = 31u
+
+public val PHONEBUTTONFUNCTION_DIRECTORY: UInt = 32u
+
+public val PHONEBUTTONFUNCTION_DISCONNECT: UInt = 6u
+
+public val PHONEBUTTONFUNCTION_DONOTDISTURB: UInt = 26u
+
+public val PHONEBUTTONFUNCTION_DROP: UInt = 3u
+
+public val PHONEBUTTONFUNCTION_FLASH: UInt = 23u
+
+public val PHONEBUTTONFUNCTION_FORWARD: UInt = 12u
+
+public val PHONEBUTTONFUNCTION_HOLD: UInt = 4u
+
+public val PHONEBUTTONFUNCTION_INTERCOM: UInt = 27u
+
+public val PHONEBUTTONFUNCTION_LASTNUM: UInt = 35u
+
+public val PHONEBUTTONFUNCTION_MSGINDICATOR: UInt = 38u
+
+public val PHONEBUTTONFUNCTION_MSGWAITOFF: UInt = 9u
+
+public val PHONEBUTTONFUNCTION_MSGWAITON: UInt = 8u
+
+public val PHONEBUTTONFUNCTION_MUTE: UInt = 18u
+
+public val PHONEBUTTONFUNCTION_NIGHTSRV: UInt = 36u
+
+public val PHONEBUTTONFUNCTION_NONE: UInt = 46u
+
+public val PHONEBUTTONFUNCTION_PARK: UInt = 15u
+
+public val PHONEBUTTONFUNCTION_PICKUP: UInt = 13u
+
+public val PHONEBUTTONFUNCTION_QUEUECALL: UInt = 45u
+
+public val PHONEBUTTONFUNCTION_RECALL: UInt = 5u
+
+public val PHONEBUTTONFUNCTION_REDIRECT: UInt = 17u
+
+public val PHONEBUTTONFUNCTION_REJECT: UInt = 16u
+
+public val PHONEBUTTONFUNCTION_REPDIAL: UInt = 39u
+
+public val PHONEBUTTONFUNCTION_RINGAGAIN: UInt = 14u
+
+public val PHONEBUTTONFUNCTION_SAVEREPEAT: UInt = 44u
+
+public val PHONEBUTTONFUNCTION_SELECTRING: UInt = 10u
+
+public val PHONEBUTTONFUNCTION_SEND: UInt = 47u
+
+public val PHONEBUTTONFUNCTION_SENDCALLS: UInt = 37u
+
+public val PHONEBUTTONFUNCTION_SETREPDIAL: UInt = 40u
+
+public val PHONEBUTTONFUNCTION_SPEAKEROFF: UInt = 22u
+
+public val PHONEBUTTONFUNCTION_SPEAKERON: UInt = 21u
+
+public val PHONEBUTTONFUNCTION_STATIONSPEED: UInt = 42u
+
+public val PHONEBUTTONFUNCTION_SYSTEMSPEED: UInt = 41u
+
+public val PHONEBUTTONFUNCTION_TRANSFER: UInt = 2u
+
+public val PHONEBUTTONFUNCTION_UNKNOWN: UInt = 0u
+
+public val PHONEBUTTONFUNCTION_VOLUMEDOWN: UInt = 20u
+
+public val PHONEBUTTONFUNCTION_VOLUMEUP: UInt = 19u
+
+public val PHONEBUTTONMODE_CALL: UInt = 2u
+
+public val PHONEBUTTONMODE_DISPLAY: UInt = 32u
+
+public val PHONEBUTTONMODE_DUMMY: UInt = 1u
+
+public val PHONEBUTTONMODE_FEATURE: UInt = 4u
+
+public val PHONEBUTTONMODE_KEYPAD: UInt = 8u
+
+public val PHONEBUTTONMODE_LOCAL: UInt = 16u
+
+public val PHONEBUTTONSTATE_DOWN: UInt = 2u
+
+public val PHONEBUTTONSTATE_UNAVAIL: UInt = 8u
+
+public val PHONEBUTTONSTATE_UNKNOWN: UInt = 4u
+
+public val PHONEBUTTONSTATE_UP: UInt = 1u
+
+public val PHONEERR_ALLOCATED: UInt = 2415919105u
+
+public val PHONEERR_BADDEVICEID: UInt = 2415919106u
+
+public val PHONEERR_DISCONNECTED: UInt = 2415919140u
+
+public val PHONEERR_INCOMPATIBLEAPIVERSION: UInt = 2415919107u
+
+public val PHONEERR_INCOMPATIBLEEXTVERSION: UInt = 2415919108u
+
+public val PHONEERR_INIFILECORRUPT: UInt = 2415919109u
+
+public val PHONEERR_INUSE: UInt = 2415919110u
+
+public val PHONEERR_INVALAPPHANDLE: UInt = 2415919111u
+
+public val PHONEERR_INVALAPPNAME: UInt = 2415919112u
+
+public val PHONEERR_INVALBUTTONLAMPID: UInt = 2415919113u
+
+public val PHONEERR_INVALBUTTONMODE: UInt = 2415919114u
+
+public val PHONEERR_INVALBUTTONSTATE: UInt = 2415919115u
+
+public val PHONEERR_INVALDATAID: UInt = 2415919116u
+
+public val PHONEERR_INVALDEVICECLASS: UInt = 2415919117u
+
+public val PHONEERR_INVALEXTVERSION: UInt = 2415919118u
+
+public val PHONEERR_INVALHOOKSWITCHDEV: UInt = 2415919119u
+
+public val PHONEERR_INVALHOOKSWITCHMODE: UInt = 2415919120u
+
+public val PHONEERR_INVALLAMPMODE: UInt = 2415919121u
+
+public val PHONEERR_INVALPARAM: UInt = 2415919122u
+
+public val PHONEERR_INVALPHONEHANDLE: UInt = 2415919123u
+
+public val PHONEERR_INVALPHONESTATE: UInt = 2415919124u
+
+public val PHONEERR_INVALPOINTER: UInt = 2415919125u
+
+public val PHONEERR_INVALPRIVILEGE: UInt = 2415919126u
+
+public val PHONEERR_INVALRINGMODE: UInt = 2415919127u
+
+public val PHONEERR_NODEVICE: UInt = 2415919128u
+
+public val PHONEERR_NODRIVER: UInt = 2415919129u
+
+public val PHONEERR_NOMEM: UInt = 2415919130u
+
+public val PHONEERR_NOTOWNER: UInt = 2415919131u
+
+public val PHONEERR_OPERATIONFAILED: UInt = 2415919132u
+
+public val PHONEERR_OPERATIONUNAVAIL: UInt = 2415919133u
+
+public val PHONEERR_REINIT: UInt = 2415919139u
+
+public val PHONEERR_REQUESTOVERRUN: UInt = 2415919136u
+
+public val PHONEERR_RESOURCEUNAVAIL: UInt = 2415919135u
+
+public val PHONEERR_SERVICE_NOT_RUNNING: UInt = 2415919141u
+
+public val PHONEERR_STRUCTURETOOSMALL: UInt = 2415919137u
+
+public val PHONEERR_UNINITIALIZED: UInt = 2415919138u
+
+public val PHONEFEATURE_GENERICPHONE: UInt = 268435456u
+
+public val PHONEFEATURE_GETBUTTONINFO: UInt = 1u
+
+public val PHONEFEATURE_GETDATA: UInt = 2u
+
+public val PHONEFEATURE_GETDISPLAY: UInt = 4u
+
+public val PHONEFEATURE_GETGAINHANDSET: UInt = 8u
+
+public val PHONEFEATURE_GETGAINHEADSET: UInt = 32u
+
+public val PHONEFEATURE_GETGAINSPEAKER: UInt = 16u
+
+public val PHONEFEATURE_GETHOOKSWITCHHANDSET: UInt = 64u
+
+public val PHONEFEATURE_GETHOOKSWITCHHEADSET: UInt = 256u
+
+public val PHONEFEATURE_GETHOOKSWITCHSPEAKER: UInt = 128u
+
+public val PHONEFEATURE_GETLAMP: UInt = 512u
+
+public val PHONEFEATURE_GETRING: UInt = 1024u
+
+public val PHONEFEATURE_GETVOLUMEHANDSET: UInt = 2048u
+
+public val PHONEFEATURE_GETVOLUMEHEADSET: UInt = 8192u
+
+public val PHONEFEATURE_GETVOLUMESPEAKER: UInt = 4096u
+
+public val PHONEFEATURE_SETBUTTONINFO: UInt = 16384u
+
+public val PHONEFEATURE_SETDATA: UInt = 32768u
+
+public val PHONEFEATURE_SETDISPLAY: UInt = 65536u
+
+public val PHONEFEATURE_SETGAINHANDSET: UInt = 131072u
+
+public val PHONEFEATURE_SETGAINHEADSET: UInt = 524288u
+
+public val PHONEFEATURE_SETGAINSPEAKER: UInt = 262144u
+
+public val PHONEFEATURE_SETHOOKSWITCHHANDSET: UInt = 1048576u
+
+public val PHONEFEATURE_SETHOOKSWITCHHEADSET: UInt = 4194304u
+
+public val PHONEFEATURE_SETHOOKSWITCHSPEAKER: UInt = 2097152u
+
+public val PHONEFEATURE_SETLAMP: UInt = 8388608u
+
+public val PHONEFEATURE_SETRING: UInt = 16777216u
+
+public val PHONEFEATURE_SETVOLUMEHANDSET: UInt = 33554432u
+
+public val PHONEFEATURE_SETVOLUMEHEADSET: UInt = 134217728u
+
+public val PHONEFEATURE_SETVOLUMESPEAKER: UInt = 67108864u
+
+public val PHONEHOOKSWITCHDEV_HANDSET: UInt = 1u
+
+public val PHONEHOOKSWITCHDEV_HEADSET: UInt = 4u
+
+public val PHONEHOOKSWITCHDEV_SPEAKER: UInt = 2u
+
+public val PHONEHOOKSWITCHMODE_MIC: UInt = 2u
+
+public val PHONEHOOKSWITCHMODE_MICSPEAKER: UInt = 8u
+
+public val PHONEHOOKSWITCHMODE_ONHOOK: UInt = 1u
+
+public val PHONEHOOKSWITCHMODE_SPEAKER: UInt = 4u
+
+public val PHONEHOOKSWITCHMODE_UNKNOWN: UInt = 16u
+
+public val PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: UInt = 3u
+
+public val PHONEINITIALIZEEXOPTION_USEEVENT: UInt = 2u
+
+public val PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: UInt = 1u
+
+public val PHONELAMPMODE_BROKENFLUTTER: UInt = 64u
+
+public val PHONELAMPMODE_DUMMY: UInt = 1u
+
+public val PHONELAMPMODE_FLASH: UInt = 16u
+
+public val PHONELAMPMODE_FLUTTER: UInt = 32u
+
+public val PHONELAMPMODE_OFF: UInt = 2u
+
+public val PHONELAMPMODE_STEADY: UInt = 4u
+
+public val PHONELAMPMODE_UNKNOWN: UInt = 128u
+
+public val PHONELAMPMODE_WINK: UInt = 8u
+
+public val PHONEPRIVILEGE_MONITOR: UInt = 1u
+
+public val PHONEPRIVILEGE_OWNER: UInt = 2u
+
+public val PHONESTATE_CAPSCHANGE: UInt = 4194304u
+
+public val PHONESTATE_CONNECTED: UInt = 2u
+
+public val PHONESTATE_DEVSPECIFIC: UInt = 1048576u
+
+public val PHONESTATE_DISCONNECTED: UInt = 4u
+
+public val PHONESTATE_DISPLAY: UInt = 32u
+
+public val PHONESTATE_HANDSETGAIN: UInt = 2048u
+
+public val PHONESTATE_HANDSETHOOKSWITCH: UInt = 512u
+
+public val PHONESTATE_HANDSETVOLUME: UInt = 1024u
+
+public val PHONESTATE_HEADSETGAIN: UInt = 131072u
+
+public val PHONESTATE_HEADSETHOOKSWITCH: UInt = 32768u
+
+public val PHONESTATE_HEADSETVOLUME: UInt = 65536u
+
+public val PHONESTATE_LAMP: UInt = 64u
+
+public val PHONESTATE_MONITORS: UInt = 16u
+
+public val PHONESTATE_OTHER: UInt = 1u
+
+public val PHONESTATE_OWNER: UInt = 8u
+
+public val PHONESTATE_REINIT: UInt = 2097152u
+
+public val PHONESTATE_REMOVED: UInt = 8388608u
+
+public val PHONESTATE_RESUME: UInt = 524288u
+
+public val PHONESTATE_RINGMODE: UInt = 128u
+
+public val PHONESTATE_RINGVOLUME: UInt = 256u
+
+public val PHONESTATE_SPEAKERGAIN: UInt = 16384u
+
+public val PHONESTATE_SPEAKERHOOKSWITCH: UInt = 4096u
+
+public val PHONESTATE_SPEAKERVOLUME: UInt = 8192u
+
+public val PHONESTATE_SUSPEND: UInt = 262144u
+
+public val PHONESTATUSFLAGS_CONNECTED: UInt = 1u
+
+public val PHONESTATUSFLAGS_SUSPENDED: UInt = 2u
+
+public val PHONE_BUTTON: Int = 14
+
+public val PHONE_CLOSE: Int = 15
+
+public val PHONE_CREATE: Int = 20
+
+public val PHONE_DEVSPECIFIC: Int = 16
+
+public val PHONE_REMOVE: Int = 26
+
+public val PHONE_REPLY: Int = 17
+
+public val PHONE_STATE: Int = 18
+
+public val PHSD_HANDSET: PhoneHookSwitchDevice = 1
+
+public val PHSD_HEADSET: PhoneHookSwitchDevice = 4
+
+public val PHSD_SPEAKERPHONE: PhoneHookSwitchDevice = 2
+
+public val PHSS_OFFHOOK: PhoneHookSwitchState = 8
+
+public val PHSS_OFFHOOK_MIC_ONLY: PhoneHookSwitchState = 2
+
+public val PHSS_OFFHOOK_SPEAKER_ONLY: PhoneHookSwitchState = 4
+
+public val PHSS_ONHOOK: PhoneHookSwitchState = 1
+
+public val PP_MONITOR: PhonePrivilege = 1
+
+public val PP_OWNER: PhonePrivilege = 0
+
+public val PRIVATEOBJECT_ADDRESS: UInt = 6u
+
+public val PRIVATEOBJECT_CALL: UInt = 4u
+
+public val PRIVATEOBJECT_CALLID: UInt = 2u
+
+public val PRIVATEOBJECT_LINE: UInt = 3u
+
+public val PRIVATEOBJECT_NONE: UInt = 1u
+
+public val PRIVATEOBJECT_PHONE: UInt = 5u
+
+public val PT_BUSY: PhoneTone = 18
+
+public val PT_ERRORTONE: PhoneTone = 20
+
+public val PT_EXTERNALDIALTONE: PhoneTone = 17
+
+public val PT_KEYPADA: PhoneTone = 12
+
+public val PT_KEYPADB: PhoneTone = 13
+
+public val PT_KEYPADC: PhoneTone = 14
+
+public val PT_KEYPADD: PhoneTone = 15
+
+public val PT_KEYPADEIGHT: PhoneTone = 8
+
+public val PT_KEYPADFIVE: PhoneTone = 5
+
+public val PT_KEYPADFOUR: PhoneTone = 4
+
+public val PT_KEYPADNINE: PhoneTone = 9
+
+public val PT_KEYPADONE: PhoneTone = 1
+
+public val PT_KEYPADPOUND: PhoneTone = 11
+
+public val PT_KEYPADSEVEN: PhoneTone = 7
+
+public val PT_KEYPADSIX: PhoneTone = 6
+
+public val PT_KEYPADSTAR: PhoneTone = 10
+
+public val PT_KEYPADTHREE: PhoneTone = 3
+
+public val PT_KEYPADTWO: PhoneTone = 2
+
+public val PT_KEYPADZERO: PhoneTone = 0
+
+public val PT_NORMALDIALTONE: PhoneTone = 16
+
+public val PT_RINGBACK: PhoneTone = 19
+
+public val PT_SILENCE: PhoneTone = 21
+
+public val QE_ADMISSIONFAILURE: QosEvent = 2
+
+public val QE_GENERICERROR: QosEvent = 4
+
+public val QE_LASTITEM: QosEvent = 4
+
+public val QE_NOQOS: QosEvent = 1
+
+public val QE_POLICYFAILURE: QosEvent = 3
+
+public val QSL_BEST_EFFORT: QosServiceLevel = 3
+
+public val QSL_IF_AVAILABLE: QosServiceLevel = 2
+
+public val QSL_NEEDED: QosServiceLevel = 1
+
+public val RAS_LOCAL: RndAdvertisingScope = 1
+
+public val RAS_REGION: RndAdvertisingScope = 3
+
+public val RAS_SITE: RndAdvertisingScope = 2
+
+public val RAS_WORLD: RndAdvertisingScope = 4
+
+public val RENDBIND_AUTHENTICATE: UInt = 1u
+
+public val RENDBIND_DEFAULTCREDENTIALS: UInt = 14u
+
+public val RENDBIND_DEFAULTDOMAINNAME: UInt = 2u
+
+public val RENDBIND_DEFAULTPASSWORD: UInt = 8u
+
+public val RENDBIND_DEFAULTUSERNAME: UInt = 4u
+
+public val STRINGFORMAT_ASCII: UInt = 1u
+
+public val STRINGFORMAT_BINARY: UInt = 4u
+
+public val STRINGFORMAT_DBCS: UInt = 2u
+
+public val STRINGFORMAT_UNICODE: UInt = 3u
+
+public val STRM_CONFIGURED: UInt = 2u
+
+public val STRM_INITIAL: UInt = 0u
+
+public val STRM_PAUSED: UInt = 8u
+
+public val STRM_RUNNING: UInt = 4u
+
+public val STRM_STOPPED: UInt = 16u
+
+public val STRM_TERMINALSELECTED: UInt = 1u
+
+public val TAPIERR_CONNECTED: Int = 0
+
+public val TAPIERR_DESTBUSY: Int = -11
+
+public val TAPIERR_DESTNOANSWER: Int = -12
+
+public val TAPIERR_DESTUNAVAIL: Int = -13
+
+public val TAPIERR_DEVICECLASSUNAVAIL: Int = -8
+
+public val TAPIERR_DEVICEIDUNAVAIL: Int = -9
+
+public val TAPIERR_DEVICEINUSE: Int = -10
+
+public val TAPIERR_DROPPED: Int = -1
+
+public val TAPIERR_INVALDESTADDRESS: Int = -4
+
+public val TAPIERR_INVALDEVICECLASS: Int = -6
+
+public val TAPIERR_INVALDEVICEID: Int = -7
+
+public val TAPIERR_INVALPOINTER: Int = -18
+
+public val TAPIERR_INVALWINDOWHANDLE: Int = -5
+
+public val TAPIERR_MMCWRITELOCKED: Int = -20
+
+public val TAPIERR_NOREQUESTRECIPIENT: Int = -2
+
+public val TAPIERR_NOTADMIN: Int = -19
+
+public val TAPIERR_PROVIDERALREADYINSTALLED: Int = -21
+
+public val TAPIERR_REQUESTCANCELLED: Int = -17
+
+public val TAPIERR_REQUESTFAILED: Int = -16
+
+public val TAPIERR_REQUESTQUEUEFULL: Int = -3
+
+public val TAPIERR_SCP_ALREADY_EXISTS: Int = -22
+
+public val TAPIERR_SCP_DOES_NOT_EXIST: Int = -23
+
+public val TAPIERR_UNKNOWNREQUESTID: Int = -15
+
+public val TAPIERR_UNKNOWNWINHANDLE: Int = -14
+
+public val TAPIMAXAPPNAMESIZE: Int = 40
+
+public val TAPIMAXCALLEDPARTYSIZE: Int = 40
+
+public val TAPIMAXCOMMENTSIZE: Int = 80
+
+public val TAPIMAXDESTADDRESSSIZE: Int = 80
+
+public val TAPIMAXDEVICECLASSSIZE: Int = 40
+
+public val TAPIMAXDEVICEIDSIZE: Int = 40
+
+public val TAPIMEDIATYPE_AUDIO: UInt = 8u
+
+public val TAPIMEDIATYPE_DATAMODEM: UInt = 16u
+
+public val TAPIMEDIATYPE_G3FAX: UInt = 32u
+
+public val TAPIMEDIATYPE_MULTITRACK: UInt = 65536u
+
+public val TAPIMEDIATYPE_VIDEO: UInt = 32768u
+
+public val TAPI_CURRENT_VERSION: UInt = 131074u
+
+public val TAPI_E_ADDRESSBLOCKED: Hresult = 0x8004002Au.toInt()
+
+public val TAPI_E_ALLOCATED: Hresult = 0x80040006u.toInt()
+
+public val TAPI_E_BILLINGREJECTED: Hresult = 0x8004002Bu.toInt()
+
+public val TAPI_E_CALLCENTER_GROUP_REMOVED: Hresult = 0x80040045u.toInt()
+
+public val TAPI_E_CALLCENTER_INVALAGENTACTIVITY: Hresult = 0x8004004Cu.toInt()
+
+public val TAPI_E_CALLCENTER_INVALAGENTGROUP: Hresult = 0x80040049u.toInt()
+
+public val TAPI_E_CALLCENTER_INVALAGENTID: Hresult = 0x80040048u.toInt()
+
+public val TAPI_E_CALLCENTER_INVALAGENTSTATE: Hresult = 0x8004004Bu.toInt()
+
+public val TAPI_E_CALLCENTER_INVALPASSWORD: Hresult = 0x8004004Au.toInt()
+
+public val TAPI_E_CALLCENTER_NO_AGENT_ID: Hresult = 0x80040047u.toInt()
+
+public val TAPI_E_CALLCENTER_QUEUE_REMOVED: Hresult = 0x80040046u.toInt()
+
+public val TAPI_E_CALLNOTSELECTED: Hresult = 0x80040054u.toInt()
+
+public val TAPI_E_CALLUNAVAIL: Hresult = 0x80040007u.toInt()
+
+public val TAPI_E_COMPLETIONOVERRUN: Hresult = 0x80040008u.toInt()
+
+public val TAPI_E_CONFERENCEFULL: Hresult = 0x80040009u.toInt()
+
+public val TAPI_E_DESTBUSY: Hresult = 0x80040034u.toInt()
+
+public val TAPI_E_DESTNOANSWER: Hresult = 0x80040035u.toInt()
+
+public val TAPI_E_DESTUNAVAIL: Hresult = 0x80040036u.toInt()
+
+public val TAPI_E_DIALMODIFIERNOTSUPPORTED: Hresult = 0x8004000Au.toInt()
+
+public val TAPI_E_DROPPED: Hresult = 0x80040031u.toInt()
+
+public val TAPI_E_INUSE: Hresult = 0x8004000Bu.toInt()
+
+public val TAPI_E_INVALADDRESS: Hresult = 0x8004000Cu.toInt()
+
+public val TAPI_E_INVALADDRESSSTATE: Hresult = 0x8004000Du.toInt()
+
+public val TAPI_E_INVALADDRESSTYPE: Hresult = 0x80040051u.toInt()
+
+public val TAPI_E_INVALBUTTONLAMPID: Hresult = 0x8004002Du.toInt()
+
+public val TAPI_E_INVALBUTTONSTATE: Hresult = 0x8004002Eu.toInt()
+
+public val TAPI_E_INVALCALLPARAMS: Hresult = 0x8004000Eu.toInt()
+
+public val TAPI_E_INVALCALLPRIVILEGE: Hresult = 0x8004000Fu.toInt()
+
+public val TAPI_E_INVALCALLSTATE: Hresult = 0x80040010u.toInt()
+
+public val TAPI_E_INVALCARD: Hresult = 0x80040011u.toInt()
+
+public val TAPI_E_INVALCOMPLETIONID: Hresult = 0x80040012u.toInt()
+
+public val TAPI_E_INVALCOUNTRYCODE: Hresult = 0x80040013u.toInt()
+
+public val TAPI_E_INVALDATAID: Hresult = 0x8004002Fu.toInt()
+
+public val TAPI_E_INVALDEVICECLASS: Hresult = 0x80040014u.toInt()
+
+public val TAPI_E_INVALDIALPARAMS: Hresult = 0x80040015u.toInt()
+
+public val TAPI_E_INVALDIGITS: Hresult = 0x80040016u.toInt()
+
+public val TAPI_E_INVALFEATURE: Hresult = 0x8004002Cu.toInt()
+
+public val TAPI_E_INVALGROUPID: Hresult = 0x80040017u.toInt()
+
+public val TAPI_E_INVALHOOKSWITCHDEV: Hresult = 0x80040030u.toInt()
+
+public val TAPI_E_INVALIDDIRECTION: Hresult = 0x8004003Au.toInt()
+
+public val TAPI_E_INVALIDMEDIATYPE: Hresult = 0x80040004u.toInt()
+
+public val TAPI_E_INVALIDSTREAM: Hresult = 0x80040043u.toInt()
+
+public val TAPI_E_INVALIDSTREAMSTATE: Hresult = 0x80040057u.toInt()
+
+public val TAPI_E_INVALIDTERMINAL: Hresult = 0x8004003Bu.toInt()
+
+public val TAPI_E_INVALIDTERMINALCLASS: Hresult = 0x8004003Cu.toInt()
+
+public val TAPI_E_INVALLIST: Hresult = 0x8004001Eu.toInt()
+
+public val TAPI_E_INVALLOCATION: Hresult = 0x80040018u.toInt()
+
+public val TAPI_E_INVALMESSAGEID: Hresult = 0x80040019u.toInt()
+
+public val TAPI_E_INVALMODE: Hresult = 0x8004001Fu.toInt()
+
+public val TAPI_E_INVALPARKID: Hresult = 0x8004001Au.toInt()
+
+public val TAPI_E_INVALPRIVILEGE: Hresult = 0x80040039u.toInt()
+
+public val TAPI_E_INVALRATE: Hresult = 0x8004001Bu.toInt()
+
+public val TAPI_E_INVALTIMEOUT: Hresult = 0x8004001Cu.toInt()
+
+public val TAPI_E_INVALTONE: Hresult = 0x8004001Du.toInt()
+
+public val TAPI_E_MAXSTREAMS: Hresult = 0x8004003Eu.toInt()
+
+public val TAPI_E_MAXTERMINALS: Hresult = 0x80040042u.toInt()
+
+public val TAPI_E_NOCONFERENCE: Hresult = 0x80040020u.toInt()
+
+public val TAPI_E_NODEVICE: Hresult = 0x80040021u.toInt()
+
+public val TAPI_E_NODRIVER: Hresult = 0x8004003Du.toInt()
+
+public val TAPI_E_NOEVENT: Hresult = 0x80040050u.toInt()
+
+public val TAPI_E_NOFORMAT: Hresult = 0x80040056u.toInt()
+
+public val TAPI_E_NOITEMS: Hresult = 0x80040002u.toInt()
+
+public val TAPI_E_NOREQUEST: Hresult = 0x80040022u.toInt()
+
+public val TAPI_E_NOREQUESTRECIPIENT: Hresult = 0x80040032u.toInt()
+
+public val TAPI_E_NOTENOUGHMEMORY: Hresult = 0x80040001u.toInt()
+
+public val TAPI_E_NOTERMINALSELECTED: Hresult = 0x8004003Fu.toInt()
+
+public val TAPI_E_NOTOWNER: Hresult = 0x80040023u.toInt()
+
+public val TAPI_E_NOTREGISTERED: Hresult = 0x80040024u.toInt()
+
+public val TAPI_E_NOTSTOPPED: Hresult = 0x80040041u.toInt()
+
+public val TAPI_E_NOTSUPPORTED: Hresult = 0x80040003u.toInt()
+
+public val TAPI_E_NOT_INITIALIZED: Hresult = 0x80040059u.toInt()
+
+public val TAPI_E_OPERATIONFAILED: Hresult = 0x80040005u.toInt()
+
+public val TAPI_E_PEER_NOT_SET: Hresult = 0x8004004Fu.toInt()
+
+public val TAPI_E_PHONENOTOPEN: Hresult = 0x80040053u.toInt()
+
+public val TAPI_E_REGISTRY_SETTING_CORRUPT: Hresult = 0x8004004Du.toInt()
+
+public val TAPI_E_REINIT: Hresult = 0x80040029u.toInt()
+
+public val TAPI_E_REQUESTCANCELLED: Hresult = 0x80040038u.toInt()
+
+public val TAPI_E_REQUESTFAILED: Hresult = 0x80040037u.toInt()
+
+public val TAPI_E_REQUESTOVERRUN: Hresult = 0x80040025u.toInt()
+
+public val TAPI_E_REQUESTQUEUEFULL: Hresult = 0x80040033u.toInt()
+
+public val TAPI_E_RESOURCEUNAVAIL: Hresult = 0x80040052u.toInt()
+
+public val TAPI_E_SERVICE_NOT_RUNNING: Hresult = 0x8004005Au.toInt()
+
+public val TAPI_E_TARGETNOTFOUND: Hresult = 0x80040026u.toInt()
+
+public val TAPI_E_TARGETSELF: Hresult = 0x80040027u.toInt()
+
+public val TAPI_E_TERMINALINUSE: Hresult = 0x80040040u.toInt()
+
+public val TAPI_E_TERMINAL_PEER: Hresult = 0x8004004Eu.toInt()
+
+public val TAPI_E_TIMEOUT: Hresult = 0x80040044u.toInt()
+
+public val TAPI_E_USERUSERINFOTOOBIG: Hresult = 0x80040028u.toInt()
+
+public val TAPI_E_WRONGEVENT: Hresult = 0x80040055u.toInt()
+
+public val TAPI_E_WRONG_STATE: Hresult = 0x80040058u.toInt()
+
+public val TAPI_REPLY: UInt = 1123u
+
+public val TD_BIDIRECTIONAL: TerminalDirection = 2
+
+public val TD_CAPTURE: TerminalDirection = 0
+
+public val TD_MULTITRACK_MIXED: TerminalDirection = 3
+
+public val TD_NONE: TerminalDirection = 4
+
+public val TD_RENDER: TerminalDirection = 1
+
+public val TE_ACDGROUP: TapiEvent = 8192
+
+public val TE_ADDRESS: TapiEvent = 2
+
+public val TE_ADDRESSCLOSE: TapiobjectEvent = 4
+
+public val TE_ADDRESSCREATE: TapiobjectEvent = 0
+
+public val TE_ADDRESSDEVSPECIFIC: TapiEvent = 16777216
+
+public val TE_ADDRESSREMOVE: TapiobjectEvent = 1
+
+public val TE_AGENT: TapiEvent = 512
+
+public val TE_AGENTHANDLER: TapiEvent = 4096
+
+public val TE_AGENTSESSION: TapiEvent = 1024
+
+public val TE_ASRTERMINAL: TapiEvent = 131072
+
+public val TE_CALLHUB: TapiEvent = 32
+
+public val TE_CALLINFOCHANGE: TapiEvent = 64
+
+public val TE_CALLMEDIA: TapiEvent = 16
+
+public val TE_CALLNOTIFICATION: TapiEvent = 4
+
+public val TE_CALLSTATE: TapiEvent = 8
+
+public val TE_DIGITEVENT: TapiEvent = 32768
+
+public val TE_FILETERMINAL: TapiEvent = 524288
+
+public val TE_GATHERDIGITS: TapiEvent = 8388608
+
+public val TE_GENERATEEVENT: TapiEvent = 65536
+
+public val TE_PHONECREATE: TapiobjectEvent = 5
+
+public val TE_PHONEDEVSPECIFIC: TapiEvent = 33554432
+
+public val TE_PHONEEVENT: TapiEvent = 2097152
+
+public val TE_PHONEREMOVE: TapiobjectEvent = 6
+
+public val TE_PRIVATE: TapiEvent = 128
+
+public val TE_QOSEVENT: TapiEvent = 2048
+
+public val TE_QUEUE: TapiEvent = 16384
+
+public val TE_REINIT: TapiobjectEvent = 2
+
+public val TE_REQUEST: TapiEvent = 256
+
+public val TE_TAPIOBJECT: TapiEvent = 1
+
+public val TE_TONEEVENT: TapiEvent = 4194304
+
+public val TE_TONETERMINAL: TapiEvent = 1048576
+
+public val TE_TRANSLATECHANGE: TapiobjectEvent = 3
+
+public val TE_TTSTERMINAL: TapiEvent = 262144
+
+public val TGT_BUFFERFULL: TapiGatherterm = 1
+
+public val TGT_CANCEL: TapiGatherterm = 16
+
+public val TGT_FIRSTTIMEOUT: TapiGatherterm = 4
+
+public val TGT_INTERTIMEOUT: TapiGatherterm = 8
+
+public val TGT_TERMDIGIT: TapiGatherterm = 2
+
+public val TMS_ACTIVE: TerminalMediaState = 1
+
+public val TMS_IDLE: TerminalMediaState = 0
+
+public val TMS_LASTITEM: TerminalMediaState = 2
+
+public val TMS_PAUSED: TerminalMediaState = 2
+
+public val TOT_ADDRESS: TapiObjectType = 2
+
+public val TOT_CALL: TapiObjectType = 4
+
+public val TOT_CALLHUB: TapiObjectType = 5
+
+public val TOT_NONE: TapiObjectType = 0
+
+public val TOT_PHONE: TapiObjectType = 6
+
+public val TOT_TAPI: TapiObjectType = 1
+
+public val TOT_TERMINAL: TapiObjectType = 3
+
+public val TSPI_LINEACCEPT: UInt = 500u
+
+public val TSPI_LINEADDTOCONFERENCE: UInt = 501u
+
+public val TSPI_LINEANSWER: UInt = 502u
+
+public val TSPI_LINEBLINDTRANSFER: UInt = 503u
+
+public val TSPI_LINECLOSE: UInt = 504u
+
+public val TSPI_LINECLOSECALL: UInt = 505u
+
+public val TSPI_LINECLOSEMSPINSTANCE: UInt = 609u
+
+public val TSPI_LINECOMPLETECALL: UInt = 506u
+
+public val TSPI_LINECOMPLETETRANSFER: UInt = 507u
+
+public val TSPI_LINECONDITIONALMEDIADETECTION: UInt = 508u
+
+public val TSPI_LINECONFIGDIALOG: UInt = 509u
+
+public val TSPI_LINECONFIGDIALOGEDIT: UInt = 601u
+
+public val TSPI_LINECREATEMSPINSTANCE: UInt = 608u
+
+public val TSPI_LINEDEVSPECIFIC: UInt = 510u
+
+public val TSPI_LINEDEVSPECIFICFEATURE: UInt = 511u
+
+public val TSPI_LINEDIAL: UInt = 512u
+
+public val TSPI_LINEDROP: UInt = 513u
+
+public val TSPI_LINEDROPNOOWNER: UInt = 597u
+
+public val TSPI_LINEDROPONCLOSE: UInt = 596u
+
+public val TSPI_LINEFORWARD: UInt = 514u
+
+public val TSPI_LINEGATHERDIGITS: UInt = 515u
+
+public val TSPI_LINEGENERATEDIGITS: UInt = 516u
+
+public val TSPI_LINEGENERATETONE: UInt = 517u
+
+public val TSPI_LINEGETADDRESSCAPS: UInt = 518u
+
+public val TSPI_LINEGETADDRESSID: UInt = 519u
+
+public val TSPI_LINEGETADDRESSSTATUS: UInt = 520u
+
+public val TSPI_LINEGETCALLADDRESSID: UInt = 521u
+
+public val TSPI_LINEGETCALLHUBTRACKING: UInt = 604u
+
+public val TSPI_LINEGETCALLID: UInt = 603u
+
+public val TSPI_LINEGETCALLINFO: UInt = 522u
+
+public val TSPI_LINEGETCALLSTATUS: UInt = 523u
+
+public val TSPI_LINEGETDEVCAPS: UInt = 524u
+
+public val TSPI_LINEGETDEVCONFIG: UInt = 525u
+
+public val TSPI_LINEGETEXTENSIONID: UInt = 526u
+
+public val TSPI_LINEGETICON: UInt = 527u
+
+public val TSPI_LINEGETID: UInt = 528u
+
+public val TSPI_LINEGETLINEDEVSTATUS: UInt = 529u
+
+public val TSPI_LINEGETNUMADDRESSIDS: UInt = 530u
+
+public val TSPI_LINEHOLD: UInt = 531u
+
+public val TSPI_LINEMAKECALL: UInt = 532u
+
+public val TSPI_LINEMONITORDIGITS: UInt = 533u
+
+public val TSPI_LINEMONITORMEDIA: UInt = 534u
+
+public val TSPI_LINEMONITORTONES: UInt = 535u
+
+public val TSPI_LINEMSPIDENTIFY: UInt = 607u
+
+public val TSPI_LINENEGOTIATEEXTVERSION: UInt = 536u
+
+public val TSPI_LINENEGOTIATETSPIVERSION: UInt = 537u
+
+public val TSPI_LINEOPEN: UInt = 538u
+
+public val TSPI_LINEPARK: UInt = 539u
+
+public val TSPI_LINEPICKUP: UInt = 540u
+
+public val TSPI_LINEPREPAREADDTOCONFERENCE: UInt = 541u
+
+public val TSPI_LINERECEIVEMSPDATA: UInt = 606u
+
+public val TSPI_LINEREDIRECT: UInt = 542u
+
+public val TSPI_LINERELEASEUSERUSERINFO: UInt = 602u
+
+public val TSPI_LINEREMOVEFROMCONFERENCE: UInt = 543u
+
+public val TSPI_LINESECURECALL: UInt = 544u
+
+public val TSPI_LINESELECTEXTVERSION: UInt = 545u
+
+public val TSPI_LINESENDUSERUSERINFO: UInt = 546u
+
+public val TSPI_LINESETAPPSPECIFIC: UInt = 547u
+
+public val TSPI_LINESETCALLHUBTRACKING: UInt = 605u
+
+public val TSPI_LINESETCALLPARAMS: UInt = 548u

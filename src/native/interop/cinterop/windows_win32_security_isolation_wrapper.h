@@ -1,0 +1,28 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SECURITY_ISOLATION_WINDOWS_WIN32_SECURITY_ISOLATION_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SECURITY_ISOLATION_WINDOWS_WIN32_SECURITY_ISOLATION_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssysWindowsWin32SecurityIsolationCreateAppContainerProfile(void* pszappcontainername, void* pszdisplayname, void* pszdescription, void* pcapabilities, uint32_t dwcapabilitycount, void* ppsidappcontainersid);
+int32_t windowssysWindowsWin32SecurityIsolationDeleteAppContainerProfile(void* pszappcontainername);
+int32_t windowssysWindowsWin32SecurityIsolationDeriveAppContainerSidFromAppContainerName(void* pszappcontainername, void* ppsidappcontainersid);
+int32_t windowssysWindowsWin32SecurityIsolationDeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(void* psidappcontainersid, void* pszrestrictedappcontainername, void* ppsidrestrictedappcontainersid);
+int32_t windowssysWindowsWin32SecurityIsolationGetAppContainerFolderPath(void* pszappcontainersid, void* ppszpath);
+int32_t windowssysWindowsWin32SecurityIsolationGetAppContainerNamedObjectPath(void* token, void* appcontainersid, uint32_t objectpathlength, void* objectpath, void* returnlength);
+int32_t windowssysWindowsWin32SecurityIsolationGetAppContainerRegistryLocation(uint32_t desiredaccess, void* phappcontainerkey);
+int32_t windowssysWindowsWin32SecurityIsolationIsCrossIsolatedEnvironmentClipboardContent(void* iscrossisolatedenvironmentclipboardcontent);
+int32_t windowssysWindowsWin32SecurityIsolationIsProcessInIsolatedContainer(void* isprocessinisolatedcontainer);
+int32_t windowssysWindowsWin32SecurityIsolationIsProcessInIsolatedWindowsEnvironment(void* isprocessinisolatedwindowsenvironment);
+int32_t windowssysWindowsWin32SecurityIsolationIsProcessInWDAGContainer(void* reserved, void* isprocessinwdagcontainer);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SECURITY_ISOLATION_WINDOWS_WIN32_SECURITY_ISOLATION_WRAPPER_H */

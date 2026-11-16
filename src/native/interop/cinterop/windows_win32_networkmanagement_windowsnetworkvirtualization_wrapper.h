@@ -1,0 +1,19 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSNETWORKVIRTUALIZATION_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSNETWORKVIRTUALIZATION_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSNETWORKVIRTUALIZATION_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSNETWORKVIRTUALIZATION_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void* windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen(void);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(void* wnvhandle, void* notificationparam, void* overlapped, void* bytestransferred);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSNETWORKVIRTUALIZATION_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSNETWORKVIRTUALIZATION_WRAPPER_H */

@@ -1,0 +1,3006 @@
+package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
+
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.s
+import io.github.kotlinmania.windowssys.core.w
+
+public val ACCESS_ALLOWED_ACE_TYPE: UInt = 0u
+
+public val ACCESS_ALLOWED_CALLBACK_ACE_TYPE: UInt = 9u
+
+public val ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: UInt = 11u
+
+public val ACCESS_ALLOWED_COMPOUND_ACE_TYPE: UInt = 4u
+
+public val ACCESS_ALLOWED_OBJECT_ACE_TYPE: UInt = 5u
+
+public val ACCESS_DENIED_ACE_TYPE: UInt = 1u
+
+public val ACCESS_DENIED_CALLBACK_ACE_TYPE: UInt = 10u
+
+public val ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: UInt = 12u
+
+public val ACCESS_DENIED_OBJECT_ACE_TYPE: UInt = 6u
+
+public val ACCESS_DS_OBJECT_TYPE_NAME_A: Pcstr = s("Directory Service Object")
+
+public val ACCESS_DS_OBJECT_TYPE_NAME_W: Pcwstr = w("Directory Service Object")
+
+public val ACCESS_DS_SOURCE_A: Pcstr = s("DS")
+
+public val ACCESS_DS_SOURCE_W: Pcwstr = w("DS")
+
+public val ACCESS_FILTER_SECURITY_INFORMATION: Int = 256
+
+public val ACCESS_MAX_LEVEL: UInt = 4u
+
+public val ACCESS_MAX_MS_ACE_TYPE: UInt = 8u
+
+public val ACCESS_MAX_MS_OBJECT_ACE_TYPE: UInt = 8u
+
+public val ACCESS_MAX_MS_V2_ACE_TYPE: UInt = 3u
+
+public val ACCESS_MAX_MS_V3_ACE_TYPE: UInt = 4u
+
+public val ACCESS_MAX_MS_V4_ACE_TYPE: UInt = 8u
+
+public val ACCESS_MAX_MS_V5_ACE_TYPE: UInt = 21u
+
+public val ACCESS_MIN_MS_ACE_TYPE: UInt = 0u
+
+public val ACCESS_MIN_MS_OBJECT_ACE_TYPE: UInt = 5u
+
+public val ACCESS_OBJECT_GUID: UInt = 0u
+
+public val ACCESS_PROPERTY_GUID: UInt = 2u
+
+public val ACCESS_PROPERTY_SET_GUID: UInt = 1u
+
+public val ACCESS_REASON_DATA_MASK: UInt = 65535u
+
+public val ACCESS_REASON_EXDATA_MASK: UInt = 2130706432u
+
+public val ACCESS_REASON_STAGING_MASK: UInt = 2147483648u
+
+public val ACCESS_REASON_TYPE_MASK: UInt = 16711680u
+
+public val ACCESS_SYSTEM_SECURITY: UInt = 16777216u
+
+public val ACL_REVISION1: UInt = 1u
+
+public val ACL_REVISION2: UInt = 2u
+
+public val ACL_REVISION3: UInt = 3u
+
+public val ACL_REVISION4: UInt = 4u
+
+public val ACPI_PPM_HARDWARE_ALL: UInt = 254u
+
+public val ACPI_PPM_SOFTWARE_ALL: UInt = 252u
+
+public val ACPI_PPM_SOFTWARE_ANY: UInt = 253u
+
+public val ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: UInt = 4u
+
+public val ACTIVATION_CONTEXT_PATH_TYPE_NONE: UInt = 1u
+
+public val ACTIVATION_CONTEXT_PATH_TYPE_URL: UInt = 3u
+
+public val ACTIVATION_CONTEXT_PATH_TYPE_WIN32_FILE: UInt = 2u
+
+public val ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS: UInt = 10u
+
+public val ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION: UInt = 1u
+
+public val ACTIVATION_CONTEXT_SECTION_CLR_SURROGATES: UInt = 9u
+
+public val ACTIVATION_CONTEXT_SECTION_COMPATIBILITY_INFO: UInt = 11u
+
+public val ACTIVATION_CONTEXT_SECTION_COM_INTERFACE_REDIRECTION: UInt = 5u
+
+public val ACTIVATION_CONTEXT_SECTION_COM_PROGID_REDIRECTION: UInt = 7u
+
+public val ACTIVATION_CONTEXT_SECTION_COM_SERVER_REDIRECTION: UInt = 4u
+
+public val ACTIVATION_CONTEXT_SECTION_COM_TYPE_LIBRARY_REDIRECTION: UInt = 6u
+
+public val ACTIVATION_CONTEXT_SECTION_DLL_REDIRECTION: UInt = 2u
+
+public val ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: UInt = 8u
+
+public val ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: UInt = 3u
+
+public val ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: UInt = 12u
+
+public val ALERT_SYSTEM_CRITICAL: AlertSystemSev = 5u
+
+public val ALERT_SYSTEM_ERROR: AlertSystemSev = 3u
+
+public val ALERT_SYSTEM_INFORMATIONAL: AlertSystemSev = 1u
+
+public val ALERT_SYSTEM_QUERY: AlertSystemSev = 4u
+
+public val ALERT_SYSTEM_WARNING: AlertSystemSev = 2u
+
+public val ANYSIZE_ARRAY: UInt = 1u
+
+public val APPCOMMAND_BASS_BOOST: AppcommandId = 20u
+
+public val APPCOMMAND_BASS_DOWN: AppcommandId = 19u
+
+public val APPCOMMAND_BASS_UP: AppcommandId = 21u
+
+public val APPCOMMAND_BROWSER_BACKWARD: AppcommandId = 1u
+
+public val APPCOMMAND_BROWSER_FAVORITES: AppcommandId = 6u
+
+public val APPCOMMAND_BROWSER_FORWARD: AppcommandId = 2u
+
+public val APPCOMMAND_BROWSER_HOME: AppcommandId = 7u
+
+public val APPCOMMAND_BROWSER_REFRESH: AppcommandId = 3u
+
+public val APPCOMMAND_BROWSER_SEARCH: AppcommandId = 5u
+
+public val APPCOMMAND_BROWSER_STOP: AppcommandId = 4u
+
+public val APPCOMMAND_CLOSE: AppcommandId = 31u
+
+public val APPCOMMAND_COPY: AppcommandId = 36u
+
+public val APPCOMMAND_CORRECTION_LIST: AppcommandId = 45u
+
+public val APPCOMMAND_CUT: AppcommandId = 37u
+
+public val APPCOMMAND_DELETE: AppcommandId = 53u
+
+public val APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE: AppcommandId = 43u
+
+public val APPCOMMAND_DWM_FLIP3D: AppcommandId = 54u
+
+public val APPCOMMAND_FIND: AppcommandId = 28u
+
+public val APPCOMMAND_FORWARD_MAIL: AppcommandId = 40u
+
+public val APPCOMMAND_HELP: AppcommandId = 27u
+
+public val APPCOMMAND_LAUNCH_APP1: AppcommandId = 17u
+
+public val APPCOMMAND_LAUNCH_APP2: AppcommandId = 18u
+
+public val APPCOMMAND_LAUNCH_MAIL: AppcommandId = 15u
+
+public val APPCOMMAND_LAUNCH_MEDIA_SELECT: AppcommandId = 16u
+
+public val APPCOMMAND_MEDIA_CHANNEL_DOWN: AppcommandId = 52u
+
+public val APPCOMMAND_MEDIA_CHANNEL_UP: AppcommandId = 51u
+
+public val APPCOMMAND_MEDIA_FAST_FORWARD: AppcommandId = 49u
+
+public val APPCOMMAND_MEDIA_NEXTTRACK: AppcommandId = 11u
+
+public val APPCOMMAND_MEDIA_PAUSE: AppcommandId = 47u
+
+public val APPCOMMAND_MEDIA_PLAY: AppcommandId = 46u
+
+public val APPCOMMAND_MEDIA_PLAY_PAUSE: AppcommandId = 14u
+
+public val APPCOMMAND_MEDIA_PREVIOUSTRACK: AppcommandId = 12u
+
+public val APPCOMMAND_MEDIA_RECORD: AppcommandId = 48u
+
+public val APPCOMMAND_MEDIA_REWIND: AppcommandId = 50u
+
+public val APPCOMMAND_MEDIA_STOP: AppcommandId = 13u
+
+public val APPCOMMAND_MICROPHONE_VOLUME_DOWN: AppcommandId = 25u
+
+public val APPCOMMAND_MICROPHONE_VOLUME_MUTE: AppcommandId = 24u
+
+public val APPCOMMAND_MICROPHONE_VOLUME_UP: AppcommandId = 26u
+
+public val APPCOMMAND_MIC_ON_OFF_TOGGLE: AppcommandId = 44u
+
+public val APPCOMMAND_NEW: AppcommandId = 29u
+
+public val APPCOMMAND_OPEN: AppcommandId = 30u
+
+public val APPCOMMAND_PASTE: AppcommandId = 38u
+
+public val APPCOMMAND_PRINT: AppcommandId = 33u
+
+public val APPCOMMAND_REDO: AppcommandId = 35u
+
+public val APPCOMMAND_REPLY_TO_MAIL: AppcommandId = 39u
+
+public val APPCOMMAND_SAVE: AppcommandId = 32u
+
+public val APPCOMMAND_SEND_MAIL: AppcommandId = 41u
+
+public val APPCOMMAND_SPELL_CHECK: AppcommandId = 42u
+
+public val APPCOMMAND_TREBLE_DOWN: AppcommandId = 22u
+
+public val APPCOMMAND_TREBLE_UP: AppcommandId = 23u
+
+public val APPCOMMAND_UNDO: AppcommandId = 34u
+
+public val APPCOMMAND_VOLUME_DOWN: AppcommandId = 9u
+
+public val APPCOMMAND_VOLUME_MUTE: AppcommandId = 8u
+
+public val APPCOMMAND_VOLUME_UP: AppcommandId = 10u
+
+public val APPLICATION_ERROR_MASK: UInt = 536870912u
+
+public val ARM64_MAX_BREAKPOINTS: UInt = 8u
+
+public val ARM64_MAX_WATCHPOINTS: UInt = 2u
+
+public val ARM64_MULT_INTRINSICS_SUPPORTED: UInt = 1u
+
+public val ARM64_PREFETCH_KEEP: UInt = 0u
+
+public val ARM64_PREFETCH_L1: UInt = 0u
+
+public val ARM64_PREFETCH_L2: UInt = 2u
+
+public val ARM64_PREFETCH_L3: UInt = 4u
+
+public val ARM64_PREFETCH_PLD: UInt = 0u
+
+public val ARM64_PREFETCH_PLI: UInt = 8u
+
+public val ARM64_PREFETCH_PST: UInt = 16u
+
+public val ARM64_PREFETCH_STRM: UInt = 1u
+
+public val ARM_CACHE_ALIGNMENT_SIZE: UInt = 128u
+
+public val ARM_MAX_BREAKPOINTS: UInt = 8u
+
+public val ARM_MAX_WATCHPOINTS: UInt = 1u
+
+public val ASSERT_BREAKPOINT: UInt = 524291u
+
+public val ATF_ONOFFFEEDBACK: AtfFlags = 2u
+
+public val ATF_TIMEOUTON: AtfFlags = 1u
+
+public val AUDIT_ALLOW_NO_PRIVILEGE: UInt = 1u
+
+public val ACCESS_REASON_ALLOWED_ACE: AccessReasonType = 65536
+
+public val ACCESS_REASON_ALLOWED_PARENT_ACE: AccessReasonType = 196608
+
+public val ACCESS_REASON_DENIED_ACE: AccessReasonType = 131072
+
+public val ACCESS_REASON_DENIED_PARENT_ACE: AccessReasonType = 262144
+
+public val ACCESS_REASON_EMPTY_DACL: AccessReasonType = 6291456
+
+public val ACCESS_REASON_FILTER_ACE: AccessReasonType = 10485760
+
+public val ACCESS_REASON_FROM_PRIVILEGE: AccessReasonType = 2097152
+
+public val ACCESS_REASON_INTEGRITY_LEVEL: AccessReasonType = 3145728
+
+public val ACCESS_REASON_MISSING_PRIVILEGE: AccessReasonType = 1048576
+
+public val ACCESS_REASON_NO_GRANT: AccessReasonType = 8388608
+
+public val ACCESS_REASON_NO_SD: AccessReasonType = 7340032
+
+public val ACCESS_REASON_NONE: AccessReasonType = 0
+
+public val ACCESS_REASON_NOT_GRANTED_BY_CAPE: AccessReasonType = 327680
+
+public val ACCESS_REASON_NOT_GRANTED_BY_PARENT_CAPE: AccessReasonType = 393216
+
+public val ACCESS_REASON_NOT_GRANTED_TO_APP_CONTAINER: AccessReasonType = 458752
+
+public val ACCESS_REASON_NULL_DACL: AccessReasonType = 5242880
+
+public val ACCESS_REASON_OWNERSHIP: AccessReasonType = 4194304
+
+public val ACCESS_REASON_TRUST_LABEL: AccessReasonType = 9437184
+
+public val ACTIVATION_CONTEXT_BASIC_INFORMATION: ActivationContextInfoClass = 1
+
+public val ACTIVATION_CONTEXT_DETAILED_INFORMATION: ActivationContextInfoClass = 2
+
+public val ACTIVATION_CONTEXT_MANIFEST_RESOURCE_NAME: ActivationContextInfoClass = 7
+
+public val ADAPTER_TYPE: ServiceNodeType = 4
+
+public val ASSEMBLY_DETAILED_INFORMATION_IN_ACTIVATION_CONTEXT: ActivationContextInfoClass = 3
+
+public val ASSEMBLY_DETAILED_INFORMATION_IN_ACTIVATION_CONTXT: ActivationContextInfoClass = 3
+
+public val AUTO_LOAD: ServiceLoadType = 2
+
+public val BATTERY_DISCHARGE_FLAGS_ENABLE: UInt = 2147483648u
+
+public val BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: UInt = 7u
+
+public val BREAK_DEBUG_BASE: UInt = 524288u
+
+public val BOOT_LOAD: ServiceLoadType = 0
+
+public val CACHE_FULLY_ASSOCIATIVE: UInt = 255u
+
+public val CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: UInt = 4u
+
+public val CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: UInt = 16u
+
+public val CFG_CALL_TARGET_PROCESSED: UInt = 2u
+
+public val CFG_CALL_TARGET_VALID: UInt = 1u
+
+public val CFG_CALL_TARGET_VALID_XFG: UInt = 8u
+
+public val CFU_CF1UNDERLINE: CfeUnderline = 255u
+
+public val CFU_INVERT: CfeUnderline = 254u
+
+public val CFU_UNDERLINE: CfeUnderline = 1u
+
+public val CFU_UNDERLINEDASH: CfeUnderline = 5u
+
+public val CFU_UNDERLINEDASHDOT: CfeUnderline = 6u
+
+public val CFU_UNDERLINEDASHDOTDOT: CfeUnderline = 7u
+
+public val CFU_UNDERLINEDOTTED: CfeUnderline = 4u
+
+public val CFU_UNDERLINEDOUBLE: CfeUnderline = 3u
+
+public val CFU_UNDERLINEDOUBLEWAVE: CfeUnderline = 11u
+
+public val CFU_UNDERLINEHAIRLINE: CfeUnderline = 10u
+
+public val CFU_UNDERLINEHEAVYWAVE: CfeUnderline = 12u
+
+public val CFU_UNDERLINELONGDASH: CfeUnderline = 13u
+
+public val CFU_UNDERLINENONE: CfeUnderline = 0u
+
+public val CFU_UNDERLINETHICK: CfeUnderline = 9u
+
+public val CFU_UNDERLINETHICKDASH: CfeUnderline = 14u
+
+public val CFU_UNDERLINETHICKDASHDOT: CfeUnderline = 15u
+
+public val CFU_UNDERLINETHICKDASHDOTDOT: CfeUnderline = 16u
+
+public val CFU_UNDERLINETHICKDOTTED: CfeUnderline = 17u
+
+public val CFU_UNDERLINETHICKLONGDASH: CfeUnderline = 18u
+
+public val CFU_UNDERLINEWAVE: CfeUnderline = 8u
+
+public val CFU_UNDERLINEWORD: CfeUnderline = 2u
+
+public val CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: UInt = 1u
+
+public val CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: UInt = 1u
+
+public val CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: UInt = 4294901760u
+
+public val CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: UInt = 0u
+
+public val CM_SERVICE_MEASURED_BOOT_LOAD: UInt = 32u
+
+public val CM_SERVICE_NETWORK_BOOT_LOAD: UInt = 1u
+
+public val CM_SERVICE_RAM_DISK_BOOT_LOAD: UInt = 256u
+
+public val CM_SERVICE_SD_DISK_BOOT_LOAD: UInt = 8u
+
+public val CM_SERVICE_USB3_DISK_BOOT_LOAD: UInt = 16u
+
+public val CM_SERVICE_USB_DISK_BOOT_LOAD: UInt = 4u
+
+public val CM_SERVICE_VERIFIER_BOOT_LOAD: UInt = 64u
+
+public val CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: UInt = 2u
+
+public val CM_SERVICE_WINPE_BOOT_LOAD: UInt = 128u
+
+public val COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = 131072
+
+public val COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = 2
+
+public val COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = 1
+
+public val COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines = 4
+
+public val COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = 16
+
+public val COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = 8
+
+public val COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = 65536
+
+public val COMPONENT_KTM: UInt = 1u
+
+public val COMPONENT_VALID_FLAGS: UInt = 1u
+
+public val COMPRESSION_ENGINE_HIBER: UInt = 512u
+
+public val COMPRESSION_ENGINE_MAXIMUM: UInt = 256u
+
+public val COMPRESSION_ENGINE_STANDARD: UInt = 0u
+
+public val CORE_PARKING_POLICY_CHANGE_IDEAL: UInt = 0u
+
+public val CORE_PARKING_POLICY_CHANGE_MAX: UInt = 3u
+
+public val CORE_PARKING_POLICY_CHANGE_MULTISTEP: UInt = 3u
+
+public val CORE_PARKING_POLICY_CHANGE_ROCKET: UInt = 2u
+
+public val CORE_PARKING_POLICY_CHANGE_SINGLE: UInt = 1u
+
+public val COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines = 8
+
+public val COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines = 255
+
+public val COR_VERSION_MAJOR: ReplacesCorHdrNumericDefines = 2
+
+public val COR_VERSION_MAJOR_V2: ReplacesCorHdrNumericDefines = 2
+
+public val COR_VERSION_MINOR: ReplacesCorHdrNumericDefines = 5
+
+public val COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines = 8
+
+public val COR_VTABLE_32BIT: ReplacesCorHdrNumericDefines = 1
+
+public val COR_VTABLE_64BIT: ReplacesCorHdrNumericDefines = 2
+
+public val COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = 16
+
+public val COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = 4
+
+public val COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = 8
+
+public val CREATE_BOUNDARY_DESCRIPTOR_ADD_APPCONTAINER_SID: UInt = 1u
+
+public val CRITICAL_ACE_FLAG: UInt = 32u
+
+public val CTMF_INCLUDE_APPCONTAINER: UInt = 1u
+
+public val CTMF_INCLUDE_LPAC: UInt = 2u
+
+public val COMPATIBILITY_INFORMATION_IN_ACTIVATION_CONTEXT: ActivationContextInfoClass = 6
+
+public val CRITICAL_ERROR: ServiceErrorType = 3
+
+public val DECIMAL_NEG: UByte = 128u.toUByte()
+
+public val DEDICATED_MEMORY_CACHE_ELIGIBLE: UInt = 1u
+
+public val DEVICEFAMILYDEVICEFORM_KEY: Pcwstr = w("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM")
+
+public val DEVICEFAMILYDEVICEFORM_VALUE: Pcwstr = w("DeviceForm")
+
+public val DIAGNOSTIC_REASON_DETAILED_STRING: UInt = 2u
+
+public val DIAGNOSTIC_REASON_NOT_SPECIFIED: UInt = 2147483648u
+
+public val DIAGNOSTIC_REASON_SIMPLE_STRING: UInt = 1u
+
+public val DIAGNOSTIC_REASON_VERSION: UInt = 0u
+
+public val DISCHARGE_POLICY_CRITICAL: UInt = 0u
+
+public val DISCHARGE_POLICY_LOW: UInt = 1u
+
+public val DLL_PROCESS_ATTACH: UInt = 1u
+
+public val DLL_PROCESS_DETACH: UInt = 0u
+
+public val DLL_THREAD_ATTACH: UInt = 2u
+
+public val DLL_THREAD_DETACH: UInt = 3u
+
+public val DOMAIN_ALIAS_RID_ACCESS_CONTROL_ASSISTANCE_OPS: Int = 579
+
+public val DOMAIN_ALIAS_RID_ACCOUNT_OPS: Int = 548
+
+public val DOMAIN_ALIAS_RID_ADMINS: Int = 544
+
+public val DOMAIN_ALIAS_RID_AUTHORIZATIONACCESS: Int = 560
+
+public val DOMAIN_ALIAS_RID_BACKUP_OPS: Int = 551
+
+public val DOMAIN_ALIAS_RID_CACHEABLE_PRINCIPALS_GROUP: Int = 571
+
+public val DOMAIN_ALIAS_RID_CERTSVC_DCOM_ACCESS_GROUP: Int = 574
+
+public val DOMAIN_ALIAS_RID_CRYPTO_OPERATORS: Int = 569
+
+public val DOMAIN_ALIAS_RID_DCOM_USERS: Int = 562
+
+public val DOMAIN_ALIAS_RID_DEFAULT_ACCOUNT: Int = 581
+
+public val DOMAIN_ALIAS_RID_DEVICE_OWNERS: Int = 583
+
+public val DOMAIN_ALIAS_RID_EVENT_LOG_READERS_GROUP: Int = 573
+
+public val DOMAIN_ALIAS_RID_GUESTS: Int = 546
+
+public val DOMAIN_ALIAS_RID_HYPER_V_ADMINS: Int = 578
+
+public val DOMAIN_ALIAS_RID_INCOMING_FOREST_TRUST_BUILDERS: Int = 557
+
+public val DOMAIN_ALIAS_RID_IUSERS: Int = 568
+
+public val DOMAIN_ALIAS_RID_LOGGING_USERS: Int = 559
+
+public val DOMAIN_ALIAS_RID_MONITORING_USERS: Int = 558
+
+public val DOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS: Int = 556
+
+public val DOMAIN_ALIAS_RID_NON_CACHEABLE_PRINCIPALS_GROUP: Int = 572
+
+public val DOMAIN_ALIAS_RID_POWER_USERS: Int = 547
+
+public val DOMAIN_ALIAS_RID_PREW2KCOMPACCESS: Int = 554
+
+public val DOMAIN_ALIAS_RID_PRINT_OPS: Int = 550
+
+public val DOMAIN_ALIAS_RID_RAS_SERVERS: Int = 553
+
+public val DOMAIN_ALIAS_RID_RDS_ENDPOINT_SERVERS: Int = 576
+
+public val DOMAIN_ALIAS_RID_RDS_MANAGEMENT_SERVERS: Int = 577
+
+public val DOMAIN_ALIAS_RID_RDS_REMOTE_ACCESS_SERVERS: Int = 575
+
+public val DOMAIN_ALIAS_RID_REMOTE_DESKTOP_USERS: Int = 555
+
+public val DOMAIN_ALIAS_RID_REMOTE_MANAGEMENT_USERS: Int = 580
+
+public val DOMAIN_ALIAS_RID_REPLICATOR: Int = 552
+
+public val DOMAIN_ALIAS_RID_STORAGE_REPLICA_ADMINS: Int = 582
+
+public val DOMAIN_ALIAS_RID_SYSTEM_OPS: Int = 549
+
+public val DOMAIN_ALIAS_RID_TS_LICENSE_SERVERS: Int = 561
+
+public val DOMAIN_ALIAS_RID_USERS: Int = 545
+
+public val DOMAIN_GROUP_RID_ADMINS: Int = 512
+
+public val DOMAIN_GROUP_RID_AUTHORIZATION_DATA_CONTAINS_CLAIMS: Int = 497
+
+public val DOMAIN_GROUP_RID_AUTHORIZATION_DATA_IS_COMPOUNDED: Int = 496
+
+public val DOMAIN_GROUP_RID_CDC_RESERVED: Int = 524
+
+public val DOMAIN_GROUP_RID_CERT_ADMINS: Int = 517
+
+public val DOMAIN_GROUP_RID_CLONEABLE_CONTROLLERS: Int = 522
+
+public val DOMAIN_GROUP_RID_COMPUTERS: Int = 515
+
+public val DOMAIN_GROUP_RID_CONTROLLERS: Int = 516
+
+public val DOMAIN_GROUP_RID_ENTERPRISE_ADMINS: Int = 519
+
+public val DOMAIN_GROUP_RID_ENTERPRISE_KEY_ADMINS: Int = 527
+
+public val DOMAIN_GROUP_RID_ENTERPRISE_READONLY_DOMAIN_CONTROLLERS: Int = 498
+
+public val DOMAIN_GROUP_RID_GUESTS: Int = 514
+
+public val DOMAIN_GROUP_RID_KEY_ADMINS: Int = 526
+
+public val DOMAIN_GROUP_RID_POLICY_ADMINS: Int = 520
+
+public val DOMAIN_GROUP_RID_PROTECTED_USERS: Int = 525
+
+public val DOMAIN_GROUP_RID_READONLY_CONTROLLERS: Int = 521
+
+public val DOMAIN_GROUP_RID_SCHEMA_ADMINS: Int = 518
+
+public val DOMAIN_GROUP_RID_USERS: Int = 513
+
+public val DOMAIN_USER_RID_ADMIN: Int = 500
+
+public val DOMAIN_USER_RID_DEFAULT_ACCOUNT: Int = 503
+
+public val DOMAIN_USER_RID_GUEST: Int = 501
+
+public val DOMAIN_USER_RID_KRBTGT: Int = 502
+
+public val DOMAIN_USER_RID_MAX: Int = 999
+
+public val DOMAIN_USER_RID_WDAG_ACCOUNT: Int = 504
+
+public val DYNAMIC_EH_CONTINUATION_TARGET_ADD: UInt = 1u
+
+public val DYNAMIC_EH_CONTINUATION_TARGET_PROCESSED: UInt = 2u
+
+public val DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: UInt = 1u
+
+public val DYNAMIC_ENFORCED_ADDRESS_RANGE_PROCESSED: UInt = 2u
+
+public val DEMAND_LOAD: ServiceLoadType = 3
+
+public val DISABLE_LOAD: ServiceLoadType = 4
+
+public val DRIVER_TYPE: ServiceNodeType = 1
+
+public val EMARCH_ENC_I17_IC_INST_WORD_POS_X: UInt = 12u
+
+public val EMARCH_ENC_I17_IC_INST_WORD_X: UInt = 3u
+
+public val EMARCH_ENC_I17_IC_SIZE_X: UInt = 1u
+
+public val EMARCH_ENC_I17_IC_VAL_POS_X: UInt = 21u
+
+public val EMARCH_ENC_I17_IMM41A_INST_WORD_POS_X: UInt = 14u
+
+public val EMARCH_ENC_I17_IMM41A_INST_WORD_X: UInt = 1u
+
+public val EMARCH_ENC_I17_IMM41A_SIZE_X: UInt = 10u
+
+public val EMARCH_ENC_I17_IMM41A_VAL_POS_X: UInt = 22u
+
+public val EMARCH_ENC_I17_IMM41B_INST_WORD_POS_X: UInt = 24u
+
+public val EMARCH_ENC_I17_IMM41B_INST_WORD_X: UInt = 1u
+
+public val EMARCH_ENC_I17_IMM41B_SIZE_X: UInt = 8u
+
+public val EMARCH_ENC_I17_IMM41B_VAL_POS_X: UInt = 32u
+
+public val EMARCH_ENC_I17_IMM41C_INST_WORD_POS_X: UInt = 0u
+
+public val EMARCH_ENC_I17_IMM41C_INST_WORD_X: UInt = 2u
+
+public val EMARCH_ENC_I17_IMM41C_SIZE_X: UInt = 23u
+
+public val EMARCH_ENC_I17_IMM41C_VAL_POS_X: UInt = 40u
+
+public val EMARCH_ENC_I17_IMM5C_INST_WORD_POS_X: UInt = 13u
+
+public val EMARCH_ENC_I17_IMM5C_INST_WORD_X: UInt = 3u
+
+public val EMARCH_ENC_I17_IMM5C_SIZE_X: UInt = 5u
+
+public val EMARCH_ENC_I17_IMM5C_VAL_POS_X: UInt = 16u
+
+public val EMARCH_ENC_I17_IMM7B_INST_WORD_POS_X: UInt = 4u
+
+public val EMARCH_ENC_I17_IMM7B_INST_WORD_X: UInt = 3u
+
+public val EMARCH_ENC_I17_IMM7B_SIZE_X: UInt = 7u
+
+public val EMARCH_ENC_I17_IMM7B_VAL_POS_X: UInt = 0u
+
+public val EMARCH_ENC_I17_IMM9D_INST_WORD_POS_X: UInt = 18u
+
+public val EMARCH_ENC_I17_IMM9D_INST_WORD_X: UInt = 3u
+
+public val EMARCH_ENC_I17_IMM9D_SIZE_X: UInt = 9u
+
+public val EMARCH_ENC_I17_IMM9D_VAL_POS_X: UInt = 7u
+
+public val EMARCH_ENC_I17_SIGN_INST_WORD_POS_X: UInt = 27u
+
+public val EMARCH_ENC_I17_SIGN_INST_WORD_X: UInt = 3u
+
+public val EMARCH_ENC_I17_SIGN_SIZE_X: UInt = 1u
+
+public val EMARCH_ENC_I17_SIGN_VAL_POS_X: UInt = 63u
+
+public val ENCLAVE_LONG_ID_LENGTH: UInt = 32u
+
+public val ENCLAVE_SHORT_ID_LENGTH: UInt = 16u
+
+public val ENCLAVE_TYPE_SGX: UInt = 1u
+
+public val ENCLAVE_TYPE_SGX2: UInt = 2u
+
+public val ENCLAVE_TYPE_VBS: UInt = 16u
+
+public val ENCLAVE_TYPE_VBS_BASIC: UInt = 17u
+
+public val ENCLAVE_VBS_FLAG_DEBUG: UInt = 1u
+
+public val ENLISTMENT_QUERY_INFORMATION: UInt = 1u
+
+public val ENLISTMENT_RECOVER: UInt = 4u
+
+public val ENLISTMENT_SET_INFORMATION: UInt = 2u
+
+public val ENLISTMENT_SUBORDINATE_RIGHTS: UInt = 8u
+
+public val ENLISTMENT_SUPERIOR_RIGHTS: UInt = 16u
+
+public val ERROR_SEVERITY_ERROR: UInt = 3221225472u
+
+public val ERROR_SEVERITY_INFORMATIONAL: UInt = 1073741824u
+
+public val ERROR_SEVERITY_SUCCESS: UInt = 0u
+
+public val ERROR_SEVERITY_WARNING: UInt = 2147483648u
+
+public val EVENTLOG_BACKWARDS_READ: UInt = 8u
+
+public val EVENTLOG_END_ALL_PAIRED_EVENTS: UInt = 4u
+
+public val EVENTLOG_END_PAIRED_EVENT: UInt = 2u
+
+public val EVENTLOG_FORWARDS_READ: UInt = 4u
+
+public val EVENTLOG_PAIRED_EVENT_ACTIVE: UInt = 8u
+
+public val EVENTLOG_PAIRED_EVENT_INACTIVE: UInt = 16u
+
+public val EVENTLOG_START_PAIRED_EVENT: UInt = 1u
+
+public val EXCEPTION_COLLIDED_UNWIND: UInt = 64u
+
+public val EXCEPTION_EXECUTE_FAULT: UInt = 8u
+
+public val EXCEPTION_EXIT_UNWIND: UInt = 4u
+
+public val EXCEPTION_MAXIMUM_PARAMETERS: UInt = 15u
+
+public val EXCEPTION_NESTED_CALL: UInt = 16u
+
+public val EXCEPTION_NONCONTINUABLE: UInt = 1u
+
+public val EXCEPTION_READ_FAULT: UInt = 0u
+
+public val EXCEPTION_SOFTWARE_ORIGINATE: UInt = 128u
+
+public val EXCEPTION_STACK_INVALID: UInt = 8u
+
+public val EXCEPTION_TARGET_UNWIND: UInt = 32u
+
+public val EXCEPTION_UNWINDING: UInt = 2u
+
+public val EXCEPTION_WRITE_FAULT: UInt = 1u
+
+public val ENLISTMENT_BASIC_INFORMATION: EnlistmentInformationClass = 0
+
+public val ENLISTMENT_CRM_INFORMATION: EnlistmentInformationClass = 2
+
+public val ENLISTMENT_RECOVERY_INFORMATION: EnlistmentInformationClass = 1
+
+public val FAST_FAIL_ADMINLESS_ACCESS_DENIED: UInt = 55u
+
+public val FAST_FAIL_APCS_DISABLED: UInt = 32u
+
+public val FAST_FAIL_CAST_GUARD: UInt = 65u
+
+public val FAST_FAIL_CERTIFICATION_FAILURE: UInt = 20u
+
+public val FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS: UInt = 57u
+
+public val FAST_FAIL_CORRUPT_LIST_ENTRY: UInt = 3u
+
+public val FAST_FAIL_CRYPTO_LIBRARY: UInt = 22u
+
+public val FAST_FAIL_DEPRECATED_SERVICE_INVOKED: UInt = 27u
+
+public val FAST_FAIL_DLOAD_PROTECTION_FAILURE: UInt = 25u
+
+public val FAST_FAIL_ENCLAVE_CALL_FAILURE: UInt = 53u
+
+public val FAST_FAIL_ETW_CORRUPTION: UInt = 61u
+
+public val FAST_FAIL_FATAL_APP_EXIT: UInt = 7u
+
+public val FAST_FAIL_FLAGS_CORRUPTION: UInt = 59u
+
+public val FAST_FAIL_GS_COOKIE_INIT: UInt = 6u
+
+public val FAST_FAIL_GUARD_EXPORT_SUPPRESSION_FAILURE: UInt = 46u
+
+public val FAST_FAIL_GUARD_ICALL_CHECK_FAILURE: UInt = 10u
+
+public val FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG: UInt = 64u
+
+public val FAST_FAIL_GUARD_ICALL_CHECK_SUPPRESSED: UInt = 31u
+
+public val FAST_FAIL_GUARD_JUMPTABLE: UInt = 37u
+
+public val FAST_FAIL_GUARD_SS_FAILURE: UInt = 44u
+
+public val FAST_FAIL_GUARD_WRITE_CHECK_FAILURE: UInt = 11u
+
+public val FAST_FAIL_HEAP_METADATA_CORRUPTION: UInt = 50u
+
+public val FAST_FAIL_HOST_VISIBILITY_CHANGE: UInt = 66u
+
+public val FAST_FAIL_INCORRECT_STACK: UInt = 4u
+
+public val FAST_FAIL_INVALID_ARG: UInt = 5u
+
+public val FAST_FAIL_INVALID_BALANCED_TREE: UInt = 29u
+
+public val FAST_FAIL_INVALID_BUFFER_ACCESS: UInt = 28u
+
+public val FAST_FAIL_INVALID_CALL_IN_DLL_CALLOUT: UInt = 23u
+
+public val FAST_FAIL_INVALID_CONTROL_STACK: UInt = 47u
+
+public val FAST_FAIL_INVALID_DISPATCH_CONTEXT: UInt = 39u
+
+public val FAST_FAIL_INVALID_EXCEPTION_CHAIN: UInt = 21u
+
+public val FAST_FAIL_INVALID_FAST_FAIL_CODE: UInt = 4294967295u
+
+public val FAST_FAIL_INVALID_FIBER_SWITCH: UInt = 12u
+
+public val FAST_FAIL_INVALID_FILE_OPERATION: UInt = 42u
+
+public val FAST_FAIL_INVALID_FLS_DATA: UInt = 70u
+
+public val FAST_FAIL_INVALID_IAT: UInt = 49u
+
+public val FAST_FAIL_INVALID_IDLE_STATE: UInt = 33u
+
+public val FAST_FAIL_INVALID_IMAGE_BASE: UInt = 24u
+
+public val FAST_FAIL_INVALID_JUMP_BUFFER: UInt = 18u
+
+public val FAST_FAIL_INVALID_LOCK_STATE: UInt = 36u
+
+public val FAST_FAIL_INVALID_LONGJUMP_TARGET: UInt = 38u
+
+public val FAST_FAIL_INVALID_NEXT_THREAD: UInt = 30u
+
+public val FAST_FAIL_INVALID_PFN: UInt = 63u
+
+public val FAST_FAIL_INVALID_REFERENCE_COUNT: UInt = 14u
+
+public val FAST_FAIL_INVALID_SET_OF_CONTEXT: UInt = 13u
+
+public val FAST_FAIL_INVALID_SYSCALL_NUMBER: UInt = 41u
+
+public val FAST_FAIL_INVALID_THREAD: UInt = 40u
+
+public val FAST_FAIL_KERNEL_CET_SHADOW_STACK_ASSIST: UInt = 67u
+
+public val FAST_FAIL_LEGACY_GS_VIOLATION: UInt = 0u
+
+public val FAST_FAIL_LOADER_CONTINUITY_FAILURE: UInt = 45u
+
+public val FAST_FAIL_LOW_LABEL_ACCESS_DENIED: UInt = 52u
+
+public val FAST_FAIL_LPAC_ACCESS_DENIED: UInt = 43u
+
+public val FAST_FAIL_MRDATA_MODIFIED: UInt = 19u
+
+public val FAST_FAIL_MRDATA_PROTECTION_FAILURE: UInt = 34u
+
+public val FAST_FAIL_NTDLL_PATCH_FAILED: UInt = 69u
+
+public val FAST_FAIL_PATCH_CALLBACK_FAILED: UInt = 68u
+
+public val FAST_FAIL_PAYLOAD_RESTRICTION_VIOLATION: UInt = 51u
+
+public val FAST_FAIL_RANGE_CHECK_FAILURE: UInt = 8u
+
+public val FAST_FAIL_RIO_ABORT: UInt = 62u
+
+public val FAST_FAIL_SET_CONTEXT_DENIED: UInt = 48u
+
+public val FAST_FAIL_STACK_COOKIE_CHECK_FAILURE: UInt = 2u
+
+public val FAST_FAIL_UNEXPECTED_CALL: UInt = 56u
+
+public val FAST_FAIL_UNEXPECTED_HEAP_EXCEPTION: UInt = 35u
+
+public val FAST_FAIL_UNEXPECTED_HOST_BEHAVIOR: UInt = 58u
+
+public val FAST_FAIL_UNHANDLED_LSS_EXCEPTON: UInt = 54u
+
+public val FAST_FAIL_UNSAFE_EXTENSION_CALL: UInt = 26u
+
+public val FAST_FAIL_UNSAFE_REGISTRY_ACCESS: UInt = 9u
+
+public val FAST_FAIL_VEH_CORRUPTION: UInt = 60u
+
+public val FAST_FAIL_VTGUARD_CHECK_FAILURE: UInt = 1u
+
+public val FILE_ATTRIBUTE_STRICTLY_SEQUENTIAL: UInt = 536870912u
+
+public val FILE_CASE_PRESERVED_NAMES: UInt = 2u
+
+public val FILE_CASE_SENSITIVE_SEARCH: UInt = 1u
+
+public val FILE_CS_FLAG_CASE_SENSITIVE_DIR: UInt = 1u
+
+public val FILE_DAX_VOLUME: UInt = 536870912u
+
+public val FILE_FILE_COMPRESSION: UInt = 16u
+
+public val FILE_NAMED_STREAMS: UInt = 262144u
+
+public val FILE_NAME_FLAGS_UNSPECIFIED: UInt = 128u
+
+public val FILE_NAME_FLAG_BOTH: UInt = 3u
+
+public val FILE_NAME_FLAG_DOS: UInt = 2u
+
+public val FILE_NAME_FLAG_HARDLINK: UInt = 0u
+
+public val FILE_NAME_FLAG_NTFS: UInt = 1u
+
+public val FILE_PERSISTENT_ACLS: UInt = 8u
+
+public val FILE_READ_ONLY_VOLUME: UInt = 524288u
+
+public val FILE_RETURNS_CLEANUP_RESULT_INFO: UInt = 512u
+
+public val FILE_SEQUENTIAL_WRITE_ONCE: UInt = 1048576u
+
+public val FILE_SUPPORTS_BLOCK_REFCOUNTING: UInt = 134217728u
+
+public val FILE_SUPPORTS_BYPASS_IO: UInt = 2048u
+
+public val FILE_SUPPORTS_CASE_SENSITIVE_DIRS: UInt = 8192u
+
+public val FILE_SUPPORTS_ENCRYPTION: UInt = 131072u
+
+public val FILE_SUPPORTS_EXTENDED_ATTRIBUTES: UInt = 8388608u
+
+public val FILE_SUPPORTS_GHOSTING: UInt = 1073741824u
+
+public val FILE_SUPPORTS_HARD_LINKS: UInt = 4194304u
+
+public val FILE_SUPPORTS_INTEGRITY_STREAMS: UInt = 67108864u
+
+public val FILE_SUPPORTS_OBJECT_IDS: UInt = 65536u
+
+public val FILE_SUPPORTS_OPEN_BY_FILE_ID: UInt = 16777216u
+
+public val FILE_SUPPORTS_POSIX_UNLINK_RENAME: UInt = 1024u
+
+public val FILE_SUPPORTS_REMOTE_STORAGE: UInt = 256u
+
+public val FILE_SUPPORTS_REPARSE_POINTS: UInt = 128u
+
+public val FILE_SUPPORTS_SPARSE_FILES: UInt = 64u
+
+public val FILE_SUPPORTS_SPARSE_VDL: UInt = 268435456u
+
+public val FILE_SUPPORTS_STREAM_SNAPSHOTS: UInt = 4096u
+
+public val FILE_SUPPORTS_TRANSACTIONS: UInt = 2097152u
+
+public val FILE_SUPPORTS_USN_JOURNAL: UInt = 33554432u
+
+public val FILE_UNICODE_ON_DISK: UInt = 4u
+
+public val FILE_VOLUME_IS_COMPRESSED: UInt = 32768u
+
+public val FILE_VOLUME_QUOTAS: UInt = 32u
+
+public val FILL_NV_MEMORY_FLAG_FLUSH: UInt = 1u
+
+public val FILL_NV_MEMORY_FLAG_NON_TEMPORAL: UInt = 2u
+
+public val FILL_NV_MEMORY_FLAG_NO_DRAIN: UInt = 256u
+
+public val FLS_MAXIMUM_AVAILABLE: UInt = 4080u
+
+public val FLUSH_FLAGS_FILE_DATA_ONLY: UInt = 1u
+
+public val FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: UInt = 4u
+
+public val FLUSH_FLAGS_NO_SYNC: UInt = 2u
+
+public val FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: UInt = 1u
+
+public val FOREST_USER_RID_MAX: Int = 499
+
+public val FRAME_FPO: UInt = 0u
+
+public val FRAME_NONFPO: UInt = 3u
+
+public val FRAME_TRAP: UInt = 1u
+
+public val FRAME_TSS: UInt = 2u
+
+public val FILE_INFORMATION_IN_ASSEMBLY_OF_ASSEMBLY_IN_ACTIVATION_CONTEXT: ActivationContextInfoClass = 4
+
+public val FILE_INFORMATION_IN_ASSEMBLY_OF_ASSEMBLY_IN_ACTIVATION_CONTXT: ActivationContextInfoClass = 4
+
+public val FILE_SYSTEM_TYPE: ServiceNodeType = 2
+
+public val GC_ALLGESTURES: GestureconfigFlags = 1u
+
+public val GC_PAN: GestureconfigFlags = 1u
+
+public val GC_PAN_WITH_GUTTER: GestureconfigFlags = 8u
+
+public val GC_PAN_WITH_INERTIA: GestureconfigFlags = 16u
+
+public val GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY: GestureconfigFlags = 4u
+
+public val GC_PAN_WITH_SINGLE_FINGER_VERTICALLY: GestureconfigFlags = 2u
+
+public val GC_PRESSANDTAP: GestureconfigFlags = 1u
+
+public val GC_ROLLOVER: GestureconfigFlags = 1u
+
+public val GC_ROTATE: GestureconfigFlags = 1u
+
+public val GC_TWOFINGERTAP: GestureconfigFlags = 1u
+
+public val GC_ZOOM: GestureconfigFlags = 1u
+
+public val HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: UInt = 1u
+
+public val HIBERFILE_TYPE_FULL: UInt = 2u
+
+public val HIBERFILE_TYPE_MAX: UInt = 3u
+
+public val HIBERFILE_TYPE_NONE: UInt = 0u
+
+public val HIBERFILE_TYPE_REDUCED: UInt = 1u
+
+public val HIBER_FILE_BUCKET16GB: HiberfileBucketSize = 4
+
+public val HIBER_FILE_BUCKET1GB: HiberfileBucketSize = 0
+
+public val HIBER_FILE_BUCKET2GB: HiberfileBucketSize = 1
+
+public val HIBER_FILE_BUCKET32GB: HiberfileBucketSize = 5
+
+public val HIBER_FILE_BUCKET4GB: HiberfileBucketSize = 2
+
+public val HIBER_FILE_BUCKET8GB: HiberfileBucketSize = 3
+
+public val HIBER_FILE_BUCKET_MAX: HiberfileBucketSize = 7
+
+public val HIBER_FILE_BUCKET_UNLIMITED: HiberfileBucketSize = 6
+
+public val IGP_CONVERSION: IgpId = 8u
+
+public val IGP_GETIMEVERSION: IgpId = 4294967292u
+
+public val IGP_PROPERTY: IgpId = 4u
+
+public val IGP_SELECT: IgpId = 24u
+
+public val IGP_SENTENCE: IgpId = 12u
+
+public val IGP_SETCOMPSTR: IgpId = 20u
+
+public val IGP_UI: IgpId = 16u
+
+public val IMAGE_ARCHIVE_END: Pcstr = s("`\n")
+
+public val IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: Pcstr = s("/<HYBRIDMAP>/   ")
+
+public val IMAGE_ARCHIVE_LINKER_MEMBER: Pcstr = s("/               ")
+
+public val IMAGE_ARCHIVE_LONGNAMES_MEMBER: Pcstr = s("//              ")
+
+public val IMAGE_ARCHIVE_PAD: Pcstr = s("\n")
+
+public val IMAGE_ARCHIVE_START: Pcstr = s("!<arch>\n")
+
+public val IMAGE_ARCHIVE_START_SIZE: UInt = 8u
+
+public val IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: ImageAuxSymbolType = 1
+
+public val IMAGE_COMDAT_SELECT_ANY: UInt = 2u
+
+public val IMAGE_COMDAT_SELECT_ASSOCIATIVE: UInt = 5u
+
+public val IMAGE_COMDAT_SELECT_EXACT_MATCH: UInt = 4u
+
+public val IMAGE_COMDAT_SELECT_LARGEST: UInt = 6u
+
+public val IMAGE_COMDAT_SELECT_NEWEST: UInt = 7u
+
+public val IMAGE_COMDAT_SELECT_NODUPLICATES: UInt = 1u
+
+public val IMAGE_COMDAT_SELECT_SAME_SIZE: UInt = 3u
+
+public val IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = 32
+
+public val IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = 8
+
+public val IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = 2
+
+public val IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = 1
+
+public val IMAGE_DEBUG_MISC_EXENAME: UInt = 1u
+
+public val IMAGE_DEBUG_TYPE_BBT: UInt = 10u
+
+public val IMAGE_DEBUG_TYPE_CLSID: UInt = 11u
+
+public val IMAGE_DEBUG_TYPE_EX_DLLCHARACTERISTICS: UInt = 20u
+
+public val IMAGE_DEBUG_TYPE_ILTCG: UInt = 14u
+
+public val IMAGE_DEBUG_TYPE_MPX: UInt = 15u
+
+public val IMAGE_DEBUG_TYPE_OMAP_FROM_SRC: UInt = 8u
+
+public val IMAGE_DEBUG_TYPE_OMAP_TO_SRC: UInt = 7u
+
+public val IMAGE_DEBUG_TYPE_POGO: UInt = 13u
+
+public val IMAGE_DEBUG_TYPE_REPRO: UInt = 16u
+
+public val IMAGE_DEBUG_TYPE_RESERVED10: UInt = 10u
+
+public val IMAGE_DEBUG_TYPE_SPGO: UInt = 18u
+
+public val IMAGE_DEBUG_TYPE_VC_FEATURE: UInt = 12u
+
+public val IMAGE_DOS_SIGNATURE: UShort = 23117u.toUShort()
+
+public val IMAGE_DYNAMIC_RELOCATION_FUNCTION_OVERRIDE: UInt = 7u
+
+public val IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER: UInt = 3u
+
+public val IMAGE_DYNAMIC_RELOCATION_GUARD_INDIR_CONTROL_TRANSFER: UInt = 4u
+
+public val IMAGE_DYNAMIC_RELOCATION_GUARD_RF_EPILOGUE: UInt = 2u
+
+public val IMAGE_DYNAMIC_RELOCATION_GUARD_RF_PROLOGUE: UInt = 1u
+
+public val IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: UInt = 5u
+
+public val IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: UInt = 1u
+
+public val IMAGE_ENCLAVE_IMPORT_MATCH_AUTHOR_ID: UInt = 2u
+
+public val IMAGE_ENCLAVE_IMPORT_MATCH_FAMILY_ID: UInt = 3u
+
+public val IMAGE_ENCLAVE_IMPORT_MATCH_IMAGE_ID: UInt = 4u
+
+public val IMAGE_ENCLAVE_IMPORT_MATCH_NONE: UInt = 0u
+
+public val IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: UInt = 1u
+
+public val IMAGE_ENCLAVE_LONG_ID_LENGTH: UInt = 32u
+
+public val IMAGE_ENCLAVE_POLICY_DEBUGGABLE: UInt = 1u
+
+public val IMAGE_ENCLAVE_SHORT_ID_LENGTH: UInt = 16u
+
+public val IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: UInt = 2u
+
+public val IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: UInt = 3u
+
+public val IMAGE_FUNCTION_OVERRIDE_INVALID: UInt = 0u
+
+public val IMAGE_FUNCTION_OVERRIDE_X64_REL32: UInt = 1u
+
+public val IMAGE_GUARD_CASTGUARD_PRESENT: UInt = 16777216u
+
+public val IMAGE_GUARD_CFW_INSTRUMENTED: UInt = 512u
+
+public val IMAGE_GUARD_CF_ENABLE_EXPORT_SUPPRESSION: UInt = 32768u
+
+public val IMAGE_GUARD_CF_EXPORT_SUPPRESSION_INFO_PRESENT: UInt = 16384u
+
+public val IMAGE_GUARD_CF_FUNCTION_TABLE_PRESENT: UInt = 1024u
+
+public val IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK: UInt = 4026531840u
+
+public val IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_SHIFT: UInt = 28u
+
+public val IMAGE_GUARD_CF_INSTRUMENTED: UInt = 256u
+
+public val IMAGE_GUARD_CF_LONGJUMP_TABLE_PRESENT: UInt = 65536u
+
+public val IMAGE_GUARD_DELAYLOAD_IAT_IN_ITS_OWN_SECTION: UInt = 8192u
+
+public val IMAGE_GUARD_EH_CONTINUATION_TABLE_PRESENT: UInt = 4194304u
+
+public val IMAGE_GUARD_FLAG_EXPORT_SUPPRESSED: UInt = 2u
+
+public val IMAGE_GUARD_FLAG_FID_LANGEXCPTHANDLER: UInt = 4u
+
+public val IMAGE_GUARD_FLAG_FID_SUPPRESSED: UInt = 1u
+
+public val IMAGE_GUARD_FLAG_FID_XFG: UInt = 8u
+
+public val IMAGE_GUARD_MEMCPY_PRESENT: UInt = 33554432u
+
+public val IMAGE_GUARD_PROTECT_DELAYLOAD_IAT: UInt = 4096u
+
+public val IMAGE_GUARD_RETPOLINE_PRESENT: UInt = 1048576u
+
+public val IMAGE_GUARD_RF_ENABLE: UInt = 262144u
+
+public val IMAGE_GUARD_RF_INSTRUMENTED: UInt = 131072u
+
+public val IMAGE_GUARD_RF_STRICT: UInt = 524288u
+
+public val IMAGE_GUARD_SECURITY_COOKIE_UNUSED: UInt = 2048u
+
+public val IMAGE_GUARD_XFG_ENABLED: UInt = 8388608u
+
+public val IMAGE_HOT_PATCH_ABSOLUTE: UInt = 180224u
+
+public val IMAGE_HOT_PATCH_BASE_CAN_ROLL_BACK: UInt = 2u
+
+public val IMAGE_HOT_PATCH_BASE_OBLIGATORY: UInt = 1u
+
+public val IMAGE_HOT_PATCH_CALL_TARGET: UInt = 278528u
+
+public val IMAGE_HOT_PATCH_CHUNK_INVERSE: UInt = 2147483648u
+
+public val IMAGE_HOT_PATCH_CHUNK_OBLIGATORY: UInt = 1073741824u
+
+public val IMAGE_HOT_PATCH_CHUNK_RESERVED: UInt = 1072705536u
+
+public val IMAGE_HOT_PATCH_CHUNK_SIZE: UInt = 4095u
+
+public val IMAGE_HOT_PATCH_CHUNK_SOURCE_RVA: UInt = 32768u
+
+public val IMAGE_HOT_PATCH_CHUNK_TARGET_RVA: UInt = 16384u
+
+public val IMAGE_HOT_PATCH_CHUNK_TYPE: UInt = 1032192u
+
+public val IMAGE_HOT_PATCH_DYNAMIC_VALUE: UInt = 491520u
+
+public val IMAGE_HOT_PATCH_FUNCTION: UInt = 114688u
+
+public val IMAGE_HOT_PATCH_INDIRECT: UInt = 376832u
+
+public val IMAGE_HOT_PATCH_NONE: UInt = 0u
+
+public val IMAGE_HOT_PATCH_NO_CALL_TARGET: UInt = 409600u
+
+public val IMAGE_HOT_PATCH_REL32: UInt = 245760u
+
+public val IMAGE_NT_SIGNATURE: UInt = 17744u
+
+public val IMAGE_NUMBEROF_DIRECTORY_ENTRIES: UInt = 16u
+
+public val IMAGE_ORDINAL_FLAG32: UInt = 2147483648u
+
+public val IMAGE_ORDINAL_FLAG64: ULong = 9223372036854775808uL
+
+public val IMAGE_OS2_SIGNATURE: UShort = 17742u.toUShort()
+
+public val IMAGE_OS2_SIGNATURE_LE: UShort = 17740u.toUShort()
+
+public val IMAGE_POLICY_METADATA_VERSION: UInt = 1u
+
+public val IMAGE_POLICY_SECTION_NAME: Pcstr = s(".tPolicy")
+
+public val IMAGE_REL_ALPHA_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_ALPHA_BRADDR: UInt = 7u
+
+public val IMAGE_REL_ALPHA_GPDISP: UInt = 6u
+
+public val IMAGE_REL_ALPHA_GPREL32: UInt = 3u
+
+public val IMAGE_REL_ALPHA_GPRELHI: UInt = 23u
+
+public val IMAGE_REL_ALPHA_GPRELLO: UInt = 22u
+
+public val IMAGE_REL_ALPHA_HINT: UInt = 8u
+
+public val IMAGE_REL_ALPHA_INLINE_REFLONG: UInt = 9u
+
+public val IMAGE_REL_ALPHA_LITERAL: UInt = 4u
+
+public val IMAGE_REL_ALPHA_LITUSE: UInt = 5u
+
+public val IMAGE_REL_ALPHA_MATCH: UInt = 13u
+
+public val IMAGE_REL_ALPHA_PAIR: UInt = 12u
+
+public val IMAGE_REL_ALPHA_REFHI: UInt = 10u
+
+public val IMAGE_REL_ALPHA_REFLO: UInt = 11u
+
+public val IMAGE_REL_ALPHA_REFLONG: UInt = 1u
+
+public val IMAGE_REL_ALPHA_REFLONGNB: UInt = 16u
+
+public val IMAGE_REL_ALPHA_REFQ1: UInt = 21u
+
+public val IMAGE_REL_ALPHA_REFQ2: UInt = 20u
+
+public val IMAGE_REL_ALPHA_REFQ3: UInt = 19u
+
+public val IMAGE_REL_ALPHA_REFQUAD: UInt = 2u
+
+public val IMAGE_REL_ALPHA_SECREL: UInt = 15u
+
+public val IMAGE_REL_ALPHA_SECRELHI: UInt = 18u
+
+public val IMAGE_REL_ALPHA_SECRELLO: UInt = 17u
+
+public val IMAGE_REL_ALPHA_SECTION: UInt = 14u
+
+public val IMAGE_REL_AMD64_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_AMD64_ADDR32: UInt = 2u
+
+public val IMAGE_REL_AMD64_ADDR32NB: UInt = 3u
+
+public val IMAGE_REL_AMD64_ADDR64: UInt = 1u
+
+public val IMAGE_REL_AMD64_CFG_BR: UInt = 20u
+
+public val IMAGE_REL_AMD64_CFG_BR_REX: UInt = 21u
+
+public val IMAGE_REL_AMD64_CFG_CALL: UInt = 22u
+
+public val IMAGE_REL_AMD64_EHANDLER: UInt = 17u
+
+public val IMAGE_REL_AMD64_IMPORT_BR: UInt = 18u
+
+public val IMAGE_REL_AMD64_IMPORT_CALL: UInt = 19u
+
+public val IMAGE_REL_AMD64_INDIR_BR: UInt = 23u
+
+public val IMAGE_REL_AMD64_INDIR_BR_REX: UInt = 24u
+
+public val IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_FIRST: UInt = 32u
+
+public val IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_LAST: UInt = 47u
+
+public val IMAGE_REL_AMD64_INDIR_CALL: UInt = 25u
+
+public val IMAGE_REL_AMD64_PAIR: UInt = 15u
+
+public val IMAGE_REL_AMD64_REL32: UInt = 4u
+
+public val IMAGE_REL_AMD64_REL32_1: UInt = 5u
+
+public val IMAGE_REL_AMD64_REL32_2: UInt = 6u
+
+public val IMAGE_REL_AMD64_REL32_3: UInt = 7u
+
+public val IMAGE_REL_AMD64_REL32_4: UInt = 8u
+
+public val IMAGE_REL_AMD64_REL32_5: UInt = 9u
+
+public val IMAGE_REL_AMD64_SECREL: UInt = 11u
+
+public val IMAGE_REL_AMD64_SECREL7: UInt = 12u
+
+public val IMAGE_REL_AMD64_SECTION: UInt = 10u
+
+public val IMAGE_REL_AMD64_SREL32: UInt = 14u
+
+public val IMAGE_REL_AMD64_SSPAN32: UInt = 16u
+
+public val IMAGE_REL_AMD64_TOKEN: UInt = 13u
+
+public val IMAGE_REL_AM_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_AM_ADDR32: UInt = 1u
+
+public val IMAGE_REL_AM_ADDR32NB: UInt = 2u
+
+public val IMAGE_REL_AM_CALL32: UInt = 3u
+
+public val IMAGE_REL_AM_FUNCINFO: UInt = 4u
+
+public val IMAGE_REL_AM_REL32_1: UInt = 5u
+
+public val IMAGE_REL_AM_REL32_2: UInt = 6u
+
+public val IMAGE_REL_AM_SECREL: UInt = 7u
+
+public val IMAGE_REL_AM_SECTION: UInt = 8u
+
+public val IMAGE_REL_AM_TOKEN: UInt = 9u
+
+public val IMAGE_REL_ARM64_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_ARM64_ADDR32: UInt = 1u
+
+public val IMAGE_REL_ARM64_ADDR32NB: UInt = 2u
+
+public val IMAGE_REL_ARM64_ADDR64: UInt = 14u
+
+public val IMAGE_REL_ARM64_BRANCH19: UInt = 15u
+
+public val IMAGE_REL_ARM64_BRANCH26: UInt = 3u
+
+public val IMAGE_REL_ARM64_PAGEBASE_REL21: UInt = 4u
+
+public val IMAGE_REL_ARM64_PAGEOFFSET_12A: UInt = 6u
+
+public val IMAGE_REL_ARM64_PAGEOFFSET_12L: UInt = 7u
+
+public val IMAGE_REL_ARM64_REL21: UInt = 5u
+
+public val IMAGE_REL_ARM64_SECREL: UInt = 8u
+
+public val IMAGE_REL_ARM64_SECREL_HIGH12A: UInt = 10u
+
+public val IMAGE_REL_ARM64_SECREL_LOW12A: UInt = 9u
+
+public val IMAGE_REL_ARM64_SECREL_LOW12L: UInt = 11u
+
+public val IMAGE_REL_ARM64_SECTION: UInt = 13u
+
+public val IMAGE_REL_ARM64_TOKEN: UInt = 12u
+
+public val IMAGE_REL_ARM_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_ARM_ADDR32: UInt = 1u
+
+public val IMAGE_REL_ARM_ADDR32NB: UInt = 2u
+
+public val IMAGE_REL_ARM_BLX11: UInt = 9u
+
+public val IMAGE_REL_ARM_BLX23T: UInt = 21u
+
+public val IMAGE_REL_ARM_BLX24: UInt = 8u
+
+public val IMAGE_REL_ARM_BRANCH11: UInt = 4u
+
+public val IMAGE_REL_ARM_BRANCH20T: UInt = 18u
+
+public val IMAGE_REL_ARM_BRANCH24: UInt = 3u
+
+public val IMAGE_REL_ARM_BRANCH24T: UInt = 20u
+
+public val IMAGE_REL_ARM_GPREL12: UInt = 6u
+
+public val IMAGE_REL_ARM_GPREL7: UInt = 7u
+
+public val IMAGE_REL_ARM_MOV32: UInt = 16u
+
+public val IMAGE_REL_ARM_MOV32A: UInt = 16u
+
+public val IMAGE_REL_ARM_MOV32T: UInt = 17u
+
+public val IMAGE_REL_ARM_SECREL: UInt = 15u
+
+public val IMAGE_REL_ARM_SECTION: UInt = 14u
+
+public val IMAGE_REL_ARM_TOKEN: UInt = 5u
+
+public val IMAGE_REL_BASED_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_BASED_ARM_MOV32: UInt = 5u
+
+public val IMAGE_REL_BASED_DIR64: UInt = 10u
+
+public val IMAGE_REL_BASED_HIGH: UInt = 1u
+
+public val IMAGE_REL_BASED_HIGHADJ: UInt = 4u
+
+public val IMAGE_REL_BASED_HIGHLOW: UInt = 3u
+
+public val IMAGE_REL_BASED_IA64_IMM64: UInt = 9u
+
+public val IMAGE_REL_BASED_LOW: UInt = 2u
+
+public val IMAGE_REL_BASED_MACHINE_SPECIFIC_5: UInt = 5u
+
+public val IMAGE_REL_BASED_MACHINE_SPECIFIC_7: UInt = 7u
+
+public val IMAGE_REL_BASED_MACHINE_SPECIFIC_8: UInt = 8u
+
+public val IMAGE_REL_BASED_MACHINE_SPECIFIC_9: UInt = 9u
+
+public val IMAGE_REL_BASED_MIPS_JMPADDR: UInt = 5u
+
+public val IMAGE_REL_BASED_MIPS_JMPADDR16: UInt = 9u
+
+public val IMAGE_REL_BASED_RESERVED: UInt = 6u
+
+public val IMAGE_REL_BASED_THUMB_MOV32: UInt = 7u
+
+public val IMAGE_REL_CEE_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_CEE_ADDR32: UInt = 1u
+
+public val IMAGE_REL_CEE_ADDR32NB: UInt = 3u
+
+public val IMAGE_REL_CEE_ADDR64: UInt = 2u
+
+public val IMAGE_REL_CEE_SECREL: UInt = 5u
+
+public val IMAGE_REL_CEE_SECTION: UInt = 4u
+
+public val IMAGE_REL_CEE_TOKEN: UInt = 6u
+
+public val IMAGE_REL_CEF_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_CEF_ADDR32: UInt = 1u
+
+public val IMAGE_REL_CEF_ADDR32NB: UInt = 3u
+
+public val IMAGE_REL_CEF_ADDR64: UInt = 2u
+
+public val IMAGE_REL_CEF_SECREL: UInt = 5u
+
+public val IMAGE_REL_CEF_SECTION: UInt = 4u
+
+public val IMAGE_REL_CEF_TOKEN: UInt = 6u
+
+public val IMAGE_REL_EBC_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_EBC_ADDR32NB: UInt = 1u
+
+public val IMAGE_REL_EBC_REL32: UInt = 2u
+
+public val IMAGE_REL_EBC_SECREL: UInt = 4u
+
+public val IMAGE_REL_EBC_SECTION: UInt = 3u
+
+public val IMAGE_REL_I386_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_I386_DIR16: UInt = 1u
+
+public val IMAGE_REL_I386_DIR32: UInt = 6u
+
+public val IMAGE_REL_I386_DIR32NB: UInt = 7u
+
+public val IMAGE_REL_I386_REL16: UInt = 2u
+
+public val IMAGE_REL_I386_REL32: UInt = 20u
+
+public val IMAGE_REL_I386_SECREL: UInt = 11u
+
+public val IMAGE_REL_I386_SECREL7: UInt = 13u
+
+public val IMAGE_REL_I386_SECTION: UInt = 10u
+
+public val IMAGE_REL_I386_SEG12: UInt = 9u
+
+public val IMAGE_REL_I386_TOKEN: UInt = 12u
+
+public val IMAGE_REL_IA64_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_IA64_ADDEND: UInt = 31u
+
+public val IMAGE_REL_IA64_DIR32: UInt = 4u
+
+public val IMAGE_REL_IA64_DIR32NB: UInt = 16u
+
+public val IMAGE_REL_IA64_DIR64: UInt = 5u
+
+public val IMAGE_REL_IA64_GPREL22: UInt = 9u
+
+public val IMAGE_REL_IA64_GPREL32: UInt = 28u
+
+public val IMAGE_REL_IA64_IMM14: UInt = 1u
+
+public val IMAGE_REL_IA64_IMM22: UInt = 2u
+
+public val IMAGE_REL_IA64_IMM64: UInt = 3u
+
+public val IMAGE_REL_IA64_IMMGPREL64: UInt = 26u
+
+public val IMAGE_REL_IA64_LTOFF22: UInt = 10u
+
+public val IMAGE_REL_IA64_PCREL21B: UInt = 6u
+
+public val IMAGE_REL_IA64_PCREL21F: UInt = 8u
+
+public val IMAGE_REL_IA64_PCREL21M: UInt = 7u
+
+public val IMAGE_REL_IA64_PCREL60B: UInt = 22u
+
+public val IMAGE_REL_IA64_PCREL60F: UInt = 23u
+
+public val IMAGE_REL_IA64_PCREL60I: UInt = 24u
+
+public val IMAGE_REL_IA64_PCREL60M: UInt = 25u
+
+public val IMAGE_REL_IA64_PCREL60X: UInt = 21u
+
+public val IMAGE_REL_IA64_SECREL22: UInt = 12u
+
+public val IMAGE_REL_IA64_SECREL32: UInt = 14u
+
+public val IMAGE_REL_IA64_SECREL64I: UInt = 13u
+
+public val IMAGE_REL_IA64_SECTION: UInt = 11u
+
+public val IMAGE_REL_IA64_SREL14: UInt = 17u
+
+public val IMAGE_REL_IA64_SREL22: UInt = 18u
+
+public val IMAGE_REL_IA64_SREL32: UInt = 19u
+
+public val IMAGE_REL_IA64_TOKEN: UInt = 27u
+
+public val IMAGE_REL_IA64_UREL32: UInt = 20u
+
+public val IMAGE_REL_M32R_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_M32R_ADDR24: UInt = 3u
+
+public val IMAGE_REL_M32R_ADDR32: UInt = 1u
+
+public val IMAGE_REL_M32R_ADDR32NB: UInt = 2u
+
+public val IMAGE_REL_M32R_GPREL16: UInt = 4u
+
+public val IMAGE_REL_M32R_PAIR: UInt = 11u
+
+public val IMAGE_REL_M32R_PCREL16: UInt = 6u
+
+public val IMAGE_REL_M32R_PCREL24: UInt = 5u
+
+public val IMAGE_REL_M32R_PCREL8: UInt = 7u
+
+public val IMAGE_REL_M32R_REFHALF: UInt = 8u
+
+public val IMAGE_REL_M32R_REFHI: UInt = 9u
+
+public val IMAGE_REL_M32R_REFLO: UInt = 10u
+
+public val IMAGE_REL_M32R_SECREL32: UInt = 13u
+
+public val IMAGE_REL_M32R_SECTION: UInt = 12u
+
+public val IMAGE_REL_M32R_TOKEN: UInt = 14u
+
+public val IMAGE_REL_MIPS_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_MIPS_GPREL: UInt = 6u
+
+public val IMAGE_REL_MIPS_JMPADDR: UInt = 3u
+
+public val IMAGE_REL_MIPS_JMPADDR16: UInt = 16u
+
+public val IMAGE_REL_MIPS_LITERAL: UInt = 7u
+
+public val IMAGE_REL_MIPS_PAIR: UInt = 37u
+
+public val IMAGE_REL_MIPS_REFHALF: UInt = 1u
+
+public val IMAGE_REL_MIPS_REFHI: UInt = 4u
+
+public val IMAGE_REL_MIPS_REFLO: UInt = 5u
+
+public val IMAGE_REL_MIPS_REFWORD: UInt = 2u
+
+public val IMAGE_REL_MIPS_REFWORDNB: UInt = 34u
+
+public val IMAGE_REL_MIPS_SECREL: UInt = 11u
+
+public val IMAGE_REL_MIPS_SECRELHI: UInt = 13u
+
+public val IMAGE_REL_MIPS_SECRELLO: UInt = 12u
+
+public val IMAGE_REL_MIPS_SECTION: UInt = 10u
+
+public val IMAGE_REL_MIPS_TOKEN: UInt = 14u
+
+public val IMAGE_REL_PPC_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_PPC_ADDR14: UInt = 5u
+
+public val IMAGE_REL_PPC_ADDR16: UInt = 4u
+
+public val IMAGE_REL_PPC_ADDR24: UInt = 3u
+
+public val IMAGE_REL_PPC_ADDR32: UInt = 2u
+
+public val IMAGE_REL_PPC_ADDR32NB: UInt = 10u
+
+public val IMAGE_REL_PPC_ADDR64: UInt = 1u
+
+public val IMAGE_REL_PPC_BRNTAKEN: UInt = 1024u
+
+public val IMAGE_REL_PPC_BRTAKEN: UInt = 512u
+
+public val IMAGE_REL_PPC_GPREL: UInt = 21u
+
+public val IMAGE_REL_PPC_IFGLUE: UInt = 13u
+
+public val IMAGE_REL_PPC_IMGLUE: UInt = 14u
+
+public val IMAGE_REL_PPC_NEG: UInt = 256u
+
+public val IMAGE_REL_PPC_PAIR: UInt = 18u
+
+public val IMAGE_REL_PPC_REFHI: UInt = 16u
+
+public val IMAGE_REL_PPC_REFLO: UInt = 17u
+
+public val IMAGE_REL_PPC_REL14: UInt = 7u
+
+public val IMAGE_REL_PPC_REL24: UInt = 6u
+
+public val IMAGE_REL_PPC_SECREL: UInt = 11u
+
+public val IMAGE_REL_PPC_SECREL16: UInt = 15u
+
+public val IMAGE_REL_PPC_SECRELHI: UInt = 20u
+
+public val IMAGE_REL_PPC_SECRELLO: UInt = 19u
+
+public val IMAGE_REL_PPC_SECTION: UInt = 12u
+
+public val IMAGE_REL_PPC_TOCDEFN: UInt = 2048u
+
+public val IMAGE_REL_PPC_TOCREL14: UInt = 9u
+
+public val IMAGE_REL_PPC_TOCREL16: UInt = 8u
+
+public val IMAGE_REL_PPC_TOKEN: UInt = 22u
+
+public val IMAGE_REL_PPC_TYPEMASK: UInt = 255u
+
+public val IMAGE_REL_SH3_ABSOLUTE: UInt = 0u
+
+public val IMAGE_REL_SH3_DIRECT16: UInt = 1u
+
+public val IMAGE_REL_SH3_DIRECT32: UInt = 2u
+
+public val IMAGE_REL_SH3_DIRECT32_NB: UInt = 16u
+
+public val IMAGE_REL_SH3_DIRECT4: UInt = 6u
+
+public val IMAGE_REL_SH3_DIRECT4_LONG: UInt = 8u
+
+public val IMAGE_REL_SH3_DIRECT4_WORD: UInt = 7u
+
+public val IMAGE_REL_SH3_DIRECT8: UInt = 3u
+
+public val IMAGE_REL_SH3_DIRECT8_LONG: UInt = 5u
+
+public val IMAGE_REL_SH3_DIRECT8_WORD: UInt = 4u
+
+public val IMAGE_REL_SH3_GPREL4_LONG: UInt = 17u
+
+public val IMAGE_REL_SH3_PCREL12_WORD: UInt = 11u
+
+public val IMAGE_REL_SH3_PCREL8_LONG: UInt = 10u
+
+public val IMAGE_REL_SH3_PCREL8_WORD: UInt = 9u
+
+public val IMAGE_REL_SH3_SECREL: UInt = 15u
+
+public val IMAGE_REL_SH3_SECTION: UInt = 14u
+
+public val IMAGE_REL_SH3_SIZEOF_SECTION: UInt = 13u
+
+public val IMAGE_REL_SH3_STARTOF_SECTION: UInt = 12u
+
+public val IMAGE_REL_SH3_TOKEN: UInt = 18u
+
+public val IMAGE_REL_SHM_PAIR: UInt = 24u
+
+public val IMAGE_REL_SHM_PCRELPT: UInt = 19u
+
+public val IMAGE_REL_SHM_REFHALF: UInt = 21u
+
+public val IMAGE_REL_SHM_REFLO: UInt = 20u
+
+public val IMAGE_REL_SHM_RELHALF: UInt = 23u
+
+public val IMAGE_REL_SHM_RELLO: UInt = 22u
+
+public val IMAGE_REL_SH_NOMODE: UInt = 32768u
+
+public val IMAGE_REL_THUMB_BLX23: UInt = 21u
+
+public val IMAGE_REL_THUMB_BRANCH20: UInt = 18u
+
+public val IMAGE_REL_THUMB_BRANCH24: UInt = 20u
+
+public val IMAGE_REL_THUMB_MOV32: UInt = 17u
+
+public val IMAGE_RESOURCE_DATA_IS_DIRECTORY: UInt = 2147483648u
+
+public val IMAGE_RESOURCE_NAME_IS_STRING: UInt = 2147483648u
+
+public val IMAGE_SEPARATE_DEBUG_FLAGS_MASK: UInt = 32768u
+
+public val IMAGE_SEPARATE_DEBUG_MISMATCH: UInt = 32768u
+
+public val IMAGE_SEPARATE_DEBUG_SIGNATURE: UInt = 18756u
+
+public val IMAGE_SIZEOF_ARCHIVE_MEMBER_HDR: UInt = 60u
+
+public val IMAGE_SIZEOF_FILE_HEADER: UInt = 20u
+
+public val IMAGE_SIZEOF_SECTION_HEADER: UInt = 40u
+
+public val IMAGE_SIZEOF_SHORT_NAME: UInt = 8u
+
+public val IMAGE_SIZEOF_SYMBOL: UInt = 18u
+
+public val IMAGE_SYM_CLASS_ARGUMENT: UInt = 9u
+
+public val IMAGE_SYM_CLASS_AUTOMATIC: UInt = 1u
+
+public val IMAGE_SYM_CLASS_BIT_FIELD: UInt = 18u
+
+public val IMAGE_SYM_CLASS_BLOCK: UInt = 100u
+
+public val IMAGE_SYM_CLASS_CLR_TOKEN: UInt = 107u
+
+public val IMAGE_SYM_CLASS_END_OF_STRUCT: UInt = 102u
+
+public val IMAGE_SYM_CLASS_ENUM_TAG: UInt = 15u
+
+public val IMAGE_SYM_CLASS_EXTERNAL: UInt = 2u
+
+public val IMAGE_SYM_CLASS_EXTERNAL_DEF: UInt = 5u
+
+public val IMAGE_SYM_CLASS_FAR_EXTERNAL: UInt = 68u
+
+public val IMAGE_SYM_CLASS_FILE: UInt = 103u
+
+public val IMAGE_SYM_CLASS_FUNCTION: UInt = 101u
+
+public val IMAGE_SYM_CLASS_LABEL: UInt = 6u
+
+public val IMAGE_SYM_CLASS_MEMBER_OF_ENUM: UInt = 16u
+
+public val IMAGE_SYM_CLASS_MEMBER_OF_STRUCT: UInt = 8u
+
+public val IMAGE_SYM_CLASS_MEMBER_OF_UNION: UInt = 11u
+
+public val IMAGE_SYM_CLASS_NULL: UInt = 0u
+
+public val IMAGE_SYM_CLASS_REGISTER: UInt = 4u
+
+public val IMAGE_SYM_CLASS_REGISTER_PARAM: UInt = 17u
+
+public val IMAGE_SYM_CLASS_SECTION: UInt = 104u
+
+public val IMAGE_SYM_CLASS_STATIC: UInt = 3u
+
+public val IMAGE_SYM_CLASS_STRUCT_TAG: UInt = 10u
+
+public val IMAGE_SYM_CLASS_TYPE_DEFINITION: UInt = 13u
+
+public val IMAGE_SYM_CLASS_UNDEFINED_LABEL: UInt = 7u
+
+public val IMAGE_SYM_CLASS_UNDEFINED_STATIC: UInt = 14u
+
+public val IMAGE_SYM_CLASS_UNION_TAG: UInt = 12u
+
+public val IMAGE_SYM_CLASS_WEAK_EXTERNAL: UInt = 105u
+
+public val IMAGE_SYM_DTYPE_ARRAY: UInt = 3u
+
+public val IMAGE_SYM_DTYPE_FUNCTION: UInt = 2u
+
+public val IMAGE_SYM_DTYPE_NULL: UInt = 0u
+
+public val IMAGE_SYM_DTYPE_POINTER: UInt = 1u
+
+public val IMAGE_SYM_SECTION_MAX: UInt = 65279u
+
+public val IMAGE_SYM_SECTION_MAX_EX: UInt = 2147483647u
+
+public val IMAGE_SYM_TYPE_BYTE: UInt = 12u
+
+public val IMAGE_SYM_TYPE_CHAR: UInt = 2u
+
+public val IMAGE_SYM_TYPE_DOUBLE: UInt = 7u
+
+public val IMAGE_SYM_TYPE_DWORD: UInt = 15u
+
+public val IMAGE_SYM_TYPE_ENUM: UInt = 10u
+
+public val IMAGE_SYM_TYPE_FLOAT: UInt = 6u
+
+public val IMAGE_SYM_TYPE_INT: UInt = 4u
+
+public val IMAGE_SYM_TYPE_LONG: UInt = 5u
+
+public val IMAGE_SYM_TYPE_MOE: UInt = 11u
+
+public val IMAGE_SYM_TYPE_NULL: UInt = 0u
+
+public val IMAGE_SYM_TYPE_PCODE: UInt = 32768u
+
+public val IMAGE_SYM_TYPE_SHORT: UInt = 3u
+
+public val IMAGE_SYM_TYPE_STRUCT: UInt = 8u
+
+public val IMAGE_SYM_TYPE_UINT: UInt = 14u
+
+public val IMAGE_SYM_TYPE_UNION: UInt = 9u
+
+public val IMAGE_SYM_TYPE_VOID: UInt = 1u
+
+public val IMAGE_SYM_TYPE_WORD: UInt = 13u
+
+public val IMAGE_VXD_SIGNATURE: UShort = 17740u.toUShort()
+
+public val IMAGE_WEAK_EXTERN_ANTI_DEPENDENCY: UInt = 4u
+
+public val IMAGE_WEAK_EXTERN_SEARCH_ALIAS: UInt = 3u
+
+public val IMAGE_WEAK_EXTERN_SEARCH_LIBRARY: UInt = 2u
+
+public val IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY: UInt = 1u
+
+public val IMPORT_OBJECT_CODE: ImportObjectType = 0
+
+public val IMPORT_OBJECT_CONST: ImportObjectType = 2
+
+public val IMPORT_OBJECT_DATA: ImportObjectType = 1
+
+public val IMPORT_OBJECT_HDR_SIG2: UInt = 65535u
+
+public val IMPORT_OBJECT_NAME: ImportObjectNameType = 1
+
+public val IMPORT_OBJECT_NAME_EXPORTAS: ImportObjectNameType = 4
+
+public val IMPORT_OBJECT_NAME_NO_PREFIX: ImportObjectNameType = 2
+
+public val IMPORT_OBJECT_NAME_UNDECORATE: ImportObjectNameType = 3
+
+public val IMPORT_OBJECT_ORDINAL: ImportObjectNameType = 0
+
+public val INITIAL_CPSR: UInt = 16u
+
+public val INITIAL_FPCSR: UInt = 639u
+
+public val INITIAL_FPSCR: UInt = 0u
+
+public val INITIAL_MXCSR: UInt = 8064u
+
+public val IO_COMPLETION_MODIFY_STATE: UInt = 2u
+
+public val IO_REPARSE_TAG_AF_UNIX: UInt = 2147483683u
+
+public val IO_REPARSE_TAG_APPEXECLINK: UInt = 2147483675u
+
+public val IO_REPARSE_TAG_CLOUD: UInt = 2415919130u
+
+public val IO_REPARSE_TAG_CLOUD_1: UInt = 2415923226u
+
+public val IO_REPARSE_TAG_CLOUD_2: UInt = 2415927322u
+
+public val IO_REPARSE_TAG_CLOUD_3: UInt = 2415931418u
+
+public val IO_REPARSE_TAG_CLOUD_4: UInt = 2415935514u
+
+public val IO_REPARSE_TAG_CLOUD_5: UInt = 2415939610u
+
+public val IO_REPARSE_TAG_CLOUD_6: UInt = 2415943706u
+
+public val IO_REPARSE_TAG_CLOUD_7: UInt = 2415947802u
+
+public val IO_REPARSE_TAG_CLOUD_8: UInt = 2415951898u
+
+public val IO_REPARSE_TAG_CLOUD_9: UInt = 2415955994u
+
+public val IO_REPARSE_TAG_CLOUD_A: UInt = 2415960090u
+
+public val IO_REPARSE_TAG_CLOUD_B: UInt = 2415964186u
+
+public val IO_REPARSE_TAG_CLOUD_C: UInt = 2415968282u
+
+public val IO_REPARSE_TAG_CLOUD_D: UInt = 2415972378u
+
+public val IO_REPARSE_TAG_CLOUD_E: UInt = 2415976474u
+
+public val IO_REPARSE_TAG_CLOUD_F: UInt = 2415980570u
+
+public val IO_REPARSE_TAG_CLOUD_MASK: UInt = 61440u
+
+public val IO_REPARSE_TAG_CSV: UInt = 2147483657u
+
+public val IO_REPARSE_TAG_DATALESS_CIM: UInt = 2684354600u
+
+public val IO_REPARSE_TAG_DEDUP: UInt = 2147483667u
+
+public val IO_REPARSE_TAG_DFS: UInt = 2147483658u
+
+public val IO_REPARSE_TAG_DFSR: UInt = 2147483666u
+
+public val IO_REPARSE_TAG_FILE_PLACEHOLDER: UInt = 2147483669u
+
+public val IO_REPARSE_TAG_GLOBAL_REPARSE: UInt = 2684354585u
+
+public val IO_REPARSE_TAG_HSM: UInt = 3221225476u
+
+public val IO_REPARSE_TAG_HSM2: UInt = 2147483654u
+
+public val IO_REPARSE_TAG_MOUNT_POINT: UInt = 2684354563u
+
+public val IO_REPARSE_TAG_NFS: UInt = 2147483668u
+
+public val IO_REPARSE_TAG_ONEDRIVE: UInt = 2147483681u
+
+public val IO_REPARSE_TAG_PROJFS: UInt = 2415919132u
+
+public val IO_REPARSE_TAG_PROJFS_TOMBSTONE: UInt = 2684354594u
+
+public val IO_REPARSE_TAG_RESERVED_INVALID: Int = -1073709056
+
+public val IO_REPARSE_TAG_RESERVED_ONE: UInt = 1u
+
+public val IO_REPARSE_TAG_RESERVED_RANGE: UInt = 2u
+
+public val IO_REPARSE_TAG_RESERVED_TWO: UInt = 2u
+
+public val IO_REPARSE_TAG_RESERVED_ZERO: UInt = 0u
+
+public val IO_REPARSE_TAG_SIS: UInt = 2147483655u
+
+public val IO_REPARSE_TAG_STORAGE_SYNC: UInt = 2147483678u
+
+public val IO_REPARSE_TAG_SYMLINK: UInt = 2684354572u
+
+public val IO_REPARSE_TAG_UNHANDLED: UInt = 2147483680u
+
+public val IO_REPARSE_TAG_WCI: UInt = 2147483672u
+
+public val IO_REPARSE_TAG_WCI_1: UInt = 2415923224u
+
+public val IO_REPARSE_TAG_WCI_LINK: UInt = 2684354599u
+
+public val IO_REPARSE_TAG_WCI_LINK_1: UInt = 2684358695u
+
+public val IO_REPARSE_TAG_WCI_TOMBSTONE: UInt = 2684354591u
+
+public val IO_REPARSE_TAG_WIM: UInt = 2147483656u
+
+public val IO_REPARSE_TAG_WOF: UInt = 2147483671u
+
+public val IS_TEXT_UNICODE_DBCS_LEADBYTE: UInt = 1024u
+
+public val IS_TEXT_UNICODE_UTF8: UInt = 2048u
+
+public val ITWW_OPEN_CONNECT: WordWheelOpenFlags = 0u
+
+public val IGNORE_ERROR: ServiceErrorType = 0
+
+public val IMAGE_POLICY_ENTRY_TYPE_ANSI_STRING: ImagePolicyEntryType = 10
+
+public val IMAGE_POLICY_ENTRY_TYPE_BOOL: ImagePolicyEntryType = 1
+
+public val IMAGE_POLICY_ENTRY_TYPE_INT16: ImagePolicyEntryType = 4
+
+public val IMAGE_POLICY_ENTRY_TYPE_INT32: ImagePolicyEntryType = 6
+
+public val IMAGE_POLICY_ENTRY_TYPE_INT64: ImagePolicyEntryType = 8
+
+public val IMAGE_POLICY_ENTRY_TYPE_INT8: ImagePolicyEntryType = 2
+
+public val IMAGE_POLICY_ENTRY_TYPE_MAXIMUM: ImagePolicyEntryType = 13
+
+public val IMAGE_POLICY_ENTRY_TYPE_NONE: ImagePolicyEntryType = 0
+
+public val IMAGE_POLICY_ENTRY_TYPE_OVERRIDE: ImagePolicyEntryType = 12
+
+public val IMAGE_POLICY_ENTRY_TYPE_U_INT16: ImagePolicyEntryType = 5
+
+public val IMAGE_POLICY_ENTRY_TYPE_U_INT32: ImagePolicyEntryType = 7
+
+public val IMAGE_POLICY_ENTRY_TYPE_U_INT64: ImagePolicyEntryType = 9
+
+public val IMAGE_POLICY_ENTRY_TYPE_U_INT8: ImagePolicyEntryType = 3
+
+public val IMAGE_POLICY_ENTRY_TYPE_UNICODE_STRING: ImagePolicyEntryType = 11
+
+public val IMAGE_POLICY_ID_CAPABILITY: ImagePolicyId = 10
+
+public val IMAGE_POLICY_ID_CRASH_DUMP: ImagePolicyId = 3
+
+public val IMAGE_POLICY_ID_CRASH_DUMP_KEY: ImagePolicyId = 4
+
+public val IMAGE_POLICY_ID_CRASH_DUMP_KEY_GUID: ImagePolicyId = 5
+
+public val IMAGE_POLICY_ID_DEBUG: ImagePolicyId = 2
+
+public val IMAGE_POLICY_ID_DEVICE_ID: ImagePolicyId = 9
+
+public val IMAGE_POLICY_ID_ETW: ImagePolicyId = 1
+
+public val IMAGE_POLICY_ID_MAXIMUM: ImagePolicyId = 12
+
+public val IMAGE_POLICY_ID_NONE: ImagePolicyId = 0
+
+public val IMAGE_POLICY_ID_PARENT_SD: ImagePolicyId = 6
+
+public val IMAGE_POLICY_ID_PARENT_SD_REV: ImagePolicyId = 7
+
+public val IMAGE_POLICY_ID_SCENARIO_ID: ImagePolicyId = 11
+
+public val IMAGE_POLICY_ID_SVN: ImagePolicyId = 8
+
+public val JOB_OBJECT_ASSIGN_PROCESS: UInt = 1u
+
+public val JOB_OBJECT_IMPERSONATE: UInt = 32u
+
+public val JOB_OBJECT_MSG_ABNORMAL_EXIT_PROCESS: UInt = 8u
+
+public val JOB_OBJECT_MSG_ACTIVE_PROCESS_LIMIT: UInt = 3u
+
+public val JOB_OBJECT_MSG_ACTIVE_PROCESS_ZERO: UInt = 4u
+
+public val JOB_OBJECT_MSG_END_OF_JOB_TIME: UInt = 1u
+
+public val JOB_OBJECT_MSG_END_OF_PROCESS_TIME: UInt = 2u
+
+public val JOB_OBJECT_MSG_EXIT_PROCESS: UInt = 7u
+
+public val JOB_OBJECT_MSG_JOB_CYCLE_TIME_LIMIT: UInt = 12u
+
+public val JOB_OBJECT_MSG_JOB_MEMORY_LIMIT: UInt = 10u
+
+public val JOB_OBJECT_MSG_MAXIMUM: UInt = 13u
+
+public val JOB_OBJECT_MSG_MINIMUM: UInt = 1u
+
+public val JOB_OBJECT_MSG_NEW_PROCESS: UInt = 6u
+
+public val JOB_OBJECT_MSG_NOTIFICATION_LIMIT: UInt = 11u
+
+public val JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT: UInt = 9u
+
+public val JOB_OBJECT_MSG_SILO_TERMINATED: UInt = 13u
+
+public val JOB_OBJECT_NET_RATE_CONTROL_MAX_DSCP_TAG: UInt = 64u
+
+public val JOB_OBJECT_QUERY: UInt = 4u
+
+public val JOB_OBJECT_SET_ATTRIBUTES: UInt = 2u
+
+public val JOB_OBJECT_SET_SECURITY_ATTRIBUTES: UInt = 16u
+
+public val JOB_OBJECT_TERMINATE: UInt = 8u
+
+public val JOB_OBJECT_UILIMIT_ALL: UInt = 511u
+
+public val JOB_OBJECT_UILIMIT_IME: UInt = 256u
+
+public val JOB_OBJECT_UI_VALID_FLAGS: UInt = 511u
+
+public val KTMOBJECT_ENLISTMENT: KtmobjectType = 3
+
+public val KTMOBJECT_INVALID: KtmobjectType = 4
+
+public val KTMOBJECT_RESOURCE_MANAGER: KtmobjectType = 2
+
+public val KTMOBJECT_TRANSACTION: KtmobjectType = 0
+
+public val KTMOBJECT_TRANSACTION_MANAGER: KtmobjectType = 1
+
+public val LANG_AFRIKAANS: UInt = 54u
+
+public val LANG_ALBANIAN: UInt = 28u
+
+public val LANG_ALSATIAN: UInt = 132u
+
+public val LANG_AMHARIC: UInt = 94u
+
+public val LANG_ARABIC: UInt = 1u
+
+public val LANG_ARMENIAN: UInt = 43u
+
+public val LANG_ASSAMESE: UInt = 77u
+
+public val LANG_AZERBAIJANI: UInt = 44u
+
+public val LANG_AZERI: UInt = 44u
+
+public val LANG_BANGLA: UInt = 69u
+
+public val LANG_BASHKIR: UInt = 109u
+
+public val LANG_BASQUE: UInt = 45u
+
+public val LANG_BELARUSIAN: UInt = 35u
+
+public val LANG_BENGALI: UInt = 69u
+
+public val LANG_BOSNIAN: UInt = 26u
+
+public val LANG_BOSNIAN_NEUTRAL: UInt = 30746u
+
+public val LANG_BRETON: UInt = 126u
+
+public val LANG_BULGARIAN: UInt = 2u
+
+public val LANG_CATALAN: UInt = 3u
+
+public val LANG_CENTRAL_KURDISH: UInt = 146u
+
+public val LANG_CHEROKEE: UInt = 92u
+
+public val LANG_CHINESE: UInt = 4u
+
+public val LANG_CHINESE_SIMPLIFIED: UInt = 4u
+
+public val LANG_CHINESE_TRADITIONAL: UInt = 31748u
+
+public val LANG_CORSICAN: UInt = 131u
+
+public val LANG_CROATIAN: UInt = 26u
+
+public val LANG_CZECH: UInt = 5u
+
+public val LANG_DANISH: UInt = 6u
+
+public val LANG_DARI: UInt = 140u
+
+public val LANG_DIVEHI: UInt = 101u
+
+public val LANG_DUTCH: UInt = 19u
+
+public val LANG_ENGLISH: UInt = 9u
+
+public val LANG_ESTONIAN: UInt = 37u
+
+public val LANG_FAEROESE: UInt = 56u
+
+public val LANG_FARSI: UInt = 41u
+
+public val LANG_FILIPINO: UInt = 100u
+
+public val LANG_FINNISH: UInt = 11u
+
+public val LANG_FRENCH: UInt = 12u
+
+public val LANG_FRISIAN: UInt = 98u
+
+public val LANG_FULAH: UInt = 103u
+
+public val LANG_GALICIAN: UInt = 86u
+
+public val LANG_GEORGIAN: UInt = 55u
+
+public val LANG_GERMAN: UInt = 7u
+
+public val LANG_GREEK: UInt = 8u
+
+public val LANG_GREENLANDIC: UInt = 111u
+
+public val LANG_GUJARATI: UInt = 71u
+
+public val LANG_HAUSA: UInt = 104u
+
+public val LANG_HAWAIIAN: UInt = 117u
+
+public val LANG_HEBREW: UInt = 13u
+
+public val LANG_HINDI: UInt = 57u
+
+public val LANG_HUNGARIAN: UInt = 14u
+
+public val LANG_ICELANDIC: UInt = 15u
+
+public val LANG_IGBO: UInt = 112u
+
+public val LANG_INDONESIAN: UInt = 33u
+
+public val LANG_INUKTITUT: UInt = 93u
+
+public val LANG_INVARIANT: UInt = 127u
+
+public val LANG_IRISH: UInt = 60u
+
+public val LANG_ITALIAN: UInt = 16u
+
+public val LANG_JAPANESE: UInt = 17u
+
+public val LANG_KANNADA: UInt = 75u
+
+public val LANG_KASHMIRI: UInt = 96u
+
+public val LANG_KAZAK: UInt = 63u
+
+public val LANG_KHMER: UInt = 83u
+
+public val LANG_KICHE: UInt = 134u
+
+public val LANG_KINYARWANDA: UInt = 135u
+
+public val LANG_KONKANI: UInt = 87u
+
+public val LANG_KOREAN: UInt = 18u
+
+public val LANG_KYRGYZ: UInt = 64u
+
+public val LANG_LAO: UInt = 84u
+
+public val LANG_LATVIAN: UInt = 38u
+
+public val LANG_LITHUANIAN: UInt = 39u
+
+public val LANG_LOWER_SORBIAN: UInt = 46u
+
+public val LANG_LUXEMBOURGISH: UInt = 110u
+
+public val LANG_MACEDONIAN: UInt = 47u
+
+public val LANG_MALAY: UInt = 62u
+
+public val LANG_MALAYALAM: UInt = 76u
+
+public val LANG_MALTESE: UInt = 58u
+
+public val LANG_MANIPURI: UInt = 88u
+
+public val LANG_MAORI: UInt = 129u
+
+public val LANG_MAPUDUNGUN: UInt = 122u
+
+public val LANG_MARATHI: UInt = 78u
+
+public val LANG_MOHAWK: UInt = 124u
+
+public val LANG_MONGOLIAN: UInt = 80u
+
+public val LANG_NEPALI: UInt = 97u
+
+public val LANG_NEUTRAL: UInt = 0u
+
+public val LANG_NORWEGIAN: UInt = 20u
+
+public val LANG_OCCITAN: UInt = 130u
+
+public val LANG_ODIA: UInt = 72u
+
+public val LANG_ORIYA: UInt = 72u
+
+public val LANG_PASHTO: UInt = 99u
+
+public val LANG_PERSIAN: UInt = 41u
+
+public val LANG_POLISH: UInt = 21u
+
+public val LANG_PORTUGUESE: UInt = 22u
+
+public val LANG_PULAR: UInt = 103u
+
+public val LANG_PUNJABI: UInt = 70u
+
+public val LANG_QUECHUA: UInt = 107u
+
+public val LANG_ROMANIAN: UInt = 24u
+
+public val LANG_ROMANSH: UInt = 23u
+
+public val LANG_RUSSIAN: UInt = 25u
+
+public val LANG_SAKHA: UInt = 133u
+
+public val LANG_SAMI: UInt = 59u
+
+public val LANG_SANSKRIT: UInt = 79u
+
+public val LANG_SCOTTISH_GAELIC: UInt = 145u
+
+public val LANG_SERBIAN: UInt = 26u
+
+public val LANG_SERBIAN_NEUTRAL: UInt = 31770u
+
+public val LANG_SINDHI: UInt = 89u
+
+public val LANG_SINHALESE: UInt = 91u
+
+public val LANG_SLOVAK: UInt = 27u
+
+public val LANG_SLOVENIAN: UInt = 36u
+
+public val LANG_SOTHO: UInt = 108u
+
+public val LANG_SPANISH: UInt = 10u
+
+public val LANG_SWAHILI: UInt = 65u
+
+public val LANG_SWEDISH: UInt = 29u
+
+public val LANG_SYRIAC: UInt = 90u
+
+public val LANG_TAJIK: UInt = 40u
+
+public val LANG_TAMAZIGHT: UInt = 95u
+
+public val LANG_TAMIL: UInt = 73u
+
+public val LANG_TATAR: UInt = 68u
+
+public val LANG_TELUGU: UInt = 74u
+
+public val LANG_THAI: UInt = 30u
+
+public val LANG_TIBETAN: UInt = 81u
+
+public val LANG_TIGRIGNA: UInt = 115u
+
+public val LANG_TIGRINYA: UInt = 115u
+
+public val LANG_TSWANA: UInt = 50u
+
+public val LANG_TURKISH: UInt = 31u
+
+public val LANG_TURKMEN: UInt = 66u
+
+public val LANG_UIGHUR: UInt = 128u
+
+public val LANG_UKRAINIAN: UInt = 34u
+
+public val LANG_UPPER_SORBIAN: UInt = 46u
+
+public val LANG_URDU: UInt = 32u
+
+public val LANG_UZBEK: UInt = 67u
+
+public val LANG_VALENCIAN: UInt = 3u
+
+public val LANG_VIETNAMESE: UInt = 42u
+
+public val LANG_WELSH: UInt = 82u
+
+public val LANG_WOLOF: UInt = 136u
+
+public val LANG_XHOSA: UInt = 52u
+
+public val LANG_YAKUT: UInt = 133u
+
+public val LANG_YI: UInt = 120u
+
+public val LANG_YORUBA: UInt = 106u
+
+public val LANG_ZULU: UInt = 53u
+
+public val LMEM_DISCARDABLE: UInt = 3840u
+
+public val LMEM_DISCARDED: UInt = 16384u
+
+public val LMEM_INVALID_HANDLE: UInt = 32768u
+
+public val LMEM_LOCKCOUNT: UInt = 255u
+
+public val LMEM_MODIFY: UInt = 128u
+
+public val LMEM_NOCOMPACT: UInt = 16u
+
+public val LMEM_NODISCARD: UInt = 32u
+
+public val LMEM_VALID_FLAGS: UInt = 3954u
+
+public val LOCALE_NAME_MAX_LENGTH: UInt = 85u
+
+public val LOCALE_TRANSIENT_KEYBOARD1: UInt = 8192u
+
+public val LOCALE_TRANSIENT_KEYBOARD2: UInt = 9216u
+
+public val LOCALE_TRANSIENT_KEYBOARD3: UInt = 10240u
+
+public val LOCALE_TRANSIENT_KEYBOARD4: UInt = 11264u
+
+public val LTP_PC_SMT: UInt = 1u
+
+public val MAILSLOT_NO_MESSAGE: UInt = 4294967295u
+
+public val MAILSLOT_WAIT_FOREVER: UInt = 4294967295u
+
+public val MAXBYTE: UInt = 255u
+
+public val MAXCHAR: UInt = 127u
+
+public val MAXDWORD: UInt = 4294967295u
+
+public val MAXIMUM_ALLOWED: UInt = 33554432u
+
+public val MAXIMUM_PROCESSORS: UInt = 64u
+
+public val MAXIMUM_PROC_PER_GROUP: UInt = 64u
+
+public val MAXIMUM_SUPPORTED_EXTENSION: UInt = 512u
+
+public val MAXIMUM_SUSPEND_COUNT: UInt = 127u
+
+public val MAXIMUM_WAIT_OBJECTS: UInt = 64u
+
+public val MAXIMUM_XSTATE_FEATURES: UInt = 64u
+
+public val MAXLOGICALLOGNAMESIZE: UInt = 256u
+
+public val MAXLONG: UInt = 2147483647u
+
+public val MAXLONGLONG: ULong = 9223372036854775807uL
+
+public val MAXSHORT: UInt = 32767u
+
+public val MAXWORD: UInt = 65535u
+
+public val MAX_ACL_REVISION: UInt = 4u
+
+public val MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = 1024
+
+public val MAX_HW_COUNTERS: UInt = 16u
+
+public val MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = 1024
+
+public val MAX_UCSCHAR: UInt = 1114111u
+
+public val MEMORY_ALLOCATION_ALIGNMENT: UInt = 16u
+
+public val MEMORY_PARTITION_MODIFY_ACCESS: UInt = 2u
+
+public val MEMORY_PARTITION_QUERY_ACCESS: UInt = 1u
+
+public val MEMORY_PRIORITY_LOWEST: UInt = 0u
+
+public val MEM_4MB_PAGES: UInt = 2147483648u
+
+public val MEM_COALESCE_PLACEHOLDERS: UInt = 1u
+
+public val MEM_DIFFERENT_IMAGE_BASE_OK: UInt = 8388608u
+
+public val MEM_EXTENDED_PARAMETER_EC_CODE: UInt = 64u
+
+public val MEM_EXTENDED_PARAMETER_GRAPHICS: UInt = 1u
+
+public val MEM_EXTENDED_PARAMETER_IMAGE_NO_HPAT: UInt = 128u
+
+public val MEM_EXTENDED_PARAMETER_NONPAGED: UInt = 2u
+
+public val MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: UInt = 16u
+
+public val MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: UInt = 8u
+
+public val MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: UInt = 32u
+
+public val MEM_EXTENDED_PARAMETER_TYPE_BITS: UInt = 8u
+
+public val MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL: UInt = 4u
+
+public val MEM_PHYSICAL: UInt = 4194304u
+
+public val MEM_ROTATE: UInt = 8388608u
+
+public val MEM_TOP_DOWN: UInt = 1048576u
+
+public val MEM_WRITE_WATCH: UInt = 2097152u
+
+public val MESSAGE_RESOURCE_UNICODE: UInt = 1u
+
+public val MESSAGE_RESOURCE_UTF8: UInt = 2u
+
+public val MINCHAR: UInt = 128u
+
+public val MINLONG: UInt = 2147483648u
+
+public val MINSHORT: UInt = 32768u
+
+public val MIN_UCSCHAR: UInt = 0u
+
+public val MK_CONTROL: ModifierkeysFlags = 8u
+
+public val MK_LBUTTON: ModifierkeysFlags = 1u
+
+public val MK_MBUTTON: ModifierkeysFlags = 16u
+
+public val MK_RBUTTON: ModifierkeysFlags = 2u
+
+public val MK_SHIFT: ModifierkeysFlags = 4u
+
+public val MK_XBUTTON1: ModifierkeysFlags = 32u
+
+public val MK_XBUTTON2: ModifierkeysFlags = 64u
+
+public val MS_PPM_SOFTWARE_ALL: UInt = 1u
+
+public val MUTANT_QUERY_STATE: UInt = 1u
+
+public val MAX_ACTIVATION_CONTEXT_INFO_CLASS: ActivationContextInfoClass = 8
+
+public val NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = 1
+
+public val NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: UInt = 1u
+
+public val NLS_VALID_LOCALE_MASK: UInt = 1048575u
+
+public val NONVOL_FP_NUMREG_ARM64: UInt = 8u
+
+public val NONVOL_INT_NUMREG_ARM64: UInt = 11u
+
+public val NON_PAGED_DEBUG_SIGNATURE: UInt = 18766u
+
+public val NUMA_NO_PREFERRED_NODE: UInt = 4294967295u
+
+public val NUM_DISCHARGE_POLICIES: UInt = 4u
+
+public val N_BTMASK: UInt = 15u
+
+public val N_BTSHFT: UInt = 4u
+
+public val N_TMASK: UInt = 48u
+
+public val N_TMASK1: UInt = 192u
+
+public val N_TMASK2: UInt = 240u
+
+public val N_TSHIFT: UInt = 2u
+
+public val NORMAL_ERROR: ServiceErrorType = 1
+
+public val OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: Pcstr = s("OutOfProcessFunctionTableCallback")
+
+public val PARKING_TOPOLOGY_POLICY_DISABLED: UInt = 0u
+
+public val PARKING_TOPOLOGY_POLICY_ROUNDROBIN: UInt = 1u
+
+public val PARKING_TOPOLOGY_POLICY_SEQUENTIAL: UInt = 2u
+
+public val PERFORMANCE_DATA_VERSION: UInt = 1u
+
+public val PERFSTATE_POLICY_CHANGE_DECREASE_MAX: UInt = 2u
+
+public val PERFSTATE_POLICY_CHANGE_IDEAL: UInt = 0u
+
+public val PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: UInt = 3u
+
+public val PERFSTATE_POLICY_CHANGE_INCREASE_MAX: UInt = 3u
+
+public val PERFSTATE_POLICY_CHANGE_ROCKET: UInt = 2u
+
+public val PERFSTATE_POLICY_CHANGE_SINGLE: UInt = 1u
+
+public val PF_NON_TEMPORAL_LEVEL_ALL: UInt = 0u
+
+public val PF_TEMPORAL_LEVEL_1: UInt = 1u
+
+public val PF_TEMPORAL_LEVEL_2: UInt = 2u
+
+public val PF_TEMPORAL_LEVEL_3: UInt = 3u
+
+public val POLICY_AUDIT_SUBCATEGORY_COUNT: UInt = 59u
+
+public val POWERBUTTON_ACTION_INDEX_HIBERNATE: UInt = 2u
+
+public val POWERBUTTON_ACTION_INDEX_NOTHING: UInt = 0u
+
+public val POWERBUTTON_ACTION_INDEX_SHUTDOWN: UInt = 3u
+
+public val POWERBUTTON_ACTION_INDEX_SLEEP: UInt = 1u
+
+public val POWERBUTTON_ACTION_INDEX_TURN_OFF_THE_DISPLAY: UInt = 4u
+
+public val POWERBUTTON_ACTION_VALUE_HIBERNATE: UInt = 3u
+
+public val POWERBUTTON_ACTION_VALUE_NOTHING: UInt = 0u
+
+public val POWERBUTTON_ACTION_VALUE_SHUTDOWN: UInt = 6u
+
+public val POWERBUTTON_ACTION_VALUE_SLEEP: UInt = 2u
+
+public val POWERBUTTON_ACTION_VALUE_TURN_OFF_THE_DISPLAY: UInt = 8u
+
+public val POWER_ACTION_ACPI_CRITICAL: UInt = 16777216u
+
+public val POWER_ACTION_ACPI_USER_NOTIFY: UInt = 33554432u
+
+public val POWER_ACTION_CRITICAL: UInt = 2147483648u
+
+public val POWER_ACTION_DIRECTED_DRIPS: UInt = 67108864u
+
+public val POWER_ACTION_DISABLE_WAKES: UInt = 1073741824u
+
+public val POWER_ACTION_DOZE_TO_HIBERNATE: UInt = 32u
+
+public val POWER_ACTION_HIBERBOOT: UInt = 8u
+
+public val POWER_ACTION_LIGHTEST_FIRST: UInt = 268435456u
+
+public val POWER_ACTION_LOCK_CONSOLE: UInt = 536870912u
+
+public val POWER_ACTION_OVERRIDE_APPS: UInt = 4u
+
+public val POWER_ACTION_PSEUDO_TRANSITION: UInt = 134217728u
+
+public val POWER_ACTION_QUERY_ALLOWED: UInt = 1u
+
+public val POWER_ACTION_UI_ALLOWED: UInt = 2u
+
+public val POWER_ACTION_USER_NOTIFY: UInt = 16u
+
+public val POWER_CONNECTIVITY_IN_STANDBY_DISABLED: UInt = 0u
+
+public val POWER_CONNECTIVITY_IN_STANDBY_ENABLED: UInt = 1u
+
+public val POWER_CONNECTIVITY_IN_STANDBY_SYSTEM_MANAGED: UInt = 2u
+
+public val POWER_DEVICE_IDLE_POLICY_CONSERVATIVE: UInt = 1u
+
+public val POWER_DEVICE_IDLE_POLICY_PERFORMANCE: UInt = 0u
+
+public val POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: UInt = 1u
+
+public val POWER_DISCONNECTED_STANDBY_MODE_NORMAL: UInt = 0u
+
+public val POWER_REQUEST_CONTEXT_VERSION: UInt = 0u
+
+public val POWER_SETTING_VALUE_VERSION: UInt = 1u
+
+public val POWER_SYSTEM_MAXIMUM: UInt = 7u
+
+public val POWER_USER_NOTIFY_FORCED_SHUTDOWN: UInt = 32u
+
+public val PO_THROTTLE_ADAPTIVE: UInt = 3u
+
+public val PO_THROTTLE_CONSTANT: UInt = 1u
+
+public val PO_THROTTLE_DEGRADE: UInt = 2u
+
+public val PO_THROTTLE_MAXIMUM: UInt = 4u
+
+public val PO_THROTTLE_NONE: UInt = 0u
+
+public val PRAGMA_DEPRECATED_DDK: UInt = 1u
+
+public val PRIVILEGE_SET_ALL_NECESSARY: UInt = 1u
+
+public val PROCESSOR_ALPHA_21064: UInt = 21064u
+
+public val PROCESSOR_AMD_X8664: UInt = 8664u
+
+public val PROCESSOR_ARM720: UInt = 1824u
+
+public val PROCESSOR_ARM820: UInt = 2080u
+
+public val PROCESSOR_ARM920: UInt = 2336u
+
+public val PROCESSOR_ARM_7TDMI: UInt = 70001u
+
+public val PROCESSOR_DUTY_CYCLING_DISABLED: UInt = 0u
+
+public val PROCESSOR_DUTY_CYCLING_ENABLED: UInt = 1u
+
+public val PROCESSOR_HITACHI_SH3: UInt = 10003u
+
+public val PROCESSOR_HITACHI_SH3E: UInt = 10004u
+
+public val PROCESSOR_HITACHI_SH4: UInt = 10005u
+
+public val PROCESSOR_IDLESTATE_POLICY_COUNT: UInt = 3u
+
+public val PROCESSOR_INTEL_386: UInt = 386u
+
+public val PROCESSOR_INTEL_486: UInt = 486u
+
+public val PROCESSOR_INTEL_IA64: UInt = 2200u
+
+public val PROCESSOR_INTEL_PENTIUM: UInt = 586u
+
+public val PROCESSOR_MIPS_R4000: UInt = 4000u
+
+public val PROCESSOR_MOTOROLA_821: UInt = 821u
+
+public val PROCESSOR_OPTIL: UInt = 18767u
+
+public val PROCESSOR_PERF_AUTONOMOUS_MODE_DISABLED: UInt = 0u
+
+public val PROCESSOR_PERF_AUTONOMOUS_MODE_ENABLED: UInt = 1u
+
+public val PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE: UInt = 2u
+
+public val PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE_AT_GUARANTEED: UInt = 5u
+
+public val PROCESSOR_PERF_BOOST_MODE_DISABLED: UInt = 0u
+
+public val PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE: UInt = 4u
+
+public val PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE_AT_GUARANTEED: UInt = 6u
+
+public val PROCESSOR_PERF_BOOST_MODE_EFFICIENT_ENABLED: UInt = 3u
+
+public val PROCESSOR_PERF_BOOST_MODE_ENABLED: UInt = 1u
+
+public val PROCESSOR_PERF_BOOST_MODE_MAX: UInt = 6u
+
+public val PROCESSOR_PERF_BOOST_POLICY_DISABLED: UInt = 0u
+
+public val PROCESSOR_PERF_BOOST_POLICY_MAX: UInt = 100u
+
+public val PROCESSOR_PERF_ENERGY_PREFERENCE: UInt = 0u
+
+public val PROCESSOR_PERF_MAXIMUM_ACTIVITY_WINDOW: UInt = 1270000000u
+
+public val PROCESSOR_PERF_MINIMUM_ACTIVITY_WINDOW: UInt = 0u
+
+public val PROCESSOR_PERF_PERFORMANCE_PREFERENCE: UInt = 255u
+
+public val PROCESSOR_PPC_601: UInt = 601u
+
+public val PROCESSOR_PPC_603: UInt = 603u
+
+public val PROCESSOR_PPC_604: UInt = 604u
+
+public val PROCESSOR_PPC_620: UInt = 620u
+
+public val PROCESSOR_S_HX_SH3: UInt = 103u
+
+public val PROCESSOR_S_HX_SH4: UInt = 104u
+
+public val PROCESSOR_STRONGARM: UInt = 2577u
+
+public val PROCESSOR_THROTTLE_AUTOMATIC: UInt = 2u
+
+public val PROCESSOR_THROTTLE_DISABLED: UInt = 0u
+
+public val PROCESSOR_THROTTLE_ENABLED: UInt = 1u
+
+public val PROCESS_HEAP_ENTRY_BUSY: UInt = 4u
+
+public val PROCESS_HEAP_ENTRY_DDESHARE: UInt = 32u
+
+public val PROCESS_HEAP_ENTRY_MOVEABLE: UInt = 16u
+
+public val PROCESS_HEAP_REGION: UInt = 1u
+
+public val PROCESS_HEAP_SEG_ALLOC: UInt = 8u
+
+public val PROCESS_HEAP_UNCOMMITTED_RANGE: UInt = 2u
+
+public val PROCESS_TRUST_LABEL_SECURITY_INFORMATION: Int = 128
+
+public val PROC_IDLE_BUCKET_COUNT: UInt = 6u
+
+public val PROC_IDLE_BUCKET_COUNT_EX: UInt = 16u
+
+public val PRODUCT_ARM64_SERVER: UInt = 120u
+
+public val PRODUCT_AZURESTACKHCI_SERVER_CORE: UInt = 406u
+
+public val PRODUCT_AZURE_NANO_SERVER: UInt = 169u
+
+public val PRODUCT_AZURE_SERVER_CLOUDHOST: UInt = 199u
+
+public val PRODUCT_AZURE_SERVER_CLOUDMOS: UInt = 200u
+
+public val PRODUCT_AZURE_SERVER_CORE: UInt = 168u
+
+public val PRODUCT_CLOUD: UInt = 178u
+
+public val PRODUCT_CLOUDE: UInt = 183u
+
+public val PRODUCT_CLOUDEDITION: UInt = 203u
+
+public val PRODUCT_CLOUDEDITIONN: UInt = 202u
+
+public val PRODUCT_CLOUDEN: UInt = 186u
+
+public val PRODUCT_CLOUDN: UInt = 179u
+
+public val PRODUCT_CLOUD_HOST_INFRASTRUCTURE_SERVER: UInt = 124u
+
+public val PRODUCT_CLOUD_STORAGE_SERVER: UInt = 110u
+
+public val PRODUCT_CONNECTED_CAR: UInt = 117u
+
+public val PRODUCT_CORE_ARM: UInt = 97u
+
+public val PRODUCT_CORE_CONNECTED: UInt = 111u
+
+public val PRODUCT_CORE_CONNECTED_COUNTRYSPECIFIC: UInt = 116u
+
+public val PRODUCT_CORE_CONNECTED_N: UInt = 113u
+
+public val PRODUCT_CORE_CONNECTED_SINGLELANGUAGE: UInt = 115u
+
+public val PRODUCT_DATACENTER_EVALUATION_SERVER_CORE: UInt = 159u
+
+public val PRODUCT_DATACENTER_NANO_SERVER: UInt = 143u
+
+public val PRODUCT_DATACENTER_SERVER_AZURE_EDITION: UInt = 407u
+
+public val PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION: UInt = 408u
+
+public val PRODUCT_DATACENTER_WS_SERVER_CORE: UInt = 147u
+
+public val PRODUCT_EMBEDDED: UInt = 65u
+
+public val PRODUCT_EMBEDDED_A: UInt = 88u
+
+public val PRODUCT_EMBEDDED_AUTOMOTIVE: UInt = 85u
+
+public val PRODUCT_EMBEDDED_E: UInt = 90u
+
+public val PRODUCT_EMBEDDED_EVAL: UInt = 107u
+
+public val PRODUCT_EMBEDDED_E_EVAL: UInt = 108u
+
+public val PRODUCT_EMBEDDED_INDUSTRY: UInt = 89u
+
+public val PRODUCT_EMBEDDED_INDUSTRY_A: UInt = 86u
+
+public val PRODUCT_EMBEDDED_INDUSTRY_A_E: UInt = 92u
+
+public val PRODUCT_EMBEDDED_INDUSTRY_E: UInt = 91u
+
+public val PRODUCT_EMBEDDED_INDUSTRY_EVAL: UInt = 105u
+
+public val PRODUCT_EMBEDDED_INDUSTRY_E_EVAL: UInt = 106u
+
+public val PRODUCT_ENTERPRISEG: UInt = 171u
+
+public val PRODUCT_ENTERPRISEGN: UInt = 172u
+
+public val PRODUCT_ENTERPRISE_SUBSCRIPTION: UInt = 140u
+
+public val PRODUCT_ENTERPRISE_SUBSCRIPTION_N: UInt = 141u
+
+public val PRODUCT_HOLOGRAPHIC: UInt = 135u
+
+public val PRODUCT_HOLOGRAPHIC_BUSINESS: UInt = 136u
+
+public val PRODUCT_HUBOS: UInt = 180u
+
+public val PRODUCT_INDUSTRY_HANDHELD: UInt = 118u
+
+public val PRODUCT_IOTEDGEOS: UInt = 187u
+
+public val PRODUCT_IOTENTERPRISE: UInt = 188u
+
+public val PRODUCT_IOTENTERPRISES: UInt = 191u
+
+public val PRODUCT_IOTOS: UInt = 185u
+
+public val PRODUCT_LITE: UInt = 189u
+
+public val PRODUCT_NANO_SERVER: UInt = 109u
+
+public val PRODUCT_ONECOREUPDATEOS: UInt = 182u
+
+public val PRODUCT_PPI_PRO: UInt = 119u
+
+public val PRODUCT_PROFESSIONAL_EMBEDDED: UInt = 58u
+
+public val PRODUCT_PROFESSIONAL_S: UInt = 127u
+
+public val PRODUCT_PROFESSIONAL_STUDENT: UInt = 112u
+
+public val PRODUCT_PROFESSIONAL_STUDENT_N: UInt = 114u
+
+public val PRODUCT_PROFESSIONAL_S_N: UInt = 128u
+
+public val PRODUCT_PRO_CHINA: UInt = 139u
+
+public val PRODUCT_PRO_FOR_EDUCATION: UInt = 164u
+
+public val PRODUCT_PRO_FOR_EDUCATION_N: UInt = 165u
+
+public val PRODUCT_PRO_SINGLE_LANGUAGE: UInt = 138u
+
+public val PRODUCT_SERVERRDSH: UInt = 175u
+
+public val PRODUCT_SOLUTION_EMBEDDEDSERVER_CORE: UInt = 57u
+
+public val PRODUCT_STANDARD_EVALUATION_SERVER_CORE: UInt = 160u
+
+public val PRODUCT_STANDARD_NANO_SERVER: UInt = 144u
+
+public val PRODUCT_STANDARD_SERVER_CORE: UInt = 13u
+
+public val PRODUCT_STANDARD_WS_SERVER_CORE: UInt = 148u
+
+public val PRODUCT_THINPC: UInt = 87u
+
+public val PRODUCT_UNLICENSED: UInt = 2882382797u
+
+public val PRODUCT_UTILITY_VM: UInt = 149u
+
+public val PRODUCT_XBOX_DURANGOHOSTOS: UInt = 196u
+
+public val PRODUCT_XBOX_ERAOS: UInt = 195u
+
+public val PRODUCT_XBOX_GAMEOS: UInt = 194u
+
+public val PRODUCT_XBOX_KEYSTONE: UInt = 198u

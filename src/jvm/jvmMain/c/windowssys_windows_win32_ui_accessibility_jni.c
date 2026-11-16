@@ -1,0 +1,3115 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState(JNIEnv* km_env, jclass km_clazz, jlong hwndapp, jint dwutilitystatemask, jint dwutilitystate) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AccSetRunningUtilityState");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndapp, (uint32_t)dwutilitystatemask, (uint32_t)dwutilitystate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwndapp;
+    (void)dwutilitystatemask;
+    (void)dwutilitystate;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityAccessibleChildren(JNIEnv* km_env, jclass km_clazz, jlong pacccontainer, jint ichildstart, jint cchildren, jlong rgvarchildren, jlong pcobtained) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AccessibleChildren");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pacccontainer, (int32_t)ichildstart, (int32_t)cchildren, (void*)(uintptr_t)rgvarchildren, (void*)(uintptr_t)pcobtained);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pacccontainer;
+    (void)ichildstart;
+    (void)cchildren;
+    (void)rgvarchildren;
+    (void)pcobtained;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwid, jint dwchildid, jlong ppacc, jlong pvarchild) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AccessibleObjectFromEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (uint32_t)dwid, (uint32_t)dwchildid, (void*)(uintptr_t)ppacc, (void*)(uintptr_t)pvarchild);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)dwid;
+    (void)dwchildid;
+    (void)ppacc;
+    (void)pvarchild;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityAccessibleObjectFromWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwid, jlong riid, jlong ppvobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AccessibleObjectFromWindow");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (uint32_t)dwid, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)dwid;
+    (void)riid;
+    (void)ppvobject;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityCreateStdAccessibleObject(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jlong riid, jlong ppvobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateStdAccessibleObject");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)idobject, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)idobject;
+    (void)riid;
+    (void)ppvobject;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyA(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pclassname, jint idobject, jlong riid, jlong ppvobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateStdAccessibleProxyA");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pclassname, (int32_t)idobject, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)pclassname;
+    (void)idobject;
+    (void)riid;
+    (void)ppvobject;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyW(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pclassname, jint idobject, jlong riid, jlong ppvobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateStdAccessibleProxyW");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pclassname, (int32_t)idobject, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)pclassname;
+    (void)idobject;
+    (void)riid;
+    (void)ppvobject;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityDockPatternSetDockPosition(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint dockposition) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DockPattern_SetDockPosition");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)dockposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)dockposition;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityExpandCollapsePatternCollapse(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ExpandCollapsePattern_Collapse");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityExpandCollapsePatternExpand(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ExpandCollapsePattern_Expand");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityGetOleaccVersionInfo(JNIEnv* km_env, jclass km_clazz, jlong pver, jlong pbuild) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetOleaccVersionInfo");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pver, (void*)(uintptr_t)pbuild);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)pver;
+    (void)pbuild;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityGetRoleTextA(JNIEnv* km_env, jclass km_clazz, jint lrole, jlong lpszrole, jint cchrolemax) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetRoleTextA");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)lrole, (void*)(uintptr_t)lpszrole, (uint32_t)cchrolemax);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lrole;
+    (void)lpszrole;
+    (void)cchrolemax;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityGetRoleTextW(JNIEnv* km_env, jclass km_clazz, jint lrole, jlong lpszrole, jint cchrolemax) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetRoleTextW");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)lrole, (void*)(uintptr_t)lpszrole, (uint32_t)cchrolemax);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lrole;
+    (void)lpszrole;
+    (void)cchrolemax;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityGetStateTextA(JNIEnv* km_env, jclass km_clazz, jint lstatebit, jlong lpszstate, jint cchstate) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetStateTextA");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)lstatebit, (void*)(uintptr_t)lpszstate, (uint32_t)cchstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lstatebit;
+    (void)lpszstate;
+    (void)cchstate;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityGetStateTextW(JNIEnv* km_env, jclass km_clazz, jint lstatebit, jlong lpszstate, jint cchstate) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetStateTextW");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)lstatebit, (void*)(uintptr_t)lpszstate, (uint32_t)cchstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lstatebit;
+    (void)lpszstate;
+    (void)cchstate;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityGridPatternGetItem(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint row, jint column, jlong presult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GridPattern_GetItem");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)row, (int32_t)column, (void*)(uintptr_t)presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)row;
+    (void)column;
+    (void)presult;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityInvokePatternInvoke(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InvokePattern_Invoke");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(JNIEnv* km_env, jclass km_clazz, jint event) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsWinEventHookInstalled");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)event);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)event;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternDoDefaultAction(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_DoDefaultAction");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternGetIaccessible(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong paccessible) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_GetIAccessible");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)paccessible);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)paccessible;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSelect(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint flagsselect) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_Select");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)flagsselect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)flagsselect;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong szvalue) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_SetValue");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)szvalue;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityLresultFromObject(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong wparam, jlong punk) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int64_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LresultFromObject");
+    }
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)riid, (uint64_t)wparam, (void*)(uintptr_t)punk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)riid;
+    (void)wparam;
+    (void)punk;
+    errno = ENOSYS;
+    int64_t km_res = -1;
+#endif
+    return (jlong)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityMultipleViewPatternGetViewName(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint viewid, jlong ppstr) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MultipleViewPattern_GetViewName");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)viewid, (void*)(uintptr_t)ppstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)viewid;
+    (void)ppstr;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityMultipleViewPatternSetCurrentView(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint viewid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MultipleViewPattern_SetCurrentView");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)viewid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)viewid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityNotifyWinEvent(JNIEnv* km_env, jclass km_clazz, jint event, jlong hwnd, jint idobject, jint idchild) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(uint32_t, void*, int32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NotifyWinEvent");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((uint32_t)event, (void*)(uintptr_t)hwnd, (int32_t)idobject, (int32_t)idchild);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)event;
+    (void)hwnd;
+    (void)idobject;
+    (void)idchild;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityObjectFromLresult(JNIEnv* km_env, jclass km_clazz, jlong lresult, jlong riid, jlong wparam, jlong ppvobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ObjectFromLresult");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)lresult, (void*)(uintptr_t)riid, (uint64_t)wparam, (void*)(uintptr_t)ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lresult;
+    (void)riid;
+    (void)wparam;
+    (void)ppvobject;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityRangeValuePatternSetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble val) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RangeValuePattern_SetValue");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (double)val);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)val;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityRegisterPointerInputTarget(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterPointerInputTarget");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)pointertype;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityRegisterPointerInputTargetEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype, jint fobserve) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterPointerInputTargetEx");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)pointertype, (int32_t)fobserve);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)pointertype;
+    (void)fobserve;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityScrollItemPatternScrollIntoView(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScrollItemPattern_ScrollIntoView");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityScrollPatternScroll(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint horizontalamount, jint verticalamount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScrollPattern_Scroll");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)horizontalamount, (int32_t)verticalamount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)horizontalamount;
+    (void)verticalamount;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityScrollPatternSetScrollPercent(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble horizontalpercent, jdouble verticalpercent) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, double, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScrollPattern_SetScrollPercent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (double)horizontalpercent, (double)verticalpercent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)horizontalpercent;
+    (void)verticalpercent;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilitySelectionItemPatternAddToSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SelectionItemPattern_AddToSelection");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilitySelectionItemPatternRemoveFromSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SelectionItemPattern_RemoveFromSelection");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilitySelectionItemPatternSelect(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SelectionItemPattern_Select");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilitySetWinEventHook(JNIEnv* km_env, jclass km_clazz, jint eventmin, jint eventmax, jlong hmodwineventproc, jlong pfnwineventproc, jint idprocess, jint idthread, jint dwflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetWinEventHook");
+    }
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)eventmin, (uint32_t)eventmax, (void*)(uintptr_t)hmodwineventproc, (void*)(uintptr_t)pfnwineventproc, (uint32_t)idprocess, (uint32_t)idthread, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
+#else
+    (void)eventmin;
+    (void)eventmax;
+    (void)hmodwineventproc;
+    (void)pfnwineventproc;
+    (void)idprocess;
+    (void)idthread;
+    (void)dwflags;
+    errno = ENOSYS;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternCancel(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SynchronizedInputPattern_Cancel");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternStartListening(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint inputtype) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SynchronizedInputPattern_StartListening");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)inputtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)inputtype;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextPatternGetSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextPattern_GetSelection");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextPatternGetVisibleRanges(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextPattern_GetVisibleRanges");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextPatternRangeFromChild(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong hnodechild, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextPattern_RangeFromChild");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)hnodechild, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)hnodechild;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextPatternGetDocumentRange(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextPattern_get_DocumentRange");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextPatternGetSupportedTextSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextPattern_get_SupportedTextSelection");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeAddToSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_AddToSelection");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeClone(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_Clone");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeCompare(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong range, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_Compare");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)range, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)range;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeCompareEndpoints(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jlong targetrange, jint targetendpoint, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_CompareEndpoints");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)endpoint, (void*)(uintptr_t)targetrange, (int32_t)targetendpoint, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)endpoint;
+    (void)targetrange;
+    (void)targetendpoint;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint unit) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_ExpandToEnclosingUnit");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)unit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)unit;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeFindText(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong text, jint backward, jint ignorecase, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_FindText");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)text, (int32_t)backward, (int32_t)ignorecase, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)text;
+    (void)backward;
+    (void)ignorecase;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeGetAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint attributeid, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_GetAttributeValue");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)attributeid, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)attributeid;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeGetBoundingRectangles(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_GetBoundingRectangles");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeGetChildren(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_GetChildren");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeGetEnclosingElement(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_GetEnclosingElement");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeGetText(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint maxlength, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_GetText");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)maxlength, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)maxlength;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeMove(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint unit, jint count, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_Move");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)unit, (int32_t)count, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)unit;
+    (void)count;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByRange(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jlong targetrange, jint targetendpoint) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_MoveEndpointByRange");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)endpoint, (void*)(uintptr_t)targetrange, (int32_t)targetendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)endpoint;
+    (void)targetrange;
+    (void)targetendpoint;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByUnit(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint endpoint, jint unit, jint count, jlong pretval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_MoveEndpointByUnit");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)endpoint, (int32_t)unit, (int32_t)count, (void*)(uintptr_t)pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)endpoint;
+    (void)unit;
+    (void)count;
+    (void)pretval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeRemoveFromSelection(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_RemoveFromSelection");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeScrollIntoView(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint aligntotop) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_ScrollIntoView");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)aligntotop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)aligntotop;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTextRangeSelect(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TextRange_Select");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTogglePatternToggle(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TogglePattern_Toggle");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTransformPatternMove(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble x, jdouble y) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, double, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TransformPattern_Move");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (double)x, (double)y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)x;
+    (void)y;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTransformPatternResize(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble width, jdouble height) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, double, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TransformPattern_Resize");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (double)width, (double)height);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)width;
+    (void)height;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityTransformPatternRotate(JNIEnv* km_env, jclass km_clazz, jlong hobj, jdouble degrees) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TransformPattern_Rotate");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (double)degrees);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)degrees;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaAddEvent(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint eventid, jlong pcallback, jint scope, jlong pproperties, jint cproperties, jlong prequest, jlong phevent) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaAddEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode, (int32_t)eventid, (void*)(uintptr_t)pcallback, (int32_t)scope, (void*)(uintptr_t)pproperties, (int32_t)cproperties, (void*)(uintptr_t)prequest, (void*)(uintptr_t)phevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    (void)eventid;
+    (void)pcallback;
+    (void)scope;
+    (void)pproperties;
+    (void)cproperties;
+    (void)prequest;
+    (void)phevent;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaClientsAreListening(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaClientsAreListening");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaDisconnectAllProviders");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaDisconnectProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaDisconnectProvider");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaEventAddWindow(JNIEnv* km_env, jclass km_clazz, jlong hevent, jlong hwnd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaEventAddWindow");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hevent, (void*)(uintptr_t)hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hevent;
+    (void)hwnd;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaEventRemoveWindow(JNIEnv* km_env, jclass km_clazz, jlong hevent, jlong hwnd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaEventRemoveWindow");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hevent, (void*)(uintptr_t)hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hevent;
+    (void)hwnd;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaFind(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong pparams, jlong prequest, jlong pprequesteddata, jlong ppoffsets, jlong pptreestructures) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaFind");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode, (void*)(uintptr_t)pparams, (void*)(uintptr_t)prequest, (void*)(uintptr_t)pprequesteddata, (void*)(uintptr_t)ppoffsets, (void*)(uintptr_t)pptreestructures);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    (void)pparams;
+    (void)prequest;
+    (void)pprequesteddata;
+    (void)ppoffsets;
+    (void)pptreestructures;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetErrorDescription(JNIEnv* km_env, jclass km_clazz, jlong pdescription) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetErrorDescription");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pdescription;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetPatternProvider(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint patternid, jlong phobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetPatternProvider");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode, (int32_t)patternid, (void*)(uintptr_t)phobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    (void)patternid;
+    (void)phobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint propertyid, jlong pvalue) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetPropertyValue");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode, (int32_t)propertyid, (void*)(uintptr_t)pvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    (void)propertyid;
+    (void)pvalue;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetReservedMixedAttributeValue(JNIEnv* km_env, jclass km_clazz, jlong punkmixedattributevalue) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetReservedMixedAttributeValue");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)punkmixedattributevalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)punkmixedattributevalue;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetReservedNotSupportedValue(JNIEnv* km_env, jclass km_clazz, jlong punknotsupportedvalue) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetReservedNotSupportedValue");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)punknotsupportedvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)punknotsupportedvalue;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetRootNode(JNIEnv* km_env, jclass km_clazz, jlong phnode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetRootNode");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)phnode;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetRuntimeId(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong pruntimeid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetRuntimeId");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode, (void*)(uintptr_t)pruntimeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    (void)pruntimeid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaGetUpdatedCache(JNIEnv* km_env, jclass km_clazz, jlong hnode, jlong prequest, jint normalizestate, jlong pnormalizecondition, jlong pprequesteddata, jlong pptreestructure) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaGetUpdatedCache");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode, (void*)(uintptr_t)prequest, (int32_t)normalizestate, (void*)(uintptr_t)pnormalizecondition, (void*)(uintptr_t)pprequesteddata, (void*)(uintptr_t)pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    (void)prequest;
+    (void)normalizestate;
+    (void)pnormalizecondition;
+    (void)pprequesteddata;
+    (void)pptreestructure;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaHPatternObjectFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaHPatternObjectFromVariant");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvar, (void*)(uintptr_t)phobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pvar;
+    (void)phobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaHTextRangeFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phtextrange) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaHTextRangeFromVariant");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvar, (void*)(uintptr_t)phtextrange);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pvar;
+    (void)phtextrange;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaHUiaNodeFromVariant(JNIEnv* km_env, jclass km_clazz, jlong pvar, jlong phnode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaHUiaNodeFromVariant");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvar, (void*)(uintptr_t)phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pvar;
+    (void)phnode;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaHasServerSideProvider(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaHasServerSideProvider");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaHostProviderFromHwnd(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong ppprovider) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaHostProviderFromHwnd");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)ppprovider;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaIAccessibleFromProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint dwflags, jlong ppaccessible, jlong pvarchild) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaIAccessibleFromProvider");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider, (uint32_t)dwflags, (void*)(uintptr_t)ppaccessible, (void*)(uintptr_t)pvarchild);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    (void)dwflags;
+    (void)ppaccessible;
+    (void)pvarchild;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaLookupId(JNIEnv* km_env, jclass km_clazz, jint type, jlong pguid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaLookupId");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)type, (void*)(uintptr_t)pguid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)type;
+    (void)pguid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaNavigate(JNIEnv* km_env, jclass km_clazz, jlong hnode, jint direction, jlong pcondition, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaNavigate");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode, (int32_t)direction, (void*)(uintptr_t)pcondition, (void*)(uintptr_t)prequest, (void*)(uintptr_t)pprequesteddata, (void*)(uintptr_t)pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    (void)direction;
+    (void)pcondition;
+    (void)prequest;
+    (void)pprequesteddata;
+    (void)pptreestructure;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaNodeFromFocus(JNIEnv* km_env, jclass km_clazz, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaNodeFromFocus");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pprequesteddata, (void*)(uintptr_t)pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)prequest;
+    (void)pprequesteddata;
+    (void)pptreestructure;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaNodeFromHandle(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong phnode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaNodeFromHandle");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)phnode;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaNodeFromPoint(JNIEnv* km_env, jclass km_clazz, jdouble x, jdouble y, jlong prequest, jlong pprequesteddata, jlong pptreestructure) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, double, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaNodeFromPoint");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((double)x, (double)y, (void*)(uintptr_t)prequest, (void*)(uintptr_t)pprequesteddata, (void*)(uintptr_t)pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)x;
+    (void)y;
+    (void)prequest;
+    (void)pprequesteddata;
+    (void)pptreestructure;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaNodeFromProvider(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jlong phnode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaNodeFromProvider");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider, (void*)(uintptr_t)phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    (void)phnode;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaNodeRelease(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaNodeRelease");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaPatternRelease(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaPatternRelease");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaProviderForNonClient(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint idobject, jint idchild, jlong ppprovider) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaProviderForNonClient");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)idobject, (int32_t)idchild, (void*)(uintptr_t)ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)idobject;
+    (void)idchild;
+    (void)ppprovider;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaProviderFromIAccessible(JNIEnv* km_env, jclass km_clazz, jlong paccessible, jint idchild, jint dwflags, jlong ppprovider) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaProviderFromIAccessible");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)paccessible, (int32_t)idchild, (uint32_t)dwflags, (void*)(uintptr_t)ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)paccessible;
+    (void)idchild;
+    (void)dwflags;
+    (void)ppprovider;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRaiseActiveTextPositionChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong provider, jlong textrange) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRaiseActiveTextPositionChangedEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)provider, (void*)(uintptr_t)textrange);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)provider;
+    (void)textrange;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRaiseAsyncContentLoadedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint asynccontentloadedstate, jdouble percentcomplete) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRaiseAsyncContentLoadedEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider, (int32_t)asynccontentloadedstate, (double)percentcomplete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    (void)asynccontentloadedstate;
+    (void)percentcomplete;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint id) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRaiseAutomationEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider, (int32_t)id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    (void)id;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRaiseChangesEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint eventidcount, jlong puiachanges) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRaiseChangesEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider, (int32_t)eventidcount, (void*)(uintptr_t)puiachanges);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    (void)eventidcount;
+    (void)puiachanges;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRaiseNotificationEvent(JNIEnv* km_env, jclass km_clazz, jlong provider, jint notificationkind, jint notificationprocessing, jlong displaystring, jlong activityid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRaiseNotificationEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)provider, (int32_t)notificationkind, (int32_t)notificationprocessing, (void*)(uintptr_t)displaystring, (void*)(uintptr_t)activityid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)provider;
+    (void)notificationkind;
+    (void)notificationprocessing;
+    (void)displaystring;
+    (void)activityid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRaiseStructureChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint structurechangetype, jlong pruntimeid, jint cruntimeidlen) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRaiseStructureChangedEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider, (int32_t)structurechangetype, (void*)(uintptr_t)pruntimeid, (int32_t)cruntimeidlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    (void)structurechangetype;
+    (void)pruntimeid;
+    (void)cruntimeidlen;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRaiseTextEditTextChangedEvent(JNIEnv* km_env, jclass km_clazz, jlong pprovider, jint texteditchangetype, jlong pchangeddata) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRaiseTextEditTextChangedEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprovider, (int32_t)texteditchangetype, (void*)(uintptr_t)pchangeddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pprovider;
+    (void)texteditchangetype;
+    (void)pchangeddata;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRegisterProviderCallback(JNIEnv* km_env, jclass km_clazz, jlong pcallback) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRegisterProviderCallback");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pcallback);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)pcallback;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaRemoveEvent(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaRemoveEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hevent;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaReturnRawElementProvider(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong wparam, jlong lparam, jlong el) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int64_t (__stdcall *km_fn_t)(void*, uint64_t, int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaReturnRawElementProvider");
+    }
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (uint64_t)wparam, (int64_t)lparam, (void*)(uintptr_t)el);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)wparam;
+    (void)lparam;
+    (void)el;
+    errno = ENOSYS;
+    int64_t km_res = -1;
+#endif
+    return (jlong)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaSetFocus(JNIEnv* km_env, jclass km_clazz, jlong hnode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaSetFocus");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hnode;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUiaTextRangeRelease(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UiaTextRangeRelease");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUnhookWinEvent(JNIEnv* km_env, jclass km_clazz, jlong hwineventhook) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnhookWinEvent");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwineventhook);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwineventhook;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTarget(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnregisterPointerInputTarget");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)pointertype;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityUnregisterPointerInputTargetEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint pointertype) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnregisterPointerInputTargetEx");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hwnd;
+    (void)pointertype;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityValuePatternSetValue(JNIEnv* km_env, jclass km_clazz, jlong hobj, jlong pval) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ValuePattern_SetValue");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (void*)(uintptr_t)pval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)pval;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityVirtualizedItemPatternRealize(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VirtualizedItemPattern_Realize");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityWindowFromAccessibleObject(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong phwnd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WindowFromAccessibleObject");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)phwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)param0;
+    (void)phwnd;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityWindowPatternClose(JNIEnv* km_env, jclass km_clazz, jlong hobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WindowPattern_Close");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityWindowPatternSetWindowVisualState(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint state) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WindowPattern_SetWindowVisualState");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)state);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)state;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_accessibility_WindowsWin32UiAccessibilityJniBridge_windowssysWindowsWin32UiAccessibilityWindowPatternWaitForInputIdle(JNIEnv* km_env, jclass km_clazz, jlong hobj, jint milliseconds, jlong presult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WindowPattern_WaitForInputIdle");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobj, (int32_t)milliseconds, (void*)(uintptr_t)presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)hobj;
+    (void)milliseconds;
+    (void)presult;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

@@ -1,0 +1,50 @@
+package io.github.kotlinmania.windowssys.windows.win32.devices
+
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.w
+
+public val BUS1394_LOCAL_HOST_INSTANCE_KEY: Pcwstr = w("LOCAL HOST EUI64")
+
+public val BUS1394_VIRTUAL_DEVICE_LIST_KEY: Pcwstr = w("Virtual Device List")
+
+public val IEEE1394API_ACCESS_EXCLUSIVE: UInt = 64u
+
+public val IEEE1394API_ACCESS_SHARED_READ: UInt = 16u
+
+public val IEEE1394API_ACCESS_SHARED_WRITE: UInt = 32u
+
+public val IEEE1394API_BUS_RESET_LOCAL_NODE_INITIATED: UInt = 4u
+
+public val IEEE1394API_BUS_RESET_LOCAL_NODE_IS_IRM: UInt = 2u
+
+public val IEEE1394API_BUS_RESET_LOCAL_NODE_IS_ROOT: UInt = 1u
+
+public val IEEE1394API_DEVICE_OWNERSHIP_LOCAL_NODE: UInt = 1u
+
+public val IEEE1394API_DEVICE_OWNERSHIP_REMOTE_NODE: UInt = 4u
+
+public val IEEE1394API_NOTIFICATION_BUS_RESET: UInt = 2u
+
+public val IEEE1394API_NOTIFICATION_DEVICE_ACCESS: UInt = 1u
+
+public val IEEE1394API_REMOTE_ACCESS_TRANSFER_REQUEST: UInt = 1u
+
+public val IEEE1394API_RESOURCE_OWNERSHIP_LOCAL_NODE: UInt = 2u
+
+public val IEEE1394API_RESOURCE_OWNERSHIP_REMOTE_NODE: UInt = 8u
+
+public val IEEE1394_API_ADD_VIRTUAL_DEVICE: UInt = 1u
+
+public val IEEE1394_API_DEVICE_ACCESS_TRANSFER: UInt = 3u
+
+public val IEEE1394_API_REMOVE_VIRTUAL_DEVICE: UInt = 2u
+
+public val IEEE1394_API_SET_LOCAL_NODE_PROPERTIES: UInt = 4u
+
+public val IEEE1394_REQUEST_FLAG_PERSISTENT: UInt = 2u
+
+public val IEEE1394_REQUEST_FLAG_UNICODE: UInt = 1u
+
+public val IEEE1394_REQUEST_FLAG_USE_LOCAL_HOST_EUI: UInt = 4u
+
+public val IOCTL_IEEE1394_API_REQUEST: UInt = 2229248u

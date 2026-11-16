@@ -1,0 +1,1804 @@
+@file:OptIn(kotlinx.cinterop.ExperimentalForeignApi::class, kotlin.ExperimentalUnsignedTypes::class)
+
+package io.github.kotlinmania.windowssys.windows.win32.system.ole
+
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Syskind
+import io.github.kotlinmania.windowssys.windows.win32.system.memory.GlobalAllocFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleBstrFromVector
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleClearCustData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleCreateDispTypeInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleCreateErrorInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleCreateOleAdviseHolder
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleCreateStdDispatch
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleCreateTypeLib
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleCreateTypeLib2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleDispCallFunc
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleDispGetIDsOfNames
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleDispGetParam
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleDispInvoke
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleDoDragDrop
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleGetActiveObject
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleGetAltMonthNames
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleGetRecordInfoFromGuids
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleGetRecordInfoFromTypeInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserFree
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserSize
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleHrgnUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleIsAccelerator
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleLHashValOfNameSys
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleLHashValOfNameSysA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleLoadRegTypeLib
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleLoadTypeLib
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleLoadTypeLibEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOaBuildVersion
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOaEnablePerUserTLibRegistration
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleBuildVersion
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorage2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorageEx2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateDefaultHandler
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateEmbeddingHelper
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateFontIndirect
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateFromData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateFromDataEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateFromFile
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateFromFileEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateLink
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateLinkEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateLinkFromData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateLinkFromDataEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateLinkToFile
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateLinkToFileEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateMenuDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreatePictureIndirect
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreatePropertyFrame
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreatePropertyFrameIndirect
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleCreateStaticFromData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleDestroyMenuDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleDoAutoConvert
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleDraw
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleDuplicateData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleFlushClipboard
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleGetAutoConvert
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleGetClipboard
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleGetClipboardWithEnterpriseInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleGetIconOfClass
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleGetIconOfFile
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleIconToCursor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleInitialize
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleIsCurrentClipboard
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleIsRunning
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleLoad
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleLoadFromStream
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleLoadPicture
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleLoadPictureEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleLoadPicturePath
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleLockRunning
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleMetafilePictFromIconAndLabel
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleNoteObjectVisible
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleQueryCreateFromData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleQueryLinkFromData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleRegEnumFormatEtc
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleRegEnumVerbs
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleRegGetMiscStatus
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleRegGetUserType
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleRun
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleSave
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleSavePictureFile
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleSaveToStream
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleSetAutoConvert
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleSetClipboard
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleSetContainedObject
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleSetMenuDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleTranslateAccelerator
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleTranslateColor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIAddVerbMenuA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIAddVerbMenuW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIBusyA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIBusyW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUICanConvertOrActivateAs
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIChangeIconA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIChangeIconW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIChangeSourceA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIChangeSourceW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIConvertA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIConvertW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIEditLinksA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIEditLinksW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIInsertObjectA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIInsertObjectW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIObjectPropertiesA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIObjectPropertiesW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIPasteSpecialA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIPasteSpecialW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIPromptUserA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIPromptUserW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIUpdateLinksA
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUIUpdateLinksW
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleOleUninitialize
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleQueryPathOfRegTypeLib
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleRegisterActiveObject
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleRegisterDragDrop
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleRegisterTypeLib
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleRegisterTypeLibForUser
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleReleaseStgMedium
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleRevokeActiveObject
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleRevokeDragDrop
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayAccessData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayAddRef
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayAllocData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayAllocDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayCopy
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayCopyData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayCreate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayCreateEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayCreateVector
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayCreateVectorEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayDestroy
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayDestroyData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayDestroyDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetDim
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetElement
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetElemsize
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetIID
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetLBound
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetRecordInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetUBound
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayGetVartype
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayLock
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayPtrOfIndex
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayPutElement
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayRedim
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayReleaseData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayReleaseDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArraySetIID
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArraySetRecordInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayUnaccessData
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleSafeArrayUnlock
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleUnRegisterTypeLib
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleUnRegisterTypeLibForUser
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarAbs
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarAdd
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarAnd
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBoolFromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrCat
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrCmp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarBstrFromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCat
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCmp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarCyFromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromUdate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDateFromUdateEx
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecAbs
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecAdd
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecCmp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecCmpR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecDiv
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFix
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecFromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecInt
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecMul
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecNeg
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecRound
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDecSub
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarDiv
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarEqv
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarFix
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarFormat
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarFormatCurrency
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarFormatDateTime
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarFormatFromTokens
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarFormatNumber
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarFormatPercent
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI1FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI2FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI4FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarI8FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarIdiv
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarImp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarInt
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarMod
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarMonthName
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarMul
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarNeg
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarNot
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarNumFromParseNum
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarOr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarParseNumFromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarPow
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4CmpR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR4FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8Pow
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarR8Round
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarRound
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarSub
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarTokenizeFormatString
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI1FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI2FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI4FromUI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromBool
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromDec
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromDisp
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromI8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromR4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromR8
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromStr
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromUI1
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromUI2
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUI8FromUI4
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarUdateFromDate
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarWeekdayName
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVarXor
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.cinterop.windowssysWindowsWin32SystemOleVectorFromBstr
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hcursor
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
+import kotlinx.cinterop.ByteVar
+import kotlinx.cinterop.toCPointer
+import kotlinx.cinterop.toLong
+
+public actual fun bstrFromVector(psa: ConstPtr, pbstr: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleBstrFromVector(psa.rawAddress.toCPointer<ByteVar>(), pbstr.rawAddress.toCPointer<ByteVar>())
+
+public actual fun clearCustData(pcustdata: MutPtr) {
+    windowssysWindowsWin32SystemOleClearCustData(pcustdata.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun createDispTypeInfo(pidata: MutPtr, lcid: UInt, pptinfo: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleCreateDispTypeInfo(pidata.rawAddress.toCPointer<ByteVar>(), lcid, pptinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun createErrorInfo(pperrinfo: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleCreateErrorInfo(pperrinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun createOleAdviseHolder(ppoaholder: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleCreateOleAdviseHolder(ppoaholder.rawAddress.toCPointer<ByteVar>())
+
+public actual fun createStdDispatch(punkouter: MutPtr, pvthis: MutPtr, ptinfo: MutPtr, ppunkstddisp: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleCreateStdDispatch(punkouter.rawAddress.toCPointer<ByteVar>(), pvthis.rawAddress.toCPointer<ByteVar>(), ptinfo.rawAddress.toCPointer<ByteVar>(), ppunkstddisp.rawAddress.toCPointer<ByteVar>())
+
+public actual fun createTypeLib(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleCreateTypeLib(syskind, szfile.rawAddress.toCPointer<ByteVar>(), ppctlib.rawAddress.toCPointer<ByteVar>())
+
+public actual fun createTypeLib2(syskind: Syskind, szfile: Pcwstr, ppctlib: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleCreateTypeLib2(syskind, szfile.rawAddress.toCPointer<ByteVar>(), ppctlib.rawAddress.toCPointer<ByteVar>())
+
+public actual fun dispCallFunc(pvinstance: ConstPtr, ovft: ULong, cc: Callconv, vtreturn: Varenum, cactuals: UInt, prgvt: ConstPtr, prgpvarg: ConstPtr, pvargresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleDispCallFunc(pvinstance.rawAddress.toCPointer<ByteVar>(), ovft, cc, vtreturn, cactuals, prgvt.rawAddress.toCPointer<ByteVar>(), prgpvarg.rawAddress.toCPointer<ByteVar>(), pvargresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun dispGetIDsOfNames(ptinfo: MutPtr, rgsznames: ConstPtr, cnames: UInt, rgdispid: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleDispGetIDsOfNames(ptinfo.rawAddress.toCPointer<ByteVar>(), rgsznames.rawAddress.toCPointer<ByteVar>(), cnames, rgdispid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun dispGetParam(pdispparams: ConstPtr, position: UInt, vttarg: Varenum, pvarresult: MutPtr, puargerr: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleDispGetParam(pdispparams.rawAddress.toCPointer<ByteVar>(), position, vttarg, pvarresult.rawAddress.toCPointer<ByteVar>(), puargerr.rawAddress.toCPointer<ByteVar>())
+
+public actual fun dispInvoke(thisRef: MutPtr, ptinfo: MutPtr, dispidmember: Int, wflags: UShort, pparams: MutPtr, pvarresult: MutPtr, pexcepinfo: MutPtr, puargerr: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleDispInvoke(thisRef.rawAddress.toCPointer<ByteVar>(), ptinfo.rawAddress.toCPointer<ByteVar>(), dispidmember, wflags, pparams.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>(), pexcepinfo.rawAddress.toCPointer<ByteVar>(), puargerr.rawAddress.toCPointer<ByteVar>())
+
+public actual fun doDragDrop(pdataobj: MutPtr, pdropsource: MutPtr, dwokeffects: Dropeffect, pdweffect: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleDoDragDrop(pdataobj.rawAddress.toCPointer<ByteVar>(), pdropsource.rawAddress.toCPointer<ByteVar>(), dwokeffects, pdweffect.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getActiveObject(rclsid: ConstPtr, pvreserved: MutPtr, ppunk: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleGetActiveObject(rclsid.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>(), ppunk.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getAltMonthNames(lcid: UInt, prgp: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleGetAltMonthNames(lcid, prgp.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getRecordInfoFromGuids(rguidtypelib: ConstPtr, uvermajor: UInt, uverminor: UInt, lcid: UInt, rguidtypeinfo: ConstPtr, pprecinfo: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleGetRecordInfoFromGuids(rguidtypelib.rawAddress.toCPointer<ByteVar>(), uvermajor, uverminor, lcid, rguidtypeinfo.rawAddress.toCPointer<ByteVar>(), pprecinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getRecordInfoFromTypeInfo(ptypeinfo: MutPtr, pprecinfo: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleGetRecordInfoFromTypeInfo(ptypeinfo.rawAddress.toCPointer<ByteVar>(), pprecinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hrgnUserFree(param0: ConstPtr, param1: ConstPtr) {
+    windowssysWindowsWin32SystemOleHrgnUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun hrgnUserFree64(param0: ConstPtr, param1: ConstPtr) {
+    windowssysWindowsWin32SystemOleHrgnUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun hrgnUserMarshal(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleHrgnUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun hrgnUserMarshal64(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleHrgnUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun hrgnUserSize(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleHrgnUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hrgnUserSize64(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleHrgnUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hrgnUserUnmarshal(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleHrgnUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun hrgnUserUnmarshal64(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleHrgnUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun isAccelerator(haccel: Haccel, caccelentries: Int, lpmsg: ConstPtr, lpwcmd: MutPtr): Bool =
+    windowssysWindowsWin32SystemOleIsAccelerator(haccel.rawAddress.toCPointer<ByteVar>(), caccelentries, lpmsg.rawAddress.toCPointer<ByteVar>(), lpwcmd.rawAddress.toCPointer<ByteVar>())
+
+public actual fun lHashValOfNameSys(syskind: Syskind, lcid: UInt, szname: Pcwstr): UInt =
+    windowssysWindowsWin32SystemOleLHashValOfNameSys(syskind, lcid, szname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun lHashValOfNameSysA(syskind: Syskind, lcid: UInt, szname: Pcstr): UInt =
+    windowssysWindowsWin32SystemOleLHashValOfNameSysA(syskind, lcid, szname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun loadRegTypeLib(rguid: ConstPtr, wvermajor: UShort, wverminor: UShort, lcid: UInt, pptlib: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleLoadRegTypeLib(rguid.rawAddress.toCPointer<ByteVar>(), wvermajor, wverminor, lcid, pptlib.rawAddress.toCPointer<ByteVar>())
+
+public actual fun loadTypeLib(szfile: Pcwstr, pptlib: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleLoadTypeLib(szfile.rawAddress.toCPointer<ByteVar>(), pptlib.rawAddress.toCPointer<ByteVar>())
+
+public actual fun loadTypeLibEx(szfile: Pcwstr, regkind: Regkind, pptlib: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleLoadTypeLibEx(szfile.rawAddress.toCPointer<ByteVar>(), regkind, pptlib.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oaBuildVersion(): UInt =
+    windowssysWindowsWin32SystemOleOaBuildVersion()
+
+public actual fun oaEnablePerUserTLibRegistration() {
+    windowssysWindowsWin32SystemOleOaEnablePerUserTLibRegistration()
+}
+
+public actual fun oleBuildVersion(): UInt =
+    windowssysWindowsWin32SystemOleOleBuildVersion()
+
+public actual fun oleConvertOLESTREAMToIStorage2(lpolestream: ConstPtr, pstg: MutPtr, ptd: ConstPtr, opt: UInt, pvcallbackcontext: ConstPtr, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
+    windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorage2(lpolestream.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ptd.rawAddress.toCPointer<ByteVar>(), opt, pvcallbackcontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
+
+public actual fun oleConvertOLESTREAMToIStorageEx2(polestm: ConstPtr, pstg: MutPtr, pcfformat: MutPtr, plwwidth: MutPtr, plheight: MutPtr, pdwsize: MutPtr, pmedium: MutPtr, opt: UInt, pvcallbackcontext: ConstPtr, pqueryconvertolelinkcallback: Olestreamqueryconvertolelinkcallback): Hresult =
+    windowssysWindowsWin32SystemOleOleConvertOLESTREAMToIStorageEx2(polestm.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), pcfformat.rawAddress.toCPointer<ByteVar>(), plwwidth.rawAddress.toCPointer<ByteVar>(), plheight.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>(), pmedium.rawAddress.toCPointer<ByteVar>(), opt, pvcallbackcontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
+
+public actual fun oleCreate(rclsid: ConstPtr, riid: ConstPtr, renderopt: UInt, pformatetc: ConstPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreate(rclsid.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), renderopt, pformatetc.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateDefaultHandler(clsid: ConstPtr, punkouter: MutPtr, riid: ConstPtr, lplpobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateDefaultHandler(clsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), lplpobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateEmbeddingHelper(clsid: ConstPtr, punkouter: MutPtr, flags: EmbdhlpFlags, pcf: MutPtr, riid: ConstPtr, lplpobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateEmbeddingHelper(clsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), flags, pcf.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), lplpobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateEx(rclsid: ConstPtr, riid: ConstPtr, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr, rgformatetc: ConstPtr, lpadvisesink: MutPtr, rgdwconnection: MutPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateEx(rclsid.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.rawAddress.toCPointer<ByteVar>(), rgformatetc.rawAddress.toCPointer<ByteVar>(), lpadvisesink.rawAddress.toCPointer<ByteVar>(), rgdwconnection.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateFontIndirect(lpfontdesc: ConstPtr, riid: ConstPtr, lplpvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateFontIndirect(lpfontdesc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), lplpvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateFromData(psrcdataobj: MutPtr, riid: ConstPtr, renderopt: UInt, pformatetc: ConstPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateFromData(psrcdataobj.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), renderopt, pformatetc.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateFromDataEx(psrcdataobj: MutPtr, riid: ConstPtr, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr, rgformatetc: ConstPtr, lpadvisesink: MutPtr, rgdwconnection: MutPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateFromDataEx(psrcdataobj.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.rawAddress.toCPointer<ByteVar>(), rgformatetc.rawAddress.toCPointer<ByteVar>(), lpadvisesink.rawAddress.toCPointer<ByteVar>(), rgdwconnection.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateFromFile(rclsid: ConstPtr, lpszfilename: Pcwstr, riid: ConstPtr, renderopt: UInt, lpformatetc: ConstPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateFromFile(rclsid.rawAddress.toCPointer<ByteVar>(), lpszfilename.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), renderopt, lpformatetc.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateFromFileEx(rclsid: ConstPtr, lpszfilename: Pcwstr, riid: ConstPtr, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr, rgformatetc: ConstPtr, lpadvisesink: MutPtr, rgdwconnection: MutPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateFromFileEx(rclsid.rawAddress.toCPointer<ByteVar>(), lpszfilename.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.rawAddress.toCPointer<ByteVar>(), rgformatetc.rawAddress.toCPointer<ByteVar>(), lpadvisesink.rawAddress.toCPointer<ByteVar>(), rgdwconnection.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateLink(pmklinksrc: MutPtr, riid: ConstPtr, renderopt: UInt, lpformatetc: ConstPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateLink(pmklinksrc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), renderopt, lpformatetc.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateLinkEx(pmklinksrc: MutPtr, riid: ConstPtr, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr, rgformatetc: ConstPtr, lpadvisesink: MutPtr, rgdwconnection: MutPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateLinkEx(pmklinksrc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.rawAddress.toCPointer<ByteVar>(), rgformatetc.rawAddress.toCPointer<ByteVar>(), lpadvisesink.rawAddress.toCPointer<ByteVar>(), rgdwconnection.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateLinkFromData(psrcdataobj: MutPtr, riid: ConstPtr, renderopt: UInt, pformatetc: ConstPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateLinkFromData(psrcdataobj.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), renderopt, pformatetc.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateLinkFromDataEx(psrcdataobj: MutPtr, riid: ConstPtr, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr, rgformatetc: ConstPtr, lpadvisesink: MutPtr, rgdwconnection: MutPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateLinkFromDataEx(psrcdataobj.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.rawAddress.toCPointer<ByteVar>(), rgformatetc.rawAddress.toCPointer<ByteVar>(), lpadvisesink.rawAddress.toCPointer<ByteVar>(), rgdwconnection.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateLinkToFile(lpszfilename: Pcwstr, riid: ConstPtr, renderopt: UInt, lpformatetc: ConstPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateLinkToFile(lpszfilename.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), renderopt, lpformatetc.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateLinkToFileEx(lpszfilename: Pcwstr, riid: ConstPtr, dwflags: Olecreate, renderopt: UInt, cformats: UInt, rgadvf: ConstPtr, rgformatetc: ConstPtr, lpadvisesink: MutPtr, rgdwconnection: MutPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateLinkToFileEx(lpszfilename.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), dwflags, renderopt, cformats, rgadvf.rawAddress.toCPointer<ByteVar>(), rgformatetc.rawAddress.toCPointer<ByteVar>(), lpadvisesink.rawAddress.toCPointer<ByteVar>(), rgdwconnection.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateMenuDescriptor(hmenucombined: Hmenu, lpmenuwidths: ConstPtr): Long =
+    windowssysWindowsWin32SystemOleOleCreateMenuDescriptor(hmenucombined.rawAddress.toCPointer<ByteVar>(), lpmenuwidths.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreatePictureIndirect(lppictdesc: ConstPtr, riid: ConstPtr, fown: Bool, lplpvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreatePictureIndirect(lppictdesc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), fown, lplpvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreatePropertyFrame(hwndowner: Hwnd, x: UInt, y: UInt, lpszcaption: Pcwstr, cobjects: UInt, ppunk: ConstPtr, cpages: UInt, ppageclsid: ConstPtr, lcid: UInt, dwreserved: UInt, pvreserved: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreatePropertyFrame(hwndowner.rawAddress.toCPointer<ByteVar>(), x, y, lpszcaption.rawAddress.toCPointer<ByteVar>(), cobjects, ppunk.rawAddress.toCPointer<ByteVar>(), cpages, ppageclsid.rawAddress.toCPointer<ByteVar>(), lcid, dwreserved, pvreserved.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreatePropertyFrameIndirect(lpparams: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreatePropertyFrameIndirect(lpparams.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleCreateStaticFromData(psrcdataobj: MutPtr, iid: ConstPtr, renderopt: UInt, pformatetc: ConstPtr, pclientsite: MutPtr, pstg: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleCreateStaticFromData(psrcdataobj.rawAddress.toCPointer<ByteVar>(), iid.rawAddress.toCPointer<ByteVar>(), renderopt, pformatetc.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleDestroyMenuDescriptor(holemenu: Long): Hresult =
+    windowssysWindowsWin32SystemOleOleDestroyMenuDescriptor(holemenu)
+
+public actual fun oleDoAutoConvert(pstg: MutPtr, pclsidnew: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleDoAutoConvert(pstg.rawAddress.toCPointer<ByteVar>(), pclsidnew.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleDraw(punknown: MutPtr, dwaspect: UInt, hdcdraw: Hdc, lprcbounds: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleDraw(punknown.rawAddress.toCPointer<ByteVar>(), dwaspect, hdcdraw.rawAddress.toCPointer<ByteVar>(), lprcbounds.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleDuplicateData(hsrc: Handle, cfformat: ClipboardFormat, uiflags: GlobalAllocFlags): Handle =
+    MutPtr(windowssysWindowsWin32SystemOleOleDuplicateData(hsrc.rawAddress.toCPointer<ByteVar>(), cfformat, uiflags)?.toLong() ?: 0L)
+
+public actual fun oleFlushClipboard(): Hresult =
+    windowssysWindowsWin32SystemOleOleFlushClipboard()
+
+public actual fun oleGetAutoConvert(clsidold: ConstPtr, pclsidnew: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleGetAutoConvert(clsidold.rawAddress.toCPointer<ByteVar>(), pclsidnew.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleGetClipboard(ppdataobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleGetClipboard(ppdataobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleGetClipboardWithEnterpriseInfo(dataobject: MutPtr, dataenterpriseid: MutPtr, sourcedescription: MutPtr, targetdescription: MutPtr, datadescription: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleGetClipboardWithEnterpriseInfo(dataobject.rawAddress.toCPointer<ByteVar>(), dataenterpriseid.rawAddress.toCPointer<ByteVar>(), sourcedescription.rawAddress.toCPointer<ByteVar>(), targetdescription.rawAddress.toCPointer<ByteVar>(), datadescription.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleGetIconOfClass(rclsid: ConstPtr, lpszlabel: Pcwstr, fusetypeaslabel: Bool): Hglobal =
+    MutPtr(windowssysWindowsWin32SystemOleOleGetIconOfClass(rclsid.rawAddress.toCPointer<ByteVar>(), lpszlabel.rawAddress.toCPointer<ByteVar>(), fusetypeaslabel)?.toLong() ?: 0L)
+
+public actual fun oleGetIconOfFile(lpszpath: Pcwstr, fusefileaslabel: Bool): Hglobal =
+    MutPtr(windowssysWindowsWin32SystemOleOleGetIconOfFile(lpszpath.rawAddress.toCPointer<ByteVar>(), fusefileaslabel)?.toLong() ?: 0L)
+
+public actual fun oleIconToCursor(hinstexe: Hinstance, hicon: Hicon): Hcursor =
+    MutPtr(windowssysWindowsWin32SystemOleOleIconToCursor(hinstexe.rawAddress.toCPointer<ByteVar>(), hicon.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun oleInitialize(pvreserved: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleInitialize(pvreserved.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleIsCurrentClipboard(pdataobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleIsCurrentClipboard(pdataobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleIsRunning(pobject: MutPtr): Bool =
+    windowssysWindowsWin32SystemOleOleIsRunning(pobject.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleLoad(pstg: MutPtr, riid: ConstPtr, pclientsite: MutPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleLoad(pstg.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), pclientsite.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleLoadFromStream(pstm: MutPtr, iidinterface: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleLoadFromStream(pstm.rawAddress.toCPointer<ByteVar>(), iidinterface.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleLoadPicture(lpstream: MutPtr, lsize: Int, frunmode: Bool, riid: ConstPtr, lplpvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleLoadPicture(lpstream.rawAddress.toCPointer<ByteVar>(), lsize, frunmode, riid.rawAddress.toCPointer<ByteVar>(), lplpvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleLoadPictureEx(lpstream: MutPtr, lsize: Int, frunmode: Bool, riid: ConstPtr, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpvobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleLoadPictureEx(lpstream.rawAddress.toCPointer<ByteVar>(), lsize, frunmode, riid.rawAddress.toCPointer<ByteVar>(), xsizedesired, ysizedesired, dwflags, lplpvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleLoadPictureFile(varfilename: Variant, lplpdisppicture: MutPtr): Hresult =
+    0
+
+public actual fun oleLoadPictureFileEx(varfilename: Variant, xsizedesired: UInt, ysizedesired: UInt, dwflags: LoadPictureFlags, lplpdisppicture: MutPtr): Hresult =
+    0
+
+public actual fun oleLoadPicturePath(szurlorpath: Pcwstr, punkcaller: MutPtr, dwreserved: UInt, clrreserved: UInt, riid: ConstPtr, ppvret: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleLoadPicturePath(szurlorpath.rawAddress.toCPointer<ByteVar>(), punkcaller.rawAddress.toCPointer<ByteVar>(), dwreserved, clrreserved, riid.rawAddress.toCPointer<ByteVar>(), ppvret.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleLockRunning(punknown: MutPtr, flock: Bool, flastunlockcloses: Bool): Hresult =
+    windowssysWindowsWin32SystemOleOleLockRunning(punknown.rawAddress.toCPointer<ByteVar>(), flock, flastunlockcloses)
+
+public actual fun oleMetafilePictFromIconAndLabel(hicon: Hicon, lpszlabel: Pcwstr, lpszsourcefile: Pcwstr, iiconindex: UInt): Hglobal =
+    MutPtr(windowssysWindowsWin32SystemOleOleMetafilePictFromIconAndLabel(hicon.rawAddress.toCPointer<ByteVar>(), lpszlabel.rawAddress.toCPointer<ByteVar>(), lpszsourcefile.rawAddress.toCPointer<ByteVar>(), iiconindex)?.toLong() ?: 0L)
+
+public actual fun oleNoteObjectVisible(punknown: MutPtr, fvisible: Bool): Hresult =
+    windowssysWindowsWin32SystemOleOleNoteObjectVisible(punknown.rawAddress.toCPointer<ByteVar>(), fvisible)
+
+public actual fun oleQueryCreateFromData(psrcdataobject: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleQueryCreateFromData(psrcdataobject.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleQueryLinkFromData(psrcdataobject: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleQueryLinkFromData(psrcdataobject.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleRegEnumFormatEtc(clsid: ConstPtr, dwdirection: UInt, ppenum: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleRegEnumFormatEtc(clsid.rawAddress.toCPointer<ByteVar>(), dwdirection, ppenum.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleRegEnumVerbs(clsid: ConstPtr, ppenum: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleRegEnumVerbs(clsid.rawAddress.toCPointer<ByteVar>(), ppenum.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleRegGetMiscStatus(clsid: ConstPtr, dwaspect: UInt, pdwstatus: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleRegGetMiscStatus(clsid.rawAddress.toCPointer<ByteVar>(), dwaspect, pdwstatus.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleRegGetUserType(clsid: ConstPtr, dwformoftype: UInt, pszusertype: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleRegGetUserType(clsid.rawAddress.toCPointer<ByteVar>(), dwformoftype, pszusertype.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleRun(punknown: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleRun(punknown.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleSave(pps: MutPtr, pstg: MutPtr, fsameasload: Bool): Hresult =
+    windowssysWindowsWin32SystemOleOleSave(pps.rawAddress.toCPointer<ByteVar>(), pstg.rawAddress.toCPointer<ByteVar>(), fsameasload)
+
+public actual fun oleSavePictureFile(lpdisppicture: MutPtr, bstrfilename: Bstr): Hresult =
+    windowssysWindowsWin32SystemOleOleSavePictureFile(lpdisppicture.rawAddress.toCPointer<ByteVar>(), bstrfilename.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleSaveToStream(ppstm: MutPtr, pstm: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleSaveToStream(ppstm.rawAddress.toCPointer<ByteVar>(), pstm.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleSetAutoConvert(clsidold: ConstPtr, clsidnew: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleSetAutoConvert(clsidold.rawAddress.toCPointer<ByteVar>(), clsidnew.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleSetClipboard(pdataobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleSetClipboard(pdataobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleSetContainedObject(punknown: MutPtr, fcontained: Bool): Hresult =
+    windowssysWindowsWin32SystemOleOleSetContainedObject(punknown.rawAddress.toCPointer<ByteVar>(), fcontained)
+
+public actual fun oleSetMenuDescriptor(holemenu: Long, hwndframe: Hwnd, hwndactiveobject: Hwnd, lpframe: MutPtr, lpactiveobj: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleSetMenuDescriptor(holemenu, hwndframe.rawAddress.toCPointer<ByteVar>(), hwndactiveobject.rawAddress.toCPointer<ByteVar>(), lpframe.rawAddress.toCPointer<ByteVar>(), lpactiveobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleTranslateAccelerator(lpframe: MutPtr, lpframeinfo: ConstPtr, lpmsg: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleTranslateAccelerator(lpframe.rawAddress.toCPointer<ByteVar>(), lpframeinfo.rawAddress.toCPointer<ByteVar>(), lpmsg.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleTranslateColor(clr: UInt, hpal: Hpalette, lpcolorref: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleOleTranslateColor(clr, hpal.rawAddress.toCPointer<ByteVar>(), lpcolorref.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIAddVerbMenuA(lpoleobj: MutPtr, lpszshorttype: Pcstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: MutPtr): Bool =
+    windowssysWindowsWin32SystemOleOleUIAddVerbMenuA(lpoleobj.rawAddress.toCPointer<ByteVar>(), lpszshorttype.rawAddress.toCPointer<ByteVar>(), hmenu.rawAddress.toCPointer<ByteVar>(), upos, uidverbmin, uidverbmax, baddconvert, idconvert, lphmenu.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIAddVerbMenuW(lpoleobj: MutPtr, lpszshorttype: Pcwstr, hmenu: Hmenu, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: Bool, idconvert: UInt, lphmenu: MutPtr): Bool =
+    windowssysWindowsWin32SystemOleOleUIAddVerbMenuW(lpoleobj.rawAddress.toCPointer<ByteVar>(), lpszshorttype.rawAddress.toCPointer<ByteVar>(), hmenu.rawAddress.toCPointer<ByteVar>(), upos, uidverbmin, uidverbmax, baddconvert, idconvert, lphmenu.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIBusyA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIBusyA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIBusyW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIBusyW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUICanConvertOrActivateAs(rclsid: ConstPtr, fislinkedobject: Bool, wformat: UShort): Bool =
+    windowssysWindowsWin32SystemOleOleUICanConvertOrActivateAs(rclsid.rawAddress.toCPointer<ByteVar>(), fislinkedobject, wformat)
+
+public actual fun oleUIChangeIconA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIChangeIconA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIChangeIconW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIChangeIconW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIChangeSourceA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIChangeSourceA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIChangeSourceW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIChangeSourceW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIConvertA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIConvertA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIConvertW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIConvertW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIEditLinksA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIEditLinksA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIEditLinksW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIEditLinksW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIInsertObjectA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIInsertObjectA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIInsertObjectW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIInsertObjectW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIObjectPropertiesA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIObjectPropertiesA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIObjectPropertiesW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIObjectPropertiesW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIPasteSpecialA(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIPasteSpecialA(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIPasteSpecialW(param0: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleOleUIPasteSpecialW(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleUIPromptUserA(ntemplate: Int, hwndparent: Hwnd, vararg variadicArgs: Long): Int =
+    windowssysWindowsWin32SystemOleOleUIPromptUserA(ntemplate, hwndparent.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun oleUIPromptUserW(ntemplate: Int, hwndparent: Hwnd, vararg variadicArgs: Long): Int =
+    windowssysWindowsWin32SystemOleOleUIPromptUserW(ntemplate, hwndparent.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun oleUIUpdateLinksA(lpoleuilinkcntr: MutPtr, hwndparent: Hwnd, lpsztitle: Pcstr, clinks: Int): Bool =
+    windowssysWindowsWin32SystemOleOleUIUpdateLinksA(lpoleuilinkcntr.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), lpsztitle.rawAddress.toCPointer<ByteVar>(), clinks)
+
+public actual fun oleUIUpdateLinksW(lpoleuilinkcntr: MutPtr, hwndparent: Hwnd, lpsztitle: Pcwstr, clinks: Int): Bool =
+    windowssysWindowsWin32SystemOleOleUIUpdateLinksW(lpoleuilinkcntr.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), lpsztitle.rawAddress.toCPointer<ByteVar>(), clinks)
+
+public actual fun oleUninitialize() {
+    windowssysWindowsWin32SystemOleOleUninitialize()
+}
+
+public actual fun queryPathOfRegTypeLib(guid: ConstPtr, wmaj: UShort, wmin: UShort, lcid: UInt, lpbstrpathname: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleQueryPathOfRegTypeLib(guid.rawAddress.toCPointer<ByteVar>(), wmaj, wmin, lcid, lpbstrpathname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerActiveObject(punk: MutPtr, rclsid: ConstPtr, dwflags: ActiveobjectFlags, pdwregister: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleRegisterActiveObject(punk.rawAddress.toCPointer<ByteVar>(), rclsid.rawAddress.toCPointer<ByteVar>(), dwflags, pdwregister.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerDragDrop(hwnd: Hwnd, pdroptarget: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleRegisterDragDrop(hwnd.rawAddress.toCPointer<ByteVar>(), pdroptarget.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerTypeLib(ptlib: MutPtr, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
+    windowssysWindowsWin32SystemOleRegisterTypeLib(ptlib.rawAddress.toCPointer<ByteVar>(), szfullpath.rawAddress.toCPointer<ByteVar>(), szhelpdir.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerTypeLibForUser(ptlib: MutPtr, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
+    windowssysWindowsWin32SystemOleRegisterTypeLibForUser(ptlib.rawAddress.toCPointer<ByteVar>(), szfullpath.rawAddress.toCPointer<ByteVar>(), szhelpdir.rawAddress.toCPointer<ByteVar>())
+
+public actual fun releaseStgMedium(param0: MutPtr) {
+    windowssysWindowsWin32SystemOleReleaseStgMedium(param0.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun revokeActiveObject(dwregister: UInt, pvreserved: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleRevokeActiveObject(dwregister, pvreserved.rawAddress.toCPointer<ByteVar>())
+
+public actual fun revokeDragDrop(hwnd: Hwnd): Hresult =
+    windowssysWindowsWin32SystemOleRevokeDragDrop(hwnd.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayAccessData(psa: ConstPtr, ppvdata: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayAccessData(psa.rawAddress.toCPointer<ByteVar>(), ppvdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayAddRef(psa: ConstPtr, ppdatatorelease: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayAddRef(psa.rawAddress.toCPointer<ByteVar>(), ppdatatorelease.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayAllocData(psa: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayAllocData(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayAllocDescriptor(cdims: UInt, ppsaout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayAllocDescriptor(cdims, ppsaout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayAllocDescriptorEx(vt: Varenum, cdims: UInt, ppsaout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayAllocDescriptorEx(vt, cdims, ppsaout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayCopy(psa: ConstPtr, ppsaout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayCopy(psa.rawAddress.toCPointer<ByteVar>(), ppsaout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayCopyData(psasource: ConstPtr, psatarget: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayCopyData(psasource.rawAddress.toCPointer<ByteVar>(), psatarget.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayCreate(vt: Varenum, cdims: UInt, rgsabound: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreate(vt, cdims, rgsabound.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun safeArrayCreateEx(vt: Varenum, cdims: UInt, rgsabound: ConstPtr, pvextra: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreateEx(vt, cdims, rgsabound.rawAddress.toCPointer<ByteVar>(), pvextra.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun safeArrayCreateVector(vt: Varenum, llbound: Int, celements: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreateVector(vt, llbound, celements)?.toLong() ?: 0L)
+
+public actual fun safeArrayCreateVectorEx(vt: Varenum, llbound: Int, celements: UInt, pvextra: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32SystemOleSafeArrayCreateVectorEx(vt, llbound, celements, pvextra.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun safeArrayDestroy(psa: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayDestroy(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayDestroyData(psa: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayDestroyData(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayDestroyDescriptor(psa: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayDestroyDescriptor(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetDim(psa: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleSafeArrayGetDim(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetElement(psa: ConstPtr, rgindices: ConstPtr, pv: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayGetElement(psa.rawAddress.toCPointer<ByteVar>(), rgindices.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetElemsize(psa: ConstPtr): UInt =
+    windowssysWindowsWin32SystemOleSafeArrayGetElemsize(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetIID(psa: ConstPtr, pguid: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayGetIID(psa.rawAddress.toCPointer<ByteVar>(), pguid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetLBound(psa: ConstPtr, ndim: UInt, pllbound: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayGetLBound(psa.rawAddress.toCPointer<ByteVar>(), ndim, pllbound.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetRecordInfo(psa: ConstPtr, prinfo: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayGetRecordInfo(psa.rawAddress.toCPointer<ByteVar>(), prinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetUBound(psa: ConstPtr, ndim: UInt, plubound: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayGetUBound(psa.rawAddress.toCPointer<ByteVar>(), ndim, plubound.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayGetVartype(psa: ConstPtr, pvt: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayGetVartype(psa.rawAddress.toCPointer<ByteVar>(), pvt.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayLock(psa: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayLock(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayPtrOfIndex(psa: ConstPtr, rgindices: ConstPtr, ppvdata: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayPtrOfIndex(psa.rawAddress.toCPointer<ByteVar>(), rgindices.rawAddress.toCPointer<ByteVar>(), ppvdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayPutElement(psa: ConstPtr, rgindices: ConstPtr, pv: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayPutElement(psa.rawAddress.toCPointer<ByteVar>(), rgindices.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayRedim(psa: MutPtr, psaboundnew: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayRedim(psa.rawAddress.toCPointer<ByteVar>(), psaboundnew.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayReleaseData(pdata: ConstPtr) {
+    windowssysWindowsWin32SystemOleSafeArrayReleaseData(pdata.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun safeArrayReleaseDescriptor(psa: ConstPtr) {
+    windowssysWindowsWin32SystemOleSafeArrayReleaseDescriptor(psa.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun safeArraySetIID(psa: ConstPtr, guid: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArraySetIID(psa.rawAddress.toCPointer<ByteVar>(), guid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArraySetRecordInfo(psa: ConstPtr, prinfo: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArraySetRecordInfo(psa.rawAddress.toCPointer<ByteVar>(), prinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayUnaccessData(psa: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayUnaccessData(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun safeArrayUnlock(psa: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleSafeArrayUnlock(psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun unRegisterTypeLib(libid: ConstPtr, wvermajor: UShort, wverminor: UShort, lcid: UInt, syskind: Syskind): Hresult =
+    windowssysWindowsWin32SystemOleUnRegisterTypeLib(libid.rawAddress.toCPointer<ByteVar>(), wvermajor, wverminor, lcid, syskind)
+
+public actual fun unRegisterTypeLibForUser(libid: ConstPtr, wmajorvernum: UShort, wminorvernum: UShort, lcid: UInt, syskind: Syskind): Hresult =
+    windowssysWindowsWin32SystemOleUnRegisterTypeLibForUser(libid.rawAddress.toCPointer<ByteVar>(), wmajorvernum, wminorvernum, lcid, syskind)
+
+public actual fun varAbs(pvarin: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarAbs(pvarin.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varAdd(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarAdd(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varAnd(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarAnd(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromCy(cyin: CY, pboolout: MutPtr): Hresult =
+    0
+
+public actual fun varBoolFromDate(datein: Double, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromDate(datein, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromDec(pdecin: ConstPtr, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromDisp(pdispin: MutPtr, lcid: UInt, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromI1(cin: Byte, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromI1(cin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromI2(sin: Short, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromI2(sin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromI4(lin: Int, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromI4(lin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromI8(i64in: Long, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromI8(i64in, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromR4(fltin: Float, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromR4(fltin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromR8(dblin: Double, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromR8(dblin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromUI1(bin: UByte, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromUI1(bin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromUI2(uiin: UShort, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromUI2(uiin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromUI4(ulin: UInt, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromUI4(ulin, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBoolFromUI8(i64in: ULong, pboolout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBoolFromUI8(i64in, pboolout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrCat(bstrleft: Bstr, bstrright: Bstr, pbstrresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrCat(bstrleft.rawAddress.toCPointer<ByteVar>(), bstrright.rawAddress.toCPointer<ByteVar>(), pbstrresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrCmp(bstrleft: Bstr, bstrright: Bstr, lcid: UInt, dwflags: UInt): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrCmp(bstrleft.rawAddress.toCPointer<ByteVar>(), bstrright.rawAddress.toCPointer<ByteVar>(), lcid, dwflags)
+
+public actual fun varBstrFromBool(boolin: VariantBool, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromBool(boolin, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromCy(cyin: CY, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    0
+
+public actual fun varBstrFromDate(datein: Double, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromDate(datein, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromDec(pdecin: ConstPtr, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromDec(pdecin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromDisp(pdispin: MutPtr, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromI1(cin: Byte, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromI1(cin, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromI2(ival: Short, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromI2(ival, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromI4(lin: Int, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromI4(lin, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromI8(i64in: Long, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromI8(i64in, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromR4(fltin: Float, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromR4(fltin, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromR8(dblin: Double, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromR8(dblin, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromUI1(bval: UByte, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromUI1(bval, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromUI2(uiin: UShort, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromUI2(uiin, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromUI4(ulin: UInt, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromUI4(ulin, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varBstrFromUI8(ui64in: ULong, lcid: UInt, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarBstrFromUI8(ui64in, lcid, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCat(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCat(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCmp(pvarleft: ConstPtr, pvarright: ConstPtr, lcid: UInt, dwflags: UInt): Varcmp =
+    windowssysWindowsWin32SystemOleVarCmp(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), lcid, dwflags)
+
+public actual fun varCyAbs(cyin: CY, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyAdd(cyleft: CY, cyright: CY, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyCmp(cyleft: CY, cyright: CY): Varcmp =
+    0u
+
+public actual fun varCyCmpR8(cyleft: CY, dblright: Double): Varcmp =
+    0u
+
+public actual fun varCyFix(cyin: CY, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyFromBool(boolin: VariantBool, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromBool(boolin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromDate(datein: Double, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromDate(datein, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromDec(pdecin: ConstPtr, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromDisp(pdispin: MutPtr, lcid: UInt, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromI1(cin: Byte, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromI1(cin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromI2(sin: Short, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromI2(sin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromI4(lin: Int, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromI4(lin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromI8(i64in: Long, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromI8(i64in, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromR4(fltin: Float, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromR4(fltin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromR8(dblin: Double, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromR8(dblin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromUI1(bin: UByte, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromUI1(bin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromUI2(uiin: UShort, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromUI2(uiin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromUI4(ulin: UInt, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromUI4(ulin, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyFromUI8(ui64in: ULong, pcyout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarCyFromUI8(ui64in, pcyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varCyInt(cyin: CY, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyMul(cyleft: CY, cyright: CY, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyMulI4(cyleft: CY, lright: Int, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyMulI8(cyleft: CY, lright: Long, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyNeg(cyin: CY, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCyRound(cyin: CY, cdecimals: Int, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varCySub(cyleft: CY, cyright: CY, pcyresult: MutPtr): Hresult =
+    0
+
+public actual fun varDateFromBool(boolin: VariantBool, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromBool(boolin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromCy(cyin: CY, pdateout: MutPtr): Hresult =
+    0
+
+public actual fun varDateFromDec(pdecin: ConstPtr, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromDisp(pdispin: MutPtr, lcid: UInt, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromI1(cin: Byte, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromI1(cin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromI2(sin: Short, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromI2(sin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromI4(lin: Int, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromI4(lin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromI8(i64in: Long, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromI8(i64in, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromR4(fltin: Float, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromR4(fltin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromR8(dblin: Double, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromR8(dblin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromUI1(bin: UByte, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromUI1(bin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromUI2(uiin: UShort, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromUI2(uiin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromUI4(ulin: UInt, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromUI4(ulin, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromUI8(ui64in: ULong, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromUI8(ui64in, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromUdate(pudatein: ConstPtr, dwflags: UInt, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromUdate(pudatein.rawAddress.toCPointer<ByteVar>(), dwflags, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDateFromUdateEx(pudatein: ConstPtr, lcid: UInt, dwflags: UInt, pdateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDateFromUdateEx(pudatein.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pdateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecAbs(pdecin: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecAbs(pdecin.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecAdd(pdecleft: ConstPtr, pdecright: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecAdd(pdecleft.rawAddress.toCPointer<ByteVar>(), pdecright.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecCmp(pdecleft: ConstPtr, pdecright: ConstPtr): Varcmp =
+    windowssysWindowsWin32SystemOleVarDecCmp(pdecleft.rawAddress.toCPointer<ByteVar>(), pdecright.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecCmpR8(pdecleft: ConstPtr, dblright: Double): Varcmp =
+    windowssysWindowsWin32SystemOleVarDecCmpR8(pdecleft.rawAddress.toCPointer<ByteVar>(), dblright)
+
+public actual fun varDecDiv(pdecleft: ConstPtr, pdecright: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecDiv(pdecleft.rawAddress.toCPointer<ByteVar>(), pdecright.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFix(pdecin: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFix(pdecin.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromBool(boolin: VariantBool, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromBool(boolin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromCy(cyin: CY, pdecout: MutPtr): Hresult =
+    0
+
+public actual fun varDecFromDate(datein: Double, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromDate(datein, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromDisp(pdispin: MutPtr, lcid: UInt, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromI1(cin: Byte, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromI1(cin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromI2(uiin: Short, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromI2(uiin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromI4(lin: Int, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromI4(lin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromI8(i64in: Long, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromI8(i64in, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromR4(fltin: Float, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromR4(fltin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromR8(dblin: Double, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromR8(dblin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromUI1(bin: UByte, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromUI1(bin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromUI2(uiin: UShort, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromUI2(uiin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromUI4(ulin: UInt, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromUI4(ulin, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecFromUI8(ui64in: ULong, pdecout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecFromUI8(ui64in, pdecout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecInt(pdecin: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecInt(pdecin.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecMul(pdecleft: ConstPtr, pdecright: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecMul(pdecleft.rawAddress.toCPointer<ByteVar>(), pdecright.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecNeg(pdecin: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecNeg(pdecin.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecRound(pdecin: ConstPtr, cdecimals: Int, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecRound(pdecin.rawAddress.toCPointer<ByteVar>(), cdecimals, pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDecSub(pdecleft: ConstPtr, pdecright: ConstPtr, pdecresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDecSub(pdecleft.rawAddress.toCPointer<ByteVar>(), pdecright.rawAddress.toCPointer<ByteVar>(), pdecresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varDiv(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarDiv(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varEqv(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarEqv(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varFix(pvarin: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarFix(pvarin.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varFormat(pvarin: ConstPtr, pstrformat: Pcwstr, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarFormat(pvarin.rawAddress.toCPointer<ByteVar>(), pstrformat.rawAddress.toCPointer<ByteVar>(), ifirstday, ifirstweek, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varFormatCurrency(pvarin: ConstPtr, inumdig: Int, iinclead: Int, iuseparens: Int, igroup: Int, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarFormatCurrency(pvarin.rawAddress.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varFormatDateTime(pvarin: ConstPtr, inamedformat: VarformatNamedFormat, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarFormatDateTime(pvarin.rawAddress.toCPointer<ByteVar>(), inamedformat, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varFormatFromTokens(pvarin: ConstPtr, pstrformat: Pcwstr, pbtokcur: ConstPtr, dwflags: UInt, pbstrout: MutPtr, lcid: UInt): Hresult =
+    windowssysWindowsWin32SystemOleVarFormatFromTokens(pvarin.rawAddress.toCPointer<ByteVar>(), pstrformat.rawAddress.toCPointer<ByteVar>(), pbtokcur.rawAddress.toCPointer<ByteVar>(), dwflags, pbstrout.rawAddress.toCPointer<ByteVar>(), lcid)
+
+public actual fun varFormatNumber(pvarin: ConstPtr, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarFormatNumber(pvarin.rawAddress.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varFormatPercent(pvarin: ConstPtr, inumdig: Int, iinclead: VarformatLeadingDigit, iuseparens: VarformatParentheses, igroup: VarformatGroup, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarFormatPercent(pvarin.rawAddress.toCPointer<ByteVar>(), inumdig, iinclead, iuseparens, igroup, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromBool(boolin: VariantBool, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromBool(boolin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromCy(cyin: CY, pcout: Pstr): Hresult =
+    0
+
+public actual fun varI1FromDate(datein: Double, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromDate(datein, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromDec(pdecin: ConstPtr, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromDisp(pdispin: MutPtr, lcid: UInt, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromI2(uiin: Short, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromI2(uiin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromI4(lin: Int, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromI4(lin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromI8(i64in: Long, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromI8(i64in, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromR4(fltin: Float, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromR4(fltin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromR8(dblin: Double, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromR8(dblin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromUI1(bin: UByte, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromUI1(bin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromUI2(uiin: UShort, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromUI2(uiin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromUI4(ulin: UInt, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromUI4(ulin, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI1FromUI8(i64in: ULong, pcout: Pstr): Hresult =
+    windowssysWindowsWin32SystemOleVarI1FromUI8(i64in, pcout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromBool(boolin: VariantBool, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromBool(boolin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromCy(cyin: CY, psout: MutPtr): Hresult =
+    0
+
+public actual fun varI2FromDate(datein: Double, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromDate(datein, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromDec(pdecin: ConstPtr, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromDisp(pdispin: MutPtr, lcid: UInt, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromI1(cin: Byte, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromI1(cin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromI4(lin: Int, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromI4(lin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromI8(i64in: Long, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromI8(i64in, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromR4(fltin: Float, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromR4(fltin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromR8(dblin: Double, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromR8(dblin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromUI1(bin: UByte, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromUI1(bin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromUI2(uiin: UShort, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromUI2(uiin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromUI4(ulin: UInt, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromUI4(ulin, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI2FromUI8(ui64in: ULong, psout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI2FromUI8(ui64in, psout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromBool(boolin: VariantBool, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromBool(boolin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromCy(cyin: CY, plout: MutPtr): Hresult =
+    0
+
+public actual fun varI4FromDate(datein: Double, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromDate(datein, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromDec(pdecin: ConstPtr, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromDisp(pdispin: MutPtr, lcid: UInt, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromI1(cin: Byte, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromI1(cin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromI2(sin: Short, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromI2(sin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromI8(i64in: Long, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromI8(i64in, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromR4(fltin: Float, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromR4(fltin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromR8(dblin: Double, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromR8(dblin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromUI1(bin: UByte, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromUI1(bin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromUI2(uiin: UShort, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromUI2(uiin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromUI4(ulin: UInt, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromUI4(ulin, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI4FromUI8(ui64in: ULong, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI4FromUI8(ui64in, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromBool(boolin: VariantBool, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromBool(boolin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromCy(cyin: CY, pi64out: MutPtr): Hresult =
+    0
+
+public actual fun varI8FromDate(datein: Double, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromDate(datein, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromDec(pdecin: ConstPtr, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromDisp(pdispin: MutPtr, lcid: UInt, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromI1(cin: Byte, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromI1(cin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromI2(sin: Short, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromI2(sin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromR4(fltin: Float, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromR4(fltin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromR8(dblin: Double, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromR8(dblin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromUI1(bin: UByte, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromUI1(bin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromUI2(uiin: UShort, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromUI2(uiin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromUI4(ulin: UInt, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromUI4(ulin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varI8FromUI8(ui64in: ULong, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarI8FromUI8(ui64in, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varIdiv(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarIdiv(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varImp(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarImp(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varInt(pvarin: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarInt(pvarin.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varMod(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarMod(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varMonthName(imonth: Int, fabbrev: Int, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarMonthName(imonth, fabbrev, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varMul(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarMul(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varNeg(pvarin: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarNeg(pvarin.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varNot(pvarin: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarNot(pvarin.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varNumFromParseNum(pnumprs: ConstPtr, rgbdig: ConstPtr, dwvtbits: UInt, pvar: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarNumFromParseNum(pnumprs.rawAddress.toCPointer<ByteVar>(), rgbdig.rawAddress.toCPointer<ByteVar>(), dwvtbits, pvar.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varOr(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarOr(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varParseNumFromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pnumprs: MutPtr, rgbdig: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarParseNumFromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pnumprs.rawAddress.toCPointer<ByteVar>(), rgbdig.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varPow(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarPow(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4CmpR8(fltleft: Float, dblright: Double): Varcmp =
+    windowssysWindowsWin32SystemOleVarR4CmpR8(fltleft, dblright)
+
+public actual fun varR4FromBool(boolin: VariantBool, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromBool(boolin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromCy(cyin: CY, pfltout: MutPtr): Hresult =
+    0
+
+public actual fun varR4FromDate(datein: Double, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromDate(datein, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromDec(pdecin: ConstPtr, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromDisp(pdispin: MutPtr, lcid: UInt, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromI1(cin: Byte, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromI1(cin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromI2(sin: Short, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromI2(sin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromI4(lin: Int, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromI4(lin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromI8(i64in: Long, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromI8(i64in, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromR8(dblin: Double, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromR8(dblin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromUI1(bin: UByte, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromUI1(bin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromUI2(uiin: UShort, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromUI2(uiin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromUI4(ulin: UInt, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromUI4(ulin, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR4FromUI8(ui64in: ULong, pfltout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR4FromUI8(ui64in, pfltout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromBool(boolin: VariantBool, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromBool(boolin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromCy(cyin: CY, pdblout: MutPtr): Hresult =
+    0
+
+public actual fun varR8FromDate(datein: Double, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromDate(datein, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromDec(pdecin: ConstPtr, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromDisp(pdispin: MutPtr, lcid: UInt, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromI1(cin: Byte, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromI1(cin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromI2(sin: Short, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromI2(sin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromI4(lin: Int, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromI4(lin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromI8(i64in: Long, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromI8(i64in, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromR4(fltin: Float, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromR4(fltin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromUI1(bin: UByte, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromUI1(bin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromUI2(uiin: UShort, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromUI2(uiin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromUI4(ulin: UInt, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromUI4(ulin, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8FromUI8(ui64in: ULong, pdblout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8FromUI8(ui64in, pdblout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8Pow(dblleft: Double, dblright: Double, pdblresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8Pow(dblleft, dblright, pdblresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varR8Round(dblin: Double, cdecimals: Int, pdblresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarR8Round(dblin, cdecimals, pdblresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varRound(pvarin: ConstPtr, cdecimals: Int, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarRound(pvarin.rawAddress.toCPointer<ByteVar>(), cdecimals, pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varSub(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarSub(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varTokenizeFormatString(pstrformat: Pcwstr, rgbtok: MutPtr, cbtok: Int, ifirstday: VarformatFirstDay, ifirstweek: VarformatFirstWeek, lcid: UInt, pcbactual: ConstPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarTokenizeFormatString(pstrformat.rawAddress.toCPointer<ByteVar>(), rgbtok.rawAddress.toCPointer<ByteVar>(), cbtok, ifirstday, ifirstweek, lcid, pcbactual.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromBool(boolin: VariantBool, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromBool(boolin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromCy(cyin: CY, pbout: MutPtr): Hresult =
+    0
+
+public actual fun varUI1FromDate(datein: Double, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromDate(datein, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromDec(pdecin: ConstPtr, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromDisp(pdispin: MutPtr, lcid: UInt, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromI1(cin: Byte, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromI1(cin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromI2(sin: Short, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromI2(sin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromI4(lin: Int, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromI4(lin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromI8(i64in: Long, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromI8(i64in, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromR4(fltin: Float, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromR4(fltin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromR8(dblin: Double, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromR8(dblin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromUI2(uiin: UShort, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromUI2(uiin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromUI4(ulin: UInt, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromUI4(ulin, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI1FromUI8(ui64in: ULong, pbout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI1FromUI8(ui64in, pbout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromBool(boolin: VariantBool, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromBool(boolin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromCy(cyin: CY, puiout: MutPtr): Hresult =
+    0
+
+public actual fun varUI2FromDate(datein: Double, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromDate(datein, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromDec(pdecin: ConstPtr, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromDisp(pdispin: MutPtr, lcid: UInt, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromI1(cin: Byte, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromI1(cin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromI2(uiin: Short, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromI2(uiin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromI4(lin: Int, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromI4(lin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromI8(i64in: Long, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromI8(i64in, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromR4(fltin: Float, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromR4(fltin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromR8(dblin: Double, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromR8(dblin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromUI1(bin: UByte, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromUI1(bin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromUI4(ulin: UInt, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromUI4(ulin, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI2FromUI8(i64in: ULong, puiout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI2FromUI8(i64in, puiout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromBool(boolin: VariantBool, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromBool(boolin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromCy(cyin: CY, pulout: MutPtr): Hresult =
+    0
+
+public actual fun varUI4FromDate(datein: Double, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromDate(datein, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromDec(pdecin: ConstPtr, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromDisp(pdispin: MutPtr, lcid: UInt, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromI1(cin: Byte, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromI1(cin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromI2(uiin: Short, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromI2(uiin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromI4(lin: Int, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromI4(lin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromI8(i64in: Long, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromI8(i64in, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromR4(fltin: Float, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromR4(fltin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromR8(dblin: Double, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromR8(dblin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromUI1(bin: UByte, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromUI1(bin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromUI2(uiin: UShort, pulout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromUI2(uiin, pulout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI4FromUI8(ui64in: ULong, plout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI4FromUI8(ui64in, plout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromBool(boolin: VariantBool, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromBool(boolin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromCy(cyin: CY, pi64out: MutPtr): Hresult =
+    0
+
+public actual fun varUI8FromDate(datein: Double, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromDate(datein, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromDec(pdecin: ConstPtr, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromDec(pdecin.rawAddress.toCPointer<ByteVar>(), pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromDisp(pdispin: MutPtr, lcid: UInt, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromDisp(pdispin.rawAddress.toCPointer<ByteVar>(), lcid, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromI1(cin: Byte, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromI1(cin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromI2(sin: Short, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromI2(sin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromI8(ui64in: Long, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromI8(ui64in, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromR4(fltin: Float, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromR4(fltin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromR8(dblin: Double, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromR8(dblin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromStr(strin: Pcwstr, lcid: UInt, dwflags: UInt, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromStr(strin.rawAddress.toCPointer<ByteVar>(), lcid, dwflags, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromUI1(bin: UByte, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromUI1(bin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromUI2(uiin: UShort, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromUI2(uiin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUI8FromUI4(ulin: UInt, pi64out: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUI8FromUI4(ulin, pi64out.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varUdateFromDate(datein: Double, dwflags: UInt, pudateout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarUdateFromDate(datein, dwflags, pudateout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varWeekdayName(iweekday: Int, fabbrev: Int, ifirstday: Int, dwflags: UInt, pbstrout: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarWeekdayName(iweekday, fabbrev, ifirstday, dwflags, pbstrout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun varXor(pvarleft: ConstPtr, pvarright: ConstPtr, pvarresult: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVarXor(pvarleft.rawAddress.toCPointer<ByteVar>(), pvarright.rawAddress.toCPointer<ByteVar>(), pvarresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun vectorFromBstr(bstr: Bstr, ppsa: MutPtr): Hresult =
+    windowssysWindowsWin32SystemOleVectorFromBstr(bstr.rawAddress.toCPointer<ByteVar>(), ppsa.rawAddress.toCPointer<ByteVar>())

@@ -1,0 +1,27 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssCaptureSnapshot(void* processhandle, uint32_t captureflags, uint32_t threadcontextflags, void* snapshothandle);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssDuplicateSnapshot(void* sourceprocesshandle, void* snapshothandle, void* targetprocesshandle, void* targetsnapshothandle, int32_t flags);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssFreeSnapshot(void* processhandle, void* snapshothandle);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssQuerySnapshot(void* snapshothandle, int32_t informationclass, void* buffer, uint32_t bufferlength);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerCreate(void* allocator, void* walkmarkerhandle);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerFree(void* walkmarkerhandle);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerGetPosition(void* walkmarkerhandle, void* position);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSeekToBeginning(void* walkmarkerhandle);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSetPosition(void* walkmarkerhandle, uint64_t position);
+uint32_t windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot(void* snapshothandle, int32_t informationclass, void* walkmarkerhandle, void* buffer, uint32_t bufferlength);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WRAPPER_H */

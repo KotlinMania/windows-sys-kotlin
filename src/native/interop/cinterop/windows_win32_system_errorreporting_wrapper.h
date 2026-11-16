@@ -1,0 +1,58 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SYSTEM_ERRORREPORTING_WINDOWS_WIN32_SYSTEM_ERRORREPORTING_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SYSTEM_ERRORREPORTING_WINDOWS_WIN32_SYSTEM_ERRORREPORTING_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationA(void* szapplication);
+int32_t windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW(void* wszapplication);
+int32_t windowssysWindowsWin32SystemErrorreportingReportFault(void* pep, uint32_t dwopt);
+int32_t windowssysWindowsWin32SystemErrorreportingWerAddExcludedApplication(void* pwzexename, int32_t ballusers);
+void windowssysWindowsWin32SystemErrorreportingWerFreeString(void* pwszstr);
+int32_t windowssysWindowsWin32SystemErrorreportingWerGetFlags(void* hprocess, void* pdwflags);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRegisterAdditionalProcess(uint32_t processid, uint32_t captureextrainfoforthreadid);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRegisterAppLocalDump(void* localappdatarelativepath);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata(void* key, void* value);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock(void* address, uint32_t size);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRegisterFile(void* pwzfile, int32_t regfiletype, uint32_t dwflags);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock(void* pvaddress, uint32_t dwsize);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule(void* pwszoutofprocesscallbackdll, void* pcontext);
+int32_t windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication(void* pwzexename, int32_t ballusers);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportAddDump(void* hreporthandle, void* hprocess, void* hthread, int32_t dumptype, void* pexceptionparam, void* pdumpcustomoptions, uint32_t dwflags);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportAddFile(void* hreporthandle, void* pwzpath, int32_t repfiletype, uint32_t dwfileflags);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle(void* hreporthandle);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportCreate(void* pwzeventtype, int32_t reptype, void* preportinformation, void* phreporthandle);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportHang(void* hwndhungapp, void* pwzhungapplicationname);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportSetParameter(void* hreporthandle, uint32_t dwparamid, void* pwzname, void* pwzvalue);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption(void* hreporthandle, int32_t repuitypeid, void* pwzvalue);
+int32_t windowssysWindowsWin32SystemErrorreportingWerReportSubmit(void* hreporthandle, int32_t consent, uint32_t dwflags, void* psubmitresult);
+int32_t windowssysWindowsWin32SystemErrorreportingWerSetFlags(uint32_t dwflags);
+void windowssysWindowsWin32SystemErrorreportingWerStoreClose(void* hreportstore);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey(void* hreportstore, void* ppszreportkey);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey(void* hreportstore, void* ppszreportkey);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount(void* hreportstore, void* pdwreportcount);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk(void* hreportstore, void* pqwsizeinbytes);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreOpen(int32_t repstoretype, void* phreportstore);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStorePurge(void);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1(void* hreportstore, void* pszreportkey, void* preportmetadata);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2(void* hreportstore, void* pszreportkey, void* preportmetadata);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3(void* hreportstore, void* pszreportkey, void* preportmetadata);
+int32_t windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport(void* hreportstore, void* pszreportkey, uint32_t dwflags, void* psubmitresult);
+int32_t windowssysWindowsWin32SystemErrorreportingWerUnregisterAdditionalProcess(uint32_t processid);
+int32_t windowssysWindowsWin32SystemErrorreportingWerUnregisterAppLocalDump(void);
+int32_t windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata(void* key);
+int32_t windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock(void* address);
+int32_t windowssysWindowsWin32SystemErrorreportingWerUnregisterFile(void* pwzfilepath);
+int32_t windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock(void* pvaddress);
+int32_t windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule(void* pwszoutofprocesscallbackdll, void* pcontext);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SYSTEM_ERRORREPORTING_WINDOWS_WIN32_SYSTEM_ERRORREPORTING_WRAPPER_H */

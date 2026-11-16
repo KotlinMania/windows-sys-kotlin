@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop
+headers = windows_wdk_system_offlineregistry_wrapper.h
+headerFilter = windows_wdk_system_offlineregistry_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_wdk_system_offlineregistry_wrapper.a

@@ -1,0 +1,45 @@
+package io.github.kotlinmania.windowssys.windows.win32.system.environment
+
+public val ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: UInt = 4u
+
+public val ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: UInt = 2u
+
+public val ENCLAVE_FLAG_FULL_DEBUG_ENABLED: UInt = 1u
+
+public val ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: EnclaveSealingIdentityPolicy = 1
+
+public val ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: EnclaveSealingIdentityPolicy = 0
+
+public val ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: EnclaveSealingIdentityPolicy = 5
+
+public val ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: EnclaveSealingIdentityPolicy = 4
+
+public val ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: EnclaveSealingIdentityPolicy = 3
+
+public val ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: EnclaveSealingIdentityPolicy = 2
+
+public val ENCLAVE_REPORT_DATA_LENGTH: UInt = 64u
+
+public val ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: UInt = 2u
+
+public val ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: UInt = 1u
+
+public val ENCLAVE_UNSEAL_FLAG_STALE_KEY: UInt = 1u
+
+public val ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: UInt = 8u
+
+public val ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: UInt = 2u
+
+public val ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: UInt = 4u
+
+public val ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: UInt = 1u
+
+public val VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: UInt = 1u
+
+public val VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: UInt = 1u
+
+public val VBS_ENCLAVE_REPORT_VERSION_CURRENT: UInt = 1u
+
+public val VBS_ENCLAVE_VARDATA_INVALID: UInt = 0u
+
+public val VBS_ENCLAVE_VARDATA_MODULE: UInt = 1u

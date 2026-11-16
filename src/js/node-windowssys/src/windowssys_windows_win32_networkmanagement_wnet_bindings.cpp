@@ -1,0 +1,2112 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <napi.h>
+#include <cstdint>
+#include <cstddef>
+#include <cstdlib>
+#include <cstring>
+#include <cerrno>
+#include <string>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+struct KmNapiRegistrarNode {
+    void (*register_fn)(Napi::Env, Napi::Object);
+    KmNapiRegistrarNode* next;
+};
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((visibility("hidden")))
+#endif
+extern KmNapiRegistrarNode* km_napi_registrar_head;
+
+namespace {
+
+static int64_t km_napi_arg_i64(const Napi::Value& v) {
+    if (v.IsNull() || v.IsUndefined()) return 0;
+    if (v.IsString()) {
+        std::string s = v.As<Napi::String>().Utf8Value();
+        return static_cast<int64_t>(std::strtoll(s.c_str(), nullptr, 10));
+    }
+    if (v.IsNumber()) return v.As<Napi::Number>().Int64Value();
+    return 0;
+}
+
+static uint64_t km_napi_arg_u64(const Napi::Value& v) {
+    if (v.IsNull() || v.IsUndefined()) return 0;
+    if (v.IsString()) {
+        std::string s = v.As<Napi::String>().Utf8Value();
+        return static_cast<uint64_t>(std::strtoull(s.c_str(), nullptr, 10));
+    }
+    if (v.IsNumber()) return static_cast<uint64_t>(v.As<Napi::Number>().Int64Value());
+    return 0;
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetconnectinfostruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MultinetGetConnectionPerformanceA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpnetconnectinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpnetconnectinfostruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetconnectinfostruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MultinetGetConnectionPerformanceW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpnetconnectinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpnetconnectinfostruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPAddConnection_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPAddConnection")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lppassword, lpusername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpusername;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPAddConnection3_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPAddConnection3")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpusername;
+    (void)dwflags;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPAddConnection4_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpauthbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t cbauthbuffer = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpuseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t cbuseoptions = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPAddConnection4")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lpauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)lpauthbuffer;
+    (void)cbauthbuffer;
+    (void)dwflags;
+    (void)lpuseoptions;
+    (void)cbuseoptions;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t fforce = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPCancelConnection")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)fforce;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection2_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t fforce = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPCancelConnection2")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)fforce;
+    (void)dwflags;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPCloseEnum")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)henum;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPEnumResource_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpccount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPEnumResource")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)henum;
+    (void)lpccount;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPFormatNetworkName_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpformattedname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpnlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwavecharperline = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPFormatNetworkName")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lpformattedname, lpnlength, dwflags, dwavecharperline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpremotename;
+    (void)lpformattedname;
+    (void)lpnlength;
+    (void)dwflags;
+    (void)dwavecharperline;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetCaps_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t ndex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetCaps")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)ndex;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetConnection_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lplocalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpnbufferlen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetConnection")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, lpremotename, lpnbufferlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lplocalname;
+    (void)lpremotename;
+    (void)lpnbufferlen;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetConnection3_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lplocalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetConnection3")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, dwlevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lplocalname;
+    (void)dwlevel;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetConnectionPerformance_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetconnectinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetConnectionPerformance")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lpnetconnectinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpremotename;
+    (void)lpnetconnectinfo;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetPersistentUseOptionsForConnection_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpremotepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpreaduseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t cbreaduseoptions = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpwriteuseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lpsizewriteuseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetPersistentUseOptionsForConnection")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotepath, lpreaduseoptions, cbreaduseoptions, lpwriteuseoptions, lpsizewriteuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpremotepath;
+    (void)lpreaduseoptions;
+    (void)cbreaduseoptions;
+    (void)lpwriteuseoptions;
+    (void)lpsizewriteuseoptions;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetResourceInformation_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lplpsystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetResourceInformation")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpbuffersize, lplpsystem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    (void)lplpsystem;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetResourceParent_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetResourceParent")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetUniversalName_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lplocalpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetUniversalName")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lplocalpath;
+    (void)dwinfolevel;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPGetUser_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpnbufferlen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetUser")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpusername, lpnbufferlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)lpusername;
+    (void)lpnbufferlen;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetNPOpenEnum_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwscope = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwusage = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lphenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPOpenEnum")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)dwscope;
+    (void)dwtype;
+    (void)dwusage;
+    (void)lpnetresource;
+    (void)lphenum;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2A_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection2A")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpusername;
+    (void)dwflags;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection2W")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpusername;
+    (void)dwflags;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3A_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection3A")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpusername;
+    (void)dwflags;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection3W")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpusername;
+    (void)dwflags;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4A_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pauthbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t cbauthbuffer = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpuseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t cbuseoptions = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection4A")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)pauthbuffer;
+    (void)cbauthbuffer;
+    (void)dwflags;
+    (void)lpuseoptions;
+    (void)cbuseoptions;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pauthbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t cbauthbuffer = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpuseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t cbuseoptions = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection4W")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)pauthbuffer;
+    (void)cbauthbuffer;
+    (void)dwflags;
+    (void)lpuseoptions;
+    (void)cbuseoptions;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lplocalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnectionA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lppassword, lplocalname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpremotename;
+    (void)lppassword;
+    (void)lplocalname;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lplocalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnectionW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lppassword, lplocalname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpremotename;
+    (void)lppassword;
+    (void)lplocalname;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2A_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t fforce = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnection2A")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, dwflags, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)dwflags;
+    (void)fforce;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t fforce = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnection2W")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, dwflags, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)dwflags;
+    (void)fforce;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t fforce = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnectionA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)fforce;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t fforce = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnectionW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)fforce;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetCloseEnum_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCloseEnum")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)henum;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetConnectionDialog")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwnd;
+    (void)dwtype;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1A_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpconndlgstruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetConnectionDialog1A")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpconndlgstruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpconndlgstruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetConnectionDialog1W")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpconndlgstruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetDisconnectDialog")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwnd;
+    (void)dwtype;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1A_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpconndlgstruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetDisconnectDialog1A")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpconndlgstruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpconndlgstruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetDisconnectDialog1W")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpconndlgstruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpccount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetEnumResourceA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)henum;
+    (void)lpccount;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* henum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpccount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetEnumResourceW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)henum;
+    (void)lpccount;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lplocalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpnlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetConnectionA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, lpremotename, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lplocalname;
+    (void)lpremotename;
+    (void)lpnlength;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lplocalname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpnlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetConnectionW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, lpremotename, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lplocalname;
+    (void)lpremotename;
+    (void)lpnlength;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lperrorbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t nerrorbufsize = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpnamebuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t nnamebufsize = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetLastErrorA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lperror, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lperror;
+    (void)lperrorbuf;
+    (void)nerrorbufsize;
+    (void)lpnamebuf;
+    (void)nnamebufsize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lperrorbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t nerrorbufsize = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpnamebuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t nnamebufsize = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetLastErrorW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lperror, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lperror;
+    (void)lperrorbuf;
+    (void)nerrorbufsize;
+    (void)lpnamebuf;
+    (void)nnamebufsize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetinfostruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetNetworkInformationA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpprovider, lpnetinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpprovider;
+    (void)lpnetinfostruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetinfostruct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetNetworkInformationW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpprovider, lpnetinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpprovider;
+    (void)lpnetinfostruct;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwnettype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* lpprovidername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetProviderNameA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnettype, lpprovidername, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)dwnettype;
+    (void)lpprovidername;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwnettype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* lpprovidername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetProviderNameW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnettype, lpprovidername, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)dwnettype;
+    (void)lpprovidername;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpcbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lplpsystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceInformationA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpbuffer;
+    (void)lpcbbuffer;
+    (void)lplpsystem;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpcbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lplpsystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceInformationW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpbuffer;
+    (void)lpcbbuffer;
+    (void)lplpsystem;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpcbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceParentA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpbuffer;
+    (void)lpcbbuffer;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpcbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceParentW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpnetresource;
+    (void)lpbuffer;
+    (void)lpcbbuffer;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lplocalpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUniversalNameA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lplocalpath;
+    (void)dwinfolevel;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lplocalpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwinfolevel = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUniversalNameW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lplocalpath;
+    (void)dwinfolevel;
+    (void)lpbuffer;
+    (void)lpbuffersize;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetUserA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpnlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUserA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpusername, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)lpusername;
+    (void)lpnlength;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetGetUserW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpnlength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUserW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpusername, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lpname;
+    (void)lpusername;
+    (void)lpnlength;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwscope = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwusage = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lphenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetOpenEnumA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)dwscope;
+    (void)dwtype;
+    (void)dwusage;
+    (void)lpnetresource;
+    (void)lphenum;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwscope = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwusage = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lphenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetOpenEnumW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)dwscope;
+    (void)dwtype;
+    (void)dwusage;
+    (void)lpnetresource;
+    (void)lphenum;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t err = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* lperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpproviders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetSetLastErrorA")));
+    }
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(err, lperror, lpproviders);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)err;
+    (void)lperror;
+    (void)lpproviders;
+    errno = ENOSYS;
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t err = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* lperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpproviders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetSetLastErrorW")));
+    }
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(err, lperror, lpproviders);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)err;
+    (void)lperror;
+    (void)lpproviders;
+    errno = ENOSYS;
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4A_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pauthbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t cbauthbuffer = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpuseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t cbuseoptions = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    void* lpaccessname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+    void* lpresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnection4A")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)pauthbuffer;
+    (void)cbauthbuffer;
+    (void)dwflags;
+    (void)lpuseoptions;
+    (void)cbuseoptions;
+    (void)lpaccessname;
+    (void)lpbuffersize;
+    (void)lpresult;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pauthbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t cbauthbuffer = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpuseoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t cbuseoptions = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    void* lpaccessname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+    void* lpresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnection4W")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)pauthbuffer;
+    (void)cbauthbuffer;
+    (void)dwflags;
+    (void)lpuseoptions;
+    (void)cbuseoptions;
+    (void)lpaccessname;
+    (void)lpbuffersize;
+    (void)lpresult;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpuserid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpaccessname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* lpresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnectionA")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpuserid, dwflags, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpuserid;
+    (void)dwflags;
+    (void)lpaccessname;
+    (void)lpbuffersize;
+    (void)lpresult;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnetresource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lppassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpuserid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpaccessname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* lpbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* lpresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("mpr.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnectionW")));
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpuserid, dwflags, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)hwndowner;
+    (void)lpnetresource;
+    (void)lppassword;
+    (void)lpuserid;
+    (void)dwflags;
+    (void)lpaccessname;
+    (void)lpbuffersize;
+    (void)lpresult;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static void register_windows_win32_networkmanagement_wnet_napi(Napi::Env env, Napi::Object exports) {
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetMultinetGetConnectionPerformanceW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPAddConnection", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPAddConnection_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPAddConnection3", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPAddConnection3_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPAddConnection4", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPAddConnection4_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection2", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPCancelConnection2_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPEnumResource", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPEnumResource_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPFormatNetworkName", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPFormatNetworkName_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetCaps", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetCaps_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetConnection", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetConnection_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetConnection3", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetConnection3_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetConnectionPerformance", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetConnectionPerformance_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetPersistentUseOptionsForConnection", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetPersistentUseOptionsForConnection_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetResourceInformation", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetResourceInformation_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetResourceParent", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetResourceParent_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetUniversalName", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetUniversalName_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPGetUser", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPGetUser_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetNPOpenEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetNPOpenEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2A", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2A_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2W", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection2W_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3A", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3A_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3W", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection3W_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4A", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4A_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4W", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnection4W_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetAddConnectionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2A", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2A_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2W", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnection2W_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetCancelConnectionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetCloseEnum", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetCloseEnum_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1A", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1A_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1W", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetConnectionDialog1W_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1A", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1A_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1W", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetDisconnectDialog1W_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetEnumResourceW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetConnectionW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetLastErrorW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetNetworkInformationW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetProviderNameW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceInformationW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetResourceParentW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetUniversalNameW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetUserA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetUserA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetGetUserW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetGetUserW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetOpenEnumW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetSetLastErrorW_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4A", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4A_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4W", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetUseConnection4W_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionA", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionA_napi));
+    exports.Set("windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionW", Napi::Function::New(env, windowssysWindowsWin32NetworkmanagementWnetWNetUseConnectionW_napi));
+}
+
+static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_wnet_napi, nullptr };
+struct KmNapiAutoRegister {
+    KmNapiAutoRegister() {
+        registrar_node.next = km_napi_registrar_head;
+        km_napi_registrar_head = &registrar_node;
+    }
+};
+static KmNapiAutoRegister auto_register_instance;
+
+} // namespace
+
+#ifdef KM_NAPI_STANDALONE_MODULE
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((visibility("hidden")))
+#endif
+KmNapiRegistrarNode* km_napi_registrar_head = nullptr;
+static Napi::Object KmNapiStandaloneInit(Napi::Env env, Napi::Object exports) {
+    for (KmNapiRegistrarNode* cur = km_napi_registrar_head; cur != nullptr; cur = cur->next) {
+        cur->register_fn(env, exports);
+    }
+    return exports;
+}
+NODE_API_MODULE(NODE_GYP_MODULE_NAME, KmNapiStandaloneInit)
+#endif

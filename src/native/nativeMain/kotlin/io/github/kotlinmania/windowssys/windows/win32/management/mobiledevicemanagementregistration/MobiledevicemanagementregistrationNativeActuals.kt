@@ -1,0 +1,84 @@
+@file:OptIn(kotlinx.cinterop.ExperimentalForeignApi::class, kotlin.ExperimentalUnsignedTypes::class)
+
+package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
+
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement
+import io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration.cinterop.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement
+import kotlinx.cinterop.ByteVar
+import kotlinx.cinterop.toCPointer
+
+public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: MutPtr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML(syncmlrequest.rawAddress.toCPointer<ByteVar>(), syncmlresult.rawAddress.toCPointer<ByteVar>())
+
+public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: MutPtr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService(pszupn.rawAddress.toCPointer<ByteVar>(), ppmgmtinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: MutPtr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx(pszupn.rawAddress.toCPointer<ByteVar>(), pszdiscoveryservicecandidate.rawAddress.toCPointer<ByteVar>(), ppmgmtinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: MutPtr, configstring: Pwstr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo(providerid.rawAddress.toCPointer<ByteVar>(), configstringbufferlength.rawAddress.toCPointer<ByteVar>(), configstring.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: MutPtr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo(deviceinformationclass, ppdeviceregistrationinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: Pwstr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink(cchhyperlink, pszhyperlink.rawAddress.toCPointer<ByteVar>())
+
+public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: MutPtr, cchupn: UInt, pszupn: Pwstr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement.rawAddress.toCPointer<ByteVar>(), cchupn, pszupn.rawAddress.toCPointer<ByteVar>())
+
+public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: MutPtr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed(pfismanagementregistrationallowed.rawAddress.toCPointer<ByteVar>())
+
+public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: MutPtr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed(isenrollmentallowed.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerDeviceWithLocalManagement(alreadyregistered: MutPtr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement(alreadyregistered.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerDeviceWithManagement(pszupn: Pcwstr, ppszmdmserviceuri: Pcwstr, ppzsaccesstoken: Pcwstr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagement(pszupn.rawAddress.toCPointer<ByteVar>(), ppszmdmserviceuri.rawAddress.toCPointer<ByteVar>(), ppzsaccesstoken.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerDeviceWithManagementUsingAADCredentials(usertoken: Handle): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADCredentials(usertoken.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerDeviceWithManagementUsingAADDeviceCredentials(): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials()
+
+public actual fun registerDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: Pcwstr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun setDeviceManagementConfigInfo(providerid: Pcwstr, configstring: Pcwstr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetDeviceManagementConfigInfo(providerid.rawAddress.toCPointer<ByteVar>(), configstring.rawAddress.toCPointer<ByteVar>())
+
+public actual fun setManagedExternally(ismanagedexternally: Bool): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationSetManagedExternally(ismanagedexternally)
+
+public actual fun unregisterDeviceWithLocalManagement(): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithLocalManagement()
+
+public actual fun unregisterDeviceWithManagement(enrollmentid: Pcwstr): Hresult =
+    windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement(enrollmentid.rawAddress.toCPointer<ByteVar>())

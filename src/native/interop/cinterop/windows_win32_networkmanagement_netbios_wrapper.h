@@ -1,0 +1,18 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_NETBIOS_WINDOWS_WIN32_NETWORKMANAGEMENT_NETBIOS_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_NETBIOS_WINDOWS_WIN32_NETWORKMANAGEMENT_NETBIOS_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+uint8_t windowssysWindowsWin32NetworkmanagementNetbiosNetbios(void* pncb);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_NETBIOS_WINDOWS_WIN32_NETWORKMANAGEMENT_NETBIOS_WRAPPER_H */

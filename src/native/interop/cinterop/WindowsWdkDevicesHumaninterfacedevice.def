@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice.cinterop
+headers = windows_wdk_devices_humaninterfacedevice_wrapper.h
+headerFilter = windows_wdk_devices_humaninterfacedevice_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_wdk_devices_humaninterfacedevice_wrapper.a

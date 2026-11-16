@@ -1,0 +1,2591 @@
+package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
+
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.w
+
+public val ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ActctxCompatibilityElementType = 3
+
+public val ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION: ActctxCompatibilityElementType = 2
+
+public val ACTCTX_COMPATIBILITY_ELEMENT_TYPE_OS: ActctxCompatibilityElementType = 1
+
+public val ACTCTX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN: ActctxCompatibilityElementType = 0
+
+public val ACTCTX_RUN_LEVEL_AS_INVOKER: ActctxRequestedRunLevel = 1
+
+public val ACTCTX_RUN_LEVEL_HIGHEST_AVAILABLE: ActctxRequestedRunLevel = 2
+
+public val ACTCTX_RUN_LEVEL_NUMBERS: ActctxRequestedRunLevel = 4
+
+public val ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ActctxRequestedRunLevel = 3
+
+public val ACTCTX_RUN_LEVEL_UNSPECIFIED: ActctxRequestedRunLevel = 0
+
+public val ADVERTISEFLAGS_MACHINEASSIGN: Advertiseflags = 0
+
+public val ADVERTISEFLAGS_USERASSIGN: Advertiseflags = 1
+
+public val APPLY_OPTION_FAIL_IF_CLOSE: UInt = 2u
+
+public val APPLY_OPTION_FAIL_IF_EXACT: UInt = 1u
+
+public val APPLY_OPTION_TEST_ONLY: UInt = 4u
+
+public val APPLY_OPTION_VALID_FLAGS: UInt = 7u
+
+public val ASM_BINDF_BINPATH_PROBE_ONLY: AsmBindFlags = 8
+
+public val ASM_BINDF_FORCE_CACHE_INSTALL: AsmBindFlags = 1
+
+public val ASM_BINDF_PARENT_ASM_HINT: AsmBindFlags = 32
+
+public val ASM_BINDF_RFS_INTEGRITY_CHECK: AsmBindFlags = 2
+
+public val ASM_BINDF_RFS_MODULE_CHECK: AsmBindFlags = 4
+
+public val ASM_BINDF_SHARED_BINPATH_HINT: AsmBindFlags = 16
+
+public val ASM_CMPF_ALL: AsmCmpFlags = 255
+
+public val ASM_CMPF_BUILD_NUMBER: AsmCmpFlags = 8
+
+public val ASM_CMPF_CULTURE: AsmCmpFlags = 64
+
+public val ASM_CMPF_CUSTOM: AsmCmpFlags = 128
+
+public val ASM_CMPF_DEFAULT: AsmCmpFlags = 256
+
+public val ASM_CMPF_MAJOR_VERSION: AsmCmpFlags = 2
+
+public val ASM_CMPF_MINOR_VERSION: AsmCmpFlags = 4
+
+public val ASM_CMPF_NAME: AsmCmpFlags = 1
+
+public val ASM_CMPF_PUBLIC_KEY_TOKEN: AsmCmpFlags = 32
+
+public val ASM_CMPF_REVISION_NUMBER: AsmCmpFlags = 16
+
+public val ASM_DISPLAYF_CULTURE: AsmDisplayFlags = 2
+
+public val ASM_DISPLAYF_CUSTOM: AsmDisplayFlags = 16
+
+public val ASM_DISPLAYF_LANGUAGEID: AsmDisplayFlags = 64
+
+public val ASM_DISPLAYF_PROCESSORARCHITECTURE: AsmDisplayFlags = 32
+
+public val ASM_DISPLAYF_PUBLIC_KEY: AsmDisplayFlags = 8
+
+public val ASM_DISPLAYF_PUBLIC_KEY_TOKEN: AsmDisplayFlags = 4
+
+public val ASM_DISPLAYF_VERSION: AsmDisplayFlags = 1
+
+public val ASM_NAME_ALIAS: AsmName = 12
+
+public val ASM_NAME_BUILD_NUMBER: AsmName = 6
+
+public val ASM_NAME_CODEBASE_LASTMOD: AsmName = 14
+
+public val ASM_NAME_CODEBASE_URL: AsmName = 13
+
+public val ASM_NAME_CULTURE: AsmName = 8
+
+public val ASM_NAME_CUSTOM: AsmName = 17
+
+public val ASM_NAME_HASH_ALGID: AsmName = 11
+
+public val ASM_NAME_HASH_VALUE: AsmName = 2
+
+public val ASM_NAME_MAJOR_VERSION: AsmName = 4
+
+public val ASM_NAME_MAX_PARAMS: AsmName = 20
+
+public val ASM_NAME_MINOR_VERSION: AsmName = 5
+
+public val ASM_NAME_MVID: AsmName = 19
+
+public val ASM_NAME_NAME: AsmName = 3
+
+public val ASM_NAME_NULL_CUSTOM: AsmName = 18
+
+public val ASM_NAME_NULL_PUBLIC_KEY: AsmName = 15
+
+public val ASM_NAME_NULL_PUBLIC_KEY_TOKEN: AsmName = 16
+
+public val ASM_NAME_OSINFO_ARRAY: AsmName = 10
+
+public val ASM_NAME_PROCESSOR_ID_ARRAY: AsmName = 9
+
+public val ASM_NAME_PUBLIC_KEY: AsmName = 0
+
+public val ASM_NAME_PUBLIC_KEY_TOKEN: AsmName = 1
+
+public val ASM_NAME_REVISION_NUMBER: AsmName = 7
+
+public val ASSEMBLYINFO_FLAG_INSTALLED: UInt = 1u
+
+public val ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: UInt = 2u
+
+public val CANOF_PARSE_DISPLAY_NAME: CreateAsmNameObjFlags = 1
+
+public val CANOF_SET_DEFAULT_VALUES: CreateAsmNameObjFlags = 2
+
+public val DEFAULT_DISK_ID: UInt = 2u
+
+public val DEFAULT_FILE_SEQUENCE_START: UInt = 2u
+
+public val DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: UInt = 100u
+
+public val DELTA_MAX_HASH_SIZE: UInt = 32u
+
+public val ERROR_PATCH_BIGGER_THAN_COMPRESSED: UInt = 3222155525u
+
+public val ERROR_PATCH_CORRUPT: UInt = 3222159618u
+
+public val ERROR_PATCH_DECODE_FAILURE: UInt = 3222159617u
+
+public val ERROR_PATCH_ENCODE_FAILURE: UInt = 3222155521u
+
+public val ERROR_PATCH_IMAGEHLP_FAILURE: UInt = 3222155526u
+
+public val ERROR_PATCH_INVALID_OPTIONS: UInt = 3222155522u
+
+public val ERROR_PATCH_NEWER_FORMAT: UInt = 3222159619u
+
+public val ERROR_PATCH_NOT_AVAILABLE: UInt = 3222159622u
+
+public val ERROR_PATCH_NOT_NECESSARY: UInt = 3222159621u
+
+public val ERROR_PATCH_RETAIN_RANGES_DIFFER: UInt = 3222155524u
+
+public val ERROR_PATCH_SAME_FILE: UInt = 3222155523u
+
+public val ERROR_PATCH_WRONG_FILE: UInt = 3222159620u
+
+public val ERROR_PCW_BAD_API_PATCHING_SYMBOL_FLAGS: UInt = 3222163725u
+
+public val ERROR_PCW_BAD_FAMILY_RANGE_NAME: UInt = 3222163801u
+
+public val ERROR_PCW_BAD_FILE_SEQUENCE_START: UInt = 3222163770u
+
+public val ERROR_PCW_BAD_GUIDS_TO_REPLACE: UInt = 3222163721u
+
+public val ERROR_PCW_BAD_IMAGE_FAMILY_DISKID: UInt = 3222163773u
+
+public val ERROR_PCW_BAD_IMAGE_FAMILY_FILESEQSTART: UInt = 3222163774u
+
+public val ERROR_PCW_BAD_IMAGE_FAMILY_NAME: UInt = 3222163748u
+
+public val ERROR_PCW_BAD_IMAGE_FAMILY_SRC_PROP: UInt = 3222163750u
+
+public val ERROR_PCW_BAD_MAJOR_VERSION: UInt = 3222163853u
+
+public val ERROR_PCW_BAD_PATCH_GUID: UInt = 3222163720u
+
+public val ERROR_PCW_BAD_PRODUCTVERSION_VALIDATION: UInt = 3222163844u
+
+public val ERROR_PCW_BAD_SEQUENCE: UInt = 3222163848u
+
+public val ERROR_PCW_BAD_SUPERCEDENCE: UInt = 3222163847u
+
+public val ERROR_PCW_BAD_TARGET: UInt = 3222163849u
+
+public val ERROR_PCW_BAD_TARGET_IMAGE_NAME: UInt = 3222163736u
+
+public val ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_CODE: UInt = 3222163834u
+
+public val ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_VERSION: UInt = 3222163835u
+
+public val ERROR_PCW_BAD_TARGET_IMAGE_UPGRADED: UInt = 3222163776u
+
+public val ERROR_PCW_BAD_TARGET_IMAGE_UPGRADE_CODE: UInt = 3222163836u
+
+public val ERROR_PCW_BAD_TARGET_PRODUCT_CODE_LIST: UInt = 3222163722u
+
+public val ERROR_PCW_BAD_TGT_UPD_IMAGES: UInt = 3222163846u
+
+public val ERROR_PCW_BAD_TRANSFORMSET: UInt = 3222163845u
+
+public val ERROR_PCW_BAD_UPGRADED_IMAGE_FAMILY: UInt = 3222163775u
+
+public val ERROR_PCW_BAD_UPGRADED_IMAGE_NAME: UInt = 3222163728u
+
+public val ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_CODE: UInt = 3222163831u
+
+public val ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_VERSION: UInt = 3222163832u
+
+public val ERROR_PCW_BAD_UPGRADED_IMAGE_UPGRADE_CODE: UInt = 3222163833u
+
+public val ERROR_PCW_BAD_VERSION_STRING: UInt = 3222163852u
+
+public val ERROR_PCW_BASE: UInt = 3222163713u
+
+public val ERROR_PCW_CANNOT_CREATE_TABLE: UInt = 3222163841u
+
+public val ERROR_PCW_CANNOT_RUN_MAKECAB: UInt = 3222163782u
+
+public val ERROR_PCW_CANNOT_WRITE_DDF: UInt = 3222163781u
+
+public val ERROR_PCW_CANT_COPY_FILE_TO_TEMP_FOLDER: UInt = 3222163771u
+
+public val ERROR_PCW_CANT_CREATE_ONE_PATCH_FILE: UInt = 3222163772u
+
+public val ERROR_PCW_CANT_CREATE_PATCH_FILE: UInt = 3222163718u
+
+public val ERROR_PCW_CANT_CREATE_SUMMARY_INFO: UInt = 3222163828u
+
+public val ERROR_PCW_CANT_CREATE_SUMMARY_INFO_POUND: UInt = 3222163830u
+
+public val ERROR_PCW_CANT_CREATE_TEMP_FOLDER: UInt = 3222163715u
+
+public val ERROR_PCW_CANT_DELETE_TEMP_FOLDER: UInt = 3222163974u
+
+public val ERROR_PCW_CANT_GENERATE_SEQUENCEINFO_MAJORUPGD: UInt = 3222163842u
+
+public val ERROR_PCW_CANT_GENERATE_TRANSFORM: UInt = 3222163827u
+
+public val ERROR_PCW_CANT_GENERATE_TRANSFORM_POUND: UInt = 3222163829u
+
+public val ERROR_PCW_CANT_OVERWRITE_PATCH: UInt = 3222163717u
+
+public val ERROR_PCW_CANT_READ_FILE: UInt = 3222163978u
+
+public val ERROR_PCW_CREATEFILE_LOG_FAILED: UInt = 3222163861u
+
+public val ERROR_PCW_DUPLICATE_SEQUENCE_RECORD: UInt = 3222163858u
+
+public val ERROR_PCW_DUP_IMAGE_FAMILY_NAME: UInt = 3222163749u
+
+public val ERROR_PCW_DUP_TARGET_IMAGE_NAME: UInt = 3222163737u
+
+public val ERROR_PCW_DUP_TARGET_IMAGE_PACKCODE: UInt = 3222163777u
+
+public val ERROR_PCW_DUP_UPGRADED_IMAGE_NAME: UInt = 3222163729u
+
+public val ERROR_PCW_DUP_UPGRADED_IMAGE_PACKCODE: UInt = 3222163795u
+
+public val ERROR_PCW_ERROR_WRITING_TO_LOG: UInt = 3222163864u
+
+public val ERROR_PCW_EXECUTE_VIEW: UInt = 3222163870u
+
+public val ERROR_PCW_EXTFILE_BAD_FAMILY_FIELD: UInt = 3222163756u
+
+public val ERROR_PCW_EXTFILE_BAD_IGNORE_LENGTHS: UInt = 3222163814u
+
+public val ERROR_PCW_EXTFILE_BAD_IGNORE_OFFSETS: UInt = 3222163812u
+
+public val ERROR_PCW_EXTFILE_BAD_RETAIN_OFFSETS: UInt = 3222163817u
+
+public val ERROR_PCW_EXTFILE_BLANK_FILE_TABLE_KEY: UInt = 3222163755u
+
+public val ERROR_PCW_EXTFILE_BLANK_PATH_TO_FILE: UInt = 3222163758u
+
+public val ERROR_PCW_EXTFILE_IGNORE_COUNT_MISMATCH: UInt = 3222163815u
+
+public val ERROR_PCW_EXTFILE_LONG_FILE_TABLE_KEY: UInt = 3222163754u
+
+public val ERROR_PCW_EXTFILE_LONG_IGNORE_LENGTHS: UInt = 3222163813u
+
+public val ERROR_PCW_EXTFILE_LONG_IGNORE_OFFSETS: UInt = 3222163811u
+
+public val ERROR_PCW_EXTFILE_LONG_PATH_TO_FILE: UInt = 3222163757u
+
+public val ERROR_PCW_EXTFILE_LONG_RETAIN_OFFSETS: UInt = 3222163816u
+
+public val ERROR_PCW_EXTFILE_MISSING_FILE: UInt = 3222163759u
+
+public val ERROR_PCW_FAILED_CREATE_TRANSFORM: UInt = 3222163973u
+
+public val ERROR_PCW_FAILED_EXPAND_PATH: UInt = 3222163872u
+
+public val ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_LENGTHS: UInt = 3222163809u
+
+public val ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_OFFSETS: UInt = 3222163806u
+
+public val ERROR_PCW_FAMILY_RANGE_BLANK_FILE_TABLE_KEY: UInt = 3222163803u
+
+public val ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_LENGTHS: UInt = 3222163808u
+
+public val ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_OFFSETS: UInt = 3222163805u
+
+public val ERROR_PCW_FAMILY_RANGE_COUNT_MISMATCH: UInt = 3222163810u
+
+public val ERROR_PCW_FAMILY_RANGE_LONG_FILE_TABLE_KEY: UInt = 3222163802u
+
+public val ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_LENGTHS: UInt = 3222163807u
+
+public val ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_OFFSETS: UInt = 3222163804u
+
+public val ERROR_PCW_FAMILY_RANGE_NAME_TOO_LONG: UInt = 3222163800u
+
+public val ERROR_PCW_IMAGE_FAMILY_NAME_TOO_LONG: UInt = 3222163747u
+
+public val ERROR_PCW_IMAGE_PATH_NOT_EXIST: UInt = 3222163988u
+
+public val ERROR_PCW_INTERNAL_ERROR: UInt = 3222163969u
+
+public val ERROR_PCW_INVALID_LOG_LEVEL: UInt = 3222163862u
+
+public val ERROR_PCW_INVALID_MAJOR_VERSION: UInt = 3222163990u
+
+public val ERROR_PCW_INVALID_PARAMETER: UInt = 3222163860u
+
+public val ERROR_PCW_INVALID_PATCHMETADATA_PROP: UInt = 3222163856u
+
+public val ERROR_PCW_INVALID_PATCH_TYPE_SEQUENCING: UInt = 3222163977u
+
+public val ERROR_PCW_INVALID_PCP_EXTERNALFILES: UInt = 3222163982u
+
+public val ERROR_PCW_INVALID_PCP_FAMILYFILERANGES: UInt = 3222163992u
+
+public val ERROR_PCW_INVALID_PCP_IMAGEFAMILIES: UInt = 3222163983u
+
+public val ERROR_PCW_INVALID_PCP_PATCHSEQUENCE: UInt = 3222163984u
+
+public val ERROR_PCW_INVALID_PCP_PROPERTIES: UInt = 3222163991u
+
+public val ERROR_PCW_INVALID_PCP_PROPERTY: UInt = 3222163970u
+
+public val ERROR_PCW_INVALID_PCP_TARGETFILES_OPTIONALDATA: UInt = 3222163985u
+
+public val ERROR_PCW_INVALID_PCP_TARGETIMAGES: UInt = 3222163971u
+
+public val ERROR_PCW_INVALID_PCP_UPGRADEDFILESTOIGNORE: UInt = 3222163980u
+
+public val ERROR_PCW_INVALID_PCP_UPGRADEDFILES_OPTIONALDATA: UInt = 3222163986u
+
+public val ERROR_PCW_INVALID_PCP_UPGRADEDIMAGES: UInt = 3222163981u
+
+public val ERROR_PCW_INVALID_RANGE_ELEMENT: UInt = 3222163989u
+
+public val ERROR_PCW_INVALID_SUPERCEDENCE: UInt = 3222163857u
+
+public val ERROR_PCW_INVALID_SUPERSEDENCE_VALUE: UInt = 3222163976u
+
+public val ERROR_PCW_INVALID_UI_LEVEL: UInt = 3222163863u
+
+public val ERROR_PCW_LAX_VALIDATION_FLAGS: UInt = 3222163972u
+
+public val ERROR_PCW_MAJOR_UPGD_WITHOUT_SEQUENCING: UInt = 3222163843u
+
+public val ERROR_PCW_MATCHED_PRODUCT_VERSIONS: UInt = 3222163837u
+
+public val ERROR_PCW_MISMATCHED_PRODUCT_CODES: UInt = 3222163779u
+
+public val ERROR_PCW_MISMATCHED_PRODUCT_VERSIONS: UInt = 3222163780u
+
+public val ERROR_PCW_MISSING_DIRECTORY_TABLE: UInt = 3222163975u
+
+public val ERROR_PCW_MISSING_PATCHMETADATA: UInt = 3222163987u
+
+public val ERROR_PCW_MISSING_PATCH_GUID: UInt = 3222163719u
+
+public val ERROR_PCW_MISSING_PATCH_PATH: UInt = 3222163716u
+
+public val ERROR_PCW_NO_UPGRADED_IMAGES_TO_PATCH: UInt = 3222163723u
+
+public val ERROR_PCW_NULL_PATCHFAMILY: UInt = 3222163850u
+
+public val ERROR_PCW_NULL_SEQUENCE_NUMBER: UInt = 3222163851u
+
+public val ERROR_PCW_OBSOLETION_WITH_MSI30: UInt = 3222163839u
+
+public val ERROR_PCW_OBSOLETION_WITH_PATCHSEQUENCE: UInt = 3222163840u
+
+public val ERROR_PCW_OBSOLETION_WITH_SEQUENCE_DATA: UInt = 3222163838u
+
+public val ERROR_PCW_OODS_COPYING_MSI: UInt = 3222163726u
+
+public val ERROR_PCW_OPEN_VIEW: UInt = 3222163869u
+
+public val ERROR_PCW_OUT_OF_MEMORY: UInt = 3222163865u
+
+public val ERROR_PCW_PATCHMETADATA_PROP_NOT_SET: UInt = 3222163855u
+
+public val ERROR_PCW_PCP_BAD_FORMAT: UInt = 3222163714u
+
+public val ERROR_PCW_PCP_DOESNT_EXIST: UInt = 3222163713u
+
+public val ERROR_PCW_SEQUENCING_BAD_TARGET: UInt = 3222163854u
+
+public val ERROR_PCW_TARGET_BAD_PROD_CODE_VAL: UInt = 3222163744u
+
+public val ERROR_PCW_TARGET_BAD_PROD_VALIDATE: UInt = 3222163743u
+
+public val ERROR_PCW_TARGET_IMAGE_COMPRESSED: UInt = 3222163742u
+
+public val ERROR_PCW_TARGET_IMAGE_NAME_TOO_LONG: UInt = 3222163735u
+
+public val ERROR_PCW_TARGET_IMAGE_PATH_EMPTY: UInt = 3222163739u
+
+public val ERROR_PCW_TARGET_IMAGE_PATH_NOT_EXIST: UInt = 3222163740u
+
+public val ERROR_PCW_TARGET_IMAGE_PATH_NOT_MSI: UInt = 3222163741u
+
+public val ERROR_PCW_TARGET_IMAGE_PATH_TOO_LONG: UInt = 3222163738u
+
+public val ERROR_PCW_TARGET_MISSING_SRC_FILES: UInt = 3222163746u
+
+public val ERROR_PCW_TARGET_WRONG_PRODUCT_VERSION_COMP: UInt = 3222163979u
+
+public val ERROR_PCW_TFILEDATA_BAD_IGNORE_LENGTHS: UInt = 3222163822u
+
+public val ERROR_PCW_TFILEDATA_BAD_IGNORE_OFFSETS: UInt = 3222163820u
+
+public val ERROR_PCW_TFILEDATA_BAD_RETAIN_OFFSETS: UInt = 3222163825u
+
+public val ERROR_PCW_TFILEDATA_BAD_TARGET_FIELD: UInt = 3222163791u
+
+public val ERROR_PCW_TFILEDATA_BLANK_FILE_TABLE_KEY: UInt = 3222163789u
+
+public val ERROR_PCW_TFILEDATA_IGNORE_COUNT_MISMATCH: UInt = 3222163823u
+
+public val ERROR_PCW_TFILEDATA_LONG_FILE_TABLE_KEY: UInt = 3222163788u
+
+public val ERROR_PCW_TFILEDATA_LONG_IGNORE_LENGTHS: UInt = 3222163821u
+
+public val ERROR_PCW_TFILEDATA_LONG_IGNORE_OFFSETS: UInt = 3222163819u
+
+public val ERROR_PCW_TFILEDATA_LONG_RETAIN_OFFSETS: UInt = 3222163824u
+
+public val ERROR_PCW_TFILEDATA_MISSING_FILE_TABLE_KEY: UInt = 3222163790u
+
+public val ERROR_PCW_UFILEDATA_BAD_UPGRADED_FIELD: UInt = 3222163778u
+
+public val ERROR_PCW_UFILEDATA_BLANK_FILE_TABLE_KEY: UInt = 3222163752u
+
+public val ERROR_PCW_UFILEDATA_LONG_FILE_TABLE_KEY: UInt = 3222163751u
+
+public val ERROR_PCW_UFILEDATA_MISSING_FILE_TABLE_KEY: UInt = 3222163753u
+
+public val ERROR_PCW_UFILEIGNORE_BAD_FILE_TABLE_KEY: UInt = 3222163799u
+
+public val ERROR_PCW_UFILEIGNORE_BAD_UPGRADED_FIELD: UInt = 3222163796u
+
+public val ERROR_PCW_UFILEIGNORE_BLANK_FILE_TABLE_KEY: UInt = 3222163798u
+
+public val ERROR_PCW_UFILEIGNORE_LONG_FILE_TABLE_KEY: UInt = 3222163797u
+
+public val ERROR_PCW_UNKNOWN_ERROR: UInt = 3222163866u
+
+public val ERROR_PCW_UNKNOWN_INFO: UInt = 3222163867u
+
+public val ERROR_PCW_UNKNOWN_WARN: UInt = 3222163868u
+
+public val ERROR_PCW_UPGRADED_IMAGE_COMPRESSED: UInt = 3222163734u
+
+public val ERROR_PCW_UPGRADED_IMAGE_NAME_TOO_LONG: UInt = 3222163727u
+
+public val ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_EXIST: UInt = 3222163793u
+
+public val ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_MSI: UInt = 3222163794u
+
+public val ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_TOO_LONG: UInt = 3222163792u
+
+public val ERROR_PCW_UPGRADED_IMAGE_PATH_EMPTY: UInt = 3222163731u
+
+public val ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_EXIST: UInt = 3222163732u
+
+public val ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_MSI: UInt = 3222163733u
+
+public val ERROR_PCW_UPGRADED_IMAGE_PATH_TOO_LONG: UInt = 3222163730u
+
+public val ERROR_PCW_UPGRADED_MISSING_SRC_FILES: UInt = 3222163745u
+
+public val ERROR_PCW_VIEW_FETCH: UInt = 3222163871u
+
+public val ERROR_PCW_WRITE_SUMMARY_PROPERTIES: UInt = 3222163787u
+
+public val ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: UInt = 3222163859u
+
+public val ERROR_ROLLBACK_DISABLED: UInt = 1653u
+
+public val IACTIONNAME_ADMIN: Pcwstr = w("ADMIN")
+
+public val IACTIONNAME_ADVERTISE: Pcwstr = w("ADVERTISE")
+
+public val IACTIONNAME_COLLECTUSERINFO: Pcwstr = w("CollectUserInfo")
+
+public val IACTIONNAME_FIRSTRUN: Pcwstr = w("FirstRun")
+
+public val IACTIONNAME_INSTALL: Pcwstr = w("INSTALL")
+
+public val IACTIONNAME_SEQUENCE: Pcwstr = w("SEQUENCE")
+
+public val IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED: UInt = 3u
+
+public val IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED: UInt = 1u
+
+public val IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: UInt = 2u
+
+public val IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: UInt = 1u
+
+public val IASSEMBLYCACHE_UNINSTALL_DISPOSITION_ALREADY_UNINSTALLED: IassemblycacheUninstallDisposition = 3u
+
+public val IASSEMBLYCACHE_UNINSTALL_DISPOSITION_DELETE_PENDING: IassemblycacheUninstallDisposition = 4u
+
+public val IASSEMBLYCACHE_UNINSTALL_DISPOSITION_STILL_IN_USE: IassemblycacheUninstallDisposition = 2u
+
+public val IASSEMBLYCACHE_UNINSTALL_DISPOSITION_UNINSTALLED: IassemblycacheUninstallDisposition = 1u
+
+public val INFO_BASE: UInt = 3222229249u
+
+public val INFO_ENTERING_PHASE_I: UInt = 3222229251u
+
+public val INFO_ENTERING_PHASE_II: UInt = 3222229256u
+
+public val INFO_ENTERING_PHASE_III: UInt = 3222229257u
+
+public val INFO_ENTERING_PHASE_IV: UInt = 3222229258u
+
+public val INFO_ENTERING_PHASE_I_VALIDATION: UInt = 3222229250u
+
+public val INFO_ENTERING_PHASE_V: UInt = 3222229259u
+
+public val INFO_GENERATING_METADATA: UInt = 3222229265u
+
+public val INFO_PASSED_MAIN_CONTROL: UInt = 3222229249u
+
+public val INFO_PATCHCACHE_FILEINFO_FAILURE: UInt = 3222229267u
+
+public val INFO_PATCHCACHE_PCI_READFAILURE: UInt = 3222229268u
+
+public val INFO_PATCHCACHE_PCI_WRITEFAILURE: UInt = 3222229269u
+
+public val INFO_PCP_PATH: UInt = 3222229252u
+
+public val INFO_PROPERTY: UInt = 3222229255u
+
+public val INFO_SET_OPTIONS: UInt = 3222229254u
+
+public val INFO_SUCCESSFUL_PATCH_CREATION: UInt = 3222229271u
+
+public val INFO_TEMP_DIR: UInt = 3222229253u
+
+public val INFO_TEMP_DIR_CLEANUP: UInt = 3222229266u
+
+public val INFO_USING_USER_MSI_FOR_PATCH_TABLES: UInt = 3222229270u
+
+public val INSTALLFEATUREATTRIBUTE_DISALLOWADVERTISE: Installfeatureattribute = 16
+
+public val INSTALLFEATUREATTRIBUTE_FAVORADVERTISE: Installfeatureattribute = 8
+
+public val INSTALLFEATUREATTRIBUTE_FAVORLOCAL: Installfeatureattribute = 1
+
+public val INSTALLFEATUREATTRIBUTE_FAVORSOURCE: Installfeatureattribute = 2
+
+public val INSTALLFEATUREATTRIBUTE_FOLLOWPARENT: Installfeatureattribute = 4
+
+public val INSTALLFEATUREATTRIBUTE_NOUNSUPPORTEDADVERTISE: Installfeatureattribute = 32
+
+public val INSTALLLEVEL_DEFAULT: Installlevel = 0
+
+public val INSTALLLEVEL_MAXIMUM: Installlevel = 65535
+
+public val INSTALLLEVEL_MINIMUM: Installlevel = 1
+
+public val INSTALLLOGATTRIBUTES_APPEND: Installlogattributes = 1
+
+public val INSTALLLOGATTRIBUTES_FLUSHEACHLINE: Installlogattributes = 2
+
+public val INSTALLLOGMODE_ACTIONDATA: Installlogmode = 512
+
+public val INSTALLLOGMODE_ACTIONSTART: Installlogmode = 256
+
+public val INSTALLLOGMODE_COMMONDATA: Installlogmode = 2048
+
+public val INSTALLLOGMODE_ERROR: Installlogmode = 2
+
+public val INSTALLLOGMODE_EXTRADEBUG: Installlogmode = 8192
+
+public val INSTALLLOGMODE_FATALEXIT: Installlogmode = 1
+
+public val INSTALLLOGMODE_FILESINUSE: Installlogmode = 32
+
+public val INSTALLLOGMODE_INFO: Installlogmode = 16
+
+public val INSTALLLOGMODE_INITIALIZE: Installlogmode = 4096
+
+public val INSTALLLOGMODE_INSTALLEND: Installlogmode = 134217728
+
+public val INSTALLLOGMODE_INSTALLSTART: Installlogmode = 67108864
+
+public val INSTALLLOGMODE_LOGONLYONERROR: Installlogmode = 16384
+
+public val INSTALLLOGMODE_LOGPERFORMANCE: Installlogmode = 32768
+
+public val INSTALLLOGMODE_OUTOFDISKSPACE: Installlogmode = 128
+
+public val INSTALLLOGMODE_PROGRESS: Installlogmode = 1024
+
+public val INSTALLLOGMODE_PROPERTYDUMP: Installlogmode = 1024
+
+public val INSTALLLOGMODE_RESOLVESOURCE: Installlogmode = 64
+
+public val INSTALLLOGMODE_RMFILESINUSE: Installlogmode = 33554432
+
+public val INSTALLLOGMODE_SHOWDIALOG: Installlogmode = 16384
+
+public val INSTALLLOGMODE_TERMINATE: Installlogmode = 8192
+
+public val INSTALLLOGMODE_USER: Installlogmode = 8
+
+public val INSTALLLOGMODE_VERBOSE: Installlogmode = 4096
+
+public val INSTALLLOGMODE_WARNING: Installlogmode = 4
+
+public val INSTALLMESSAGE_ACTIONDATA: Installmessage = 150994944
+
+public val INSTALLMESSAGE_ACTIONSTART: Installmessage = 134217728
+
+public val INSTALLMESSAGE_COMMONDATA: Installmessage = 184549376
+
+public val INSTALLMESSAGE_ERROR: Installmessage = 16777216
+
+public val INSTALLMESSAGE_FATALEXIT: Installmessage = 0
+
+public val INSTALLMESSAGE_FILESINUSE: Installmessage = 83886080
+
+public val INSTALLMESSAGE_INFO: Installmessage = 67108864
+
+public val INSTALLMESSAGE_INITIALIZE: Installmessage = 201326592
+
+public val INSTALLMESSAGE_INSTALLEND: Installmessage = 452984832
+
+public val INSTALLMESSAGE_INSTALLSTART: Installmessage = 436207616
+
+public val INSTALLMESSAGE_OUTOFDISKSPACE: Installmessage = 117440512
+
+public val INSTALLMESSAGE_PERFORMANCE: Installmessage = 251658240
+
+public val INSTALLMESSAGE_PROGRESS: Installmessage = 167772160
+
+public val INSTALLMESSAGE_RESOLVESOURCE: Installmessage = 100663296
+
+public val INSTALLMESSAGE_RMFILESINUSE: Installmessage = 419430400
+
+public val INSTALLMESSAGE_SHOWDIALOG: Installmessage = 234881024
+
+public val INSTALLMESSAGE_TERMINATE: Installmessage = 218103808
+
+public val INSTALLMESSAGE_TYPEMASK: Int = -16777216
+
+public val INSTALLMESSAGE_USER: Installmessage = 50331648
+
+public val INSTALLMESSAGE_WARNING: Installmessage = 33554432
+
+public val INSTALLMODE_DEFAULT: Installmode = 0
+
+public val INSTALLMODE_EXISTING: Installmode = -1
+
+public val INSTALLMODE_NODETECTION: Installmode = -2
+
+public val INSTALLMODE_NODETECTION_ANY: Installmode = -4
+
+public val INSTALLMODE_NOSOURCERESOLUTION: Installmode = -3
+
+public val INSTALLPROPERTY_ASSIGNMENTTYPE: Pcwstr = w("AssignmentType")
+
+public val INSTALLPROPERTY_AUTHORIZED_LUA_APP: Pcwstr = w("AuthorizedLUAApp")
+
+public val INSTALLPROPERTY_DISKPROMPT: Pcwstr = w("DiskPrompt")
+
+public val INSTALLPROPERTY_DISPLAYNAME: Pcwstr = w("DisplayName")
+
+public val INSTALLPROPERTY_HELPLINK: Pcwstr = w("HelpLink")
+
+public val INSTALLPROPERTY_HELPTELEPHONE: Pcwstr = w("HelpTelephone")
+
+public val INSTALLPROPERTY_INSTALLDATE: Pcwstr = w("InstallDate")
+
+public val INSTALLPROPERTY_INSTALLEDLANGUAGE: Pcwstr = w("InstalledLanguage")
+
+public val INSTALLPROPERTY_INSTALLEDPRODUCTNAME: Pcwstr = w("InstalledProductName")
+
+public val INSTALLPROPERTY_INSTALLLOCATION: Pcwstr = w("InstallLocation")
+
+public val INSTALLPROPERTY_INSTALLSOURCE: Pcwstr = w("InstallSource")
+
+public val INSTALLPROPERTY_INSTANCETYPE: Pcwstr = w("InstanceType")
+
+public val INSTALLPROPERTY_LANGUAGE: Pcwstr = w("Language")
+
+public val INSTALLPROPERTY_LASTUSEDSOURCE: Pcwstr = w("LastUsedSource")
+
+public val INSTALLPROPERTY_LASTUSEDTYPE: Pcwstr = w("LastUsedType")
+
+public val INSTALLPROPERTY_LOCALPACKAGE: Pcwstr = w("LocalPackage")
+
+public val INSTALLPROPERTY_LUAENABLED: Pcwstr = w("LUAEnabled")
+
+public val INSTALLPROPERTY_MEDIAPACKAGEPATH: Pcwstr = w("MediaPackagePath")
+
+public val INSTALLPROPERTY_MOREINFOURL: Pcwstr = w("MoreInfoURL")
+
+public val INSTALLPROPERTY_PACKAGECODE: Pcwstr = w("PackageCode")
+
+public val INSTALLPROPERTY_PACKAGENAME: Pcwstr = w("PackageName")
+
+public val INSTALLPROPERTY_PATCHSTATE: Pcwstr = w("State")
+
+public val INSTALLPROPERTY_PATCHTYPE: Pcwstr = w("PatchType")
+
+public val INSTALLPROPERTY_PRODUCTICON: Pcwstr = w("ProductIcon")
+
+public val INSTALLPROPERTY_PRODUCTID: Pcwstr = w("ProductID")
+
+public val INSTALLPROPERTY_PRODUCTNAME: Pcwstr = w("ProductName")
+
+public val INSTALLPROPERTY_PRODUCTSTATE: Pcwstr = w("State")
+
+public val INSTALLPROPERTY_PUBLISHER: Pcwstr = w("Publisher")
+
+public val INSTALLPROPERTY_REGCOMPANY: Pcwstr = w("RegCompany")
+
+public val INSTALLPROPERTY_REGOWNER: Pcwstr = w("RegOwner")
+
+public val INSTALLPROPERTY_TRANSFORMS: Pcwstr = w("Transforms")
+
+public val INSTALLPROPERTY_UNINSTALLABLE: Pcwstr = w("Uninstallable")
+
+public val INSTALLPROPERTY_URLINFOABOUT: Pcwstr = w("URLInfoAbout")
+
+public val INSTALLPROPERTY_URLUPDATEINFO: Pcwstr = w("URLUpdateInfo")
+
+public val INSTALLPROPERTY_VERSION: Pcwstr = w("Version")
+
+public val INSTALLPROPERTY_VERSIONMAJOR: Pcwstr = w("VersionMajor")
+
+public val INSTALLPROPERTY_VERSIONMINOR: Pcwstr = w("VersionMinor")
+
+public val INSTALLPROPERTY_VERSIONSTRING: Pcwstr = w("VersionString")
+
+public val INSTALLSTATE_ABSENT: Installstate = 2
+
+public val INSTALLSTATE_ADVERTISED: Installstate = 1
+
+public val INSTALLSTATE_BADCONFIG: Installstate = -6
+
+public val INSTALLSTATE_BROKEN: Installstate = 0
+
+public val INSTALLSTATE_DEFAULT: Installstate = 5
+
+public val INSTALLSTATE_INCOMPLETE: Installstate = -5
+
+public val INSTALLSTATE_INVALIDARG: Installstate = -2
+
+public val INSTALLSTATE_LOCAL: Installstate = 3
+
+public val INSTALLSTATE_MOREDATA: Installstate = -3
+
+public val INSTALLSTATE_NOTUSED: Installstate = -7
+
+public val INSTALLSTATE_REMOVED: Installstate = 1
+
+public val INSTALLSTATE_SOURCE: Installstate = 4
+
+public val INSTALLSTATE_SOURCEABSENT: Installstate = -4
+
+public val INSTALLSTATE_UNKNOWN: Installstate = -1
+
+public val INSTALLTYPE_DEFAULT: Installtype = 0
+
+public val INSTALLTYPE_NETWORK_IMAGE: Installtype = 1
+
+public val INSTALLTYPE_SINGLE_INSTANCE: Installtype = 2
+
+public val INSTALLUILEVEL_BASIC: Installuilevel = 3
+
+public val INSTALLUILEVEL_DEFAULT: Installuilevel = 1
+
+public val INSTALLUILEVEL_ENDDIALOG: Installuilevel = 128
+
+public val INSTALLUILEVEL_FULL: Installuilevel = 5
+
+public val INSTALLUILEVEL_HIDECANCEL: Installuilevel = 32
+
+public val INSTALLUILEVEL_NOCHANGE: Installuilevel = 0
+
+public val INSTALLUILEVEL_NONE: Installuilevel = 2
+
+public val INSTALLUILEVEL_PROGRESSONLY: Installuilevel = 64
+
+public val INSTALLUILEVEL_REDUCED: Installuilevel = 4
+
+public val INSTALLUILEVEL_SOURCERESONLY: Installuilevel = 256
+
+public val INSTALLUILEVEL_UACONLY: Installuilevel = 512
+
+public val IPROPNAME_ACTION: Pcwstr = w("ACTION")
+
+public val IPROPNAME_ADMINTOOLS_FOLDER: Pcwstr = w("AdminToolsFolder")
+
+public val IPROPNAME_ADMINUSER: Pcwstr = w("AdminUser")
+
+public val IPROPNAME_ADMIN_PROPERTIES: Pcwstr = w("AdminProperties")
+
+public val IPROPNAME_AFTERREBOOT: Pcwstr = w("AFTERREBOOT")
+
+public val IPROPNAME_ALLOWEDPROPERTIES: Pcwstr = w("SecureCustomProperties")
+
+public val IPROPNAME_ALLUSERS: Pcwstr = w("ALLUSERS")
+
+public val IPROPNAME_APPDATA_FOLDER: Pcwstr = w("AppDataFolder")
+
+public val IPROPNAME_ARM: Pcwstr = w("Arm")
+
+public val IPROPNAME_ARM64: Pcwstr = w("Arm64")
+
+public val IPROPNAME_ARPAUTHORIZEDCDFPREFIX: Pcwstr = w("ARPAUTHORIZEDCDFPREFIX")
+
+public val IPROPNAME_ARPCOMMENTS: Pcwstr = w("ARPCOMMENTS")
+
+public val IPROPNAME_ARPCONTACT: Pcwstr = w("ARPCONTACT")
+
+public val IPROPNAME_ARPHELPLINK: Pcwstr = w("ARPHELPLINK")
+
+public val IPROPNAME_ARPHELPTELEPHONE: Pcwstr = w("ARPHELPTELEPHONE")
+
+public val IPROPNAME_ARPINSTALLLOCATION: Pcwstr = w("ARPINSTALLLOCATION")
+
+public val IPROPNAME_ARPNOMODIFY: Pcwstr = w("ARPNOMODIFY")
+
+public val IPROPNAME_ARPNOREMOVE: Pcwstr = w("ARPNOREMOVE")
+
+public val IPROPNAME_ARPNOREPAIR: Pcwstr = w("ARPNOREPAIR")
+
+public val IPROPNAME_ARPPRODUCTICON: Pcwstr = w("ARPPRODUCTICON")
+
+public val IPROPNAME_ARPREADME: Pcwstr = w("ARPREADME")
+
+public val IPROPNAME_ARPSETTINGSIDENTIFIER: Pcwstr = w("MSIARPSETTINGSIDENTIFIER")
+
+public val IPROPNAME_ARPSHIMFLAGS: Pcwstr = w("SHIMFLAGS")
+
+public val IPROPNAME_ARPSHIMSERVICEPACKLEVEL: Pcwstr = w("SHIMSERVICEPACKLEVEL")
+
+public val IPROPNAME_ARPSHIMVERSIONNT: Pcwstr = w("SHIMVERSIONNT")
+
+public val IPROPNAME_ARPSIZE: Pcwstr = w("ARPSIZE")
+
+public val IPROPNAME_ARPSYSTEMCOMPONENT: Pcwstr = w("ARPSYSTEMCOMPONENT")
+
+public val IPROPNAME_ARPURLINFOABOUT: Pcwstr = w("ARPURLINFOABOUT")
+
+public val IPROPNAME_ARPURLUPDATEINFO: Pcwstr = w("ARPURLUPDATEINFO")
+
+public val IPROPNAME_AVAILABLEFREEREG: Pcwstr = w("AVAILABLEFREEREG")
+
+public val IPROPNAME_BORDERSIDE: Pcwstr = w("BorderSide")
+
+public val IPROPNAME_BORDERTOP: Pcwstr = w("BorderTop")
+
+public val IPROPNAME_CAPTIONHEIGHT: Pcwstr = w("CaptionHeight")
+
+public val IPROPNAME_CARRYINGNDP: Pcwstr = w("CARRYINGNDP")
+
+public val IPROPNAME_CHECKCRCS: Pcwstr = w("MSICHECKCRCS")
+
+public val IPROPNAME_COLORBITS: Pcwstr = w("ColorBits")
+
+public val IPROPNAME_COMMONAPPDATA_FOLDER: Pcwstr = w("CommonAppDataFolder")
+
+public val IPROPNAME_COMMONFILES64_FOLDER: Pcwstr = w("CommonFiles64Folder")
+
+public val IPROPNAME_COMMONFILES_FOLDER: Pcwstr = w("CommonFilesFolder")
+
+public val IPROPNAME_COMPANYNAME: Pcwstr = w("COMPANYNAME")
+
+public val IPROPNAME_COMPONENTADDDEFAULT: Pcwstr = w("COMPADDDEFAULT")
+
+public val IPROPNAME_COMPONENTADDLOCAL: Pcwstr = w("COMPADDLOCAL")
+
+public val IPROPNAME_COMPONENTADDSOURCE: Pcwstr = w("COMPADDSOURCE")
+
+public val IPROPNAME_COMPUTERNAME: Pcwstr = w("ComputerName")
+
+public val IPROPNAME_COSTINGCOMPLETE: Pcwstr = w("CostingComplete")
+
+public val IPROPNAME_CUSTOMACTIONDATA: Pcwstr = w("CustomActionData")
+
+public val IPROPNAME_DATE: Pcwstr = w("Date")
+
+public val IPROPNAME_DATETIME: Pcwstr = w("DateTime")
+
+public val IPROPNAME_DEFAULTUIFONT: Pcwstr = w("DefaultUIFont")
+
+public val IPROPNAME_DESKTOP_FOLDER: Pcwstr = w("DesktopFolder")
+
+public val IPROPNAME_DISABLEADVTSHORTCUTS: Pcwstr = w("DISABLEADVTSHORTCUTS")
+
+public val IPROPNAME_DISABLEROLLBACK: Pcwstr = w("DISABLEROLLBACK")
+
+public val IPROPNAME_DISKPROMPT: Pcwstr = w("DiskPrompt")
+
+public val IPROPNAME_ENABLEUSERCONTROL: Pcwstr = w("EnableUserControl")
+
+public val IPROPNAME_ENFORCE_UPGRADE_COMPONENT_RULES: Pcwstr = w("MSIENFORCEUPGRADECOMPONENTRULES")
+
+public val IPROPNAME_EXECUTEACTION: Pcwstr = w("EXECUTEACTION")
+
+public val IPROPNAME_EXECUTEMODE: Pcwstr = w("EXECUTEMODE")
+
+public val IPROPNAME_FAVORITES_FOLDER: Pcwstr = w("FavoritesFolder")
+
+public val IPROPNAME_FEATUREADDDEFAULT: Pcwstr = w("ADDDEFAULT")
+
+public val IPROPNAME_FEATUREADDLOCAL: Pcwstr = w("ADDLOCAL")
+
+public val IPROPNAME_FEATUREADDSOURCE: Pcwstr = w("ADDSOURCE")
+
+public val IPROPNAME_FEATUREADVERTISE: Pcwstr = w("ADVERTISE")
+
+public val IPROPNAME_FEATUREREMOVE: Pcwstr = w("REMOVE")
+
+public val IPROPNAME_FILEADDDEFAULT: Pcwstr = w("FILEADDDEFAULT")
+
+public val IPROPNAME_FILEADDLOCAL: Pcwstr = w("FILEADDLOCAL")
+
+public val IPROPNAME_FILEADDSOURCE: Pcwstr = w("FILEADDSOURCE")
+
+public val IPROPNAME_FONTS_FOLDER: Pcwstr = w("FontsFolder")
+
+public val IPROPNAME_HIDDEN_PROPERTIES: Pcwstr = w("MsiHiddenProperties")
+
+public val IPROPNAME_HIDECANCEL: Pcwstr = w("MsiUIHideCancel")
+
+public val IPROPNAME_IA64: Pcwstr = w("IA64")
+
+public val IPROPNAME_INSTALLED: Pcwstr = w("Installed")
+
+public val IPROPNAME_INSTALLLANGUAGE: Pcwstr = w("ProductLanguage")
+
+public val IPROPNAME_INSTALLLEVEL: Pcwstr = w("INSTALLLEVEL")
+
+public val IPROPNAME_INSTALLPERUSER: Pcwstr = w("MSIINSTALLPERUSER")
+
+public val IPROPNAME_INTEL: Pcwstr = w("Intel")
+
+public val IPROPNAME_INTEL64: Pcwstr = w("Intel64")
+
+public val IPROPNAME_INTERNALINSTALLEDPERUSER: Pcwstr = w("MSIINTERNALINSTALLEDPERUSER")
+
+public val IPROPNAME_ISADMINPACKAGE: Pcwstr = w("IsAdminPackage")
+
+public val IPROPNAME_LEFTUNIT: Pcwstr = w("LeftUnit")
+
+public val IPROPNAME_LIMITUI: Pcwstr = w("LIMITUI")
+
+public val IPROPNAME_LOCALAPPDATA_FOLDER: Pcwstr = w("LocalAppDataFolder")
+
+public val IPROPNAME_LOGACTION: Pcwstr = w("LOGACTION")
+
+public val IPROPNAME_LOGONUSER: Pcwstr = w("LogonUser")
+
+public val IPROPNAME_MANUFACTURER: Pcwstr = w("Manufacturer")
+
+public val IPROPNAME_MSIAMD64: Pcwstr = w("MsiAMD64")
+
+public val IPROPNAME_MSIDISABLEEEUI: Pcwstr = w("MSIDISABLEEEUI")
+
+public val IPROPNAME_MSIDISABLELUAPATCHING: Pcwstr = w("MSIDISABLELUAPATCHING")
+
+public val IPROPNAME_MSIINSTANCEGUID: Pcwstr = w("MSIINSTANCEGUID")
+
+public val IPROPNAME_MSILOGFILELOCATION: Pcwstr = w("MsiLogFileLocation")
+
+public val IPROPNAME_MSILOGGINGMODE: Pcwstr = w("MsiLogging")
+
+public val IPROPNAME_MSINEWINSTANCE: Pcwstr = w("MSINEWINSTANCE")
+
+public val IPROPNAME_MSINODISABLEMEDIA: Pcwstr = w("MSINODISABLEMEDIA")
+
+public val IPROPNAME_MSIPACKAGEDOWNLOADLOCALCOPY: Pcwstr = w("MSIPACKAGEDOWNLOADLOCALCOPY")
+
+public val IPROPNAME_MSIPATCHDOWNLOADLOCALCOPY: Pcwstr = w("MSIPATCHDOWNLOADLOCALCOPY")
+
+public val IPROPNAME_MSIPATCHREMOVE: Pcwstr = w("MSIPATCHREMOVE")
+
+public val IPROPNAME_MSITABLETPC: Pcwstr = w("MsiTabletPC")
+
+public val IPROPNAME_MSIX64: Pcwstr = w("Msix64")
+
+public val IPROPNAME_MSI_FASTINSTALL: Pcwstr = w("MSIFASTINSTALL")
+
+public val IPROPNAME_MSI_REBOOT_PENDING: Pcwstr = w("MsiSystemRebootPending")
+
+public val IPROPNAME_MSI_RM_CONTROL: Pcwstr = w("MSIRESTARTMANAGERCONTROL")
+
+public val IPROPNAME_MSI_RM_DISABLE_RESTART: Pcwstr = w("MSIDISABLERMRESTART")
+
+public val IPROPNAME_MSI_RM_SESSION_KEY: Pcwstr = w("MsiRestartManagerSessionKey")
+
+public val IPROPNAME_MSI_RM_SHUTDOWN: Pcwstr = w("MSIRMSHUTDOWN")
+
+public val IPROPNAME_MSI_UAC_DEPLOYMENT_COMPLIANT: Pcwstr = w("MSIDEPLOYMENTCOMPLIANT")
+
+public val IPROPNAME_MSI_UNINSTALL_SUPERSEDED_COMPONENTS: Pcwstr = w("MSIUNINSTALLSUPERSEDEDCOMPONENTS")
+
+public val IPROPNAME_MSI_USE_REAL_ADMIN_DETECTION: Pcwstr = w("MSIUSEREALADMINDETECTION")
+
+public val IPROPNAME_MYPICTURES_FOLDER: Pcwstr = w("MyPicturesFolder")
+
+public val IPROPNAME_NETASSEMBLYSUPPORT: Pcwstr = w("MsiNetAssemblySupport")
+
+public val IPROPNAME_NETHOOD_FOLDER: Pcwstr = w("NetHoodFolder")
+
+public val IPROPNAME_NOCOMPANYNAME: Pcwstr = w("NOCOMPANYNAME")
+
+public val IPROPNAME_NOUSERNAME: Pcwstr = w("NOUSERNAME")
+
+public val IPROPNAME_NTPRODUCTTYPE: Pcwstr = w("MsiNTProductType")
+
+public val IPROPNAME_NTSUITEBACKOFFICE: Pcwstr = w("MsiNTSuiteBackOffice")
+
+public val IPROPNAME_NTSUITEDATACENTER: Pcwstr = w("MsiNTSuiteDataCenter")
+
+public val IPROPNAME_NTSUITEENTERPRISE: Pcwstr = w("MsiNTSuiteEnterprise")
+
+public val IPROPNAME_NTSUITEPERSONAL: Pcwstr = w("MsiNTSuitePersonal")
+
+public val IPROPNAME_NTSUITESMALLBUSINESS: Pcwstr = w("MsiNTSuiteSmallBusiness")
+
+public val IPROPNAME_NTSUITESMALLBUSINESSRESTRICTED: Pcwstr = w("MsiNTSuiteSmallBusinessRestricted")
+
+public val IPROPNAME_NTSUITEWEBSERVER: Pcwstr = w("MsiNTSuiteWebServer")
+
+public val IPROPNAME_OLEADVTSUPPORT: Pcwstr = w("OLEAdvtSupport")
+
+public val IPROPNAME_OUTOFDISKSPACE: Pcwstr = w("OutOfDiskSpace")
+
+public val IPROPNAME_OUTOFNORBDISKSPACE: Pcwstr = w("OutOfNoRbDiskSpace")
+
+public val IPROPNAME_PATCH: Pcwstr = w("PATCH")
+
+public val IPROPNAME_PATCHNEWPACKAGECODE: Pcwstr = w("PATCHNEWPACKAGECODE")
+
+public val IPROPNAME_PATCHNEWSUMMARYCOMMENTS: Pcwstr = w("PATCHNEWSUMMARYCOMMENTS")
+
+public val IPROPNAME_PATCHNEWSUMMARYSUBJECT: Pcwstr = w("PATCHNEWSUMMARYSUBJECT")
+
+public val IPROPNAME_PERSONAL_FOLDER: Pcwstr = w("PersonalFolder")
+
+public val IPROPNAME_PHYSICALMEMORY: Pcwstr = w("PhysicalMemory")
+
+public val IPROPNAME_PIDKEY: Pcwstr = w("PIDKEY")
+
+public val IPROPNAME_PIDTEMPLATE: Pcwstr = w("PIDTemplate")
+
+public val IPROPNAME_PRESELECTED: Pcwstr = w("Preselected")
+
+public val IPROPNAME_PRIMARYFOLDER: Pcwstr = w("PRIMARYFOLDER")
+
+public val IPROPNAME_PRIMARYFOLDER_PATH: Pcwstr = w("PrimaryVolumePath")
+
+public val IPROPNAME_PRIMARYFOLDER_SPACEAVAILABLE: Pcwstr = w("PrimaryVolumeSpaceAvailable")
+
+public val IPROPNAME_PRIMARYFOLDER_SPACEREMAINING: Pcwstr = w("PrimaryVolumeSpaceRemaining")
+
+public val IPROPNAME_PRIMARYFOLDER_SPACEREQUIRED: Pcwstr = w("PrimaryVolumeSpaceRequired")
+
+public val IPROPNAME_PRINTHOOD_FOLDER: Pcwstr = w("PrintHoodFolder")
+
+public val IPROPNAME_PRIVILEGED: Pcwstr = w("Privileged")
+
+public val IPROPNAME_PRODUCTCODE: Pcwstr = w("ProductCode")
+
+public val IPROPNAME_PRODUCTID: Pcwstr = w("ProductID")
+
+public val IPROPNAME_PRODUCTLANGUAGE: Pcwstr = w("PRODUCTLANGUAGE")
+
+public val IPROPNAME_PRODUCTNAME: Pcwstr = w("ProductName")
+
+public val IPROPNAME_PRODUCTSTATE: Pcwstr = w("ProductState")
+
+public val IPROPNAME_PRODUCTVERSION: Pcwstr = w("ProductVersion")
+
+public val IPROPNAME_PROGRAMFILES64_FOLDER: Pcwstr = w("ProgramFiles64Folder")
+
+public val IPROPNAME_PROGRAMFILES_FOLDER: Pcwstr = w("ProgramFilesFolder")
+
+public val IPROPNAME_PROGRAMMENU_FOLDER: Pcwstr = w("ProgramMenuFolder")
+
+public val IPROPNAME_PROGRESSONLY: Pcwstr = w("MsiUIProgressOnly")
+
+public val IPROPNAME_PROMPTROLLBACKCOST: Pcwstr = w("PROMPTROLLBACKCOST")
+
+public val IPROPNAME_REBOOT: Pcwstr = w("REBOOT")
+
+public val IPROPNAME_REBOOTPROMPT: Pcwstr = w("REBOOTPROMPT")
+
+public val IPROPNAME_RECENT_FOLDER: Pcwstr = w("RecentFolder")
+
+public val IPROPNAME_REDIRECTEDDLLSUPPORT: Pcwstr = w("RedirectedDllSupport")
+
+public val IPROPNAME_REINSTALL: Pcwstr = w("REINSTALL")
+
+public val IPROPNAME_REINSTALLMODE: Pcwstr = w("REINSTALLMODE")
+
+public val IPROPNAME_REMOTEADMINTS: Pcwstr = w("RemoteAdminTS")
+
+public val IPROPNAME_REPLACEDINUSEFILES: Pcwstr = w("ReplacedInUseFiles")
+
+public val IPROPNAME_RESTRICTEDUSERCONTROL: Pcwstr = w("RestrictedUserControl")
+
+public val IPROPNAME_RESUME: Pcwstr = w("RESUME")
+
+public val IPROPNAME_ROLLBACKDISABLED: Pcwstr = w("RollbackDisabled")
+
+public val IPROPNAME_ROOTDRIVE: Pcwstr = w("ROOTDRIVE")
+
+public val IPROPNAME_RUNNINGELEVATED: Pcwstr = w("MsiRunningElevated")
+
+public val IPROPNAME_SCREENX: Pcwstr = w("ScreenX")
+
+public val IPROPNAME_SCREENY: Pcwstr = w("ScreenY")
+
+public val IPROPNAME_SENDTO_FOLDER: Pcwstr = w("SendToFolder")
+
+public val IPROPNAME_SEQUENCE: Pcwstr = w("SEQUENCE")
+
+public val IPROPNAME_SERVICEPACKLEVEL: Pcwstr = w("ServicePackLevel")
+
+public val IPROPNAME_SERVICEPACKLEVELMINOR: Pcwstr = w("ServicePackLevelMinor")
+
+public val IPROPNAME_SHAREDWINDOWS: Pcwstr = w("SharedWindows")
+
+public val IPROPNAME_SHELLADVTSUPPORT: Pcwstr = w("ShellAdvtSupport")
+
+public val IPROPNAME_SHORTFILENAMES: Pcwstr = w("SHORTFILENAMES")
+
+public val IPROPNAME_SOURCEDIR: Pcwstr = w("SourceDir")
+
+public val IPROPNAME_SOURCELIST: Pcwstr = w("SOURCELIST")
+
+public val IPROPNAME_SOURCERESONLY: Pcwstr = w("MsiUISourceResOnly")
+
+public val IPROPNAME_STARTMENU_FOLDER: Pcwstr = w("StartMenuFolder")
+
+public val IPROPNAME_STARTUP_FOLDER: Pcwstr = w("StartupFolder")
+
+public val IPROPNAME_SYSTEM16_FOLDER: Pcwstr = w("System16Folder")
+
+public val IPROPNAME_SYSTEM64_FOLDER: Pcwstr = w("System64Folder")
+
+public val IPROPNAME_SYSTEMLANGUAGEID: Pcwstr = w("SystemLanguageID")
+
+public val IPROPNAME_SYSTEM_FOLDER: Pcwstr = w("SystemFolder")
+
+public val IPROPNAME_TARGETDIR: Pcwstr = w("TARGETDIR")
+
+public val IPROPNAME_TEMPLATE_AMD64: Pcwstr = w("AMD64")
+
+public val IPROPNAME_TEMPLATE_FOLDER: Pcwstr = w("TemplateFolder")
+
+public val IPROPNAME_TEMPLATE_X64: Pcwstr = w("x64")
+
+public val IPROPNAME_TEMP_FOLDER: Pcwstr = w("TempFolder")
+
+public val IPROPNAME_TERMSERVER: Pcwstr = w("TerminalServer")
+
+public val IPROPNAME_TEXTHEIGHT: Pcwstr = w("TextHeight")
+
+public val IPROPNAME_TEXTHEIGHT_CORRECTION: Pcwstr = w("TextHeightCorrection")
+
+public val IPROPNAME_TEXTINTERNALLEADING: Pcwstr = w("TextInternalLeading")
+
+public val IPROPNAME_TIME: Pcwstr = w("Time")
+
+public val IPROPNAME_TRANSFORMS: Pcwstr = w("TRANSFORMS")
+
+public val IPROPNAME_TRANSFORMSATSOURCE: Pcwstr = w("TRANSFORMSATSOURCE")
+
+public val IPROPNAME_TRANSFORMSSECURE: Pcwstr = w("TRANSFORMSSECURE")
+
+public val IPROPNAME_TRUEADMINUSER: Pcwstr = w("MsiTrueAdminUser")
+
+public val IPROPNAME_TTCSUPPORT: Pcwstr = w("TTCSupport")
+
+public val IPROPNAME_UACONLY: Pcwstr = w("MsiUIUACOnly")
+
+public val IPROPNAME_UPDATESTARTED: Pcwstr = w("UpdateStarted")
+
+public val IPROPNAME_UPGRADECODE: Pcwstr = w("UpgradeCode")
+
+public val IPROPNAME_USERLANGUAGEID: Pcwstr = w("UserLanguageID")
+
+public val IPROPNAME_USERNAME: Pcwstr = w("USERNAME")
+
+public val IPROPNAME_USERSID: Pcwstr = w("UserSID")
+
+public val IPROPNAME_VERSION9X: Pcwstr = w("Version9X")
+
+public val IPROPNAME_VERSIONNT: Pcwstr = w("VersionNT")
+
+public val IPROPNAME_VERSIONNT64: Pcwstr = w("VersionNT64")
+
+public val IPROPNAME_VIRTUALMEMORY: Pcwstr = w("VirtualMemory")
+
+public val IPROPNAME_WIN32ASSEMBLYSUPPORT: Pcwstr = w("MsiWin32AssemblySupport")
+
+public val IPROPNAME_WINDOWSBUILD: Pcwstr = w("WindowsBuild")
+
+public val IPROPNAME_WINDOWS_FOLDER: Pcwstr = w("WindowsFolder")
+
+public val IPROPNAME_WINDOWS_VOLUME: Pcwstr = w("WindowsVolume")
+
+public val IPROPVALUE_EXECUTEMODE_NONE: Pcwstr = w("NONE")
+
+public val IPROPVALUE_EXECUTEMODE_SCRIPT: Pcwstr = w("SCRIPT")
+
+public val IPROPVALUE_FEATURE_ALL: Pcwstr = w("ALL")
+
+public val IPROPVALUE_MSI_RM_CONTROL_DISABLE: Pcwstr = w("Disable")
+
+public val IPROPVALUE_MSI_RM_CONTROL_DISABLESHUTDOWN: Pcwstr = w("DisableShutdown")
+
+public val IPROPVALUE_RBCOST_FAIL: Pcwstr = w("F")
+
+public val IPROPVALUE_RBCOST_PROMPT: Pcwstr = w("P")
+
+public val IPROPVALUE_RBCOST_SILENT: Pcwstr = w("D")
+
+public val IPROPVALUE_CARRYINGNDP_URTREINSTALL: Pcwstr = w("URTREINSTALL")
+
+public val IPROPVALUE_CARRYINGNDP_URTUPGRADE: Pcwstr = w("URTUPGRADE")
+
+public val LOGALL: UInt = 15u
+
+public val LOGERR: UInt = 4u
+
+public val LOGINFO: UInt = 1u
+
+public val LOGNONE: UInt = 0u
+
+public val LOGPERFMESSAGES: UInt = 8u
+
+public val LOGTOKEN_NO_LOG: UInt = 1u
+
+public val LOGTOKEN_SETUPAPI_APPLOG: UInt = 2u
+
+public val LOGTOKEN_SETUPAPI_DEVLOG: UInt = 3u
+
+public val LOGTOKEN_TYPE_MASK: UInt = 3u
+
+public val LOGTOKEN_UNSPECIFIED: UInt = 0u
+
+public val LOGWARN: UInt = 2u
+
+public val MAX_FEATURE_CHARS: UInt = 38u
+
+public val MAX_GUID_CHARS: UInt = 38u
+
+public val MSIADVERTISEOPTIONFLAGS_INSTANCE: Msiadvertiseoptionflags = 1
+
+public val MSIARCHITECTUREFLAGS_AMD64: Msiarchitectureflags = 4
+
+public val MSIARCHITECTUREFLAGS_ARM: Msiarchitectureflags = 8
+
+public val MSIARCHITECTUREFLAGS_IA64: Msiarchitectureflags = 2
+
+public val MSIARCHITECTUREFLAGS_X86: Msiarchitectureflags = 1
+
+public val MSIASSEMBLYINFO_NETASSEMBLY: Msiassemblyinfo = 0u
+
+public val MSIASSEMBLYINFO_WIN32ASSEMBLY: Msiassemblyinfo = 1u
+
+public val MSICODE_PATCH: Msicode = 1073741824
+
+public val MSICODE_PRODUCT: Msicode = 0
+
+public val MSICOLINFO_NAMES: Msicolinfo = 0
+
+public val MSICOLINFO_TYPES: Msicolinfo = 1
+
+public val MSICONDITION_ERROR: Msicondition = 3
+
+public val MSICONDITION_FALSE: Msicondition = 0
+
+public val MSICONDITION_NONE: Msicondition = 2
+
+public val MSICONDITION_TRUE: Msicondition = 1
+
+public val MSICOSTTREE_CHILDREN: Msicosttree = 1
+
+public val MSICOSTTREE_PARENTS: Msicosttree = 2
+
+public val MSICOSTTREE_RESERVED: Msicosttree = 3
+
+public val MSICOSTTREE_SELFONLY: Msicosttree = 0
+
+public val MSIDBERROR_BADCABINET: Msidberror = 26
+
+public val MSIDBERROR_BADCASE: Msidberror = 8
+
+public val MSIDBERROR_BADCATEGORY: Msidberror = 23
+
+public val MSIDBERROR_BADCONDITION: Msidberror = 15
+
+public val MSIDBERROR_BADCUSTOMSOURCE: Msidberror = 20
+
+public val MSIDBERROR_BADDEFAULTDIR: Msidberror = 18
+
+public val MSIDBERROR_BADFILENAME: Msidberror = 13
+
+public val MSIDBERROR_BADFORMATTED: Msidberror = 16
+
+public val MSIDBERROR_BADGUID: Msidberror = 9
+
+public val MSIDBERROR_BADIDENTIFIER: Msidberror = 11
+
+public val MSIDBERROR_BADKEYTABLE: Msidberror = 24
+
+public val MSIDBERROR_BADLANGUAGE: Msidberror = 12
+
+public val MSIDBERROR_BADLINK: Msidberror = 3
+
+public val MSIDBERROR_BADLOCALIZEATTRIB: Msidberror = 29
+
+public val MSIDBERROR_BADMAXMINVALUES: Msidberror = 25
+
+public val MSIDBERROR_BADPATH: Msidberror = 14
+
+public val MSIDBERROR_BADPROPERTY: Msidberror = 21
+
+public val MSIDBERROR_BADREGPATH: Msidberror = 19
+
+public val MSIDBERROR_BADSHORTCUT: Msidberror = 27
+
+public val MSIDBERROR_BADTEMPLATE: Msidberror = 17
+
+public val MSIDBERROR_BADVERSION: Msidberror = 7
+
+public val MSIDBERROR_BADWILDCARD: Msidberror = 10
+
+public val MSIDBERROR_DUPLICATEKEY: Msidberror = 1
+
+public val MSIDBERROR_FUNCTIONERROR: Msidberror = -1
+
+public val MSIDBERROR_INVALIDARG: Msidberror = -3
+
+public val MSIDBERROR_MISSINGDATA: Msidberror = 22
+
+public val MSIDBERROR_MOREDATA: Msidberror = -2
+
+public val MSIDBERROR_NOERROR: Msidberror = 0
+
+public val MSIDBERROR_NOTINSET: Msidberror = 6
+
+public val MSIDBERROR_OVERFLOW: Msidberror = 4
+
+public val MSIDBERROR_REQUIRED: Msidberror = 2
+
+public val MSIDBERROR_STRINGOVERFLOW: Msidberror = 28
+
+public val MSIDBERROR_UNDERFLOW: Msidberror = 5
+
+public val MSIDBOPEN_CREATE: Pcwstr = ConstPtr(3.toLong())
+
+public val MSIDBOPEN_CREATEDIRECT: Pcwstr = ConstPtr(4.toLong())
+
+public val MSIDBOPEN_DIRECT: Pcwstr = ConstPtr(2.toLong())
+
+public val MSIDBOPEN_PATCHFILE: Int = 16
+
+public val MSIDBOPEN_READONLY: Pcwstr = ConstPtr(0L)
+
+public val MSIDBOPEN_TRANSACT: Pcwstr = ConstPtr(1.toLong())
+
+public val MSIDBSTATE_ERROR: Msidbstate = -1
+
+public val MSIDBSTATE_READ: Msidbstate = 0
+
+public val MSIDBSTATE_WRITE: Msidbstate = 1
+
+public val MSIINSTALLCONTEXT_ALL: Msiinstallcontext = 7
+
+public val MSIINSTALLCONTEXT_ALLUSERMANAGED: Msiinstallcontext = 8
+
+public val MSIINSTALLCONTEXT_FIRSTVISIBLE: Msiinstallcontext = 0
+
+public val MSIINSTALLCONTEXT_MACHINE: Msiinstallcontext = 4
+
+public val MSIINSTALLCONTEXT_NONE: Msiinstallcontext = 0
+
+public val MSIINSTALLCONTEXT_USERMANAGED: Msiinstallcontext = 1
+
+public val MSIINSTALLCONTEXT_USERUNMANAGED: Msiinstallcontext = 2
+
+public val MSIMODIFY_ASSIGN: Msimodify = 3
+
+public val MSIMODIFY_DELETE: Msimodify = 6
+
+public val MSIMODIFY_INSERT: Msimodify = 1
+
+public val MSIMODIFY_INSERT_TEMPORARY: Msimodify = 7
+
+public val MSIMODIFY_MERGE: Msimodify = 5
+
+public val MSIMODIFY_REFRESH: Msimodify = 0
+
+public val MSIMODIFY_REPLACE: Msimodify = 4
+
+public val MSIMODIFY_SEEK: Msimodify = -1
+
+public val MSIMODIFY_UPDATE: Msimodify = 2
+
+public val MSIMODIFY_VALIDATE: Msimodify = 8
+
+public val MSIMODIFY_VALIDATE_DELETE: Msimodify = 11
+
+public val MSIMODIFY_VALIDATE_FIELD: Msimodify = 10
+
+public val MSIMODIFY_VALIDATE_NEW: Msimodify = 9
+
+public val MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: Msiopenpackageflags = 1
+
+public val MSIPATCHSTATE_ALL: Msipatchstate = 15
+
+public val MSIPATCHSTATE_APPLIED: Msipatchstate = 1
+
+public val MSIPATCHSTATE_INVALID: Msipatchstate = 0
+
+public val MSIPATCHSTATE_OBSOLETED: Msipatchstate = 4
+
+public val MSIPATCHSTATE_REGISTERED: Msipatchstate = 8
+
+public val MSIPATCHSTATE_SUPERSEDED: Msipatchstate = 2
+
+public val MSIPATCH_DATATYPE_PATCHFILE: Msipatchdatatype = 0
+
+public val MSIPATCH_DATATYPE_XMLBLOB: Msipatchdatatype = 2
+
+public val MSIPATCH_DATATYPE_XMLPATH: Msipatchdatatype = 1
+
+public val MSIRUNMODE_ADMIN: Msirunmode = 0
+
+public val MSIRUNMODE_ADVERTISE: Msirunmode = 1
+
+public val MSIRUNMODE_CABINET: Msirunmode = 8
+
+public val MSIRUNMODE_COMMIT: Msirunmode = 18
+
+public val MSIRUNMODE_LOGENABLED: Msirunmode = 4
+
+public val MSIRUNMODE_MAINTENANCE: Msirunmode = 2
+
+public val MSIRUNMODE_OPERATIONS: Msirunmode = 5
+
+public val MSIRUNMODE_REBOOTATEND: Msirunmode = 6
+
+public val MSIRUNMODE_REBOOTNOW: Msirunmode = 7
+
+public val MSIRUNMODE_RESERVED11: Msirunmode = 11
+
+public val MSIRUNMODE_RESERVED14: Msirunmode = 14
+
+public val MSIRUNMODE_RESERVED15: Msirunmode = 15
+
+public val MSIRUNMODE_ROLLBACK: Msirunmode = 17
+
+public val MSIRUNMODE_ROLLBACKENABLED: Msirunmode = 3
+
+public val MSIRUNMODE_SCHEDULED: Msirunmode = 16
+
+public val MSIRUNMODE_SOURCESHORTNAMES: Msirunmode = 9
+
+public val MSIRUNMODE_TARGETSHORTNAMES: Msirunmode = 10
+
+public val MSIRUNMODE_WINDOWS9X: Msirunmode = 12
+
+public val MSIRUNMODE_ZAWENABLED: Msirunmode = 13
+
+public val MSISOURCETYPE_MEDIA: Msisourcetype = 4
+
+public val MSISOURCETYPE_NETWORK: Msisourcetype = 1
+
+public val MSISOURCETYPE_UNKNOWN: Msisourcetype = 0
+
+public val MSISOURCETYPE_URL: Msisourcetype = 2
+
+public val MSITRANSACTIONSTATE_COMMIT: Msitransactionstate = 1u
+
+public val MSITRANSACTIONSTATE_ROLLBACK: Msitransactionstate = 0u
+
+public val MSITRANSACTION_CHAIN_EMBEDDEDUI: Msitransaction = 1
+
+public val MSITRANSACTION_JOIN_EXISTING_EMBEDDEDUI: Msitransaction = 2
+
+public val MSITRANSFORM_ERROR_ADDEXISTINGROW: MsitransformError = 1
+
+public val MSITRANSFORM_ERROR_ADDEXISTINGTABLE: MsitransformError = 4
+
+public val MSITRANSFORM_ERROR_CHANGECODEPAGE: MsitransformError = 32
+
+public val MSITRANSFORM_ERROR_DELMISSINGROW: MsitransformError = 2
+
+public val MSITRANSFORM_ERROR_DELMISSINGTABLE: MsitransformError = 8
+
+public val MSITRANSFORM_ERROR_NONE: MsitransformError = 0
+
+public val MSITRANSFORM_ERROR_UPDATEMISSINGROW: MsitransformError = 16
+
+public val MSITRANSFORM_ERROR_VIEWTRANSFORM: MsitransformError = 256
+
+public val MSITRANSFORM_VALIDATE_LANGUAGE: MsitransformValidate = 1
+
+public val MSITRANSFORM_VALIDATE_MAJORVERSION: MsitransformValidate = 8
+
+public val MSITRANSFORM_VALIDATE_MINORVERSION: MsitransformValidate = 16
+
+public val MSITRANSFORM_VALIDATE_NEWEQUALBASEVERSION: MsitransformValidate = 256
+
+public val MSITRANSFORM_VALIDATE_NEWGREATERBASEVERSION: MsitransformValidate = 1024
+
+public val MSITRANSFORM_VALIDATE_NEWGREATEREQUALBASEVERSION: MsitransformValidate = 512
+
+public val MSITRANSFORM_VALIDATE_NEWLESSBASEVERSION: MsitransformValidate = 64
+
+public val MSITRANSFORM_VALIDATE_NEWLESSEQUALBASEVERSION: MsitransformValidate = 128
+
+public val MSITRANSFORM_VALIDATE_PLATFORM: MsitransformValidate = 4
+
+public val MSITRANSFORM_VALIDATE_PRODUCT: MsitransformValidate = 2
+
+public val MSITRANSFORM_VALIDATE_UPDATEVERSION: MsitransformValidate = 32
+
+public val MSITRANSFORM_VALIDATE_UPGRADECODE: MsitransformValidate = 2048
+
+public val MSI_INVALID_HASH_IS_FATAL: UInt = 1u
+
+public val MSI_NULL_INTEGER: UInt = 2147483648u
+
+public val PACKMAN_RUNTIME_INVALID: PackmanRuntime = 6
+
+public val PACKMAN_RUNTIME_JUPITER: PackmanRuntime = 5
+
+public val PACKMAN_RUNTIME_MODERN_NATIVE: PackmanRuntime = 4
+
+public val PACKMAN_RUNTIME_NATIVE: PackmanRuntime = 1
+
+public val PACKMAN_RUNTIME_SILVERLIGHTMOBILE: PackmanRuntime = 2
+
+public val PACKMAN_RUNTIME_XNA: PackmanRuntime = 3
+
+public val PATCH_OPTION_FAIL_IF_BIGGER: UInt = 1048576u
+
+public val PATCH_OPTION_FAIL_IF_SAME_FILE: UInt = 524288u
+
+public val PATCH_OPTION_INTERLEAVE_FILES: UInt = 1073741824u
+
+public val PATCH_OPTION_NO_BINDFIX: UInt = 65536u
+
+public val PATCH_OPTION_NO_CHECKSUM: UInt = 2097152u
+
+public val PATCH_OPTION_NO_LOCKFIX: UInt = 131072u
+
+public val PATCH_OPTION_NO_REBASE: UInt = 262144u
+
+public val PATCH_OPTION_NO_RESTIMEFIX: UInt = 4194304u
+
+public val PATCH_OPTION_NO_TIMESTAMP: UInt = 8388608u
+
+public val PATCH_OPTION_RESERVED1: UInt = 2147483648u
+
+public val PATCH_OPTION_SIGNATURE_MD5: UInt = 16777216u
+
+public val PATCH_OPTION_USE_BEST: UInt = 0u
+
+public val PATCH_OPTION_USE_LZX_A: UInt = 1u
+
+public val PATCH_OPTION_USE_LZX_B: UInt = 2u
+
+public val PATCH_OPTION_USE_LZX_BEST: UInt = 3u
+
+public val PATCH_OPTION_USE_LZX_LARGE: UInt = 4u
+
+public val PATCH_OPTION_VALID_FLAGS: UInt = 3237937159u
+
+public val PATCH_SYMBOL_NO_FAILURES: UInt = 2u
+
+public val PATCH_SYMBOL_NO_IMAGEHLP: UInt = 1u
+
+public val PATCH_SYMBOL_RESERVED1: UInt = 2147483648u
+
+public val PATCH_SYMBOL_UNDECORATED_TOO: UInt = 4u
+
+public val PATCH_TRANSFORM_PE_IRELOC_2: UInt = 512u
+
+public val PATCH_TRANSFORM_PE_RESOURCE_2: UInt = 256u
+
+public val PID_APPNAME: UInt = 18u
+
+public val PID_AUTHOR: UInt = 4u
+
+public val PID_CHARCOUNT: UInt = 16u
+
+public val PID_COMMENTS: UInt = 6u
+
+public val PID_CREATE_DTM: UInt = 12u
+
+public val PID_EDITTIME: UInt = 10u
+
+public val PID_KEYWORDS: UInt = 5u
+
+public val PID_LASTAUTHOR: UInt = 8u
+
+public val PID_LASTPRINTED: UInt = 11u
+
+public val PID_LASTSAVE_DTM: UInt = 13u
+
+public val PID_MSIRESTRICT: UInt = 16u
+
+public val PID_MSISOURCE: UInt = 15u
+
+public val PID_MSIVERSION: UInt = 14u
+
+public val PID_PAGECOUNT: UInt = 14u
+
+public val PID_REVNUMBER: UInt = 9u
+
+public val PID_SUBJECT: UInt = 3u
+
+public val PID_TEMPLATE: UInt = 7u
+
+public val PID_THUMBNAIL: UInt = 17u
+
+public val PID_TITLE: UInt = 2u
+
+public val PID_WORDCOUNT: UInt = 15u
+
+public val PM_ACTIVATION_POLICY_INVALID: PmActivationPolicy = 7
+
+public val PM_ACTIVATION_POLICY_MULTISESSION: PmActivationPolicy = 4
+
+public val PM_ACTIVATION_POLICY_REPLACE: PmActivationPolicy = 2
+
+public val PM_ACTIVATION_POLICY_REPLACESAMEPARAMS: PmActivationPolicy = 3
+
+public val PM_ACTIVATION_POLICY_REPLACE_IGNOREFOREGROUND: PmActivationPolicy = 5
+
+public val PM_ACTIVATION_POLICY_RESUME: PmActivationPolicy = 0
+
+public val PM_ACTIVATION_POLICY_RESUMESAMEPARAMS: PmActivationPolicy = 1
+
+public val PM_ACTIVATION_POLICY_UNKNOWN: PmActivationPolicy = 6
+
+public val PM_APPLICATION_HUBTYPE_INVALID: PmApplicationHubtype = 2
+
+public val PM_APPLICATION_HUBTYPE_MUSIC: PmApplicationHubtype = 1
+
+public val PM_APPLICATION_HUBTYPE_NONMUSIC: PmApplicationHubtype = 0
+
+public val PM_APPLICATION_INSTALL_DEBUG: PmApplicationInstallType = 3
+
+public val PM_APPLICATION_INSTALL_ENTERPRISE: PmApplicationInstallType = 4
+
+public val PM_APPLICATION_INSTALL_INVALID: PmApplicationInstallType = 5
+
+public val PM_APPLICATION_INSTALL_IN_ROM: PmApplicationInstallType = 1
+
+public val PM_APPLICATION_INSTALL_NORMAL: PmApplicationInstallType = 0
+
+public val PM_APPLICATION_INSTALL_PA: PmApplicationInstallType = 2
+
+public val PM_APPLICATION_STATE_DISABLED_BACKING_UP: PmApplicationState = 9
+
+public val PM_APPLICATION_STATE_DISABLED_ENTERPRISE: PmApplicationState = 8
+
+public val PM_APPLICATION_STATE_DISABLED_MDIL_BINDING: PmApplicationState = 10
+
+public val PM_APPLICATION_STATE_DISABLED_SD_CARD: PmApplicationState = 7
+
+public val PM_APPLICATION_STATE_INSTALLED: PmApplicationState = 1
+
+public val PM_APPLICATION_STATE_INSTALLING: PmApplicationState = 2
+
+public val PM_APPLICATION_STATE_INVALID: PmApplicationState = 11
+
+public val PM_APPLICATION_STATE_LICENSE_UPDATING: PmApplicationState = 5
+
+public val PM_APPLICATION_STATE_MAX: PmApplicationState = 10
+
+public val PM_APPLICATION_STATE_MIN: PmApplicationState = 0
+
+public val PM_APPLICATION_STATE_MOVING: PmApplicationState = 6
+
+public val PM_APPLICATION_STATE_UNINSTALLING: PmApplicationState = 4
+
+public val PM_APPLICATION_STATE_UPDATING: PmApplicationState = 3
+
+public val PM_APP_FILTER_ALL: PmEnumAppFilter = 0
+
+public val PM_APP_FILTER_ALL_INCLUDE_MODERN: PmEnumAppFilter = 6
+
+public val PM_APP_FILTER_FRAMEWORK: PmEnumAppFilter = 7
+
+public val PM_APP_FILTER_GENRE: PmEnumAppFilter = 2
+
+public val PM_APP_FILTER_HUBTYPE: PmEnumAppFilter = 4
+
+public val PM_APP_FILTER_MAX: PmEnumAppFilter = 8
+
+public val PM_APP_FILTER_NONGAMES: PmEnumAppFilter = 3
+
+public val PM_APP_FILTER_PINABLEONKIDZONE: PmEnumAppFilter = 5
+
+public val PM_APP_FILTER_VISIBLE: PmEnumAppFilter = 1
+
+public val PM_APP_GENRE_GAMES: PmAppGenre = 0
+
+public val PM_APP_GENRE_INVALID: PmAppGenre = 2
+
+public val PM_APP_GENRE_OTHER: PmAppGenre = 1
+
+public val PM_ENUM_BSA_FILTER_ALL: PmEnumBsaFilter = 26
+
+public val PM_ENUM_BSA_FILTER_BY_ALL_LAUNCHONBOOT: PmEnumBsaFilter = 30
+
+public val PM_ENUM_BSA_FILTER_BY_PERIODIC: PmEnumBsaFilter = 29
+
+public val PM_ENUM_BSA_FILTER_BY_PRODUCTID: PmEnumBsaFilter = 28
+
+public val PM_ENUM_BSA_FILTER_BY_TASKID: PmEnumBsaFilter = 27
+
+public val PM_ENUM_BSA_FILTER_MAX: PmEnumBsaFilter = 31
+
+public val PM_ENUM_BW_FILTER_BOOTWORKER_ALL: PmEnumBwFilter = 31
+
+public val PM_ENUM_BW_FILTER_BY_TASKID: PmEnumBwFilter = 32
+
+public val PM_ENUM_BW_FILTER_MAX: PmEnumBwFilter = 33
+
+public val PM_ENUM_EXTENSION_FILTER_APPCONNECT: PmEnumExtensionFilter = 17
+
+public val PM_ENUM_EXTENSION_FILTER_BY_CONSUMER: PmEnumExtensionFilter = 17
+
+public val PM_ENUM_EXTENSION_FILTER_CACHEDFILEUPDATER_ALL: PmEnumExtensionFilter = 25
+
+public val PM_ENUM_EXTENSION_FILTER_FILEOPENPICKER_ALL: PmEnumExtensionFilter = 23
+
+public val PM_ENUM_EXTENSION_FILTER_FILESAVEPICKER_ALL: PmEnumExtensionFilter = 24
+
+public val PM_ENUM_EXTENSION_FILTER_FTASSOC_APPLICATION_ALL: PmEnumExtensionFilter = 21
+
+public val PM_ENUM_EXTENSION_FILTER_FTASSOC_CONTENTTYPE_ALL: PmEnumExtensionFilter = 20
+
+public val PM_ENUM_EXTENSION_FILTER_FTASSOC_FILETYPE_ALL: PmEnumExtensionFilter = 19
+
+public val PM_ENUM_EXTENSION_FILTER_MAX: PmEnumExtensionFilter = 26
+
+public val PM_ENUM_EXTENSION_FILTER_PROTOCOL_ALL: PmEnumExtensionFilter = 18
+
+public val PM_ENUM_EXTENSION_FILTER_SHARETARGET_ALL: PmEnumExtensionFilter = 22
+
+public val PM_LIVETILE_RECURRENCE_TYPE_INSTANT: PmLivetileRecurrenceType = 0
+
+public val PM_LIVETILE_RECURRENCE_TYPE_INTERVAL: PmLivetileRecurrenceType = 2
+
+public val PM_LIVETILE_RECURRENCE_TYPE_MAX: PmLivetileRecurrenceType = 2
+
+public val PM_LIVETILE_RECURRENCE_TYPE_ONETIME: PmLivetileRecurrenceType = 1
+
+public val PM_LOGO_SIZE_INVALID: PmLogoSize = 3
+
+public val PM_LOGO_SIZE_LARGE: PmLogoSize = 2
+
+public val PM_LOGO_SIZE_MEDIUM: PmLogoSize = 1
+
+public val PM_LOGO_SIZE_SMALL: PmLogoSize = 0
+
+public val PM_STARTTILE_TYPE_APPLIST: PmStarttileType = 3
+
+public val PM_STARTTILE_TYPE_APPLISTPRIMARY: PmStarttileType = 4
+
+public val PM_STARTTILE_TYPE_INVALID: PmStarttileType = 5
+
+public val PM_STARTTILE_TYPE_PRIMARY: PmStarttileType = 1
+
+public val PM_STARTTILE_TYPE_SECONDARY: PmStarttileType = 2
+
+public val PM_TASK_FILTER_APP_ALL: PmEnumTaskFilter = 12
+
+public val PM_TASK_FILTER_APP_TASK_TYPE: PmEnumTaskFilter = 15
+
+public val PM_TASK_FILTER_BGEXECUTION: PmEnumTaskFilter = 16
+
+public val PM_TASK_FILTER_DEHYD_SUPRESSING: PmEnumTaskFilter = 14
+
+public val PM_TASK_FILTER_MAX: PmEnumTaskFilter = 17
+
+public val PM_TASK_FILTER_TASK_TYPE: PmEnumTaskFilter = 13
+
+public val PM_TASK_TRANSITION_CUSTOM: PmTaskTransition = 6
+
+public val PM_TASK_TRANSITION_DEFAULT: PmTaskTransition = 0
+
+public val PM_TASK_TRANSITION_INVALID: PmTaskTransition = 7
+
+public val PM_TASK_TRANSITION_NONE: PmTaskTransition = 1
+
+public val PM_TASK_TRANSITION_READERBOARD: PmTaskTransition = 5
+
+public val PM_TASK_TRANSITION_SLIDE: PmTaskTransition = 3
+
+public val PM_TASK_TRANSITION_SWIVEL: PmTaskTransition = 4
+
+public val PM_TASK_TRANSITION_TURNSTILE: PmTaskTransition = 2
+
+public val PM_TASK_TYPE_BACKGROUNDSERVICEAGENT: PmTaskType = 3
+
+public val PM_TASK_TYPE_BACKGROUNDWORKER: PmTaskType = 4
+
+public val PM_TASK_TYPE_DEFAULT: PmTaskType = 1
+
+public val PM_TASK_TYPE_INVALID: PmTaskType = 5
+
+public val PM_TASK_TYPE_NORMAL: PmTaskType = 0
+
+public val PM_TASK_TYPE_SETTINGS: PmTaskType = 2
+
+public val PM_TILE_FILTER_APPLIST: PmEnumTileFilter = 8
+
+public val PM_TILE_FILTER_APP_ALL: PmEnumTileFilter = 11
+
+public val PM_TILE_FILTER_HUBTYPE: PmEnumTileFilter = 10
+
+public val PM_TILE_FILTER_MAX: PmEnumTileFilter = 12
+
+public val PM_TILE_FILTER_PINNED: PmEnumTileFilter = 9
+
+public val PM_TILE_HUBTYPE_APPLIST: PmTileHubtype = 1073741824
+
+public val PM_TILE_HUBTYPE_CACHED: PmTileHubtype = 67108864
+
+public val PM_TILE_HUBTYPE_GAMES: PmTileHubtype = 536870912
+
+public val PM_TILE_HUBTYPE_INVALID: PmTileHubtype = 67108865
+
+public val PM_TILE_HUBTYPE_KIDZONE: PmTileHubtype = 33554432
+
+public val PM_TILE_HUBTYPE_LOCKSCREEN: PmTileHubtype = 16777216
+
+public val PM_TILE_HUBTYPE_MOSETTINGS: PmTileHubtype = 268435456
+
+public val PM_TILE_HUBTYPE_MUSIC: PmTileHubtype = 1
+
+public val PM_TILE_HUBTYPE_STARTMENU: PmTileHubtype = -2147483648.toInt()
+
+public val PM_TILE_SIZE_INVALID: PmTileSize = 5
+
+public val PM_TILE_SIZE_LARGE: PmTileSize = 2
+
+public val PM_TILE_SIZE_MEDIUM: PmTileSize = 1
+
+public val PM_TILE_SIZE_SMALL: PmTileSize = 0
+
+public val PM_TILE_SIZE_SQUARE310X310: PmTileSize = 3
+
+public val PM_TILE_SIZE_TALL150X310: PmTileSize = 4
+
+public val QUERYASMINFO_FLAG_VALIDATE: QueryasminfoFlags = 1u
+
+public val REINSTALLMODE_FILEEQUALVERSION: Reinstallmode = 8
+
+public val REINSTALLMODE_FILEEXACT: Reinstallmode = 16
+
+public val REINSTALLMODE_FILEMISSING: Reinstallmode = 2
+
+public val REINSTALLMODE_FILEOLDERVERSION: Reinstallmode = 4
+
+public val REINSTALLMODE_FILEREPLACE: Reinstallmode = 64
+
+public val REINSTALLMODE_FILEVERIFY: Reinstallmode = 32
+
+public val REINSTALLMODE_MACHINEDATA: Reinstallmode = 128
+
+public val REINSTALLMODE_PACKAGE: Reinstallmode = 1024
+
+public val REINSTALLMODE_REPAIR: Reinstallmode = 1
+
+public val REINSTALLMODE_SHORTCUT: Reinstallmode = 512
+
+public val REINSTALLMODE_USERDATA: Reinstallmode = 256
+
+public val SCRIPTFLAGS_CACHEINFO: Scriptflags = 1
+
+public val SCRIPTFLAGS_MACHINEASSIGN: Scriptflags = 8
+
+public val SCRIPTFLAGS_REGDATA: Scriptflags = 416
+
+public val SCRIPTFLAGS_REGDATA_APPINFO: Scriptflags = 384
+
+public val SCRIPTFLAGS_REGDATA_CLASSINFO: Scriptflags = 128
+
+public val SCRIPTFLAGS_REGDATA_CNFGINFO: Scriptflags = 32
+
+public val SCRIPTFLAGS_REGDATA_EXTENSIONINFO: Scriptflags = 256
+
+public val SCRIPTFLAGS_SHORTCUTS: Scriptflags = 4
+
+public val SCRIPTFLAGS_VALIDATE_TRANSFORMS_LIST: Scriptflags = 64
+
+public val SFC_DISABLE_ASK: UInt = 1u
+
+public val SFC_DISABLE_NOPOPUPS: UInt = 4u
+
+public val SFC_DISABLE_NORMAL: UInt = 0u
+
+public val SFC_DISABLE_ONCE: UInt = 2u
+
+public val SFC_DISABLE_SETUP: UInt = 3u
+
+public val SFC_IDLE_TRIGGER: Pcwstr = w("WFP_IDLE_TRIGGER")
+
+public val SFC_QUOTA_DEFAULT: UInt = 50u
+
+public val SFC_SCAN_ALWAYS: UInt = 1u
+
+public val SFC_SCAN_IMMEDIATE: UInt = 3u
+
+public val SFC_SCAN_NORMAL: UInt = 0u
+
+public val SFC_SCAN_ONCE: UInt = 2u
+
+public val STREAM_FORMAT_COMPLIB_MANIFEST: UInt = 1u
+
+public val STREAM_FORMAT_COMPLIB_MODULE: UInt = 0u
+
+public val STREAM_FORMAT_WIN32_MANIFEST: UInt = 4u
+
+public val STREAM_FORMAT_WIN32_MODULE: UInt = 2u
+
+public val TILE_TEMPLATE_AGILESTORE: TileTemplateType = 2
+
+public val TILE_TEMPLATE_ALL: TileTemplateType = 100
+
+public val TILE_TEMPLATE_BADGE: TileTemplateType = 16
+
+public val TILE_TEMPLATE_BLOCK: TileTemplateType = 17
+
+public val TILE_TEMPLATE_BLOCKANDTEXT01: TileTemplateType = 33
+
+public val TILE_TEMPLATE_BLOCKANDTEXT02: TileTemplateType = 34
+
+public val TILE_TEMPLATE_CALENDAR: TileTemplateType = 4
+
+public val TILE_TEMPLATE_CONTACT: TileTemplateType = 11
+
+public val TILE_TEMPLATE_CYCLE: TileTemplateType = 14
+
+public val TILE_TEMPLATE_DEEPLINK: TileTemplateType = 13
+
+public val TILE_TEMPLATE_DEFAULT: TileTemplateType = 15
+
+public val TILE_TEMPLATE_FLIP: TileTemplateType = 5
+
+public val TILE_TEMPLATE_FOLDER: TileTemplateType = 59
+
+public val TILE_TEMPLATE_GAMES: TileTemplateType = 3
+
+public val TILE_TEMPLATE_GROUP: TileTemplateType = 12
+
+public val TILE_TEMPLATE_IMAGE: TileTemplateType = 29
+
+public val TILE_TEMPLATE_IMAGEANDTEXT01: TileTemplateType = 31
+
+public val TILE_TEMPLATE_IMAGEANDTEXT02: TileTemplateType = 32
+
+public val TILE_TEMPLATE_IMAGECOLLECTION: TileTemplateType = 30
+
+public val TILE_TEMPLATE_INVALID: TileTemplateType = 0
+
+public val TILE_TEMPLATE_METROCOUNT: TileTemplateType = 1
+
+public val TILE_TEMPLATE_METROCOUNTQUEUE: TileTemplateType = 56
+
+public val TILE_TEMPLATE_MUSICVIDEO: TileTemplateType = 7
+
+public val TILE_TEMPLATE_PEEKIMAGE01: TileTemplateType = 39
+
+public val TILE_TEMPLATE_PEEKIMAGE02: TileTemplateType = 40
+
+public val TILE_TEMPLATE_PEEKIMAGE03: TileTemplateType = 41
+
+public val TILE_TEMPLATE_PEEKIMAGE04: TileTemplateType = 42
+
+public val TILE_TEMPLATE_PEEKIMAGE05: TileTemplateType = 43
+
+public val TILE_TEMPLATE_PEEKIMAGE06: TileTemplateType = 44
+
+public val TILE_TEMPLATE_PEEKIMAGEANDTEXT01: TileTemplateType = 35
+
+public val TILE_TEMPLATE_PEEKIMAGEANDTEXT02: TileTemplateType = 36
+
+public val TILE_TEMPLATE_PEEKIMAGEANDTEXT03: TileTemplateType = 37
+
+public val TILE_TEMPLATE_PEEKIMAGEANDTEXT04: TileTemplateType = 38
+
+public val TILE_TEMPLATE_PEEKIMAGECOLLECTION01: TileTemplateType = 45
+
+public val TILE_TEMPLATE_PEEKIMAGECOLLECTION02: TileTemplateType = 46
+
+public val TILE_TEMPLATE_PEEKIMAGECOLLECTION03: TileTemplateType = 47
+
+public val TILE_TEMPLATE_PEEKIMAGECOLLECTION04: TileTemplateType = 48
+
+public val TILE_TEMPLATE_PEEKIMAGECOLLECTION05: TileTemplateType = 49
+
+public val TILE_TEMPLATE_PEEKIMAGECOLLECTION06: TileTemplateType = 50
+
+public val TILE_TEMPLATE_PEOPLE: TileTemplateType = 10
+
+public val TILE_TEMPLATE_SEARCH: TileTemplateType = 57
+
+public val TILE_TEMPLATE_SMALLIMAGEANDTEXT01: TileTemplateType = 51
+
+public val TILE_TEMPLATE_SMALLIMAGEANDTEXT02: TileTemplateType = 52
+
+public val TILE_TEMPLATE_SMALLIMAGEANDTEXT03: TileTemplateType = 53
+
+public val TILE_TEMPLATE_SMALLIMAGEANDTEXT04: TileTemplateType = 54
+
+public val TILE_TEMPLATE_SMALLIMAGEANDTEXT05: TileTemplateType = 55
+
+public val TILE_TEMPLATE_TEXT01: TileTemplateType = 18
+
+public val TILE_TEMPLATE_TEXT02: TileTemplateType = 19
+
+public val TILE_TEMPLATE_TEXT03: TileTemplateType = 20
+
+public val TILE_TEMPLATE_TEXT04: TileTemplateType = 21
+
+public val TILE_TEMPLATE_TEXT05: TileTemplateType = 22
+
+public val TILE_TEMPLATE_TEXT06: TileTemplateType = 23
+
+public val TILE_TEMPLATE_TEXT07: TileTemplateType = 24
+
+public val TILE_TEMPLATE_TEXT08: TileTemplateType = 25
+
+public val TILE_TEMPLATE_TEXT09: TileTemplateType = 26
+
+public val TILE_TEMPLATE_TEXT10: TileTemplateType = 27
+
+public val TILE_TEMPLATE_TEXT11: TileTemplateType = 28
+
+public val TILE_TEMPLATE_TILEFLYOUT01: TileTemplateType = 58
+
+public val TXTLOG_BACKUP: UInt = 128u
+
+public val TXTLOG_CMI: UInt = 268435456u
+
+public val TXTLOG_COPYFILES: UInt = 8u
+
+public val TXTLOG_DEPTH_DECR: UInt = 262144u
+
+public val TXTLOG_DEPTH_INCR: UInt = 131072u
+
+public val TXTLOG_DETAILS: UInt = 5u
+
+public val TXTLOG_DEVINST: UInt = 1u
+
+public val TXTLOG_DEVMGR: UInt = 536870912u
+
+public val TXTLOG_DRIVER_STORE: UInt = 67108864u
+
+public val TXTLOG_DRVSETUP: UInt = 4194304u
+
+public val TXTLOG_ERROR: UInt = 1u
+
+public val TXTLOG_FILEQ: UInt = 4u
+
+public val TXTLOG_FLUSH_FILE: UInt = 1048576u
+
+public val TXTLOG_INF: UInt = 2u
+
+public val TXTLOG_INFDB: UInt = 1024u
+
+public val TXTLOG_INSTALLER: UInt = 1073741824u
+
+public val TXTLOG_NEWDEV: UInt = 16777216u
+
+public val TXTLOG_POLICY: UInt = 8388608u
+
+public val TXTLOG_RESERVED_FLAGS: UInt = 65520u
+
+public val TXTLOG_SETUP: UInt = 134217728u
+
+public val TXTLOG_SETUPAPI_BITS: UInt = 3u
+
+public val TXTLOG_SETUPAPI_CMDLINE: UInt = 2u
+
+public val TXTLOG_SETUPAPI_DEVLOG: UInt = 1u
+
+public val TXTLOG_SIGVERIF: UInt = 32u
+
+public val TXTLOG_SUMMARY: UInt = 4u
+
+public val TXTLOG_SYSTEM_STATE_CHANGE: UInt = 3u
+
+public val TXTLOG_TAB_1: UInt = 524288u
+
+public val TXTLOG_TIMESTAMP: UInt = 65536u
+
+public val TXTLOG_UI: UInt = 256u
+
+public val TXTLOG_UMPNPMGR: UInt = 33554432u
+
+public val TXTLOG_UTIL: UInt = 512u
+
+public val TXTLOG_VENDOR: UInt = 2147483648u
+
+public val TXTLOG_VERBOSE: UInt = 6u
+
+public val TXTLOG_VERY_VERBOSE: UInt = 7u
+
+public val TXTLOG_WARNING: UInt = 2u
+
+public val UIALL: UInt = 32768u
+
+public val UILOGBITS: UInt = 15u
+
+public val UINONE: UInt = 0u
+
+public val USERINFOSTATE_ABSENT: Userinfostate = 0
+
+public val USERINFOSTATE_INVALIDARG: Userinfostate = -2
+
+public val USERINFOSTATE_MOREDATA: Userinfostate = -3
+
+public val USERINFOSTATE_PRESENT: Userinfostate = 1
+
+public val USERINFOSTATE_UNKNOWN: Userinfostate = -1
+
+public val WARN_BAD_MAJOR_VERSION: UInt = 3222294792u
+
+public val WARN_BASE: UInt = 3222294785u
+
+public val WARN_EQUAL_FILE_VERSION: UInt = 3222294794u
+
+public val WARN_FILE_VERSION_DOWNREV: UInt = 3222294793u
+
+public val WARN_IMPROPER_TRANSFORM_VALIDATION: UInt = 3222294788u
+
+public val WARN_INVALID_TRANSFORM_VALIDATION: UInt = 3222294791u
+
+public val WARN_MAJOR_UPGRADE_PATCH: UInt = 3222294785u
+
+public val WARN_OBSOLETION_WITH_MSI30: UInt = 3222294801u
+
+public val WARN_OBSOLETION_WITH_PATCHSEQUENCE: UInt = 3222294803u
+
+public val WARN_OBSOLETION_WITH_SEQUENCE_DATA: UInt = 3222294802u
+
+public val WARN_PATCHPROPERTYNOTSET: UInt = 3222294795u
+
+public val WARN_PCW_MISMATCHED_PRODUCT_CODES: UInt = 3222294789u
+
+public val WARN_PCW_MISMATCHED_PRODUCT_VERSIONS: UInt = 3222294790u
+
+public val WARN_SEQUENCE_DATA_GENERATION_DISABLED: UInt = 3222294786u
+
+public val WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED: UInt = 3222294787u
+
+public val WIN32_MSI: UInt = 500u
+
+public val WIN32_MSM: UInt = 100u
+
+public val CCH_MAX_INTEGER: Int = 12
+
+public val IE_ERROR: Resulttypes = 1
+
+public val IE_INFO: Resulttypes = 3
+
+public val IE_STATUS_CANCEL: Statustypes = 10
+
+public val IE_STATUS_CREATE_ENGINE: Statustypes = 4
+
+public val IE_STATUS_FAIL: Statustypes = 9
+
+public val IE_STATUS_GET_CUB: Statustypes = 0
+
+public val IE_STATUS_ICE_COUNT: Statustypes = 1
+
+public val IE_STATUS_MERGE: Statustypes = 2
+
+public val IE_STATUS_RUN_ICE: Statustypes = 6
+
+public val IE_STATUS_SHUTDOWN: Statustypes = 7
+
+public val IE_STATUS_STARTING: Statustypes = 5
+
+public val IE_STATUS_SUCCESS: Statustypes = 8
+
+public val IE_STATUS_SUMMARY_INFO: Statustypes = 3
+
+public val IE_UNKNOWN: Resulttypes = 0
+
+public val IE_WARNING: Resulttypes = 2
+
+public val MSIDB_ASSEMBLY_ATTRIBUTES_URT: MsidbAssemblyAttributes = 0
+
+public val MSIDB_ASSEMBLY_ATTRIBUTES_WIN32: MsidbAssemblyAttributes = 1
+
+public val MSIDB_CLASS_ATTRIBUTES_RELATIVE_PATH: MsidbClassAttributes = 1
+
+public val MSIDB_COMPONENT_ATTRIBUTES64BIT: MsidbComponentAttributes = 256
+
+public val MSIDB_COMPONENT_ATTRIBUTES_DISABLE_REGISTRY_REFLECTION: MsidbComponentAttributes = 512
+
+public val MSIDB_COMPONENT_ATTRIBUTES_LOCAL_ONLY: MsidbComponentAttributes = 0
+
+public val MSIDB_COMPONENT_ATTRIBUTES_NEVER_OVERWRITE: MsidbComponentAttributes = 128
+
+public val MSIDB_COMPONENT_ATTRIBUTES_ODBC_DATA_SOURCE: MsidbComponentAttributes = 32
+
+public val MSIDB_COMPONENT_ATTRIBUTES_OPTIONAL: MsidbComponentAttributes = 2
+
+public val MSIDB_COMPONENT_ATTRIBUTES_PERMANENT: MsidbComponentAttributes = 16
+
+public val MSIDB_COMPONENT_ATTRIBUTES_REGISTRY_KEY_PATH: MsidbComponentAttributes = 4
+
+public val MSIDB_COMPONENT_ATTRIBUTES_SHARED: MsidbComponentAttributes = 2048
+
+public val MSIDB_COMPONENT_ATTRIBUTES_SHARED_DLL_REF_COUNT: MsidbComponentAttributes = 8
+
+public val MSIDB_COMPONENT_ATTRIBUTES_SOURCE_ONLY: MsidbComponentAttributes = 1
+
+public val MSIDB_COMPONENT_ATTRIBUTES_TRANSITIVE: MsidbComponentAttributes = 64
+
+public val MSIDB_COMPONENT_ATTRIBUTES_UNINSTALL_ON_SUPERSEDENCE: MsidbComponentAttributes = 1024
+
+public val MSIDB_CONTROL_ATTRIBUTES_BI_DI: MsidbControlAttributes = 224
+
+public val MSIDB_CONTROL_ATTRIBUTES_BITMAP: MsidbControlAttributes = 262144
+
+public val MSIDB_CONTROL_ATTRIBUTES_CDROM_VOLUME: MsidbControlAttributes = 524288
+
+public val MSIDB_CONTROL_ATTRIBUTES_COMBO_LIST: MsidbControlAttributes = 131072
+
+public val MSIDB_CONTROL_ATTRIBUTES_ELEVATION_SHIELD: MsidbControlAttributes = 8388608
+
+public val MSIDB_CONTROL_ATTRIBUTES_ENABLED: MsidbControlAttributes = 2
+
+public val MSIDB_CONTROL_ATTRIBUTES_FIXED_SIZE: MsidbControlAttributes = 1048576
+
+public val MSIDB_CONTROL_ATTRIBUTES_FIXED_VOLUME: MsidbControlAttributes = 131072
+
+public val MSIDB_CONTROL_ATTRIBUTES_FLOPPY_VOLUME: MsidbControlAttributes = 2097152
+
+public val MSIDB_CONTROL_ATTRIBUTES_FORMAT_SIZE: MsidbControlAttributes = 524288
+
+public val MSIDB_CONTROL_ATTRIBUTES_HAS_BORDER: MsidbControlAttributes = 16777216
+
+public val MSIDB_CONTROL_ATTRIBUTES_ICON: MsidbControlAttributes = 524288
+
+public val MSIDB_CONTROL_ATTRIBUTES_ICON_SIZE16: MsidbControlAttributes = 2097152
+
+public val MSIDB_CONTROL_ATTRIBUTES_ICON_SIZE32: MsidbControlAttributes = 4194304
+
+public val MSIDB_CONTROL_ATTRIBUTES_ICON_SIZE48: MsidbControlAttributes = 6291456
+
+public val MSIDB_CONTROL_ATTRIBUTES_IMAGE_HANDLE: MsidbControlAttributes = 65536
+
+public val MSIDB_CONTROL_ATTRIBUTES_INDIRECT: MsidbControlAttributes = 8
+
+public val MSIDB_CONTROL_ATTRIBUTES_INTEGER: MsidbControlAttributes = 16
+
+public val MSIDB_CONTROL_ATTRIBUTES_LEFT_SCROLL: MsidbControlAttributes = 128
+
+public val MSIDB_CONTROL_ATTRIBUTES_MULTILINE: MsidbControlAttributes = 65536
+
+public val MSIDB_CONTROL_ATTRIBUTES_NO_PREFIX: MsidbControlAttributes = 131072
+
+public val MSIDB_CONTROL_ATTRIBUTES_NO_WRAP: MsidbControlAttributes = 262144
+
+public val MSIDB_CONTROL_ATTRIBUTES_PASSWORD_INPUT: MsidbControlAttributes = 2097152
+
+public val MSIDB_CONTROL_ATTRIBUTES_PROGRESS95: MsidbControlAttributes = 65536
+
+public val MSIDB_CONTROL_ATTRIBUTES_PUSH_LIKE: MsidbControlAttributes = 131072
+
+public val MSIDB_CONTROL_ATTRIBUTES_RAM_DISK_VOLUME: MsidbControlAttributes = 1048576
+
+public val MSIDB_CONTROL_ATTRIBUTES_RTLRO: MsidbControlAttributes = 32
+
+public val MSIDB_CONTROL_ATTRIBUTES_REMOTE_VOLUME: MsidbControlAttributes = 262144
+
+public val MSIDB_CONTROL_ATTRIBUTES_REMOVABLE_VOLUME: MsidbControlAttributes = 65536
+
+public val MSIDB_CONTROL_ATTRIBUTES_RIGHT_ALIGNED: MsidbControlAttributes = 64
+
+public val MSIDB_CONTROL_ATTRIBUTES_SORTED: MsidbControlAttributes = 65536
+
+public val MSIDB_CONTROL_ATTRIBUTES_SUNKEN: MsidbControlAttributes = 4
+
+public val MSIDB_CONTROL_ATTRIBUTES_TRANSPARENT: MsidbControlAttributes = 65536
+
+public val MSIDB_CONTROL_ATTRIBUTES_USERS_LANGUAGE: MsidbControlAttributes = 1048576
+
+public val MSIDB_CONTROL_ATTRIBUTES_VISIBLE: MsidbControlAttributes = 1
+
+public val MSIDB_CONTROL_SHOW_ROLLBACK_COST: MsidbControlAttributes = 4194304
+
+public val MSIDB_CUSTOM_ACTION_TYPE64BIT_SCRIPT: MsidbCustomActionType = 4096
+
+public val MSIDB_CUSTOM_ACTION_TYPE_ASYNC: MsidbCustomActionType = 128
+
+public val MSIDB_CUSTOM_ACTION_TYPE_BINARY_DATA: MsidbCustomActionType = 0
+
+public val MSIDB_CUSTOM_ACTION_TYPE_CLIENT_REPEAT: MsidbCustomActionType = 768
+
+public val MSIDB_CUSTOM_ACTION_TYPE_COMMIT: MsidbCustomActionType = 512
+
+public val MSIDB_CUSTOM_ACTION_TYPE_CONTINUE: MsidbCustomActionType = 64
+
+public val MSIDB_CUSTOM_ACTION_TYPE_DIRECTORY: MsidbCustomActionType = 32
+
+public val MSIDB_CUSTOM_ACTION_TYPE_DLL: MsidbCustomActionType = 1
+
+public val MSIDB_CUSTOM_ACTION_TYPE_EXE: MsidbCustomActionType = 2
+
+public val MSIDB_CUSTOM_ACTION_TYPE_FIRST_SEQUENCE: MsidbCustomActionType = 256
+
+public val MSIDB_CUSTOM_ACTION_TYPE_HIDE_TARGET: MsidbCustomActionType = 8192
+
+public val MSIDB_CUSTOM_ACTION_TYPE_IN_SCRIPT: MsidbCustomActionType = 1024
+
+public val MSIDB_CUSTOM_ACTION_TYPE_INSTALL: MsidbCustomActionType = 7
+
+public val MSIDB_CUSTOM_ACTION_TYPE_J_SCRIPT: MsidbCustomActionType = 5
+
+public val MSIDB_CUSTOM_ACTION_TYPE_NO_IMPERSONATE: MsidbCustomActionType = 2048
+
+public val MSIDB_CUSTOM_ACTION_TYPE_ONCE_PER_PROCESS: MsidbCustomActionType = 512
+
+public val MSIDB_CUSTOM_ACTION_TYPE_PATCH_UNINSTALL: MsidbCustomActionType = 32768
+
+public val MSIDB_CUSTOM_ACTION_TYPE_PROPERTY: MsidbCustomActionType = 48
+
+public val MSIDB_CUSTOM_ACTION_TYPE_ROLLBACK: MsidbCustomActionType = 256
+
+public val MSIDB_CUSTOM_ACTION_TYPE_SOURCE_FILE: MsidbCustomActionType = 16
+
+public val MSIDB_CUSTOM_ACTION_TYPE_TS_AWARE: MsidbCustomActionType = 16384
+
+public val MSIDB_CUSTOM_ACTION_TYPE_TEXT_DATA: MsidbCustomActionType = 3
+
+public val MSIDB_CUSTOM_ACTION_TYPE_VB_SCRIPT: MsidbCustomActionType = 6
+
+public val MSIDB_DIALOG_ATTRIBUTES_BI_DI: MsidbDialogAttributes = 896
+
+public val MSIDB_DIALOG_ATTRIBUTES_ERROR: MsidbDialogAttributes = 65536
+
+public val MSIDB_DIALOG_ATTRIBUTES_KEEP_MODELESS: MsidbDialogAttributes = 16
+
+public val MSIDB_DIALOG_ATTRIBUTES_LEFT_SCROLL: MsidbDialogAttributes = 512
+
+public val MSIDB_DIALOG_ATTRIBUTES_MINIMIZE: MsidbDialogAttributes = 4
+
+public val MSIDB_DIALOG_ATTRIBUTES_MODAL: MsidbDialogAttributes = 2
+
+public val MSIDB_DIALOG_ATTRIBUTES_RTLRO: MsidbDialogAttributes = 128
+
+public val MSIDB_DIALOG_ATTRIBUTES_RIGHT_ALIGNED: MsidbDialogAttributes = 256
+
+public val MSIDB_DIALOG_ATTRIBUTES_SYS_MODAL: MsidbDialogAttributes = 8
+
+public val MSIDB_DIALOG_ATTRIBUTES_TRACK_DISK_SPACE: MsidbDialogAttributes = 32
+
+public val MSIDB_DIALOG_ATTRIBUTES_USE_CUSTOM_PALETTE: MsidbDialogAttributes = 64
+
+public val MSIDB_DIALOG_ATTRIBUTES_VISIBLE: MsidbDialogAttributes = 1
+
+public val MSIDB_EMBEDDED_HANDLES_BASIC: MsidbEmbeddedUiattributes = 2
+
+public val MSIDB_EMBEDDED_UI: MsidbEmbeddedUiattributes = 1
+
+public val MSIDB_FEATURE_ATTRIBUTES_DISALLOW_ADVERTISE: MsidbFeatureAttributes = 8
+
+public val MSIDB_FEATURE_ATTRIBUTES_FAVOR_ADVERTISE: MsidbFeatureAttributes = 4
+
+public val MSIDB_FEATURE_ATTRIBUTES_FAVOR_LOCAL: MsidbFeatureAttributes = 0
+
+public val MSIDB_FEATURE_ATTRIBUTES_FAVOR_SOURCE: MsidbFeatureAttributes = 1
+
+public val MSIDB_FEATURE_ATTRIBUTES_FOLLOW_PARENT: MsidbFeatureAttributes = 2
+
+public val MSIDB_FEATURE_ATTRIBUTES_NO_UNSUPPORTED_ADVERTISE: MsidbFeatureAttributes = 32
+
+public val MSIDB_FEATURE_ATTRIBUTES_UI_DISALLOW_ABSENT: MsidbFeatureAttributes = 16
+
+public val MSIDB_FILE_ATTRIBUTES_CHECKSUM: MsidbFileAttributes = 1024
+
+public val MSIDB_FILE_ATTRIBUTES_COMPRESSED: MsidbFileAttributes = 16384
+
+public val MSIDB_FILE_ATTRIBUTES_HIDDEN: MsidbFileAttributes = 2
+
+public val MSIDB_FILE_ATTRIBUTES_ISOLATED_COMP: MsidbFileAttributes = 16
+
+public val MSIDB_FILE_ATTRIBUTES_NONCOMPRESSED: MsidbFileAttributes = 8192
+
+public val MSIDB_FILE_ATTRIBUTES_PATCH_ADDED: MsidbFileAttributes = 4096
+
+public val MSIDB_FILE_ATTRIBUTES_READ_ONLY: MsidbFileAttributes = 1
+
+public val MSIDB_FILE_ATTRIBUTES_RESERVED0: MsidbFileAttributes = 8
+
+public val MSIDB_FILE_ATTRIBUTES_RESERVED1: MsidbFileAttributes = 64
+
+public val MSIDB_FILE_ATTRIBUTES_RESERVED2: MsidbFileAttributes = 128
+
+public val MSIDB_FILE_ATTRIBUTES_RESERVED3: MsidbFileAttributes = 256
+
+public val MSIDB_FILE_ATTRIBUTES_RESERVED4: MsidbFileAttributes = 32768
+
+public val MSIDB_FILE_ATTRIBUTES_SYSTEM: MsidbFileAttributes = 4
+
+public val MSIDB_FILE_ATTRIBUTES_VITAL: MsidbFileAttributes = 512
+
+public val MSIDB_INI_FILE_ACTION_ADD_LINE: MsidbIniFileAction = 0
+
+public val MSIDB_INI_FILE_ACTION_ADD_TAG: MsidbIniFileAction = 3
+
+public val MSIDB_INI_FILE_ACTION_CREATE_LINE: MsidbIniFileAction = 1
+
+public val MSIDB_INI_FILE_ACTION_REMOVE_LINE: MsidbIniFileAction = 2
+
+public val MSIDB_INI_FILE_ACTION_REMOVE_TAG: MsidbIniFileAction = 4
+
+public val MSIDB_LOCATOR_TYPE64BIT: MsidbLocatorType = 16
+
+public val MSIDB_LOCATOR_TYPE_DIRECTORY: MsidbLocatorType = 0
+
+public val MSIDB_LOCATOR_TYPE_FILE_NAME: MsidbLocatorType = 1
+
+public val MSIDB_LOCATOR_TYPE_RAW_VALUE: MsidbLocatorType = 2
+
+public val MSIDB_MOVE_FILE_OPTIONS_MOVE: MsidbMoveFileOptions = 1
+
+public val MSIDB_ODBC_DATA_SOURCE_REGISTRATION_PER_MACHINE: MsidbOdbcdataSourceRegistration = 0
+
+public val MSIDB_ODBC_DATA_SOURCE_REGISTRATION_PER_USER: MsidbOdbcdataSourceRegistration = 1
+
+public val MSIDB_PATCH_ATTRIBUTES_NON_VITAL: MsidbPatchAttributes = 1
+
+public val MSIDB_REGISTRY_ROOT_CLASSES_ROOT: MsidbRegistryRoot = 0
+
+public val MSIDB_REGISTRY_ROOT_CURRENT_USER: MsidbRegistryRoot = 1
+
+public val MSIDB_REGISTRY_ROOT_LOCAL_MACHINE: MsidbRegistryRoot = 2
+
+public val MSIDB_REGISTRY_ROOT_USERS: MsidbRegistryRoot = 3
+
+public val MSIDB_REMOVE_FILE_INSTALL_MODE_ON_BOTH: MsidbRemoveFileInstallMode = 3
+
+public val MSIDB_REMOVE_FILE_INSTALL_MODE_ON_INSTALL: MsidbRemoveFileInstallMode = 1
+
+public val MSIDB_REMOVE_FILE_INSTALL_MODE_ON_REMOVE: MsidbRemoveFileInstallMode = 2
+
+public val MSIDB_SERVICE_CONFIG_EVENT_INSTALL: MsidbServiceConfigEvent = 1
+
+public val MSIDB_SERVICE_CONFIG_EVENT_REINSTALL: MsidbServiceConfigEvent = 4
+
+public val MSIDB_SERVICE_CONFIG_EVENT_UNINSTALL: MsidbServiceConfigEvent = 2
+
+public val MSIDB_SERVICE_CONTROL_EVENT_DELETE: MsidbServiceControlEvent = 8
+
+public val MSIDB_SERVICE_CONTROL_EVENT_START: MsidbServiceControlEvent = 1
+
+public val MSIDB_SERVICE_CONTROL_EVENT_STOP: MsidbServiceControlEvent = 2
+
+public val MSIDB_SERVICE_CONTROL_EVENT_UNINSTALL_DELETE: MsidbServiceControlEvent = 128
+
+public val MSIDB_SERVICE_CONTROL_EVENT_UNINSTALL_START: MsidbServiceControlEvent = 16
+
+public val MSIDB_SERVICE_CONTROL_EVENT_UNINSTALL_STOP: MsidbServiceControlEvent = 32
+
+public val MSIDB_SERVICE_INSTALL_ERROR_CONTROL_VITAL: MsidbServiceInstallErrorControl = 32768
+
+public val MSIDB_SUM_INFO_SOURCE_TYPE_ADMIN_IMAGE: MsidbSumInfoSourceType = 4
+
+public val MSIDB_SUM_INFO_SOURCE_TYPE_COMPRESSED: MsidbSumInfoSourceType = 2
+
+public val MSIDB_SUM_INFO_SOURCE_TYPE_LUA_PACKAGE: MsidbSumInfoSourceType = 8
+
+public val MSIDB_SUM_INFO_SOURCE_TYPE_SFN: MsidbSumInfoSourceType = 1
+
+public val MSIDB_TEXT_STYLE_STYLE_BITS_BOLD: MsidbTextStyleStyleBits = 1
+
+public val MSIDB_TEXT_STYLE_STYLE_BITS_ITALIC: MsidbTextStyleStyleBits = 2
+
+public val MSIDB_TEXT_STYLE_STYLE_BITS_STRIKE: MsidbTextStyleStyleBits = 8
+
+public val MSIDB_TEXT_STYLE_STYLE_BITS_UNDERLINE: MsidbTextStyleStyleBits = 4
+
+public val MSIDB_UPGRADE_ATTRIBUTES_IGNORE_REMOVE_FAILURE: MsidbUpgradeAttributes = 4
+
+public val MSIDB_UPGRADE_ATTRIBUTES_LANGUAGES_EXCLUSIVE: MsidbUpgradeAttributes = 1024
+
+public val MSIDB_UPGRADE_ATTRIBUTES_MIGRATE_FEATURES: MsidbUpgradeAttributes = 1
+
+public val MSIDB_UPGRADE_ATTRIBUTES_ONLY_DETECT: MsidbUpgradeAttributes = 2
+
+public val MSIDB_UPGRADE_ATTRIBUTES_VERSION_MAX_INCLUSIVE: MsidbUpgradeAttributes = 512
+
+public val MSIDB_UPGRADE_ATTRIBUTES_VERSION_MIN_INCLUSIVE: MsidbUpgradeAttributes = 256
+
+public val MSIFI_FAST_INSTALL_LESS_PRG_MSG: MsifiFastInstallBits = 4
+
+public val MSIFI_FAST_INSTALL_NO_SR: MsifiFastInstallBits = 1
+
+public val MSIFI_FAST_INSTALL_QUICK_COSTING: MsifiFastInstallBits = 2
+
+public val MSIRB_REBOOT_CUSTOM_ACTION_REASON: MsirbRebootReason = 4
+
+public val MSIRB_REBOOT_DEFERRED: MsirbRebootType = 2
+
+public val MSIRB_REBOOT_FORCE_REBOOT_REASON: MsirbRebootReason = 3
+
+public val MSIRB_REBOOT_IMMEDIATE: MsirbRebootType = 1
+
+public val MSIRB_REBOOT_IN_USE_FILES_REASON: MsirbRebootReason = 1
+
+public val MSIRB_REBOOT_SCHEDULE_REBOOT_REASON: MsirbRebootReason = 2
+
+public val MSIRB_REBOOT_UNDETERMINED_REASON: MsirbRebootReason = 0
+
+public val MSM_ERROR_DIR_CREATE: MsmErrorType = 7
+
+public val MSM_ERROR_EXCLUSION: MsmErrorType = 3
+
+public val MSM_ERROR_FEATURE_REQUIRED: MsmErrorType = 8
+
+public val MSM_ERROR_FILE_CREATE: MsmErrorType = 6
+
+public val MSM_ERROR_LANGUAGE_FAILED: MsmErrorType = 2
+
+public val MSM_ERROR_LANGUAGE_UNSUPPORTED: MsmErrorType = 1
+
+public val MSM_ERROR_RESEQUENCE_MERGE: MsmErrorType = 5
+
+public val MSM_ERROR_TABLE_MERGE: MsmErrorType = 4
+
+public val CLSID_EVAL_COM2: Guid = Guid.fromU128(U128(0x6e5e191080534660uL, 0xb7956b612e29bc58uL))
+
+public val CLSID_MSM_MERGE2: Guid = Guid.fromU128(U128(0xf94985d529f94743uL, 0x980599bc3f35b678uL))
+
+public val FUSION_REFCOUNT_FILEPATH_GUID: Guid = Guid.fromU128(U128(0xb02f9d65fb774f7auL, 0xafa5b391309f11c9uL))
+
+public val FUSION_REFCOUNT_OPAQUE_STRING_GUID: Guid = Guid.fromU128(U128(0x2ec93463b0c345e1uL, 0x8364327e96aea856uL))
+
+public val FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: Guid = Guid.fromU128(U128(0x8cedc215ac4b488buL, 0x93c0a50a49cb2fb8uL))
+
+public val LIBID_MSM_MERGE_TYPE_LIB: Guid = Guid.fromU128(U128(0xadda82f2c2611d2uL, 0xad6500a0c9af11a6uL))
+
+public val MSM_MERGE: Guid = Guid.fromU128(U128(0xadda8302c2611d2uL, 0xad6500a0c9af11a6uL))
+
+public val PM_SVC: Guid = Guid.fromU128(U128(0xb9e511fce364497auL, 0xa121b7b3612cedceuL))

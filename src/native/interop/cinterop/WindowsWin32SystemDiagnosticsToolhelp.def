@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp.cinterop
+headers = windows_win32_system_diagnostics_toolhelp_wrapper.h
+headerFilter = windows_win32_system_diagnostics_toolhelp_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_system_diagnostics_toolhelp_wrapper.a

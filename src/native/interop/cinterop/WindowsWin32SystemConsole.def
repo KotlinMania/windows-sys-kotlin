@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.system.console.cinterop
+headers = windows_win32_system_console_wrapper.h
+headerFilter = windows_win32_system_console_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_system_console_wrapper.a

@@ -1,0 +1,39 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SECURITY_EXTENSIBLEAUTHENTICATIONPROTOCOL_WINDOWS_WIN32_SECURITY_EXTENSIBLEAUTHENTICATIONPROTOCOL_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SECURITY_EXTENSIBLEAUTHENTICATIONPROTOCOL_WINDOWS_WIN32_SECURITY_EXTENSIBLEAUTHENTICATIONPROTOCOL_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerClearConnection(void* pconnectionid, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerEndSession(uint32_t sessionhandle, void* ppeaperror);
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeEapError(void* peaperror);
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeErrorMemory(void* peaperror);
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeMemory(void* pdata);
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerFreeRuntimeMemory(void* pdata);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetAuthStatus(uint32_t sessionhandle, int32_t authparam, void* pcbauthdata, void* ppauthdata, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetDataToUnplumbCredentials(void* pconnectionidthatlastsavedcreds, void* phcredentialimpersonationtoken, uint32_t sessionhandle, void* ppeaperror, void* fsavetocredman);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetEncryptedPassword(uint32_t dwsizeofpassword, void* szpassword, void* ppszencpassword);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetMethods(void* peapmethodinfoarray, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetResponseAttributes(uint32_t sessionhandle, void* pattribs, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetResult(uint32_t sessionhandle, int32_t reason, void* ppresult, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetSendPacket(uint32_t sessionhandle, void* pcbsendpacket, void* ppsendpacket, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerGetUIContext(uint32_t sessionhandle, void* pdwsizeofuicontextdata, void* ppuicontextdata, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerInitialize(void);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerInvokeInteractiveUI(void* hwndparent, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* pdwsizeofdatafrominteractiveui, void* ppdatafrominteractiveui, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerProcessReceivedPacket(uint32_t sessionhandle, uint32_t cbreceivepacket, void* preceivepacket, void* peapoutput, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerQueryInteractiveUIInputFields(uint32_t dwversion, uint32_t dwflags, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapinteractiveuidata, void* ppeaperror, void* ppvreserved);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerQueryUIBlobFromInteractiveUIInputFields(uint32_t dwversion, uint32_t dwflags, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapinteractiveuidata, void* pdwsizeofdatafrominteractiveui, void* ppdatafrominteractiveui, void* ppeaperror, void* ppvreserved);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerSetResponseAttributes(uint32_t sessionhandle, void* pattribs, void* peapoutput, void* ppeaperror);
+uint32_t windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerSetUIContext(uint32_t sessionhandle, uint32_t dwsizeofuicontextdata, void* puicontextdata, void* peapoutput, void* ppeaperror);
+void windowssysWindowsWin32SecurityExtensibleauthenticationprotocolEapHostPeerUninitialize(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SECURITY_EXTENSIBLEAUTHENTICATIONPROTOCOL_WINDOWS_WIN32_SECURITY_EXTENSIBLEAUTHENTICATIONPROTOCOL_WRAPPER_H */

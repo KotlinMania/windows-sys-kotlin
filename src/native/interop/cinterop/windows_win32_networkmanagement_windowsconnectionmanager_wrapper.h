@@ -1,0 +1,27 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSCONNECTIONMANAGER_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSCONNECTIONMANAGER_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSCONNECTIONMANAGER_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSCONNECTIONMANAGER_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable(void* interfacecontexttable);
+int32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName(void* hostname, void* proxyname, uint32_t flags, void* connectionprofilefilterrawdata, uint32_t connectionprofilefilterrawdatasize, void* interfacecontexttable);
+int32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint(void* destinationhostname, void* interfaceindex);
+int32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification(void* callback, void* callbackcontext, void* registrationhandle);
+int32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification(void* registrationhandle);
+void windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory(void* pmemory);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList(void* preserved, void* ppprofilelist);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, void* pdwdatasize, void* ppdata);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList(void* pprofilelist, uint32_t dwposition, int32_t fignoreunknownprofiles, void* preserved);
+uint32_t windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, uint32_t dwdatasize, void* pbdata);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSCONNECTIONMANAGER_WINDOWS_WIN32_NETWORKMANAGEMENT_WINDOWSCONNECTIONMANAGER_WRAPPER_H */

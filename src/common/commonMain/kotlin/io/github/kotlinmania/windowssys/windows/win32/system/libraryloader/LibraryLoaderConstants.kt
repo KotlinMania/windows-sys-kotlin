@@ -1,0 +1,57 @@
+package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
+
+public val CURRENT_IMPORT_REDIRECTION_VERSION: UInt = 1u
+
+public val DONT_RESOLVE_DLL_REFERENCES: LoadLibraryFlags = 1u
+
+public val FIND_RESOURCE_DIRECTORY_LANGUAGES: UInt = 1024u
+
+public val FIND_RESOURCE_DIRECTORY_NAMES: UInt = 512u
+
+public val FIND_RESOURCE_DIRECTORY_TYPES: UInt = 256u
+
+public val GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: UInt = 4u
+
+public val GET_MODULE_HANDLE_EX_FLAG_PIN: UInt = 1u
+
+public val GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: UInt = 2u
+
+public val LOAD_IGNORE_CODE_AUTHZ_LEVEL: LoadLibraryFlags = 16u
+
+public val LOAD_LIBRARY_AS_DATAFILE: LoadLibraryFlags = 2u
+
+public val LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LoadLibraryFlags = 64u
+
+public val LOAD_LIBRARY_AS_IMAGE_RESOURCE: LoadLibraryFlags = 32u
+
+public val LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: UInt = 32768u
+
+public val LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LoadLibraryFlags = 128u
+
+public val LOAD_LIBRARY_SAFE_CURRENT_DIRS: LoadLibraryFlags = 8192u
+
+public val LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LoadLibraryFlags = 512u
+
+public val LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LoadLibraryFlags = 4096u
+
+public val LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LoadLibraryFlags = 256u
+
+public val LOAD_LIBRARY_SEARCH_SYSTEM32: LoadLibraryFlags = 2048u
+
+public val LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LoadLibraryFlags = 16384u
+
+public val LOAD_LIBRARY_SEARCH_USER_DIRS: LoadLibraryFlags = 1024u
+
+public val LOAD_WITH_ALTERED_SEARCH_PATH: LoadLibraryFlags = 8u
+
+public val RESOURCE_ENUM_LN: UInt = 1u
+
+public val RESOURCE_ENUM_MODULE_EXACT: UInt = 16u
+
+public val RESOURCE_ENUM_MUI: UInt = 2u
+
+public val RESOURCE_ENUM_MUI_SYSTEM: UInt = 4u
+
+public val RESOURCE_ENUM_VALIDATE: UInt = 8u
+
+public val SUPPORT_LANG_NUMBER: UInt = 32u

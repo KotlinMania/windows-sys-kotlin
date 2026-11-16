@@ -1,0 +1,23 @@
+package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netshell
+
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+
+public expect fun matchEnumTag(hmodule: Handle, pwcarg: Pcwstr, dwnumarg: UInt, penumtable: ConstPtr, pdwvalue: MutPtr): UInt
+
+public expect fun matchToken(pwszusertoken: Pcwstr, pwszcmdtoken: Pcwstr): Bool
+
+public expect fun preprocessCommand(hmodule: Handle, ppwcarguments: MutPtr, dwcurrentindex: UInt, dwargcount: UInt, ptttags: MutPtr, dwtagcount: UInt, dwminargs: UInt, dwmaxargs: UInt, pdwtagtype: MutPtr): UInt
+
+public expect fun printError(hmodule: Handle, dwerrid: UInt, vararg variadicArgs: Long): UInt
+
+public expect fun printMessage(pwszformat: Pcwstr, vararg variadicArgs: Long): UInt
+
+public expect fun printMessageFromModule(hmodule: Handle, dwmsgid: UInt, vararg variadicArgs: Long): UInt
+
+public expect fun registerContext(pchildcontext: ConstPtr): UInt
+
+public expect fun registerHelper(pguidparentcontext: ConstPtr, pfnregistersubcontext: ConstPtr): UInt

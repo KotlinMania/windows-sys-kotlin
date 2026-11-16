@@ -1,0 +1,212 @@
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+
+package io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry
+
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+
+private object WindowsWdkSystemOfflineregistryJniBridge {
+    init {
+        loadNativeLibrary()
+    }
+
+    private fun loadNativeLibrary() {
+        val osRaw = System.getProperty("os.name", "").lowercase()
+        val archRaw = System.getProperty("os.arch", "").lowercase()
+        val hostPlatform =
+            when {
+                osRaw.contains("win") -> "windows"
+                osRaw.contains("mac") || osRaw.contains("darwin") -> "macos"
+                else -> "linux"
+            }
+        val hostArch =
+            when {
+                archRaw == "aarch64" || archRaw == "arm64" -> "aarch64"
+                archRaw == "amd64" || archRaw == "x86_64" -> "x86_64"
+                else -> archRaw
+            }
+        val libFileName =
+            when (hostPlatform) {
+                "windows" -> "windowssys_jni.dll"
+                "macos" -> "libwindowssys_jni.dylib"
+                else -> "libwindowssys_jni.so"
+            }
+        val pathSep = System.getProperty("path.separator", ":")
+        val libPathProp = System.getProperty("java.library.path", "")
+        for (dirEntry in libPathProp.split(pathSep)) {
+            if (dirEntry.isEmpty()) continue
+            val candidate = java.io.File(dirEntry, libFileName)
+            if (candidate.isFile) {
+                System.load(candidate.absolutePath)
+                return
+            }
+        }
+        val resourcePath = "io/github/kotlinmania/windowssys/native/$hostPlatform-$hostArch/$libFileName"
+        val stream = WindowsWdkSystemOfflineregistryJniBridge::class.java.classLoader?.getResourceAsStream(resourcePath)
+        if (stream != null) {
+            val suffix = "." + libFileName.substringAfterLast('.')
+            val extracted =
+                java.nio.file.Files
+                    .createTempFile("windowssys_jni-", suffix)
+                    .toFile()
+            extracted.deleteOnExit()
+            stream.use { input ->
+                extracted.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            System.load(extracted.absolutePath)
+            return
+        }
+        System.loadLibrary("windowssys_jni")
+    }
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORCloseHive(handle: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORCloseKey(keyhandle: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORCreateHive(horkey: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORCreateKey(keyhandle: Long, lpsubkey: Long, lpclass: Long, dwoptions: Int, psecuritydescriptor: Long, phkresult: Long, pdwdisposition: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORDeleteKey(handle: Long, lpsubkey: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORDeleteValue(handle: Long, lpvaluename: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryOREnumKey(handle: Long, dwindex: Int, lpname: Long, lpcname: Long, lpclass: Long, lpcclass: Long, lpftlastwritetime: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryOREnumValue(handle: Long, dwindex: Int, lpvaluename: Long, lpcvaluename: Long, lptype: Long, lpdata: Long, lpcbdata: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORGetKeySecurity(handle: Long, securityinformation: Int, psecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORGetValue(handle: Long, lpsubkey: Long, lpvalue: Long, pdwtype: Long, pvdata: Long, pcbdata: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORGetVersion(pdwmajorversion: Long, pdwminorversion: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORGetVirtualFlags(handle: Long, pdwflags: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORMergeHives(hivehandles: Long, hivecount: Int, phkresult: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryOROpenHive(filepath: Long, horkey: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryOROpenHiveByHandle(filehandle: Long, horkey: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryOROpenKey(handle: Long, lpsubkey: Long, phkresult: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORQueryInfoKey(handle: Long, lpclass: Long, lpcclass: Long, lpcsubkeys: Long, lpcmaxsubkeylen: Long, lpcmaxclasslen: Long, lpcvalues: Long, lpcmaxvaluenamelen: Long, lpcmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORRenameKey(handle: Long, lpnewname: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORSaveHive(horkey: Long, hivepath: Long, osmajorversion: Int, osminorversion: Int): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORSetKeySecurity(handle: Long, securityinformation: Int, psecuritydescriptor: Long): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORSetValue(handle: Long, lpvaluename: Long, dwtype: Int, lpdata: Long, cbdata: Int): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORSetVirtualFlags(handle: Long, dwflags: Int): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORShutdown(): Int
+
+    @JvmStatic
+    external fun windowssysWindowsWdkSystemOfflineregistryORStart(): Int
+}
+
+public actual fun oRCloseHive(handle: Orhkey): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORCloseHive(handle.rawAddress).toUInt()
+
+public actual fun oRCloseKey(keyhandle: Orhkey): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORCloseKey(keyhandle.rawAddress).toUInt()
+
+public actual fun oRCreateHive(horkey: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORCreateHive(horkey.rawAddress).toUInt()
+
+public actual fun oRCreateKey(keyhandle: Orhkey, lpsubkey: Pcwstr, lpclass: Pcwstr, dwoptions: UInt, psecuritydescriptor: PsecurityDescriptor, phkresult: MutPtr, pdwdisposition: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORCreateKey(keyhandle.rawAddress, lpsubkey.rawAddress, lpclass.rawAddress, dwoptions.toInt(), psecuritydescriptor.rawAddress, phkresult.rawAddress, pdwdisposition.rawAddress).toUInt()
+
+public actual fun oRDeleteKey(handle: Orhkey, lpsubkey: Pcwstr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORDeleteKey(handle.rawAddress, lpsubkey.rawAddress).toUInt()
+
+public actual fun oRDeleteValue(handle: Orhkey, lpvaluename: Pcwstr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORDeleteValue(handle.rawAddress, lpvaluename.rawAddress).toUInt()
+
+public actual fun oREnumKey(handle: Orhkey, dwindex: UInt, lpname: Pwstr, lpcname: MutPtr, lpclass: Pwstr, lpcclass: MutPtr, lpftlastwritetime: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryOREnumKey(handle.rawAddress, dwindex.toInt(), lpname.rawAddress, lpcname.rawAddress, lpclass.rawAddress, lpcclass.rawAddress, lpftlastwritetime.rawAddress).toUInt()
+
+public actual fun oREnumValue(handle: Orhkey, dwindex: UInt, lpvaluename: Pwstr, lpcvaluename: MutPtr, lptype: MutPtr, lpdata: MutPtr, lpcbdata: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryOREnumValue(handle.rawAddress, dwindex.toInt(), lpvaluename.rawAddress, lpcvaluename.rawAddress, lptype.rawAddress, lpdata.rawAddress, lpcbdata.rawAddress).toUInt()
+
+public actual fun oRGetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORGetKeySecurity(handle.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress, lpcbsecuritydescriptor.rawAddress).toUInt()
+
+public actual fun oRGetValue(handle: Orhkey, lpsubkey: Pcwstr, lpvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORGetValue(handle.rawAddress, lpsubkey.rawAddress, lpvalue.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
+
+public actual fun oRGetVersion(pdwmajorversion: MutPtr, pdwminorversion: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORGetVersion(pdwmajorversion.rawAddress, pdwminorversion.rawAddress).toUInt()
+
+public actual fun oRGetVirtualFlags(handle: Orhkey, pdwflags: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORGetVirtualFlags(handle.rawAddress, pdwflags.rawAddress).toUInt()
+
+public actual fun oRMergeHives(hivehandles: ConstPtr, hivecount: UInt, phkresult: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORMergeHives(hivehandles.rawAddress, hivecount.toInt(), phkresult.rawAddress).toUInt()
+
+public actual fun oROpenHive(filepath: Pcwstr, horkey: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryOROpenHive(filepath.rawAddress, horkey.rawAddress).toUInt()
+
+public actual fun oROpenHiveByHandle(filehandle: Handle, horkey: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryOROpenHiveByHandle(filehandle.rawAddress, horkey.rawAddress).toUInt()
+
+public actual fun oROpenKey(handle: Orhkey, lpsubkey: Pcwstr, phkresult: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryOROpenKey(handle.rawAddress, lpsubkey.rawAddress, phkresult.rawAddress).toUInt()
+
+public actual fun oRQueryInfoKey(handle: Orhkey, lpclass: Pwstr, lpcclass: MutPtr, lpcsubkeys: MutPtr, lpcmaxsubkeylen: MutPtr, lpcmaxclasslen: MutPtr, lpcvalues: MutPtr, lpcmaxvaluenamelen: MutPtr, lpcmaxvaluelen: MutPtr, lpcbsecuritydescriptor: MutPtr, lpftlastwritetime: MutPtr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORQueryInfoKey(handle.rawAddress, lpclass.rawAddress, lpcclass.rawAddress, lpcsubkeys.rawAddress, lpcmaxsubkeylen.rawAddress, lpcmaxclasslen.rawAddress, lpcvalues.rawAddress, lpcmaxvaluenamelen.rawAddress, lpcmaxvaluelen.rawAddress, lpcbsecuritydescriptor.rawAddress, lpftlastwritetime.rawAddress).toUInt()
+
+public actual fun oRRenameKey(handle: Orhkey, lpnewname: Pcwstr): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORRenameKey(handle.rawAddress, lpnewname.rawAddress).toUInt()
+
+public actual fun oRSaveHive(horkey: Orhkey, hivepath: Pcwstr, osmajorversion: UInt, osminorversion: UInt): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORSaveHive(horkey.rawAddress, hivepath.rawAddress, osmajorversion.toInt(), osminorversion.toInt()).toUInt()
+
+public actual fun oRSetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORSetKeySecurity(handle.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress).toUInt()
+
+public actual fun oRSetValue(handle: Orhkey, lpvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr, cbdata: UInt): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORSetValue(handle.rawAddress, lpvaluename.rawAddress, dwtype.toInt(), lpdata.rawAddress, cbdata.toInt()).toUInt()
+
+public actual fun oRSetVirtualFlags(handle: Orhkey, dwflags: UInt): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORSetVirtualFlags(handle.rawAddress, dwflags.toInt()).toUInt()
+
+public actual fun oRShutdown(): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORShutdown().toUInt()
+
+public actual fun oRStart(): Win32Error =
+    WindowsWdkSystemOfflineregistryJniBridge.windowssysWindowsWdkSystemOfflineregistryORStart().toUInt()

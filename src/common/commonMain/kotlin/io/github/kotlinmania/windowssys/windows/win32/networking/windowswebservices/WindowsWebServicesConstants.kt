@@ -1,0 +1,1984 @@
+package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
+
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.w
+
+public val CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: UInt = 1u
+
+public val CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_API_CURRENT_VERSION: UInt = 7u
+
+public val WEBAUTHN_API_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_API_VERSION_2: UInt = 2u
+
+public val WEBAUTHN_API_VERSION_3: UInt = 3u
+
+public val WEBAUTHN_API_VERSION_4: UInt = 4u
+
+public val WEBAUTHN_API_VERSION_5: UInt = 5u
+
+public val WEBAUTHN_API_VERSION_6: UInt = 6u
+
+public val WEBAUTHN_API_VERSION_7: UInt = 7u
+
+public val WEBAUTHN_ASSERTION_CURRENT_VERSION: UInt = 5u
+
+public val WEBAUTHN_ASSERTION_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_ASSERTION_VERSION_2: UInt = 2u
+
+public val WEBAUTHN_ASSERTION_VERSION_3: UInt = 3u
+
+public val WEBAUTHN_ASSERTION_VERSION_4: UInt = 4u
+
+public val WEBAUTHN_ASSERTION_VERSION_5: UInt = 5u
+
+public val WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: UInt = 0u
+
+public val WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_DIRECT: UInt = 3u
+
+public val WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_INDIRECT: UInt = 2u
+
+public val WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_NONE: UInt = 1u
+
+public val WEBAUTHN_ATTESTATION_DECODE_COMMON: UInt = 1u
+
+public val WEBAUTHN_ATTESTATION_DECODE_NONE: UInt = 0u
+
+public val WEBAUTHN_ATTESTATION_TYPE_NONE: Pcwstr = w("none")
+
+public val WEBAUTHN_ATTESTATION_TYPE_PACKED: Pcwstr = w("packed")
+
+public val WEBAUTHN_ATTESTATION_TYPE_TPM: Pcwstr = w("tpm")
+
+public val WEBAUTHN_ATTESTATION_TYPE_U2F: Pcwstr = w("fido-u2f")
+
+public val WEBAUTHN_ATTESTATION_VER_TPM_2_0: Pcwstr = w("2.0")
+
+public val WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: UInt = 0u
+
+public val WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: UInt = 2u
+
+public val WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: UInt = 3u
+
+public val WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: UInt = 1u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: UInt = 7u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: UInt = 2u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: UInt = 3u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: UInt = 4u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: UInt = 5u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_6: UInt = 6u
+
+public val WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_7: UInt = 7u
+
+public val WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: UInt = 1048576u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: UInt = 7u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: UInt = 2u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: UInt = 3u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: UInt = 4u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_5: UInt = 5u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_6: UInt = 6u
+
+public val WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_7: UInt = 7u
+
+public val WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: Int = -7
+
+public val WEBAUTHN_COSE_ALGORITHM_ECDSA_P384_WITH_SHA384: Int = -35
+
+public val WEBAUTHN_COSE_ALGORITHM_ECDSA_P521_WITH_SHA512: Int = -36
+
+public val WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA256: Int = -257
+
+public val WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA384: Int = -258
+
+public val WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA512: Int = -259
+
+public val WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: Int = -37
+
+public val WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: Int = -38
+
+public val WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: Int = -39
+
+public val WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: UInt = 6u
+
+public val WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: UInt = 2u
+
+public val WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: UInt = 3u
+
+public val WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: UInt = 4u
+
+public val WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_5: UInt = 5u
+
+public val WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_6: UInt = 6u
+
+public val WEBAUTHN_CREDENTIAL_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: UInt = 2u
+
+public val WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_CREDENTIAL_DETAILS_VERSION_2: UInt = 2u
+
+public val WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: Pcwstr = w("public-key")
+
+public val WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: UInt = 3u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_OPERATION_GET: UInt = 1u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_OPERATION_NONE: UInt = 0u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_OPERATION_SET: UInt = 2u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_AUTHENTICATOR_ERROR: UInt = 9u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_DATA: UInt = 3u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_PARAMETER: UInt = 4u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_LACK_OF_SPACE: UInt = 7u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_MULTIPLE_CREDENTIALS: UInt = 6u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_NONE: UInt = 0u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_FOUND: UInt = 5u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_SUPPORTED: UInt = 2u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: UInt = 8u
+
+public val WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: UInt = 1u
+
+public val WEBAUTHN_CTAP_ONE_HMAC_SECRET_LENGTH: UInt = 32u
+
+public val WEBAUTHN_CTAP_TRANSPORT_BLE: UInt = 4u
+
+public val WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: UInt = 63u
+
+public val WEBAUTHN_CTAP_TRANSPORT_HYBRID: UInt = 32u
+
+public val WEBAUTHN_CTAP_TRANSPORT_INTERNAL: UInt = 16u
+
+public val WEBAUTHN_CTAP_TRANSPORT_NFC: UInt = 2u
+
+public val WEBAUTHN_CTAP_TRANSPORT_TEST: UInt = 8u
+
+public val WEBAUTHN_CTAP_TRANSPORT_USB: UInt = 1u
+
+public val WEBAUTHN_ENTERPRISE_ATTESTATION_NONE: UInt = 0u
+
+public val WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: UInt = 2u
+
+public val WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: UInt = 1u
+
+public val WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: Pcwstr = w("credBlob")
+
+public val WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: Pcwstr = w("credProtect")
+
+public val WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: Pcwstr = w("hmac-secret")
+
+public val WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: Pcwstr = w("minPinLength")
+
+public val WEBAUTHN_GET_CREDENTIALS_OPTIONS_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_GET_CREDENTIALS_OPTIONS_VERSION_1: UInt = 1u
+
+public val WEBAUTHN_HASH_ALGORITHM_SHA_256: Pcwstr = w("SHA-256")
+
+public val WEBAUTHN_HASH_ALGORITHM_SHA_384: Pcwstr = w("SHA-384")
+
+public val WEBAUTHN_HASH_ALGORITHM_SHA_512: Pcwstr = w("SHA-512")
+
+public val WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: UInt = 0u
+
+public val WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: UInt = 2u
+
+public val WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: UInt = 1u
+
+public val WEBAUTHN_MAX_USER_ID_LENGTH: UInt = 64u
+
+public val WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: UInt = 1u
+
+public val WEBAUTHN_USER_VERIFICATION_ANY: UInt = 0u
+
+public val WEBAUTHN_USER_VERIFICATION_OPTIONAL: UInt = 1u
+
+public val WEBAUTHN_USER_VERIFICATION_OPTIONAL_WITH_CREDENTIAL_ID_LIST: UInt = 2u
+
+public val WEBAUTHN_USER_VERIFICATION_REQUIRED: UInt = 3u
+
+public val WEBAUTHN_USER_VERIFICATION_REQUIREMENT_ANY: UInt = 0u
+
+public val WEBAUTHN_USER_VERIFICATION_REQUIREMENT_DISCOURAGED: UInt = 3u
+
+public val WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: UInt = 2u
+
+public val WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: UInt = 1u
+
+public val WS_ACTION_HEADER: WsHeaderType = 1
+
+public val WS_ADDRESSING_VERSION_0_9: WsAddressingVersion = 1
+
+public val WS_ADDRESSING_VERSION_1_0: WsAddressingVersion = 2
+
+public val WS_ADDRESSING_VERSION_TRANSPORT: WsAddressingVersion = 3
+
+public val WS_ANY_ATTRIBUTES_FIELD_MAPPING: WsFieldMapping = 12
+
+public val WS_ANY_ATTRIBUTES_TYPE: WsType = 34
+
+public val WS_ANY_CONTENT_FIELD_MAPPING: WsFieldMapping = 11
+
+public val WS_ANY_ELEMENT_FIELD_MAPPING: WsFieldMapping = 9
+
+public val WS_ANY_ELEMENT_TYPE_MAPPING: WsTypeMapping = 4
+
+public val WS_ATTRIBUTE_FIELD_MAPPING: WsFieldMapping = 1
+
+public val WS_ATTRIBUTE_TYPE_MAPPING: WsTypeMapping = 2
+
+public val WS_AUTO_COOKIE_MODE: WsCookieMode = 2
+
+public val WS_BLANK_MESSAGE: WsMessageInitialization = 0
+
+public val WS_BOOL_TYPE: WsType = 0
+
+public val WS_BOOL_VALUE_TYPE: WsValueType = 0
+
+public val WS_BUFFERED_TRANSFER_MODE: WsTransferMode = 0
+
+public val WS_BYTES_TYPE: WsType = 18
+
+public val WS_BYTE_ARRAY_TYPE: WsType = 24
+
+public val WS_CALL_PROPERTY_CALL_ID: WsCallPropertyId = 3
+
+public val WS_CALL_PROPERTY_CHECK_MUST_UNDERSTAND: WsCallPropertyId = 0
+
+public val WS_CALL_PROPERTY_RECEIVE_MESSAGE_CONTEXT: WsCallPropertyId = 2
+
+public val WS_CALL_PROPERTY_SEND_MESSAGE_CONTEXT: WsCallPropertyId = 1
+
+public val WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WsSecurityKeyHandleType = 3
+
+public val WS_CERT_ENDPOINT_IDENTITY_TYPE: WsEndpointIdentityType = 5
+
+public val WS_CERT_FAILURE_CN_MISMATCH: Int = 1
+
+public val WS_CERT_FAILURE_INVALID_DATE: Int = 2
+
+public val WS_CERT_FAILURE_REVOCATION_OFFLINE: Int = 16
+
+public val WS_CERT_FAILURE_UNTRUSTED_ROOT: Int = 4
+
+public val WS_CERT_FAILURE_WRONG_USAGE: Int = 8
+
+public val WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 7
+
+public val WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WsSamlAuthenticatorType = 1
+
+public val WS_CHANNEL_PROPERTY_ADDRESSING_VERSION: WsChannelPropertyId = 6
+
+public val WS_CHANNEL_PROPERTY_ALLOW_UNSECURED_FAULTS: WsChannelPropertyId = 46
+
+public val WS_CHANNEL_PROPERTY_ASYNC_CALLBACK_MODEL: WsChannelPropertyId = 9
+
+public val WS_CHANNEL_PROPERTY_CHANNEL_TYPE: WsChannelPropertyId = 34
+
+public val WS_CHANNEL_PROPERTY_CLOSE_TIMEOUT: WsChannelPropertyId = 16
+
+public val WS_CHANNEL_PROPERTY_CONNECT_TIMEOUT: WsChannelPropertyId = 12
+
+public val WS_CHANNEL_PROPERTY_COOKIE_MODE: WsChannelPropertyId = 39
+
+public val WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_CALLBACKS: WsChannelPropertyId = 24
+
+public val WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_INSTANCE: WsChannelPropertyId = 26
+
+public val WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_PARAMETERS: WsChannelPropertyId = 25
+
+public val WS_CHANNEL_PROPERTY_CUSTOM_HTTP_PROXY: WsChannelPropertyId = 41
+
+public val WS_CHANNEL_PROPERTY_DECODER: WsChannelPropertyId = 37
+
+public val WS_CHANNEL_PROPERTY_ENABLE_HTTP_REDIRECT: WsChannelPropertyId = 43
+
+public val WS_CHANNEL_PROPERTY_ENABLE_TIMEOUTS: WsChannelPropertyId = 17
+
+public val WS_CHANNEL_PROPERTY_ENCODER: WsChannelPropertyId = 36
+
+public val WS_CHANNEL_PROPERTY_ENCODING: WsChannelPropertyId = 4
+
+public val WS_CHANNEL_PROPERTY_ENVELOPE_VERSION: WsChannelPropertyId = 5
+
+public val WS_CHANNEL_PROPERTY_FAULTS_AS_ERRORS: WsChannelPropertyId = 45
+
+public val WS_CHANNEL_PROPERTY_HTTP_CONNECTION_ID: WsChannelPropertyId = 23
+
+public val WS_CHANNEL_PROPERTY_HTTP_MESSAGE_MAPPING: WsChannelPropertyId = 42
+
+public val WS_CHANNEL_PROPERTY_HTTP_PROXY_SETTING_MODE: WsChannelPropertyId = 40
+
+public val WS_CHANNEL_PROPERTY_HTTP_PROXY_SPN: WsChannelPropertyId = 48
+
+public val WS_CHANNEL_PROPERTY_HTTP_REDIRECT_CALLBACK_CONTEXT: WsChannelPropertyId = 44
+
+public val WS_CHANNEL_PROPERTY_HTTP_SERVER_SPN: WsChannelPropertyId = 47
+
+public val WS_CHANNEL_PROPERTY_IP_VERSION: WsChannelPropertyId = 10
+
+public val WS_CHANNEL_PROPERTY_IS_SESSION_SHUT_DOWN: WsChannelPropertyId = 33
+
+public val WS_CHANNEL_PROPERTY_KEEP_ALIVE_INTERVAL: WsChannelPropertyId = 31
+
+public val WS_CHANNEL_PROPERTY_KEEP_ALIVE_TIME: WsChannelPropertyId = 30
+
+public val WS_CHANNEL_PROPERTY_MAX_BUFFERED_MESSAGE_SIZE: WsChannelPropertyId = 0
+
+public val WS_CHANNEL_PROPERTY_MAX_HTTP_REQUEST_HEADERS_BUFFER_SIZE: WsChannelPropertyId = 49
+
+public val WS_CHANNEL_PROPERTY_MAX_HTTP_SERVER_CONNECTIONS: WsChannelPropertyId = 32
+
+public val WS_CHANNEL_PROPERTY_MAX_SESSION_DICTIONARY_SIZE: WsChannelPropertyId = 7
+
+public val WS_CHANNEL_PROPERTY_MAX_STREAMED_FLUSH_SIZE: WsChannelPropertyId = 3
+
+public val WS_CHANNEL_PROPERTY_MAX_STREAMED_MESSAGE_SIZE: WsChannelPropertyId = 1
+
+public val WS_CHANNEL_PROPERTY_MAX_STREAMED_START_SIZE: WsChannelPropertyId = 2
+
+public val WS_CHANNEL_PROPERTY_MULTICAST_HOPS: WsChannelPropertyId = 20
+
+public val WS_CHANNEL_PROPERTY_MULTICAST_INTERFACE: WsChannelPropertyId = 19
+
+public val WS_CHANNEL_PROPERTY_NO_DELAY: WsChannelPropertyId = 28
+
+public val WS_CHANNEL_PROPERTY_PROTECTION_LEVEL: WsChannelPropertyId = 38
+
+public val WS_CHANNEL_PROPERTY_RECEIVE_RESPONSE_TIMEOUT: WsChannelPropertyId = 14
+
+public val WS_CHANNEL_PROPERTY_RECEIVE_TIMEOUT: WsChannelPropertyId = 15
+
+public val WS_CHANNEL_PROPERTY_REMOTE_ADDRESS: WsChannelPropertyId = 21
+
+public val WS_CHANNEL_PROPERTY_REMOTE_IP_ADDRESS: WsChannelPropertyId = 22
+
+public val WS_CHANNEL_PROPERTY_RESOLVE_TIMEOUT: WsChannelPropertyId = 11
+
+public val WS_CHANNEL_PROPERTY_SEND_KEEP_ALIVES: WsChannelPropertyId = 29
+
+public val WS_CHANNEL_PROPERTY_SEND_TIMEOUT: WsChannelPropertyId = 13
+
+public val WS_CHANNEL_PROPERTY_STATE: WsChannelPropertyId = 8
+
+public val WS_CHANNEL_PROPERTY_TRANSFER_MODE: WsChannelPropertyId = 18
+
+public val WS_CHANNEL_PROPERTY_TRANSPORT_URL: WsChannelPropertyId = 27
+
+public val WS_CHANNEL_PROPERTY_TRIM_BUFFERED_MESSAGE_SIZE: WsChannelPropertyId = 35
+
+public val WS_CHANNEL_STATE_ACCEPTING: WsChannelState = 2
+
+public val WS_CHANNEL_STATE_CLOSED: WsChannelState = 6
+
+public val WS_CHANNEL_STATE_CLOSING: WsChannelState = 5
+
+public val WS_CHANNEL_STATE_CREATED: WsChannelState = 0
+
+public val WS_CHANNEL_STATE_FAULTED: WsChannelState = 4
+
+public val WS_CHANNEL_STATE_OPEN: WsChannelState = 3
+
+public val WS_CHANNEL_STATE_OPENING: WsChannelState = 1
+
+public val WS_CHANNEL_TYPE_DUPLEX: WsChannelType = 3
+
+public val WS_CHANNEL_TYPE_DUPLEX_SESSION: WsChannelType = 7
+
+public val WS_CHANNEL_TYPE_INPUT: WsChannelType = 1
+
+public val WS_CHANNEL_TYPE_INPUT_SESSION: WsChannelType = 5
+
+public val WS_CHANNEL_TYPE_OUTPUT: WsChannelType = 2
+
+public val WS_CHANNEL_TYPE_OUTPUT_SESSION: WsChannelType = 6
+
+public val WS_CHANNEL_TYPE_REPLY: WsChannelType = 16
+
+public val WS_CHANNEL_TYPE_REQUEST: WsChannelType = 8
+
+public val WS_CHANNEL_TYPE_SESSION: WsChannelType = 4
+
+public val WS_CHARSET_AUTO: WsCharset = 0
+
+public val WS_CHARSET_UTF16BE: WsCharset = 3
+
+public val WS_CHARSET_UTF16LE: WsCharset = 2
+
+public val WS_CHARSET_UTF8: WsCharset = 1
+
+public val WS_CHAR_ARRAY_TYPE: WsType = 22
+
+public val WS_CUSTOM_CERT_CREDENTIAL_TYPE: WsCertCredentialType = 3
+
+public val WS_CUSTOM_CHANNEL_BINDING: WsChannelBinding = 3
+
+public val WS_CUSTOM_TYPE: WsType = 27
+
+public val WS_DATETIME_FORMAT_LOCAL: WsDatetimeFormat = 1
+
+public val WS_DATETIME_FORMAT_NONE: WsDatetimeFormat = 2
+
+public val WS_DATETIME_FORMAT_UTC: WsDatetimeFormat = 0
+
+public val WS_DATETIME_TYPE: WsType = 12
+
+public val WS_DATETIME_VALUE_TYPE: WsValueType = 12
+
+public val WS_DECIMAL_TYPE: WsType = 11
+
+public val WS_DECIMAL_VALUE_TYPE: WsValueType = 11
+
+public val WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WsWindowsIntegratedAuthCredentialType = 2
+
+public val WS_DESCRIPTION_TYPE: WsType = 25
+
+public val WS_DNS_ENDPOINT_IDENTITY_TYPE: WsEndpointIdentityType = 1
+
+public val WS_DOUBLE_TYPE: WsType = 10
+
+public val WS_DOUBLE_VALUE_TYPE: WsValueType = 10
+
+public val WS_DUPLICATE_MESSAGE: WsMessageInitialization = 1
+
+public val WS_DURATION_TYPE: WsType = 32
+
+public val WS_DURATION_VALUE_TYPE: WsValueType = 15
+
+public val WS_ELEMENT_CHOICE_FIELD_MAPPING: WsFieldMapping = 7
+
+public val WS_ELEMENT_CONTENT_TYPE_MAPPING: WsTypeMapping = 3
+
+public val WS_ELEMENT_FIELD_MAPPING: WsFieldMapping = 2
+
+public val WS_ELEMENT_TYPE_MAPPING: WsTypeMapping = 1
+
+public val WS_ENCODING_RAW: WsEncoding = 8
+
+public val WS_ENCODING_XML_BINARY_1: WsEncoding = 0
+
+public val WS_ENCODING_XML_BINARY_SESSION_1: WsEncoding = 1
+
+public val WS_ENCODING_XML_MTOM_UTF16BE: WsEncoding = 3
+
+public val WS_ENCODING_XML_MTOM_UTF16LE: WsEncoding = 4
+
+public val WS_ENCODING_XML_MTOM_UTF8: WsEncoding = 2
+
+public val WS_ENCODING_XML_UTF16BE: WsEncoding = 6
+
+public val WS_ENCODING_XML_UTF16LE: WsEncoding = 7
+
+public val WS_ENCODING_XML_UTF8: WsEncoding = 5
+
+public val WS_ENDPOINT_ADDRESS_EXTENSION_METADATA_ADDRESS: WsEndpointAddressExtensionType = 1
+
+public val WS_ENDPOINT_ADDRESS_TYPE: WsType = 28
+
+public val WS_ENDPOINT_POLICY_EXTENSION_TYPE: WsPolicyExtensionType = 1
+
+public val WS_ENUM_TYPE: WsType = 31
+
+public val WS_ENVELOPE_VERSION_NONE: WsEnvelopeVersion = 3
+
+public val WS_ENVELOPE_VERSION_SOAP_1_1: WsEnvelopeVersion = 1
+
+public val WS_ENVELOPE_VERSION_SOAP_1_2: WsEnvelopeVersion = 2
+
+public val WS_ERROR_PROPERTY_LANGID: WsErrorPropertyId = 2
+
+public val WS_ERROR_PROPERTY_ORIGINAL_ERROR_CODE: WsErrorPropertyId = 1
+
+public val WS_ERROR_PROPERTY_STRING_COUNT: WsErrorPropertyId = 0
+
+public val WS_EXCEPTION_CODE_INTERNAL_FAILURE: WsExceptionCode = -1069744127
+
+public val WS_EXCEPTION_CODE_USAGE_FAILURE: WsExceptionCode = -1069744128
+
+public val WS_EXCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WsXmlCanonicalizationAlgorithm = 1
+
+public val WS_EXCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WsXmlCanonicalizationAlgorithm = 0
+
+public val WS_EXTENDED_PROTECTION_POLICY_ALWAYS: WsExtendedProtectionPolicy = 3
+
+public val WS_EXTENDED_PROTECTION_POLICY_NEVER: WsExtendedProtectionPolicy = 1
+
+public val WS_EXTENDED_PROTECTION_POLICY_WHEN_SUPPORTED: WsExtendedProtectionPolicy = 2
+
+public val WS_EXTENDED_PROTECTION_SCENARIO_BOUND_SERVER: WsExtendedProtectionScenario = 1
+
+public val WS_EXTENDED_PROTECTION_SCENARIO_TERMINATED_SSL: WsExtendedProtectionScenario = 2
+
+public val WS_FAULT_ERROR_PROPERTY_ACTION: WsFaultErrorPropertyId = 1
+
+public val WS_FAULT_ERROR_PROPERTY_FAULT: WsFaultErrorPropertyId = 0
+
+public val WS_FAULT_ERROR_PROPERTY_HEADER: WsFaultErrorPropertyId = 2
+
+public val WS_FAULT_MESSAGE: WsMessageInitialization = 4
+
+public val WS_FAULT_TO_HEADER: WsHeaderType = 7
+
+public val WS_FAULT_TYPE: WsType = 29
+
+public val WS_FIELD_NILLABLE: Int = 4
+
+public val WS_FIELD_NILLABLE_ITEM: Int = 8
+
+public val WS_FIELD_OPTIONAL: Int = 2
+
+public val WS_FIELD_OTHER_NAMESPACE: Int = 16
+
+public val WS_FIELD_POINTER: Int = 1
+
+public val WS_FLOAT_TYPE: WsType = 9
+
+public val WS_FLOAT_VALUE_TYPE: WsValueType = 9
+
+public val WS_FROM_HEADER: WsHeaderType = 5
+
+public val WS_FULL_FAULT_DISCLOSURE: WsFaultDisclosure = 1
+
+public val WS_GUID_TYPE: WsType = 14
+
+public val WS_GUID_VALUE_TYPE: WsValueType = 14
+
+public val WS_HEAP_PROPERTY_ACTUAL_SIZE: WsHeapPropertyId = 3
+
+public val WS_HEAP_PROPERTY_MAX_SIZE: WsHeapPropertyId = 0
+
+public val WS_HEAP_PROPERTY_REQUESTED_SIZE: WsHeapPropertyId = 2
+
+public val WS_HEAP_PROPERTY_TRIM_SIZE: WsHeapPropertyId = 1
+
+public val WS_HTTP_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 0
+
+public val WS_HTTP_CHANNEL_BINDING: WsChannelBinding = 0
+
+public val WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 2
+
+public val WS_HTTP_HEADER_AUTH_SCHEME_BASIC: Int = 2
+
+public val WS_HTTP_HEADER_AUTH_SCHEME_DIGEST: Int = 4
+
+public val WS_HTTP_HEADER_AUTH_SCHEME_NEGOTIATE: Int = 16
+
+public val WS_HTTP_HEADER_AUTH_SCHEME_NONE: Int = 1
+
+public val WS_HTTP_HEADER_AUTH_SCHEME_NTLM: Int = 8
+
+public val WS_HTTP_HEADER_AUTH_SCHEME_PASSPORT: Int = 32
+
+public val WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 3
+
+public val WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TYPE: WsSecurityBindingType = 3
+
+public val WS_HTTP_HEADER_AUTH_TARGET_PROXY: WsHttpHeaderAuthTarget = 2
+
+public val WS_HTTP_HEADER_AUTH_TARGET_SERVICE: WsHttpHeaderAuthTarget = 1
+
+public val WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: Int = 1
+
+public val WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: Int = 4
+
+public val WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: Int = 2
+
+public val WS_HTTP_PROXY_SETTING_MODE_AUTO: WsHttpProxySettingMode = 1
+
+public val WS_HTTP_PROXY_SETTING_MODE_CUSTOM: WsHttpProxySettingMode = 3
+
+public val WS_HTTP_PROXY_SETTING_MODE_NONE: WsHttpProxySettingMode = 2
+
+public val WS_HTTP_REQUEST_MAPPING_VERB: Int = 2
+
+public val WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: Int = 1
+
+public val WS_HTTP_RESPONSE_MAPPING_STATUS_TEXT: Int = 2
+
+public val WS_HTTP_SSL_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 1
+
+public val WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 3
+
+public val WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 5
+
+public val WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 11
+
+public val WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 4
+
+public val WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 10
+
+public val WS_INCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WsXmlCanonicalizationAlgorithm = 3
+
+public val WS_INCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WsXmlCanonicalizationAlgorithm = 2
+
+public val WS_INT16_TYPE: WsType = 2
+
+public val WS_INT16_VALUE_TYPE: WsValueType = 2
+
+public val WS_INT32_TYPE: WsType = 3
+
+public val WS_INT32_VALUE_TYPE: WsValueType = 3
+
+public val WS_INT64_TYPE: WsType = 4
+
+public val WS_INT64_VALUE_TYPE: WsValueType = 4
+
+public val WS_INT8_TYPE: WsType = 1
+
+public val WS_INT8_VALUE_TYPE: WsValueType = 1
+
+public val WS_IP_VERSION_4: WsIpVersion = 1
+
+public val WS_IP_VERSION_6: WsIpVersion = 2
+
+public val WS_IP_VERSION_AUTO: WsIpVersion = 3
+
+public val WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 6
+
+public val WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 5
+
+public val WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TYPE: WsSecurityBindingType = 5
+
+public val WS_LISTENER_PROPERTY_ASYNC_CALLBACK_MODEL: WsListenerPropertyId = 3
+
+public val WS_LISTENER_PROPERTY_CHANNEL_BINDING: WsListenerPropertyId = 5
+
+public val WS_LISTENER_PROPERTY_CHANNEL_TYPE: WsListenerPropertyId = 4
+
+public val WS_LISTENER_PROPERTY_CLOSE_TIMEOUT: WsListenerPropertyId = 10
+
+public val WS_LISTENER_PROPERTY_CONNECT_TIMEOUT: WsListenerPropertyId = 6
+
+public val WS_LISTENER_PROPERTY_CUSTOM_LISTENER_CALLBACKS: WsListenerPropertyId = 13
+
+public val WS_LISTENER_PROPERTY_CUSTOM_LISTENER_INSTANCE: WsListenerPropertyId = 15
+
+public val WS_LISTENER_PROPERTY_CUSTOM_LISTENER_PARAMETERS: WsListenerPropertyId = 14
+
+public val WS_LISTENER_PROPERTY_DISALLOWED_USER_AGENT: WsListenerPropertyId = 16
+
+public val WS_LISTENER_PROPERTY_IP_VERSION: WsListenerPropertyId = 1
+
+public val WS_LISTENER_PROPERTY_IS_MULTICAST: WsListenerPropertyId = 7
+
+public val WS_LISTENER_PROPERTY_LISTEN_BACKLOG: WsListenerPropertyId = 0
+
+public val WS_LISTENER_PROPERTY_MULTICAST_INTERFACES: WsListenerPropertyId = 8
+
+public val WS_LISTENER_PROPERTY_MULTICAST_LOOPBACK: WsListenerPropertyId = 9
+
+public val WS_LISTENER_PROPERTY_STATE: WsListenerPropertyId = 2
+
+public val WS_LISTENER_PROPERTY_TO_HEADER_MATCHING_OPTIONS: WsListenerPropertyId = 11
+
+public val WS_LISTENER_PROPERTY_TRANSPORT_URL_MATCHING_OPTIONS: WsListenerPropertyId = 12
+
+public val WS_LISTENER_STATE_CLOSED: WsListenerState = 5
+
+public val WS_LISTENER_STATE_CLOSING: WsListenerState = 4
+
+public val WS_LISTENER_STATE_CREATED: WsListenerState = 0
+
+public val WS_LISTENER_STATE_FAULTED: WsListenerState = 3
+
+public val WS_LISTENER_STATE_OPEN: WsListenerState = 2
+
+public val WS_LISTENER_STATE_OPENING: WsListenerState = 1
+
+public val WS_LONG_CALLBACK: WsCallbackModel = 1
+
+public val WS_MANUAL_COOKIE_MODE: WsCookieMode = 1
+
+public val WS_MATCH_URL_DNS_FULLY_QUALIFIED_HOST: Int = 2
+
+public val WS_MATCH_URL_DNS_HOST: Int = 1
+
+public val WS_MATCH_URL_EXACT_PATH: Int = 64
+
+public val WS_MATCH_URL_HOST_ADDRESSES: Int = 16
+
+public val WS_MATCH_URL_LOCAL_HOST: Int = 8
+
+public val WS_MATCH_URL_NETBIOS_HOST: Int = 4
+
+public val WS_MATCH_URL_NO_QUERY: Int = 256
+
+public val WS_MATCH_URL_PORT: Int = 32
+
+public val WS_MATCH_URL_PREFIX_PATH: Int = 128
+
+public val WS_MATCH_URL_THIS_HOST: Int = 31
+
+public val WS_MESSAGE_ID_HEADER: WsHeaderType = 3
+
+public val WS_MESSAGE_PROPERTY_ADDRESSING_VERSION: WsMessagePropertyId = 3
+
+public val WS_MESSAGE_PROPERTY_BODY_READER: WsMessagePropertyId = 6
+
+public val WS_MESSAGE_PROPERTY_BODY_WRITER: WsMessagePropertyId = 7
+
+public val WS_MESSAGE_PROPERTY_ENCODED_CERT: WsMessagePropertyId = 15
+
+public val WS_MESSAGE_PROPERTY_ENVELOPE_VERSION: WsMessagePropertyId = 2
+
+public val WS_MESSAGE_PROPERTY_HEADER_BUFFER: WsMessagePropertyId = 4
+
+public val WS_MESSAGE_PROPERTY_HEADER_POSITION: WsMessagePropertyId = 5
+
+public val WS_MESSAGE_PROPERTY_HEAP: WsMessagePropertyId = 1
+
+public val WS_MESSAGE_PROPERTY_HEAP_PROPERTIES: WsMessagePropertyId = 9
+
+public val WS_MESSAGE_PROPERTY_HTTP_HEADER_AUTH_WINDOWS_TOKEN: WsMessagePropertyId = 17
+
+public val WS_MESSAGE_PROPERTY_IS_ADDRESSED: WsMessagePropertyId = 8
+
+public val WS_MESSAGE_PROPERTY_IS_FAULT: WsMessagePropertyId = 12
+
+public val WS_MESSAGE_PROPERTY_MAX_PROCESSED_HEADERS: WsMessagePropertyId = 13
+
+public val WS_MESSAGE_PROPERTY_MESSAGE_SECURITY_WINDOWS_TOKEN: WsMessagePropertyId = 18
+
+public val WS_MESSAGE_PROPERTY_PROTECTION_LEVEL: WsMessagePropertyId = 21
+
+public val WS_MESSAGE_PROPERTY_SAML_ASSERTION: WsMessagePropertyId = 19
+
+public val WS_MESSAGE_PROPERTY_SECURITY_CONTEXT: WsMessagePropertyId = 20
+
+public val WS_MESSAGE_PROPERTY_STATE: WsMessagePropertyId = 0
+
+public val WS_MESSAGE_PROPERTY_TRANSPORT_SECURITY_WINDOWS_TOKEN: WsMessagePropertyId = 16
+
+public val WS_MESSAGE_PROPERTY_USERNAME: WsMessagePropertyId = 14
+
+public val WS_MESSAGE_PROPERTY_XML_READER_PROPERTIES: WsMessagePropertyId = 10
+
+public val WS_MESSAGE_PROPERTY_XML_WRITER_PROPERTIES: WsMessagePropertyId = 11
+
+public val WS_MESSAGE_STATE_DONE: WsMessageState = 5
+
+public val WS_MESSAGE_STATE_EMPTY: WsMessageState = 1
+
+public val WS_MESSAGE_STATE_INITIALIZED: WsMessageState = 2
+
+public val WS_MESSAGE_STATE_READING: WsMessageState = 3
+
+public val WS_MESSAGE_STATE_WRITING: WsMessageState = 4
+
+public val WS_METADATA_EXCHANGE_TYPE_HTTP_GET: WsMetadataExchangeType = 2
+
+public val WS_METADATA_EXCHANGE_TYPE_MEX: WsMetadataExchangeType = 1
+
+public val WS_METADATA_EXCHANGE_TYPE_NONE: WsMetadataExchangeType = 0
+
+public val WS_METADATA_PROPERTY_HEAP_PROPERTIES: WsMetadataPropertyId = 2
+
+public val WS_METADATA_PROPERTY_HEAP_REQUESTED_SIZE: WsMetadataPropertyId = 4
+
+public val WS_METADATA_PROPERTY_HOST_NAMES: WsMetadataPropertyId = 6
+
+public val WS_METADATA_PROPERTY_MAX_DOCUMENTS: WsMetadataPropertyId = 5
+
+public val WS_METADATA_PROPERTY_POLICY_PROPERTIES: WsMetadataPropertyId = 3
+
+public val WS_METADATA_PROPERTY_STATE: WsMetadataPropertyId = 1
+
+public val WS_METADATA_PROPERTY_VERIFY_HOST_NAMES: WsMetadataPropertyId = 7
+
+public val WS_METADATA_STATE_CREATED: WsMetadataState = 1
+
+public val WS_METADATA_STATE_FAULTED: WsMetadataState = 3
+
+public val WS_METADATA_STATE_RESOLVED: WsMetadataState = 2
+
+public val WS_MINIMAL_FAULT_DISCLOSURE: WsFaultDisclosure = 0
+
+public val WS_MOVE_TO_BOF: WsMoveTo = 9
+
+public val WS_MOVE_TO_CHILD_ELEMENT: WsMoveTo = 3
+
+public val WS_MOVE_TO_CHILD_NODE: WsMoveTo = 11
+
+public val WS_MOVE_TO_END_ELEMENT: WsMoveTo = 4
+
+public val WS_MOVE_TO_EOF: WsMoveTo = 10
+
+public val WS_MOVE_TO_FIRST_NODE: WsMoveTo = 8
+
+public val WS_MOVE_TO_NEXT_ELEMENT: WsMoveTo = 1
+
+public val WS_MOVE_TO_NEXT_NODE: WsMoveTo = 6
+
+public val WS_MOVE_TO_PARENT_ELEMENT: WsMoveTo = 5
+
+public val WS_MOVE_TO_PREVIOUS_ELEMENT: WsMoveTo = 2
+
+public val WS_MOVE_TO_PREVIOUS_NODE: WsMoveTo = 7
+
+public val WS_MOVE_TO_ROOT_ELEMENT: WsMoveTo = 0
+
+public val WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: Int = 1
+
+public val WS_NAMEDPIPE_CHANNEL_BINDING: WsChannelBinding = 4
+
+public val WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WsSecurityBindingType = 9
+
+public val WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WsSecurityKeyHandleType = 2
+
+public val WS_NON_RPC_LITERAL_OPERATION: WsOperationStyle = 0
+
+public val WS_NO_FIELD_MAPPING: WsFieldMapping = 5
+
+public val WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WsWindowsIntegratedAuthCredentialType = 3
+
+public val WS_OPERATION_CONTEXT_PROPERTY_CHANNEL: WsOperationContextPropertyId = 0
+
+public val WS_OPERATION_CONTEXT_PROPERTY_CHANNEL_USER_STATE: WsOperationContextPropertyId = 3
+
+public val WS_OPERATION_CONTEXT_PROPERTY_CONTRACT_DESCRIPTION: WsOperationContextPropertyId = 1
+
+public val WS_OPERATION_CONTEXT_PROPERTY_ENDPOINT_ADDRESS: WsOperationContextPropertyId = 8
+
+public val WS_OPERATION_CONTEXT_PROPERTY_HEAP: WsOperationContextPropertyId = 6
+
+public val WS_OPERATION_CONTEXT_PROPERTY_HOST_USER_STATE: WsOperationContextPropertyId = 2
+
+public val WS_OPERATION_CONTEXT_PROPERTY_INPUT_MESSAGE: WsOperationContextPropertyId = 4
+
+public val WS_OPERATION_CONTEXT_PROPERTY_LISTENER: WsOperationContextPropertyId = 7
+
+public val WS_OPERATION_CONTEXT_PROPERTY_OUTPUT_MESSAGE: WsOperationContextPropertyId = 5
+
+public val WS_PARAMETER_TYPE_ARRAY: WsParameterType = 1
+
+public val WS_PARAMETER_TYPE_ARRAY_COUNT: WsParameterType = 2
+
+public val WS_PARAMETER_TYPE_MESSAGES: WsParameterType = 3
+
+public val WS_PARAMETER_TYPE_NORMAL: WsParameterType = 0
+
+public val WS_POLICY_PROPERTY_MAX_ALTERNATIVES: WsPolicyPropertyId = 2
+
+public val WS_POLICY_PROPERTY_MAX_DEPTH: WsPolicyPropertyId = 3
+
+public val WS_POLICY_PROPERTY_MAX_EXTENSIONS: WsPolicyPropertyId = 4
+
+public val WS_POLICY_PROPERTY_STATE: WsPolicyPropertyId = 1
+
+public val WS_POLICY_STATE_CREATED: WsPolicyState = 1
+
+public val WS_POLICY_STATE_FAULTED: WsPolicyState = 2
+
+public val WS_PROTECTION_LEVEL_NONE: WsProtectionLevel = 1
+
+public val WS_PROTECTION_LEVEL_SIGN: WsProtectionLevel = 2
+
+public val WS_PROTECTION_LEVEL_SIGN_AND_ENCRYPT: WsProtectionLevel = 3
+
+public val WS_PROXY_FAULT_LANG_ID: WsProxyPropertyId = 6
+
+public val WS_PROXY_PROPERTY_CALL_TIMEOUT: WsProxyPropertyId = 0
+
+public val WS_PROXY_PROPERTY_MAX_CALL_POOL_SIZE: WsProxyPropertyId = 2
+
+public val WS_PROXY_PROPERTY_MAX_CLOSE_TIMEOUT: WsProxyPropertyId = 5
+
+public val WS_PROXY_PROPERTY_MAX_PENDING_CALLS: WsProxyPropertyId = 4
+
+public val WS_PROXY_PROPERTY_MESSAGE_PROPERTIES: WsProxyPropertyId = 1
+
+public val WS_PROXY_PROPERTY_STATE: WsProxyPropertyId = 3
+
+public val WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WsSecurityKeyHandleType = 1
+
+public val WS_READ_NILLABLE_POINTER: WsReadOption = 4
+
+public val WS_READ_NILLABLE_VALUE: WsReadOption = 5
+
+public val WS_READ_OPTIONAL_POINTER: WsReadOption = 3
+
+public val WS_READ_REQUIRED_POINTER: WsReadOption = 2
+
+public val WS_READ_REQUIRED_VALUE: WsReadOption = 1
+
+public val WS_RECEIVE_OPTIONAL_MESSAGE: WsReceiveOption = 2
+
+public val WS_RECEIVE_REQUIRED_MESSAGE: WsReceiveOption = 1
+
+public val WS_RELATES_TO_HEADER: WsHeaderType = 4
+
+public val WS_RELAY_HEADER_ATTRIBUTE: Int = 2
+
+public val WS_REPEATING_ANY_ELEMENT_FIELD_MAPPING: WsFieldMapping = 10
+
+public val WS_REPEATING_ELEMENT_CHOICE_FIELD_MAPPING: WsFieldMapping = 8
+
+public val WS_REPEATING_ELEMENT_FIELD_MAPPING: WsFieldMapping = 3
+
+public val WS_REPEATING_HEADER: WsRepeatingHeaderOption = 1
+
+public val WS_REPLY_MESSAGE: WsMessageInitialization = 3
+
+public val WS_REPLY_TO_HEADER: WsHeaderType = 6
+
+public val WS_REQUEST_MESSAGE: WsMessageInitialization = 2
+
+public val WS_REQUEST_SECURITY_TOKEN_ACTION_ISSUE: WsRequestSecurityTokenAction = 1
+
+public val WS_REQUEST_SECURITY_TOKEN_ACTION_NEW_CONTEXT: WsRequestSecurityTokenAction = 2
+
+public val WS_REQUEST_SECURITY_TOKEN_ACTION_RENEW_CONTEXT: WsRequestSecurityTokenAction = 3
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_APPLIES_TO: WsRequestSecurityTokenPropertyId = 1
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_BEARER_KEY_TYPE_VERSION: WsRequestSecurityTokenPropertyId = 13
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_EXISTING_TOKEN: WsRequestSecurityTokenPropertyId = 6
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_ENTROPY: WsRequestSecurityTokenPropertyId = 9
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_SIZE: WsRequestSecurityTokenPropertyId = 8
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_TYPE: WsRequestSecurityTokenPropertyId = 7
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_TYPE: WsRequestSecurityTokenPropertyId = 4
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_LOCAL_REQUEST_PARAMETERS: WsRequestSecurityTokenPropertyId = 10
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_MESSAGE_PROPERTIES: WsRequestSecurityTokenPropertyId = 12
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_REQUEST_ACTION: WsRequestSecurityTokenPropertyId = 5
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_SECURE_CONVERSATION_VERSION: WsRequestSecurityTokenPropertyId = 3
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_SERVICE_REQUEST_PARAMETERS: WsRequestSecurityTokenPropertyId = 11
+
+public val WS_REQUEST_SECURITY_TOKEN_PROPERTY_TRUST_VERSION: WsRequestSecurityTokenPropertyId = 2
+
+public val WS_RPC_LITERAL_OPERATION: WsOperationStyle = 1
+
+public val WS_RSA_ENDPOINT_IDENTITY_TYPE: WsEndpointIdentityType = 4
+
+public val WS_SAML_MESSAGE_SECURITY_BINDING_TYPE: WsSecurityBindingType = 7
+
+public val WS_SECURE_CONVERSATION_VERSION_1_3: WsSecureConversationVersion = 2
+
+public val WS_SECURE_CONVERSATION_VERSION_FEBRUARY_2005: WsSecureConversationVersion = 1
+
+public val WS_SECURE_PROTOCOL_SSL2: WsSecureProtocol = 1
+
+public val WS_SECURE_PROTOCOL_SSL3: WsSecureProtocol = 2
+
+public val WS_SECURE_PROTOCOL_TLS1_0: WsSecureProtocol = 4
+
+public val WS_SECURE_PROTOCOL_TLS1_1: WsSecureProtocol = 8
+
+public val WS_SECURE_PROTOCOL_TLS1_2: WsSecureProtocol = 16
+
+public val WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_1_5: WsSecurityAlgorithmId = 16
+
+public val WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_OAEP: WsSecurityAlgorithmId = 17
+
+public val WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_DSA_SHA1: WsSecurityAlgorithmId = 12
+
+public val WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA1: WsSecurityAlgorithmId = 11
+
+public val WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_256: WsSecurityAlgorithmId = 13
+
+public val WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_384: WsSecurityAlgorithmId = 14
+
+public val WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_512: WsSecurityAlgorithmId = 15
+
+public val WS_SECURITY_ALGORITHM_CANONICALIZATION_EXCLUSIVE: WsSecurityAlgorithmId = 1
+
+public val WS_SECURITY_ALGORITHM_CANONICALIZATION_EXCLUSIVE_WITH_COMMENTS: WsSecurityAlgorithmId = 2
+
+public val WS_SECURITY_ALGORITHM_DEFAULT: WsSecurityAlgorithmId = 0
+
+public val WS_SECURITY_ALGORITHM_DIGEST_SHA1: WsSecurityAlgorithmId = 3
+
+public val WS_SECURITY_ALGORITHM_DIGEST_SHA_256: WsSecurityAlgorithmId = 4
+
+public val WS_SECURITY_ALGORITHM_DIGEST_SHA_384: WsSecurityAlgorithmId = 5
+
+public val WS_SECURITY_ALGORITHM_DIGEST_SHA_512: WsSecurityAlgorithmId = 6
+
+public val WS_SECURITY_ALGORITHM_KEY_DERIVATION_P_SHA1: WsSecurityAlgorithmId = 18
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128: WsSecurityAlgorithmSuiteName = 3
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_RSA15: WsSecurityAlgorithmSuiteName = 6
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_SHA256: WsSecurityAlgorithmSuiteName = 9
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_SHA256_RSA15: WsSecurityAlgorithmSuiteName = 12
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192: WsSecurityAlgorithmSuiteName = 2
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_RSA15: WsSecurityAlgorithmSuiteName = 5
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_SHA256: WsSecurityAlgorithmSuiteName = 8
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_SHA256_RSA15: WsSecurityAlgorithmSuiteName = 11
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256: WsSecurityAlgorithmSuiteName = 1
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_RSA15: WsSecurityAlgorithmSuiteName = 4
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_SHA256: WsSecurityAlgorithmSuiteName = 7
+
+public val WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_SHA256_RSA15: WsSecurityAlgorithmSuiteName = 10
+
+public val WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA1: WsSecurityAlgorithmId = 7
+
+public val WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_256: WsSecurityAlgorithmId = 8
+
+public val WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_384: WsSecurityAlgorithmId = 9
+
+public val WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_512: WsSecurityAlgorithmId = 10
+
+public val WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ERRATA_01: WsSecurityBearerKeyTypeVersion = 3
+
+public val WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SCHEMA: WsSecurityBearerKeyTypeVersion = 2
+
+public val WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SPECIFICATION: WsSecurityBearerKeyTypeVersion = 1
+
+public val WS_SECURITY_BINDING_PROPERTY_ALLOWED_IMPERSONATION_LEVEL: WsSecurityBindingPropertyId = 5
+
+public val WS_SECURITY_BINDING_PROPERTY_ALLOW_ANONYMOUS_CLIENTS: WsSecurityBindingPropertyId = 4
+
+public val WS_SECURITY_BINDING_PROPERTY_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT: WsSecurityBindingPropertyId = 23
+
+public val WS_SECURITY_BINDING_PROPERTY_CERT_FAILURES_TO_IGNORE: WsSecurityBindingPropertyId = 20
+
+public val WS_SECURITY_BINDING_PROPERTY_DISABLE_CERT_REVOCATION_CHECK: WsSecurityBindingPropertyId = 21
+
+public val WS_SECURITY_BINDING_PROPERTY_DISALLOWED_SECURE_PROTOCOLS: WsSecurityBindingPropertyId = 22
+
+public val WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_BASIC_REALM: WsSecurityBindingPropertyId = 8
+
+public val WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_DIGEST_DOMAIN: WsSecurityBindingPropertyId = 10
+
+public val WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_DIGEST_REALM: WsSecurityBindingPropertyId = 9
+
+public val WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_SCHEME: WsSecurityBindingPropertyId = 6
+
+public val WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_TARGET: WsSecurityBindingPropertyId = 7
+
+public val WS_SECURITY_BINDING_PROPERTY_MESSAGE_PROPERTIES: WsSecurityBindingPropertyId = 13
+
+public val WS_SECURITY_BINDING_PROPERTY_REQUIRE_SERVER_AUTH: WsSecurityBindingPropertyId = 3
+
+public val WS_SECURITY_BINDING_PROPERTY_REQUIRE_SSL_CLIENT_CERT: WsSecurityBindingPropertyId = 1
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURE_CONVERSATION_VERSION: WsSecurityBindingPropertyId = 16
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_KEY_ENTROPY_MODE: WsSecurityBindingPropertyId = 12
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_KEY_SIZE: WsSecurityBindingPropertyId = 11
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_MAX_ACTIVE_CONTEXTS: WsSecurityBindingPropertyId = 15
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_MAX_PENDING_CONTEXTS: WsSecurityBindingPropertyId = 14
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_RENEWAL_INTERVAL: WsSecurityBindingPropertyId = 18
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_ROLLOVER_INTERVAL: WsSecurityBindingPropertyId = 19
+
+public val WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_SUPPORT_RENEW: WsSecurityBindingPropertyId = 17
+
+public val WS_SECURITY_BINDING_PROPERTY_WINDOWS_INTEGRATED_AUTH_PACKAGE: WsSecurityBindingPropertyId = 2
+
+public val WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 8
+
+public val WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TYPE: WsSecurityBindingType = 8
+
+public val WS_SECURITY_CONTEXT_PROPERTY_IDENTIFIER: WsSecurityContextPropertyId = 1
+
+public val WS_SECURITY_CONTEXT_PROPERTY_MESSAGE_SECURITY_WINDOWS_TOKEN: WsSecurityContextPropertyId = 3
+
+public val WS_SECURITY_CONTEXT_PROPERTY_SAML_ASSERTION: WsSecurityContextPropertyId = 4
+
+public val WS_SECURITY_CONTEXT_PROPERTY_USERNAME: WsSecurityContextPropertyId = 2
+
+public val WS_SECURITY_HEADER_LAYOUT_LAX: WsSecurityHeaderLayout = 2
+
+public val WS_SECURITY_HEADER_LAYOUT_LAX_WITH_TIMESTAMP_FIRST: WsSecurityHeaderLayout = 3
+
+public val WS_SECURITY_HEADER_LAYOUT_LAX_WITH_TIMESTAMP_LAST: WsSecurityHeaderLayout = 4
+
+public val WS_SECURITY_HEADER_LAYOUT_STRICT: WsSecurityHeaderLayout = 1
+
+public val WS_SECURITY_HEADER_VERSION_1_0: WsSecurityHeaderVersion = 1
+
+public val WS_SECURITY_HEADER_VERSION_1_1: WsSecurityHeaderVersion = 2
+
+public val WS_SECURITY_KEY_ENTROPY_MODE_CLIENT_ONLY: WsSecurityKeyEntropyMode = 1
+
+public val WS_SECURITY_KEY_ENTROPY_MODE_COMBINED: WsSecurityKeyEntropyMode = 3
+
+public val WS_SECURITY_KEY_ENTROPY_MODE_SERVER_ONLY: WsSecurityKeyEntropyMode = 2
+
+public val WS_SECURITY_KEY_TYPE_ASYMMETRIC: WsSecurityKeyType = 3
+
+public val WS_SECURITY_KEY_TYPE_NONE: WsSecurityKeyType = 1
+
+public val WS_SECURITY_KEY_TYPE_SYMMETRIC: WsSecurityKeyType = 2
+
+public val WS_SECURITY_PROPERTY_ALGORITHM_SUITE: WsSecurityPropertyId = 2
+
+public val WS_SECURITY_PROPERTY_ALGORITHM_SUITE_NAME: WsSecurityPropertyId = 3
+
+public val WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_POLICY: WsSecurityPropertyId = 10
+
+public val WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_SCENARIO: WsSecurityPropertyId = 11
+
+public val WS_SECURITY_PROPERTY_MAX_ALLOWED_CLOCK_SKEW: WsSecurityPropertyId = 6
+
+public val WS_SECURITY_PROPERTY_MAX_ALLOWED_LATENCY: WsSecurityPropertyId = 4
+
+public val WS_SECURITY_PROPERTY_SECURITY_HEADER_LAYOUT: WsSecurityPropertyId = 8
+
+public val WS_SECURITY_PROPERTY_SECURITY_HEADER_VERSION: WsSecurityPropertyId = 9
+
+public val WS_SECURITY_PROPERTY_SERVICE_IDENTITIES: WsSecurityPropertyId = 12
+
+public val WS_SECURITY_PROPERTY_TIMESTAMP_USAGE: WsSecurityPropertyId = 7
+
+public val WS_SECURITY_PROPERTY_TIMESTAMP_VALIDITY_DURATION: WsSecurityPropertyId = 5
+
+public val WS_SECURITY_PROPERTY_TRANSPORT_PROTECTION_LEVEL: WsSecurityPropertyId = 1
+
+public val WS_SECURITY_TIMESTAMP_USAGE_ALWAYS: WsSecurityTimestampUsage = 1
+
+public val WS_SECURITY_TIMESTAMP_USAGE_NEVER: WsSecurityTimestampUsage = 2
+
+public val WS_SECURITY_TIMESTAMP_USAGE_REQUESTS_ONLY: WsSecurityTimestampUsage = 3
+
+public val WS_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE_XML: WsSecurityTokenPropertyId = 5
+
+public val WS_SECURITY_TOKEN_PROPERTY_KEY_TYPE: WsSecurityTokenPropertyId = 1
+
+public val WS_SECURITY_TOKEN_PROPERTY_SERIALIZED_XML: WsSecurityTokenPropertyId = 4
+
+public val WS_SECURITY_TOKEN_PROPERTY_SYMMETRIC_KEY: WsSecurityTokenPropertyId = 7
+
+public val WS_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE_XML: WsSecurityTokenPropertyId = 6
+
+public val WS_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WsSecurityTokenPropertyId = 2
+
+public val WS_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WsSecurityTokenPropertyId = 3
+
+public val WS_SECURITY_TOKEN_REFERENCE_MODE_CERT_THUMBPRINT: WsSecurityTokenReferenceMode = 3
+
+public val WS_SECURITY_TOKEN_REFERENCE_MODE_LOCAL_ID: WsSecurityTokenReferenceMode = 1
+
+public val WS_SECURITY_TOKEN_REFERENCE_MODE_SAML_ASSERTION_ID: WsSecurityTokenReferenceMode = 5
+
+public val WS_SECURITY_TOKEN_REFERENCE_MODE_SECURITY_CONTEXT_ID: WsSecurityTokenReferenceMode = 4
+
+public val WS_SECURITY_TOKEN_REFERENCE_MODE_XML_BUFFER: WsSecurityTokenReferenceMode = 2
+
+public val WS_SERVICE_CHANNEL_FAULTED: WsServiceCancelReason = 1
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_ACCEPT_CHANNEL_CALLBACK: WsServiceEndpointPropertyId = 0
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_MAX_SIZE: WsServiceEndpointPropertyId = 4
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_TRIM_SIZE: WsServiceEndpointPropertyId = 5
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_CHECK_MUST_UNDERSTAND: WsServiceEndpointPropertyId = 10
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_CLOSE_CHANNEL_CALLBACK: WsServiceEndpointPropertyId = 1
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_LISTENER_PROPERTIES: WsServiceEndpointPropertyId = 9
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_MAX_ACCEPTING_CHANNELS: WsServiceEndpointPropertyId = 2
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_MAX_CALL_POOL_SIZE: WsServiceEndpointPropertyId = 7
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_MAX_CHANNELS: WsServiceEndpointPropertyId = 14
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_MAX_CHANNEL_POOL_SIZE: WsServiceEndpointPropertyId = 8
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_MAX_CONCURRENCY: WsServiceEndpointPropertyId = 3
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_MESSAGE_PROPERTIES: WsServiceEndpointPropertyId = 6
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_METADATA: WsServiceEndpointPropertyId = 12
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_TYPE: WsServiceEndpointPropertyId = 11
+
+public val WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_URL_SUFFIX: WsServiceEndpointPropertyId = 13
+
+public val WS_SERVICE_HOST_ABORT: WsServiceCancelReason = 0
+
+public val WS_SERVICE_HOST_STATE_CLOSED: WsServiceHostState = 4
+
+public val WS_SERVICE_HOST_STATE_CLOSING: WsServiceHostState = 3
+
+public val WS_SERVICE_HOST_STATE_CREATED: WsServiceHostState = 0
+
+public val WS_SERVICE_HOST_STATE_FAULTED: WsServiceHostState = 5
+
+public val WS_SERVICE_HOST_STATE_OPEN: WsServiceHostState = 2
+
+public val WS_SERVICE_HOST_STATE_OPENING: WsServiceHostState = 1
+
+public val WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: Int = 1
+
+public val WS_SERVICE_PROPERTY_CLOSE_TIMEOUT: WsServicePropertyId = 5
+
+public val WS_SERVICE_PROPERTY_FAULT_DISCLOSURE: WsServicePropertyId = 1
+
+public val WS_SERVICE_PROPERTY_FAULT_LANGID: WsServicePropertyId = 2
+
+public val WS_SERVICE_PROPERTY_HOST_STATE: WsServicePropertyId = 3
+
+public val WS_SERVICE_PROPERTY_HOST_USER_STATE: WsServicePropertyId = 0
+
+public val WS_SERVICE_PROPERTY_METADATA: WsServicePropertyId = 4
+
+public val WS_SERVICE_PROXY_STATE_CLOSED: WsServiceProxyState = 4
+
+public val WS_SERVICE_PROXY_STATE_CLOSING: WsServiceProxyState = 3
+
+public val WS_SERVICE_PROXY_STATE_CREATED: WsServiceProxyState = 0
+
+public val WS_SERVICE_PROXY_STATE_FAULTED: WsServiceProxyState = 5
+
+public val WS_SERVICE_PROXY_STATE_OPEN: WsServiceProxyState = 2
+
+public val WS_SERVICE_PROXY_STATE_OPENING: WsServiceProxyState = 1
+
+public val WS_SHORT_CALLBACK: WsCallbackModel = 0
+
+public val WS_SINGLETON_HEADER: WsRepeatingHeaderOption = 2
+
+public val WS_SPN_ENDPOINT_IDENTITY_TYPE: WsEndpointIdentityType = 3
+
+public val WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 1
+
+public val WS_SSL_TRANSPORT_SECURITY_BINDING_TYPE: WsSecurityBindingType = 1
+
+public val WS_STREAMED_INPUT_TRANSFER_MODE: WsTransferMode = 1
+
+public val WS_STREAMED_OUTPUT_TRANSFER_MODE: WsTransferMode = 2
+
+public val WS_STREAMED_TRANSFER_MODE: WsTransferMode = 3
+
+public val WS_STRING_TYPE: WsType = 16
+
+public val WS_STRING_USERNAME_CREDENTIAL_TYPE: WsUsernameCredentialType = 1
+
+public val WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WsWindowsIntegratedAuthCredentialType = 1
+
+public val WS_STRUCT_ABSTRACT: Int = 1
+
+public val WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: Int = 2
+
+public val WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: Int = 4
+
+public val WS_STRUCT_TYPE: WsType = 26
+
+public val WS_SUBJECT_NAME_CERT_CREDENTIAL_TYPE: WsCertCredentialType = 1
+
+public val WS_SUPPORTING_MESSAGE_SECURITY_USAGE: WsMessageSecurityUsage = 1
+
+public val WS_TCP_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 6
+
+public val WS_TCP_CHANNEL_BINDING: WsChannelBinding = 1
+
+public val WS_TCP_SSPI_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 7
+
+public val WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 9
+
+public val WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 13
+
+public val WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 2
+
+public val WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WsSecurityBindingType = 2
+
+public val WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 8
+
+public val WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WsBindingTemplateType = 12
+
+public val WS_TEXT_FIELD_MAPPING: WsFieldMapping = 4
+
+public val WS_THUMBPRINT_CERT_CREDENTIAL_TYPE: WsCertCredentialType = 2
+
+public val WS_TIMESPAN_TYPE: WsType = 13
+
+public val WS_TIMESPAN_VALUE_TYPE: WsValueType = 13
+
+public val WS_TO_HEADER: WsHeaderType = 2
+
+public val WS_TRACE_API_ABANDON_MESSAGE: WsTraceApi = 86
+
+public val WS_TRACE_API_ABORT_CALL: WsTraceApi = 174
+
+public val WS_TRACE_API_ABORT_CHANNEL: WsTraceApi = 83
+
+public val WS_TRACE_API_ABORT_LISTENER: WsTraceApi = 113
+
+public val WS_TRACE_API_ABORT_SERVICE_HOST: WsTraceApi = 164
+
+public val WS_TRACE_API_ABORT_SERVICE_PROXY: WsTraceApi = 171
+
+public val WS_TRACE_API_ACCEPT_CHANNEL: WsTraceApi = 111
+
+public val WS_TRACE_API_ADDRESS_MESSAGE: WsTraceApi = 142
+
+public val WS_TRACE_API_ADD_CUSTOM_HEADER: WsTraceApi = 130
+
+public val WS_TRACE_API_ADD_ERROR_STRING: WsTraceApi = 92
+
+public val WS_TRACE_API_ADD_MAPPED_HEADER: WsTraceApi = 131
+
+public val WS_TRACE_API_ALLOC: WsTraceApi = 105
+
+public val WS_TRACE_API_ASYNC_EXECUTE: WsTraceApi = 68
+
+public val WS_TRACE_API_CALL: WsTraceApi = 175
+
+public val WS_TRACE_API_CHECK_MUST_UNDERSTAND_HEADERS: WsTraceApi = 143
+
+public val WS_TRACE_API_CLOSE_CHANNEL: WsTraceApi = 82
+
+public val WS_TRACE_API_CLOSE_LISTENER: WsTraceApi = 112
+
+public val WS_TRACE_API_CLOSE_SERVICE_HOST: WsTraceApi = 163
+
+public val WS_TRACE_API_CLOSE_SERVICE_PROXY: WsTraceApi = 170
+
+public val WS_TRACE_API_COMBINE_URL: WsTraceApi = 178
+
+public val WS_TRACE_API_COPY_ERROR: WsTraceApi = 94
+
+public val WS_TRACE_API_COPY_NODE: WsTraceApi = 67
+
+public val WS_TRACE_API_CREATE_CHANNEL: WsTraceApi = 69
+
+public val WS_TRACE_API_CREATE_CHANNEL_FOR_LISTENER: WsTraceApi = 118
+
+public val WS_TRACE_API_CREATE_ERROR: WsTraceApi = 91
+
+public val WS_TRACE_API_CREATE_FAULT_FROM_ERROR: WsTraceApi = 101
+
+public val WS_TRACE_API_CREATE_HEAP: WsTraceApi = 104
+
+public val WS_TRACE_API_CREATE_LISTENER: WsTraceApi = 109
+
+public val WS_TRACE_API_CREATE_MESSAGE: WsTraceApi = 119
+
+public val WS_TRACE_API_CREATE_MESSAGE_FOR_CHANNEL: WsTraceApi = 120
+
+public val WS_TRACE_API_CREATE_METADATA: WsTraceApi = 183
+
+public val WS_TRACE_API_CREATE_READER: WsTraceApi = 6
+
+public val WS_TRACE_API_CREATE_SERVICE_HOST: WsTraceApi = 161
+
+public val WS_TRACE_API_CREATE_SERVICE_PROXY: WsTraceApi = 168
+
+public val WS_TRACE_API_CREATE_WRITER: WsTraceApi = 29
+
+public val WS_TRACE_API_CREATE_XML_BUFFER: WsTraceApi = 4
+
+public val WS_TRACE_API_CREATE_XML_SECURITY_TOKEN: WsTraceApi = 149
+
+public val WS_TRACE_API_DATETIME_TO_FILETIME: WsTraceApi = 179
+
+public val WS_TRACE_API_DECODE_URL: WsTraceApi = 176
+
+public val WS_TRACE_API_DUMP_MEMORY: WsTraceApi = 181
+
+public val WS_TRACE_API_ENCODE_URL: WsTraceApi = 177
+
+public val WS_TRACE_API_END_READER_CANONICALIZATION: WsTraceApi = 1
+
+public val WS_TRACE_API_END_WRITER_CANONICALIZATION: WsTraceApi = 3
+
+public val WS_TRACE_API_FILETIME_TO_DATETIME: WsTraceApi = 180
+
+public val WS_TRACE_API_FILL_BODY: WsTraceApi = 145
+
+public val WS_TRACE_API_FILL_READER: WsTraceApi = 12
+
+public val WS_TRACE_API_FIND_ATTRIBUTE: WsTraceApi = 20
+
+public val WS_TRACE_API_FLUSH_BODY: WsTraceApi = 146
+
+public val WS_TRACE_API_FLUSH_WRITER: WsTraceApi = 34
+
+public val WS_TRACE_API_FREE_CHANNEL: WsTraceApi = 84
+
+public val WS_TRACE_API_FREE_ERROR: WsTraceApi = 98
+
+public val WS_TRACE_API_FREE_HEAP: WsTraceApi = 108
+
+public val WS_TRACE_API_FREE_LISTENER: WsTraceApi = 115
+
+public val WS_TRACE_API_FREE_MESSAGE: WsTraceApi = 123
+
+public val WS_TRACE_API_FREE_METADATA: WsTraceApi = 185
+
+public val WS_TRACE_API_FREE_SECURITY_TOKEN: WsTraceApi = 150
+
+public val WS_TRACE_API_FREE_SERVICE_HOST: WsTraceApi = 165
+
+public val WS_TRACE_API_FREE_SERVICE_PROXY: WsTraceApi = 172
+
+public val WS_TRACE_API_FREE_XML_READER: WsTraceApi = 9
+
+public val WS_TRACE_API_FREE_XML_WRITER: WsTraceApi = 30
+
+public val WS_TRACE_API_GET_CHANNEL_PROPERTY: WsTraceApi = 76
+
+public val WS_TRACE_API_GET_CONTEXT_PROPERTY: WsTraceApi = 88
+
+public val WS_TRACE_API_GET_CUSTOM_HEADER: WsTraceApi = 126
+
+public val WS_TRACE_API_GET_DICTIONARY: WsTraceApi = 89
+
+public val WS_TRACE_API_GET_ERROR_PROPERTY: WsTraceApi = 95
+
+public val WS_TRACE_API_GET_ERROR_STRING: WsTraceApi = 93
+
+public val WS_TRACE_API_GET_FAULT_ERROR_DETAIL: WsTraceApi = 103
+
+public val WS_TRACE_API_GET_FAULT_ERROR_PROPERTY: WsTraceApi = 99
+
+public val WS_TRACE_API_GET_HEADER: WsTraceApi = 125
+
+public val WS_TRACE_API_GET_HEADER_ATTRIBUTES: WsTraceApi = 124
+
+public val WS_TRACE_API_GET_HEAP_PROPERTY: WsTraceApi = 106
+
+public val WS_TRACE_API_GET_LISTENER_PROPERTY: WsTraceApi = 116
+
+public val WS_TRACE_API_GET_MAPPED_HEADER: WsTraceApi = 133
+
+public val WS_TRACE_API_GET_MESSAGE_PROPERTY: WsTraceApi = 140
+
+public val WS_TRACE_API_GET_METADATA_ENDPOINTS: WsTraceApi = 189
+
+public val WS_TRACE_API_GET_METADATA_PROPERTY: WsTraceApi = 187
+
+public val WS_TRACE_API_GET_MISSING_METADATA_DOCUMENT_ADDRESS: WsTraceApi = 188
+
+public val WS_TRACE_API_GET_POLICY_ALTERNATIVE_COUNT: WsTraceApi = 192
+
+public val WS_TRACE_API_GET_POLICY_PROPERTY: WsTraceApi = 191
+
+public val WS_TRACE_API_GET_READER_NODE: WsTraceApi = 11
+
+public val WS_TRACE_API_GET_READER_POSITION: WsTraceApi = 26
+
+public val WS_TRACE_API_GET_READER_PROPERTY: WsTraceApi = 10
+
+public val WS_TRACE_API_GET_SECURITY_CONTEXT_PROPERTY: WsTraceApi = 152
+
+public val WS_TRACE_API_GET_SECURITY_TOKEN_PROPERTY: WsTraceApi = 148
+
+public val WS_TRACE_API_GET_SERVICE_HOST_PROPERTY: WsTraceApi = 160
+
+public val WS_TRACE_API_GET_SERVICE_PROXY_PROPERTY: WsTraceApi = 167
+
+public val WS_TRACE_API_GET_WRITER_POSITION: WsTraceApi = 58
+
+public val WS_TRACE_API_GET_WRITER_PROPERTY: WsTraceApi = 33
+
+public val WS_TRACE_API_GET_XML_ATTRIBUTE: WsTraceApi = 66
+
+public val WS_TRACE_API_INITIALIZE_MESSAGE: WsTraceApi = 121
+
+public val WS_TRACE_API_MARK_HEADER_AS_UNDERSTOOD: WsTraceApi = 144
+
+public val WS_TRACE_API_MATCH_POLICY_ALTERNATIVE: WsTraceApi = 190
+
+public val WS_TRACE_API_MOVE_READER: WsTraceApi = 28
+
+public val WS_TRACE_API_MOVE_WRITER: WsTraceApi = 60
+
+public val WS_TRACE_API_NAMESPACE_FROM_PREFIX: WsTraceApi = 64
+
+public val WS_TRACE_API_NONE: WsTraceApi = -1
+
+public val WS_TRACE_API_OPEN_CHANNEL: WsTraceApi = 70
+
+public val WS_TRACE_API_OPEN_LISTENER: WsTraceApi = 110
+
+public val WS_TRACE_API_OPEN_SERVICE_HOST: WsTraceApi = 162
+
+public val WS_TRACE_API_OPEN_SERVICE_PROXY: WsTraceApi = 169
+
+public val WS_TRACE_API_PREFIX_FROM_NAMESPACE: WsTraceApi = 57
+
+public val WS_TRACE_API_PULL_BYTES: WsTraceApi = 51
+
+public val WS_TRACE_API_PUSH_BYTES: WsTraceApi = 50
+
+public val WS_TRACE_API_READ_ARRAY: WsTraceApi = 25
+
+public val WS_TRACE_API_READ_ATTRIBUTE_TYPE: WsTraceApi = 154
+
+public val WS_TRACE_API_READ_BODY: WsTraceApi = 135
+
+public val WS_TRACE_API_READ_BYTES: WsTraceApi = 24
+
+public val WS_TRACE_API_READ_CHARS: WsTraceApi = 22
+
+public val WS_TRACE_API_READ_CHARS_UTF8: WsTraceApi = 23
+
+public val WS_TRACE_API_READ_ELEMENT_TYPE: WsTraceApi = 153
+
+public val WS_TRACE_API_READ_ELEMENT_VALUE: WsTraceApi = 21
+
+public val WS_TRACE_API_READ_ENDPOINT_ADDRESS_EXTENSION: WsTraceApi = 90
+
+public val WS_TRACE_API_READ_END_ATTRIBUTE: WsTraceApi = 16
+
+public val WS_TRACE_API_READ_END_ELEMENT: WsTraceApi = 19
+
+public val WS_TRACE_API_READ_ENVELOPE_END: WsTraceApi = 139
+
+public val WS_TRACE_API_READ_ENVELOPE_START: WsTraceApi = 138
+
+public val WS_TRACE_API_READ_MESSAGE_END: WsTraceApi = 81
+
+public val WS_TRACE_API_READ_MESSAGE_START: WsTraceApi = 80
+
+public val WS_TRACE_API_READ_METADATA: WsTraceApi = 184
+
+public val WS_TRACE_API_READ_NODE: WsTraceApi = 17
+
+public val WS_TRACE_API_READ_QUALIFIED_NAME: WsTraceApi = 65
+
+public val WS_TRACE_API_READ_START_ATTRIBUTE: WsTraceApi = 15
+
+public val WS_TRACE_API_READ_START_ELEMENT: WsTraceApi = 13
+
+public val WS_TRACE_API_READ_TO_START_ELEMENT: WsTraceApi = 14
+
+public val WS_TRACE_API_READ_TYPE: WsTraceApi = 155
+
+public val WS_TRACE_API_READ_XML_BUFFER: WsTraceApi = 42
+
+public val WS_TRACE_API_READ_XML_BUFFER_FROM_BYTES: WsTraceApi = 44
+
+public val WS_TRACE_API_RECEIVE_MESSAGE: WsTraceApi = 72
+
+public val WS_TRACE_API_REMOVE_CUSTOM_HEADER: WsTraceApi = 129
+
+public val WS_TRACE_API_REMOVE_HEADER: WsTraceApi = 127
+
+public val WS_TRACE_API_REMOVE_MAPPED_HEADER: WsTraceApi = 132
+
+public val WS_TRACE_API_REMOVE_NODE: WsTraceApi = 5
+
+public val WS_TRACE_API_REQUEST_REPLY: WsTraceApi = 73
+
+public val WS_TRACE_API_REQUEST_SECURITY_TOKEN: WsTraceApi = 147
+
+public val WS_TRACE_API_RESET_CHANNEL: WsTraceApi = 85
+
+public val WS_TRACE_API_RESET_ERROR: WsTraceApi = 97
+
+public val WS_TRACE_API_RESET_HEAP: WsTraceApi = 107
+
+public val WS_TRACE_API_RESET_LISTENER: WsTraceApi = 114
+
+public val WS_TRACE_API_RESET_MESSAGE: WsTraceApi = 122
+
+public val WS_TRACE_API_RESET_METADATA: WsTraceApi = 186
+
+public val WS_TRACE_API_RESET_SERVICE_HOST: WsTraceApi = 166
+
+public val WS_TRACE_API_RESET_SERVICE_PROXY: WsTraceApi = 173
+
+public val WS_TRACE_API_REVOKE_SECURITY_CONTEXT: WsTraceApi = 151
+
+public val WS_TRACE_API_SEND_FAULT_MESSAGE_FOR_ERROR: WsTraceApi = 75
+
+public val WS_TRACE_API_SEND_MESSAGE: WsTraceApi = 71
+
+public val WS_TRACE_API_SEND_REPLY_MESSAGE: WsTraceApi = 74
+
+public val WS_TRACE_API_SERVICE_REGISTER_FOR_CANCEL: WsTraceApi = 159
+
+public val WS_TRACE_API_SET_AUTOFAIL: WsTraceApi = 182
+
+public val WS_TRACE_API_SET_CHANNEL_PROPERTY: WsTraceApi = 77
+
+public val WS_TRACE_API_SET_ERROR_PROPERTY: WsTraceApi = 96
+
+public val WS_TRACE_API_SET_FAULT_ERROR_DETAIL: WsTraceApi = 102
+
+public val WS_TRACE_API_SET_FAULT_ERROR_PROPERTY: WsTraceApi = 100
+
+public val WS_TRACE_API_SET_HEADER: WsTraceApi = 128
+
+public val WS_TRACE_API_SET_INPUT: WsTraceApi = 7
+
+public val WS_TRACE_API_SET_INPUT_TO_BUFFER: WsTraceApi = 8
+
+public val WS_TRACE_API_SET_LISTENER_PROPERTY: WsTraceApi = 117
+
+public val WS_TRACE_API_SET_MESSAGE_PROPERTY: WsTraceApi = 141
+
+public val WS_TRACE_API_SET_OUTPUT: WsTraceApi = 31
+
+public val WS_TRACE_API_SET_OUTPUT_TO_BUFFER: WsTraceApi = 32
+
+public val WS_TRACE_API_SET_READER_POSITION: WsTraceApi = 27
+
+public val WS_TRACE_API_SET_WRITER_POSITION: WsTraceApi = 59
+
+public val WS_TRACE_API_SHUTDOWN_SESSION_CHANNEL: WsTraceApi = 87
+
+public val WS_TRACE_API_SKIP_NODE: WsTraceApi = 18
+
+public val WS_TRACE_API_START_READER_CANONICALIZATION: WsTraceApi = 0
+
+public val WS_TRACE_API_START_WRITER_CANONICALIZATION: WsTraceApi = 2
+
+public val WS_TRACE_API_TRIM_XML_WHITESPACE: WsTraceApi = 61
+
+public val WS_TRACE_API_VERIFY_XML_NCNAME: WsTraceApi = 62
+
+public val WS_TRACE_API_WRITE_ARRAY: WsTraceApi = 45
+
+public val WS_TRACE_API_WRITE_ATTRIBUTE_TYPE: WsTraceApi = 157
+
+public val WS_TRACE_API_WRITE_BODY: WsTraceApi = 134
+
+public val WS_TRACE_API_WRITE_BYTES: WsTraceApi = 49
+
+public val WS_TRACE_API_WRITE_CHARS: WsTraceApi = 47
+
+public val WS_TRACE_API_WRITE_CHARS_UTF8: WsTraceApi = 48
+
+public val WS_TRACE_API_WRITE_ELEMENT_TYPE: WsTraceApi = 156
+
+public val WS_TRACE_API_WRITE_END_ATTRIBUTE: WsTraceApi = 39
+
+public val WS_TRACE_API_WRITE_END_CDATA: WsTraceApi = 55
+
+public val WS_TRACE_API_WRITE_END_ELEMENT: WsTraceApi = 52
+
+public val WS_TRACE_API_WRITE_END_START_ELEMENT: WsTraceApi = 36
+
+public val WS_TRACE_API_WRITE_ENVELOPE_END: WsTraceApi = 137
+
+public val WS_TRACE_API_WRITE_ENVELOPE_START: WsTraceApi = 136
+
+public val WS_TRACE_API_WRITE_MESSAGE_END: WsTraceApi = 79
+
+public val WS_TRACE_API_WRITE_MESSAGE_START: WsTraceApi = 78
+
+public val WS_TRACE_API_WRITE_NODE: WsTraceApi = 56
+
+public val WS_TRACE_API_WRITE_QUALIFIED_NAME: WsTraceApi = 46
+
+public val WS_TRACE_API_WRITE_START_ATTRIBUTE: WsTraceApi = 38
+
+public val WS_TRACE_API_WRITE_START_CDATA: WsTraceApi = 54
+
+public val WS_TRACE_API_WRITE_START_ELEMENT: WsTraceApi = 35
+
+public val WS_TRACE_API_WRITE_TEXT: WsTraceApi = 53
+
+public val WS_TRACE_API_WRITE_TYPE: WsTraceApi = 158
+
+public val WS_TRACE_API_WRITE_VALUE: WsTraceApi = 40
+
+public val WS_TRACE_API_WRITE_XMLNS_ATTRIBUTE: WsTraceApi = 37
+
+public val WS_TRACE_API_WRITE_XML_BUFFER: WsTraceApi = 41
+
+public val WS_TRACE_API_WRITE_XML_BUFFER_TO_BYTES: WsTraceApi = 43
+
+public val WS_TRACE_API_WS_CREATE_SERVICE_HOST_FROM_TEMPLATE: WsTraceApi = 194
+
+public val WS_TRACE_API_WS_CREATE_SERVICE_PROXY_FROM_TEMPLATE: WsTraceApi = 193
+
+public val WS_TRACE_API_XML_STRING_EQUALS: WsTraceApi = 63
+
+public val WS_TRUST_VERSION_1_3: WsTrustVersion = 2
+
+public val WS_TRUST_VERSION_FEBRUARY_2005: WsTrustVersion = 1
+
+public val WS_TYPE_ATTRIBUTE_FIELD_MAPPING: WsFieldMapping = 0
+
+public val WS_UDP_CHANNEL_BINDING: WsChannelBinding = 2
+
+public val WS_UINT16_TYPE: WsType = 6
+
+public val WS_UINT16_VALUE_TYPE: WsValueType = 6
+
+public val WS_UINT32_TYPE: WsType = 7
+
+public val WS_UINT32_VALUE_TYPE: WsValueType = 7
+
+public val WS_UINT64_TYPE: WsType = 8
+
+public val WS_UINT64_VALUE_TYPE: WsValueType = 8
+
+public val WS_UINT8_TYPE: WsType = 5
+
+public val WS_UINT8_VALUE_TYPE: WsValueType = 5
+
+public val WS_UNION_TYPE: WsType = 33
+
+public val WS_UNIQUE_ID_TYPE: WsType = 15
+
+public val WS_UNKNOWN_ENDPOINT_IDENTITY_TYPE: WsEndpointIdentityType = 6
+
+public val WS_UPN_ENDPOINT_IDENTITY_TYPE: WsEndpointIdentityType = 2
+
+public val WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: Int = 1
+
+public val WS_URL_FLAGS_NO_PATH_COLLAPSE: Int = 2
+
+public val WS_URL_FLAGS_ZERO_TERMINATE: Int = 4
+
+public val WS_URL_HTTPS_SCHEME_TYPE: WsUrlSchemeType = 1
+
+public val WS_URL_HTTP_SCHEME_TYPE: WsUrlSchemeType = 0
+
+public val WS_URL_NETPIPE_SCHEME_TYPE: WsUrlSchemeType = 4
+
+public val WS_URL_NETTCP_SCHEME_TYPE: WsUrlSchemeType = 2
+
+public val WS_URL_SOAPUDP_SCHEME_TYPE: WsUrlSchemeType = 3
+
+public val WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WsSecurityBindingConstraintType = 4
+
+public val WS_USERNAME_MESSAGE_SECURITY_BINDING_TYPE: WsSecurityBindingType = 4
+
+public val WS_UTF8_ARRAY_TYPE: WsType = 23
+
+public val WS_VOID_TYPE: WsType = 30
+
+public val WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_KERBEROS: WsWindowsIntegratedAuthPackage = 1
+
+public val WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_NTLM: WsWindowsIntegratedAuthPackage = 2
+
+public val WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_SPNEGO: WsWindowsIntegratedAuthPackage = 3
+
+public val WS_WRITE_NILLABLE_POINTER: WsWriteOption = 4
+
+public val WS_WRITE_NILLABLE_VALUE: WsWriteOption = 3
+
+public val WS_WRITE_REQUIRED_POINTER: WsWriteOption = 2
+
+public val WS_WRITE_REQUIRED_VALUE: WsWriteOption = 1
+
+public val WS_WSZ_TYPE: WsType = 17
+
+public val WS_XML_ATTRIBUTE_FIELD_MAPPING: WsFieldMapping = 6
+
+public val WS_XML_BUFFER_TYPE: WsType = 21
+
+public val WS_XML_CANONICALIZATION_PROPERTY_ALGORITHM: WsXmlCanonicalizationPropertyId = 0
+
+public val WS_XML_CANONICALIZATION_PROPERTY_INCLUSIVE_PREFIXES: WsXmlCanonicalizationPropertyId = 1
+
+public val WS_XML_CANONICALIZATION_PROPERTY_OMITTED_ELEMENT: WsXmlCanonicalizationPropertyId = 2
+
+public val WS_XML_CANONICALIZATION_PROPERTY_OUTPUT_BUFFER_SIZE: WsXmlCanonicalizationPropertyId = 3
+
+public val WS_XML_NODE_TYPE_BOF: WsXmlNodeType = 9
+
+public val WS_XML_NODE_TYPE_CDATA: WsXmlNodeType = 6
+
+public val WS_XML_NODE_TYPE_COMMENT: WsXmlNodeType = 4
+
+public val WS_XML_NODE_TYPE_ELEMENT: WsXmlNodeType = 1
+
+public val WS_XML_NODE_TYPE_END_CDATA: WsXmlNodeType = 7
+
+public val WS_XML_NODE_TYPE_END_ELEMENT: WsXmlNodeType = 3
+
+public val WS_XML_NODE_TYPE_EOF: WsXmlNodeType = 8
+
+public val WS_XML_NODE_TYPE_TEXT: WsXmlNodeType = 2
+
+public val WS_XML_QNAME_TYPE: WsType = 20
+
+public val WS_XML_READER_ENCODING_TYPE_BINARY: WsXmlReaderEncodingType = 2
+
+public val WS_XML_READER_ENCODING_TYPE_MTOM: WsXmlReaderEncodingType = 3
+
+public val WS_XML_READER_ENCODING_TYPE_RAW: WsXmlReaderEncodingType = 4
+
+public val WS_XML_READER_ENCODING_TYPE_TEXT: WsXmlReaderEncodingType = 1
+
+public val WS_XML_READER_INPUT_TYPE_BUFFER: WsXmlReaderInputType = 1
+
+public val WS_XML_READER_INPUT_TYPE_STREAM: WsXmlReaderInputType = 2
+
+public val WS_XML_READER_PROPERTY_ALLOW_FRAGMENT: WsXmlReaderPropertyId = 1
+
+public val WS_XML_READER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WsXmlReaderPropertyId = 13
+
+public val WS_XML_READER_PROPERTY_CHARSET: WsXmlReaderPropertyId = 4
+
+public val WS_XML_READER_PROPERTY_COLUMN: WsXmlReaderPropertyId = 6
+
+public val WS_XML_READER_PROPERTY_IN_ATTRIBUTE: WsXmlReaderPropertyId = 9
+
+public val WS_XML_READER_PROPERTY_MAX_ATTRIBUTES: WsXmlReaderPropertyId = 2
+
+public val WS_XML_READER_PROPERTY_MAX_DEPTH: WsXmlReaderPropertyId = 0
+
+public val WS_XML_READER_PROPERTY_MAX_MIME_PARTS: WsXmlReaderPropertyId = 12
+
+public val WS_XML_READER_PROPERTY_MAX_NAMESPACES: WsXmlReaderPropertyId = 14
+
+public val WS_XML_READER_PROPERTY_READ_DECLARATION: WsXmlReaderPropertyId = 3
+
+public val WS_XML_READER_PROPERTY_ROW: WsXmlReaderPropertyId = 5
+
+public val WS_XML_READER_PROPERTY_STREAM_BUFFER_SIZE: WsXmlReaderPropertyId = 8
+
+public val WS_XML_READER_PROPERTY_STREAM_MAX_MIME_HEADERS_SIZE: WsXmlReaderPropertyId = 11
+
+public val WS_XML_READER_PROPERTY_STREAM_MAX_ROOT_MIME_PART_SIZE: WsXmlReaderPropertyId = 10
+
+public val WS_XML_READER_PROPERTY_UTF8_TRIM_SIZE: WsXmlReaderPropertyId = 7
+
+public val WS_XML_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE: WsXmlSecurityTokenPropertyId = 1
+
+public val WS_XML_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE: WsXmlSecurityTokenPropertyId = 2
+
+public val WS_XML_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WsXmlSecurityTokenPropertyId = 3
+
+public val WS_XML_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WsXmlSecurityTokenPropertyId = 4
+
+public val WS_XML_STRING_TYPE: WsType = 19
+
+public val WS_XML_TEXT_TYPE_BASE64: WsXmlTextType = 3
+
+public val WS_XML_TEXT_TYPE_BOOL: WsXmlTextType = 4
+
+public val WS_XML_TEXT_TYPE_DATETIME: WsXmlTextType = 13
+
+public val WS_XML_TEXT_TYPE_DECIMAL: WsXmlTextType = 10
+
+public val WS_XML_TEXT_TYPE_DOUBLE: WsXmlTextType = 9
+
+public val WS_XML_TEXT_TYPE_FLOAT: WsXmlTextType = 8
+
+public val WS_XML_TEXT_TYPE_GUID: WsXmlTextType = 11
+
+public val WS_XML_TEXT_TYPE_INT32: WsXmlTextType = 5
+
+public val WS_XML_TEXT_TYPE_INT64: WsXmlTextType = 6
+
+public val WS_XML_TEXT_TYPE_LIST: WsXmlTextType = 16
+
+public val WS_XML_TEXT_TYPE_QNAME: WsXmlTextType = 15
+
+public val WS_XML_TEXT_TYPE_TIMESPAN: WsXmlTextType = 14
+
+public val WS_XML_TEXT_TYPE_UINT64: WsXmlTextType = 7
+
+public val WS_XML_TEXT_TYPE_UNIQUE_ID: WsXmlTextType = 12
+
+public val WS_XML_TEXT_TYPE_UTF16: WsXmlTextType = 2
+
+public val WS_XML_TEXT_TYPE_UTF8: WsXmlTextType = 1
+
+public val WS_XML_TOKEN_MESSAGE_SECURITY_BINDING_TYPE: WsSecurityBindingType = 6
+
+public val WS_XML_WRITER_ENCODING_TYPE_BINARY: WsXmlWriterEncodingType = 2
+
+public val WS_XML_WRITER_ENCODING_TYPE_MTOM: WsXmlWriterEncodingType = 3
+
+public val WS_XML_WRITER_ENCODING_TYPE_RAW: WsXmlWriterEncodingType = 4
+
+public val WS_XML_WRITER_ENCODING_TYPE_TEXT: WsXmlWriterEncodingType = 1
+
+public val WS_XML_WRITER_OUTPUT_TYPE_BUFFER: WsXmlWriterOutputType = 1
+
+public val WS_XML_WRITER_OUTPUT_TYPE_STREAM: WsXmlWriterOutputType = 2
+
+public val WS_XML_WRITER_PROPERTY_ALLOW_FRAGMENT: WsXmlWriterPropertyId = 1
+
+public val WS_XML_WRITER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WsXmlWriterPropertyId = 13
+
+public val WS_XML_WRITER_PROPERTY_BUFFERS: WsXmlWriterPropertyId = 7
+
+public val WS_XML_WRITER_PROPERTY_BUFFER_MAX_SIZE: WsXmlWriterPropertyId = 8
+
+public val WS_XML_WRITER_PROPERTY_BUFFER_TRIM_SIZE: WsXmlWriterPropertyId = 5
+
+public val WS_XML_WRITER_PROPERTY_BYTES: WsXmlWriterPropertyId = 9
+
+public val WS_XML_WRITER_PROPERTY_BYTES_TO_CLOSE: WsXmlWriterPropertyId = 16
+
+public val WS_XML_WRITER_PROPERTY_BYTES_WRITTEN: WsXmlWriterPropertyId = 15
+
+public val WS_XML_WRITER_PROPERTY_CHARSET: WsXmlWriterPropertyId = 6
+
+public val WS_XML_WRITER_PROPERTY_COMPRESS_EMPTY_ELEMENTS: WsXmlWriterPropertyId = 17
+
+public val WS_XML_WRITER_PROPERTY_EMIT_UNCOMPRESSED_EMPTY_ELEMENTS: WsXmlWriterPropertyId = 18
+
+public val WS_XML_WRITER_PROPERTY_INDENT: WsXmlWriterPropertyId = 4
+
+public val WS_XML_WRITER_PROPERTY_INITIAL_BUFFER: WsXmlWriterPropertyId = 12
+
+public val WS_XML_WRITER_PROPERTY_IN_ATTRIBUTE: WsXmlWriterPropertyId = 10
+
+public val WS_XML_WRITER_PROPERTY_MAX_ATTRIBUTES: WsXmlWriterPropertyId = 2
+
+public val WS_XML_WRITER_PROPERTY_MAX_DEPTH: WsXmlWriterPropertyId = 0
+
+public val WS_XML_WRITER_PROPERTY_MAX_MIME_PARTS_BUFFER_SIZE: WsXmlWriterPropertyId = 11
+
+public val WS_XML_WRITER_PROPERTY_MAX_NAMESPACES: WsXmlWriterPropertyId = 14
+
+public val WS_XML_WRITER_PROPERTY_WRITE_DECLARATION: WsXmlWriterPropertyId = 3

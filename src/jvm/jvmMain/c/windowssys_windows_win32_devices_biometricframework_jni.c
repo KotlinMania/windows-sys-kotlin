@@ -1,0 +1,1428 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAcquireFocus(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAcquireFocus");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumBiometricUnits(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncEnumBiometricUnits");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)frameworkhandle;
+    (void)factor;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumDatabases(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncEnumDatabases");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)frameworkhandle;
+    (void)factor;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncEnumServiceProviders(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint factor) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncEnumServiceProviders");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)frameworkhandle;
+    (void)factor;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle, jint changetypes) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncMonitorFrameworkChanges");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)changetypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)frameworkhandle;
+    (void)changetypes;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenFramework(JNIEnv* km_env, jclass km_clazz, jint notificationmethod, jlong targetwindow, jint messagecode, jlong callbackroutine, jlong userdata, jint asynchronousopen, jlong frameworkhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncOpenFramework");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)notificationmethod, (void*)(uintptr_t)targetwindow, (uint32_t)messagecode, (void*)(uintptr_t)callbackroutine, (void*)(uintptr_t)userdata, (int32_t)asynchronousopen, (void*)(uintptr_t)frameworkhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)notificationmethod;
+    (void)targetwindow;
+    (void)messagecode;
+    (void)callbackroutine;
+    (void)userdata;
+    (void)asynchronousopen;
+    (void)frameworkhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenSession(JNIEnv* km_env, jclass km_clazz, jint factor, jint pooltype, jint flags, jlong unitarray, jlong unitcount, jlong databaseid, jint notificationmethod, jlong targetwindow, jint messagecode, jlong callbackroutine, jlong userdata, jint asynchronousopen, jlong sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, int32_t, void*, uint32_t, void*, void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncOpenSession");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (uint32_t)pooltype, (uint32_t)flags, (void*)(uintptr_t)unitarray, (uint64_t)unitcount, (void*)(uintptr_t)databaseid, (int32_t)notificationmethod, (void*)(uintptr_t)targetwindow, (uint32_t)messagecode, (void*)(uintptr_t)callbackroutine, (void*)(uintptr_t)userdata, (int32_t)asynchronousopen, (void*)(uintptr_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)factor;
+    (void)pooltype;
+    (void)flags;
+    (void)unitarray;
+    (void)unitcount;
+    (void)databaseid;
+    (void)notificationmethod;
+    (void)targetwindow;
+    (void)messagecode;
+    (void)callbackroutine;
+    (void)userdata;
+    (void)asynchronousopen;
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCancel");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSample(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte purpose, jbyte flags, jlong unitid, jlong sample, jlong samplesize, jlong rejectdetail) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, uint8_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCaptureSample");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint8_t)purpose, (uint8_t)flags, (void*)(uintptr_t)unitid, (void*)(uintptr_t)sample, (void*)(uintptr_t)samplesize, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)purpose;
+    (void)flags;
+    (void)unitid;
+    (void)sample;
+    (void)samplesize;
+    (void)rejectdetail;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSampleWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte purpose, jbyte flags, jlong capturecallback, jlong capturecallbackcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, uint8_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCaptureSampleWithCallback");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint8_t)purpose, (uint8_t)flags, (void*)(uintptr_t)capturecallback, (void*)(uintptr_t)capturecallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)purpose;
+    (void)flags;
+    (void)capturecallback;
+    (void)capturecallbackcontext;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseFramework(JNIEnv* km_env, jclass km_clazz, jint frameworkhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCloseFramework");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)frameworkhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCloseSession");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jint component, jint controlcode, jlong sendbuffer, jlong sendbuffersize, jlong receivebuffer, jlong receivebuffersize, jlong receivedatasize, jlong operationstatus) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, uint64_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioControlUnit");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (uint32_t)component, (uint32_t)controlcode, (void*)(uintptr_t)sendbuffer, (uint64_t)sendbuffersize, (void*)(uintptr_t)receivebuffer, (uint64_t)receivebuffersize, (void*)(uintptr_t)receivedatasize, (void*)(uintptr_t)operationstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    (void)component;
+    (void)controlcode;
+    (void)sendbuffer;
+    (void)sendbuffersize;
+    (void)receivebuffer;
+    (void)receivebuffersize;
+    (void)receivedatasize;
+    (void)operationstatus;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnitPrivileged(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jint component, jint controlcode, jlong sendbuffer, jlong sendbuffersize, jlong receivebuffer, jlong receivebuffersize, jlong receivedatasize, jlong operationstatus) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, uint64_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioControlUnitPrivileged");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (uint32_t)component, (uint32_t)controlcode, (void*)(uintptr_t)sendbuffer, (uint64_t)sendbuffersize, (void*)(uintptr_t)receivebuffer, (uint64_t)receivebuffersize, (void*)(uintptr_t)receivedatasize, (void*)(uintptr_t)operationstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    (void)component;
+    (void)controlcode;
+    (void)sendbuffer;
+    (void)sendbuffersize;
+    (void)receivebuffer;
+    (void)receivebuffersize;
+    (void)receivedatasize;
+    (void)operationstatus;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioDeleteTemplate(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jlong identity, jbyte subfactor) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint8_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioDeleteTemplate");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    (void)identity;
+    (void)subfactor;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jbyte subfactor, jint unitid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollBegin");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint8_t)subfactor, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)subfactor;
+    (void)unitid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCapture(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong rejectdetail) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollCapture");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)rejectdetail;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCaptureWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong enrollcallback, jlong enrollcallbackcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollCaptureWithCallback");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)enrollcallback, (void*)(uintptr_t)enrollcallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)enrollcallback;
+    (void)enrollcallbackcontext;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCommit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jlong isnewtemplate) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollCommit");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (void*)(uintptr_t)isnewtemplate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)identity;
+    (void)isnewtemplate;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollDiscard(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollDiscard");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong selectorvalue) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint64_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollSelect");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint64_t)selectorvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)selectorvalue;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumBiometricUnits(JNIEnv* km_env, jclass km_clazz, jint factor, jlong unitschemaarray, jlong unitcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumBiometricUnits");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)unitschemaarray, (void*)(uintptr_t)unitcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)factor;
+    (void)unitschemaarray;
+    (void)unitcount;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumDatabases(JNIEnv* km_env, jclass km_clazz, jint factor, jlong storageschemaarray, jlong storagecount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumDatabases");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)storageschemaarray, (void*)(uintptr_t)storagecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)factor;
+    (void)storageschemaarray;
+    (void)storagecount;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumEnrollments(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid, jlong identity, jlong subfactorarray, jlong subfactorcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumEnrollments");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (void*)(uintptr_t)identity, (void*)(uintptr_t)subfactorarray, (void*)(uintptr_t)subfactorcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    (void)identity;
+    (void)subfactorarray;
+    (void)subfactorcount;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumServiceProviders(JNIEnv* km_env, jclass km_clazz, jint factor, jlong bspschemaarray, jlong bspcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumServiceProviders");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)bspschemaarray, (void*)(uintptr_t)bspcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)factor;
+    (void)bspschemaarray;
+    (void)bspcount;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioFree(JNIEnv* km_env, jclass km_clazz, jlong address) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioFree");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)address);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)address;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetDomainLogonSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetDomainLogonSetting");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)value;
+    (void)source;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnabledSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetEnabledSetting");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)value;
+    (void)source;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnrolledFactors(JNIEnv* km_env, jclass km_clazz, jlong accountowner, jlong enrolledfactors) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetEnrolledFactors");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)accountowner, (void*)(uintptr_t)enrolledfactors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)accountowner;
+    (void)enrolledfactors;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetLogonSetting(JNIEnv* km_env, jclass km_clazz, jlong value, jlong source) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetLogonSetting");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)value;
+    (void)source;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioGetProperty(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint propertytype, jint propertyid, jint unitid, jlong identity, jbyte subfactor, jlong propertybuffer, jlong propertybuffersize) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint8_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetProperty");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)propertytype, (uint32_t)propertyid, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)propertybuffer, (void*)(uintptr_t)propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)propertytype;
+    (void)propertyid;
+    (void)unitid;
+    (void)identity;
+    (void)subfactor;
+    (void)propertybuffer;
+    (void)propertybuffersize;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentify(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong unitid, jlong identity, jlong subfactor, jlong rejectdetail) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioIdentify");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)unitid, (void*)(uintptr_t)identity, (void*)(uintptr_t)subfactor, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    (void)identity;
+    (void)subfactor;
+    (void)rejectdetail;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentifyWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identifycallback, jlong identifycallbackcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioIdentifyWithCallback");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identifycallback, (void*)(uintptr_t)identifycallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)identifycallback;
+    (void)identifycallbackcontext;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveBegin(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioImproveBegin");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioImproveEnd");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong unitid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLocateSensor");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensorWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong locatecallback, jlong locatecallbackcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLocateSensorWithCallback");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)locatecallback, (void*)(uintptr_t)locatecallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)locatecallback;
+    (void)locatecallbackcontext;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLockUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLockUnit");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioLogonIdentifiedUser(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLogonIdentifiedUser");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioMonitorPresence");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioOpenSession(JNIEnv* km_env, jclass km_clazz, jint factor, jint pooltype, jint flags, jlong unitarray, jlong unitcount, jlong databaseid, jlong sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, uint64_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioOpenSession");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (uint32_t)pooltype, (uint32_t)flags, (void*)(uintptr_t)unitarray, (uint64_t)unitcount, (void*)(uintptr_t)databaseid, (void*)(uintptr_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)factor;
+    (void)pooltype;
+    (void)flags;
+    (void)unitarray;
+    (void)unitcount;
+    (void)databaseid;
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioRegisterEventMonitor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint eventmask, jlong eventcallback, jlong eventcallbackcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioRegisterEventMonitor");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)eventmask, (void*)(uintptr_t)eventcallback, (void*)(uintptr_t)eventcallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)eventmask;
+    (void)eventcallback;
+    (void)eventcallbackcontext;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioReleaseFocus(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioReleaseFocus");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllCredentials(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioRemoveAllCredentials");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioRemoveAllDomainCredentials(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioRemoveAllDomainCredentials");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioSetCredential(JNIEnv* km_env, jclass km_clazz, jint type, jlong credential, jlong credentialsize, jint format) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint64_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioSetCredential");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)type, (void*)(uintptr_t)credential, (uint64_t)credentialsize, (int32_t)format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)type;
+    (void)credential;
+    (void)credentialsize;
+    (void)format;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioSetProperty(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint propertytype, jint propertyid, jint unitid, jlong identity, jbyte subfactor, jlong propertybuffer, jlong propertybuffersize) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint8_t, void*, uint64_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioSetProperty");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)propertytype, (uint32_t)propertyid, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)propertybuffer, (uint64_t)propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)propertytype;
+    (void)propertyid;
+    (void)unitid;
+    (void)identity;
+    (void)subfactor;
+    (void)propertybuffer;
+    (void)propertybuffersize;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioUnlockUnit(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jint unitid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioUnlockUnit");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)unitid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioUnregisterEventMonitor");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioVerify(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jbyte subfactor, jlong unitid, jlong match, jlong rejectdetail) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint8_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioVerify");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)unitid, (void*)(uintptr_t)match, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)identity;
+    (void)subfactor;
+    (void)unitid;
+    (void)match;
+    (void)rejectdetail;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioVerifyWithCallback(JNIEnv* km_env, jclass km_clazz, jint sessionhandle, jlong identity, jbyte subfactor, jlong verifycallback, jlong verifycallbackcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint8_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioVerifyWithCallback");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)verifycallback, (void*)(uintptr_t)verifycallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    (void)identity;
+    (void)subfactor;
+    (void)verifycallback;
+    (void)verifycallbackcontext;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_biometricframework_WindowsWin32DevicesBiometricframeworkJniBridge_windowssysWindowsWin32DevicesBiometricframeworkWinBioWait(JNIEnv* km_env, jclass km_clazz, jint sessionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("winbio.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioWait");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)sessionhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

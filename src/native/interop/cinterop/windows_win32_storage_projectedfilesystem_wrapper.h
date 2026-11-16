@@ -1,0 +1,36 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_STORAGE_PROJECTEDFILESYSTEM_WINDOWS_WIN32_STORAGE_PROJECTEDFILESYSTEM_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_STORAGE_PROJECTEDFILESYSTEM_WINDOWS_WIN32_STORAGE_PROJECTEDFILESYSTEM_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void* windowssysWindowsWin32StorageProjectedfilesystemPrjAllocateAlignedBuffer(void* namespacevirtualizationcontext, uint64_t size);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjClearNegativePathCache(void* namespacevirtualizationcontext, void* totalentrynumber);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjCompleteCommand(void* namespacevirtualizationcontext, int32_t commandid, int32_t completionresult, void* extendedparameters);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjDeleteFile(void* namespacevirtualizationcontext, void* destinationfilename, int32_t updateflags, void* failurereason);
+bool windowssysWindowsWin32StorageProjectedfilesystemPrjDoesNameContainWildCards(void* filename);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjFileNameCompare(void* filename1, void* filename2);
+bool windowssysWindowsWin32StorageProjectedfilesystemPrjFileNameMatch(void* filenametocheck, void* pattern);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer(void* filename, void* filebasicinfo, void* direntrybufferhandle);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer2(void* direntrybufferhandle, void* filename, void* filebasicinfo, void* extendedinfo);
+void windowssysWindowsWin32StorageProjectedfilesystemPrjFreeAlignedBuffer(void* buffer);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjGetOnDiskFileState(void* destinationfilename, void* filestate);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjGetVirtualizationInstanceInfo(void* namespacevirtualizationcontext, void* virtualizationinstanceinfo);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjMarkDirectoryAsPlaceholder(void* rootpathname, void* targetpathname, void* versioninfo, void* virtualizationinstanceid);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjStartVirtualizing(void* virtualizationrootpath, void* callbacks, void* instancecontext, void* options, void* namespacevirtualizationcontext);
+void windowssysWindowsWin32StorageProjectedfilesystemPrjStopVirtualizing(void* namespacevirtualizationcontext);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjUpdateFileIfNeeded(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, int32_t updateflags, void* failurereason);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjWriteFileData(void* namespacevirtualizationcontext, void* datastreamid, void* buffer, uint64_t byteoffset, uint32_t length);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize);
+int32_t windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo2(void* namespacevirtualizationcontext, void* destinationfilename, void* placeholderinfo, uint32_t placeholderinfosize, void* extendedinfo);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_STORAGE_PROJECTEDFILESYSTEM_WINDOWS_WIN32_STORAGE_PROJECTEDFILESYSTEM_WRAPPER_H */

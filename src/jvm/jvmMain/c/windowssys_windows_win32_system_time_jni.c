@@ -1,0 +1,415 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeEnumDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jint dwindex, jlong lptimezoneinformation) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumDynamicTimeZoneInformation");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)dwindex;
+    (void)lptimezoneinformation;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeFileTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong lpfiletime, jlong lpsystemtime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FileTimeToSystemTime");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpfiletime, (void*)(uintptr_t)lpsystemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lpfiletime;
+    (void)lpsystemtime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong ptimezoneinformation) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDynamicTimeZoneInformation");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)ptimezoneinformation;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeGetDynamicTimeZoneInformationEffectiveYears(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong firstyear, jlong lastyear) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDynamicTimeZoneInformationEffectiveYears");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation, (void*)(uintptr_t)firstyear, (void*)(uintptr_t)lastyear);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lptimezoneinformation;
+    (void)firstyear;
+    (void)lastyear;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeGetTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetTimeZoneInformation");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    (void)lptimezoneinformation;
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeGetTimeZoneInformationForYear(JNIEnv* km_env, jclass km_clazz, jshort wyear, jlong pdtzi, jlong ptzi) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetTimeZoneInformationForYear");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint16_t)wyear, (void*)(uintptr_t)pdtzi, (void*)(uintptr_t)ptzi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)wyear;
+    (void)pdtzi;
+    (void)ptzi;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeLocalFileTimeToLocalSystemTime(JNIEnv* km_env, jclass km_clazz, jlong timezoneinformation, jlong localfiletime, jlong localsystemtime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LocalFileTimeToLocalSystemTime");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)timezoneinformation, (void*)(uintptr_t)localfiletime, (void*)(uintptr_t)localsystemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)timezoneinformation;
+    (void)localfiletime;
+    (void)localsystemtime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeLocalSystemTimeToLocalFileTime(JNIEnv* km_env, jclass km_clazz, jlong timezoneinformation, jlong localsystemtime, jlong localfiletime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LocalSystemTimeToLocalFileTime");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)timezoneinformation, (void*)(uintptr_t)localsystemtime, (void*)(uintptr_t)localfiletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)timezoneinformation;
+    (void)localsystemtime;
+    (void)localfiletime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeSetDynamicTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetDynamicTimeZoneInformation");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lptimezoneinformation;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeSetTimeZoneInformation(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetTimeZoneInformation");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lptimezoneinformation;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeSystemTimeToFileTime(JNIEnv* km_env, jclass km_clazz, jlong lpsystemtime, jlong lpfiletime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SystemTimeToFileTime");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpsystemtime, (void*)(uintptr_t)lpfiletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lpsystemtime;
+    (void)lpfiletime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTime(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lpuniversaltime, jlong lplocaltime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SystemTimeToTzSpecificLocalTime");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation, (void*)(uintptr_t)lpuniversaltime, (void*)(uintptr_t)lplocaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lptimezoneinformation;
+    (void)lpuniversaltime;
+    (void)lplocaltime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeSystemTimeToTzSpecificLocalTimeEx(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lpuniversaltime, jlong lplocaltime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SystemTimeToTzSpecificLocalTimeEx");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation, (void*)(uintptr_t)lpuniversaltime, (void*)(uintptr_t)lplocaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lptimezoneinformation;
+    (void)lpuniversaltime;
+    (void)lplocaltime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lplocaltime, jlong lpuniversaltime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TzSpecificLocalTimeToSystemTime");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation, (void*)(uintptr_t)lplocaltime, (void*)(uintptr_t)lpuniversaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lptimezoneinformation;
+    (void)lplocaltime;
+    (void)lpuniversaltime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_time_WindowsWin32SystemTimeJniBridge_windowssysWindowsWin32SystemTimeTzSpecificLocalTimeToSystemTimeEx(JNIEnv* km_env, jclass km_clazz, jlong lptimezoneinformation, jlong lplocaltime, jlong lpuniversaltime) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TzSpecificLocalTimeToSystemTimeEx");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptimezoneinformation, (void*)(uintptr_t)lplocaltime, (void*)(uintptr_t)lpuniversaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)lptimezoneinformation;
+    (void)lplocaltime;
+    (void)lpuniversaltime;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

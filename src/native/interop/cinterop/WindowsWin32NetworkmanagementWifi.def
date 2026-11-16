@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi.cinterop
+headers = windows_win32_networkmanagement_wifi_wrapper.h
+headerFilter = windows_win32_networkmanagement_wifi_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_networkmanagement_wifi_wrapper.a

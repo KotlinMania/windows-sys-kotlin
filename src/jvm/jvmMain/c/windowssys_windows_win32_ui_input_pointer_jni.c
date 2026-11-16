@@ -1,0 +1,763 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerEnableMouseInPointer(JNIEnv* km_env, jclass km_clazz, jint fenable) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnableMouseInPointer");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)fenable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)fenable;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerCursorId(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong cursorid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerCursorId");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)cursorid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)cursorid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerDevice(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerdevice) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerDevice");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)device, (void*)(uintptr_t)pointerdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)device;
+    (void)pointerdevice;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerDeviceCursors(JNIEnv* km_env, jclass km_clazz, jlong device, jlong cursorcount, jlong devicecursors) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerDeviceCursors");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)device, (void*)(uintptr_t)cursorcount, (void*)(uintptr_t)devicecursors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)device;
+    (void)cursorcount;
+    (void)devicecursors;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerDeviceProperties(JNIEnv* km_env, jclass km_clazz, jlong device, jlong propertycount, jlong pointerproperties) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerDeviceProperties");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)device, (void*)(uintptr_t)propertycount, (void*)(uintptr_t)pointerproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)device;
+    (void)propertycount;
+    (void)pointerproperties;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerDeviceRects(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerdevicerect, jlong displayrect) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerDeviceRects");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)device, (void*)(uintptr_t)pointerdevicerect, (void*)(uintptr_t)displayrect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)device;
+    (void)pointerdevicerect;
+    (void)displayrect;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerDevices(JNIEnv* km_env, jclass km_clazz, jlong devicecount, jlong pointerdevices) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerDevices");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)devicecount, (void*)(uintptr_t)pointerdevices);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)devicecount;
+    (void)pointerdevices;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerFrameInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong pointerinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerFrameInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)pointercount, (void*)(uintptr_t)pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)pointercount;
+    (void)pointerinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerFrameInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong pointerinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerFrameInfoHistory");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)entriescount, (void*)(uintptr_t)pointercount, (void*)(uintptr_t)pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)entriescount;
+    (void)pointercount;
+    (void)pointerinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerFramePenInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong peninfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerFramePenInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)pointercount, (void*)(uintptr_t)peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)pointercount;
+    (void)peninfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerFramePenInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong peninfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerFramePenInfoHistory");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)entriescount, (void*)(uintptr_t)pointercount, (void*)(uintptr_t)peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)entriescount;
+    (void)pointercount;
+    (void)peninfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointercount, jlong touchinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerFrameTouchInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)pointercount, (void*)(uintptr_t)touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)pointercount;
+    (void)touchinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerFrameTouchInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointercount, jlong touchinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerFrameTouchInfoHistory");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)entriescount, (void*)(uintptr_t)pointercount, (void*)(uintptr_t)touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)entriescount;
+    (void)pointercount;
+    (void)touchinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointerinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)pointerinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong pointerinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerInfoHistory");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)entriescount, (void*)(uintptr_t)pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)entriescount;
+    (void)pointerinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerInputTransform(JNIEnv* km_env, jclass km_clazz, jint pointerid, jint historycount, jlong inputtransform) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerInputTransform");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (uint32_t)historycount, (void*)(uintptr_t)inputtransform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)historycount;
+    (void)inputtransform;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerPenInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong peninfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerPenInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)peninfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerPenInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong peninfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerPenInfoHistory");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)entriescount, (void*)(uintptr_t)peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)entriescount;
+    (void)peninfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerTouchInfo(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong touchinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerTouchInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)touchinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerTouchInfoHistory(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong entriescount, jlong touchinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerTouchInfoHistory");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)entriescount, (void*)(uintptr_t)touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)entriescount;
+    (void)touchinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetPointerType(JNIEnv* km_env, jclass km_clazz, jint pointerid, jlong pointertype) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPointerType");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (void*)(uintptr_t)pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)pointertype;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetRawPointerDeviceData(JNIEnv* km_env, jclass km_clazz, jint pointerid, jint historycount, jint propertiescount, jlong pproperties, jlong pvalues) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetRawPointerDeviceData");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid, (uint32_t)historycount, (uint32_t)propertiescount, (void*)(uintptr_t)pproperties, (void*)(uintptr_t)pvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    (void)historycount;
+    (void)propertiescount;
+    (void)pproperties;
+    (void)pvalues;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerGetUnpredictedMessagePos(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetUnpredictedMessagePos");
+    }
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
+#else
+    errno = ENOSYS;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerInitializeTouchInjection(JNIEnv* km_env, jclass km_clazz, jint maxcount, jint dwmode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InitializeTouchInjection");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)maxcount, (uint32_t)dwmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)maxcount;
+    (void)dwmode;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerInjectSyntheticPointerInput(JNIEnv* km_env, jclass km_clazz, jlong device, jlong pointerinfo, jint count) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InjectSyntheticPointerInput");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)device, (void*)(uintptr_t)pointerinfo, (uint32_t)count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)device;
+    (void)pointerinfo;
+    (void)count;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerInjectTouchInput(JNIEnv* km_env, jclass km_clazz, jint count, jlong contacts) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InjectTouchInput");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)count, (void*)(uintptr_t)contacts);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)count;
+    (void)contacts;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerIsMouseInPointerEnabled(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsMouseInPointerEnabled");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_pointer_WindowsWin32UiInputPointerJniBridge_windowssysWindowsWin32UiInputPointerSkipPointerFrameMessages(JNIEnv* km_env, jclass km_clazz, jint pointerid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("user32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SkipPointerFrameMessages");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)pointerid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)pointerid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

@@ -20,7 +20,7 @@ This is an **in-progress port**. The goal is feature parity with the upstream Ru
 
 ```kotlin
 dependencies {
-    implementation("io.github.kotlinmania:windows-sys-kotlin:0.1.2")
+    implementation("io.github.kotlinmania:windows-sys-kotlin:0.1.3")
 }
 ```
 
@@ -33,13 +33,9 @@ dependencies {
 
 ### Targets
 
-- macOS arm64
-- Linux x64
-- Windows mingw-x64
-- iOS arm64 / simulator-arm64 (Swift export + XCFramework)
-- JS (browser + Node.js)
-- Wasm-JS (browser + Node.js)
-- Android (API 24+)
+- Windows mingw-x64 (`mingwX64`)
+- JVM (`jvm`, Windows JNI)
+- JavaScript (`js`, browser + Node.js on Windows)
 
 ### Porting guidelines
 

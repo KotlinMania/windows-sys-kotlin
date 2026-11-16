@@ -1,0 +1,47 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_UI_INTERACTIONCONTEXT_WINDOWS_WIN32_UI_INTERACTIONCONTEXT_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_UI_INTERACTIONCONTEXT_WINDOWS_WIN32_UI_INTERACTIONCONTEXT_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssysWindowsWin32UiInteractioncontextAddPointerInteractionContext(void* interactioncontext, uint32_t pointerid);
+int32_t windowssysWindowsWin32UiInteractioncontextBufferPointerPacketsInteractionContext(void* interactioncontext, uint32_t entriescount, void* pointerinfo);
+int32_t windowssysWindowsWin32UiInteractioncontextCreateInteractionContext(void* interactioncontext);
+int32_t windowssysWindowsWin32UiInteractioncontextDestroyInteractionContext(void* interactioncontext);
+int32_t windowssysWindowsWin32UiInteractioncontextGetCrossSlideParameterInteractionContext(void* interactioncontext, int32_t threshold, void* distance);
+int32_t windowssysWindowsWin32UiInteractioncontextGetHoldParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value);
+int32_t windowssysWindowsWin32UiInteractioncontextGetInertiaParameterInteractionContext(void* interactioncontext, int32_t inertiaparameter, void* value);
+int32_t windowssysWindowsWin32UiInteractioncontextGetInteractionConfigurationInteractionContext(void* interactioncontext, uint32_t configurationcount, void* configuration);
+int32_t windowssysWindowsWin32UiInteractioncontextGetMouseWheelParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value);
+int32_t windowssysWindowsWin32UiInteractioncontextGetPropertyInteractionContext(void* interactioncontext, int32_t contextproperty, void* value);
+int32_t windowssysWindowsWin32UiInteractioncontextGetStateInteractionContext(void* interactioncontext, void* pointerinfo, void* state);
+int32_t windowssysWindowsWin32UiInteractioncontextGetTapParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value);
+int32_t windowssysWindowsWin32UiInteractioncontextGetTranslationParameterInteractionContext(void* interactioncontext, int32_t parameter, void* value);
+int32_t windowssysWindowsWin32UiInteractioncontextProcessBufferedPacketsInteractionContext(void* interactioncontext);
+int32_t windowssysWindowsWin32UiInteractioncontextProcessInertiaInteractionContext(void* interactioncontext);
+int32_t windowssysWindowsWin32UiInteractioncontextProcessPointerFramesInteractionContext(void* interactioncontext, uint32_t entriescount, uint32_t pointercount, void* pointerinfo);
+int32_t windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext(void* interactioncontext, void* outputcallback, void* clientdata);
+int32_t windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext2(void* interactioncontext, void* outputcallback, void* clientdata);
+int32_t windowssysWindowsWin32UiInteractioncontextRemovePointerInteractionContext(void* interactioncontext, uint32_t pointerid);
+int32_t windowssysWindowsWin32UiInteractioncontextResetInteractionContext(void* interactioncontext);
+int32_t windowssysWindowsWin32UiInteractioncontextSetCrossSlideParametersInteractionContext(void* interactioncontext, uint32_t parametercount, void* crossslideparameters);
+int32_t windowssysWindowsWin32UiInteractioncontextSetHoldParameterInteractionContext(void* interactioncontext, int32_t parameter, float value);
+int32_t windowssysWindowsWin32UiInteractioncontextSetInertiaParameterInteractionContext(void* interactioncontext, int32_t inertiaparameter, float value);
+int32_t windowssysWindowsWin32UiInteractioncontextSetInteractionConfigurationInteractionContext(void* interactioncontext, uint32_t configurationcount, void* configuration);
+int32_t windowssysWindowsWin32UiInteractioncontextSetMouseWheelParameterInteractionContext(void* interactioncontext, int32_t parameter, float value);
+int32_t windowssysWindowsWin32UiInteractioncontextSetPivotInteractionContext(void* interactioncontext, float x, float y, float radius);
+int32_t windowssysWindowsWin32UiInteractioncontextSetPropertyInteractionContext(void* interactioncontext, int32_t contextproperty, uint32_t value);
+int32_t windowssysWindowsWin32UiInteractioncontextSetTapParameterInteractionContext(void* interactioncontext, int32_t parameter, float value);
+int32_t windowssysWindowsWin32UiInteractioncontextSetTranslationParameterInteractionContext(void* interactioncontext, int32_t parameter, float value);
+int32_t windowssysWindowsWin32UiInteractioncontextStopInteractionContext(void* interactioncontext);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_UI_INTERACTIONCONTEXT_WINDOWS_WIN32_UI_INTERACTIONCONTEXT_WRAPPER_H */

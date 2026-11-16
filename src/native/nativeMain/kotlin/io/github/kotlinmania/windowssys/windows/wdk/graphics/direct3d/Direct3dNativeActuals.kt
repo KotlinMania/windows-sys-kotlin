@@ -1,0 +1,710 @@
+@file:OptIn(kotlinx.cinterop.ExperimentalForeignApi::class, kotlin.ExperimentalUnsignedTypes::class)
+
+package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
+
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTAcquireKeyedMutex
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTAcquireKeyedMutex2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTAdjustFullscreenGamma
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCancelPresents
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTChangeSurfacePointer
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTChangeVideoMemoryReservation
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckExclusiveOwnership
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMonitorPowerState
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMultiPlaneOverlaySupport
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMultiPlaneOverlaySupport2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMultiPlaneOverlaySupport3
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckOcclusion
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckSharedResourceAccess
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckVidPnExclusiveOwnership
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCloseAdapter
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTConfigureSharedResource
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateAllocation
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateAllocation2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateContext
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateContextVirtual
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateDCFromMemory
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateDevice
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateHwContext
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateKeyedMutex
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateKeyedMutex2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateOutputDupl
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateOverlay
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreatePagingQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateProtectedSession
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateSynchronizationObject
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateSynchronizationObject2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyAllocation
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyAllocation2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyContext
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyDCFromMemory
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyDevice
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyHwContext
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyKeyedMutex
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyOutputDupl
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyOverlay
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyPagingQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyProtectedSession
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroySynchronizationObject
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTEnumAdapters
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTEnumAdapters2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTEnumAdapters3
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTEscape
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTEvict
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTFlipOverlay
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTFlushHeapTransitions
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTFreeGpuVirtualAddress
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetAllocationPriority
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetContextInProcessSchedulingPriority
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetContextSchedulingPriority
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetDWMVerticalBlankEvent
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetDeviceState
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetDisplayModeList
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetMultiPlaneOverlayCaps
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetMultisampleMethodList
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetOverlayState
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetPostCompositionCaps
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetPresentHistory
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetPresentQueueEvent
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetProcessDeviceRemovalSupport
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetProcessSchedulingPriorityClass
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetResourcePresentPrivateDriverData
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetRuntimeData
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetScanLine
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetSharedPrimaryHandle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTGetSharedResourceAdapterLuid
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTInvalidateActiveVidPn
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTInvalidateCache
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTLock
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTLock2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTMakeResident
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTMapGpuVirtualAddress
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTMarkDeviceAsError
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOfferAllocations
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromDeviceName
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromGdiDisplayName
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromHdc
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromLuid
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenKeyedMutex
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenKeyedMutex2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenKeyedMutexFromNtHandle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenNtHandleFromName
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenProtectedSessionFromNtHandle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenResource
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenResource2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenResourceFromNtHandle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSyncObjectFromNtHandle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSyncObjectFromNtHandle2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSyncObjectNtHandleFromName
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSynchronizationObject
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplGetFrameInfo
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplGetMetaData
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplGetPointerShapeData
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplPresent
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplPresentToHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplReleaseFrame
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTPollDisplayChildren
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTPresent
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentMultiPlaneOverlay
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentMultiPlaneOverlay2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentMultiPlaneOverlay3
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentRedirected
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryAdapterInfo
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryAllocationResidency
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryClockCalibration
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryFSEBlock
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryProcessOfferInfo
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryProtectedSessionInfoFromNtHandle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryProtectedSessionStatus
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryRemoteVidPnSourceFromGdiDisplayName
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryResourceInfo
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryResourceInfoFromNtHandle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryStatistics
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryVidPnExclusiveOwnership
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryVideoMemoryInfo
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTReclaimAllocations
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTReclaimAllocations2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTRegisterTrimNotification
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTRegisterVailProcess
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTReleaseKeyedMutex
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTReleaseKeyedMutex2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTReleaseProcessVidPnSourceOwners
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTRender
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTReserveGpuVirtualAddress
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetAllocationPriority
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetContextInProcessSchedulingPriority
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetContextSchedulingPriority
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetDisplayMode
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetDisplayPrivateDriverFormat
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetFSEBlock
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetGammaRamp
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetHwProtectionTeardownRecovery
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetMonitorColorSpaceTransform
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetProcessSchedulingPriorityClass
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetQueuedLimit
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetStablePowerState
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetSyncRefreshCountWaitTarget
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceHwProtection
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceOwner
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceOwner1
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceOwner2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTShareObjects
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSharedPrimaryLockNotification
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSharedPrimaryUnLockNotification
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObject
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObject2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObjectFromCpu
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObjectFromGpu
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObjectFromGpu2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitCommand
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitCommandToHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitPresentBltToHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitPresentToHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitSignalSyncObjectsToHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitWaitForSyncObjectsToHwQueue
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTTrimProcessCommitment
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTUnlock
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTUnlock2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTUnregisterTrimNotification
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTUpdateAllocationProperty
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTUpdateGpuVirtualAddress
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTUpdateOverlay
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForIdle
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObject
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObject2
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObjectFromCpu
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObjectFromGpu
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForVerticalBlankEvent
+import io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop.windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForVerticalBlankEvent2
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import kotlinx.cinterop.ByteVar
+import kotlinx.cinterop.toCPointer
+
+public actual fun d3DKMTAcquireKeyedMutex(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTAcquireKeyedMutex(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTAcquireKeyedMutex2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTAcquireKeyedMutex2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTAdjustFullscreenGamma(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTAdjustFullscreenGamma(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCancelPresents(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCancelPresents(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTChangeSurfacePointer(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTChangeSurfacePointer(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTChangeVideoMemoryReservation(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTChangeVideoMemoryReservation(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCheckExclusiveOwnership(): Boolean =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckExclusiveOwnership()
+
+public actual fun d3DKMTCheckMonitorPowerState(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMonitorPowerState(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCheckMultiPlaneOverlaySupport(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMultiPlaneOverlaySupport(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCheckMultiPlaneOverlaySupport2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMultiPlaneOverlaySupport2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCheckMultiPlaneOverlaySupport3(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckMultiPlaneOverlaySupport3(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCheckOcclusion(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckOcclusion(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCheckSharedResourceAccess(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckSharedResourceAccess(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCheckVidPnExclusiveOwnership(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCheckVidPnExclusiveOwnership(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCloseAdapter(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCloseAdapter(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTConfigureSharedResource(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTConfigureSharedResource(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateAllocation(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateAllocation(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateAllocation2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateAllocation2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateContext(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateContext(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateContextVirtual(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateContextVirtual(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateDCFromMemory(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateDCFromMemory(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateDevice(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateDevice(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateHwContext(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateHwContext(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateHwQueue(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateKeyedMutex(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateKeyedMutex(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateKeyedMutex2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateKeyedMutex2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateOutputDupl(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateOutputDupl(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateOverlay(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateOverlay(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreatePagingQueue(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreatePagingQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateProtectedSession(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateProtectedSession(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateSynchronizationObject(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateSynchronizationObject(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTCreateSynchronizationObject2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTCreateSynchronizationObject2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyAllocation(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyAllocation(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyAllocation2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyAllocation2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyContext(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyContext(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyDCFromMemory(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyDCFromMemory(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyDevice(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyDevice(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyHwContext(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyHwContext(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyHwQueue(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyKeyedMutex(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyKeyedMutex(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyOutputDupl(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyOutputDupl(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyOverlay(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyOverlay(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyPagingQueue(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyPagingQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroyProtectedSession(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroyProtectedSession(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTDestroySynchronizationObject(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTDestroySynchronizationObject(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTEnumAdapters(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTEnumAdapters(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTEnumAdapters2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTEnumAdapters2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTEnumAdapters3(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTEnumAdapters3(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTEscape(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTEscape(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTEvict(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTEvict(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTFlipOverlay(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTFlipOverlay(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTFlushHeapTransitions(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTFlushHeapTransitions(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTFreeGpuVirtualAddress(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTFreeGpuVirtualAddress(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetAllocationPriority(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetAllocationPriority(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetContextInProcessSchedulingPriority(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetContextInProcessSchedulingPriority(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetContextSchedulingPriority(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetContextSchedulingPriority(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetDWMVerticalBlankEvent(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetDWMVerticalBlankEvent(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetDeviceState(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetDeviceState(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetDisplayModeList(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetDisplayModeList(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetMultiPlaneOverlayCaps(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetMultiPlaneOverlayCaps(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetMultisampleMethodList(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetMultisampleMethodList(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetOverlayState(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetOverlayState(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetPostCompositionCaps(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetPostCompositionCaps(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetPresentHistory(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetPresentHistory(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetPresentQueueEvent(hadapter: UInt, param1: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetPresentQueueEvent(hadapter, param1.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetProcessDeviceRemovalSupport(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetProcessDeviceRemovalSupport(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetProcessSchedulingPriorityClass(param0: Handle, param1: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetProcessSchedulingPriorityClass(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetResourcePresentPrivateDriverData(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetResourcePresentPrivateDriverData(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetRuntimeData(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetRuntimeData(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetScanLine(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetScanLine(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetSharedPrimaryHandle(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetSharedPrimaryHandle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTGetSharedResourceAdapterLuid(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTGetSharedResourceAdapterLuid(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTInvalidateActiveVidPn(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTInvalidateActiveVidPn(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTInvalidateCache(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTInvalidateCache(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTLock(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTLock(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTLock2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTLock2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTMakeResident(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTMakeResident(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTMapGpuVirtualAddress(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTMapGpuVirtualAddress(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTMarkDeviceAsError(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTMarkDeviceAsError(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOfferAllocations(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOfferAllocations(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenAdapterFromDeviceName(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromDeviceName(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenAdapterFromGdiDisplayName(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromGdiDisplayName(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenAdapterFromHdc(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromHdc(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenAdapterFromLuid(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenAdapterFromLuid(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenKeyedMutex(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenKeyedMutex(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenKeyedMutex2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenKeyedMutex2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenKeyedMutexFromNtHandle(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenKeyedMutexFromNtHandle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenNtHandleFromName(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenNtHandleFromName(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenProtectedSessionFromNtHandle(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenProtectedSessionFromNtHandle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenResource(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenResource(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenResource2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenResource2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenResourceFromNtHandle(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenResourceFromNtHandle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenSyncObjectFromNtHandle(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSyncObjectFromNtHandle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenSyncObjectFromNtHandle2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSyncObjectFromNtHandle2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenSyncObjectNtHandleFromName(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSyncObjectNtHandleFromName(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOpenSynchronizationObject(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOpenSynchronizationObject(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOutputDuplGetFrameInfo(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplGetFrameInfo(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOutputDuplGetMetaData(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplGetMetaData(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOutputDuplGetPointerShapeData(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplGetPointerShapeData(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOutputDuplPresent(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplPresent(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOutputDuplPresentToHwQueue(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplPresentToHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTOutputDuplReleaseFrame(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTOutputDuplReleaseFrame(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTPollDisplayChildren(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTPollDisplayChildren(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTPresent(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTPresent(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTPresentMultiPlaneOverlay(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentMultiPlaneOverlay(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTPresentMultiPlaneOverlay2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentMultiPlaneOverlay2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTPresentMultiPlaneOverlay3(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentMultiPlaneOverlay3(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTPresentRedirected(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTPresentRedirected(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryAdapterInfo(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryAdapterInfo(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryAllocationResidency(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryAllocationResidency(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryClockCalibration(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryClockCalibration(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryFSEBlock(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryFSEBlock(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryProcessOfferInfo(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryProcessOfferInfo(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryProtectedSessionInfoFromNtHandle(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryProtectedSessionInfoFromNtHandle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryProtectedSessionStatus(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryProtectedSessionStatus(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryResourceInfo(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryResourceInfo(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryResourceInfoFromNtHandle(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryResourceInfoFromNtHandle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryStatistics(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryStatistics(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryVidPnExclusiveOwnership(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryVidPnExclusiveOwnership(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTQueryVideoMemoryInfo(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTQueryVideoMemoryInfo(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTReclaimAllocations(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTReclaimAllocations(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTReclaimAllocations2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTReclaimAllocations2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTRegisterTrimNotification(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTRegisterTrimNotification(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTRegisterVailProcess(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTRegisterVailProcess(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTReleaseKeyedMutex(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTReleaseKeyedMutex(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTReleaseKeyedMutex2(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTReleaseKeyedMutex2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTReleaseProcessVidPnSourceOwners(param0: Handle): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTReleaseProcessVidPnSourceOwners(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTRender(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTRender(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTReserveGpuVirtualAddress(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTReserveGpuVirtualAddress(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetAllocationPriority(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetAllocationPriority(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetContextInProcessSchedulingPriority(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetContextInProcessSchedulingPriority(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetContextSchedulingPriority(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetContextSchedulingPriority(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetDisplayMode(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetDisplayMode(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetDisplayPrivateDriverFormat(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetDisplayPrivateDriverFormat(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetFSEBlock(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetFSEBlock(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetGammaRamp(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetGammaRamp(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetHwProtectionTeardownRecovery(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetHwProtectionTeardownRecovery(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetMonitorColorSpaceTransform(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetMonitorColorSpaceTransform(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetProcessSchedulingPriorityClass(param0: Handle, param1: D3dkmtSchedulingpriorityclass): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetProcessSchedulingPriorityClass(param0.rawAddress.toCPointer<ByteVar>(), param1)
+
+public actual fun d3DKMTSetQueuedLimit(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetQueuedLimit(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetStablePowerState(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetStablePowerState(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetSyncRefreshCountWaitTarget(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetSyncRefreshCountWaitTarget(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetVidPnSourceHwProtection(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceHwProtection(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetVidPnSourceOwner(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceOwner(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetVidPnSourceOwner1(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceOwner1(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSetVidPnSourceOwner2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSetVidPnSourceOwner2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTShareObjects(cobjects: UInt, hobjects: ConstPtr, pobjectattributes: ConstPtr, dwdesiredaccess: UInt, phsharednthandle: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTShareObjects(cobjects, hobjects.rawAddress.toCPointer<ByteVar>(), pobjectattributes.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, phsharednthandle.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSharedPrimaryLockNotification(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSharedPrimaryLockNotification(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSharedPrimaryUnLockNotification(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSharedPrimaryUnLockNotification(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSignalSynchronizationObject(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObject(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSignalSynchronizationObject2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObject2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSignalSynchronizationObjectFromCpu(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObjectFromCpu(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSignalSynchronizationObjectFromGpu(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObjectFromGpu(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSignalSynchronizationObjectFromGpu2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSignalSynchronizationObjectFromGpu2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSubmitCommand(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitCommand(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSubmitCommandToHwQueue(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitCommandToHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSubmitPresentBltToHwQueue(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitPresentBltToHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSubmitPresentToHwQueue(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitPresentToHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSubmitSignalSyncObjectsToHwQueue(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitSignalSyncObjectsToHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTSubmitWaitForSyncObjectsToHwQueue(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTSubmitWaitForSyncObjectsToHwQueue(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTTrimProcessCommitment(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTTrimProcessCommitment(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTUnlock(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTUnlock(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTUnlock2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTUnlock2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTUnregisterTrimNotification(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTUnregisterTrimNotification(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTUpdateAllocationProperty(param0: MutPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTUpdateAllocationProperty(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTUpdateGpuVirtualAddress(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTUpdateGpuVirtualAddress(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTUpdateOverlay(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTUpdateOverlay(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTWaitForIdle(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForIdle(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTWaitForSynchronizationObject(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObject(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTWaitForSynchronizationObject2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObject2(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTWaitForSynchronizationObjectFromCpu(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObjectFromCpu(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTWaitForSynchronizationObjectFromGpu(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForSynchronizationObjectFromGpu(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTWaitForVerticalBlankEvent(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForVerticalBlankEvent(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun d3DKMTWaitForVerticalBlankEvent2(param0: ConstPtr): Ntstatus =
+    windowssysWindowsWdkGraphicsDirect3dD3DKMTWaitForVerticalBlankEvent2(param0.rawAddress.toCPointer<ByteVar>())

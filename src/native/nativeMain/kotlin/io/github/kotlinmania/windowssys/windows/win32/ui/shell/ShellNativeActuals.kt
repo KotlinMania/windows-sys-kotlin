@@ -1,0 +1,2837 @@
+@file:OptIn(kotlinx.cinterop.ExperimentalForeignApi::class, kotlin.ExperimentalUnsignedTypes::class)
+
+package io.github.kotlinmania.windowssys.windows.win32.ui.shell
+
+import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
+import io.github.kotlinmania.rustlang.core.ptr.MutPtr
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.Dropeffect
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocCreateForClasses
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocGetDetailsOfPropKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocGetPerceivedType
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocIsDangerous
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocQueryKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocQueryKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocQueryStringA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocQueryStringByKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocQueryStringByKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellAssocQueryStringW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellCdefFolderMenuCreate2
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellChrCmpIA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellChrCmpIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellCidldataCreateFromIdarray
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellColorAdjustLuma
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellColorHLSToRGB
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellColorRGBToHLS
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellCommandLineToArgvW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellConnectToConnectionPoint
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellCreateProfile
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDadAutoScroll
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDadDragLeave
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDadSetDragImage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDadShowDragImage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDefSubclassProc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDeleteProfileA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDeleteProfileW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDoEnvironmentSubstA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDoEnvironmentSubstW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDragAcceptFiles
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDragFinish
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDragQueryFileA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDragQueryFileW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDragQueryPoint
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDriveType
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellDuplicateIcon
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractAssociatedIconA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractAssociatedIconExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractAssociatedIconExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractAssociatedIconW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractIconA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractIconExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractIconExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellExtractIconW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellFindExecutableA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellFindExecutableW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetAcceptLanguagesA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetAcceptLanguagesW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetAllUsersProfileDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetAllUsersProfileDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetCurrentProcessExplicitAppUserModelID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetDpiForShellUIComponent
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetFileNameFromBrowse
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetMenuContextHelpId
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetMenuPosFromID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetProfileType
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetProfilesDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetProfilesDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetScaleFactorForDevice
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetScaleFactorForMonitor
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetUserProfileDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetUserProfileDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetWindowContextHelpId
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellGetWindowSubclass
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHashData
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkClone
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateBrowseContext
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateExtensionServices
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateFromData
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateFromMoniker
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateFromString
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateShortcut
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateShortcutFromMoniker
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkCreateShortcutFromString
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkGetSpecialReference
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkGetValueFromParams
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkIsShortcut
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkNavigate
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkNavigateToStringReference
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkOnNavigate
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkOnRenameDocument
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkParseDisplayName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkPreprocessMoniker
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkQueryCreateFromData
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkResolveMonikerForData
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkResolveShortcut
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkResolveShortcutToMoniker
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkResolveShortcutToString
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkResolveStringForData
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkSetSpecialReference
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkTranslateURL
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHlinkUpdateStackItem
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserFree
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserFree64
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserMarshal
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserMarshal64
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserSize
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserSize64
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserUnmarshal
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellHmonitorUserUnmarshal64
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILAppendID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILClone
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILCloneFirst
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILCombine
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILCreateFromPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILCreateFromPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILFindChild
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILFindLastID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILFree
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILGetNext
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILGetSize
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILIsEqual
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILIsParent
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILLoadFromStreamEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILRemoveLastID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellILSaveToStream
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellImportPrivacySettings
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellInitNetworkAddressControl
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellInitPropVariantFromStrRet
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellInitVariantFromStrRet
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIntlStrEqWorkerA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIntlStrEqWorkerW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsCharSpaceA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsCharSpaceW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsInternetESCEnabled
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsLFNDriveA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsLFNDriveW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsNetDrive
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsOS
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIsUserAnAdmin
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamCopy
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamRead
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamReadPidl
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamReadStr
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamReset
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamSize
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamWrite
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamWritePidl
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIstreamWriteStr
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIunknownAtomicRelease
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIunknownGetSite
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIunknownGetWindow
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIunknownQueryService
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIunknownSet
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellIunknownSetSite
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellLoadUserProfileA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellLoadUserProfileW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellOleSaveToStreamEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellOpenRegStream
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellParseURLA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellParseURLW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAddBackslashA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAddBackslashW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAddExtensionA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAddExtensionW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAllocCanonicalize
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAllocCombine
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAppendA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathAppendW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathBuildRootA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathBuildRootW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCanonicalizeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCanonicalizeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchAddBackslash
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchAddBackslashEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchAddExtension
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchAppend
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchAppendEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchCanonicalize
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchCanonicalizeEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchCombine
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchCombineEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchFindExtension
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchIsRoot
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchRemoveBackslash
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchRemoveBackslashEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchRemoveExtension
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchRemoveFileSpec
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchRenameExtension
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchSkipRoot
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchStripPrefix
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCchStripToRoot
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCleanupSpec
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCombineA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCombineW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCommonPrefixA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCommonPrefixW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCompactPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCompactPathExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCompactPathExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCompactPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCreateFromUrlA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCreateFromUrlAlloc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathCreateFromUrlW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFileExistsA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFileExistsW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindExtensionA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindExtensionW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindFileNameA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindFileNameW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindNextComponentA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindNextComponentW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindOnPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindOnPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindSuffixArrayA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathFindSuffixArrayW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathGetArgsA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathGetArgsW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathGetCharTypeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathGetCharTypeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathGetDriveNumberA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathGetDriveNumberW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathGetShortPath
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsContentTypeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsContentTypeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsDirectoryA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsDirectoryEmptyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsDirectoryEmptyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsExe
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsFileSpecA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsFileSpecW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsLFNFileSpecA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsLFNFileSpecW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsNetworkPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsNetworkPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsPrefixA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsPrefixW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsRelativeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsRelativeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsRootA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsRootW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsSameRootA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsSameRootW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsSlowA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsSlowW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsSystemFolderA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsSystemFolderW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsUNCA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsUNCEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsUNCServerA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsUNCServerShareA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsUNCServerShareW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsUNCServerW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsUNCW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsURLA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathIsURLW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMakePrettyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMakePrettyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMakeSystemFolderA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMakeSystemFolderW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMakeUniqueName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMatchSpecA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMatchSpecExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMatchSpecExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathMatchSpecW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathParseIconLocationA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathParseIconLocationW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathQualify
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathQuoteSpacesA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathQuoteSpacesW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRelativePathToA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRelativePathToW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveArgsA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveArgsW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveBackslashA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveBackslashW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveBlanksA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveBlanksW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveExtensionA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveExtensionW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveFileSpecA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRemoveFileSpecW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRenameExtensionA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathRenameExtensionW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathResolve
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathSearchAndQualifyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathSearchAndQualifyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathSetDlgItemPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathSetDlgItemPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathSkipRootA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathSkipRootW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathStripPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathStripPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathStripToRootA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathStripToRootW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUnExpandEnvStringsA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUnExpandEnvStringsW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUndecorateA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUndecorateW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUnmakeSystemFolderA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUnmakeSystemFolderW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUnquoteSpacesA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathUnquoteSpacesW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPathYetAnotherMakeUniqueName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPickIconDlg
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellPropVariantToStrRet
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellQISearch
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellReadCabinetState
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRealDriveType
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRegisterAppConstrainedChangeNotification
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRegisterAppStateChangeNotification
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRegisterScaleChangeEvent
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRegisterScaleChangeNotifications
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRemoveWindowSubclass
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRestartDialog
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRestartDialogEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellRevokeScaleChangeNotifications
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAddToRecentDocs
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAlloc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAllocShared
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAnsiToAnsi
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAnsiToUnicode
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAppBarMessage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAssocEnumHandlers
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAssocEnumHandlersForProtocolByApplication
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHAutoComplete
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHBindToFolderIDListParent
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHBindToFolderIDListParentEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHBindToObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHBindToParent
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHBrowseForFolderA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHBrowseForFolderW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCLSIDFromString
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHChangeNotify
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHChangeNotifyDeregister
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHChangeNotifyRegister
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHChangeNotifyRegisterThread
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCloneSpecialIDList
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCoCreateInstance
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCopyKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCopyKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateAssociationRegistration
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateDataObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateDefaultContextMenu
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateDefaultExtractIcon
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateDefaultPropertiesOp
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateDirectory
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateDirectoryExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateDirectoryExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateFileExtractIconW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateItemFromIDList
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateItemFromParsingName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateItemFromRelativeName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateItemInKnownFolder
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateItemWithParent
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateMemStream
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateProcessAsUserW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreatePropSheetExtArray
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateQueryCancelAutoPlayMoniker
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellFolderView
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellFolderViewEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellItem
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellItemArray
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellItemArrayFromDataObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellItemArrayFromIDLists
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellItemArrayFromShellItem
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateShellPalette
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateStdEnumFmtEtc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateStreamOnFileA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateStreamOnFileEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateStreamOnFileW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateThread
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateThreadRef
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHCreateThreadWithHandle
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDefExtractIconA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDefExtractIconW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDeleteEmptyKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDeleteEmptyKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDeleteKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDeleteKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDeleteValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDeleteValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDestroyPropSheetExtArray
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHDoDragDrop
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEmptyRecycleBinA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEmptyRecycleBinW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEnumKeyExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEnumKeyExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEnumValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEnumValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEnumerateUnreadMailAccountsW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHEvaluateSystemCommandTemplate
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFileOperationA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFileOperationW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFindFiles
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFlushSFCache
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFormatDateTimeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFormatDateTimeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFormatDrive
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFree
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFreeNameMappings
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHFreeShared
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetAttributesFromDataObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetDataFromIDListA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetDataFromIDListW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetDesktopFolder
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetDiskFreeSpaceExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetDiskFreeSpaceExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetDriveMedia
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetFileInfoA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetFileInfoW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetFolderLocation
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetFolderPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetFolderPathAndSubDirA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetFolderPathAndSubDirW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetFolderPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetIDListFromObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetIconOverlayIndexA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetIconOverlayIndexW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetImageList
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetInstanceExplorer
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetInverseCMAP
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetItemFromDataObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetItemFromObject
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetKnownFolderIDList
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetKnownFolderItem
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetKnownFolderPath
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetLocalizedName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetMalloc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetNameFromIDList
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetNewLinkInfoA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetNewLinkInfoW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetPathFromIDListA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetPathFromIDListEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetPathFromIDListW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetRealIDL
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetSetFolderCustomSettings
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetSetSettings
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetSettings
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetSpecialFolderLocation
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetSpecialFolderPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetSpecialFolderPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetStockIconInfo
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetTemporaryPropertyForItem
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetThreadRef
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetUnreadMailCountW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGetViewStatePropertyBag
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGlobalCounterDecrement
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGlobalCounterGetValue
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHGlobalCounterIncrement
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHHandleUpdateImage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHILCreateFromPath
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHInvokePrinterCommandA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHInvokePrinterCommandW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHIsFileAvailableOffline
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHIsLowMemoryMachine
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHLimitInputEdit
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHLoadInProc
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHLoadIndirectString
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHLoadNonloadedIconOverlayIdentifiers
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHLockShared
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHMapPIDLToSystemImageListIndex
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHMessageBoxCheckA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHMessageBoxCheckW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHMultiFileProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHObjectProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHOpenFolderAndSelectItems
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHOpenPropSheetW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHOpenRegStream2A
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHOpenRegStream2W
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHOpenRegStreamA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHOpenRegStreamW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHOpenWithDialog
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHParseDisplayName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHPathPrepareForWriteA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHPathPrepareForWriteW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHQueryInfoKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHQueryInfoKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHQueryRecycleBinA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHQueryRecycleBinW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHQueryUserNotificationState
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHQueryValueExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHQueryValueExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegCloseUSKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegCreateUSKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegCreateUSKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegDeleteEmptyUSKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegDeleteEmptyUSKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegDeleteUSValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegDeleteUSValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegDuplicateHKey
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegEnumUSKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegEnumUSKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegEnumUSValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegEnumUSValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetBoolUSValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetBoolUSValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetIntW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetUSValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetUSValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetValueFromHKCUHKLM
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegGetValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegOpenUSKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegOpenUSKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegQueryInfoUSKeyA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegQueryInfoUSKeyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegQueryUSValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegQueryUSValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegSetPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegSetPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegSetUSValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegSetUSValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegWriteUSValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRegWriteUSValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHReleaseThreadRef
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRemoveLocalizedName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHResolveLibrary
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHRestricted
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSendMessageBroadcastA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSendMessageBroadcastW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetDefaultProperties
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetFolderPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetFolderPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetInstanceExplorer
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetKnownFolderPath
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetLocalizedName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetTemporaryPropertyForItem
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetThreadRef
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetUnreadMailCountW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetValueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSetValueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHShowManageLibraryUI
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSimpleIDListFromPath
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHSkipJunction
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHStartNetConnectionDialogW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHStrDupA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHStrDupW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHStripMneumonicA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHStripMneumonicW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHTestTokenMembership
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHUnicodeToAnsi
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHUnicodeToUnicode
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHUnlockShared
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHUpdateImageA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHUpdateImageW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSHValidateUNC
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSetCurrentProcessExplicitAppUserModelID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSetMenuContextHelpId
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSetWindowContextHelpId
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSetWindowSubclass
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShchangeNotificationLock
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShchangeNotificationUnlock
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellAboutA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellAboutW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellExecuteA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellExecuteExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellExecuteExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellExecuteW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellGetCachedImageIndex
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellGetCachedImageIndexA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellGetCachedImageIndexW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellGetImageLists
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellMergeMenus
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellMessageBoxA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellMessageBoxW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellNotifyIconA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellNotifyIconGetRect
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShellNotifyIconW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShfindInitMenuPopup
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellShshellFolderViewMessage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSignalFileOpen
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellSoftwareUpdateMessageBox
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStgMakeUniqueName
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCSpnA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCSpnIA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCSpnIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCSpnW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCatBuffA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCatBuffW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCatChainW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCatW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrChrA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrChrIA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrChrIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrChrNIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrChrNW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrChrW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpCA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpCW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpICA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpICW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpLogicalW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNCA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNCW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNIA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNICA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNICW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpNW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCmpW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCpyNW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrCpyW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrDupA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrDupW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFormatByteSize64A
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFormatByteSizeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFormatByteSizeEx
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFormatByteSizeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFormatKBSizeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFormatKBSizeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFromTimeIntervalA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrFromTimeIntervalW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrIsIntlEqualA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrIsIntlEqualW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrNCatA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrNCatW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrPBrkA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrPBrkW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRChrA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRChrIA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRChrIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRChrW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRStrIA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRStrIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRetToBSTR
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRetToBufA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRetToBufW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRetToStrA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrRetToStrW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrSpnA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrSpnW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrStrA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrStrIA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrStrIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrStrNIW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrStrNW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrStrW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrToInt64ExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrToInt64ExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrToIntA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrToIntExA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrToIntExW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrToIntW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrTrimA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellStrTrimW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUnloadUserProfile
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUnregisterAppConstrainedChangeNotification
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUnregisterAppStateChangeNotification
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUnregisterScaleChangeEvent
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlApplySchemeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlApplySchemeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCanonicalizeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCanonicalizeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCombineA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCombineW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCompareA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCompareW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCreateFromPathA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlCreateFromPathW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlEscapeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlEscapeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlFixupW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlGetLocationA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlGetLocationW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlGetPartA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlGetPartW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlHashA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlHashW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlIsA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlIsNoHistoryA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlIsNoHistoryW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlIsOpaqueA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlIsOpaqueW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlIsW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlUnescapeA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellUrlUnescapeW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellVariantToStrRet
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWhichPlatform
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWin32DeleteFile
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWinHelpA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWinHelpW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWnsprintfA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWnsprintfW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWriteCabinetState
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWvnsprintfA
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop.windowssysWindowsWin32UiShellWvnsprintfW
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.DeviceScaleFactor
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.ShowWindowCmd
+import kotlinx.cinterop.ByteVar
+import kotlinx.cinterop.toCPointer
+import kotlinx.cinterop.toLong
+
+public actual fun assocCreate(clsid: Guid, riid: ConstPtr, ppv: MutPtr): Hresult =
+    0
+
+public actual fun assocCreateForClasses(rgclasses: ConstPtr, cclasses: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocCreateForClasses(rgclasses.rawAddress.toCPointer<ByteVar>(), cclasses, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocGetDetailsOfPropKey(psf: MutPtr, pidl: ConstPtr, pkey: ConstPtr, pv: MutPtr, pffoundpropkey: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocGetDetailsOfPropKey(psf.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>(), pffoundpropkey.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocGetPerceivedType(pszext: Pcwstr, ptype: MutPtr, pflag: MutPtr, ppsztype: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocGetPerceivedType(pszext.rawAddress.toCPointer<ByteVar>(), ptype.rawAddress.toCPointer<ByteVar>(), pflag.rawAddress.toCPointer<ByteVar>(), ppsztype.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocIsDangerous(pszassoc: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellAssocIsDangerous(pszassoc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocQueryKeyA(flags: Assocf, key: Assockey, pszassoc: Pcstr, pszextra: Pcstr, phkeyout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocQueryKeyA(flags, key, pszassoc.rawAddress.toCPointer<ByteVar>(), pszextra.rawAddress.toCPointer<ByteVar>(), phkeyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocQueryKeyW(flags: Assocf, key: Assockey, pszassoc: Pcwstr, pszextra: Pcwstr, phkeyout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocQueryKeyW(flags, key, pszassoc.rawAddress.toCPointer<ByteVar>(), pszextra.rawAddress.toCPointer<ByteVar>(), phkeyout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocQueryStringA(flags: Assocf, str: Assocstr, pszassoc: Pcstr, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocQueryStringA(flags, str, pszassoc.rawAddress.toCPointer<ByteVar>(), pszextra.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocQueryStringByKeyA(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocQueryStringByKeyA(flags, str, hkassoc.rawAddress.toCPointer<ByteVar>(), pszextra.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocQueryStringByKeyW(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocQueryStringByKeyW(flags, str, hkassoc.rawAddress.toCPointer<ByteVar>(), pszextra.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun assocQueryStringW(flags: Assocf, str: Assocstr, pszassoc: Pcwstr, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellAssocQueryStringW(flags, str, pszassoc.rawAddress.toCPointer<ByteVar>(), pszextra.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun cdefFolderMenuCreate2(pidlfolder: ConstPtr, hwnd: Hwnd, cidl: UInt, apidl: ConstPtr, psf: MutPtr, pfn: Lpfndfmcallback, nkeys: UInt, ahkeys: ConstPtr, ppcm: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellCdefFolderMenuCreate2(pidlfolder.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), cidl, apidl.rawAddress.toCPointer<ByteVar>(), psf.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), nkeys, ahkeys.rawAddress.toCPointer<ByteVar>(), ppcm.rawAddress.toCPointer<ByteVar>())
+
+public actual fun cidldataCreateFromIdarray(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, ppdtobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellCidldataCreateFromIdarray(pidlfolder.rawAddress.toCPointer<ByteVar>(), cidl, apidl.rawAddress.toCPointer<ByteVar>(), ppdtobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun chrCmpIA(w1: UShort, w2: UShort): Bool =
+    windowssysWindowsWin32UiShellChrCmpIA(w1, w2)
+
+public actual fun chrCmpIW(w1: UShort, w2: UShort): Bool =
+    windowssysWindowsWin32UiShellChrCmpIW(w1, w2)
+
+public actual fun colorAdjustLuma(clrrgb: Colorref, n: Int, fscale: Bool): Colorref =
+    windowssysWindowsWin32UiShellColorAdjustLuma(clrrgb, n, fscale)
+
+public actual fun colorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): Colorref =
+    windowssysWindowsWin32UiShellColorHLSToRGB(whue, wluminance, wsaturation)
+
+public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: MutPtr, pwluminance: MutPtr, pwsaturation: MutPtr) {
+    windowssysWindowsWin32UiShellColorRGBToHLS(clrrgb, pwhue.rawAddress.toCPointer<ByteVar>(), pwluminance.rawAddress.toCPointer<ByteVar>(), pwsaturation.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: MutPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellCommandLineToArgvW(lpcmdline.rawAddress.toCPointer<ByteVar>(), pnumargs.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun connectToConnectionPoint(punk: MutPtr, riidevent: ConstPtr, fconnect: Bool, punktarget: MutPtr, pdwcookie: MutPtr, ppcpout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellConnectToConnectionPoint(punk.rawAddress.toCPointer<ByteVar>(), riidevent.rawAddress.toCPointer<ByteVar>(), fconnect, punktarget.rawAddress.toCPointer<ByteVar>(), pdwcookie.rawAddress.toCPointer<ByteVar>(), ppcpout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun createProfile(pszusersid: Pcwstr, pszusername: Pcwstr, pszprofilepath: Pwstr, cchprofilepath: UInt): Hresult =
+    windowssysWindowsWin32UiShellCreateProfile(pszusersid.rawAddress.toCPointer<ByteVar>(), pszusername.rawAddress.toCPointer<ByteVar>(), pszprofilepath.rawAddress.toCPointer<ByteVar>(), cchprofilepath)
+
+public actual fun dadAutoScroll(hwnd: Hwnd, pad: MutPtr, pptnow: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellDadAutoScroll(hwnd.rawAddress.toCPointer<ByteVar>(), pad.rawAddress.toCPointer<ByteVar>(), pptnow.rawAddress.toCPointer<ByteVar>())
+
+public actual fun dadDragEnterEx(hwndtarget: Hwnd, ptstart: Point): Bool =
+    0
+
+public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: MutPtr): Bool =
+    0
+
+public actual fun dadDragLeave(): Bool =
+    windowssysWindowsWin32UiShellDadDragLeave()
+
+public actual fun dadDragMove(pt: Point): Bool =
+    0
+
+public actual fun dadSetDragImage(him: Himagelist, pptoffset: MutPtr): Bool =
+    windowssysWindowsWin32UiShellDadSetDragImage(him, pptoffset.rawAddress.toCPointer<ByteVar>())
+
+public actual fun dadShowDragImage(fshow: Bool): Bool =
+    windowssysWindowsWin32UiShellDadShowDragImage(fshow)
+
+public actual fun defSubclassProc(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    windowssysWindowsWin32UiShellDefSubclassProc(hwnd.rawAddress.toCPointer<ByteVar>(), umsg, wparam, lparam)
+
+public actual fun deleteProfileA(lpsidstring: Pcstr, lpprofilepath: Pcstr, lpcomputername: Pcstr): Bool =
+    windowssysWindowsWin32UiShellDeleteProfileA(lpsidstring.rawAddress.toCPointer<ByteVar>(), lpprofilepath.rawAddress.toCPointer<ByteVar>(), lpcomputername.rawAddress.toCPointer<ByteVar>())
+
+public actual fun deleteProfileW(lpsidstring: Pcwstr, lpprofilepath: Pcwstr, lpcomputername: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellDeleteProfileW(lpsidstring.rawAddress.toCPointer<ByteVar>(), lpprofilepath.rawAddress.toCPointer<ByteVar>(), lpcomputername.rawAddress.toCPointer<ByteVar>())
+
+public actual fun doEnvironmentSubstA(pszsrc: Pstr, cchsrc: UInt): UInt =
+    windowssysWindowsWin32UiShellDoEnvironmentSubstA(pszsrc.rawAddress.toCPointer<ByteVar>(), cchsrc)
+
+public actual fun doEnvironmentSubstW(pszsrc: Pwstr, cchsrc: UInt): UInt =
+    windowssysWindowsWin32UiShellDoEnvironmentSubstW(pszsrc.rawAddress.toCPointer<ByteVar>(), cchsrc)
+
+public actual fun dragAcceptFiles(hwnd: Hwnd, faccept: Bool) {
+    windowssysWindowsWin32UiShellDragAcceptFiles(hwnd.rawAddress.toCPointer<ByteVar>(), faccept)
+}
+
+public actual fun dragFinish(hdrop: Hdrop) {
+    windowssysWindowsWin32UiShellDragFinish(hdrop.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun dragQueryFileA(hdrop: Hdrop, ifile: UInt, lpszfile: Pstr, cch: UInt): UInt =
+    windowssysWindowsWin32UiShellDragQueryFileA(hdrop.rawAddress.toCPointer<ByteVar>(), ifile, lpszfile.rawAddress.toCPointer<ByteVar>(), cch)
+
+public actual fun dragQueryFileW(hdrop: Hdrop, ifile: UInt, lpszfile: Pwstr, cch: UInt): UInt =
+    windowssysWindowsWin32UiShellDragQueryFileW(hdrop.rawAddress.toCPointer<ByteVar>(), ifile, lpszfile.rawAddress.toCPointer<ByteVar>(), cch)
+
+public actual fun dragQueryPoint(hdrop: Hdrop, ppt: MutPtr): Bool =
+    windowssysWindowsWin32UiShellDragQueryPoint(hdrop.rawAddress.toCPointer<ByteVar>(), ppt.rawAddress.toCPointer<ByteVar>())
+
+public actual fun driveType(idrive: Int): Int =
+    windowssysWindowsWin32UiShellDriveType(idrive)
+
+public actual fun duplicateIcon(hinst: Hinstance, hicon: Hicon): Hicon =
+    MutPtr(windowssysWindowsWin32UiShellDuplicateIcon(hinst.rawAddress.toCPointer<ByteVar>(), hicon.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun extractAssociatedIconA(hinst: Hinstance, psziconpath: Pstr, piicon: MutPtr): Hicon =
+    MutPtr(windowssysWindowsWin32UiShellExtractAssociatedIconA(hinst.rawAddress.toCPointer<ByteVar>(), psziconpath.rawAddress.toCPointer<ByteVar>(), piicon.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun extractAssociatedIconExA(hinst: Hinstance, psziconpath: Pstr, piiconindex: MutPtr, piiconid: MutPtr): Hicon =
+    MutPtr(windowssysWindowsWin32UiShellExtractAssociatedIconExA(hinst.rawAddress.toCPointer<ByteVar>(), psziconpath.rawAddress.toCPointer<ByteVar>(), piiconindex.rawAddress.toCPointer<ByteVar>(), piiconid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun extractAssociatedIconExW(hinst: Hinstance, psziconpath: Pwstr, piiconindex: MutPtr, piiconid: MutPtr): Hicon =
+    MutPtr(windowssysWindowsWin32UiShellExtractAssociatedIconExW(hinst.rawAddress.toCPointer<ByteVar>(), psziconpath.rawAddress.toCPointer<ByteVar>(), piiconindex.rawAddress.toCPointer<ByteVar>(), piiconid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun extractAssociatedIconW(hinst: Hinstance, psziconpath: Pwstr, piicon: MutPtr): Hicon =
+    MutPtr(windowssysWindowsWin32UiShellExtractAssociatedIconW(hinst.rawAddress.toCPointer<ByteVar>(), psziconpath.rawAddress.toCPointer<ByteVar>(), piicon.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun extractIconA(hinst: Hinstance, pszexefilename: Pcstr, niconindex: UInt): Hicon =
+    MutPtr(windowssysWindowsWin32UiShellExtractIconA(hinst.rawAddress.toCPointer<ByteVar>(), pszexefilename.rawAddress.toCPointer<ByteVar>(), niconindex)?.toLong() ?: 0L)
+
+public actual fun extractIconExA(lpszfile: Pcstr, niconindex: Int, phiconlarge: MutPtr, phiconsmall: MutPtr, nicons: UInt): UInt =
+    windowssysWindowsWin32UiShellExtractIconExA(lpszfile.rawAddress.toCPointer<ByteVar>(), niconindex, phiconlarge.rawAddress.toCPointer<ByteVar>(), phiconsmall.rawAddress.toCPointer<ByteVar>(), nicons)
+
+public actual fun extractIconExW(lpszfile: Pcwstr, niconindex: Int, phiconlarge: MutPtr, phiconsmall: MutPtr, nicons: UInt): UInt =
+    windowssysWindowsWin32UiShellExtractIconExW(lpszfile.rawAddress.toCPointer<ByteVar>(), niconindex, phiconlarge.rawAddress.toCPointer<ByteVar>(), phiconsmall.rawAddress.toCPointer<ByteVar>(), nicons)
+
+public actual fun extractIconW(hinst: Hinstance, pszexefilename: Pcwstr, niconindex: UInt): Hicon =
+    MutPtr(windowssysWindowsWin32UiShellExtractIconW(hinst.rawAddress.toCPointer<ByteVar>(), pszexefilename.rawAddress.toCPointer<ByteVar>(), niconindex)?.toLong() ?: 0L)
+
+public actual fun findExecutableA(lpfile: Pcstr, lpdirectory: Pcstr, lpresult: Pstr): Hinstance =
+    MutPtr(windowssysWindowsWin32UiShellFindExecutableA(lpfile.rawAddress.toCPointer<ByteVar>(), lpdirectory.rawAddress.toCPointer<ByteVar>(), lpresult.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun findExecutableW(lpfile: Pcwstr, lpdirectory: Pcwstr, lpresult: Pwstr): Hinstance =
+    MutPtr(windowssysWindowsWin32UiShellFindExecutableW(lpfile.rawAddress.toCPointer<ByteVar>(), lpdirectory.rawAddress.toCPointer<ByteVar>(), lpresult.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun getAcceptLanguagesA(pszlanguages: Pstr, pcchlanguages: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellGetAcceptLanguagesA(pszlanguages.rawAddress.toCPointer<ByteVar>(), pcchlanguages.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getAcceptLanguagesW(pszlanguages: Pwstr, pcchlanguages: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellGetAcceptLanguagesW(pszlanguages.rawAddress.toCPointer<ByteVar>(), pcchlanguages.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getAllUsersProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetAllUsersProfileDirectoryA(lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getAllUsersProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetAllUsersProfileDirectoryW(lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getCurrentProcessExplicitAppUserModelID(appid: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellGetCurrentProcessExplicitAppUserModelID(appid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getDefaultUserProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryA(lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getDefaultUserProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryW(lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getDpiForShellUIComponent(param0: ShellUiComponent): UInt =
+    windowssysWindowsWin32UiShellGetDpiForShellUIComponent(param0)
+
+public actual fun getFileNameFromBrowse(hwnd: Hwnd, pszfilepath: Pwstr, cchfilepath: UInt, pszworkingdir: Pcwstr, pszdefext: Pcwstr, pszfilters: Pcwstr, psztitle: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellGetFileNameFromBrowse(hwnd.rawAddress.toCPointer<ByteVar>(), pszfilepath.rawAddress.toCPointer<ByteVar>(), cchfilepath, pszworkingdir.rawAddress.toCPointer<ByteVar>(), pszdefext.rawAddress.toCPointer<ByteVar>(), pszfilters.rawAddress.toCPointer<ByteVar>(), psztitle.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getMenuContextHelpId(param0: Hmenu): UInt =
+    windowssysWindowsWin32UiShellGetMenuContextHelpId(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getMenuPosFromID(hmenu: Hmenu, id: UInt): Int =
+    windowssysWindowsWin32UiShellGetMenuPosFromID(hmenu.rawAddress.toCPointer<ByteVar>(), id)
+
+public actual fun getProfileType(dwflags: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetProfileType(dwflags.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getProfilesDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetProfilesDirectoryA(lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetProfilesDirectoryW(lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getScaleFactorForDevice(devicetype: DisplayDeviceType): DeviceScaleFactor =
+    windowssysWindowsWin32UiShellGetScaleFactorForDevice(devicetype)
+
+public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellGetScaleFactorForMonitor(hmon.rawAddress.toCPointer<ByteVar>(), pscale.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getUserProfileDirectoryA(htoken: Handle, lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetUserProfileDirectoryA(htoken.rawAddress.toCPointer<ByteVar>(), lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getUserProfileDirectoryW(htoken: Handle, lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetUserProfileDirectoryW(htoken.rawAddress.toCPointer<ByteVar>(), lpprofiledir.rawAddress.toCPointer<ByteVar>(), lpcchsize.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getWindowContextHelpId(param0: Hwnd): UInt =
+    windowssysWindowsWin32UiShellGetWindowContextHelpId(param0.rawAddress.toCPointer<ByteVar>())
+
+public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: MutPtr): Bool =
+    windowssysWindowsWin32UiShellGetWindowSubclass(hwnd.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), uidsubclass, pdwrefdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hmonitorUserFree(param0: ConstPtr, param1: ConstPtr) {
+    windowssysWindowsWin32UiShellHmonitorUserFree(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun hmonitorUserFree64(param0: ConstPtr, param1: ConstPtr) {
+    windowssysWindowsWin32UiShellHmonitorUserFree64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun hmonitorUserMarshal(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellHmonitorUserMarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun hmonitorUserMarshal64(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellHmonitorUserMarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun hmonitorUserSize(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
+    windowssysWindowsWin32UiShellHmonitorUserSize(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hmonitorUserSize64(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
+    windowssysWindowsWin32UiShellHmonitorUserSize64(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hmonitorUserUnmarshal(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellHmonitorUserUnmarshal(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun hmonitorUserUnmarshal64(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellHmonitorUserUnmarshal64(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun hashData(pbdata: ConstPtr, cbdata: UInt, pbhash: MutPtr, cbhash: UInt): Hresult =
+    windowssysWindowsWin32UiShellHashData(pbdata.rawAddress.toCPointer<ByteVar>(), cbdata, pbhash.rawAddress.toCPointer<ByteVar>(), cbhash)
+
+public actual fun hlinkClone(pihl: MutPtr, riid: ConstPtr, pihlsiteforclone: MutPtr, dwsitedata: UInt, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkClone(pihl.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), pihlsiteforclone.rawAddress.toCPointer<ByteVar>(), dwsitedata, ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkCreateBrowseContext(piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateBrowseContext(piunkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkCreateExtensionServices(pwzadditionalheaders: Pcwstr, phwnd: Hwnd, pszusername: Pcwstr, pszpassword: Pcwstr, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateExtensionServices(pwzadditionalheaders.rawAddress.toCPointer<ByteVar>(), phwnd.rawAddress.toCPointer<ByteVar>(), pszusername.rawAddress.toCPointer<ByteVar>(), pszpassword.rawAddress.toCPointer<ByteVar>(), piunkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkCreateFromData(pidataobj: MutPtr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateFromData(pidataobj.rawAddress.toCPointer<ByteVar>(), pihlsite.rawAddress.toCPointer<ByteVar>(), dwsitedata, piunkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkCreateFromMoniker(pimktrgt: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateFromMoniker(pimktrgt.rawAddress.toCPointer<ByteVar>(), pwzlocation.rawAddress.toCPointer<ByteVar>(), pwzfriendlyname.rawAddress.toCPointer<ByteVar>(), pihlsite.rawAddress.toCPointer<ByteVar>(), dwsitedata, piunkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkCreateFromString(pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateFromString(pwztarget.rawAddress.toCPointer<ByteVar>(), pwzlocation.rawAddress.toCPointer<ByteVar>(), pwzfriendlyname.rawAddress.toCPointer<ByteVar>(), pihlsite.rawAddress.toCPointer<ByteVar>(), dwsitedata, piunkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkCreateShortcut(grfhlshortcutf: UInt, pihl: MutPtr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateShortcut(grfhlshortcutf, pihl.rawAddress.toCPointer<ByteVar>(), pwzdir.rawAddress.toCPointer<ByteVar>(), pwzfilename.rawAddress.toCPointer<ByteVar>(), ppwzshortcutfile.rawAddress.toCPointer<ByteVar>(), dwreserved)
+
+public actual fun hlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: MutPtr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateShortcutFromMoniker(grfhlshortcutf, pimktarget.rawAddress.toCPointer<ByteVar>(), pwzlocation.rawAddress.toCPointer<ByteVar>(), pwzdir.rawAddress.toCPointer<ByteVar>(), pwzfilename.rawAddress.toCPointer<ByteVar>(), ppwzshortcutfile.rawAddress.toCPointer<ByteVar>(), dwreserved)
+
+public actual fun hlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
+    windowssysWindowsWin32UiShellHlinkCreateShortcutFromString(grfhlshortcutf, pwztarget.rawAddress.toCPointer<ByteVar>(), pwzlocation.rawAddress.toCPointer<ByteVar>(), pwzdir.rawAddress.toCPointer<ByteVar>(), pwzfilename.rawAddress.toCPointer<ByteVar>(), ppwzshortcutfile.rawAddress.toCPointer<ByteVar>(), dwreserved)
+
+public actual fun hlinkGetSpecialReference(ureference: UInt, ppwzreference: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkGetSpecialReference(ureference, ppwzreference.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkGetValueFromParams(pwzparams: Pcwstr, pwzname: Pcwstr, ppwzvalue: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkGetValueFromParams(pwzparams.rawAddress.toCPointer<ByteVar>(), pwzname.rawAddress.toCPointer<ByteVar>(), ppwzvalue.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkIsShortcut(pwzfilename: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellHlinkIsShortcut(pwzfilename.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkNavigate(pihl: MutPtr, pihlframe: MutPtr, grfhlnf: UInt, pbc: MutPtr, pibsc: MutPtr, pihlbc: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkNavigate(pihl.rawAddress.toCPointer<ByteVar>(), pihlframe.rawAddress.toCPointer<ByteVar>(), grfhlnf, pbc.rawAddress.toCPointer<ByteVar>(), pibsc.rawAddress.toCPointer<ByteVar>(), pihlbc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkNavigateToStringReference(pwztarget: Pcwstr, pwzlocation: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, pihlframe: MutPtr, grfhlnf: UInt, pibc: MutPtr, pibsc: MutPtr, pihlbc: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkNavigateToStringReference(pwztarget.rawAddress.toCPointer<ByteVar>(), pwzlocation.rawAddress.toCPointer<ByteVar>(), pihlsite.rawAddress.toCPointer<ByteVar>(), dwsitedata, pihlframe.rawAddress.toCPointer<ByteVar>(), grfhlnf, pibc.rawAddress.toCPointer<ByteVar>(), pibsc.rawAddress.toCPointer<ByteVar>(), pihlbc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkOnNavigate(pihlframe: MutPtr, pihlbc: MutPtr, grfhlnf: UInt, pimktarget: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, puhlid: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkOnNavigate(pihlframe.rawAddress.toCPointer<ByteVar>(), pihlbc.rawAddress.toCPointer<ByteVar>(), grfhlnf, pimktarget.rawAddress.toCPointer<ByteVar>(), pwzlocation.rawAddress.toCPointer<ByteVar>(), pwzfriendlyname.rawAddress.toCPointer<ByteVar>(), puhlid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkOnRenameDocument(dwreserved: UInt, pihlbc: MutPtr, pimkold: MutPtr, pimknew: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkOnRenameDocument(dwreserved, pihlbc.rawAddress.toCPointer<ByteVar>(), pimkold.rawAddress.toCPointer<ByteVar>(), pimknew.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkParseDisplayName(pibc: MutPtr, pwzdisplayname: Pcwstr, fnoforceabs: Bool, pccheaten: MutPtr, ppimk: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkParseDisplayName(pibc.rawAddress.toCPointer<ByteVar>(), pwzdisplayname.rawAddress.toCPointer<ByteVar>(), fnoforceabs, pccheaten.rawAddress.toCPointer<ByteVar>(), ppimk.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkPreprocessMoniker(pibc: MutPtr, pimkin: MutPtr, ppimkout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkPreprocessMoniker(pibc.rawAddress.toCPointer<ByteVar>(), pimkin.rawAddress.toCPointer<ByteVar>(), ppimkout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkQueryCreateFromData(pidataobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkQueryCreateFromData(pidataobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkResolveMonikerForData(pimkreference: MutPtr, reserved: UInt, pibc: MutPtr, cfmtetc: UInt, rgfmtetc: MutPtr, pibsc: MutPtr, pimkbase: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkResolveMonikerForData(pimkreference.rawAddress.toCPointer<ByteVar>(), reserved, pibc.rawAddress.toCPointer<ByteVar>(), cfmtetc, rgfmtetc.rawAddress.toCPointer<ByteVar>(), pibsc.rawAddress.toCPointer<ByteVar>(), pimkbase.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkResolveShortcut(pwzshortcutfilename: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkResolveShortcut(pwzshortcutfilename.rawAddress.toCPointer<ByteVar>(), pihlsite.rawAddress.toCPointer<ByteVar>(), dwsitedata, piunkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkResolveShortcutToMoniker(pwzshortcutfilename: Pcwstr, ppimktarget: MutPtr, ppwzlocation: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkResolveShortcutToMoniker(pwzshortcutfilename.rawAddress.toCPointer<ByteVar>(), ppimktarget.rawAddress.toCPointer<ByteVar>(), ppwzlocation.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkResolveShortcutToString(pwzshortcutfilename: Pcwstr, ppwztarget: MutPtr, ppwzlocation: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkResolveShortcutToString(pwzshortcutfilename.rawAddress.toCPointer<ByteVar>(), ppwztarget.rawAddress.toCPointer<ByteVar>(), ppwzlocation.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkResolveStringForData(pwzreference: Pcwstr, reserved: UInt, pibc: MutPtr, cfmtetc: UInt, rgfmtetc: MutPtr, pibsc: MutPtr, pimkbase: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkResolveStringForData(pwzreference.rawAddress.toCPointer<ByteVar>(), reserved, pibc.rawAddress.toCPointer<ByteVar>(), cfmtetc, rgfmtetc.rawAddress.toCPointer<ByteVar>(), pibsc.rawAddress.toCPointer<ByteVar>(), pimkbase.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkSetSpecialReference(ureference: UInt, pwzreference: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellHlinkSetSpecialReference(ureference, pwzreference.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkTranslateURL(pwzurl: Pcwstr, grfflags: UInt, ppwztranslatedurl: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellHlinkTranslateURL(pwzurl.rawAddress.toCPointer<ByteVar>(), grfflags, ppwztranslatedurl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun hlinkUpdateStackItem(pihlframe: MutPtr, pihlbc: MutPtr, uhlid: UInt, pimktrgt: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellHlinkUpdateStackItem(pihlframe.rawAddress.toCPointer<ByteVar>(), pihlbc.rawAddress.toCPointer<ByteVar>(), uhlid, pimktrgt.rawAddress.toCPointer<ByteVar>(), pwzlocation.rawAddress.toCPointer<ByteVar>(), pwzfriendlyname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iLAppendID(pidl: ConstPtr, pmkid: ConstPtr, fappend: Bool): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILAppendID(pidl.rawAddress.toCPointer<ByteVar>(), pmkid.rawAddress.toCPointer<ByteVar>(), fappend)?.toLong() ?: 0L)
+
+public actual fun iLClone(pidl: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILClone(pidl.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLCloneFirst(pidl: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILCloneFirst(pidl.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLCombine(pidl1: ConstPtr, pidl2: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILCombine(pidl1.rawAddress.toCPointer<ByteVar>(), pidl2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLCreateFromPathA(pszpath: Pcstr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILCreateFromPathA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLCreateFromPathW(pszpath: Pcwstr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILCreateFromPathW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLFindChild(pidlparent: ConstPtr, pidlchild: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILFindChild(pidlparent.rawAddress.toCPointer<ByteVar>(), pidlchild.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLFindLastID(pidl: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILFindLastID(pidl.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLFree(pidl: ConstPtr) {
+    windowssysWindowsWin32UiShellILFree(pidl.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun iLGetNext(pidl: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellILGetNext(pidl.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun iLGetSize(pidl: ConstPtr): UInt =
+    windowssysWindowsWin32UiShellILGetSize(pidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iLIsEqual(pidl1: ConstPtr, pidl2: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellILIsEqual(pidl1.rawAddress.toCPointer<ByteVar>(), pidl2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iLIsParent(pidl1: ConstPtr, pidl2: ConstPtr, fimmediate: Bool): Bool =
+    windowssysWindowsWin32UiShellILIsParent(pidl1.rawAddress.toCPointer<ByteVar>(), pidl2.rawAddress.toCPointer<ByteVar>(), fimmediate)
+
+public actual fun iLLoadFromStreamEx(pstm: MutPtr, pidl: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellILLoadFromStreamEx(pstm.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iLRemoveLastID(pidl: MutPtr): Bool =
+    windowssysWindowsWin32UiShellILRemoveLastID(pidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iLSaveToStream(pstm: MutPtr, pidl: ConstPtr): Hresult =
+    windowssysWindowsWin32UiShellILSaveToStream(pstm.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun istreamCopy(pstmfrom: MutPtr, pstmto: MutPtr, cb: UInt): Hresult =
+    windowssysWindowsWin32UiShellIstreamCopy(pstmfrom.rawAddress.toCPointer<ByteVar>(), pstmto.rawAddress.toCPointer<ByteVar>(), cb)
+
+public actual fun istreamRead(pstm: MutPtr, pv: MutPtr, cb: UInt): Hresult =
+    windowssysWindowsWin32UiShellIstreamRead(pstm.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>(), cb)
+
+public actual fun istreamReadPidl(pstm: MutPtr, ppidlout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIstreamReadPidl(pstm.rawAddress.toCPointer<ByteVar>(), ppidlout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun istreamReadStr(pstm: MutPtr, ppsz: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIstreamReadStr(pstm.rawAddress.toCPointer<ByteVar>(), ppsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun istreamReset(pstm: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIstreamReset(pstm.rawAddress.toCPointer<ByteVar>())
+
+public actual fun istreamSize(pstm: MutPtr, pui: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIstreamSize(pstm.rawAddress.toCPointer<ByteVar>(), pui.rawAddress.toCPointer<ByteVar>())
+
+public actual fun istreamWrite(pstm: MutPtr, pv: ConstPtr, cb: UInt): Hresult =
+    windowssysWindowsWin32UiShellIstreamWrite(pstm.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>(), cb)
+
+public actual fun istreamWritePidl(pstm: MutPtr, pidlwrite: ConstPtr): Hresult =
+    windowssysWindowsWin32UiShellIstreamWritePidl(pstm.rawAddress.toCPointer<ByteVar>(), pidlwrite.rawAddress.toCPointer<ByteVar>())
+
+public actual fun istreamWriteStr(pstm: MutPtr, psz: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellIstreamWriteStr(pstm.rawAddress.toCPointer<ByteVar>(), psz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iunknownAtomicRelease(ppunk: MutPtr) {
+    windowssysWindowsWin32UiShellIunknownAtomicRelease(ppunk.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun iunknownGetSite(punk: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIunknownGetSite(punk.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iunknownGetWindow(punk: MutPtr, phwnd: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIunknownGetWindow(punk.rawAddress.toCPointer<ByteVar>(), phwnd.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iunknownQueryService(punk: MutPtr, guidservice: ConstPtr, riid: ConstPtr, ppvout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIunknownQueryService(punk.rawAddress.toCPointer<ByteVar>(), guidservice.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun iunknownSet(ppunk: MutPtr, punk: MutPtr) {
+    windowssysWindowsWin32UiShellIunknownSet(ppunk.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun iunknownSetSite(punk: MutPtr, punksite: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellIunknownSetSite(punk.rawAddress.toCPointer<ByteVar>(), punksite.rawAddress.toCPointer<ByteVar>())
+
+public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacypreferences: MutPtr, pfparsepersiterules: MutPtr): Bool =
+    windowssysWindowsWin32UiShellImportPrivacySettings(pszfilename.rawAddress.toCPointer<ByteVar>(), pfparseprivacypreferences.rawAddress.toCPointer<ByteVar>(), pfparsepersiterules.rawAddress.toCPointer<ByteVar>())
+
+public actual fun initNetworkAddressControl(): Bool =
+    windowssysWindowsWin32UiShellInitNetworkAddressControl()
+
+public actual fun initPropVariantFromStrRet(pstrret: MutPtr, pidl: ConstPtr, ppropvar: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellInitPropVariantFromStrRet(pstrret.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
+
+public actual fun initVariantFromStrRet(pstrret: ConstPtr, pidl: ConstPtr, pvar: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellInitVariantFromStrRet(pstrret.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), pvar.rawAddress.toCPointer<ByteVar>())
+
+public actual fun intlStrEqWorkerA(fcasesens: Bool, lpstring1: Pcstr, lpstring2: Pcstr, nchar: Int): Bool =
+    windowssysWindowsWin32UiShellIntlStrEqWorkerA(fcasesens, lpstring1.rawAddress.toCPointer<ByteVar>(), lpstring2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun intlStrEqWorkerW(fcasesens: Bool, lpstring1: Pcwstr, lpstring2: Pcwstr, nchar: Int): Bool =
+    windowssysWindowsWin32UiShellIntlStrEqWorkerW(fcasesens, lpstring1.rawAddress.toCPointer<ByteVar>(), lpstring2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun isCharSpaceA(wch: Byte): Bool =
+    windowssysWindowsWin32UiShellIsCharSpaceA(wch)
+
+public actual fun isCharSpaceW(wch: UShort): Bool =
+    windowssysWindowsWin32UiShellIsCharSpaceW(wch)
+
+public actual fun isInternetESCEnabled(): Bool =
+    windowssysWindowsWin32UiShellIsInternetESCEnabled()
+
+public actual fun isLFNDriveA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellIsLFNDriveA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun isLFNDriveW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellIsLFNDriveW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun isNetDrive(idrive: Int): Int =
+    windowssysWindowsWin32UiShellIsNetDrive(idrive)
+
+public actual fun isOS(dwos: OS): Bool =
+    windowssysWindowsWin32UiShellIsOS(dwos)
+
+public actual fun isUserAnAdmin(): Bool =
+    windowssysWindowsWin32UiShellIsUserAnAdmin()
+
+public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: MutPtr): Bool =
+    windowssysWindowsWin32UiShellLoadUserProfileA(htoken.rawAddress.toCPointer<ByteVar>(), lpprofileinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun loadUserProfileW(htoken: Handle, lpprofileinfo: MutPtr): Bool =
+    windowssysWindowsWin32UiShellLoadUserProfileW(htoken.rawAddress.toCPointer<ByteVar>(), lpprofileinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun oleSaveToStreamEx(piunk: MutPtr, pistm: MutPtr, fcleardirty: Bool): Hresult =
+    windowssysWindowsWin32UiShellOleSaveToStreamEx(piunk.rawAddress.toCPointer<ByteVar>(), pistm.rawAddress.toCPointer<ByteVar>(), fcleardirty)
+
+public actual fun openRegStream(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellOpenRegStream(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L)
+
+public actual fun parseURLA(pcszurl: Pcstr, ppu: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellParseURLA(pcszurl.rawAddress.toCPointer<ByteVar>(), ppu.rawAddress.toCPointer<ByteVar>())
+
+public actual fun parseURLW(pcszurl: Pcwstr, ppu: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellParseURLW(pcszurl.rawAddress.toCPointer<ByteVar>(), ppu.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathAddBackslashA(pszpath: Pstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathAddBackslashA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathAddBackslashW(pszpath: Pwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathAddBackslashW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathAddExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathAddExtensionA(pszpath.rawAddress.toCPointer<ByteVar>(), pszext.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathAddExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathAddExtensionW(pszpath.rawAddress.toCPointer<ByteVar>(), pszext.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathAllocCanonicalize(pszpathin: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellPathAllocCanonicalize(pszpathin.rawAddress.toCPointer<ByteVar>(), dwflags, ppszpathout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathAllocCombine(pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellPathAllocCombine(pszpathin.rawAddress.toCPointer<ByteVar>(), pszmore.rawAddress.toCPointer<ByteVar>(), dwflags, ppszpathout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathAppendA(pszpath: Pstr, pszmore: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathAppendA(pszpath.rawAddress.toCPointer<ByteVar>(), pszmore.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathAppendW(pszpath: Pwstr, pszmore: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathAppendW(pszpath.rawAddress.toCPointer<ByteVar>(), pszmore.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathBuildRootA(pszroot: Pstr, idrive: Int): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathBuildRootA(pszroot.rawAddress.toCPointer<ByteVar>(), idrive)?.toLong() ?: 0L)
+
+public actual fun pathBuildRootW(pszroot: Pwstr, idrive: Int): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathBuildRootW(pszroot.rawAddress.toCPointer<ByteVar>(), idrive)?.toLong() ?: 0L)
+
+public actual fun pathCanonicalizeA(pszbuf: Pstr, pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathCanonicalizeA(pszbuf.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCanonicalizeW(pszbuf: Pwstr, pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathCanonicalizeW(pszbuf.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchAddBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
+    windowssysWindowsWin32UiShellPathCchAddBackslash(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath)
+
+public actual fun pathCchAddBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr, pcchremaining: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellPathCchAddBackslashEx(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, ppszend.rawAddress.toCPointer<ByteVar>(), pcchremaining.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchAddExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellPathCchAddExtension(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, pszext.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchAppend(pszpath: Pwstr, cchpath: ULong, pszmore: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellPathCchAppend(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, pszmore.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchAppendEx(pszpath: Pwstr, cchpath: ULong, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
+    windowssysWindowsWin32UiShellPathCchAppendEx(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, pszmore.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathCchCanonicalize(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellPathCchCanonicalize(pszpathout.rawAddress.toCPointer<ByteVar>(), cchpathout, pszpathin.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchCanonicalizeEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, dwflags: PathcchOptions): Hresult =
+    windowssysWindowsWin32UiShellPathCchCanonicalizeEx(pszpathout.rawAddress.toCPointer<ByteVar>(), cchpathout, pszpathin.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathCchCombine(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellPathCchCombine(pszpathout.rawAddress.toCPointer<ByteVar>(), cchpathout, pszpathin.rawAddress.toCPointer<ByteVar>(), pszmore.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchCombineEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
+    windowssysWindowsWin32UiShellPathCchCombineEx(pszpathout.rawAddress.toCPointer<ByteVar>(), cchpathout, pszpathin.rawAddress.toCPointer<ByteVar>(), pszmore.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathCchFindExtension(pszpath: Pcwstr, cchpath: ULong, ppszext: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellPathCchFindExtension(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, ppszext.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchIsRoot(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathCchIsRoot(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchRemoveBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
+    windowssysWindowsWin32UiShellPathCchRemoveBackslash(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath)
+
+public actual fun pathCchRemoveBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr, pcchremaining: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellPathCchRemoveBackslashEx(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, ppszend.rawAddress.toCPointer<ByteVar>(), pcchremaining.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchRemoveExtension(pszpath: Pwstr, cchpath: ULong): Hresult =
+    windowssysWindowsWin32UiShellPathCchRemoveExtension(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath)
+
+public actual fun pathCchRemoveFileSpec(pszpath: Pwstr, cchpath: ULong): Hresult =
+    windowssysWindowsWin32UiShellPathCchRemoveFileSpec(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath)
+
+public actual fun pathCchRenameExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellPathCchRenameExtension(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, pszext.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchSkipRoot(pszpath: Pcwstr, ppszrootend: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellPathCchSkipRoot(pszpath.rawAddress.toCPointer<ByteVar>(), ppszrootend.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCchStripPrefix(pszpath: Pwstr, cchpath: ULong): Hresult =
+    windowssysWindowsWin32UiShellPathCchStripPrefix(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath)
+
+public actual fun pathCchStripToRoot(pszpath: Pwstr, cchpath: ULong): Hresult =
+    windowssysWindowsWin32UiShellPathCchStripToRoot(pszpath.rawAddress.toCPointer<ByteVar>(), cchpath)
+
+public actual fun pathCleanupSpec(pszdir: Pcwstr, pszspec: Pwstr): Int =
+    windowssysWindowsWin32UiShellPathCleanupSpec(pszdir.rawAddress.toCPointer<ByteVar>(), pszspec.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCombineA(pszdest: Pstr, pszdir: Pcstr, pszfile: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathCombineA(pszdest.rawAddress.toCPointer<ByteVar>(), pszdir.rawAddress.toCPointer<ByteVar>(), pszfile.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathCombineW(pszdest: Pwstr, pszdir: Pcwstr, pszfile: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathCombineW(pszdest.rawAddress.toCPointer<ByteVar>(), pszdir.rawAddress.toCPointer<ByteVar>(), pszfile.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathCommonPrefixA(pszfile1: Pcstr, pszfile2: Pcstr, achpath: Pstr): Int =
+    windowssysWindowsWin32UiShellPathCommonPrefixA(pszfile1.rawAddress.toCPointer<ByteVar>(), pszfile2.rawAddress.toCPointer<ByteVar>(), achpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCommonPrefixW(pszfile1: Pcwstr, pszfile2: Pcwstr, achpath: Pwstr): Int =
+    windowssysWindowsWin32UiShellPathCommonPrefixW(pszfile1.rawAddress.toCPointer<ByteVar>(), pszfile2.rawAddress.toCPointer<ByteVar>(), achpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathCompactPathA(hdc: Hdc, pszpath: Pstr, dx: UInt): Bool =
+    windowssysWindowsWin32UiShellPathCompactPathA(hdc.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), dx)
+
+public actual fun pathCompactPathExA(pszout: Pstr, pszsrc: Pcstr, cchmax: UInt, dwflags: UInt): Bool =
+    windowssysWindowsWin32UiShellPathCompactPathExA(pszout.rawAddress.toCPointer<ByteVar>(), pszsrc.rawAddress.toCPointer<ByteVar>(), cchmax, dwflags)
+
+public actual fun pathCompactPathExW(pszout: Pwstr, pszsrc: Pcwstr, cchmax: UInt, dwflags: UInt): Bool =
+    windowssysWindowsWin32UiShellPathCompactPathExW(pszout.rawAddress.toCPointer<ByteVar>(), pszsrc.rawAddress.toCPointer<ByteVar>(), cchmax, dwflags)
+
+public actual fun pathCompactPathW(hdc: Hdc, pszpath: Pwstr, dx: UInt): Bool =
+    windowssysWindowsWin32UiShellPathCompactPathW(hdc.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), dx)
+
+public actual fun pathCreateFromUrlA(pszurl: Pcstr, pszpath: Pstr, pcchpath: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellPathCreateFromUrlA(pszurl.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), pcchpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathCreateFromUrlAlloc(pszin: Pcwstr, ppszout: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellPathCreateFromUrlAlloc(pszin.rawAddress.toCPointer<ByteVar>(), ppszout.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathCreateFromUrlW(pszurl: Pcwstr, pszpath: Pwstr, pcchpath: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellPathCreateFromUrlW(pszurl.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), pcchpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathFileExistsA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathFileExistsA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathFileExistsW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathFileExistsW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathFindExtensionA(pszpath: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathFindExtensionA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathFindExtensionW(pszpath: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathFindExtensionW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathFindFileNameA(pszpath: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathFindFileNameA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathFindFileNameW(pszpath: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathFindFileNameW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathFindNextComponentA(pszpath: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathFindNextComponentA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathFindNextComponentW(pszpath: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathFindNextComponentW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathFindOnPathA(pszpath: Pstr, ppszotherdirs: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellPathFindOnPathA(pszpath.rawAddress.toCPointer<ByteVar>(), ppszotherdirs.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathFindOnPathW(pszpath: Pwstr, ppszotherdirs: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellPathFindOnPathW(pszpath.rawAddress.toCPointer<ByteVar>(), ppszotherdirs.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathFindSuffixArrayA(pszpath: Pcstr, apszsuffix: ConstPtr, iarraysize: Int): Pcstr =
+    ConstPtr(windowssysWindowsWin32UiShellPathFindSuffixArrayA(pszpath.rawAddress.toCPointer<ByteVar>(), apszsuffix.rawAddress.toCPointer<ByteVar>(), iarraysize)?.toLong() ?: 0L)
+
+public actual fun pathFindSuffixArrayW(pszpath: Pcwstr, apszsuffix: ConstPtr, iarraysize: Int): Pcwstr =
+    ConstPtr(windowssysWindowsWin32UiShellPathFindSuffixArrayW(pszpath.rawAddress.toCPointer<ByteVar>(), apszsuffix.rawAddress.toCPointer<ByteVar>(), iarraysize)?.toLong() ?: 0L)
+
+public actual fun pathGetArgsA(pszpath: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathGetArgsA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathGetArgsW(pszpath: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathGetArgsW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathGetCharTypeA(ch: UByte): UInt =
+    windowssysWindowsWin32UiShellPathGetCharTypeA(ch)
+
+public actual fun pathGetCharTypeW(ch: UShort): UInt =
+    windowssysWindowsWin32UiShellPathGetCharTypeW(ch)
+
+public actual fun pathGetDriveNumberA(pszpath: Pcstr): Int =
+    windowssysWindowsWin32UiShellPathGetDriveNumberA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathGetDriveNumberW(pszpath: Pcwstr): Int =
+    windowssysWindowsWin32UiShellPathGetDriveNumberW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathGetShortPath(pszlongpath: Pwstr) {
+    windowssysWindowsWin32UiShellPathGetShortPath(pszlongpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathIsContentTypeA(pszpath: Pcstr, pszcontenttype: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsContentTypeA(pszpath.rawAddress.toCPointer<ByteVar>(), pszcontenttype.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsContentTypeW(pszpath: Pcwstr, pszcontenttype: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsContentTypeW(pszpath.rawAddress.toCPointer<ByteVar>(), pszcontenttype.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsDirectoryA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsDirectoryA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsDirectoryEmptyA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsDirectoryEmptyA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsDirectoryEmptyW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsDirectoryEmptyW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsDirectoryW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsDirectoryW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsExe(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsExe(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsFileSpecA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsFileSpecA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsFileSpecW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsFileSpecW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsLFNFileSpecA(pszname: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsLFNFileSpecA(pszname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsLFNFileSpecW(pszname: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsLFNFileSpecW(pszname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsNetworkPathA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsNetworkPathA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsNetworkPathW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsNetworkPathW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsPrefixA(pszprefix: Pcstr, pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsPrefixA(pszprefix.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsPrefixW(pszprefix: Pcwstr, pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsPrefixW(pszprefix.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsRelativeA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsRelativeA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsRelativeW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsRelativeW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsRootA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsRootA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsRootW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsRootW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsSameRootA(pszpath1: Pcstr, pszpath2: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsSameRootA(pszpath1.rawAddress.toCPointer<ByteVar>(), pszpath2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsSameRootW(pszpath1: Pcwstr, pszpath2: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsSameRootW(pszpath1.rawAddress.toCPointer<ByteVar>(), pszpath2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsSlowA(pszfile: Pcstr, dwattr: UInt): Bool =
+    windowssysWindowsWin32UiShellPathIsSlowA(pszfile.rawAddress.toCPointer<ByteVar>(), dwattr)
+
+public actual fun pathIsSlowW(pszfile: Pcwstr, dwattr: UInt): Bool =
+    windowssysWindowsWin32UiShellPathIsSlowW(pszfile.rawAddress.toCPointer<ByteVar>(), dwattr)
+
+public actual fun pathIsSystemFolderA(pszpath: Pcstr, dwattrb: UInt): Bool =
+    windowssysWindowsWin32UiShellPathIsSystemFolderA(pszpath.rawAddress.toCPointer<ByteVar>(), dwattrb)
+
+public actual fun pathIsSystemFolderW(pszpath: Pcwstr, dwattrb: UInt): Bool =
+    windowssysWindowsWin32UiShellPathIsSystemFolderW(pszpath.rawAddress.toCPointer<ByteVar>(), dwattrb)
+
+public actual fun pathIsUNCA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsUNCA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsUNCEx(pszpath: Pcwstr, ppszserver: MutPtr): Bool =
+    windowssysWindowsWin32UiShellPathIsUNCEx(pszpath.rawAddress.toCPointer<ByteVar>(), ppszserver.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsUNCServerA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsUNCServerA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsUNCServerShareA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsUNCServerShareA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsUNCServerShareW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsUNCServerShareW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsUNCServerW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsUNCServerW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsUNCW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsUNCW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsURLA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathIsURLA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathIsURLW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathIsURLW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathMakePrettyA(pszpath: Pstr): Bool =
+    windowssysWindowsWin32UiShellPathMakePrettyA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathMakePrettyW(pszpath: Pwstr): Bool =
+    windowssysWindowsWin32UiShellPathMakePrettyW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathMakeSystemFolderA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathMakeSystemFolderA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathMakeSystemFolderW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathMakeSystemFolderW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathMakeUniqueName(pszuniquename: Pwstr, cchmax: UInt, psztemplate: Pcwstr, pszlongplate: Pcwstr, pszdir: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathMakeUniqueName(pszuniquename.rawAddress.toCPointer<ByteVar>(), cchmax, psztemplate.rawAddress.toCPointer<ByteVar>(), pszlongplate.rawAddress.toCPointer<ByteVar>(), pszdir.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathMatchSpecA(pszfile: Pcstr, pszspec: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathMatchSpecA(pszfile.rawAddress.toCPointer<ByteVar>(), pszspec.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathMatchSpecExA(pszfile: Pcstr, pszspec: Pcstr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellPathMatchSpecExA(pszfile.rawAddress.toCPointer<ByteVar>(), pszspec.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathMatchSpecExW(pszfile: Pcwstr, pszspec: Pcwstr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellPathMatchSpecExW(pszfile.rawAddress.toCPointer<ByteVar>(), pszspec.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun pathMatchSpecW(pszfile: Pcwstr, pszspec: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathMatchSpecW(pszfile.rawAddress.toCPointer<ByteVar>(), pszspec.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathParseIconLocationA(psziconfile: Pstr): Int =
+    windowssysWindowsWin32UiShellPathParseIconLocationA(psziconfile.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathParseIconLocationW(psziconfile: Pwstr): Int =
+    windowssysWindowsWin32UiShellPathParseIconLocationW(psziconfile.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathQualify(psz: Pwstr) {
+    windowssysWindowsWin32UiShellPathQualify(psz.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathQuoteSpacesA(lpsz: Pstr): Bool =
+    windowssysWindowsWin32UiShellPathQuoteSpacesA(lpsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathQuoteSpacesW(lpsz: Pwstr): Bool =
+    windowssysWindowsWin32UiShellPathQuoteSpacesW(lpsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathRelativePathToA(pszpath: Pstr, pszfrom: Pcstr, dwattrfrom: UInt, pszto: Pcstr, dwattrto: UInt): Bool =
+    windowssysWindowsWin32UiShellPathRelativePathToA(pszpath.rawAddress.toCPointer<ByteVar>(), pszfrom.rawAddress.toCPointer<ByteVar>(), dwattrfrom, pszto.rawAddress.toCPointer<ByteVar>(), dwattrto)
+
+public actual fun pathRelativePathToW(pszpath: Pwstr, pszfrom: Pcwstr, dwattrfrom: UInt, pszto: Pcwstr, dwattrto: UInt): Bool =
+    windowssysWindowsWin32UiShellPathRelativePathToW(pszpath.rawAddress.toCPointer<ByteVar>(), pszfrom.rawAddress.toCPointer<ByteVar>(), dwattrfrom, pszto.rawAddress.toCPointer<ByteVar>(), dwattrto)
+
+public actual fun pathRemoveArgsA(pszpath: Pstr) {
+    windowssysWindowsWin32UiShellPathRemoveArgsA(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathRemoveArgsW(pszpath: Pwstr) {
+    windowssysWindowsWin32UiShellPathRemoveArgsW(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathRemoveBackslashA(pszpath: Pstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathRemoveBackslashA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathRemoveBackslashW(pszpath: Pwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathRemoveBackslashW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathRemoveBlanksA(pszpath: Pstr) {
+    windowssysWindowsWin32UiShellPathRemoveBlanksA(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathRemoveBlanksW(pszpath: Pwstr) {
+    windowssysWindowsWin32UiShellPathRemoveBlanksW(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathRemoveExtensionA(pszpath: Pstr) {
+    windowssysWindowsWin32UiShellPathRemoveExtensionA(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathRemoveExtensionW(pszpath: Pwstr) {
+    windowssysWindowsWin32UiShellPathRemoveExtensionW(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathRemoveFileSpecA(pszpath: Pstr): Bool =
+    windowssysWindowsWin32UiShellPathRemoveFileSpecA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathRemoveFileSpecW(pszpath: Pwstr): Bool =
+    windowssysWindowsWin32UiShellPathRemoveFileSpecW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathRenameExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathRenameExtensionA(pszpath.rawAddress.toCPointer<ByteVar>(), pszext.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathRenameExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathRenameExtensionW(pszpath.rawAddress.toCPointer<ByteVar>(), pszext.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathResolve(pszpath: Pwstr, dirs: ConstPtr, fflags: UInt): Int =
+    windowssysWindowsWin32UiShellPathResolve(pszpath.rawAddress.toCPointer<ByteVar>(), dirs.rawAddress.toCPointer<ByteVar>(), fflags)
+
+public actual fun pathSearchAndQualifyA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
+    windowssysWindowsWin32UiShellPathSearchAndQualifyA(pszpath.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun pathSearchAndQualifyW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
+    windowssysWindowsWin32UiShellPathSearchAndQualifyW(pszpath.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun pathSetDlgItemPathA(hdlg: Hwnd, id: Int, pszpath: Pcstr) {
+    windowssysWindowsWin32UiShellPathSetDlgItemPathA(hdlg.rawAddress.toCPointer<ByteVar>(), id, pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathSetDlgItemPathW(hdlg: Hwnd, id: Int, pszpath: Pcwstr) {
+    windowssysWindowsWin32UiShellPathSetDlgItemPathW(hdlg.rawAddress.toCPointer<ByteVar>(), id, pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathSkipRootA(pszpath: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellPathSkipRootA(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathSkipRootW(pszpath: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellPathSkipRootW(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun pathStripPathA(pszpath: Pstr) {
+    windowssysWindowsWin32UiShellPathStripPathA(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathStripPathW(pszpath: Pwstr) {
+    windowssysWindowsWin32UiShellPathStripPathW(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathStripToRootA(pszpath: Pstr): Bool =
+    windowssysWindowsWin32UiShellPathStripToRootA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathStripToRootW(pszpath: Pwstr): Bool =
+    windowssysWindowsWin32UiShellPathStripToRootW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathUnExpandEnvStringsA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
+    windowssysWindowsWin32UiShellPathUnExpandEnvStringsA(pszpath.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun pathUnExpandEnvStringsW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
+    windowssysWindowsWin32UiShellPathUnExpandEnvStringsW(pszpath.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun pathUndecorateA(pszpath: Pstr) {
+    windowssysWindowsWin32UiShellPathUndecorateA(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathUndecorateW(pszpath: Pwstr) {
+    windowssysWindowsWin32UiShellPathUndecorateW(pszpath.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun pathUnmakeSystemFolderA(pszpath: Pcstr): Bool =
+    windowssysWindowsWin32UiShellPathUnmakeSystemFolderA(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathUnmakeSystemFolderW(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathUnmakeSystemFolderW(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathUnquoteSpacesA(lpsz: Pstr): Bool =
+    windowssysWindowsWin32UiShellPathUnquoteSpacesA(lpsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathUnquoteSpacesW(lpsz: Pwstr): Bool =
+    windowssysWindowsWin32UiShellPathUnquoteSpacesW(lpsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pathYetAnotherMakeUniqueName(pszuniquename: Pwstr, pszpath: Pcwstr, pszshort: Pcwstr, pszfilespec: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellPathYetAnotherMakeUniqueName(pszuniquename.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), pszshort.rawAddress.toCPointer<ByteVar>(), pszfilespec.rawAddress.toCPointer<ByteVar>())
+
+public actual fun pickIconDlg(hwnd: Hwnd, psziconpath: Pwstr, cchiconpath: UInt, piiconindex: MutPtr): Int =
+    windowssysWindowsWin32UiShellPickIconDlg(hwnd.rawAddress.toCPointer<ByteVar>(), psziconpath.rawAddress.toCPointer<ByteVar>(), cchiconpath, piiconindex.rawAddress.toCPointer<ByteVar>())
+
+public actual fun propVariantToStrRet(propvar: ConstPtr, pstrret: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellPropVariantToStrRet(propvar.rawAddress.toCPointer<ByteVar>(), pstrret.rawAddress.toCPointer<ByteVar>())
+
+public actual fun qISearch(that: MutPtr, pqit: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellQISearch(that.rawAddress.toCPointer<ByteVar>(), pqit.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun readCabinetState(pcs: MutPtr, clength: Int): Bool =
+    windowssysWindowsWin32UiShellReadCabinetState(pcs.rawAddress.toCPointer<ByteVar>(), clength)
+
+public actual fun realDriveType(idrive: Int, foktohitnet: Bool): Int =
+    windowssysWindowsWin32UiShellRealDriveType(idrive, foktohitnet)
+
+public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: ConstPtr, registration: MutPtr): UInt =
+    windowssysWindowsWin32UiShellRegisterAppConstrainedChangeNotification(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), registration.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerAppStateChangeNotification(routine: PappstateChangeRoutine, context: ConstPtr, registration: MutPtr): UInt =
+    windowssysWindowsWin32UiShellRegisterAppStateChangeNotification(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), registration.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerScaleChangeEvent(hevent: Handle, pdwcookie: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellRegisterScaleChangeEvent(hevent.rawAddress.toCPointer<ByteVar>(), pdwcookie.rawAddress.toCPointer<ByteVar>())
+
+public actual fun registerScaleChangeNotifications(displaydevice: DisplayDeviceType, hwndnotify: Hwnd, umsgnotify: UInt, pdwcookie: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellRegisterScaleChangeNotifications(displaydevice, hwndnotify.rawAddress.toCPointer<ByteVar>(), umsgnotify, pdwcookie.rawAddress.toCPointer<ByteVar>())
+
+public actual fun removeWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong): Bool =
+    windowssysWindowsWin32UiShellRemoveWindowSubclass(hwnd.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), uidsubclass)
+
+public actual fun restartDialog(hwnd: Hwnd, pszprompt: Pcwstr, dwreturn: UInt): Int =
+    windowssysWindowsWin32UiShellRestartDialog(hwnd.rawAddress.toCPointer<ByteVar>(), pszprompt.rawAddress.toCPointer<ByteVar>(), dwreturn)
+
+public actual fun restartDialogEx(hwnd: Hwnd, pszprompt: Pcwstr, dwreturn: UInt, dwreasoncode: UInt): Int =
+    windowssysWindowsWin32UiShellRestartDialogEx(hwnd.rawAddress.toCPointer<ByteVar>(), pszprompt.rawAddress.toCPointer<ByteVar>(), dwreturn, dwreasoncode)
+
+public actual fun revokeScaleChangeNotifications(displaydevice: DisplayDeviceType, dwcookie: UInt): Hresult =
+    windowssysWindowsWin32UiShellRevokeScaleChangeNotifications(displaydevice, dwcookie)
+
+public actual fun sHAddFromPropSheetExtArray(hpsxa: Hpsxa, lpfnaddpage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
+    0u
+
+public actual fun sHAddToRecentDocs(uflags: UInt, pv: ConstPtr) {
+    windowssysWindowsWin32UiShellSHAddToRecentDocs(uflags, pv.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun sHAlloc(cb: ULong): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHAlloc(cb)?.toLong() ?: 0L)
+
+public actual fun sHAllocShared(pvdata: ConstPtr, dwsize: UInt, dwprocessid: UInt): Handle =
+    MutPtr(windowssysWindowsWin32UiShellSHAllocShared(pvdata.rawAddress.toCPointer<ByteVar>(), dwsize, dwprocessid)?.toLong() ?: 0L)
+
+public actual fun sHAnsiToAnsi(pszsrc: Pcstr, pszdst: Pstr, cchbuf: Int): Int =
+    windowssysWindowsWin32UiShellSHAnsiToAnsi(pszsrc.rawAddress.toCPointer<ByteVar>(), pszdst.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun sHAnsiToUnicode(pszsrc: Pcstr, pwszdst: Pwstr, cwchbuf: Int): Int =
+    windowssysWindowsWin32UiShellSHAnsiToUnicode(pszsrc.rawAddress.toCPointer<ByteVar>(), pwszdst.rawAddress.toCPointer<ByteVar>(), cwchbuf)
+
+public actual fun sHAppBarMessage(dwmessage: UInt, pdata: MutPtr): ULong =
+    windowssysWindowsWin32UiShellSHAppBarMessage(dwmessage, pdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHAssocEnumHandlers(pszextra: Pcwstr, affilter: AssocFilter, ppenumhandler: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHAssocEnumHandlers(pszextra.rawAddress.toCPointer<ByteVar>(), affilter, ppenumhandler.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHAssocEnumHandlersForProtocolByApplication(protocol: Pcwstr, riid: ConstPtr, enumhandlers: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHAssocEnumHandlersForProtocolByApplication(protocol.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), enumhandlers.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHAutoComplete(hwndedit: Hwnd, dwflags: ShellAutocompleteFlags): Hresult =
+    windowssysWindowsWin32UiShellSHAutoComplete(hwndedit.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHBindToFolderIDListParent(psfroot: MutPtr, pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHBindToFolderIDListParent(psfroot.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>(), ppidllast.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHBindToFolderIDListParentEx(psfroot: MutPtr, pidl: ConstPtr, ppbc: MutPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHBindToFolderIDListParentEx(psfroot.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), ppbc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>(), ppidllast.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHBindToObject(psf: MutPtr, pidl: ConstPtr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHBindToObject(psf.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), pbc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHBindToParent(pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHBindToParent(pidl.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>(), ppidllast.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHBrowseForFolderA(lpbi: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHBrowseForFolderA(lpbi.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun sHBrowseForFolderW(lpbi: ConstPtr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHBrowseForFolderW(lpbi.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun sHCLSIDFromString(psz: Pcwstr, pclsid: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCLSIDFromString(psz.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppidl: MutPtr, plevent: MutPtr): Handle =
+    MutPtr(windowssysWindowsWin32UiShellShchangeNotificationLock(hchange.rawAddress.toCPointer<ByteVar>(), dwprocid, pppidl.rawAddress.toCPointer<ByteVar>(), plevent.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun shchangeNotificationUnlock(hlock: Handle): Bool =
+    windowssysWindowsWin32UiShellShchangeNotificationUnlock(hlock.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: ConstPtr, dwitem2: ConstPtr) {
+    windowssysWindowsWin32UiShellSHChangeNotify(weventid, uflags, dwitem1.rawAddress.toCPointer<ByteVar>(), dwitem2.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
+    windowssysWindowsWin32UiShellSHChangeNotifyDeregister(ulid)
+
+public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: ConstPtr): UInt =
+    windowssysWindowsWin32UiShellSHChangeNotifyRegister(hwnd.rawAddress.toCPointer<ByteVar>(), fsources, fevents, wmsg, centries, pshcne.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus) {
+    windowssysWindowsWin32UiShellSHChangeNotifyRegisterThread(status)
+}
+
+public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHCloneSpecialIDList(hwnd.rawAddress.toCPointer<ByteVar>(), csidl, fcreate)?.toLong() ?: 0L)
+
+public actual fun sHCoCreateInstance(pszclsid: Pcwstr, pclsid: ConstPtr, punkouter: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCoCreateInstance(pszclsid.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCopyKeyA(hkeysrc: Hkey, pszsrcsubkey: Pcstr, hkeydest: Hkey, freserved: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHCopyKeyA(hkeysrc.rawAddress.toCPointer<ByteVar>(), pszsrcsubkey.rawAddress.toCPointer<ByteVar>(), hkeydest.rawAddress.toCPointer<ByteVar>(), freserved)
+
+public actual fun sHCopyKeyW(hkeysrc: Hkey, pszsrcsubkey: Pcwstr, hkeydest: Hkey, freserved: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHCopyKeyW(hkeysrc.rawAddress.toCPointer<ByteVar>(), pszsrcsubkey.rawAddress.toCPointer<ByteVar>(), hkeydest.rawAddress.toCPointer<ByteVar>(), freserved)
+
+public actual fun sHCreateAssociationRegistration(riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateAssociationRegistration(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateDataObject(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, pdtinner: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateDataObject(pidlfolder.rawAddress.toCPointer<ByteVar>(), cidl, apidl.rawAddress.toCPointer<ByteVar>(), pdtinner.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateDefaultContextMenu(pdcm: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateDefaultContextMenu(pdcm.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateDefaultExtractIcon(riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateDefaultExtractIcon(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateDefaultPropertiesOp(psi: MutPtr, ppfileop: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateDefaultPropertiesOp(psi.rawAddress.toCPointer<ByteVar>(), ppfileop.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateDirectory(hwnd: Hwnd, pszpath: Pcwstr): Int =
+    windowssysWindowsWin32UiShellSHCreateDirectory(hwnd.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateDirectoryExA(hwnd: Hwnd, pszpath: Pcstr, psa: ConstPtr): Int =
+    windowssysWindowsWin32UiShellSHCreateDirectoryExA(hwnd.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateDirectoryExW(hwnd: Hwnd, pszpath: Pcwstr, psa: ConstPtr): Int =
+    windowssysWindowsWin32UiShellSHCreateDirectoryExW(hwnd.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateFileExtractIconW(pszfile: Pcwstr, dwfileattributes: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateFileExtractIconW(pszfile.rawAddress.toCPointer<ByteVar>(), dwfileattributes, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateItemFromIDList(pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateItemFromIDList(pidl.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateItemFromParsingName(pszpath: Pcwstr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateItemFromParsingName(pszpath.rawAddress.toCPointer<ByteVar>(), pbc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateItemFromRelativeName(psiparent: MutPtr, pszname: Pcwstr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateItemFromRelativeName(psiparent.rawAddress.toCPointer<ByteVar>(), pszname.rawAddress.toCPointer<ByteVar>(), pbc.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateItemInKnownFolder(kfid: ConstPtr, dwkfflags: UInt, pszitem: Pcwstr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateItemInKnownFolder(kfid.rawAddress.toCPointer<ByteVar>(), dwkfflags, pszitem.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateItemWithParent(pidlparent: ConstPtr, psfparent: MutPtr, pidl: ConstPtr, riid: ConstPtr, ppvitem: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateItemWithParent(pidlparent.rawAddress.toCPointer<ByteVar>(), psfparent.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvitem.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateMemStream(pinit: ConstPtr, cbinit: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHCreateMemStream(pinit.rawAddress.toCPointer<ByteVar>(), cbinit)?.toLong() ?: 0L)
+
+public actual fun sHCreateProcessAsUserW(pscpi: MutPtr): Bool =
+    windowssysWindowsWin32UiShellSHCreateProcessAsUserW(pscpi.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreatePropSheetExtArray(hkey: Hkey, pszsubkey: Pcwstr, maxIface: UInt): Hpsxa =
+    MutPtr(windowssysWindowsWin32UiShellSHCreatePropSheetExtArray(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), maxIface)?.toLong() ?: 0L)
+
+public actual fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateQueryCancelAutoPlayMoniker(ppmoniker.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellFolderView(pcsfv: ConstPtr, ppsv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateShellFolderView(pcsfv.rawAddress.toCPointer<ByteVar>(), ppsv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellFolderViewEx(pcsfv: ConstPtr, ppsv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateShellFolderViewEx(pcsfv.rawAddress.toCPointer<ByteVar>(), ppsv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellItem(pidlparent: ConstPtr, psfparent: MutPtr, pidl: ConstPtr, ppsi: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateShellItem(pidlparent.rawAddress.toCPointer<ByteVar>(), psfparent.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), ppsi.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellItemArray(pidlparent: ConstPtr, psf: MutPtr, cidl: UInt, ppidl: ConstPtr, ppsiitemarray: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateShellItemArray(pidlparent.rawAddress.toCPointer<ByteVar>(), psf.rawAddress.toCPointer<ByteVar>(), cidl, ppidl.rawAddress.toCPointer<ByteVar>(), ppsiitemarray.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellItemArrayFromDataObject(pdo: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateShellItemArrayFromDataObject(pdo.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: ConstPtr, ppsiitemarray: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateShellItemArrayFromIDLists(cidl, rgpidl.rawAddress.toCPointer<ByteVar>(), ppsiitemarray.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellItemArrayFromShellItem(psi: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateShellItemArrayFromShellItem(psi.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateShellPalette(hdc: Hdc): Hpalette =
+    MutPtr(windowssysWindowsWin32UiShellSHCreateShellPalette(hdc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun sHCreateStdEnumFmtEtc(cfmt: UInt, afmt: ConstPtr, ppenumformatetc: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateStdEnumFmtEtc(cfmt, afmt.rawAddress.toCPointer<ByteVar>(), ppenumformatetc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateStreamOnFileA(pszfile: Pcstr, grfmode: UInt, ppstm: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateStreamOnFileA(pszfile.rawAddress.toCPointer<ByteVar>(), grfmode, ppstm.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateStreamOnFileEx(pszfile: Pcwstr, grfmode: UInt, dwattributes: UInt, fcreate: Bool, pstmtemplate: MutPtr, ppstm: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateStreamOnFileEx(pszfile.rawAddress.toCPointer<ByteVar>(), grfmode, dwattributes, fcreate, pstmtemplate.rawAddress.toCPointer<ByteVar>(), ppstm.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateStreamOnFileW(pszfile: Pcwstr, grfmode: UInt, ppstm: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateStreamOnFileW(pszfile.rawAddress.toCPointer<ByteVar>(), grfmode, ppstm.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateThread(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr, flags: UInt, pfncallback: LpthreadStartRoutine): Bool =
+    windowssysWindowsWin32UiShellSHCreateThread(0L.toCPointer<ByteVar>(), pdata.rawAddress.toCPointer<ByteVar>(), flags, 0L.toCPointer<ByteVar>())
+
+public actual fun sHCreateThreadRef(pcref: MutPtr, ppunk: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHCreateThreadRef(pcref.rawAddress.toCPointer<ByteVar>(), ppunk.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHCreateThreadWithHandle(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr, flags: UInt, pfncallback: LpthreadStartRoutine, phandle: MutPtr): Bool =
+    windowssysWindowsWin32UiShellSHCreateThreadWithHandle(0L.toCPointer<ByteVar>(), pdata.rawAddress.toCPointer<ByteVar>(), flags, 0L.toCPointer<ByteVar>(), phandle.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHDefExtractIconA(psziconfile: Pcstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr, phiconsmall: MutPtr, niconsize: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHDefExtractIconA(psziconfile.rawAddress.toCPointer<ByteVar>(), iindex, uflags, phiconlarge.rawAddress.toCPointer<ByteVar>(), phiconsmall.rawAddress.toCPointer<ByteVar>(), niconsize)
+
+public actual fun sHDefExtractIconW(psziconfile: Pcwstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr, phiconsmall: MutPtr, niconsize: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHDefExtractIconW(psziconfile.rawAddress.toCPointer<ByteVar>(), iindex, uflags, phiconlarge.rawAddress.toCPointer<ByteVar>(), phiconsmall.rawAddress.toCPointer<ByteVar>(), niconsize)
+
+public actual fun sHDeleteEmptyKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
+    windowssysWindowsWin32UiShellSHDeleteEmptyKeyA(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHDeleteEmptyKeyW(hkey: Hkey, pszsubkey: Pcwstr): Win32Error =
+    windowssysWindowsWin32UiShellSHDeleteEmptyKeyW(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHDeleteKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
+    windowssysWindowsWin32UiShellSHDeleteKeyA(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHDeleteKeyW(hkey: Hkey, pszsubkey: Pcwstr): Win32Error =
+    windowssysWindowsWin32UiShellSHDeleteKeyW(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHDeleteValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr): Win32Error =
+    windowssysWindowsWin32UiShellSHDeleteValueA(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHDeleteValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr): Win32Error =
+    windowssysWindowsWin32UiShellSHDeleteValueW(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHDestroyPropSheetExtArray(hpsxa: Hpsxa) {
+    windowssysWindowsWin32UiShellSHDestroyPropSheetExtArray(hpsxa.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: MutPtr, pdsrc: MutPtr, dweffect: Dropeffect, pdweffect: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHDoDragDrop(hwnd.rawAddress.toCPointer<ByteVar>(), pdata.rawAddress.toCPointer<ByteVar>(), pdsrc.rawAddress.toCPointer<ByteVar>(), dweffect, pdweffect.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHEmptyRecycleBinA(hwnd: Hwnd, pszrootpath: Pcstr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHEmptyRecycleBinA(hwnd.rawAddress.toCPointer<ByteVar>(), pszrootpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHEmptyRecycleBinW(hwnd: Hwnd, pszrootpath: Pcwstr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHEmptyRecycleBinW(hwnd.rawAddress.toCPointer<ByteVar>(), pszrootpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHEnumKeyExA(hkey: Hkey, dwindex: UInt, pszname: Pstr, pcchname: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHEnumKeyExA(hkey.rawAddress.toCPointer<ByteVar>(), dwindex, pszname.rawAddress.toCPointer<ByteVar>(), pcchname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHEnumKeyExW(hkey: Hkey, dwindex: UInt, pszname: Pwstr, pcchname: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHEnumKeyExW(hkey.rawAddress.toCPointer<ByteVar>(), dwindex, pszname.rawAddress.toCPointer<ByteVar>(), pcchname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHEnumValueA(hkey: Hkey, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHEnumValueA(hkey.rawAddress.toCPointer<ByteVar>(), dwindex, pszvaluename.rawAddress.toCPointer<ByteVar>(), pcchvaluename.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHEnumValueW(hkey: Hkey, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHEnumValueW(hkey.rawAddress.toCPointer<ByteVar>(), dwindex, pszvaluename.rawAddress.toCPointer<ByteVar>(), pcchvaluename.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHEnumerateUnreadMailAccountsW(hkeyuser: Hkey, dwindex: UInt, pszmailaddress: Pwstr, cchmailaddress: Int): Hresult =
+    windowssysWindowsWin32UiShellSHEnumerateUnreadMailAccountsW(hkeyuser.rawAddress.toCPointer<ByteVar>(), dwindex, pszmailaddress.rawAddress.toCPointer<ByteVar>(), cchmailaddress)
+
+public actual fun sHEvaluateSystemCommandTemplate(pszcmdtemplate: Pcwstr, ppszapplication: MutPtr, ppszcommandline: MutPtr, ppszparameters: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHEvaluateSystemCommandTemplate(pszcmdtemplate.rawAddress.toCPointer<ByteVar>(), ppszapplication.rawAddress.toCPointer<ByteVar>(), ppszcommandline.rawAddress.toCPointer<ByteVar>(), ppszparameters.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHFileOperationA(lpfileop: MutPtr): Int =
+    windowssysWindowsWin32UiShellSHFileOperationA(lpfileop.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHFileOperationW(lpfileop: MutPtr): Int =
+    windowssysWindowsWin32UiShellSHFileOperationW(lpfileop.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHFindFiles(pidlfolder: ConstPtr, pidlsavefile: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellSHFindFiles(pidlfolder.rawAddress.toCPointer<ByteVar>(), pidlsavefile.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellShfindInitMenuPopup(hmenu.rawAddress.toCPointer<ByteVar>(), hwndowner.rawAddress.toCPointer<ByteVar>(), idcmdfirst, idcmdlast)?.toLong() ?: 0L)
+
+public actual fun sHFlushSFCache() {
+    windowssysWindowsWin32UiShellSHFlushSFCache()
+}
+
+public actual fun sHFormatDateTimeA(pft: ConstPtr, pdwflags: MutPtr, pszbuf: Pstr, cchbuf: UInt): Int =
+    windowssysWindowsWin32UiShellSHFormatDateTimeA(pft.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun sHFormatDateTimeW(pft: ConstPtr, pdwflags: MutPtr, pszbuf: Pwstr, cchbuf: UInt): Int =
+    windowssysWindowsWin32UiShellSHFormatDateTimeW(pft.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun sHFormatDrive(hwnd: Hwnd, drive: UInt, fmtid: ShfmtId, options: UInt): UInt =
+    windowssysWindowsWin32UiShellSHFormatDrive(hwnd.rawAddress.toCPointer<ByteVar>(), drive, fmtid, options)
+
+public actual fun sHFree(pv: ConstPtr) {
+    windowssysWindowsWin32UiShellSHFree(pv.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun sHFreeNameMappings(hnamemappings: Handle) {
+    windowssysWindowsWin32UiShellSHFreeNameMappings(hnamemappings.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun sHFreeShared(hdata: Handle, dwprocessid: UInt): Bool =
+    windowssysWindowsWin32UiShellSHFreeShared(hdata.rawAddress.toCPointer<ByteVar>(), dwprocessid)
+
+public actual fun sHGetAttributesFromDataObject(pdo: MutPtr, dwattributemask: UInt, pdwattributes: MutPtr, pcitems: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetAttributesFromDataObject(pdo.rawAddress.toCPointer<ByteVar>(), dwattributemask, pdwattributes.rawAddress.toCPointer<ByteVar>(), pcitems.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetDataFromIDListA(psf: MutPtr, pidl: ConstPtr, nformat: ShgdfilFormat, pv: MutPtr, cb: Int): Hresult =
+    windowssysWindowsWin32UiShellSHGetDataFromIDListA(psf.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), nformat, pv.rawAddress.toCPointer<ByteVar>(), cb)
+
+public actual fun sHGetDataFromIDListW(psf: MutPtr, pidl: ConstPtr, nformat: ShgdfilFormat, pv: MutPtr, cb: Int): Hresult =
+    windowssysWindowsWin32UiShellSHGetDataFromIDListW(psf.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), nformat, pv.rawAddress.toCPointer<ByteVar>(), cb)
+
+public actual fun sHGetDesktopFolder(ppshf: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetDesktopFolder(ppshf.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetDiskFreeSpaceExA(pszdirectoryname: Pcstr, pulfreebytesavailabletocaller: MutPtr, pultotalnumberofbytes: MutPtr, pultotalnumberoffreebytes: MutPtr): Bool =
+    windowssysWindowsWin32UiShellSHGetDiskFreeSpaceExA(pszdirectoryname.rawAddress.toCPointer<ByteVar>(), pulfreebytesavailabletocaller.rawAddress.toCPointer<ByteVar>(), pultotalnumberofbytes.rawAddress.toCPointer<ByteVar>(), pultotalnumberoffreebytes.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetDiskFreeSpaceExW(pszdirectoryname: Pcwstr, pulfreebytesavailabletocaller: MutPtr, pultotalnumberofbytes: MutPtr, pultotalnumberoffreebytes: MutPtr): Bool =
+    windowssysWindowsWin32UiShellSHGetDiskFreeSpaceExW(pszdirectoryname.rawAddress.toCPointer<ByteVar>(), pulfreebytesavailabletocaller.rawAddress.toCPointer<ByteVar>(), pultotalnumberofbytes.rawAddress.toCPointer<ByteVar>(), pultotalnumberoffreebytes.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetDriveMedia(pszdrive: Pcwstr, pdwmediacontent: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetDriveMedia(pszdrive.rawAddress.toCPointer<ByteVar>(), pdwmediacontent.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetFileInfoA(pszpath: Pcstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+    windowssysWindowsWin32UiShellSHGetFileInfoA(pszpath.rawAddress.toCPointer<ByteVar>(), dwfileattributes, psfi.rawAddress.toCPointer<ByteVar>(), cbfileinfo, uflags)
+
+public actual fun sHGetFileInfoW(pszpath: Pcwstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+    windowssysWindowsWin32UiShellSHGetFileInfoW(pszpath.rawAddress.toCPointer<ByteVar>(), dwfileattributes, psfi.rawAddress.toCPointer<ByteVar>(), cbfileinfo, uflags)
+
+public actual fun sHGetFolderLocation(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, ppidl: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetFolderLocation(hwnd.rawAddress.toCPointer<ByteVar>(), csidl, htoken.rawAddress.toCPointer<ByteVar>(), dwflags, ppidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetFolderPathA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pstr): Hresult =
+    windowssysWindowsWin32UiShellSHGetFolderPathA(hwnd.rawAddress.toCPointer<ByteVar>(), csidl, htoken.rawAddress.toCPointer<ByteVar>(), dwflags, pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetFolderPathAndSubDirA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszsubdir: Pcstr, pszpath: Pstr): Hresult =
+    windowssysWindowsWin32UiShellSHGetFolderPathAndSubDirA(hwnd.rawAddress.toCPointer<ByteVar>(), csidl, htoken.rawAddress.toCPointer<ByteVar>(), dwflags, pszsubdir.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetFolderPathAndSubDirW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszsubdir: Pcwstr, pszpath: Pwstr): Hresult =
+    windowssysWindowsWin32UiShellSHGetFolderPathAndSubDirW(hwnd.rawAddress.toCPointer<ByteVar>(), csidl, htoken.rawAddress.toCPointer<ByteVar>(), dwflags, pszsubdir.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetFolderPathW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pwstr): Hresult =
+    windowssysWindowsWin32UiShellSHGetFolderPathW(hwnd.rawAddress.toCPointer<ByteVar>(), csidl, htoken.rawAddress.toCPointer<ByteVar>(), dwflags, pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetIDListFromObject(punk: MutPtr, ppidl: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetIDListFromObject(punk.rawAddress.toCPointer<ByteVar>(), ppidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetIconOverlayIndexA(psziconpath: Pcstr, iiconindex: Int): Int =
+    windowssysWindowsWin32UiShellSHGetIconOverlayIndexA(psziconpath.rawAddress.toCPointer<ByteVar>(), iiconindex)
+
+public actual fun sHGetIconOverlayIndexW(psziconpath: Pcwstr, iiconindex: Int): Int =
+    windowssysWindowsWin32UiShellSHGetIconOverlayIndexW(psziconpath.rawAddress.toCPointer<ByteVar>(), iiconindex)
+
+public actual fun sHGetImageList(iimagelist: Int, riid: ConstPtr, ppvobj: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetImageList(iimagelist, riid.rawAddress.toCPointer<ByteVar>(), ppvobj.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetInstanceExplorer(ppunk: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetInstanceExplorer(ppunk.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetInverseCMAP(pbmap: MutPtr, cbmap: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHGetInverseCMAP(pbmap.rawAddress.toCPointer<ByteVar>(), cbmap)
+
+public actual fun sHGetItemFromDataObject(pdtobj: MutPtr, dwflags: DataobjGetItemFlags, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetItemFromDataObject(pdtobj.rawAddress.toCPointer<ByteVar>(), dwflags, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetItemFromObject(punk: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetItemFromObject(punk.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetKnownFolderIDList(rfid: ConstPtr, dwflags: UInt, htoken: Handle, ppidl: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetKnownFolderIDList(rfid.rawAddress.toCPointer<ByteVar>(), dwflags, htoken.rawAddress.toCPointer<ByteVar>(), ppidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetKnownFolderItem(rfid: ConstPtr, flags: KnownFolderFlag, htoken: Handle, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetKnownFolderItem(rfid.rawAddress.toCPointer<ByteVar>(), flags, htoken.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetKnownFolderPath(rfid: ConstPtr, dwflags: UInt, htoken: Handle, ppszpath: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetKnownFolderPath(rfid.rawAddress.toCPointer<ByteVar>(), dwflags, htoken.rawAddress.toCPointer<ByteVar>(), ppszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetLocalizedName(pszpath: Pcwstr, pszresmodule: Pwstr, cch: UInt, pidsres: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetLocalizedName(pszpath.rawAddress.toCPointer<ByteVar>(), pszresmodule.rawAddress.toCPointer<ByteVar>(), cch, pidsres.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetMalloc(ppmalloc: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetMalloc(ppmalloc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetNameFromIDList(pidl: ConstPtr, sigdnname: Sigdn, ppszname: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetNameFromIDList(pidl.rawAddress.toCPointer<ByteVar>(), sigdnname, ppszname.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetNewLinkInfoA(pszlinkto: Pcstr, pszdir: Pcstr, pszname: Pstr, pfmustcopy: MutPtr, uflags: UInt): Bool =
+    windowssysWindowsWin32UiShellSHGetNewLinkInfoA(pszlinkto.rawAddress.toCPointer<ByteVar>(), pszdir.rawAddress.toCPointer<ByteVar>(), pszname.rawAddress.toCPointer<ByteVar>(), pfmustcopy.rawAddress.toCPointer<ByteVar>(), uflags)
+
+public actual fun sHGetNewLinkInfoW(pszlinkto: Pcwstr, pszdir: Pcwstr, pszname: Pwstr, pfmustcopy: MutPtr, uflags: UInt): Bool =
+    windowssysWindowsWin32UiShellSHGetNewLinkInfoW(pszlinkto.rawAddress.toCPointer<ByteVar>(), pszdir.rawAddress.toCPointer<ByteVar>(), pszname.rawAddress.toCPointer<ByteVar>(), pfmustcopy.rawAddress.toCPointer<ByteVar>(), uflags)
+
+public actual fun sHGetPathFromIDListA(pidl: ConstPtr, pszpath: Pstr): Bool =
+    windowssysWindowsWin32UiShellSHGetPathFromIDListA(pidl.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetPathFromIDListEx(pidl: ConstPtr, pszpath: Pwstr, cchpath: UInt, uopts: GpfidlFlags): Bool =
+    windowssysWindowsWin32UiShellSHGetPathFromIDListEx(pidl.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), cchpath, uopts)
+
+public actual fun sHGetPathFromIDListW(pidl: ConstPtr, pszpath: Pwstr): Bool =
+    windowssysWindowsWin32UiShellSHGetPathFromIDListW(pidl.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetRealIDL(psf: MutPtr, pidlsimple: ConstPtr, ppidlreal: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetRealIDL(psf.rawAddress.toCPointer<ByteVar>(), pidlsimple.rawAddress.toCPointer<ByteVar>(), ppidlreal.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetSetFolderCustomSettings(pfcs: MutPtr, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHGetSetFolderCustomSettings(pfcs.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), dwreadwrite)
+
+public actual fun sHGetSetSettings(lpss: MutPtr, dwmask: SsfMask, bset: Bool) {
+    windowssysWindowsWin32UiShellSHGetSetSettings(lpss.rawAddress.toCPointer<ByteVar>(), dwmask, bset)
+}
+
+public actual fun sHGetSettings(psfs: MutPtr, dwmask: UInt) {
+    windowssysWindowsWin32UiShellSHGetSettings(psfs.rawAddress.toCPointer<ByteVar>(), dwmask)
+}
+
+public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetSpecialFolderLocation(hwnd.rawAddress.toCPointer<ByteVar>(), csidl, ppidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetSpecialFolderPathA(hwnd: Hwnd, pszpath: Pstr, csidl: Int, fcreate: Bool): Bool =
+    windowssysWindowsWin32UiShellSHGetSpecialFolderPathA(hwnd.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), csidl, fcreate)
+
+public actual fun sHGetSpecialFolderPathW(hwnd: Hwnd, pszpath: Pwstr, csidl: Int, fcreate: Bool): Bool =
+    windowssysWindowsWin32UiShellSHGetSpecialFolderPathW(hwnd.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), csidl, fcreate)
+
+public actual fun sHGetStockIconInfo(siid: Shstockiconid, uflags: ShgsiFlags, psii: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetStockIconInfo(siid, uflags, psii.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetTemporaryPropertyForItem(psi: MutPtr, propkey: ConstPtr, ppropvar: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetTemporaryPropertyForItem(psi.rawAddress.toCPointer<ByteVar>(), propkey.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetThreadRef(ppunk: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetThreadRef(ppunk.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetUnreadMailCountW(hkeyuser: Hkey, pszmailaddress: Pcwstr, pdwcount: MutPtr, pfiletime: MutPtr, pszshellexecutecommand: Pwstr, cchshellexecutecommand: Int): Hresult =
+    windowssysWindowsWin32UiShellSHGetUnreadMailCountW(hkeyuser.rawAddress.toCPointer<ByteVar>(), pszmailaddress.rawAddress.toCPointer<ByteVar>(), pdwcount.rawAddress.toCPointer<ByteVar>(), pfiletime.rawAddress.toCPointer<ByteVar>(), pszshellexecutecommand.rawAddress.toCPointer<ByteVar>(), cchshellexecutecommand)
+
+public actual fun sHGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHGetValueA(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHGetValueW(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGetViewStatePropertyBag(pidl: ConstPtr, pszbagname: Pcwstr, dwflags: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHGetViewStatePropertyBag(pidl.rawAddress.toCPointer<ByteVar>(), pszbagname.rawAddress.toCPointer<ByteVar>(), dwflags, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHGlobalCounterDecrement(id: Shglobalcounter): Int =
+    windowssysWindowsWin32UiShellSHGlobalCounterDecrement(id)
+
+public actual fun sHGlobalCounterGetValue(id: Shglobalcounter): Int =
+    windowssysWindowsWin32UiShellSHGlobalCounterGetValue(id)
+
+public actual fun sHGlobalCounterIncrement(id: Shglobalcounter): Int =
+    windowssysWindowsWin32UiShellSHGlobalCounterIncrement(id)
+
+public actual fun sHHandleUpdateImage(pidlextra: ConstPtr): Int =
+    windowssysWindowsWin32UiShellSHHandleUpdateImage(pidlextra.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHILCreateFromPath(pszpath: Pcwstr, ppidl: MutPtr, rgfinout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHILCreateFromPath(pszpath.rawAddress.toCPointer<ByteVar>(), ppidl.rawAddress.toCPointer<ByteVar>(), rgfinout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHInvokePrinterCommandA(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcstr, lpbuf2: Pcstr, fmodal: Bool): Bool =
+    windowssysWindowsWin32UiShellSHInvokePrinterCommandA(hwnd.rawAddress.toCPointer<ByteVar>(), uaction, lpbuf1.rawAddress.toCPointer<ByteVar>(), lpbuf2.rawAddress.toCPointer<ByteVar>(), fmodal)
+
+public actual fun sHInvokePrinterCommandW(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcwstr, lpbuf2: Pcwstr, fmodal: Bool): Bool =
+    windowssysWindowsWin32UiShellSHInvokePrinterCommandW(hwnd.rawAddress.toCPointer<ByteVar>(), uaction, lpbuf1.rawAddress.toCPointer<ByteVar>(), lpbuf2.rawAddress.toCPointer<ByteVar>(), fmodal)
+
+public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHIsFileAvailableOffline(pwszpath.rawAddress.toCPointer<ByteVar>(), pdwstatus.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHIsLowMemoryMachine(dwtype: UInt): Bool =
+    windowssysWindowsWin32UiShellSHIsLowMemoryMachine(dwtype)
+
+public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHLimitInputEdit(hwndedit.rawAddress.toCPointer<ByteVar>(), psf.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHLoadInProc(rclsid: ConstPtr): Hresult =
+    windowssysWindowsWin32UiShellSHLoadInProc(rclsid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, cchoutbuf: UInt, ppvreserved: ConstPtr): Hresult =
+    windowssysWindowsWin32UiShellSHLoadIndirectString(pszsource.rawAddress.toCPointer<ByteVar>(), pszoutbuf.rawAddress.toCPointer<ByteVar>(), cchoutbuf, ppvreserved.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHLoadNonloadedIconOverlayIdentifiers(): Hresult =
+    windowssysWindowsWin32UiShellSHLoadNonloadedIconOverlayIdentifiers()
+
+public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHLockShared(hdata.rawAddress.toCPointer<ByteVar>(), dwprocessid)?.toLong() ?: 0L)
+
+public actual fun sHMapPIDLToSystemImageListIndex(pshf: MutPtr, pidl: ConstPtr, piindexsel: MutPtr): Int =
+    windowssysWindowsWin32UiShellSHMapPIDLToSystemImageListIndex(pshf.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), piindexsel.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHMessageBoxCheckA(hwnd: Hwnd, psztext: Pcstr, pszcaption: Pcstr, utype: UInt, idefault: Int, pszregval: Pcstr): Int =
+    windowssysWindowsWin32UiShellSHMessageBoxCheckA(hwnd.rawAddress.toCPointer<ByteVar>(), psztext.rawAddress.toCPointer<ByteVar>(), pszcaption.rawAddress.toCPointer<ByteVar>(), utype, idefault, pszregval.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHMessageBoxCheckW(hwnd: Hwnd, psztext: Pcwstr, pszcaption: Pcwstr, utype: UInt, idefault: Int, pszregval: Pcwstr): Int =
+    windowssysWindowsWin32UiShellSHMessageBoxCheckW(hwnd.rawAddress.toCPointer<ByteVar>(), psztext.rawAddress.toCPointer<ByteVar>(), pszcaption.rawAddress.toCPointer<ByteVar>(), utype, idefault, pszregval.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHMultiFileProperties(pdtobj: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHMultiFileProperties(pdtobj.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHObjectProperties(hwnd: Hwnd, shopobjecttype: UInt, pszobjectname: Pcwstr, pszpropertypage: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellSHObjectProperties(hwnd.rawAddress.toCPointer<ByteVar>(), shopobjecttype, pszobjectname.rawAddress.toCPointer<ByteVar>(), pszpropertypage.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHOpenFolderAndSelectItems(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHOpenFolderAndSelectItems(pidlfolder.rawAddress.toCPointer<ByteVar>(), cidl, apidl.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHOpenPropSheetW(pszcaption: Pcwstr, ahkeys: ConstPtr, ckeys: UInt, pclsiddefault: ConstPtr, pdtobj: MutPtr, psb: MutPtr, pstartpage: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellSHOpenPropSheetW(pszcaption.rawAddress.toCPointer<ByteVar>(), ahkeys.rawAddress.toCPointer<ByteVar>(), ckeys, pclsiddefault.rawAddress.toCPointer<ByteVar>(), pdtobj.rawAddress.toCPointer<ByteVar>(), psb.rawAddress.toCPointer<ByteVar>(), pstartpage.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHOpenRegStream2A(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHOpenRegStream2A(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L)
+
+public actual fun sHOpenRegStream2W(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHOpenRegStream2W(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L)
+
+public actual fun sHOpenRegStreamA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHOpenRegStreamA(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L)
+
+public actual fun sHOpenRegStreamW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHOpenRegStreamW(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), grfmode)?.toLong() ?: 0L)
+
+public actual fun sHOpenWithDialog(hwndparent: Hwnd, poainfo: ConstPtr): Hresult =
+    windowssysWindowsWin32UiShellSHOpenWithDialog(hwndparent.rawAddress.toCPointer<ByteVar>(), poainfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHParseDisplayName(pszname: Pcwstr, pbc: MutPtr, ppidl: MutPtr, sfgaoin: UInt, psfgaoout: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHParseDisplayName(pszname.rawAddress.toCPointer<ByteVar>(), pbc.rawAddress.toCPointer<ByteVar>(), ppidl.rawAddress.toCPointer<ByteVar>(), sfgaoin, psfgaoout.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHPathPrepareForWriteA(hwnd: Hwnd, punkenablemodless: MutPtr, pszpath: Pcstr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHPathPrepareForWriteA(hwnd.rawAddress.toCPointer<ByteVar>(), punkenablemodless.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHPathPrepareForWriteW(hwnd: Hwnd, punkenablemodless: MutPtr, pszpath: Pcwstr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHPathPrepareForWriteW(hwnd.rawAddress.toCPointer<ByteVar>(), punkenablemodless.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHQueryInfoKeyA(hkey: Hkey, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHQueryInfoKeyA(hkey.rawAddress.toCPointer<ByteVar>(), pcsubkeys.rawAddress.toCPointer<ByteVar>(), pcchmaxsubkeylen.rawAddress.toCPointer<ByteVar>(), pcvalues.rawAddress.toCPointer<ByteVar>(), pcchmaxvaluenamelen.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHQueryInfoKeyW(hkey: Hkey, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHQueryInfoKeyW(hkey.rawAddress.toCPointer<ByteVar>(), pcsubkeys.rawAddress.toCPointer<ByteVar>(), pcchmaxsubkeylen.rawAddress.toCPointer<ByteVar>(), pcvalues.rawAddress.toCPointer<ByteVar>(), pcchmaxvaluenamelen.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHQueryRecycleBinA(pszrootpath: Pcstr, pshqueryrbinfo: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHQueryRecycleBinA(pszrootpath.rawAddress.toCPointer<ByteVar>(), pshqueryrbinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHQueryRecycleBinW(pszrootpath: Pcwstr, pshqueryrbinfo: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHQueryRecycleBinW(pszrootpath.rawAddress.toCPointer<ByteVar>(), pshqueryrbinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHQueryUserNotificationState(pquns: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHQueryUserNotificationState(pquns.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHQueryValueExA(hkey: Hkey, pszvalue: Pcstr, pdwreserved: ConstPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHQueryValueExA(hkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), pdwreserved.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHQueryValueExW(hkey: Hkey, pszvalue: Pcwstr, pdwreserved: ConstPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHQueryValueExW(hkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), pdwreserved.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHRegCloseUSKey(huskey: Long): Win32Error =
+    windowssysWindowsWin32UiShellSHRegCloseUSKey(huskey)
+
+public actual fun sHRegCreateUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegCreateUSKeyA(pszpath.rawAddress.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHRegCreateUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegCreateUSKeyW(pwzpath.rawAddress.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: Pcstr, delregflags: ShregdelFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegDeleteEmptyUSKeyA(huskey, pszsubkey.rawAddress.toCPointer<ByteVar>(), delregflags)
+
+public actual fun sHRegDeleteEmptyUSKeyW(huskey: Long, pwzsubkey: Pcwstr, delregflags: ShregdelFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegDeleteEmptyUSKeyW(huskey, pwzsubkey.rawAddress.toCPointer<ByteVar>(), delregflags)
+
+public actual fun sHRegDeleteUSValueA(huskey: Long, pszvalue: Pcstr, delregflags: ShregdelFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegDeleteUSValueA(huskey, pszvalue.rawAddress.toCPointer<ByteVar>(), delregflags)
+
+public actual fun sHRegDeleteUSValueW(huskey: Long, pwzvalue: Pcwstr, delregflags: ShregdelFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegDeleteUSValueW(huskey, pwzvalue.rawAddress.toCPointer<ByteVar>(), delregflags)
+
+public actual fun sHRegDuplicateHKey(hkey: Hkey): Hkey =
+    MutPtr(windowssysWindowsWin32UiShellSHRegDuplicateHKey(hkey.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun sHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: Pstr, pcchname: MutPtr, enumregflags: ShregenumFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegEnumUSKeyA(huskey, dwindex, pszname.rawAddress.toCPointer<ByteVar>(), pcchname.rawAddress.toCPointer<ByteVar>(), enumregflags)
+
+public actual fun sHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: Pwstr, pcchname: MutPtr, enumregflags: ShregenumFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegEnumUSKeyW(huskey, dwindex, pwzname.rawAddress.toCPointer<ByteVar>(), pcchname.rawAddress.toCPointer<ByteVar>(), enumregflags)
+
+public actual fun sHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, enumregflags: ShregenumFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegEnumUSValueA(huskey, dwindex, pszvaluename.rawAddress.toCPointer<ByteVar>(), pcchvaluename.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>(), enumregflags)
+
+public actual fun sHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, enumregflags: ShregenumFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegEnumUSValueW(huskey, dwindex, pszvaluename.rawAddress.toCPointer<ByteVar>(), pcchvaluename.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>(), enumregflags)
+
+public actual fun sHRegGetBoolUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, fignorehkcu: Bool, fdefault: Bool): Bool =
+    windowssysWindowsWin32UiShellSHRegGetBoolUSValueA(pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), fignorehkcu, fdefault)
+
+public actual fun sHRegGetBoolUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, fignorehkcu: Bool, fdefault: Bool): Bool =
+    windowssysWindowsWin32UiShellSHRegGetBoolUSValueW(pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), fignorehkcu, fdefault)
+
+public actual fun sHRegGetIntW(hk: Hkey, pwzkey: Pcwstr, idefault: Int): Int =
+    windowssysWindowsWin32UiShellSHRegGetIntW(hk.rawAddress.toCPointer<ByteVar>(), pwzkey.rawAddress.toCPointer<ByteVar>(), idefault)
+
+public actual fun sHRegGetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pszpath: Pstr, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegGetPathA(hkey.rawAddress.toCPointer<ByteVar>(), pcszsubkey.rawAddress.toCPointer<ByteVar>(), pcszvalue.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHRegGetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pszpath: Pwstr, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegGetPathW(hkey.rawAddress.toCPointer<ByteVar>(), pcszsubkey.rawAddress.toCPointer<ByteVar>(), pcszvalue.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegGetUSValueA(pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.rawAddress.toCPointer<ByteVar>(), dwdefaultdatasize)
+
+public actual fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegGetUSValueW(pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.rawAddress.toCPointer<ByteVar>(), dwdefaultdatasize)
+
+public actual fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHRegGetValueA(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), srrfflags, pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHRegGetValueFromHKCUHKLM(pwszkey.rawAddress.toCPointer<ByteVar>(), pwszvalue.rawAddress.toCPointer<ByteVar>(), srrfflags, pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
+    windowssysWindowsWin32UiShellSHRegGetValueW(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), srrfflags, pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, fignorehkcu: Bool): Win32Error =
+    windowssysWindowsWin32UiShellSHRegOpenUSKeyA(pszpath.rawAddress.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.rawAddress.toCPointer<ByteVar>(), fignorehkcu)
+
+public actual fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, fignorehkcu: Bool): Win32Error =
+    windowssysWindowsWin32UiShellSHRegOpenUSKeyW(pwzpath.rawAddress.toCPointer<ByteVar>(), samdesired, hrelativeuskey, phnewuskey.rawAddress.toCPointer<ByteVar>(), fignorehkcu)
+
+public actual fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr, enumregflags: ShregenumFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegQueryInfoUSKeyA(huskey, pcsubkeys.rawAddress.toCPointer<ByteVar>(), pcchmaxsubkeylen.rawAddress.toCPointer<ByteVar>(), pcvalues.rawAddress.toCPointer<ByteVar>(), pcchmaxvaluenamelen.rawAddress.toCPointer<ByteVar>(), enumregflags)
+
+public actual fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr, enumregflags: ShregenumFlags): Win32Error =
+    windowssysWindowsWin32UiShellSHRegQueryInfoUSKeyW(huskey, pcsubkeys.rawAddress.toCPointer<ByteVar>(), pcchmaxsubkeylen.rawAddress.toCPointer<ByteVar>(), pcvalues.rawAddress.toCPointer<ByteVar>(), pcchmaxvaluenamelen.rawAddress.toCPointer<ByteVar>(), enumregflags)
+
+public actual fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegQueryUSValueA(huskey, pszvalue.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.rawAddress.toCPointer<ByteVar>(), dwdefaultdatasize)
+
+public actual fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegQueryUSValueW(huskey, pszvalue.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>(), fignorehkcu, pvdefaultdata.rawAddress.toCPointer<ByteVar>(), dwdefaultdatasize)
+
+public actual fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pcszpath: Pcstr, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegSetPathA(hkey.rawAddress.toCPointer<ByteVar>(), pcszsubkey.rawAddress.toCPointer<ByteVar>(), pcszvalue.rawAddress.toCPointer<ByteVar>(), pcszpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHRegSetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pcszpath: Pcwstr, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegSetPathW(hkey.rawAddress.toCPointer<ByteVar>(), pcszsubkey.rawAddress.toCPointer<ByteVar>(), pcszvalue.rawAddress.toCPointer<ByteVar>(), pcszpath.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegSetUSValueA(pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), dwtype, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, dwflags)
+
+public actual fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegSetUSValueW(pwzsubkey.rawAddress.toCPointer<ByteVar>(), pwzvalue.rawAddress.toCPointer<ByteVar>(), dwtype, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, dwflags)
+
+public actual fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegWriteUSValueA(huskey, pszvalue.rawAddress.toCPointer<ByteVar>(), dwtype, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, dwflags)
+
+public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
+    windowssysWindowsWin32UiShellSHRegWriteUSValueW(huskey, pwzvalue.rawAddress.toCPointer<ByteVar>(), dwtype, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, dwflags)
+
+public actual fun sHReleaseThreadRef(): Hresult =
+    windowssysWindowsWin32UiShellSHReleaseThreadRef()
+
+public actual fun sHRemoveLocalizedName(pszpath: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellSHRemoveLocalizedName(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHReplaceFromPropSheetExtArray(hpsxa: Hpsxa, upageid: UInt, lpfnreplacewith: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
+    0u
+
+public actual fun sHResolveLibrary(psilibrary: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHResolveLibrary(psilibrary.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHRestricted(rest: Restrictions): UInt =
+    windowssysWindowsWin32UiShellSHRestricted(rest)
+
+public actual fun sHSendMessageBroadcastA(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    windowssysWindowsWin32UiShellSHSendMessageBroadcastA(umsg, wparam, lparam)
+
+public actual fun sHSendMessageBroadcastW(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    windowssysWindowsWin32UiShellSHSendMessageBroadcastW(umsg, wparam, lparam)
+
+public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: MutPtr, dwfileopflags: UInt, pfops: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHSetDefaultProperties(hwnd.rawAddress.toCPointer<ByteVar>(), psi.rawAddress.toCPointer<ByteVar>(), dwfileopflags, pfops.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcstr): Hresult =
+    windowssysWindowsWin32UiShellSHSetFolderPathA(csidl, htoken.rawAddress.toCPointer<ByteVar>(), dwflags, pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHSetFolderPathW(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellSHSetFolderPathW(csidl, htoken.rawAddress.toCPointer<ByteVar>(), dwflags, pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHSetInstanceExplorer(punk: MutPtr) {
+    windowssysWindowsWin32UiShellSHSetInstanceExplorer(punk.rawAddress.toCPointer<ByteVar>())
+}
+
+public actual fun sHSetKnownFolderPath(rfid: ConstPtr, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellSHSetKnownFolderPath(rfid.rawAddress.toCPointer<ByteVar>(), dwflags, htoken.rawAddress.toCPointer<ByteVar>(), pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHSetLocalizedName(pszpath: Pcwstr, pszresmodule: Pcwstr, idsres: Int): Hresult =
+    windowssysWindowsWin32UiShellSHSetLocalizedName(pszpath.rawAddress.toCPointer<ByteVar>(), pszresmodule.rawAddress.toCPointer<ByteVar>(), idsres)
+
+public actual fun sHSetTemporaryPropertyForItem(psi: MutPtr, propkey: ConstPtr, propvar: ConstPtr): Hresult =
+    windowssysWindowsWin32UiShellSHSetTemporaryPropertyForItem(psi.rawAddress.toCPointer<ByteVar>(), propkey.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHSetThreadRef(punk: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHSetThreadRef(punk.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHSetUnreadMailCountW(pszmailaddress: Pcwstr, dwcount: UInt, pszshellexecutecommand: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellSHSetUnreadMailCountW(pszmailaddress.rawAddress.toCPointer<ByteVar>(), dwcount, pszshellexecutecommand.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt): Int =
+    windowssysWindowsWin32UiShellSHSetValueA(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), dwtype, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata)
+
+public actual fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt): Int =
+    windowssysWindowsWin32UiShellSHSetValueW(hkey.rawAddress.toCPointer<ByteVar>(), pszsubkey.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), dwtype, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata)
+
+public actual fun shshellFolderViewMessage(hwndmain: Hwnd, umsg: UInt, lparam: Lparam): Lresult =
+    windowssysWindowsWin32UiShellShshellFolderViewMessage(hwndmain.rawAddress.toCPointer<ByteVar>(), umsg, lparam)
+
+public actual fun sHShowManageLibraryUI(psilibrary: MutPtr, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult =
+    windowssysWindowsWin32UiShellSHShowManageLibraryUI(psilibrary.rawAddress.toCPointer<ByteVar>(), hwndowner.rawAddress.toCPointer<ByteVar>(), psztitle.rawAddress.toCPointer<ByteVar>(), pszinstruction.rawAddress.toCPointer<ByteVar>(), lmdoptions)
+
+public actual fun sHSimpleIDListFromPath(pszpath: Pcwstr): MutPtr =
+    MutPtr(windowssysWindowsWin32UiShellSHSimpleIDListFromPath(pszpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun sHSkipJunction(pbc: MutPtr, pclsid: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellSHSkipJunction(pbc.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHStartNetConnectionDialogW(hwnd: Hwnd, pszremotename: Pcwstr, dwtype: UInt): Hresult =
+    windowssysWindowsWin32UiShellSHStartNetConnectionDialogW(hwnd.rawAddress.toCPointer<ByteVar>(), pszremotename.rawAddress.toCPointer<ByteVar>(), dwtype)
+
+public actual fun sHStrDupA(psz: Pcstr, ppwsz: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHStrDupA(psz.rawAddress.toCPointer<ByteVar>(), ppwsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHStrDupW(psz: Pcwstr, ppwsz: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellSHStrDupW(psz.rawAddress.toCPointer<ByteVar>(), ppwsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHStripMneumonicA(pszmenu: Pstr): Byte =
+    windowssysWindowsWin32UiShellSHStripMneumonicA(pszmenu.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHStripMneumonicW(pszmenu: Pwstr): UShort =
+    windowssysWindowsWin32UiShellSHStripMneumonicW(pszmenu.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHTestTokenMembership(htoken: Handle, ulrid: UInt): Bool =
+    windowssysWindowsWin32UiShellSHTestTokenMembership(htoken.rawAddress.toCPointer<ByteVar>(), ulrid)
+
+public actual fun sHUnicodeToAnsi(pwszsrc: Pcwstr, pszdst: Pstr, cchbuf: Int): Int =
+    windowssysWindowsWin32UiShellSHUnicodeToAnsi(pwszsrc.rawAddress.toCPointer<ByteVar>(), pszdst.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun sHUnicodeToUnicode(pwzsrc: Pcwstr, pwzdst: Pwstr, cwchbuf: Int): Int =
+    windowssysWindowsWin32UiShellSHUnicodeToUnicode(pwzsrc.rawAddress.toCPointer<ByteVar>(), pwzdst.rawAddress.toCPointer<ByteVar>(), cwchbuf)
+
+public actual fun sHUnlockShared(pvdata: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellSHUnlockShared(pvdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+    windowssysWindowsWin32UiShellSHUpdateImageA(pszhashitem.rawAddress.toCPointer<ByteVar>(), iindex, uflags, iimageindex)
+}
+
+public actual fun sHUpdateImageW(pszhashitem: Pcwstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+    windowssysWindowsWin32UiShellSHUpdateImageW(pszhashitem.rawAddress.toCPointer<ByteVar>(), iindex, uflags, iimageindex)
+}
+
+public actual fun sHValidateUNC(hwndowner: Hwnd, pszfile: Pwstr, fconnect: UInt): Bool =
+    windowssysWindowsWin32UiShellSHValidateUNC(hwndowner.rawAddress.toCPointer<ByteVar>(), pszfile.rawAddress.toCPointer<ByteVar>(), fconnect)
+
+public actual fun setCurrentProcessExplicitAppUserModelID(appid: Pcwstr): Hresult =
+    windowssysWindowsWin32UiShellSetCurrentProcessExplicitAppUserModelID(appid.rawAddress.toCPointer<ByteVar>())
+
+public actual fun setMenuContextHelpId(param0: Hmenu, param1: UInt): Bool =
+    windowssysWindowsWin32UiShellSetMenuContextHelpId(param0.rawAddress.toCPointer<ByteVar>(), param1)
+
+public actual fun setWindowContextHelpId(param0: Hwnd, param1: UInt): Bool =
+    windowssysWindowsWin32UiShellSetWindowContextHelpId(param0.rawAddress.toCPointer<ByteVar>(), param1)
+
+public actual fun setWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, dwrefdata: ULong): Bool =
+    windowssysWindowsWin32UiShellSetWindowSubclass(hwnd.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), uidsubclass, dwrefdata)
+
+public actual fun shellAboutA(hwnd: Hwnd, szapp: Pcstr, szotherstuff: Pcstr, hicon: Hicon): Int =
+    windowssysWindowsWin32UiShellShellAboutA(hwnd.rawAddress.toCPointer<ByteVar>(), szapp.rawAddress.toCPointer<ByteVar>(), szotherstuff.rawAddress.toCPointer<ByteVar>(), hicon.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shellAboutW(hwnd: Hwnd, szapp: Pcwstr, szotherstuff: Pcwstr, hicon: Hicon): Int =
+    windowssysWindowsWin32UiShellShellAboutW(hwnd.rawAddress.toCPointer<ByteVar>(), szapp.rawAddress.toCPointer<ByteVar>(), szotherstuff.rawAddress.toCPointer<ByteVar>(), hicon.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shellExecuteA(hwnd: Hwnd, lpoperation: Pcstr, lpfile: Pcstr, lpparameters: Pcstr, lpdirectory: Pcstr, nshowcmd: ShowWindowCmd): Hinstance =
+    MutPtr(windowssysWindowsWin32UiShellShellExecuteA(hwnd.rawAddress.toCPointer<ByteVar>(), lpoperation.rawAddress.toCPointer<ByteVar>(), lpfile.rawAddress.toCPointer<ByteVar>(), lpparameters.rawAddress.toCPointer<ByteVar>(), lpdirectory.rawAddress.toCPointer<ByteVar>(), nshowcmd)?.toLong() ?: 0L)
+
+public actual fun shellExecuteExA(pexecinfo: MutPtr): Bool =
+    windowssysWindowsWin32UiShellShellExecuteExA(pexecinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shellExecuteExW(pexecinfo: MutPtr): Bool =
+    windowssysWindowsWin32UiShellShellExecuteExW(pexecinfo.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shellExecuteW(hwnd: Hwnd, lpoperation: Pcwstr, lpfile: Pcwstr, lpparameters: Pcwstr, lpdirectory: Pcwstr, nshowcmd: ShowWindowCmd): Hinstance =
+    MutPtr(windowssysWindowsWin32UiShellShellExecuteW(hwnd.rawAddress.toCPointer<ByteVar>(), lpoperation.rawAddress.toCPointer<ByteVar>(), lpfile.rawAddress.toCPointer<ByteVar>(), lpparameters.rawAddress.toCPointer<ByteVar>(), lpdirectory.rawAddress.toCPointer<ByteVar>(), nshowcmd)?.toLong() ?: 0L)
+
+public actual fun shellMessageBoxA(happinst: Hinstance, hwnd: Hwnd, lpctext: Pcstr, lpctitle: Pcstr, fustyle: MessageboxStyle, vararg variadicArgs: Long): Int =
+    windowssysWindowsWin32UiShellShellMessageBoxA(happinst.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), lpctext.rawAddress.toCPointer<ByteVar>(), lpctitle.rawAddress.toCPointer<ByteVar>(), fustyle, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun shellMessageBoxW(happinst: Hinstance, hwnd: Hwnd, lpctext: Pcwstr, lpctitle: Pcwstr, fustyle: MessageboxStyle, vararg variadicArgs: Long): Int =
+    windowssysWindowsWin32UiShellShellMessageBoxW(happinst.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), lpctext.rawAddress.toCPointer<ByteVar>(), lpctitle.rawAddress.toCPointer<ByteVar>(), fustyle, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun shellGetCachedImageIndex(pwsziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
+    windowssysWindowsWin32UiShellShellGetCachedImageIndex(pwsziconpath.rawAddress.toCPointer<ByteVar>(), iiconindex, uiconflags)
+
+public actual fun shellGetCachedImageIndexA(psziconpath: Pcstr, iiconindex: Int, uiconflags: UInt): Int =
+    windowssysWindowsWin32UiShellShellGetCachedImageIndexA(psziconpath.rawAddress.toCPointer<ByteVar>(), iiconindex, uiconflags)
+
+public actual fun shellGetCachedImageIndexW(psziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
+    windowssysWindowsWin32UiShellShellGetCachedImageIndexW(psziconpath.rawAddress.toCPointer<ByteVar>(), iiconindex, uiconflags)
+
+public actual fun shellGetImageLists(phiml: MutPtr, phimlsmall: MutPtr): Bool =
+    windowssysWindowsWin32UiShellShellGetImageLists(phiml.rawAddress.toCPointer<ByteVar>(), phimlsmall.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shellMergeMenus(hmdst: Hmenu, hmsrc: Hmenu, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MmFlags): UInt =
+    windowssysWindowsWin32UiShellShellMergeMenus(hmdst.rawAddress.toCPointer<ByteVar>(), hmsrc.rawAddress.toCPointer<ByteVar>(), uinsert, uidadjust, uidadjustmax, uflags)
+
+public actual fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellShellNotifyIconA(dwmessage, lpdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shellNotifyIconGetRect(identifier: ConstPtr, iconlocation: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellShellNotifyIconGetRect(identifier.rawAddress.toCPointer<ByteVar>(), iconlocation.rawAddress.toCPointer<ByteVar>())
+
+public actual fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellShellNotifyIconW(dwmessage, lpdata.rawAddress.toCPointer<ByteVar>())
+
+public actual fun signalFileOpen(pidl: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellSignalFileOpen(pidl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: MutPtr): UInt =
+    windowssysWindowsWin32UiShellSoftwareUpdateMessageBox(hwnd.rawAddress.toCPointer<ByteVar>(), pszdistunit.rawAddress.toCPointer<ByteVar>(), dwflags, psdi.rawAddress.toCPointer<ByteVar>())
+
+public actual fun stgMakeUniqueName(pstgparent: MutPtr, pszfilespec: Pcwstr, grfmode: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellStgMakeUniqueName(pstgparent.rawAddress.toCPointer<ByteVar>(), pszfilespec.rawAddress.toCPointer<ByteVar>(), grfmode, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCSpnA(pszstr: Pcstr, pszset: Pcstr): Int =
+    windowssysWindowsWin32UiShellStrCSpnA(pszstr.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCSpnIA(pszstr: Pcstr, pszset: Pcstr): Int =
+    windowssysWindowsWin32UiShellStrCSpnIA(pszstr.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCSpnIW(pszstr: Pcwstr, pszset: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrCSpnIW(pszstr.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCSpnW(pszstr: Pcwstr, pszset: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrCSpnW(pszstr.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCatBuffA(pszdest: Pstr, pszsrc: Pcstr, cchdestbuffsize: Int): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrCatBuffA(pszdest.rawAddress.toCPointer<ByteVar>(), pszsrc.rawAddress.toCPointer<ByteVar>(), cchdestbuffsize)?.toLong() ?: 0L)
+
+public actual fun strCatBuffW(pszdest: Pwstr, pszsrc: Pcwstr, cchdestbuffsize: Int): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrCatBuffW(pszdest.rawAddress.toCPointer<ByteVar>(), pszsrc.rawAddress.toCPointer<ByteVar>(), cchdestbuffsize)?.toLong() ?: 0L)
+
+public actual fun strCatChainW(pszdst: Pwstr, cchdst: UInt, ichat: UInt, pszsrc: Pcwstr): UInt =
+    windowssysWindowsWin32UiShellStrCatChainW(pszdst.rawAddress.toCPointer<ByteVar>(), cchdst, ichat, pszsrc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCatW(psz1: Pwstr, psz2: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrCatW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strChrA(pszstart: Pcstr, wmatch: UShort): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrChrA(pszstart.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strChrIA(pszstart: Pcstr, wmatch: UShort): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrChrIA(pszstart.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strChrIW(pszstart: Pcwstr, wmatch: UShort): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrChrIW(pszstart.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strChrNIW(pszstart: Pcwstr, wmatch: UShort, cchmax: UInt): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrChrNIW(pszstart.rawAddress.toCPointer<ByteVar>(), wmatch, cchmax)?.toLong() ?: 0L)
+
+public actual fun strChrNW(pszstart: Pcwstr, wmatch: UShort, cchmax: UInt): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrChrNW(pszstart.rawAddress.toCPointer<ByteVar>(), wmatch, cchmax)?.toLong() ?: 0L)
+
+public actual fun strChrW(pszstart: Pcwstr, wmatch: UShort): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrChrW(pszstart.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strCmpCA(pszstr1: Pcstr, pszstr2: Pcstr): Int =
+    windowssysWindowsWin32UiShellStrCmpCA(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCmpCW(pszstr1: Pcwstr, pszstr2: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrCmpCW(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCmpICA(pszstr1: Pcstr, pszstr2: Pcstr): Int =
+    windowssysWindowsWin32UiShellStrCmpICA(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCmpICW(pszstr1: Pcwstr, pszstr2: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrCmpICW(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCmpIW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrCmpIW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCmpLogicalW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrCmpLogicalW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCmpNA(psz1: Pcstr, psz2: Pcstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNA(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpNCA(pszstr1: Pcstr, pszstr2: Pcstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNCA(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpNCW(pszstr1: Pcwstr, pszstr2: Pcwstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNCW(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpNIA(psz1: Pcstr, psz2: Pcstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNIA(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpNICA(pszstr1: Pcstr, pszstr2: Pcstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNICA(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpNICW(pszstr1: Pcwstr, pszstr2: Pcwstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNICW(pszstr1.rawAddress.toCPointer<ByteVar>(), pszstr2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpNIW(psz1: Pcwstr, psz2: Pcwstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNIW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpNW(psz1: Pcwstr, psz2: Pcwstr, nchar: Int): Int =
+    windowssysWindowsWin32UiShellStrCmpNW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strCmpW(psz1: Pcwstr, psz2: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrCmpW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strCpyNW(pszdst: Pwstr, pszsrc: Pcwstr, cchmax: Int): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrCpyNW(pszdst.rawAddress.toCPointer<ByteVar>(), pszsrc.rawAddress.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L)
+
+public actual fun strCpyW(psz1: Pwstr, psz2: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrCpyW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strDupA(pszsrch: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrDupA(pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strDupW(pszsrch: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrDupW(pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strFormatByteSize64A(qdw: Long, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrFormatByteSize64A(qdw, pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L)
+
+public actual fun strFormatByteSizeA(dw: UInt, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrFormatByteSizeA(dw, pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L)
+
+public actual fun strFormatByteSizeEx(ull: ULong, flags: SfbsFlags, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    windowssysWindowsWin32UiShellStrFormatByteSizeEx(ull, flags, pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun strFormatByteSizeW(qdw: Long, pszbuf: Pwstr, cchbuf: UInt): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrFormatByteSizeW(qdw, pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L)
+
+public actual fun strFormatKBSizeA(qdw: Long, pszbuf: Pstr, cchbuf: UInt): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrFormatKBSizeA(qdw, pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L)
+
+public actual fun strFormatKBSizeW(qdw: Long, pszbuf: Pwstr, cchbuf: UInt): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrFormatKBSizeW(qdw, pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)?.toLong() ?: 0L)
+
+public actual fun strFromTimeIntervalA(pszout: Pstr, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
+    windowssysWindowsWin32UiShellStrFromTimeIntervalA(pszout.rawAddress.toCPointer<ByteVar>(), cchmax, dwtimems, digits)
+
+public actual fun strFromTimeIntervalW(pszout: Pwstr, cchmax: UInt, dwtimems: UInt, digits: Int): Int =
+    windowssysWindowsWin32UiShellStrFromTimeIntervalW(pszout.rawAddress.toCPointer<ByteVar>(), cchmax, dwtimems, digits)
+
+public actual fun strIsIntlEqualA(fcasesens: Bool, pszstring1: Pcstr, pszstring2: Pcstr, nchar: Int): Bool =
+    windowssysWindowsWin32UiShellStrIsIntlEqualA(fcasesens, pszstring1.rawAddress.toCPointer<ByteVar>(), pszstring2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strIsIntlEqualW(fcasesens: Bool, pszstring1: Pcwstr, pszstring2: Pcwstr, nchar: Int): Bool =
+    windowssysWindowsWin32UiShellStrIsIntlEqualW(fcasesens, pszstring1.rawAddress.toCPointer<ByteVar>(), pszstring2.rawAddress.toCPointer<ByteVar>(), nchar)
+
+public actual fun strNCatA(psz1: Pstr, psz2: Pcstr, cchmax: Int): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrNCatA(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L)
+
+public actual fun strNCatW(psz1: Pwstr, psz2: Pcwstr, cchmax: Int): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrNCatW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L)
+
+public actual fun strPBrkA(psz: Pcstr, pszset: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrPBrkA(psz.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strPBrkW(psz: Pcwstr, pszset: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrPBrkW(psz.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strRChrA(pszstart: Pcstr, pszend: Pcstr, wmatch: UShort): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrRChrA(pszstart.rawAddress.toCPointer<ByteVar>(), pszend.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strRChrIA(pszstart: Pcstr, pszend: Pcstr, wmatch: UShort): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrRChrIA(pszstart.rawAddress.toCPointer<ByteVar>(), pszend.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strRChrIW(pszstart: Pcwstr, pszend: Pcwstr, wmatch: UShort): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrRChrIW(pszstart.rawAddress.toCPointer<ByteVar>(), pszend.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strRChrW(pszstart: Pcwstr, pszend: Pcwstr, wmatch: UShort): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrRChrW(pszstart.rawAddress.toCPointer<ByteVar>(), pszend.rawAddress.toCPointer<ByteVar>(), wmatch)?.toLong() ?: 0L)
+
+public actual fun strRStrIA(pszsource: Pcstr, pszlast: Pcstr, pszsrch: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrRStrIA(pszsource.rawAddress.toCPointer<ByteVar>(), pszlast.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strRStrIW(pszsource: Pcwstr, pszlast: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrRStrIW(pszsource.rawAddress.toCPointer<ByteVar>(), pszlast.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strRetToBSTR(pstr: MutPtr, pidl: ConstPtr, pbstr: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellStrRetToBSTR(pstr.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), pbstr.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strRetToBufA(pstr: MutPtr, pidl: ConstPtr, pszbuf: Pstr, cchbuf: UInt): Hresult =
+    windowssysWindowsWin32UiShellStrRetToBufA(pstr.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun strRetToBufW(pstr: MutPtr, pidl: ConstPtr, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    windowssysWindowsWin32UiShellStrRetToBufW(pstr.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), pszbuf.rawAddress.toCPointer<ByteVar>(), cchbuf)
+
+public actual fun strRetToStrA(pstr: MutPtr, pidl: ConstPtr, ppsz: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellStrRetToStrA(pstr.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), ppsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strRetToStrW(pstr: MutPtr, pidl: ConstPtr, ppsz: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellStrRetToStrW(pstr.rawAddress.toCPointer<ByteVar>(), pidl.rawAddress.toCPointer<ByteVar>(), ppsz.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strSpnA(psz: Pcstr, pszset: Pcstr): Int =
+    windowssysWindowsWin32UiShellStrSpnA(psz.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strSpnW(psz: Pcwstr, pszset: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrSpnW(psz.rawAddress.toCPointer<ByteVar>(), pszset.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strStrA(pszfirst: Pcstr, pszsrch: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrStrA(pszfirst.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strStrIA(pszfirst: Pcstr, pszsrch: Pcstr): Pstr =
+    MutPtr(windowssysWindowsWin32UiShellStrStrIA(pszfirst.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strStrIW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrStrIW(pszfirst.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strStrNIW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrStrNIW(pszfirst.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L)
+
+public actual fun strStrNW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrStrNW(pszfirst.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>(), cchmax)?.toLong() ?: 0L)
+
+public actual fun strStrW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
+    MutPtr(windowssysWindowsWin32UiShellStrStrW(pszfirst.rawAddress.toCPointer<ByteVar>(), pszsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: MutPtr): Bool =
+    windowssysWindowsWin32UiShellStrToInt64ExA(pszstring.rawAddress.toCPointer<ByteVar>(), dwflags, pllret.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: MutPtr): Bool =
+    windowssysWindowsWin32UiShellStrToInt64ExW(pszstring.rawAddress.toCPointer<ByteVar>(), dwflags, pllret.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strToIntA(pszsrc: Pcstr): Int =
+    windowssysWindowsWin32UiShellStrToIntA(pszsrc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: MutPtr): Bool =
+    windowssysWindowsWin32UiShellStrToIntExA(pszstring.rawAddress.toCPointer<ByteVar>(), dwflags, piret.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: MutPtr): Bool =
+    windowssysWindowsWin32UiShellStrToIntExW(pszstring.rawAddress.toCPointer<ByteVar>(), dwflags, piret.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strToIntW(pszsrc: Pcwstr): Int =
+    windowssysWindowsWin32UiShellStrToIntW(pszsrc.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strTrimA(psz: Pstr, psztrimchars: Pcstr): Bool =
+    windowssysWindowsWin32UiShellStrTrimA(psz.rawAddress.toCPointer<ByteVar>(), psztrimchars.rawAddress.toCPointer<ByteVar>())
+
+public actual fun strTrimW(psz: Pwstr, psztrimchars: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellStrTrimW(psz.rawAddress.toCPointer<ByteVar>(), psztrimchars.rawAddress.toCPointer<ByteVar>())
+
+public actual fun unloadUserProfile(htoken: Handle, hprofile: Handle): Bool =
+    windowssysWindowsWin32UiShellUnloadUserProfile(htoken.rawAddress.toCPointer<ByteVar>(), hprofile.rawAddress.toCPointer<ByteVar>())
+
+public actual fun unregisterAppConstrainedChangeNotification(registration: PappconstrainRegistration) {
+    windowssysWindowsWin32UiShellUnregisterAppConstrainedChangeNotification(registration)
+}
+
+public actual fun unregisterAppStateChangeNotification(registration: PappstateRegistration) {
+    windowssysWindowsWin32UiShellUnregisterAppStateChangeNotification(registration)
+}
+
+public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =
+    windowssysWindowsWin32UiShellUnregisterScaleChangeEvent(dwcookie)
+
+public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlApplySchemeA(pszin.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlApplySchemeW(pszin.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlCanonicalizeA(pszurl.rawAddress.toCPointer<ByteVar>(), pszcanonicalized.rawAddress.toCPointer<ByteVar>(), pcchcanonicalized.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlCanonicalizeW(pszurl.rawAddress.toCPointer<ByteVar>(), pszcanonicalized.rawAddress.toCPointer<ByteVar>(), pcchcanonicalized.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlCombineA(pszbase.rawAddress.toCPointer<ByteVar>(), pszrelative.rawAddress.toCPointer<ByteVar>(), pszcombined.rawAddress.toCPointer<ByteVar>(), pcchcombined.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlCombineW(pszbase.rawAddress.toCPointer<ByteVar>(), pszrelative.rawAddress.toCPointer<ByteVar>(), pszcombined.rawAddress.toCPointer<ByteVar>(), pcchcombined.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int =
+    windowssysWindowsWin32UiShellUrlCompareA(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), fignoreslash)
+
+public actual fun urlCompareW(psz1: Pcwstr, psz2: Pcwstr, fignoreslash: Bool): Int =
+    windowssysWindowsWin32UiShellUrlCompareW(psz1.rawAddress.toCPointer<ByteVar>(), psz2.rawAddress.toCPointer<ByteVar>(), fignoreslash)
+
+public actual fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlCreateFromPathA(pszpath.rawAddress.toCPointer<ByteVar>(), pszurl.rawAddress.toCPointer<ByteVar>(), pcchurl.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlCreateFromPathW(pszpath.rawAddress.toCPointer<ByteVar>(), pszurl.rawAddress.toCPointer<ByteVar>(), pcchurl.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlEscapeA(pszurl.rawAddress.toCPointer<ByteVar>(), pszescaped.rawAddress.toCPointer<ByteVar>(), pcchescaped.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlEscapeW(pszurl.rawAddress.toCPointer<ByteVar>(), pszescaped.rawAddress.toCPointer<ByteVar>(), pcchescaped.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlFixupW(pcszurl: Pcwstr, psztranslatedurl: Pwstr, cchmax: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlFixupW(pcszurl.rawAddress.toCPointer<ByteVar>(), psztranslatedurl.rawAddress.toCPointer<ByteVar>(), cchmax)
+
+public actual fun urlGetLocationA(pszurl: Pcstr): Pcstr =
+    ConstPtr(windowssysWindowsWin32UiShellUrlGetLocationA(pszurl.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun urlGetLocationW(pszurl: Pcwstr): Pcwstr =
+    ConstPtr(windowssysWindowsWin32UiShellUrlGetLocationW(pszurl.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
+
+public actual fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr, dwpart: UInt, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlGetPartA(pszin.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>(), dwpart, dwflags)
+
+public actual fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr, dwpart: UInt, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlGetPartW(pszin.rawAddress.toCPointer<ByteVar>(), pszout.rawAddress.toCPointer<ByteVar>(), pcchout.rawAddress.toCPointer<ByteVar>(), dwpart, dwflags)
+
+public actual fun urlHashA(pszurl: Pcstr, pbhash: MutPtr, cbhash: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlHashA(pszurl.rawAddress.toCPointer<ByteVar>(), pbhash.rawAddress.toCPointer<ByteVar>(), cbhash)
+
+public actual fun urlHashW(pszurl: Pcwstr, pbhash: MutPtr, cbhash: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlHashW(pszurl.rawAddress.toCPointer<ByteVar>(), pbhash.rawAddress.toCPointer<ByteVar>(), cbhash)
+
+public actual fun urlIsA(pszurl: Pcstr, urlis: Urlis): Bool =
+    windowssysWindowsWin32UiShellUrlIsA(pszurl.rawAddress.toCPointer<ByteVar>(), urlis)
+
+public actual fun urlIsNoHistoryA(pszurl: Pcstr): Bool =
+    windowssysWindowsWin32UiShellUrlIsNoHistoryA(pszurl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun urlIsNoHistoryW(pszurl: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellUrlIsNoHistoryW(pszurl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun urlIsOpaqueA(pszurl: Pcstr): Bool =
+    windowssysWindowsWin32UiShellUrlIsOpaqueA(pszurl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun urlIsOpaqueW(pszurl: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellUrlIsOpaqueW(pszurl.rawAddress.toCPointer<ByteVar>())
+
+public actual fun urlIsW(pszurl: Pcwstr, urlis: Urlis): Bool =
+    windowssysWindowsWin32UiShellUrlIsW(pszurl.rawAddress.toCPointer<ByteVar>(), urlis)
+
+public actual fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlUnescapeA(pszurl.rawAddress.toCPointer<ByteVar>(), pszunescaped.rawAddress.toCPointer<ByteVar>(), pcchunescaped.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: MutPtr, dwflags: UInt): Hresult =
+    windowssysWindowsWin32UiShellUrlUnescapeW(pszurl.rawAddress.toCPointer<ByteVar>(), pszunescaped.rawAddress.toCPointer<ByteVar>(), pcchunescaped.rawAddress.toCPointer<ByteVar>(), dwflags)
+
+public actual fun variantToStrRet(varin: ConstPtr, pstrret: MutPtr): Hresult =
+    windowssysWindowsWin32UiShellVariantToStrRet(varin.rawAddress.toCPointer<ByteVar>(), pstrret.rawAddress.toCPointer<ByteVar>())
+
+public actual fun whichPlatform(): UInt =
+    windowssysWindowsWin32UiShellWhichPlatform()
+
+public actual fun win32DeleteFile(pszpath: Pcwstr): Bool =
+    windowssysWindowsWin32UiShellWin32DeleteFile(pszpath.rawAddress.toCPointer<ByteVar>())
+
+public actual fun winHelpA(hwndmain: Hwnd, lpszhelp: Pcstr, ucommand: UInt, dwdata: ULong): Bool =
+    windowssysWindowsWin32UiShellWinHelpA(hwndmain.rawAddress.toCPointer<ByteVar>(), lpszhelp.rawAddress.toCPointer<ByteVar>(), ucommand, dwdata)
+
+public actual fun winHelpW(hwndmain: Hwnd, lpszhelp: Pcwstr, ucommand: UInt, dwdata: ULong): Bool =
+    windowssysWindowsWin32UiShellWinHelpW(hwndmain.rawAddress.toCPointer<ByteVar>(), lpszhelp.rawAddress.toCPointer<ByteVar>(), ucommand, dwdata)
+
+public actual fun writeCabinetState(pcs: ConstPtr): Bool =
+    windowssysWindowsWin32UiShellWriteCabinetState(pcs.rawAddress.toCPointer<ByteVar>())
+
+public actual fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg variadicArgs: Long): Int =
+    windowssysWindowsWin32UiShellWnsprintfA(pszdest.rawAddress.toCPointer<ByteVar>(), cchdest, pszfmt.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun wnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, vararg variadicArgs: Long): Int =
+    windowssysWindowsWin32UiShellWnsprintfW(pszdest.rawAddress.toCPointer<ByteVar>(), cchdest, pszfmt.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: ConstPtr): Int =
+    windowssysWindowsWin32UiShellWvnsprintfA(pszdest.rawAddress.toCPointer<ByteVar>(), cchdest, pszfmt.rawAddress.toCPointer<ByteVar>(), arglist.rawAddress.toCPointer<ByteVar>())
+
+public actual fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: ConstPtr): Int =
+    windowssysWindowsWin32UiShellWvnsprintfW(pszdest.rawAddress.toCPointer<ByteVar>(), cchdest, pszfmt.rawAddress.toCPointer<ByteVar>(), arglist.rawAddress.toCPointer<ByteVar>())

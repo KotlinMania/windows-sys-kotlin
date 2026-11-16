@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.storage.operationrecorder.cinterop
+headers = windows_win32_storage_operationrecorder_wrapper.h
+headerFilter = windows_win32_storage_operationrecorder_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_storage_operationrecorder_wrapper.a

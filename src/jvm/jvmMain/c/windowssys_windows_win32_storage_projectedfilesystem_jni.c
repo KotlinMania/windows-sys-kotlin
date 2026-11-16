@@ -1,0 +1,528 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjAllocateAlignedBuffer(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong size) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjAllocateAlignedBuffer");
+    }
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (uint64_t)size);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)size;
+    errno = ENOSYS;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjClearNegativePathCache(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong totalentrynumber) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjClearNegativePathCache");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (void*)(uintptr_t)totalentrynumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)totalentrynumber;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjCompleteCommand(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jint commandid, jint completionresult, jlong extendedparameters) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjCompleteCommand");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (int32_t)commandid, (int32_t)completionresult, (void*)(uintptr_t)extendedparameters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)commandid;
+    (void)completionresult;
+    (void)extendedparameters;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjDeleteFile(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong destinationfilename, jint updateflags, jlong failurereason) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjDeleteFile");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (void*)(uintptr_t)destinationfilename, (int32_t)updateflags, (void*)(uintptr_t)failurereason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)destinationfilename;
+    (void)updateflags;
+    (void)failurereason;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjDoesNameContainWildCards(JNIEnv* km_env, jclass km_clazz, jlong filename) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef bool (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjDoesNameContainWildCards");
+    }
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filename);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
+#else
+    (void)filename;
+    errno = ENOSYS;
+    bool km_res = false;
+#endif
+    return (jboolean)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjFileNameCompare(JNIEnv* km_env, jclass km_clazz, jlong filename1, jlong filename2) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjFileNameCompare");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filename1, (void*)(uintptr_t)filename2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)filename1;
+    (void)filename2;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjFileNameMatch(JNIEnv* km_env, jclass km_clazz, jlong filenametocheck, jlong pattern) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef bool (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjFileNameMatch");
+    }
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filenametocheck, (void*)(uintptr_t)pattern);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
+#else
+    (void)filenametocheck;
+    (void)pattern;
+    errno = ENOSYS;
+    bool km_res = false;
+#endif
+    return (jboolean)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong filebasicinfo, jlong direntrybufferhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjFillDirEntryBuffer");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filename, (void*)(uintptr_t)filebasicinfo, (void*)(uintptr_t)direntrybufferhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)filename;
+    (void)filebasicinfo;
+    (void)direntrybufferhandle;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer2(JNIEnv* km_env, jclass km_clazz, jlong direntrybufferhandle, jlong filename, jlong filebasicinfo, jlong extendedinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjFillDirEntryBuffer2");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)direntrybufferhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)filebasicinfo, (void*)(uintptr_t)extendedinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)direntrybufferhandle;
+    (void)filename;
+    (void)filebasicinfo;
+    (void)extendedinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjFreeAlignedBuffer(JNIEnv* km_env, jclass km_clazz, jlong buffer) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjFreeAlignedBuffer");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)buffer);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)buffer;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjGetOnDiskFileState(JNIEnv* km_env, jclass km_clazz, jlong destinationfilename, jlong filestate) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjGetOnDiskFileState");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)destinationfilename, (void*)(uintptr_t)filestate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)destinationfilename;
+    (void)filestate;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjGetVirtualizationInstanceInfo(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong virtualizationinstanceinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjGetVirtualizationInstanceInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (void*)(uintptr_t)virtualizationinstanceinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)virtualizationinstanceinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjMarkDirectoryAsPlaceholder(JNIEnv* km_env, jclass km_clazz, jlong rootpathname, jlong targetpathname, jlong versioninfo, jlong virtualizationinstanceid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjMarkDirectoryAsPlaceholder");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)rootpathname, (void*)(uintptr_t)targetpathname, (void*)(uintptr_t)versioninfo, (void*)(uintptr_t)virtualizationinstanceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)rootpathname;
+    (void)targetpathname;
+    (void)versioninfo;
+    (void)virtualizationinstanceid;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjStartVirtualizing(JNIEnv* km_env, jclass km_clazz, jlong virtualizationrootpath, jlong callbacks, jlong instancecontext, jlong options, jlong namespacevirtualizationcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjStartVirtualizing");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)virtualizationrootpath, (void*)(uintptr_t)callbacks, (void*)(uintptr_t)instancecontext, (void*)(uintptr_t)options, (void*)(uintptr_t)namespacevirtualizationcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)virtualizationrootpath;
+    (void)callbacks;
+    (void)instancecontext;
+    (void)options;
+    (void)namespacevirtualizationcontext;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjStopVirtualizing(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjStopVirtualizing");
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext);
+    } else {
+        errno = ENOSYS;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    errno = ENOSYS;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjUpdateFileIfNeeded(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong destinationfilename, jlong placeholderinfo, jint placeholderinfosize, jint updateflags, jlong failurereason) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjUpdateFileIfNeeded");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (void*)(uintptr_t)destinationfilename, (void*)(uintptr_t)placeholderinfo, (uint32_t)placeholderinfosize, (int32_t)updateflags, (void*)(uintptr_t)failurereason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)destinationfilename;
+    (void)placeholderinfo;
+    (void)placeholderinfosize;
+    (void)updateflags;
+    (void)failurereason;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjWriteFileData(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong datastreamid, jlong buffer, jlong byteoffset, jint length) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjWriteFileData");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (void*)(uintptr_t)datastreamid, (void*)(uintptr_t)buffer, (uint64_t)byteoffset, (uint32_t)length);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)datastreamid;
+    (void)buffer;
+    (void)byteoffset;
+    (void)length;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong destinationfilename, jlong placeholderinfo, jint placeholderinfosize) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjWritePlaceholderInfo");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (void*)(uintptr_t)destinationfilename, (void*)(uintptr_t)placeholderinfo, (uint32_t)placeholderinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)destinationfilename;
+    (void)placeholderinfo;
+    (void)placeholderinfosize;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_projectedfilesystem_WindowsWin32StorageProjectedfilesystemJniBridge_windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo2(JNIEnv* km_env, jclass km_clazz, jlong namespacevirtualizationcontext, jlong destinationfilename, jlong placeholderinfo, jint placeholderinfosize, jlong extendedinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PrjWritePlaceholderInfo2");
+    }
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)namespacevirtualizationcontext, (void*)(uintptr_t)destinationfilename, (void*)(uintptr_t)placeholderinfo, (uint32_t)placeholderinfosize, (void*)(uintptr_t)extendedinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
+#else
+    (void)namespacevirtualizationcontext;
+    (void)destinationfilename;
+    (void)placeholderinfo;
+    (void)placeholderinfosize;
+    (void)extendedinfo;
+    errno = ENOSYS;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
